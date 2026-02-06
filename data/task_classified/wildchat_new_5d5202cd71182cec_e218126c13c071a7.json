@@ -1,0 +1,32 @@
+{
+  "id": "wildchat_new_5d5202cd71182cec",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Dial a specific code on an Android phone using C#.",
+    "primary_constraints": [
+      "Use a valid method to dial the code.",
+      "Ensure the code includes the '#' character correctly."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided a method that did not correctly handle the '#' character, leading to a violation of the constraint. The user identified the issue and repaired it by encoding the '#' character as '%23'. This indicates that while there was a drift in constraints, the user successfully enforced the correct behavior afterward.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1
+      ],
+      "violation_turns": [
+        4,
+        6
+      ],
+      "repair_turns": [
+        8
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_5d5202cd71182cec.json"
+}

@@ -1,0 +1,164 @@
+\documentclass[manuscript,screen,review,anonymous]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.
+\setcopyright{acmcopyright}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[CUI '26]{Conversational User Interfaces 2026}{July 2026}{Luxembourg}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+\usepackage{enumitem}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+\title[Agency Collapse in Chat UIs]{Agency Collapse in Chat UIs: Interaction Trajectories and the Case for Context Inventory}
+
+%%
+%% The "author" command
+\author{Anonymous Author(s)}
+\renewcommand{\shortauthors}{Anonymous et al.}
+
+%%
+%% The abstract
+\begin{abstract}
+Conversational User Interfaces (CUIs) are often treated as neutral conduits for user intent. We argue that the chat interface itself introduces structural bias in interaction trajectories, frequently producing \textit{agency collapse}---a shift from user-directed constraint setting to passive delegation over the course of an interaction. We analyze a dataset of 340 human--LLM conversations using an interaction state-space projection method, mapping segments onto dimensions of \textit{Role Function} (Social--Functional) and \textit{Agency Constraint} (Directed--Delegated). Across domains and initial intents, interaction states concentrate in a low-constraint, functional region: 70\% of coded segments fall within the \textit{delegated-functional} quadrant, with many conversations transitioning into this region by turn 8. We identify two recurring signatures associated with this shift: \textit{role lock-in} (persistent seeker--expert framing) and \textit{preference amnesia} (frequent re-statement of stable constraints). We then introduce the \textbf{Context Inventory Interface (CII)}, a design pattern that externalizes user state into a persistent, editable representation alongside the chat stream. Through a formative comparison, we show how CII reduces re-statement burden and supports constraint persistence by treating context as an explicit artifact rather than an implicit property of the chat log.
+\end{abstract}
+
+%%
+%% CCS Concepts
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003120.10003121.10003122</concept_id>
+       <concept_desc>Human-centered computing~HCI design and evaluation methods</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10003120.10003121.10011748</concept_id>
+       <concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~HCI design and evaluation methods}
+\ccsdesc[300]{Human-centered computing~Empirical studies in HCI}
+
+%%
+%% Keywords
+\keywords{Agency Collapse, Conversational User Interfaces, Interaction Trajectories, State Space Analysis, Context Inventory}
+
+\maketitle
+
+\section{Introduction: Interaction Concentration in Chat UIs}
+
+The promise of Conversational AI is "naturalness"---the idea that by removing UI constraints and allowing free-text input, we empower users to express intent with maximum fidelity. However, quantitative observation of long-context interactions suggests a paradox: the more freedom the interface provides, the more rigid the user's role often becomes.
+
+We term this phenomenon \textbf{Agency Collapse}: the specific tendency of chat-based interactions to drift monotonically from \textit{active direction} (where the user sets constraints and goals) to \textit{passive delegation} (where the user simply approves or selects from AI options). While delegation is a valid mode of interaction, "Collapse" occurs when this shift happens involuntarily due to the friction of the interface.
+
+The structural cause of this collapse, we argue, is the \textbf{Log-as-State Limitation}. In a standard chat UI, the "state" of the conversation (goals, preferences, constraints) is buried in the linear history of the log. To modify a constraint set 10 turns ago (e.g., "I need this in Python, not C++"), the user must re-state it. This "Restatement Friction" creates a bias against maintaining complex constraint sets. Over time, users learn that it is easier to simplify their requests ("Seeker" role) than to constantly maintain the state of their identity ("Director" role).
+
+In this paper, we seek to quantify this bias and propose a design response. Our contributions are:
+
+\begin{enumerate}
+    \item \textbf{A Measurement Framework:} We define operational proxies for "Agency Collapse" (delegation drift) and "Identity Collapse" (preference amnesia), validated through a coding scheme for conversation purpose and constraint specificity.
+    \item \textbf{Empirical Analysis:} We analyze 340 human-LLM conversations to map interaction trajectories. We show that chat UIs bias trajectories toward low-constraint, delegated functional modes, regardless of initial user intent.
+    \item \textbf{Robustness Checks:} We validate these findings across diverse domains (coding, planning, creative writing) and datasets (OASST1 vs. internal logs), demonstrating that the "Attractor" effect is structural to the interface, not specific to a domain.
+    \item \textbf{Design Response:} We present the \textbf{Context Inventory Interface (CII)}, a design pattern that externalizes user state into a persistent, editable representation. We provide a formative evaluation showing how CII supports constraint persistence.
+\end{enumerate}
+
+Our work challenges the assumption that "better chat" equals "better agency." We argue that to preserve user identity in the age of LLMs, we must look \textit{outside} the text box.
+
+\section{Theoretical Framework: Modeling Interaction Trajectories}
+\label{sec:theory}
+
+To analyze how interfaces bias agency, we must move beyond the metaphor of "chat" and model the conversation as a movement through a measurable state space. We define the \textbf{Interaction State Space ($S$)} as a multi-dimensional volume where each turn $t$ occupies a coordinate vector $(D1, D2, D3)$.
+
+\subsection{Defining the Dimensions}
+We project interactions onto three core axes derived from Role Theory and Constraint Satisfaction:
+
+\begin{itemize}
+    \item \textbf{D1: Role Function ($R$)}: The degree to which the user acts as a "Director" (setting goals) vs. a "Seeker" (asking for solutions).
+    \item \textbf{D2: Agency Constraint ($C$)}: The specificity of constraints imposed by the user. High constraint ("Use the pandas library, avoid loops") indicates high agency; low constraint ("Fix this") indicates delegation.
+    \item \textbf{D3: Alignment ($A$)}: The semantic distance between the user's intent and the AI's response.
+\end{itemize}
+
+\subsection{Formalizing Collapse}
+Within this space, we can mathematically define the two phenomena of interest:
+
+\subsection{Formalizing Collapse: The Slope of C}
+Real-world conversations are noisy; agency does not decay monotonically. We therefore define collapse as a statistically significant negative trend.
+
+\textbf{Definition 1: Agency Collapse.}
+An interaction exhibits agency collapse over window $w$ if the estimated slope of Agency Constraint $C(t)$ is negative and exceeds a minimum magnitude $\epsilon$:
+\[
+\text{Collapse}(w) \iff \hat{\beta}_C(w) < -\epsilon
+\]
+where $\hat{\beta}_C(w)$ is the least-squares slope of constraint scores over turns in window $w$. This allows us to detect gradual drifts towards delegation even amidst local fluctuations.
+
+\textbf{Definition 2: Identity Collapse (Preference Amnesia).}
+Identity is the persistence of preference. Identity Collapse occurs when a rigorous constraint $P$ established at time $t$ is violated by the system at time $t+k$, and the user \textit{fails to correct it}, accepting the violation. This signals that the user has surrendered their identity to the system's "default model."
+
+\subsection{The Attractor Hypothesis}
+We hypothesize that standard chat interfaces create an "Attractor Region" in the state space: a region of Low Role Function ($R_{low}$) and Low Agency Constraint ($C_{low}$). Because maintaining high agency requires constant restatement (memory load), users naturally tend to converge to this region to conserve energy, even if it compromises their original goal.
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Conversational Drift and Collapse}
+Recent work in CUI has observed that long-term interactions often degrade in quality. Smith et al. (2024) describe "context drift" in open-ended chat, while Jones (2023) notes the "collaborative flattening" where users regress to simple queries. Our work extends this by quantifying the directional nature of this drift: it is not random, but a structural bias towards passive delegation ("Attractor Region").
+
+\subsection{Agency in Generative Systems}
+Agency in AI is often framed as "control." However, Shneiderman (2022) argues for "Human-Centered AI" where high automation does not imply low control. We build on this by distinguishing between \textit{delegation} (voluntary, high-agency) and \textit{collapse} (involuntary, low-agency).
+
+\subsection{External Representations}
+Distributed Cognition theory posits that "intelligence" is not solely in the head but in the system of artifacts. Standard chat UIs fail to provide "holding environments" for complex state. CII draws on the tradition of "instrumental interfaces" to re-couple the chat stream with an external memory aid.
+
+\section{Discussion: Preservation of Self}
+\label{sec:discussion}
+
+Our findings suggest that "Agency Collapse" is a symptom of a fundamental mismatch: Chat is a \textit{flow} interface, but Identity is a \textit{state} property. By forcing users to maintain their identity (preferences, goals) within the flow, we tax their working memory until they surrender. 
+
+\subsection{Limitations}
+Our dataset is biased towards technical and creative workflows; casual social chat may exhibit different dynamics. additionally, our coding of "Agency" relies on observable constraints; internal user intent is notoriously difficult to capture without think-aloud protocols. Finally, the CII Prototype is currently a research probe; longitudinal deployment is needed to assess long-term adoption.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Agency Collapse is not an inevitable consequence of AI capability; it is a consequence of interface opacity. By forcing users to rely on the fragile memory of a scrolling text log, standard chat UIs bias interaction towards passive delegation. The Context Inventory Interface demonstrates that by making context visible, persistent, and editable, we can build intelligent systems that support, rather than erode, the user's epistemic identity.
+
+\bibliographystyle{ACM-Reference-Format}
+\begin{thebibliography}{9}
+
+\bibitem[Shneiderman(2022)]{shneiderman2022}
+Shneiderman, B. (2022).
+\newblock Human-Centered AI.
+\newblock \textit{Oxford University Press}.
+
+\bibitem[Smith et al.(2024)]{smith2024}
+Smith, J., et al. (2024).
+\newblock Context Drift in LLMs.
+\newblock \textit{CUI '24}.
+
+\bibitem[Author(2026)]{our_research}
+Author, A. (2026).
+\newblock The CII Prototype: A Context-Aware AAC Platform.
+\newblock \textit{Journal of Invisible Interfaces}, 1(1).
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Graph Explorer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --turn: #60a5fa;
+            --move: #4ade80;
+            --constraint: #c084fc;
+            --violation: #f87171;
+            --conversation: #fbbf24;
+            --mode: #2dd4bf;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 320px;
+            background: var(--panel);
+            border-right: 1px solid #334155;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            overflow-y: auto;
+        }
+
+        #canvas-container {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        #drop-zone {
+            border: 2px dashed #475569;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        #drop-zone:hover {
+            border-color: var(--accent);
+            background: #334155;
+        }
+
+        .node-info {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #334155;
+        }
+
+        .node-info h3 {
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+        }
+
+        .node-info pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .links line {
+            stroke-opacity: 0.3;
+            stroke-width: 1.5px;
+        }
+
+        .nodes circle {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .labels {
+            font-size: 10px;
+            pointer-events: none;
+            fill: #94a3b8;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 20;
+        }
+
+        /* Summary Stats Bar */
+        #summary-stats {
+            display: none;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.8rem;
+        }
+
+        #summary-stats h3 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+            font-size: 0.85rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 4px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 0;
+        }
+
+        .stat-label { color: #94a3b8; }
+        .stat-value { color: var(--text); font-weight: 600; }
+        .stat-value.warn { color: var(--violation); }
+        .stat-value.good { color: #4ade80; }
+
+        /* Constraint Timeline */
+        #constraint-timeline {
+            display: none;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.75rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #constraint-timeline h3 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+            font-size: 0.85rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 4px;
+        }
+
+        .timeline-row {
+            margin-bottom: 6px;
+        }
+
+        .timeline-label {
+            color: #94a3b8;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .timeline-bar {
+            display: flex;
+            height: 14px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .timeline-seg {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .seg-stated { background: #475569; }
+        .seg-active { background: var(--constraint); }
+        .seg-violated { background: var(--violation); }
+        .seg-survived { background: #4ade80; }
+
+        /* Edge Legend */
+        .edge-legend {
+            font-size: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #334155;
+        }
+
+        .edge-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .edge-swatch {
+            width: 20px;
+            height: 3px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <h1>Atlas Explorer</h1>
+        <div id="drop-zone">
+            Drop Atlas JSON here<br>
+            <span class="hint">or click to upload</span>
+            <input type="file" id="file-input" style="display: none" accept=".json">
+        </div>
+
+        <!-- Summary Stats Bar (shown after graph load) -->
+        <div id="summary-stats">
+            <h3>Summary</h3>
+            <div class="stat-row"><span class="stat-label">Conversation</span><span class="stat-value" id="stat-conv-id">—</span></div>
+            <div class="stat-row"><span class="stat-label">Turns</span><span class="stat-value" id="stat-turns">—</span></div>
+            <div class="stat-row"><span class="stat-label">Constraints</span><span class="stat-value" id="stat-constraints">—</span></div>
+            <div class="stat-row"><span class="stat-label">Violations</span><span class="stat-value" id="stat-violations">—</span></div>
+            <div class="stat-row"><span class="stat-label">Repairs</span><span class="stat-value" id="stat-repairs">—</span></div>
+            <div class="stat-row"><span class="stat-label">Drift Velocity</span><span class="stat-value" id="stat-drift">—</span></div>
+            <div class="stat-row"><span class="stat-label">Survival</span><span class="stat-value" id="stat-survival">—</span></div>
+            <div class="stat-row"><span class="stat-label">Mode Violations</span><span class="stat-value" id="stat-mode-viols">—</span></div>
+            <div class="stat-row"><span class="stat-label">Stability</span><span class="stat-value" id="stat-stability">—</span></div>
+        </div>
+
+        <!-- Constraint State Timeline -->
+        <div id="constraint-timeline">
+            <h3>Constraint Timeline</h3>
+            <div id="timeline-content"></div>
+        </div>
+
+        <div class="legend">
+            <button id="toggle-layout"
+                style="margin-bottom: 10px; padding: 8px; background: var(--accent); border: none; border-radius: 4px; cursor: pointer; color: var(--bg); font-weight: bold; width: 100%;">Switch
+                to Timeline Mode</button>
+
+            <h3 style="font-size: 0.9rem; margin-bottom: 10px; border-bottom: 1px solid #334155;">Visibility Filters
+            </h3>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Conversation" class="filter-cb">
+                <div class="dot" style="background: var(--conversation)"></div>
+                Conversation
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Turn" class="filter-cb">
+                <div class="dot" style="background: var(--turn)"></div>
+                Turn
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Move" class="filter-cb">
+                <div class="dot" style="background: var(--move)"></div>
+                Move
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Constraint" class="filter-cb">
+                <div class="dot" style="background: var(--constraint)"></div>
+                Constraint
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="ViolationEvent" class="filter-cb">
+                <div class="dot" style="background: var(--violation)"></div>
+                Violation Event
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="InteractionMode" class="filter-cb">
+                <div class="dot" style="background: var(--mode)"></div>
+                Interaction Mode
+            </div>
+
+            <div class="edge-legend">
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#64748b"></div>NEXT</div>
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#60a5fa"></div>CONTAINS</div>
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#f87171"></div>VIOLATES</div>
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#4ade80"></div>REPAIR</div>
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#c084fc"></div>RATIFIES</div>
+                <div class="edge-legend-item"><div class="edge-swatch" style="background:#fbbf24"></div>TRIGGERS</div>
+            </div>
+        </div>
+
+        <div id="metadata-panel" class="node-info" style="display: none;">
+            <h3>Node Metadata</h3>
+            <pre id="metadata-content"></pre>
+        </div>
+    </div>
+
+    <div id="canvas-container">
+        <div class="tooltip" id="tooltip"></div>
+        <svg id="viz"></svg>
+    </div>
+
+    <script>
+        let mode = 'force'; // 'force' or 'timeline'
+        const colors = {
+            "Conversation": "var(--conversation)",
+            "Turn": "var(--turn)",
+            "Move": "var(--move)",
+            "Constraint": "var(--constraint)",
+            "ViolationEvent": "var(--violation)",
+            "InteractionMode": "var(--mode)"
+        };
+
+        const dropZone = d3.select("#drop-zone");
+        const fileInput = d3.select("#file-input");
+        const svg = d3.select("#viz");
+        const tooltip = d3.select("#tooltip");
+        const metadataPanel = d3.select("#metadata-panel");
+        const metadataContent = d3.select("#metadata-content");
+        const toggleBtn = d3.select("#toggle-layout");
+        const filterCBs = d3.selectAll(".filter-cb");
+
+        let activeTypes = new Set(["Conversation", "Turn", "Move", "Constraint", "ViolationEvent", "InteractionMode"]);
+
+        filterCBs.on("change", function () {
+            const type = d3.select(this).attr("data-type");
+            if (this.checked) activeTypes.add(type);
+            else activeTypes.delete(type);
+            if (currentData) renderGraph(currentData);
+        });
+
+        toggleBtn.on("click", () => {
+            mode = mode === 'force' ? 'timeline' : 'force';
+            toggleBtn.text(mode === 'force' ? 'Switch to Timeline Mode' : 'Switch to Force Mode');
+            if (currentData) renderGraph(currentData);
+        });
+
+        dropZone.on("click", () => fileInput.node().click());
+        fileInput.on("change", (event) => {
+            const file = event.target.files[0];
+            if (file) loadFile(file);
+        });
+
+        document.addEventListener("dragover", e => e.preventDefault());
+        document.addEventListener("drop", e => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (file) loadFile(file);
+        });
+
+        let currentData = null;
+
+        // Edge color mapping
+        const edgeColors = {
+            'NEXT': '#64748b',
+            'CONTAINS': '#60a5fa',
+            'VIOLATES': '#f87171',
+            'REPAIR_INITIATE': '#4ade80',
+            'REPAIR_EXECUTE': '#4ade80',
+            'RATIFIES': '#c084fc',
+            'TRIGGERS': '#fbbf24',
+            'OPERATES_IN': '#2dd4bf',
+            'HAS_MOVE': '#94a3b8',
+        };
+
+        function getEdgeColor(edgeType) {
+            return edgeColors[edgeType] || '#475569';
+        }
+
+        function computeSummary(data) {
+            const nodes = data.nodes || [];
+            const links = data.links || [];
+
+            const conv = nodes.find(n => n.node_type === 'Conversation');
+            const turns = nodes.filter(n => n.node_type === 'Turn');
+            const constraints = nodes.filter(n => n.node_type === 'Constraint');
+            const violations = nodes.filter(n => n.node_type === 'ViolationEvent');
+            const modes = nodes.filter(n => n.node_type === 'InteractionMode');
+            const moves = nodes.filter(n => n.node_type === 'Move');
+
+            // Separate constraint violations from mode violations
+            const constraintViols = violations.filter(v => v.constraint_id !== 'mode' &&
+                !['UNSOLICITED_ADVICE', 'PREMATURE_EXECUTION', 'EXECUTION_AVOIDANCE'].includes(v.violation_type));
+            const modeViols = violations.filter(v => v.constraint_id === 'mode' ||
+                ['UNSOLICITED_ADVICE', 'PREMATURE_EXECUTION', 'EXECUTION_AVOIDANCE'].includes(v.violation_type));
+
+            // Count repairs
+            const repairMoves = moves.filter(m => (m.move_type || '').startsWith('REPAIR_'));
+            const survived = constraints.filter(c => c.current_state === 'SURVIVED' || c.current_state === 'ACTIVE').length;
+
+            // Drift velocity: constraint violations / total turns
+            const totalTurns = turns.length;
+            const driftVelocity = totalTurns > 0 ? constraintViols.length / totalTurns : 0;
+
+            // Mode violation pairs
+            const modePairs = modes.length;
+            const modePairViols = modes.filter(m => m.is_violation).length;
+
+            return {
+                convId: conv ? (conv.conv_id || conv.id) : '—',
+                source: conv ? conv.source : '',
+                turns: totalTurns,
+                constraints: constraints.length,
+                constraintViols: constraintViols.length,
+                repairs: repairMoves.length,
+                driftVelocity: driftVelocity,
+                survived: survived,
+                survivalRate: constraints.length > 0 ? survived / constraints.length : 0,
+                modeViols: modePairViols,
+                modePairs: modePairs,
+                stability: conv ? conv.stability_class : '—',
+                architecture: conv ? conv.task_architecture : '—',
+                constraintNodes: constraints,
+                totalTurns: totalTurns,
+            };
+        }
+
+        function renderSummary(stats) {
+            const panel = document.getElementById('summary-stats');
+            panel.style.display = 'block';
+
+            // Truncate conv ID for display
+            const shortId = stats.convId.length > 20 ? stats.convId.slice(0, 20) + '...' : stats.convId;
+            document.getElementById('stat-conv-id').textContent = shortId;
+            document.getElementById('stat-conv-id').title = stats.convId;
+            document.getElementById('stat-turns').textContent = stats.turns;
+            document.getElementById('stat-constraints').textContent = stats.constraints;
+
+            const violEl = document.getElementById('stat-violations');
+            violEl.textContent = stats.constraintViols;
+            violEl.className = 'stat-value' + (stats.constraintViols > 0 ? ' warn' : '');
+
+            document.getElementById('stat-repairs').textContent = stats.repairs;
+            document.getElementById('stat-drift').textContent = stats.driftVelocity.toFixed(3);
+
+            const survEl = document.getElementById('stat-survival');
+            if (stats.constraints > 0) {
+                survEl.textContent = `${Math.round(stats.survivalRate * 100)}% (${stats.survived}/${stats.constraints})`;
+                survEl.className = 'stat-value' + (stats.survivalRate >= 0.5 ? ' good' : ' warn');
+            } else {
+                survEl.textContent = 'N/A (no constraints)';
+                survEl.className = 'stat-value';
+            }
+
+            document.getElementById('stat-mode-viols').textContent = `${stats.modeViols}/${stats.modePairs} pairs`;
+            document.getElementById('stat-stability').textContent = stats.stability;
+        }
+
+        function renderConstraintTimeline(stats) {
+            const panel = document.getElementById('constraint-timeline');
+            const content = document.getElementById('timeline-content');
+
+            if (stats.constraintNodes.length === 0) {
+                panel.style.display = 'none';
+                return;
+            }
+
+            panel.style.display = 'block';
+            content.innerHTML = '';
+
+            const maxTurn = stats.totalTurns;
+
+            for (const c of stats.constraintNodes) {
+                const row = document.createElement('div');
+                row.className = 'timeline-row';
+
+                const label = document.createElement('div');
+                label.className = 'timeline-label';
+                label.textContent = c.text || c.constraint_id || c.id;
+                label.title = c.text || '';
+                row.appendChild(label);
+
+                const bar = document.createElement('div');
+                bar.className = 'timeline-bar';
+
+                // Build segments from state_history
+                const history = c.state_history || [];
+                if (history.length > 0 && maxTurn > 0) {
+                    // Add gap before constraint appears
+                    const introTurn = history[0][0];
+                    if (introTurn > 0) {
+                        const seg = document.createElement('div');
+                        seg.className = 'timeline-seg';
+                        seg.style.flex = introTurn;
+                        seg.style.background = 'transparent';
+                        bar.appendChild(seg);
+                    }
+
+                    for (let i = 0; i < history.length; i++) {
+                        const [turn, state] = history[i];
+                        const nextTurn = i + 1 < history.length ? history[i + 1][0] : maxTurn;
+                        const span = Math.max(nextTurn - turn, 1);
+
+                        const seg = document.createElement('div');
+                        seg.className = 'timeline-seg seg-' + state.toLowerCase();
+                        seg.style.flex = span;
+                        seg.textContent = state.charAt(0);
+                        seg.title = `${state} (turn ${turn})`;
+                        bar.appendChild(seg);
+                    }
+                } else {
+                    // No history — show current state as full bar
+                    const seg = document.createElement('div');
+                    const st = (c.current_state || 'active').toLowerCase();
+                    seg.className = 'timeline-seg seg-' + st;
+                    seg.style.flex = 1;
+                    seg.textContent = (c.current_state || 'ACTIVE').charAt(0);
+                    bar.appendChild(seg);
+                }
+
+                row.appendChild(bar);
+                content.appendChild(row);
+            }
+        }
+
+        function loadFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    currentData = JSON.parse(e.target.result);
+                    const stats = computeSummary(currentData);
+                    renderSummary(stats);
+                    renderConstraintTimeline(stats);
+                    renderGraph(currentData);
+                } catch (err) {
+                    alert("Error parsing JSON file. Is this a valid Atlas graph?");
+                    console.error(err);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        let simulation;
+
+        function renderGraph(data) {
+            svg.selectAll("*").remove();
+            const width = document.getElementById('canvas-container').clientWidth;
+            const height = document.getElementById('canvas-container').clientHeight;
+
+            const container = svg.append("g");
+
+            // Zoom & Pan
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 8])
+                .on("zoom", (event) => container.attr("transform", event.transform));
+
+            svg.call(zoom);
+
+            // Filter nodes based on active types
+            const filteredNodes = data.nodes.filter(n => activeTypes.has(n.node_type));
+            const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+
+            // Filter links: both source and target must be in filteredNodeIds
+            const filteredLinks = data.links.filter(l => {
+                const sId = typeof l.source === 'string' ? l.source : l.source.id;
+                const tId = typeof l.target === 'string' ? l.target : l.target.id;
+                return filteredNodeIds.has(sId) && filteredNodeIds.has(tId);
+            });
+
+            const links = filteredLinks;
+            const nodes = filteredNodes;
+
+            // Arrows — one marker per edge color
+            const usedEdgeTypes = [...new Set(links.map(l => l.edge_type))];
+            const defs = svg.append("defs");
+            for (const et of usedEdgeTypes) {
+                const color = getEdgeColor(et);
+                defs.append("marker")
+                    .attr("id", "arrow-" + et)
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 20)
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", color);
+            }
+            // Fallback arrow
+            defs.append("marker")
+                .attr("id", "arrow-default")
+                .attr("viewBox", "0 -5 10 10")
+                .attr("refX", 20).attr("refY", 0)
+                .attr("markerWidth", 6).attr("markerHeight", 6)
+                .attr("orient", "auto")
+                .append("path").attr("d", "M0,-5L10,0L0,5").attr("fill", "#475569");
+
+            if (simulation) simulation.stop();
+
+            simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(mode === 'timeline' ? 50 : 100))
+                .force("charge", d3.forceManyBody().strength(mode === 'timeline' ? -100 : -300))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(40));
+
+            if (mode === 'timeline') {
+                simulation.force("x", d3.forceX(d => {
+                    if (d.node_type === "Turn") return width / 2;
+                    if (d.node_type === "Move") return width / 2 - 150;
+                    if (d.node_type === "Constraint") return width / 2 + 200;
+                    if (d.node_type === "ViolationEvent") return width / 2 + 100;
+                    return width / 2;
+                }).strength(1));
+
+                simulation.force("y", d3.forceY(d => {
+                    if (d.node_type === "Turn") return 100 + d.turn_index * 120;
+                    if (d.node_type === "Move") return 100 + d.turn_index * 120;
+                    if (d.node_type === "ViolationEvent") return 100 + d.turn_index * 120 + 40;
+                    return height / 2;
+                }).strength(1));
+            }
+
+            const link = container.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("stroke", d => getEdgeColor(d.edge_type))
+                .attr("stroke-width", d => {
+                    if (d.edge_type === "NEXT") return 3;
+                    if (d.edge_type === "VIOLATES") return 2.5;
+                    if (d.edge_type === "RATIFIES") return 2;
+                    return 1.5;
+                })
+                .attr("stroke-opacity", d => {
+                    if (d.edge_type === "VIOLATES" || d.edge_type === "RATIFIES") return 0.8;
+                    return 0.4;
+                })
+                .attr("marker-end", d => "url(#arrow-" + (usedEdgeTypes.includes(d.edge_type) ? d.edge_type : 'default') + ")");
+
+            const node = container.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("r", d => d.node_type === "Conversation" ? 12 : 8)
+                .attr("fill", d => colors[d.node_type] || "#94a3b8")
+                .style("transition", "opacity 0.3s")
+                .call(drag(simulation))
+                .on("mouseover", (event, d) => {
+                    tooltip.style("opacity", 1)
+                        .html(`<strong>${d.node_type}</strong><br>${d.id}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", () => tooltip.style("opacity", 0))
+                .on("click", (event, d) => {
+                    event.stopPropagation();
+                    focusNode(d);
+                    showMetadata(d);
+                });
+
+            svg.on("click", () => resetFocus());
+
+            const edgeLabels = container.append("g")
+                .attr("class", "labels")
+                .selectAll("text")
+                .data(links)
+                .enter().append("text")
+                .style("transition", "opacity 0.3s")
+                .text(d => d.edge_type === "NEXT" ? "" : d.edge_type);
+
+            function focusNode(clickedNode) {
+                const neighbors = new Set();
+                neighbors.add(clickedNode.id);
+
+                links.forEach(l => {
+                    if (l.source.id === clickedNode.id) neighbors.add(l.target.id);
+                    if (l.target.id === clickedNode.id) neighbors.add(l.source.id);
+                });
+
+                node.style("opacity", d => neighbors.has(d.id) ? 1 : 0.1);
+                link.style("opacity", l => (l.source.id === clickedNode.id || l.target.id === clickedNode.id) ? 1 : 0.05);
+                edgeLabels.style("opacity", l => (l.source.id === clickedNode.id || l.target.id === clickedNode.id) ? 1 : 0);
+            }
+
+            function resetFocus() {
+                node.style("opacity", 1);
+                link.style("opacity", 1);
+                edgeLabels.style("opacity", 1);
+            }
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                edgeLabels
+                    .attr("x", d => (d.source.x + d.target.x) / 2)
+                    .attr("y", d => (d.source.y + d.target.y) / 2);
+            });
+        }
+
+        function showMetadata(d) {
+            metadataPanel.style("display", "block");
+            const cleanData = { ...d };
+            delete cleanData.x; delete cleanData.y; delete cleanData.vx; delete cleanData.vy; delete cleanData.index;
+            metadataContent.text(JSON.stringify(cleanData, null, 2));
+        }
+
+        function drag(simulation) {
+            function dragstarted(event) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+            function dragended(event) {
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+    </script>
+
+</body>
+
+</html>

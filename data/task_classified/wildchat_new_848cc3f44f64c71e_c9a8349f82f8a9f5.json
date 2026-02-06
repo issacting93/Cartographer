@@ -1,0 +1,44 @@
+{
+  "id": "wildchat_new_848cc3f44f64c71e",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 24,
+  "classification": {
+    "task_goal": "Assist the user in completing their ANTLR homework by designing a lexical and syntax analyzer for a programming language.",
+    "primary_constraints": [
+      "All programs must start with 'begin' and end with 'end'",
+      "All commands must be ended by ';'",
+      "All variables must be declared just after 'begin' in the specified format",
+      "Three types exist: 'int', 'float', 'char'",
+      "Variable names must start with a letter and can be any alphanumeric string",
+      "Statements can be either a variable declaration or an assignment",
+      "An assignment includes four types of operators: +, -, *, /",
+      "The number of variables or constants in an expression is unlimited",
+      "The PL should include a well-defined regular grammar for variable names and rules for variable declarations",
+      "The PL should include at least 4 arithmetic operators with their precedence rules and 4 relational operators with their precedence rules"
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially overlooked the definition of 'NUMBER' and the equal sign in assignment statements, which are essential for the grammar. The user pointed out these issues, and the assistant provided corrections, thus repairing the constraints.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        10,
+        12
+      ],
+      "violation_turns": [
+        4,
+        11
+      ],
+      "repair_turns": [
+        5,
+        12,
+        14
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_848cc3f44f64c71e.json"
+}

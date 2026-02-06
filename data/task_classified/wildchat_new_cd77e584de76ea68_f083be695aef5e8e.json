@@ -1,0 +1,36 @@
+{
+  "id": "wildchat_new_cd77e584de76ea68",
+  "source": "WildChat",
+  "domain": "creative",
+  "total_turns": 26,
+  "classification": {
+    "task_goal": "Provide the meanings of specified Plutarch books in a specific format.",
+    "primary_constraints": [
+      "Each answer should have 70 words.",
+      "Each answer must not include book title name or writer's name.",
+      "Answer format must match the provided SQL update example."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially violated the constraints by including the book titles and writer's name in the responses. The user repeated the request, which prompted the assistant to correct the format in subsequent responses, thus enforcing the constraints after the initial violations.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1
+      ],
+      "violation_turns": [
+        1,
+        3,
+        5
+      ],
+      "repair_turns": [
+        2,
+        4,
+        6
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_cd77e584de76ea68.json"
+}

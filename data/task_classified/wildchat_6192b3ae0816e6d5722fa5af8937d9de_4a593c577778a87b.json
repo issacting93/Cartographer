@@ -1,0 +1,32 @@
+{
+  "id": "wildchat_6192b3ae0816e6d5722fa5af8937d9de",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Resolve an error in a Decky Loader plugin related to ipcRenderer being undefined.",
+    "primary_constraints": [
+      "The code must properly expose ipcRenderer in the renderer process using contextBridge.",
+      "The application must be designed to work in an Electron environment if using Electron-specific APIs."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially pointed out that the ipcRenderer was undefined, which indicated a violation of the constraint regarding proper exposure in the renderer process. The user then provided the preload.js code, which was a repair attempt to ensure that ipcRenderer was correctly exposed. The assistant confirmed that the preload.js file was correctly set up, indicating that the user enforced the constraint afterward.",
+    "evidence": {
+      "constraint_turns": [
+        3,
+        7
+      ],
+      "violation_turns": [
+        3
+      ],
+      "repair_turns": [
+        6,
+        7
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_6192b3ae0816e6d5722fa5af8937d9de.json"
+}

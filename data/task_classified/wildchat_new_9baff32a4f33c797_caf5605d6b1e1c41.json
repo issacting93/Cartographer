@@ -1,0 +1,35 @@
+{
+  "id": "wildchat_new_9baff32a4f33c797",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Predict the survival time for remaining patients in an oncology clinical trial based on observed data.",
+    "primary_constraints": [
+      "Consider baseline characteristics of patients such as age and gender.",
+      "Estimate the death hazard piecewise over time.",
+      "Perform 10,000 simulations to average the estimated time of death."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The AI initially failed to incorporate the piecewise hazard correctly and did not include the simulation aspect in the first responses. However, the user pointed out these issues, and the AI made corrections in subsequent turns, thus repairing the constraints.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        6
+      ],
+      "violation_turns": [
+        4,
+        10
+      ],
+      "repair_turns": [
+        5,
+        11
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_9baff32a4f33c797.json"
+}

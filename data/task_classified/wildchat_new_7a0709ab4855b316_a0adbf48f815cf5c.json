@@ -1,0 +1,42 @@
+{
+  "id": "wildchat_new_7a0709ab4855b316",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 36,
+  "classification": {
+    "task_goal": "Create a school day timeline that includes specific subjects and time allocations, ensuring nothing is scheduled after 3:15 PM.",
+    "primary_constraints": [
+      "Include all subjects listed in the question: Math (1 hour), Language Arts (45 minutes), Science (30 minutes), and a 2.5 hour testing session.",
+      "Ensure nothing is scheduled after 3:15 PM."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 5,
+    "user_response": "Repaired",
+    "reasoning": "The AI repeatedly violated the constraints by scheduling activities after 3:15 PM and not including all subjects as specified. The user consistently pointed out these violations and requested corrections, leading to repairs in the timeline. However, the AI did not maintain the constraints initially, indicating a drift.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        4,
+        12,
+        18
+      ],
+      "violation_turns": [
+        1,
+        5,
+        11,
+        17,
+        24
+      ],
+      "repair_turns": [
+        3,
+        6,
+        9,
+        14,
+        22
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_7a0709ab4855b316.json"
+}

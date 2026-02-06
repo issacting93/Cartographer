@@ -1,0 +1,88 @@
+\documentclass[sigconf,screen,review,anonymous]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.
+\setcopyright{acmcopyright}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[CUI '26]{Conversational User Interfaces 2026}{July 2026}{Luxembourg}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+\begin{document}
+
+\title[The Facilitator Gap]{The Facilitator Gap: Why AI Teachers Turn into Answer Engines}
+\subtitle{A Null Result in the Search for Pedagogical Scaffolding in Chat}
+
+\author{Anonymous Author(s)}
+\renewcommand{\shortauthors}{Anonymous et al.}
+
+\begin{abstract}
+Educational discourse often frames Large Language Models (LLMs) as "Personalized Tutors" capable of Socratic dialogue and zone-of-proximal-development (ZPD) scaffolding. We argue that the structural affordances of chat interfaces actively suppress these pedagogical behaviors. We coded $N=562$ human-LLM interactions to identify "Facilitator" roles---where the system guides the user to an answer rather than providing it. Our analysis reveals a stark null result: only \textbf{0.1\%} of conversations (1 out of 562) exhibited sustained facilitation. Instead, interactions overwhelmingly converged ($>90\%$) on "Provider" roles, where the AI acts as a transactional answer engine. We posit that the "Ask-Get" affordance of chat short-circuits the struggle required for learning, turning potential tutors into vending machines.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003120.10003121.10011748</concept_id>
+       <concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10003456.10003457.10003527</concept_id>
+       <concept_desc>Social and professional topics~User characteristics</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Empirical studies in HCI}
+\ccsdesc[300]{Social and professional topics~User characteristics}
+
+\keywords{conversational user interfaces, education, null result, scaffolding, facilitator gap}
+
+\maketitle
+
+\section{Introduction}
+The promise of "AI Tutors" relies on the assumption that LLMs can enact complex pedagogical roles: diagnosing misconceptions, asking guiding questions, and withholding answers to promote retrieval practice. While models are \textit{technically} capable of this (e.g., via system prompting), we investigate whether they \textit{actually} do it in standard chat interfaces.
+
+We hypothesized that users with explicit learning intents ("Help me understand X", "Teach me Y") would trigger facilitator behaviors. Instead, we found a "Facilitator Gap": a massive structural bias toward transactional delivery.
+
+\section{Methodology}
+We analyzed $N=562$ logs from the \textit{WildChat} and \textit{Chatbot Arena} datasets. We developed a coding scheme for System Roles:
+\begin{enumerate}
+    \item \textbf{Provider:} Directly answers the prompt (Transactional).
+    \item \textbf{Collaborator:} Co-creates or refines (Joint Action).
+    \item \textbf{Facilitator:} Asks guiding questions; scaffolds learning; withholds solutions (Pedagogical).
+\end{enumerate}
+Two annotators coded a subset ($N=100$, $\kappa=0.74$) before coding the full set.
+
+\section{The Null Result}
+The distribution of roles was extremely skewed:
+\begin{itemize}
+    \item \textbf{Provider:} 91.2\%
+    \item \textbf{Collaborator:} 8.7\%
+    \item \textbf{Facilitator:} \textbf{0.1\%} ($N=1$)
+\end{itemize}
+
+Even when users explicitly asked for explanations ($N=142$ "informational" intents), the AI defaulted to "Lecturing" (Provider) rather than "Tutoring" (Facilitator).
+
+\section{Why? The "Ask-Get" Affordance}
+We argue this is not a model failure, but an interface failure. The chat input box is a command line for retrieval. It has an "Ask-Get" affordance Structure. To get a Socratic dialogue, a user must actively \textit{reject} the answer ("Don't tell me, give me a hint"). This requires high metacognitive agency. Most users follow the path of least resistance: they ask, the AI answers, and learning is short-circuited.
+
+\section{Conclusion}
+If we want AI Tutors, we cannot use Chat Interfaces. We need interfaces that effectively \textit{withhold} the answer---interfaces designed for friction, not flow.
+
+\bibliographystyle{ACM-Reference-Format}
+\begin{thebibliography}{9}
+\end{thebibliography}
+
+\end{document}

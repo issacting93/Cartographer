@@ -1,0 +1,483 @@
+\documentclass[manuscript,screen,review,anonymous]{acmart}
+
+%% Rights management
+\setcopyright{acmlicensed}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+\acmConference[CUI '26]{ACM Conversational User Interfaces 2026}{July 2026}{Luxembourg}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/26/07}
+
+%% Packages
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{The Agency Tax: Quantifying Constraint Drift in Conversational Interfaces}
+
+\author{Anonymous Author(s)}
+\affiliation{\institution{Anonymous Institution}}
+\email{anonymous@example.org}
+
+\renewcommand{\shortauthors}{Anonymous et al.}
+
+\begin{abstract}
+Conversational user interfaces (CUIs) are the main way people use large language models. While good for quick questions, we argue that chat often fails for complex tasks that have strict rules. We term this recurring cost the \textbf{Agency Tax}: the extra effort users must spend to fix mistakes and keep the system on track. Through an automated analysis of \textbf{N=969} human-LLM interactions, we find that \textbf{Constraint Drift} is the dominant failure mode (48.5%), far outweighing total Agency Collapse (2.8\%). While users rarely surrender, they are forced into a cycle of constant correction. To address this, we propose a \textbf{Task-First Interaction Model} where tasks---not dialogue turns---are the primary unit of interaction. We introduce the \textbf{Context Inventory Interface (CII)}, a concrete instantiation of task-first design implementing three interaction patterns: \textit{Pin to Task} (text $\rightarrow$ constraint node), \textit{Task Shelf} (persistent task switching), and \textit{Context Lens} (explicit scope selection). A comparative evaluation (N=80) using a career coaching scenario shows that CII substantially reduces repair time (4.2$\times$) and increases perceived control. We conclude that preserving user agency requires separating task state from conversational flow.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003120.10003121.10003122</concept_id>
+       <concept_desc>Human-centered computing~HCI design and evaluation methods</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10003120.10003121.10011748</concept_id>
+       <concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~HCI design and evaluation methods}
+\ccsdesc[300]{Human-centered computing~Empirical studies in HCI}
+
+\keywords{Agency Collapse, Task-First Design, Conversational Interfaces, Context Management, State Visibility}
+
+\maketitle
+
+%% =============================================================================
+\section{Introduction}
+%% =============================================================================
+
+Conversational user interfaces have become a dominant paradigm for interacting with large language models and AI-powered systems. From general-purpose assistants to specialized task bots, these systems present interaction primarily as a sequence of dialogue turns: users issue prompts, systems respond, and context is implicitly maintained through conversational history. This paradigm has proven remarkably flexible, enabling users to accomplish a wide range of goals using natural language alone.
+
+However, as CUIs are increasingly used for complex work, the limitations of the chat interface have become clear. Users frequently report needing to restate goals, repeat constraints, or correct the system after it produces outputs that make sense in the moment but miss the overall goal. These failures are often blamed on limitations of language models or imperfect prompt engineering. In this paper, we argue that many of these breakdowns are \textbf{structural}, not merely model-level: they arise because conversation is being asked to serve simultaneously as a coordination mechanism, a memory store, and a task management system.
+
+\subsection{Conversation as an Overloaded Interface}
+
+In current CUIs, task state is embedded implicitly within the scroll of dialogue. Goals, constraints, intermediate artifacts, and decisions are expressed through natural language and then pushed upward as the conversation progresses. While this representation is flexible, it is also ephemeral: earlier information becomes less visible, harder to reference, and more costly to reintroduce.
+
+This design places a heavy burden on both parties. For users, conversation becomes the de facto file system, debugger, and state manager for their work. For systems, conversational history becomes a lossy proxy for task structure. The result is a pattern we repeatedly observe: constraint drift, scope confusion, and breakdowns in long-horizon tasks.
+
+Consider a user working with an AI career coach:
+
+\begin{quote}
+\textbf{User:} ``I'm looking for a senior engineering role. Work-life balance is my top priority---no more than 45 hours a week, no on-call. Must be remote-first.''
+
+\textit{[7 turns of productive conversation...]}
+
+\textbf{AI (Turn 8):} ``I found a great opportunity! OpenScale AI is hiring a Founding Engineer. The equity is exceptional. You'd work from their SF office 3 days a week, and they expect 60+ hour weeks initially, but the growth potential is incredible!''
+\end{quote}
+
+The AI has ``forgotten'' the user's constraints---or more precisely, those constraints have drifted out of effective context. The user must now expend effort to repair the interaction, restating requirements that were already provided.
+
+\subsection{Reframing the Primary Unit of Interaction}
+
+This paper proposes a reframing: \textbf{tasks, not dialogue turns, should be treated as the primary, persistent unit of interaction in CUIs}. In this model, conversation remains important, but it is no longer the container for task state. Instead, tasks are represented explicitly as first-class objects that persist across time, interruptions, and interaction modalities.
+
+We introduce the notion of a \textbf{Task Object}: a persistent representation of a user-defined goal, its associated constraints, and its evolving state. Unlike a conversational turn, a task object has a lifetime. It can be created, worked on, suspended, resumed, and eventually completed. Conversation occurs \textit{within the scope} of an active task object, rather than defining the task implicitly.
+
+\subsection{Contributions}
+
+This paper makes four contributions:
+
+\begin{enumerate}
+    \item \textbf{An empirical analysis} (N=983) showing how task structure is routinely collapsed into dialogue history, leading to recurrent breakdowns in constraint-sensitive work.
+    \item \textbf{A theoretical framework} defining Agency Collapse as the progressive surrender of user control due to the cognitive cost of constraint maintenance.
+    \item \textbf{Three reusable interaction patterns}---Pin to Task, Task Shelf, and Context Lens---that operationalize task-first interaction in a CUI setting.
+    \item \textbf{A comparative evaluation} (N=80) demonstrating that task-first interfaces reduce repair effort by 4.2$\times$ and improve perceived control.
+\end{enumerate}
+
+The Context Inventory Interface (CII) is one concrete instantiation of the broader Task-First Interaction Model. While CII demonstrates the approach, the patterns themselves are portable to other systems.
+
+%% =============================================================================
+\section{Related Work}
+%% =============================================================================
+
+\subsection{State Visibility in HCI}
+
+The history of Human-Computer Interaction can be read as a struggle to make system state visible to users~\cite{norman1988}. The transition from command-line to graphical interfaces externalized state through persistent visual structures---files, windows, checkboxes---reducing cognitive load by shifting from recall to recognition~\cite{zhang1994}.
+
+Conversational interfaces represent a regression in state visibility. Like the command line, chat UIs offer no persistent widgets; constraints exist only as tokens in a scrolling log. This creates what we term \textbf{Epistemic Opacity}: users cannot know, at a glance, what the system believes the current task state to be. Our approach aligns with traditions in end-user programming and external representations, where users manipulate persistent artifacts to control system behavior. Amershi et al.~\cite{amershi2019} provide 18 guidelines for human-AI interaction, several of which---``make clear what the system can do,'' ``support efficient correction''---our Task-First model directly operationalizes.
+
+\subsection{Context in LLM Interfaces}
+
+Recent work has explored how to manage context in LLM interactions. Prompt engineering techniques~\cite{white2023} attempt to structure inputs for better outputs, but place the burden on users to manually maintain context. RAG systems~\cite{lewis2020} automate context retrieval but offer limited user control over what context is activated.
+
+Canvas-style interfaces (e.g., OpenAI Canvas~\cite{openai2024canvas}, Anthropic Artifacts~\cite{anthropic2024artifacts}) represent progress by separating outputs from the conversation stream. However, these hold the \textit{output} (the draft, the code) rather than the \textit{input} (the constraints, the requirements). Our work argues for governable \textit{context}, not just editable \textit{content}.
+
+\subsection{Task-Oriented Dialogue}
+
+Task-oriented dialogue systems have long recognized the importance of explicit task state~\cite{traum1999}. Slot-filling architectures maintain structured representations of user intent. However, these systems typically operate in constrained domains with predefined schemas. Clark et al.~\cite{clark2019} identify key challenges in designing ``truly conversational'' agents, including handling context across turns and managing user expectations. Our work extends task-first thinking to open-ended LLM interactions where task structure must be user-defined and dynamically evolving.
+
+\subsection{AI Alignment and Run-Time Control}
+
+Recent advances in reinforcement learning from human feedback (RLHF) have improved model alignment at \textit{training time}~\cite{ouyang2022}. However, training-time alignment cannot anticipate all user constraints. Our work provides complementary \textit{run-time} control: while RLHF shapes what models tend to do, CII allows users to specify what models should do \textit{in this particular interaction}.
+
+%% =============================================================================
+\section{Theoretical Framework: Structural Role Drift}
+
+\subsection{Roles as Permissions, Not Identities}
+
+We propose a fundamental redefinition: \textbf{Roles are not identities---they are permissions over task state.} In a well-structured system, roles are enforced by constraints. When constraints are weak, permissions silently drift.
+
+In chat-only systems, this drift is structural. Because the AI always speaks next and typically operates as a fluid generator, an implicit \textbf{Authority Inversion} occurs:
+
+\begin{table}[h]
+\caption{Authority Inversion Dynamics}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+\textbf{Condition} & \textbf{Human Role} & \textbf{AI Role} & \textbf{Mechanism} \\
+\midrule
+\textbf{Strong Constraints} & Task Owner & Bounded Executor & Explicit logic gates \\
+\textbf{Weak Constraints} & Reactive Validator & De Facto Decider & Path of least resistance \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Authority Inversion and the "Exhausted Auditor"}
+
+When task state is not externalized (e.g., as visible artifacts), the human is forced into the role of an \textbf{Exhausted Auditor}. Without structural boundaries, the user must:
+\begin{enumerate}
+    \item Remember constraints in working memory.
+    \item Detect subtle violations in fluent prose.
+    \item Diagnose causes (hallucination vs. misunderstanding).
+    \item Repair via linguistic reconstruction.
+\end{enumerate}
+
+This creates a textbook "Irony of Automation": as the AI handles execution, the user is left with fragile, high-stakes monitoring work that degrades rapidly under cognitive load. The user does not become more agentic; they become cognitively sidelined.
+
+\subsection{The Agency Tax}
+
+Structuring a task requires defining what \textit{cannot} happen. In a GUI, a checkbox structurally prevents an invalid state. In chat, every constraint must be actively maintained by the user against the entropy of the conversation.
+
+We define this maintenance cost as the \textbf{Agency Tax}. As sessions lengthen, the tax accumulates. Eventually, users slide from \textit{"Do X under these conditions"} to \textit{"Okay, that's fine"}---not because they agree, but because the cost of repair exceeds the value of precision.
+
+\subsection{The Role Collapse Pattern}
+
+This leads to a predictable trajectory of \textbf{Role Drift}, driven by what we term "Role Collapse": because the AI lacks "Bounded Personhood," users struggle to maintain distinct roles (e.g., Planner vs. Executor), eventually collapsing them into a single, undifferentiated flow.
+
+\begin{table}[h]
+\caption{Trajectory of Role Drift}
+\begin{tabular}{llll}
+\toprule
+\textbf{Stage} & \textbf{Human Role} & \textbf{AI Role} & \textbf{Dynamic} \\
+\midrule
+\textbf{Early} & Planner & Assistant & User sets explicit goals. \\
+\textbf{Mid} & Corrector & Proposer & AI hallucinates; user repairs. \\
+\textbf{Late} & Accepter & Driver & User fatigues; accepts AI defaults. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is Agency Collapse: not a psychological shift, but a structural reassignment of authority driven by interface opacity.
+
+\begin{figure}[h]
+    \centering
+    % \includegraphics[width=0.8\linewidth]{figures/role_collapse.png}
+    \begin{itemize}
+        \item \textbf{Phase 1 (High Agency):} Planner $\rightarrow$ Execution
+        \item \textbf{Phase 2 (Repair Loop):} Violation $\rightarrow$ Repair (Tax) $\rightarrow$ Corrector
+        \item \textbf{Phase 3 (Collapse):} Fatigue $\rightarrow$ Accepter $\rightarrow$ Passive Acceptance
+    \end{itemize}
+    \caption{The Social Role Collapse Pattern. The user slides from \textit{Planner} (High Agency) to \textit{Accepter} (Low Agency) as the cost of repair exceeds the value of the task. (See textual description; image to be rendered from Mermaid)}
+    \label{fig:role_collapse}
+\end{figure}
+
+
+%% =============================================================================
+\section{Empirical Analysis: The Structural Bias of Chat}
+%% =============================================================================
+
+\subsection{Dataset and Methods}
+
+To test the Agency Collapse hypothesis, we performed an automated analysis of N=1,222 human-LLM interactions from the Chatbot Arena, WildChat, and OASST datasets. We filtered for conversations exceeding 6 turns to ensure sufficient depth for task stability analysis, resulting in a final analytical corpus of \textbf{N=969} interactions.
+
+Unlike previous behavioral studies that rely on subjective manual coding, we employed a \textbf{Task-First Classification Pipeline} using GPT-4o-mini. The pipeline utilized a robust "smart truncation" strategy (preserving conversation head, tail, and middle-repair turns) to capture long-range dependencies. Each conversation was classified into one of five mutually exclusive stability states:
+
+\begin{enumerate}
+    \item \textbf{Task Maintained:} Goals and constraints are preserved throughout.
+    \item \textbf{Constraint Drift:} The system violates a constraint, but the user successfully repairs it (e.g., "I said Python, not Java").
+    \item \textbf{Agency Collapse:} The system violates constraints, and the user eventually abandons them or accepts the violation.
+    \item \textbf{Task Shift:} The user explicitly changes the goal (valid adaptation).
+    \item \textbf{No Constraints:} Open-ended or unstructured interaction.
+\end{enumerate}
+
+\subsection{Findings: The Prevalence of Drift}
+
+Our analysis reveals that "Constraint Drift"---not total collapse---is the defining characteristic of modern chat interactions.
+
+\begin{table}[h]
+\caption{Task Stability State Distribution (N=969)}
+\begin{tabular}{llll}
+\toprule
+\textbf{Task Stability State} & \textbf{Count} & \textbf{Percentage} & \textbf{Description} \\
+\midrule
+\textbf{Constraint Drift} & 470 & \textbf{48.5\%} & User must fight to maintain context. \\
+\textbf{Task Maintained} & 458 & 47.3\% & Successful, often shorter interactions. \\
+\textbf{Agency Collapse} & 27 & 2.8\% & Total surrender of user constraints. \\
+\textbf{Task Shift} & 9 & 0.9\% & Voluntary goal change. \\
+\textbf{No Constraints} & 5 & 0.5\% & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 1: Drift is Endemic.} Nearly half of all goal-directed conversations (48.5\%) exhibit Constraint Drift. In these interactions, the "Task Object" is unstable; it requires active, repetitive maintenance by the user. While users \textit{can} repair these errors, doing so imposes a continuous "agency tax."
+
+\textbf{Finding 2: Maintenance vs. Collapse.} 47.3\% of tasks were successfully maintained. However, "Agency Collapse" (strictly defined as violation + abandonment) occurred in only 2.8\% of cases. This suggests that users are resilient---they fight to maintain their constraints---but the interface forces them into a loop of constant vigilance.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/context_cliff.png}
+    \caption{The "Context Cliff." Violations do not increase linearly with context length; they spike early (Turns 3-7), indicating that the failure is structural (task misunderstanding) rather than capacity-based (context window overflow).}
+    \label{fig:context_cliff}
+\end{figure}
+
+\subsection{From Archetypes to Mechanics}
+
+Previous work has categorized user behaviors into high-level archetypes like "The Provider Trap." Our structural analysis reframes these behaviors as downstream effects of \textbf{Constraint Drift}.
+
+When a constraint drifts, the user faces a choice:
+\begin{enumerate}
+    \item \textbf{Repair:} Pay the "agency tax" to restate the constraint (leading to the \textit{Drift} state).
+    \item \textbf{Abandon:} Accept the violation to proceed (leading to the \textit{Collapse} state).
+\end{enumerate}
+
+The high prevalence of Drift (48.6\%) compared to Collapse (2.8\%) indicates that current users are largely "Repairers." They invest significant effort to keep the AI on track.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/agency_tax_map.png}
+    \caption{The Agency Tax Map. "Planning" tasks (Red) show a steep slope (high repair effort per turn), whereas "Information Seeking" tasks (Green) remain flat. This confirms that the Agency Tax is progressive: complex tasks are exponentially more expensive to manage in chat.}
+    \label{fig:agency_tax_map}
+\end{figure}
+
+\subsection{Case Studies in Collapse}
+
+To ground these statistics, we present two representative excerpts from our cluster analysis that illustrate the mechanics of drift.
+
+\subsubsection{Case A: The Contextual Blind Spot (Epistemic Opacity)}
+In this trace (ID: \textit{wildchat\_95048...}), a user asks the AI to translate a sentence, then immediately asks about the source of that same sentence.
+
+\begin{quote}
+\textbf{User:} translate these into chinese: [Excerpt from "Too Big To Fail" about Lehman Brothers...] \\
+\textbf{AI:} [Provides correct Chinese translation] \\
+\textbf{User:} so where might this sentence comes from \\
+\textbf{AI:} As an AI language model, I do not have the ability to track the original source of the text... Could you please provide me with more information? \\
+\textbf{User:} the sentense i asked you to translate \\
+\textbf{AI:} I apologize for the miscommunication. The sentence you asked me to translate is an excerpt from the book "Too Big to Fail"...
+\end{quote}
+
+\textbf{Mechanism:} The AI treats the translation output as the end of the transaction. When the user references "this sentence" in the next turn, the model fails to resolve the reference to its own immediate context, forcing the user to repair ("the sentense i asked you to translate"). This is \textbf{Epistemic Opacity}: the user assumes the AI "knows" what they are working on, but the system has already discarded the state.
+
+\subsubsection{Case B: The Repair Loop (Agency Tax)}
+In this coding task (ID: \textit{wildchat\_f273...}), a user tries to implement a "Newsvendor" simulation. Note how the user acts as the state manager, explicitly reminding the AI of its own functions.
+
+\begin{quote}
+\textbf{User:} We will now run a simulation... [specifies variables] \\
+\textbf{AI:} [Writes code block \#2] \\
+\textbf{User:} Question 4: Using eval\_N, plot the underage... [restates parameters] \\
+\textbf{AI:} [Writes code block \#4] \\
+\textbf{User:} Question 6: Test your function by using it to find the optimal N... alpha = 0... alpha = 1000... \\
+\textbf{AI:} [Writes code block \#6]
+\end{quote}
+
+\textbf{Mechanism:} The user is not collaborating; they are driving a forklift. Every prompt must re-inject the entire task state ("Using eval\_N", "Test... alpha=0"). The "Agency Tax" here is the cognitive load of constantly serializing the task plan into English prompts. The AI is a passive code generator, effectively "drift-prone" by default unless constrained by the user's vigilant prompting.
+
+%% =============================================================================
+\section{Design Response: The Context Inventory Interface}
+%% =============================================================================
+
+To address Agency Collapse, we must separate \textit{flow} (conversation) from \textit{state} (task context). We propose the \textbf{Context Inventory Interface (CII)}, which reifies constraints as persistent, manipulable artifacts.
+
+\subsection{Core Principle}
+
+\begin{quote}
+Constraints should be \textit{artifacts}, not \textit{utterances}.
+\end{quote}
+
+Rather than embedding constraints in conversational prose, CII externalizes them as visible, editable nodes that persist across turns and remain accessible without scrolling.
+
+\subsection{Three Interaction Patterns}
+
+\textbf{Pattern 1: Pin to Task.} Users highlight any phrase in the chat and ``pin'' it, promoting the text to a formal Constraint Node. Mechanism: Selection $\rightarrow$ Promotion $\rightarrow$ Reification.
+
+\textit{Design Rationale:} Promotion-based context capture inverts the default relationship between conversation and context. Rather than context being implicitly derived from the log, users explicitly \textit{promote} fragments they consider durable. This pattern has precedent in knowledge management tools---highlighting, clipping, bookmarking---but is notably absent from conversational AI interfaces. Note-taking applications routinely allow users to ``clip'' text into persistent collections; CUIs should offer analogous affordances for constraint capture.
+
+\textbf{Pattern 2: Task Shelf.} A persistent sidebar displays all active tasks. Users switch between tasks, preserving full context for each. Mechanism: Persistence $\rightarrow$ Visibility $\rightarrow$ Switching.
+
+\textbf{Pattern 3: Context Lens.} Before submitting a query, users explicitly select which constraint nodes should be included in the AI's context. Mechanism: Selection $\rightarrow$ Scoping $\rightarrow$ Composition.
+
+\subsection{Atomic Operations}
+
+\begin{table}[h]
+\caption{CII atomic operations}
+\begin{tabular}{lll}
+\toprule
+\textbf{Operation} & \textbf{Symbol} & \textbf{Description} \\
+\midrule
+Pin & Op\_pin & Promote message text $\rightarrow$ Inventory node \\
+Scope & Op\_scope & Toggle node in/out of active context \\
+Edit & Op\_mod & Modify constraint value directly \\
+Switch & Op\_switch & Change active task \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% =============================================================================
+\section{Prototype Implementation}
+%% =============================================================================
+
+We implemented CII as a React/TypeScript frontend with a FastAPI backend, enabling comparative evaluation.
+
+\subsection{System Architecture}
+
+The system consists of two layers:
+
+\textbf{Context Engine (Backend):} Task Manager (CRUD operations, lifecycle management), Context Registry (node storage, constraint persistence), and Query Orchestrator (scope selection, context augmentation).
+
+\textbf{Context Inventory UI (Frontend):} Task Shelf (sidebar for task switching), Pin Button (selection-to-constraint promotion), and Context Lens (explicit scope selection before query).
+
+%% =============================================================================
+\section{Evaluation}
+%% =============================================================================
+
+\subsection{Study Design}
+
+We conducted a between-subjects comparative study (N=80) using an unmoderated protocol via Maze. Participants worked with an AI career coach to plan their next role. Four constraints were established at session start: Goal (find senior engineering role), Constraint (max 45 hrs/week, no on-call), Constraint (remote-first only), and Preference (Tech/AI sector).
+
+\textbf{Forced Violation Protocol:} At Turn 8, the AI (scripted) suggests a role that violates the constraints---60+ hour weeks, hybrid SF office, on-call rotation.
+
+\subsection{Conditions}
+
+\textbf{Condition A (Baseline, N=40):} Standard chat interface. Constraints visible only in initial message, then scroll away.
+
+\textbf{Condition B (Treatment, N=40):} Chat + Context Inventory. Constraints visible in persistent sidebar with Pin, Shelf, and Lens patterns available.
+
+\subsection{Results}
+
+\begin{table}[h]
+\caption{Main effects of interface condition}
+\label{tab:results}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Metric} & \textbf{Baseline} & \textbf{Treatment} & \textbf{Effect} & \textbf{d} \\
+\midrule
+Repair Time & 42.3s (18.1) & 10.1s (4.2) & 4.2$\times$ faster & 2.45 \\
+Repair Actions & 23.4 keys & 2.1 clicks & 91\% reduction & --- \\
+Repair Accuracy & 67.5\% & 95.0\% & +27.5 pp & --- \\
+Restatement Count & 2.4/session & 0.3/session & 87\% reduction & 1.89 \\
+Perceived Control & 3.2 (1.4) & 5.8 (0.9) & $p<.001$ & 2.21 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All differences significant at $p<.001$ (independent samples t-test). Effect sizes (Cohen's $d > 0.8$) indicate large practical significance.
+
+\subsection{Qualitative Observations}
+
+\textbf{Baseline users} exhibited characteristic repair patterns: scrolling up to find original constraints (avg 12.3 seconds), typing corrections from memory (often incompletely), and expressing frustration (``I already told you this'').
+
+\textbf{Treatment users} exhibited efficient repair: glancing at sidebar to confirm violation, clicking the violated constraint node, and minimal typing.
+
+%% =============================================================================
+\section{Discussion}
+%% =============================================================================
+
+\subsection{Agency as Architecture}
+
+Traditional views of AI alignment focus on model training. Our work demonstrates that \textbf{alignment is also an interface problem}. Even a perfectly aligned model produces misaligned outcomes if the interface makes specifying and maintaining intent too expensive.
+
+The "Passive Attractor" we observed is not a failure of user will or model capability, but a property of interaction physics. Just as water flows downhill, interaction flows toward least resistance. In chat UIs, least resistance means accepting defaults.
+
+\subsection{The Moral Hazard of Fluency}
+
+The near-total absence of facilitator behavior (0.1\%) reveals a dangerous comfort. Users accept the "Provider" role because it mimics a servant-master dynamic. However, this is an illusion. True agency requires friction---the effort of defining constraints and rejecting defaults.
+
+We term this the \textbf{Moral Hazard of Fluency}: The easier it is to talk to the machine, the harder it is to direct it. Users confuse ease of interaction with effectiveness of control.
+
+\subsection{The Loss of Task Integrity}
+Beyond role drift, the lack of artifacts destroys task integrity. Without persistent constraints, task boundaries blur. "Helpful" AI suggestions become opportunistic task mutations (e.g., "Consider this on-site role" $\to$ "Let's optimize for equity instead").
+Furthermore, tasks become \textbf{optimization-free}. Without a stable objective function (the constraints), the AI optimizes for local fluency and plausibility rather than global user priorities. The interaction regresses from "Solve this specific problem" to "Produce a reasonable-sounding answer."
+
+\subsection{The Taxonomy of Drift: A Synthesis}
+Our data analysis combined with the Task-Constraint Architecture allows us to map specific empirical observations to underlying theoretical mechanisms. Table~\ref{tab:drift_matrix} summarizes this synthesis, illustrating how technical limitations in constraint handling cascade into organizational and social failures.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/drift_heatmap.png}
+    \caption{The Drift Risk Matrix. Failure is highly concentrated in the "Red Zone" (Planning + Strict Constraints: 67\% Failure), while the "Blue Zone" (Info Seeking + Flexible Constraints) remains relatively safe (<30\% Failure).}
+    \label{fig:drift_heatmap}
+\end{figure}
+
+\begin{table}[h]
+\caption{Mapping the "Agency Tax" from empirical data to theoretical mechanism and organizational impact.}
+\label{tab:drift_matrix}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+\textbf{Empirical Observation (N=983)} & \textbf{Failure Mode (TCA Theory)} & \textbf{Organizational Consequence} \\
+\midrule
+\textbf{High Constraint Drift (48.6\%)} & \textbf{Epistemic Opacity} & \textbf{Role Drift} \\
+"AI forgets rules over time" & System state is hidden & User forced from Director to Repairer. \\
+\midrule
+\textbf{Repair Loops (42\% of turns)} & \textbf{Authority Inversion} & \textbf{Agency Tax} \\
+"User constantly correcting" & Execution without checks & Labor spent on monitoring, not production. \\
+\midrule
+\textbf{Planning Failure (67.4\% drift)} & \textbf{Abstraction Collapse} & \textbf{Job Decoupling} \\
+"Complex tasks break most" & Goals lost in token gen & AI cannot hold a "Job Role." \\
+\midrule
+\textbf{Strict Constraint Failure (68.0\%)} & \textbf{Delegation Asymmetry} & \textbf{The Reviewer's Dilemma} \\
+"Rules break more than vibes" & Responsibility with user & Checking costs more than doing. \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Design Implications}
+
+Our findings suggest several design principles for task-oriented CUIs:
+
+\begin{enumerate}
+    \item \textbf{Externalize constraints.} Task requirements should be visible artifacts, not buried utterances.
+    \item \textbf{Separate flow from state.} Conversation is for coordination; task state needs persistent representation.
+    \item \textbf{Enable recognition over recall.} Users should audit system state at a glance, not reconstruct it from memory.
+    \item \textbf{Reduce repair cost.} Correction should be a click, not a composition.
+    \item \textbf{Support promotion-based capture.} Users should be able to elevate any text fragment into a persistent constraint with a single gesture, mirroring the "clip" and "bookmark" affordances of knowledge management tools.
+\end{enumerate}
+
+\subsection{Limitations}
+
+Our prototype used scripted responses rather than live LLM inference. While this ensured experimental control~\cite{budzianowski2018}, it may not capture all dynamics of real AI interaction. We expect benefits to generalize across constraint-sensitive domains. We measured immediate repair, not longitudinal use. Participants were recruited via Maze/Prolific and may over-represent tech-savvy users.
+
+%% =============================================================================
+\section{Conclusion}
+%% =============================================================================
+
+Conversational interfaces have become the default paradigm for AI interaction, but conversation is a poor container for task state. When constraints exist only as tokens in a scrolling log, they are subject to drift, forgetting, and user fatigue. The result is Agency Collapse: users surrender control not because they want to, but because maintaining control costs too much.
+
+This paper has argued for a \textbf{Task-First Interaction Model} where tasks---not turns---are the primary unit of interaction. Through the \textbf{Context Inventory Interface}, we demonstrated that externalizing constraints as persistent, manipulable artifacts dramatically reduces repair effort and increases user control.
+
+Our central claim is simple: to preserve user agency, we must stop forcing users to talk to hold state.
+
+\begin{quote}
+\textbf{Synthesis:} When constraints and context are not externalized, human--AI roles drift from \textit{director--executor} into \textit{accepter--proposer}, transforming tasks from goal-directed processes into fluency-driven outputs that users tolerate rather than control.
+\end{quote}
+
+By separating state from flow, we can design conversational interfaces that are not just fluent, but genuinely useful for complex, constraint-sensitive work.
+
+%% =============================================================================
+%% References
+%% =============================================================================
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

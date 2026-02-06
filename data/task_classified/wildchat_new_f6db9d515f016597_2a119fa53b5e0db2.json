@@ -1,0 +1,31 @@
+{
+  "id": "wildchat_new_f6db9d515f016597",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Structure C# classes for Users and Cards with specific relationships and properties.",
+    "primary_constraints": [
+      "Each Card can be used by multiple Users.",
+      "UsageTimestamp must not be in the Card class, as it is shared between the Card and the User."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The AI initially included a UsageTimestamp in the Card class, which violated the user's constraint. The user pointed this out, and the AI subsequently repaired the structure by creating a separate CardUsage class to handle the usage timestamp correctly.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        4
+      ],
+      "violation_turns": [
+        5
+      ],
+      "repair_turns": [
+        6
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_f6db9d515f016597.json"
+}

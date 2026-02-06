@@ -1,0 +1,36 @@
+{
+  "id": "wildchat_new_be9a2e14108c3957",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 20,
+  "classification": {
+    "task_goal": "Generate SQL queries based on user input in natural language.",
+    "primary_constraints": [
+      "Use valid SQL syntax",
+      "Respond to user requests accurately"
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided an incorrect SQL syntax (using 'current_date' inappropriately) and later corrected it after the user pointed it out. This indicates a violation followed by a repair, which aligns with the Constraint Drift classification.",
+    "evidence": {
+      "constraint_turns": [
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "violation_turns": [
+        10
+      ],
+      "repair_turns": [
+        11,
+        13,
+        15
+      ]
+    }
+  },
+  "file_path": "/Users/zac/Downloads/Cartography/public/output/wildchat_new_be9a2e14108c3957.json"
+}

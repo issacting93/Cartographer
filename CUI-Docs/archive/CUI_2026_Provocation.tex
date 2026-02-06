@@ -1,0 +1,269 @@
+\documentclass[sigconf,screen,review,anonymous]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.
+\setcopyright{acmcopyright}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[CUI '26]{Conversational User Interfaces 2026}{July 2026}{Luxembourg}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+\title[Please Stop Talking]{Please Stop Talking: From Chat Logs to Context Engines}
+\subtitle{Design Patterns for LLM Interfaces Beyond Chat}
+
+\author{Anonymous Author(s)}
+\renewcommand{\shortauthors}{Anonymous et al.}
+
+\begin{abstract}
+Chat-based interfaces have become the default interaction form for large language models (LLMs), shaping both user expectations and the design space of conversational user interfaces. While chat excels for lightweight, low-stakes, context-light interactions, its dominance encourages a ``log-as-interface'' paradigm in which context, constraints, and state are implicitly embedded in a sequential transcript. This substrate imposes interaction costs: users repeatedly reconstruct context through clarification loops, restatement, and verbose repair, while systems infer and overwrite constraints without stable governance. We argue that the central limitation is not model intelligence but interface substrate: chat logs are a brittle medium for sustained work. We propose a \textbf{context-first} alternative in which conversation functions as a routing layer that updates an explicit \textbf{Context Engine}---optionally represented as a knowledge graph---and triggers \textbf{context-conditioned modules} (forms, workflows, documents, maps, dashboards) that externalize state and accountability. We contribute (1) a context-first CUI architecture, (2) an eight-part pattern language for LLM interaction beyond chat, (3) a selection guide for when chat is sufficient versus when context-first modules are preferable, and (4) an evaluation agenda centered on state visibility, recovery cost, and provenance access rather than conversational naturalness. This provocation aims to broaden CUI design beyond turn-based dialogue as the primary container of work.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003120.10003121.10003122</concept_id>
+       <concept_desc>Human-centered computing~HCI design and evaluation methods</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10003120.10003121.10011748</concept_id>
+       <concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~HCI design and evaluation methods}
+\ccsdesc[300]{Human-centered computing~Empirical studies in HCI}
+
+\keywords{conversational user interfaces, LLM interaction, context engine, knowledge graphs, modular dashboards, design patterns, provenance, orchestration}
+
+\maketitle
+
+\section{Introduction}
+
+LLM-based systems have rapidly popularized chat as the default interface. The success of products like ChatGPT normalized a design assumption: if a system can understand language, the most ``natural'' interface is conversation. As a result, many LLM experiences replicate a familiar template---an input box, a transcript, and a stream of responses---regardless of whether the underlying task is conversational.
+
+Yet many real tasks are not naturally solved in a transcript. They are \textbf{artifact-centered} (editing a document), \textbf{stateful} (tracking dependencies and progress), \textbf{constraint-driven} (meeting requirements), or \textbf{accountability-sensitive} (where provenance and audit matter). In these settings, chat becomes a container that demands repeated context reconstruction and exposes users to hidden state changes \cite{shneiderman2022}. The issue is not that conversation is inherently flawed; it is that \textbf{chat logs} are a fragile substrate for sustained work.
+
+This paper makes a provocation: \textbf{conversation is not the interface; context is.} We argue that chat-first CUIs overfit to turn-based dialogue and underprovide mechanisms for externalizing and governing context. We propose a constructive alternative: \textbf{context-first CUIs} where conversation becomes a routing layer that updates explicit context and activates structured modules \cite{beaudouin2000}.
+
+We draw from practical exploration in public service contexts (e.g., workflow-heavy support roles) where the cost of misinterpretation is non-trivial. Our aim is not to replace chat, but to widen the CUI design space with a coherent vocabulary for alternatives.
+
+\textbf{Contributions.} We offer:
+\begin{enumerate}
+    \item A \textbf{context-first CUI architecture} (conversation-as-router, not workspace).
+    \item An \textbf{LLM interaction pattern language} beyond chat (8 patterns).
+    \item A \textbf{selection guide} for when chat is sufficient vs when context-first modules are preferable.
+    \item An \textbf{evaluation agenda} for CUIs that prioritizes state visibility, recovery cost, and provenance.
+\end{enumerate}
+
+\section{The Problem Is Substrate: Chat Logs as a Brittle Workspace}
+
+Chat-first designs treat the transcript as the primary place where work happens: users state goals, constraints, preferences, and artifacts in text; the system responds with text; the resulting ``state'' is scattered across turns. This creates predictable breakdowns in sustained tasks:
+
+\subsection{Context reconstruction costs}
+Users repeatedly restate constraints (``to clarify\dots'', ``remember that\dots'', ``keep it under X words\dots'') because constraints are not persistently visible or enforceable. Rather than interacting with stable state, users engage in \textbf{repair-by-language}.
+
+\subsection{Hidden state and ambiguous commitments}
+Chat interfaces make it unclear what the system has ``decided'' versus what it has ``suggested.'' In multi-step tasks, a model's output can silently override earlier constraints, or treat tentative inferences as fixed. Without a commitment mechanism, users must police the system through more talk.
+
+\subsection{Sequential overloading}
+A transcript is linear, but many tasks are parallel. Planning, editing, comparing options, tracking dependencies, and referencing external artifacts are difficult when everything is represented as time-ordered messages \cite{norman1991}.
+
+\subsection{Motor and cognitive burden}
+Typing and phrasing intent is often higher friction than selection or direct manipulation, especially when the system could have offered structured affordances. Chat ``feels'' natural while imposing \textbf{unnecessary work}.
+
+\textbf{Claim.} These issues arise not primarily from insufficient model intelligence, but from using a transcript as the main substrate for representing context and state.
+
+\section{Proposal: Context-First CUIs}
+
+We propose shifting the design center from turn-based dialogue to \textbf{explicit context management}. In this approach, conversation is used to \textit{update context} and \textit{trigger actions}, while the interface represents context and work state in structured modules.
+
+\subsection{Context Engine}
+A \textbf{Context Engine} is a mechanism that maintains an explicit model of ``what matters right now.'' It can be implemented minimally (context variables) or richly (a knowledge graph), but it must support four operations:
+\begin{enumerate}
+    \item \textbf{Capture}: extract or accept goals, constraints, preferences, artifacts, roles
+    \item \textbf{Activate}: determine which context is currently relevant (with weights)
+    \item \textbf{Route}: select modules/actions based on active context
+    \item \textbf{Commit}: govern what becomes persistent vs remains speculative; attach provenance
+\end{enumerate}
+This turns interaction from ``keep talking until the model gets it'' into ``inspect and update context, then act.''
+
+\subsection{Modular workspace as the interface surface}
+Context-first CUIs are typically expressed through \textbf{modules} (e.g., draft editor, outline, constraints panel, workflow checklist, evidence/provenance view). Modules externalize state: users see what the system believes and can correct it without argument-by-text.
+
+\begin{quote}
+\textbf{Design principle:} Stop talking to reconstruct state; start interacting with state directly.
+\end{quote}
+
+% Figure 1 placeholder
+%\begin{figure}[h]
+%  \centering
+%  \bfseries [Figure 1: Context-first architecture pipeline: user utterance $\to$ context update $\to$ module routing $\to$ tool/action $\to$ provenance $\to$ context state]
+%  \caption{Context-First Architecture Pipeline}
+%  \label{fig:pipeline}
+%\end{figure}
+
+\section{A Pattern Language for LLM Interaction Beyond Chat}
+
+We propose eight design patterns that operationalize context-first CUIs. Each pattern is framed as: \textit{problem}, \textit{solution}, \textit{when to use}, \textit{risks}.
+
+\subsection{Pattern 1: Structured Capture (Forms $\to$ Prompt)}
+\textbf{Problem:} Users must translate variables into prose. \\
+\textbf{Solution:} Use forms, toggles, and selectors to capture structured inputs; generate prompts behind the scenes. \\
+\textbf{Use when:} tasks are constraint/slot-driven (requirements, profiles, eligibility). \\
+\textbf{Risk:} premature rigidity; mitigate via progressive disclosure.
+
+\subsection{Pattern 2: Structured Rendering (JSON $\to$ Components)}
+\textbf{Problem:} Long text responses obscure comparisons, plans, and decisions. \\
+\textbf{Solution:} Ask for structured outputs and render as UI components (tables/cards/checklists). \\
+\textbf{Use when:} outputs should be scannable, editable, and stateful. \\
+\textbf{Risk:} schema brittleness; mitigate with validation + editable fields.
+
+\subsection{Pattern 3: Context as First-Class UI (Context Panel / Chips)}
+\textbf{Problem:} Assumptions remain implicit, causing drift and re-asking. \\
+\textbf{Solution:} Display active context explicitly; allow pinning and editing. \\
+\textbf{Use when:} multi-turn tasks, recurring constraints. \\
+\textbf{Risk:} clutter; mitigate via context budgeting and grouping.
+
+\subsection{Pattern 4: Commit / Don't Commit (Context Governance)}
+\textbf{Problem:} Unclear what is ``true'' vs ``suggested.'' \\
+\textbf{Solution:} Separate speculative inferences from committed context; require user confirmation for high-stakes commitments. \\
+\textbf{Use when:} preferences/policies/profiles persist across sessions. \\
+\textbf{Risk:} friction; mitigate by gating only high-stakes changes.
+
+\subsection{Pattern 5: Tool-Orchestrated Workflows (Conversation-as-Orchestration)}
+\textbf{Problem:} Multi-step work is hard to track in a transcript. \\
+\textbf{Solution:} Make the workflow a first-class artifact; conversation triggers steps/tools. \\
+\textbf{Use when:} tasks involve dependencies, checkpoints, approvals \cite{horvitz1999}. \\
+\textbf{Risk:} reduced ``chat feel''; mitigate with chat as command palette + explanation layer.
+
+\subsection{Pattern 6: Document-First Interaction (Conversation-as-Annotation)}
+\textbf{Problem:} Many tasks are artifact-centered; chat divorces action from source. \\
+\textbf{Solution:} Place interaction over documents/data; annotate and apply changes in place. \\
+\textbf{Use when:} editing, review, compliance, synthesis with sources. \\
+\textbf{Risk:} tooling complexity; mitigate with minimal selection $\to$ suggestion $\to$ apply flow.
+
+\subsection{Pattern 7: Cheap Routing, Expensive Reasoning}
+\textbf{Problem:} Not every interaction needs full LLM inference; chat defaults to it. \\
+\textbf{Solution:} Use lightweight rules (keyword matching, heuristics) to propose context and relevant actions; invoke LLM after context stabilizes. \\
+\textbf{Use when:} repeated intents, triage, guardrailed flows. \\
+\textbf{Risk:} brittleness; mitigate with accumulation, decay, and user correction.
+
+\subsection{Pattern 8: Context Budget + Decay}
+\textbf{Problem:} Everything becomes ``relevant,'' making systems unpredictable. \\
+\textbf{Solution:} Limit active contexts; decay inferred contexts unless reinforced or pinned. \\
+\textbf{Use when:} long sessions, multi-domain workspaces. \\
+\textbf{Risk:} surprise decay; mitigate with visible decay states + pinning.
+
+% Figure 2 placeholder
+%\begin{figure}[h]
+%  \centering
+%  \bfseries [Figure 2: Pattern language overview with examples of modules each pattern tends to activate]
+%  \caption{Context-First Pattern Language}
+%  \label{fig:patterns}
+%\end{figure}
+
+\section{Selection Guide}
+
+This paper is not anti-chat. Chat is effective when context is light and the output is primarily linguistic.
+
+\subsection{Chat is sufficient when:}
+\begin{itemize}
+    \item the task is \textbf{short-lived} and \textbf{low-stakes}
+    \item context is \textbf{simple} and doesn't need persistence
+    \item outputs are primarily brainstorming or quick explanations
+    \item users do not need provenance or auditability
+\end{itemize}
+
+\subsection{Context-first modules are preferable when:}
+\begin{itemize}
+    \item the task is \textbf{multi-step}, \textbf{stateful}, or \textbf{constraint-heavy}
+    \item work is \textbf{artifact-centered} (documents, datasets, plans)
+    \item stakes require \textbf{accountability}, \textbf{provenance}, or \textbf{review}
+    \item users need explicit control over what is assumed vs committed
+\end{itemize}
+
+A practical shortcut is a 2$\times$2: \textbf{context complexity} (low$\to$high) $\times$ \textbf{persistence needed} (low$\to$high). Chat works best in low/low; context-first dominates high/high.
+
+% Figure 3 placeholder
+%\begin{figure}[h]
+%  \centering
+%  \bfseries [Figure 3: 2x2 Selection Matrix mapping interface choices to task types]
+%  \caption{Interface Selection Matrix}
+%  \label{fig:selection}
+%\end{figure}
+
+\section{Evaluation Agenda: Beyond ``Naturalness''}
+
+If CUIs move beyond chat as the primary container, evaluation should also shift. We propose measuring:
+\begin{itemize}
+    \item \textbf{Recap frequency:} how often users restate constraints/context
+    \item \textbf{Clarification loops:} turns required to stabilize scope and constraints
+    \item \textbf{State visibility:} can users answer ``what's the current plan?'' without asking
+    \item \textbf{Error recovery cost:} effort to correct wrong assumptions
+    \item \textbf{Provenance access:} ability to trace why a suggestion exists
+    \item \textbf{Commit clarity:} separation of tentative vs persistent context
+    \item \textbf{Agency clarity:} who/what can execute actions, and under what constraints
+\end{itemize}
+These metrics align with real-world work where the goal is not ``a good conversation'' but \textbf{reliable outcomes with understandable reasoning and controllable state}.
+
+\section{Discussion: Why This Matters for CUI}
+
+Chat-first design encourages a narrow interpretation of CUIs as ``dialogue systems in a textbox.'' Context-first CUIs reposition conversation as a coordination mechanism that configures structured work surfaces. This shift reframes core CUI concerns:
+\begin{itemize}
+    \item \textbf{Agency:} from ``LLM as conversational agent'' to ``user-governed context + routed actions''
+    \item \textbf{Identity and role:} from being performed in dialogue to being represented in permissions, provenance, and commitment flows
+    \item \textbf{Interaction:} from turn-taking as the unit to modules, artifacts, and state transitions as the unit
+\end{itemize}
+Rather than replacing dialogue, context-first design treats dialogue as one part of a broader interaction language---one that can be safer, less verbose, and more aligned with how work is actually done.
+
+\section{Conclusion}
+
+LLMs made chat feel inevitable. But inevitability is not a design argument. Chat logs are a brittle substrate for sustained work \cite{norman1991, shneiderman2022}: they hide state, increase context reconstruction costs, and blur what is committed versus inferred. We propose \textbf{context-first CUIs} where conversation becomes a routing layer that updates explicit context and activates structured modules. By providing a pattern language and a selection guide, we aim to broaden the CUI design space beyond ``more chat apps'' toward conversational systems that externalize state, reduce verbosity, and improve accountability.
+
+\bibliographystyle{ACM-Reference-Format}
+\begin{thebibliography}{9}
+
+\bibitem[Shneiderman(2022)]{shneiderman2022}
+Shneiderman, B. (2022).
+\newblock Human-Centered AI.
+\newblock \textit{Oxford University Press}.
+
+\bibitem[Beaudouin-Lafon(2000)]{beaudouin2000}
+Beaudouin-Lafon, M. (2000).
+\newblock Instrumental interaction: an interaction model for designing post-WIMP user interfaces.
+\newblock \textit{CHI '00}.
+
+\bibitem[Norman(1991)]{norman1991}
+Norman, D. A. (1991).
+\newblock Cognitive artifacts.
+\newblock \textit{Designing interaction: Psychology at the human-computer interface}.
+
+\bibitem[Horvitz(1999)]{horvitz1999}
+Horvitz, E. (1999).
+\newblock Principles of mixed-initiative user interfaces.
+\newblock \textit{CHI '99}.
+
+\bibitem[Bender et al.(2021)]{bender2021}
+Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021).
+\newblock On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?
+\newblock \textit{FAccT '21}.
+
+\end{thebibliography}
+
+\end{document}
