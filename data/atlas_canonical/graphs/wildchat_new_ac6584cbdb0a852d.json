@@ -1,0 +1,838 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_ac6584cbdb0a852d",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 16,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Fix the errors in the train_pong_ai script and ensure it runs correctly.",
+      "id": "conv_wildchat_new_ac6584cbdb0a852d"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 2312,
+      "content_preview": "Hello ChatGPT. I got this error in my train_pong_ai script in python: Traceback (most recent call last): File \"C:\\User",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 784,
+      "content_preview": "The error you're encountering is because you're trying to import `Paddle` from `pong_game`, but `Paddle` is not defined",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 24,
+      "content_preview": "So can you edit the code",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 2961,
+      "content_preview": "Sure, I'll make some assumptions and define the `Paddle` and `Ball` classes as well as the `get_obs` function for you. H",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 3194,
+      "content_preview": "My new train_pong_ai.py code is now: import pygame import numpy as np from stable_baselines3 import PPO from stable_base",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2811,
+      "content_preview": "The error you're encountering is because Stable Baselines 3 is expecting your `PongGame` to be an environment compatible",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 723,
+      "content_preview": "Traceback (most recent call last): File \"C:\\Users\\RSupreme4\\PycharmProjects\\pythonProjectAI\\train_pong_ai.py\", line 11",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 885,
+      "content_preview": "My apologies for the confusion. I made a mistake in the `observation_space` definition in the `PongGame` class. The `obs",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 53,
+      "content_preview": "What modules do I need to import for pong_game.py now",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 335,
+      "content_preview": "Here's the list of imports you need for the `pong_game.py` file, after the modifications I've suggested: ```python impo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 743,
+      "content_preview": "I am still getting: Traceback (most recent call last): File \"C:\\Users\\RSupreme4\\PycharmProjects\\pythonProjectAI\\train_",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 833,
+      "content_preview": "Apologies for the confusion earlier. It seems stable_baselines3's `check_env` function is designed to work directly with",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 66,
+      "content_preview": "But how would I use DummyVecEnv if I dont have the module imported",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 354,
+      "content_preview": "My apologies for overlooking that. Please add the following import statement at the beginning of your `train_pong_ai.py`",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 3445,
+      "content_preview": "I still have the same error, it is coming from the pong_game.py: import pygame from pygame.locals import * import gym fr",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 739,
+      "content_preview": "I see that your code is using single underscores in the `__init__` methods of your classes, which is causing issues. The",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_ac6584cbdb0a852d_15"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "et_obs\nImportError: cannot import name 'Paddle' from 'pong_game' (",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The error you're encountering is because you're trying to import `Paddle` from `...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The PongGame class must inherit from gym.Env.] The PongGame class does not inherit from",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The observation_space must be an instance of gym.spaces.Spac] The observation_space is not defined as ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The error you're encountering is because Stable Baselines 3 is expecting your `P...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "e observation space must inherit from gym.spaces\" + gym_spaces\nA",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "My apologies for the confusion. I made a mistake in the `observation_space` defi...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "What modules do I need to import for pong_game.py now",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Here's the list of imports you need for the `pong_game.py` file, after the modif...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "e observation space must inherit from gym.spaces\" + gym_spaces\nA",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Apologies for the confusion earlier. It seems stable_baselines3's `check_env` fu...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "My apologies for overlooking that. Please add the following import statement at...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I see that your code is using single underscores in the `__init__` methods of yo...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ac6584cbdb0a852d_15_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "The PongGame class must inherit from gym.Env.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          5,
+          "STATED"
+        ],
+        [
+          16,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 5,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 11,
+      "final_state": null,
+      "id": "c_wildchat_new_ac6584cbdb0a852d_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "The observation_space must be an instance of gym.spaces.Space.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          7,
+          "STATED"
+        ],
+        [
+          16,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 7,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 9,
+      "final_state": null,
+      "id": "c_wildchat_new_ac6584cbdb0a852d_c_1"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_ac6584cbdb0a852d_14"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_ac6584cbdb0a852d",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_15",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_0",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_0",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_0",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_1",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_1",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_1",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_2",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_2",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_3",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_4",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_4",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_5",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_5",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_5",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_6",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_6",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_6",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_7",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_7",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_7",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_8",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_8",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_8",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_9",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_9",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_9",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_10",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_10",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_10",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_11",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_11",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_11",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_12",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_12",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_13",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_13",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_13",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_14",
+      "target": "t_wildchat_new_ac6584cbdb0a852d_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_14",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ac6584cbdb0a852d_15",
+      "target": "m_wildchat_new_ac6584cbdb0a852d_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_ac6584cbdb0a852d_15",
+      "target": "mode_wildchat_new_ac6584cbdb0a852d_14",
+      "key": 0
+    }
+  ]
+}

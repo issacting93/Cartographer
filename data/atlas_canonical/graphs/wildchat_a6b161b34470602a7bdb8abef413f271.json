@@ -1,0 +1,291 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_a6b161b34470602a7bdb8abef413f271",
+      "source": "WildChat",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Calculate expected values for various scenarios involving dice rolls and probabilities.",
+      "id": "conv_wildchat_a6b161b34470602a7bdb8abef413f271"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 201,
+      "content_preview": "You have a special 12-sided die with the numbers 1-12 on it. Each has an equal chance of coming up. You decide to roll",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 566,
+      "content_preview": "Since each number has an equal chance of coming up, the probability of rolling a 7 on any given roll is 1/12. The expe",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 383,
+      "content_preview": "A street hustler has set up a game that you can already tell doesn't work in your favor. The game is as follows. You r",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 746,
+      "content_preview": "To calculate the expected value for the street hustler per game, we need to multiply each possible outcome by its corres",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 236,
+      "content_preview": "An engineering system has two independent processes that occur one right after the other. BOTH must be successful for t",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 643,
+      "content_preview": "To find the probability that the entire system will succeed, we need to calculate the probability of both independent pr",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_a6b161b34470602a7bdb8abef413f271_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Since each number has an equal chance of coming up, the probability of rolling a...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_a6b161b34470602a7bdb8abef413f271_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To calculate the expected value for the street hustler per game, we need to mult...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_a6b161b34470602a7bdb8abef413f271_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "er the other.  BOTH must be successful for the system to work.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_a6b161b34470602a7bdb8abef413f271_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To find the probability that the entire system will succeed, we need to calculat...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_a6b161b34470602a7bdb8abef413f271_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_a6b161b34470602a7bdb8abef413f271",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_0",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_0",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1",
+      "target": "m_wildchat_a6b161b34470602a7bdb8abef413f271_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_1",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3",
+      "target": "m_wildchat_a6b161b34470602a7bdb8abef413f271_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_3",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "target": "t_wildchat_a6b161b34470602a7bdb8abef413f271_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "target": "m_wildchat_a6b161b34470602a7bdb8abef413f271_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_5",
+      "target": "m_wildchat_a6b161b34470602a7bdb8abef413f271_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_a6b161b34470602a7bdb8abef413f271_5",
+      "target": "mode_wildchat_a6b161b34470602a7bdb8abef413f271_4",
+      "key": 0
+    }
+  ]
+}

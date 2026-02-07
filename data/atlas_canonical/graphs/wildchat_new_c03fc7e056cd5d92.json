@@ -1,0 +1,1163 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_c03fc7e056cd5d92",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 22,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Determine how to handle multiple child types in a C# method.",
+      "id": "conv_wildchat_new_c03fc7e056cd5d92"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 172,
+      "content_preview": "in c# how can I get the caller class to check if it is an specific type? Class A: public method() { if (GetType(cal",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 437,
+      "content_preview": "Unfortunately, you cannot directly access the caller object itself in C#. As an alternative, you may pass the caller obj",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 225,
+      "content_preview": "1. do c# has a performance hit for importing unused imports? 2. And what about importing the whole package instead of j",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 863,
+      "content_preview": "1. Yes, there can be a slight performance hit for importing unused imports in C#. This is because the compiler has to sp",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 498,
+      "content_preview": "I have this code: public Class Parent<T> public Class ChildA : Parent<Type1> public Class ChildB : Parent<Type2> pub",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1973,
+      "content_preview": "One way to achieve this is to modify the `FindParent` method in the `Utils` class (which is not shown in your code snipp",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 130,
+      "content_preview": "What if I want it to accept ANY amount of children? Is there an alternative to accept any Child of Parent<T> even not de",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 2468,
+      "content_preview": "If you want to accept any child of `Parent<T>` even if it is not explicitly defined yet, you can make use of reflection",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 310,
+      "content_preview": "perfect, now How can I know which type of children it is? I only want to pick one depending on which one it loads: Chi",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1619,
+      "content_preview": "To determine the type of the child object returned by the `FindParent` method in your `TextBox_Loaded` event handler, yo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 178,
+      "content_preview": "it gives me an error here: public static T FindParent<T>(DependencyObject dependencyObject) where T : DependencyObject",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2130,
+      "content_preview": "I apologize for the error in my previous response. You are correct that it is not possible to use `object` as a type par",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 117,
+      "content_preview": "I cant use this: public class ChildA : Parent<Type1>, MyChildBaseClass { \u2026 }, as c# doesn't have multiple inheritance",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1822,
+      "content_preview": "You are correct, my apologies for the confusion. C# does not support multiple inheritance, so you cannot inherit from bo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 184,
+      "content_preview": "Can I add both DependencyObject and IMyChildInterface at the same time in the where T part? public static T FindParent<",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 1395,
+      "content_preview": "Yes, it is possible to include both `DependencyObject` and `IMyChildInterface` in the `where` clause of the `FindParent`",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 144,
+      "content_preview": "Does this where T : DependencyObject, IMyChildInterface, means DependencyObject AND IMyChildInterface, or DependencyObje",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 686,
+      "content_preview": "The `where T : DependencyObject, IMyChildInterface` constraint means that `T` must inherit from `DependencyObject` and i",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_17"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 18,
+      "role": "user",
+      "content_length": 62,
+      "content_preview": "How can change it to be DependencyObject OR IMyChildInterface?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_18"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 19,
+      "role": "assistant",
+      "content_length": 1544,
+      "content_preview": "To change the constraint to allow either `DependencyObject` or `IMyChildInterface`, you can make use of the `class` cons",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_19"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 20,
+      "role": "user",
+      "content_length": 499,
+      "content_preview": "The code is now like this: IMyChildInterface dataGrid = Utils.FindParent<IMyChildInterface>(textBox); if (d",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_20"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 21,
+      "role": "assistant",
+      "content_length": 320,
+      "content_preview": "Based on the code snippet you provided, it appears that `IMyChildInterface` does not have a property named `TextBoxes` o",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c03fc7e056cd5d92_21"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The response does not mention the requir",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "1. Yes, there can be a slight performance hit for importing unused imports in C#...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The FindParent method does not accept a ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The response does not ensure that the ty",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "?\n\nI only want to pick one depending on which one it loads:\n\nChildA dataGridA",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "children it is?\n\nI only want to pick one depending on which one",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_8_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "dren it is?\n\nI only want to pick one depending on which one it load",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_8_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The FindParent method is called with a t",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "says: Type \"object\" can't be used in as a type T param",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The response suggests using 'MyBaseClass",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The FindParent method does not accept a ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, it is possible to include both `DependencyObject` and `IMyChildInterface` i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The `where T : DependencyObject, IMyChildInterface` constraint means that `T` mu...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The FindParent method must accept a type parameter that is b] The response suggests modifying the cons",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Based on the code snippet you provided, it appears that `IMyChildInterface` does...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c03fc7e056cd5d92_21_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "The FindParent method must accept a type parameter that is both a DependencyObject and implements IMyChildInterface.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          12,
+          "STATED"
+        ],
+        [
+          13,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 12,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_wildchat_new_c03fc7e056cd5d92_c_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 13,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_c03fc7e056cd5d92_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_16"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 18,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_18"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 20,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_c03fc7e056cd5d92_20"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c03fc7e056cd5d92_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c03fc7e056cd5d92_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 14,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c03fc7e056cd5d92_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 16,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_c03fc7e056cd5d92_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 18,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_18",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 19,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_19",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 20,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_20",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 21,
+      "source": "conv_wildchat_new_c03fc7e056cd5d92",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_21",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_0",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_0",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_1",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_1",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_1",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_2",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_2",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_3",
+      "target": "v_wildchat_new_c03fc7e056cd5d92_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_4",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_4",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_5",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_5",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_5",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_6",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_6",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_7",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_7",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_7",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_8_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_8_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_8",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_9",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_9",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_9",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_10",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_10",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_10",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_11",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_11",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_11",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_12",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_12",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "target": "v_wildchat_new_c03fc7e056cd5d92_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_12",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_13",
+      "target": "v_wildchat_new_c03fc7e056cd5d92_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_14",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_14",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_14",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_15",
+      "target": "v_wildchat_new_c03fc7e056cd5d92_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_16",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_16",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 18,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_16",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_17",
+      "target": "v_wildchat_new_c03fc7e056cd5d92_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 19,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_18",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_19",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_18",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 20,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_19",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_19",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_19",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 21,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_20",
+      "target": "t_wildchat_new_c03fc7e056cd5d92_21",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_20",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c03fc7e056cd5d92_21",
+      "target": "m_wildchat_new_c03fc7e056cd5d92_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c03fc7e056cd5d92_21",
+      "target": "mode_wildchat_new_c03fc7e056cd5d92_20",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 13,
+      "source": "v_wildchat_new_c03fc7e056cd5d92_0",
+      "target": "c_wildchat_new_c03fc7e056cd5d92_c_0",
+      "key": 0
+    }
+  ]
+}

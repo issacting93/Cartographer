@@ -4,89 +4,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Cartography Explorer</title>
+    <title>Atlas Graph Explorer</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="file_list.js"></script>
-    <link href="bloom.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-        /* Local overrides if necessary */
-        #drop-zone {
-            border: 2px dashed var(--gray);
-            padding: 32px;
+        :root {
+            --bg: #0f172a;
+            --panel: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --turn: #60a5fa;
+            --move: #4ade80;
+            --constraint: #c084fc;
+            --violation: #f87171;
+            --conversation: #fbbf24;
+            --mode: #2dd4bf;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        #left-panel {
+            width: 280px;
+            background: var(--panel);
+            border-right: 1px solid #334155;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        #center-panel {
+            flex-grow: 1;
+            position: relative;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        #right-panel {
+            width: 320px;
+            background: var(--panel);
+            border-left: 1px solid #334155;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--accent);
             text-align: center;
-            border-radius: 20px;
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        #drop-zone {
+            border: 2px dashed #475569;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            background: white;
-            color: var(--text-dim);
-            font-size: 13px;
         }
 
         #drop-zone:hover {
-            border-color: var(--yellow);
-            background: var(--bg-subtle);
-            transform: scale(1.02);
+            border-color: var(--accent);
+            background: #334155;
         }
 
-        /* Timeline specific */
-        .timeline-bar {
-            background: var(--gray);
+        #file-selector-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+        }
+
+        #file-search {
+            width: 100%;
+            padding: 8px;
+            background: #1e293b;
+            border: 1px solid #475569;
             border-radius: 4px;
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+
+        #load-btn {
+            padding: 8px;
+            background: var(--accent);
+            border: none;
+            border-radius: 4px;
+            color: var(--bg);
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        #load-btn:hover {
+            opacity: 0.9;
+        }
+
+        .panel-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .panel-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .node-info {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #334155;
+        }
+
+        .node-info h3 {
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+        }
+
+        .node-info pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .links line {
+            stroke-opacity: 0.3;
+            stroke-width: 1.5px;
+        }
+
+        .nodes circle {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .labels {
+            font-size: 10px;
+            pointer-events: none;
+            fill: #94a3b8;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 20;
+        }
+
+        /* Summary Stats Bar */
+        #summary-stats {
+            display: none;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.8rem;
+        }
+
+        #summary-stats h3 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+            font-size: 0.85rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 4px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 0;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+        }
+
+        .stat-value {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .stat-value.warn {
+            color: var(--violation);
+        }
+
+        .stat-value.good {
+            color: #4ade80;
+        }
+
+        /* Constraint Timeline */
+        #constraint-timeline {
+            display: none;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.75rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #constraint-timeline h3 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+            font-size: 0.85rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 4px;
+        }
+
+        .timeline-row {
+            margin-bottom: 6px;
+        }
+
+        .timeline-label {
+            color: #94a3b8;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .timeline-bar {
+            display: flex;
+            height: 14px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: #1e293b;
         }
 
         .timeline-seg {
-            color: transparent;
-            /* Hide text in small segments */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .timeline-seg:hover {
-            opacity: 0.8;
+        .seg-stated {
+            background: #475569;
         }
 
         .seg-active {
-            background: var(--yellow);
+            background: var(--constraint);
         }
 
         .seg-violated {
-            background: var(--orange);
+            background: var(--violation);
         }
 
         .seg-survived {
-            background: var(--green);
+            background: #4ade80;
         }
 
-        /* Chat Bubbles override for Light Mode */
+        /* Edge Legend */
+        .edge-legend {
+            font-size: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #334155;
+        }
+
+        .edge-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .edge-swatch {
+            width: 20px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        /* Smart Inspector Styles */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .badge-green {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+        }
+
+        .badge-red {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.4);
+        }
+
+        .badge-blue {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        .badge-amber {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+
         .chat-bubble {
-            background: white;
-            border: 1px solid var(--gray);
-            color: var(--text);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+            position: relative;
         }
 
         .chat-bubble.user {
-            border-left-color: var(--black);
+            border-left: 3px solid #60a5fa;
         }
 
         .chat-bubble.model {
-            border-left-color: var(--yellow);
+            border-left: 3px solid #4ade80;
         }
 
         .code-block {
-            background: var(--bg-subtle);
-            color: var(--text);
-            border: 1px solid var(--gray);
+            background: #0f172a;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            white-space: pre-wrap;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="left-panel" class="panel">
-        <div class="guide-header"
-            style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--gray);">
-            <h1>BLOOM Explorer</h1>
-            <p style="font-size: 12px; color: var(--text-dim);">Interactional Cartography v2.0</p>
-        </div>
+    <div id="left-panel">
+        <h1>Atlas Explorer</h1>
 
         <div class="panel-section">
             <div class="panel-title">Data Source</div>
@@ -96,43 +436,71 @@
                 <input type="file" id="file-input" style="display: none" accept=".json">
             </div>
 
+            <div class="search-box">
+                <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 0.9rem; color: #94a3b8;">Load Graph A (Left)
+                </h3>
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" id="file-search-left" list="file-list" placeholder="Search..."
+                        style="flex-grow: 1; background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px; border-radius: 4px;">
+                    <button id="load-btn-left" class="btn">Load</button>
+                </div>
+                <datalist id="file-list">
+                    <!-- Populated by JS -->
+                </datalist>
+            </div>
 
-            <div id="file-selector-container">
-                <input type="text" id="file-search" list="file-list" placeholder="Search conversations...">
-                <datalist id="file-list"></datalist>
-                <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
-                    <button id="load-btn" class="btn btn-primary">
-                        <span class="material-symbols-rounded">play_arrow</span> Load
-                    </button>
+            <div class="search-box" style="margin-top: 15px;">
+                <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 0.9rem; color: #94a3b8;">Load Graph B (Right)
+                </h3>
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" id="file-search-right" list="file-list" placeholder="Search..."
+                        style="flex-grow: 1; background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px; border-radius: 4px;">
+                    <button id="load-btn-right" class="btn">Load</button>
                 </div>
             </div>
 
             <div id="controls">
-                <button id="toggle-layout" class="btn btn-secondary">Switch to Timeline Mode</button>
+                <button id="toggle-layout">Switch to Timeline Mode</button>
             </div>
         </div>
 
         <div class="legend panel-section">
-            <div class="panel-title">Filters</div>
-            <div id="filter-legend" class="legend">
-                <label class="pill pill-black">
-                    <input type="checkbox" checked data-type="Conversation" class="filter-cb" style="display:none">
-                    <span class="material-symbols-rounded">hub</span> Conversation
-                </label>
-                <!-- Other filters can be pills or list items, keeping simple for now -->
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--black)"></span> Conversation
-                </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--yellow)"></span> Turn
-                </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--orange)"></span> Constraint
-                </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--green)"></span> Move
-                </div>
+            <div class="panel-title">View Controls</div>
+
+
+            <div class="panel-title">Filter Nodes</div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Conversation" class="filter-cb">
+                <div class="dot" style="background: var(--conversation)"></div>
+                Conversation
             </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Turn" class="filter-cb">
+                <div class="dot" style="background: var(--turn)"></div>
+                Turn
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Move" class="filter-cb">
+                <div class="dot" style="background: var(--move)"></div>
+                Move
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Constraint" class="filter-cb">
+                <div class="dot" style="background: var(--constraint)"></div>
+                Constraint
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="ViolationEvent" class="filter-cb">
+                <div class="dot" style="background: var(--violation)"></div>
+                Violation Event
+            </div>
+
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="InteractionMode" class="filter-cb">
+                <div class="dot" style="background: var(--mode)"></div>
+                Interaction Mode
+            </div>
+
             <div class="panel-title" style="margin-top: 10px;">Edge Key</div>
             <div class="edge-legend">
                 <div class="edge-legend-item">
@@ -157,12 +525,24 @@
         </div>
     </div>
 
-    <div id="center-panel">
+    <div id="center-panel" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #334155;">
+        <div style="background: var(--bg); position: relative;">
+            <div
+                style="position: absolute; top: 10px; left: 10px; background: rgba(15, 23, 42, 0.8); padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; color: #94a3b8; pointer-events: none;">
+                Graph A</div>
+            <svg id="viz-left"></svg>
+        </div>
+        <div style="background: var(--bg); position: relative;">
+            <div
+                style="position: absolute; top: 10px; left: 10px; background: rgba(15, 23, 42, 0.8); padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; color: #94a3b8; pointer-events: none;">
+                Graph B</div>
+            <svg id="viz-right"></svg>
+        </div>
+        <!-- Shared Tooltip -->
         <div class="tooltip" id="tooltip"></div>
-        <svg id="viz"></svg>
     </div>
 
-    <div id="right-panel" class="panel">
+    <div id="right-panel">
         <!-- Summary Stats Bar (shown after graph load) -->
         <div id="summary-stats" class="panel-section">
             <div class="panel-title">Conversation Summary</div>
@@ -207,14 +587,14 @@
     </div>
 
     <script>
-        let mode = 'force'; // 'force', 'timeline', 'cluster'
+        let mode = 'force'; // 'force' or 'timeline'
         const colors = {
-            "Conversation": "var(--black)",
-            "Turn": "var(--yellow)",
-            "Move": "var(--green)",
-            "Constraint": "var(--orange)",
-            "ViolationEvent": "#e85a3c", // Orange
-            "InteractionMode": "#e5e5e5" // Gray
+            "Conversation": "var(--conversation)",
+            "Turn": "var(--turn)",
+            "Move": "var(--move)",
+            "Constraint": "var(--constraint)",
+            "ViolationEvent": "var(--violation)",
+            "InteractionMode": "var(--mode)"
         };
 
         const dropZone = d3.select("#drop-zone");
@@ -227,28 +607,18 @@
         const filterCBs = d3.selectAll(".filter-cb");
 
         let activeTypes = new Set(["Conversation", "Turn", "Move", "Constraint", "ViolationEvent", "InteractionMode"]);
-
-        // Check for file query param
-        const urlParams = new URLSearchParams(window.location.search);
-        const autoLoadFile = urlParams.get('file');
-
-        if (autoLoadFile) {
-            // Simulate loading
-            setTimeout(() => {
-                document.getElementById('file-search').value = autoLoadFile;
-                document.getElementById('load-btn').click();
-            }, 500);
-        }
+        // mode is already declared above
 
         filterCBs.on("change", function () {
             const type = d3.select(this).attr("data-type");
             if (this.checked) activeTypes.add(type);
             else activeTypes.delete(type);
+            if (mode === 'atlas') return; // Filters don't apply to Atlas
             if (currentData) renderGraph(currentData);
         });
 
         toggleBtn.on("click", () => {
-            // Cycle Graph Modes
+            // Cycle: force -> timeline -> cluster -> force
             if (mode === 'force') mode = 'timeline';
             else if (mode === 'timeline') mode = 'cluster';
             else mode = 'force';
@@ -259,8 +629,10 @@
             if (mode === 'cluster') label = "Switch to Force Mode";
 
             toggleBtn.text(label);
-            if (currentData) renderGraph(currentData);
+            if (leftData) renderGraph(leftData, "#viz-left");
+            if (rightData) renderGraph(rightData, "#viz-right");
         });
+
 
         dropZone.on("click", () => fileInput.node().click());
         fileInput.on("change", (event) => {
@@ -281,61 +653,63 @@
         });
 
         // File Selector Logic
-        const fileSearch = document.getElementById('file-search');
+        const fileSearchLeft = document.getElementById('file-search-left');
+        const loadBtnLeft = document.getElementById('load-btn-left');
+        const fileSearchRight = document.getElementById('file-search-right');
+        const loadBtnRight = document.getElementById('load-btn-right');
         const fileList = document.getElementById('file-list');
-        const loadBtn = document.getElementById('load-btn');
 
-        // Populate file list from the generated list
-        // const files = ... is now loaded from file_list.js
-
+        // Populate file list
         files.forEach(f => {
             const option = document.createElement('option');
             option.value = f;
             fileList.appendChild(option);
         });
 
-        loadBtn.addEventListener('click', async () => {
-            const filename = fileSearch.value;
-            if (!filename) return;
+        // Load Handlers
+        loadBtnLeft.addEventListener('click', () => loadGraph(fileSearchLeft.value, 'left'));
+        loadBtnRight.addEventListener('click', () => loadGraph(fileSearchRight.value, 'right'));
 
+        async function loadGraph(filename, side) {
+            if (!filename) return;
             try {
-                // Adjusting path to fetch from relative graphs directory
                 const response = await fetch(`../../data/atlas_canonical/graphs/${filename}`);
                 if (!response.ok) throw new Error("File not found");
                 const data = await response.json();
-                processData(data);
+                processData(data, side);
             } catch (err) {
                 alert(`Error loading ${filename}: ${err.message}`);
-                console.error(err);
             }
-        });
-
-        function processData(data) {
-            currentData = data;
-            const stats = computeSummary(currentData);
-            renderSummary(stats);
-            renderConstraintTimeline(stats);
-            renderGraph(currentData);
         }
 
-        document.addEventListener("dragover", e => e.preventDefault());
-        document.addEventListener("drop", e => {
-            e.preventDefault();
-            const file = e.dataTransfer.files[0];
+        // Drop Zone (defaults to Left)
+        dropZone.on("click", () => fileInput.node().click());
+        fileInput.on("change", (event) => {
+            const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        processData(data);
-                    } catch (err) {
-                        alert("Error processing dropped file: " + err.message);
-                        console.error(err);
-                    }
-                };
+                reader.onload = (e) => processData(JSON.parse(e.target.result), 'left');
                 reader.readAsText(file);
             }
         });
+
+        // State
+        let leftData = null;
+        let rightData = null;
+
+        function processData(data, side) {
+            if (side === 'left') {
+                leftData = data;
+                renderGraph(data, "#viz-left");
+                // Update summary based on Left for now, or maybe clicked?
+                const stats = computeSummary(data);
+                renderSummary(stats);
+                renderConstraintTimeline(stats);
+            } else {
+                rightData = data;
+                renderGraph(data, "#viz-right");
+            }
+        }
 
         let currentData = null;
 
@@ -712,17 +1086,16 @@
             // Node background circle
             node.append("circle")
                 .attr("r", d => d.node_type === "Conversation" ? 16 : 12)
-                .attr("fill", d => colors[d.node_type] || "var(--gray)")
-                .attr("stroke", "#ffffff")
-                .attr("stroke-width", 2)
-                .attr("class", d => d.node_type === "Conversation" ? "node-filled" : "node-filled");
+                .attr("fill", d => colors[d.node_type] || "#94a3b8")
+                .attr("stroke", "#fff")
+                .attr("stroke-width", 2);
 
             // Material Icon
             node.append("text")
-                .attr("class", "material-symbols-rounded")
+                .attr("class", "material-symbols-outlined")
                 .attr("text-anchor", "middle")
                 .attr("dominant-baseline", "central")
-                .attr("fill", d => d.node_type === "Turn" ? "var(--black)" : "#ffffff")
+                .attr("fill", "#fff")
                 .attr("font-size", d => d.node_type === "Conversation" ? "20px" : "16px")
                 .style("font-weight", "bold")
                 .style("pointer-events", "none") // Let clicks pass to the group
@@ -774,7 +1147,100 @@
             });
         }
 
+        async function loadAtlas() {
+            try {
+                const response = await fetch("../../data/atlas_canonical/meta_graph.json");
+                if (!response.ok) throw new Error("Meta-graph not found");
+                const data = await response.json();
+                renderAtlas(data);
+            } catch (err) {
+                alert("Could not load Atlas: " + err.message);
+            }
+        }
 
+        function renderGraph(data, containerId) {
+            const svg = d3.select(containerId);
+            svg.selectAll("*").remove(); // Clear previous
+
+            // Get dimensions of the specific container
+            const containerEl = document.querySelector(containerId).parentElement;
+            const width = containerEl.clientWidth;
+            const height = containerEl.clientHeight;
+
+            const container = svg.append("g");
+
+            // Meta-Graph uses a weaker force for the "galaxy" effect
+            const simulation = d3.forceSimulation(data.nodes)
+                .force("link", d3.forceLink(data.links).id(d => d.id).distance(120)) // Relaxed
+                .force("charge", d3.forceManyBody().strength(-80)) // Stronger repulsion
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collide", d3.forceCollide(6));
+
+            // Edges (Weak links)
+            const link = container.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(data.links)
+                .enter().append("line")
+                .attr("stroke", "#475569")
+                .attr("stroke-width", 1)
+                .attr("stroke-opacity", 0.3);
+
+            // Nodes (Conversations)
+            const node = container.append("g")
+                .attr("class", "nodes")
+                .selectAll("g.atlas-node")
+                .data(data.nodes)
+                .enter().append("g")
+                .attr("class", "atlas-node")
+                .attr("cursor", "pointer")
+                .call(drag(simulation))
+                .on("click", (event, d) => {
+                    // Load the specific graph
+                    event.stopPropagation();
+                    document.getElementById('file-search').value = d.filename;
+                    document.getElementById('load-btn').click();
+                    // Switch interface back to graph mode
+                    d3.select("#toggle-atlas").dispatch("click");
+                });
+
+            node.append("circle")
+                .attr("r", 4)
+                .attr("fill", d => {
+                    const stabilityColors = {
+                        "Task Maintained": "#4ade80", // Green
+                        "Constraint Drift": "#facc15", // Yellow
+                        "Task Shift": "#fb923c", // Orange
+                        "Agency Collapse": "#f87171", // Red
+                        "No Constraints": "#94a3b8" // Slate
+                    };
+                    return stabilityColors[d.stability] || "#94a3b8";
+                })
+                .attr("stroke", "none");
+
+            // Simple tooltip for Atlas
+            node.append("title")
+                .text(d => `${d.id}\nSource: ${d.source}\nConstraints: ${d.constraint_count}`);
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+
+            // Re-apply zoom
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", (event) => {
+                    container.attr("transform", event.transform);
+                });
+            svg.call(zoom);
+        }
 
         function showMetadata(d) {
             metadataPanel.style("display", "block");

@@ -1,0 +1,315 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0090",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "No Constraints",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Understand the relationship between quantum field theory, string theory, and critical race theory.",
+      "id": "conv_chatbot_arena_0090"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 35,
+      "content_preview": "Tell me about quantum field theory.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1804,
+      "content_preview": "Quantum Field Theory (QFT) is a theoretical framework used in particle physics and theoretical physics to explain the be",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 35,
+      "content_preview": "How is it related to string theory?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1542,
+      "content_preview": "String theory is a theoretical framework that attempts to unify quantum field theory and general relativity, the two pil",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 59,
+      "content_preview": "Can you apply these ideas to studying critical race theory?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1625,
+      "content_preview": "While quantum field theory and string theory are primarily theoretical frameworks used in particle physics and theoretic",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0090_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Quantum Field Theory (QFT) is a theoretical framework used in particle physics a...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0090_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "String theory is a theoretical framework that attempts to unify quantum field th...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0090_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "While quantum field theory and string theory are primarily theoretical framework...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0090_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0090_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0090_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0090_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_chatbot_arena_0090_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_chatbot_arena_0090_1"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0090",
+      "target": "t_chatbot_arena_0090_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0090_0",
+      "target": "t_chatbot_arena_0090_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_0",
+      "target": "mode_chatbot_arena_0090_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0090_1",
+      "target": "t_chatbot_arena_0090_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0090_1",
+      "target": "m_chatbot_arena_0090_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_1",
+      "target": "mode_chatbot_arena_0090_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0090_1",
+      "target": "v_chatbot_arena_0090_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0090_2",
+      "target": "t_chatbot_arena_0090_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_2",
+      "target": "mode_chatbot_arena_0090_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0090_3",
+      "target": "t_chatbot_arena_0090_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0090_3",
+      "target": "m_chatbot_arena_0090_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_3",
+      "target": "mode_chatbot_arena_0090_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0090_3",
+      "target": "v_chatbot_arena_0090_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0090_4",
+      "target": "t_chatbot_arena_0090_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_4",
+      "target": "mode_chatbot_arena_0090_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0090_5",
+      "target": "m_chatbot_arena_0090_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0090_5",
+      "target": "mode_chatbot_arena_0090_4",
+      "key": 0
+    }
+  ]
+}

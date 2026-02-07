@@ -1,0 +1,1135 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_0f1ebe84acaad73c",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 22,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Fix errors in R code related to survival analysis and clarify the calculation of additional survival time.",
+      "id": "conv_wildchat_new_0f1ebe84acaad73c"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 2919,
+      "content_preview": "what does below R software code try to tell? remove(list=ls()) # Load the required package library(survival) set.seed(",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1436,
+      "content_preview": "The R code aims to create a simulation to estimate the additional survival time for patients using the Cox Proportional",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 482,
+      "content_preview": "below error is reported when running the code, can you please help fix? > for (i in 1:nrow(alive_data)) { + start_tim",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 915,
+      "content_preview": "It seems that there is an issue with the `conditional_surv_probs_single_point` list while accessing it with index `i`. B",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 2896,
+      "content_preview": "Here are the full code, please help fix: # Load the required package library(survival) set.seed(42) # Generate the sam",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 3664,
+      "content_preview": "I discovered an index mismatch issue in the code that's causing the error. The issue is that the loop iterating through",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 156,
+      "content_preview": "why are the additional time saved in additional_survival_time_updated_wa_conditional so larger than the original time in",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1348,
+      "content_preview": "The additional survival times in the `additional_survival_time_updated_wa_conditional` data frame are larger than the or",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 109,
+      "content_preview": "there are even negative value for additional survival time, that does not make sense. Please revise the code.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1965,
+      "content_preview": "You are correct, negative additional survival times do not make sense, as they represent an impossible scenario. The iss",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 266,
+      "content_preview": "I don't quite understand the weight process, why only survival probability at a single time point is considered? Shouldn",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 1660,
+      "content_preview": "You are right; the cumulative survival probability can also be considered for estimating the additional survival time fo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 516,
+      "content_preview": "the cumulative process should start after current time which has already been observed, for example, for patient A, the",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 2032,
+      "content_preview": "I understand your point now, and you are right. The cumulative probabilities should be considered after the current obse",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 37,
+      "content_preview": "can you please provide the full code?",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 3375,
+      "content_preview": "Certainly! Here's the full revised code, along with the modifications to consider the cumulative probabilities after the",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 101,
+      "content_preview": "the values returned for additional_survival_time_updated_wa_conditional are all 'NaN', please revise.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 4056,
+      "content_preview": "Apologies for the confusion. After revisiting the code, I discovered that the `cumulative_surv_prob_after_current` funct",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_17"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 18,
+      "role": "user",
+      "content_length": 86,
+      "content_preview": "all values are '0' for additional_survival_time_updated_wa_conditional, please revise.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_18"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 19,
+      "role": "assistant",
+      "content_length": 5192,
+      "content_preview": "I apologize for the confusion earlier. Let's carefully revise the cumulative probability calculation and modify the weig",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_19"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 20,
+      "role": "user",
+      "content_length": 163,
+      "content_preview": "there are still a lot 'NA' returned in additional_survival_time_updated_wa_conditional, Please carefully review the full",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_20"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 21,
+      "role": "assistant",
+      "content_length": 1225,
+      "content_preview": "After revisiting the code and carefully reviewing it, I noticed some issues when calculating the cumulative survival pro",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0f1ebe84acaad73c_21"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "for alive patients only\nalive_data <- simData[simData[[\"status\"",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The R code aims to create a simulation to estimate the additional survival time...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "It seems that there is an issue with the `conditional_surv_probs_single_point` l...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "for alive patients only\nalive_data <- simData[simData[[\"status\"",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I discovered an index mismatch issue in the code that's causing the error. The i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The additional survival times in the `additional_survival_time_updated_wa_condit...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You are correct, negative additional survival times do not make sense, as they r...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "weight process, why only survival probability at a single time p",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You are right; the cumulative survival probability can also be considered for es...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "I understand your point now, and you are right. The cumul",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Certainly! Here's the full revised code, along with the modifications to conside...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Apologies for the confusion. After revisiting the code, I discovered that the `c...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion earlier. Let's carefully revise the cumulative pro...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "After revisiting the code and carefully reviewing it, I noticed some issues when...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0f1ebe84acaad73c_21_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_16"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 18,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_18"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 20,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0f1ebe84acaad73c_20"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_0f1ebe84acaad73c_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_0f1ebe84acaad73c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 8,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_0f1ebe84acaad73c_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_0f1ebe84acaad73c_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 20,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_0f1ebe84acaad73c_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_17",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 18,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_18",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 19,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_19",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 20,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_20",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 21,
+      "source": "conv_wildchat_new_0f1ebe84acaad73c",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_21",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_0",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_0",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_0",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_1",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_1",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_1",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_2",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_2",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_3",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_3",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_3",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_4",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_4",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_4",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_5",
+      "target": "v_wildchat_new_0f1ebe84acaad73c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_6",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_6",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_6",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_7",
+      "target": "v_wildchat_new_0f1ebe84acaad73c_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_8",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_8",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_8",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_9",
+      "target": "v_wildchat_new_0f1ebe84acaad73c_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_10",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_10",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_10",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_10",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_11",
+      "target": "v_wildchat_new_0f1ebe84acaad73c_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_12",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_12",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_13",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_13",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_13",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_14",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_14",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_14_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_14",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_15",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_15",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_15",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_16",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_17",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_16",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 18,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_17",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_17",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_17",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 19,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_18",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_19",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_18",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 20,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_19",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_19",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_19",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 21,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_20",
+      "target": "t_wildchat_new_0f1ebe84acaad73c_21",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_20",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0f1ebe84acaad73c_21",
+      "target": "m_wildchat_new_0f1ebe84acaad73c_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_21",
+      "target": "mode_wildchat_new_0f1ebe84acaad73c_20",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0f1ebe84acaad73c_21",
+      "target": "v_wildchat_new_0f1ebe84acaad73c_4",
+      "key": 0
+    }
+  ]
+}

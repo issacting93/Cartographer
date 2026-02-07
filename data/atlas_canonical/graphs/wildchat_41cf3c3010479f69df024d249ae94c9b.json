@@ -1,0 +1,387 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 6,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Strict",
+      "task_goal": "Create a new feature 'confirmed_per_hundred' and build a heatmap showing the percentage of confirmed COVID-19 cases per hundred people in countries.",
+      "id": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 2772,
+      "content_preview": "\u043f\u043e\u043f\u0440\u0430\u0432\u0442\u0435 \u043a\u043e\u0434 \u0438 \u0421\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u043d\u043e\u0432\u044b\u0439 \u043f\u0440\u0438\u0437\u043d\u0430\u043a confirmed_per_hundred, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043f\u043e\u043a\u0430\u0436\u0435\u0442 \u043f\u0440\u043e\u0446\u0435\u043d\u0442\u043d\u043e\u0435 \u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u0435 \u0437\u0430\u0431\u043e\u043b\u0435\u0432\u0448\u0438\u0445 \u0432\u0438\u0440\u0443\u0441\u043e\u043c \u043a \u043e",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 823,
+      "content_preview": "# \u0414\u043e\u0431\u0430\u0432\u043b\u044f\u0435\u043c \u0441\u0442\u043e\u043b\u0431\u0435\u0446 confirmed_per_hundred, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043f\u0440\u043e\u0446\u0435\u043d\u0442\u043d\u043e\u0435 \u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u0435 \u0437\u0430\u0431\u043e\u043b\u0435\u0432\u0448\u0438\u0445 \u043a \u043e\u0431\u0449\u0435\u043c\u0443 \u0447\u0438\u0441\u043b\u0443 \u043d\u0430\u0441\u0435\u043b\u0435\u043d\u0438\u044f \u0432",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 3335,
+      "content_preview": "\u043d\u0430\u0439\u0442\u0438 \u043e\u0448\u0438\u0431\u043a\u0443 \u0432 \u043a\u043e\u0434\u0435 import pandas as pd import seaborn as sns import matplotlib.pyplot as plt covid_data = pd.read_cs",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 3518,
+      "content_preview": "\u041e\u0448\u0438\u0431\u043a\u0430 \u0432 \u0441\u0442\u0440\u043e\u043a\u0435: covid_df['confirmed_per_hundred'] = covid_df['confirmed'] / covid_data['population'] * 100 \u0417\u0434\u0435\u0441\u044c \u043f\u0435\u0440\u0435",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 35,
+      "content_preview": "\u043f\u0438\u0448\u0435\u0442 \u043e\u0448\u0438\u0431\u043a\u0443 KeyError: 'population'",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2537,
+      "content_preview": "\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u043e\u0437\u043d\u0438\u043a\u0430\u0435\u0442 \u043f\u043e\u0442\u043e\u043c\u0443, \u0447\u0442\u043e \u0441\u0442\u043e\u043b\u0431\u0435\u0446 'population' \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0432 \u0434\u0430\u0442\u0430\u0444\u0440\u0435\u0439\u043c\u0435 `covid_df`. \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u043f\u0440\u043e\u0431\u043e\u0432\u0430\u0442\u044c \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0441",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# \u0414\u043e\u0431\u0430\u0432\u043b\u044f\u0435\u043c \u0441\u0442\u043e\u043b\u0431\u0435\u0446 confirmed_per_hundred, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043f\u0440\u043e\u0446\u0435\u043d\u0442\u043d\u043e\u0435 \u043e\u0442\u043d\u043e\u0448\u0435\u043d...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Include a 'confirmed_per_hundred' column in the output] The response does not include a 'confirm",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Build a heatmap visualizing 'confirmed_per_hundred' by count] The response does not build a heatmap vi",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Include a 'confirmed_per_hundred' column in the output] The response does not include a 'confirm",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Build a heatmap visualizing 'confirmed_per_hundred' by count] The response does not build a heatmap vi",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_5_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Include a 'confirmed_per_hundred' column in the output",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 3,
+      "final_state": null,
+      "id": "c_wildchat_41cf3c3010479f69df024d249ae94c9b_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Build a heatmap visualizing 'confirmed_per_hundred' by country and date",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          6,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 5,
+      "final_state": null,
+      "id": "c_wildchat_41cf3c3010479f69df024d249ae94c9b_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 3,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_41cf3c3010479f69df024d249ae94c9b_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_41cf3c3010479f69df024d249ae94c9b",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1",
+      "target": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_1",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "target": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "target": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "target": "v_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_3",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "target": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5",
+      "target": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5",
+      "target": "m_wildchat_41cf3c3010479f69df024d249ae94c9b_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_41cf3c3010479f69df024d249ae94c9b_5",
+      "target": "mode_wildchat_41cf3c3010479f69df024d249ae94c9b_4",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_wildchat_41cf3c3010479f69df024d249ae94c9b_0",
+      "target": "c_wildchat_41cf3c3010479f69df024d249ae94c9b_c_0",
+      "key": 0
+    }
+  ]
+}

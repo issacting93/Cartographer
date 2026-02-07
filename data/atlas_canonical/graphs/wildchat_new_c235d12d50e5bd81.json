@@ -1,0 +1,1105 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_c235d12d50e5bd81",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 18,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Transformation",
+      "constraint_hardness": "Strict",
+      "task_goal": "Convert a numpy integer array to an image using a tile map and display it in a Jupyter notebook.",
+      "id": "conv_wildchat_new_c235d12d50e5bd81"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 278,
+      "content_preview": "Hello. I have a numpy array in python. This array has values from 0 to 35 in integer representing tiles of a map. I also",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 892,
+      "content_preview": "You can use the Matplotlib library to display the tile map image. Here's an example code: ```python import numpy as np",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 140,
+      "content_preview": "wait will this work, I am confused at the line: tile_array = tile_map[int_array] . Because my map array is 80x23 while t",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1726,
+      "content_preview": "Oh, I see. In that case, you need to create a new image that matches the size of your map array filled with the correspo",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 1108,
+      "content_preview": "okay so I am getting result as white image, I checked if the tilemap is correct, it is correct, here is my code: import",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1626,
+      "content_preview": "It seems like you're reading the matrix from a file as bytes, which may be causing problems in the conversion to `int32`",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 508,
+      "content_preview": "I got ValueError: invalid literal for int() with base 10: '\\x00'. How the file is being read shouldn't be changed I gues",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1680,
+      "content_preview": "I see. It seems like the matrix file may contain some non-printable characters like null bytes (`\\x00`), which cannot be",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 48,
+      "content_preview": "this didn't fix the result image being all white",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 848,
+      "content_preview": "I see, sorry about that. One more thing to check is the values in your integer array. Make sure that they match the indi",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 57,
+      "content_preview": "okay for some reason all values in map array is [0,0,0,1]",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 999,
+      "content_preview": "That's strange. It seems like all the values in `map_array` are being set to the default value of `(0, 0, 0, 1)`, which",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 161,
+      "content_preview": "I think I fixed it by changing tile_map[tile_idx] to tile_map[tile_idx]*255, now I need to rotate result image 90 degree",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1978,
+      "content_preview": "Great, I'm glad you were able to fix it! Multiplying the tile image by 255 is a good way to convert the values from floa",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 139,
+      "content_preview": "the rotation rotates the result image. I think I need to rotate map because when I look at the rotated image I see each",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 1712,
+      "content_preview": "I see, if you want to rotate the map instead of the image, you can modify the code to swap the dimensions of `int_array`",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 310,
+      "content_preview": "so okay it works but couple changes I did is my tileset is 16x16 so I changed to work according to that however now I re",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 942,
+      "content_preview": "Sure, you can create a function that extracts a tile image from the tile map given its x and y indices. Here's an exampl",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_c235d12d50e5bd81_17"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The integer values in the array (0-8) mu",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not ensure that the re",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The response does not check if the integ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not ensure that the re",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The response does not ensure that the in",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not guarantee that the",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The response does not ensure that the in",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The response suggests that the integer a",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response suggests that the resulting",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "ile_idx]*255, now I need to rotate result image 90 degrees counter",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c235d12d50e5bd81_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The response does not ensure that the in",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not guarantee that the",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "lt image. I think I need to rotate map because when I look at the r",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c235d12d50e5bd81_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The code does not validate that the inte",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not ensure that the re",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_15_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "realize even tho I only need to use 35 tiles from tile map, the",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_c235d12d50e5bd81_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The integer values in the array must correspond to valid ind] The code does not ensure that the intege",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The resulting image must be displayed correctly without bein] The response does not guarantee that the",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_c235d12d50e5bd81_17_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "The integer values in the array must correspond to valid indices in the tile map.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          1,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_wildchat_new_c235d12d50e5bd81_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "The resulting image must be displayed correctly without being all white.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          1,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
+      "final_state": null,
+      "id": "c_wildchat_new_c235d12d50e5bd81_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 1,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_c235d12d50e5bd81_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 1,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_c235d12d50e5bd81_1"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_c235d12d50e5bd81_16"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c235d12d50e5bd81_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c235d12d50e5bd81_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_c235d12d50e5bd81_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_c235d12d50e5bd81",
+      "target": "t_wildchat_new_c235d12d50e5bd81_17",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_0",
+      "target": "t_wildchat_new_c235d12d50e5bd81_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_0",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "t_wildchat_new_c235d12d50e5bd81_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "m_wildchat_new_c235d12d50e5bd81_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "m_wildchat_new_c235d12d50e5bd81_1_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "v_wildchat_new_c235d12d50e5bd81_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "v_wildchat_new_c235d12d50e5bd81_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_1",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_c235d12d50e5bd81_2",
+      "target": "t_wildchat_new_c235d12d50e5bd81_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_2",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_c235d12d50e5bd81_3",
+      "target": "t_wildchat_new_c235d12d50e5bd81_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_3",
+      "target": "m_wildchat_new_c235d12d50e5bd81_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_3",
+      "target": "m_wildchat_new_c235d12d50e5bd81_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_3",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c235d12d50e5bd81_3",
+      "target": "v_wildchat_new_c235d12d50e5bd81_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_c235d12d50e5bd81_4",
+      "target": "t_wildchat_new_c235d12d50e5bd81_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_4",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_c235d12d50e5bd81_5",
+      "target": "t_wildchat_new_c235d12d50e5bd81_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_5",
+      "target": "m_wildchat_new_c235d12d50e5bd81_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_5",
+      "target": "m_wildchat_new_c235d12d50e5bd81_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_5",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_c235d12d50e5bd81_6",
+      "target": "t_wildchat_new_c235d12d50e5bd81_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_6",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_c235d12d50e5bd81_7",
+      "target": "t_wildchat_new_c235d12d50e5bd81_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_7",
+      "target": "m_wildchat_new_c235d12d50e5bd81_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_7",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_6",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c235d12d50e5bd81_7",
+      "target": "v_wildchat_new_c235d12d50e5bd81_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_c235d12d50e5bd81_8",
+      "target": "t_wildchat_new_c235d12d50e5bd81_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_8",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_c235d12d50e5bd81_9",
+      "target": "t_wildchat_new_c235d12d50e5bd81_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_9",
+      "target": "m_wildchat_new_c235d12d50e5bd81_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_9",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_c235d12d50e5bd81_10",
+      "target": "t_wildchat_new_c235d12d50e5bd81_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_10",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_c235d12d50e5bd81_11",
+      "target": "t_wildchat_new_c235d12d50e5bd81_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_11",
+      "target": "m_wildchat_new_c235d12d50e5bd81_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_11",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_10",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_c235d12d50e5bd81_11",
+      "target": "v_wildchat_new_c235d12d50e5bd81_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_c235d12d50e5bd81_12",
+      "target": "t_wildchat_new_c235d12d50e5bd81_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_12",
+      "target": "m_wildchat_new_c235d12d50e5bd81_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_12",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_c235d12d50e5bd81_13",
+      "target": "t_wildchat_new_c235d12d50e5bd81_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_13",
+      "target": "m_wildchat_new_c235d12d50e5bd81_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_13",
+      "target": "m_wildchat_new_c235d12d50e5bd81_13_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_13",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_c235d12d50e5bd81_14",
+      "target": "t_wildchat_new_c235d12d50e5bd81_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_14",
+      "target": "m_wildchat_new_c235d12d50e5bd81_14_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_14",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_c235d12d50e5bd81_15",
+      "target": "t_wildchat_new_c235d12d50e5bd81_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_15",
+      "target": "m_wildchat_new_c235d12d50e5bd81_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_15",
+      "target": "m_wildchat_new_c235d12d50e5bd81_15_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_15",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_c235d12d50e5bd81_16",
+      "target": "t_wildchat_new_c235d12d50e5bd81_17",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_16",
+      "target": "m_wildchat_new_c235d12d50e5bd81_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_16",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_c235d12d50e5bd81_17",
+      "target": "m_wildchat_new_c235d12d50e5bd81_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_c235d12d50e5bd81_17",
+      "target": "m_wildchat_new_c235d12d50e5bd81_17_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_c235d12d50e5bd81_17",
+      "target": "mode_wildchat_new_c235d12d50e5bd81_16",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_c235d12d50e5bd81_0",
+      "target": "c_wildchat_new_c235d12d50e5bd81_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_c235d12d50e5bd81_1",
+      "target": "c_wildchat_new_c235d12d50e5bd81_c_1",
+      "key": 0
+    }
+  ]
+}

@@ -4,58 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Cartography Explorer</title>
+    <title>Atlas Graph Explorer</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="file_list.js"></script>
     <link href="bloom.css" rel="stylesheet">
     <style>
-        /* Local overrides if necessary */
+        /* Local overrides */
         #drop-zone {
-            border: 2px dashed var(--gray);
-            padding: 32px;
-            text-align: center;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            background: white;
-            color: var(--text-dim);
-            font-size: 13px;
+            display: none !important;
+            /* Hide drop zone in Atlas view */
         }
 
-        #drop-zone:hover {
-            border-color: var(--yellow);
-            background: var(--bg-subtle);
-            transform: scale(1.02);
-        }
-
-        /* Timeline specific */
-        .timeline-bar {
-            background: var(--gray);
-            border-radius: 4px;
-        }
-
-        .timeline-seg {
-            color: transparent;
-            /* Hide text in small segments */
-        }
-
-        .timeline-seg:hover {
-            opacity: 0.8;
-        }
-
-        .seg-active {
-            background: var(--yellow);
-        }
-
-        .seg-violated {
-            background: var(--orange);
-        }
-
-        .seg-survived {
-            background: var(--green);
-        }
-
-        /* Chat Bubbles override for Light Mode */
         .chat-bubble {
             background: white;
             border: 1px solid var(--gray);
@@ -70,12 +29,6 @@
         .chat-bubble.model {
             border-left-color: var(--yellow);
         }
-
-        .code-block {
-            background: var(--bg-subtle);
-            color: var(--text);
-            border: 1px solid var(--gray);
-        }
     </style>
 </head>
 
@@ -84,17 +37,12 @@
     <div id="left-panel" class="panel">
         <div class="guide-header"
             style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--gray);">
-            <h1>BLOOM Explorer</h1>
-            <p style="font-size: 12px; color: var(--text-dim);">Interactional Cartography v2.0</p>
+            <h1>BLOOM Atlas</h1>
+            <p style="font-size: 12px; color: var(--text-dim);">Meta-Graph Explorer</p>
         </div>
 
         <div class="panel-section">
-            <div class="panel-title">Data Source</div>
-            <div id="drop-zone">
-                Drop Atlas JSON here<br>
-                <span class="hint">or click to upload</span>
-                <input type="file" id="file-input" style="display: none" accept=".json">
-            </div>
+            <div id="drop-zone" style="display: none;"></div>
 
 
             <div id="file-selector-container">
@@ -108,52 +56,27 @@
             </div>
 
             <div id="controls">
-                <button id="toggle-layout" class="btn btn-secondary">Switch to Timeline Mode</button>
+                <button id="toggle-layout" class="btn btn-secondary">Cluster by Stability</button>
             </div>
         </div>
 
         <div class="legend panel-section">
-            <div class="panel-title">Filters</div>
-            <div id="filter-legend" class="legend">
-                <label class="pill pill-black">
-                    <input type="checkbox" checked data-type="Conversation" class="filter-cb" style="display:none">
-                    <span class="material-symbols-rounded">hub</span> Conversation
-                </label>
-                <!-- Other filters can be pills or list items, keeping simple for now -->
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--black)"></span> Conversation
+            <div class="panel-title">View Controls</div>
+
+
+            <div class="panel-title">Legend</div>
+            <div id="atlas-legend" class="legend" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="legend-item"><span class="swatch" style="background: var(--green)"></span> Task Maintained
                 </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--yellow)"></span> Turn
+                <div class="legend-item"><span class="swatch" style="background: var(--yellow)"></span> Constraint Drift
                 </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--orange)"></span> Constraint
-                </div>
-                <div class="legend-item">
-                    <span class="swatch" style="background: var(--green)"></span> Move
+                <div class="legend-item"><span class="swatch" style="background: var(--orange)"></span> Task Shift</div>
+                <div class="legend-item"><span class="swatch" style="background: var(--violation)"></span> Agency
+                    Collapse</div>
+                <div class="legend-item"><span class="swatch" style="background: var(--gray)"></span> No Constraints
                 </div>
             </div>
-            <div class="panel-title" style="margin-top: 10px;">Edge Key</div>
-            <div class="edge-legend">
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#64748b"></div>NEXT
-                </div>
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#60a5fa"></div>CONTAINS
-                </div>
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#f87171"></div>VIOLATES
-                </div>
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#4ade80"></div>REPAIR
-                </div>
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#c084fc"></div>RATIFIES
-                </div>
-                <div class="edge-legend-item">
-                    <div class="edge-swatch" style="background:#fbbf24"></div>TRIGGERS
-                </div>
-            </div>
+
         </div>
     </div>
 
@@ -163,58 +86,28 @@
     </div>
 
     <div id="right-panel" class="panel">
-        <!-- Summary Stats Bar (shown after graph load) -->
-        <div id="summary-stats" class="panel-section">
-            <div class="panel-title">Conversation Summary</div>
-            <div class="stat-row"><span class="stat-label">ID</span><span class="stat-value" id="stat-conv-id">—</span>
-            </div>
-            <div class="stat-row"><span class="stat-label">Turns</span><span class="stat-value" id="stat-turns">—</span>
-            </div>
-            <div class="stat-row"><span class="stat-label">Constraints</span><span class="stat-value"
-                    id="stat-constraints">—</span></div>
-            <div class="stat-row"><span class="stat-label">Violations</span><span class="stat-value"
-                    id="stat-violations">—</span></div>
-            <div class="stat-row"><span class="stat-label">Repairs</span><span class="stat-value"
-                    id="stat-repairs">—</span></div>
-            <div class="stat-row"><span class="stat-label">Drift Velocity</span><span class="stat-value"
-                    id="stat-drift">—</span></div>
-            <div class="stat-row"><span class="stat-label">Survival</span><span class="stat-value"
-                    id="stat-survival">—</span></div>
-            <div class="stat-row"><span class="stat-label">Mode Violations</span><span class="stat-value"
-                    id="stat-mode-viols">—</span></div>
-            <div class="stat-row"><span class="stat-label">Stability</span><span class="stat-value"
-                    id="stat-stability">—</span></div>
-        </div>
-
-        <!-- Constraint State Timeline -->
-        <div id="constraint-timeline" class="panel-section">
-            <div class="panel-title">Constraint Lifecycles</div>
-            <div id="timeline-content"></div>
-        </div>
 
         <div id="metadata-panel" class="node-info" style="display: none;">
             <div class="panel-title">Node Inspector</div>
             <pre id="metadata-content"></pre>
         </div>
 
-        <div id="empty-details" style="text-align: center; color: #64748b; margin-top: 50px;">
-            <svg viewBox="0 0 24 24" width="48" height="48" style="fill: #334155; margin-bottom: 10px;">
-                <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-            </svg>
-            <p>Select a node in the graph to view properties</p>
+        <div id="empty-details" style="text-align: center; color: var(--text-dim); margin-top: 50px;">
+            <span class="material-symbols-rounded"
+                style="font-size: 48px; color: var(--gray); margin-bottom: 10px;">hub</span>
+            <p>Select a node to view properties</p>
         </div>
     </div>
 
     <script>
-        let mode = 'force'; // 'force', 'timeline', 'cluster'
+        let mode = 'force'; // 'force' or 'timeline'
         const colors = {
-            "Conversation": "var(--black)",
-            "Turn": "var(--yellow)",
-            "Move": "var(--green)",
-            "Constraint": "var(--orange)",
-            "ViolationEvent": "#e85a3c", // Orange
-            "InteractionMode": "#e5e5e5" // Gray
+            "Conversation": "var(--conversation)",
+            "Turn": "var(--turn)",
+            "Move": "var(--move)",
+            "Constraint": "var(--constraint)",
+            "ViolationEvent": "var(--violation)",
+            "InteractionMode": "var(--mode)"
         };
 
         const dropZone = d3.select("#drop-zone");
@@ -224,64 +117,38 @@
         const metadataPanel = d3.select("#metadata-panel");
         const metadataContent = d3.select("#metadata-content");
         const toggleBtn = d3.select("#toggle-layout");
-        const filterCBs = d3.selectAll(".filter-cb");
 
-        let activeTypes = new Set(["Conversation", "Turn", "Move", "Constraint", "ViolationEvent", "InteractionMode"]);
 
-        // Check for file query param
-        const urlParams = new URLSearchParams(window.location.search);
-        const autoLoadFile = urlParams.get('file');
+        let currentData = null;
 
-        if (autoLoadFile) {
-            // Simulate loading
-            setTimeout(() => {
-                document.getElementById('file-search').value = autoLoadFile;
-                document.getElementById('load-btn').click();
-            }, 500);
-        }
-
-        filterCBs.on("change", function () {
-            const type = d3.select(this).attr("data-type");
-            if (this.checked) activeTypes.add(type);
-            else activeTypes.delete(type);
-            if (currentData) renderGraph(currentData);
-        });
+        // Initial Load
+        loadAtlas();
 
         toggleBtn.on("click", () => {
-            // Cycle Graph Modes
-            if (mode === 'force') mode = 'timeline';
-            else if (mode === 'timeline') mode = 'cluster';
+            // Cycle Atlas Modes
+            if (mode === 'force') mode = 'stability';
+            else if (mode === 'stability') mode = 'source';
             else mode = 'force';
 
-            let label = "Switch to Timeline Mode";
-            if (mode === 'force') label = "Switch to Timeline Mode";
-            if (mode === 'timeline') label = "Switch to Cluster Mode";
-            if (mode === 'cluster') label = "Switch to Force Mode";
+            let label = "Cluster by Stability";
+            if (mode === 'force') label = "Cluster by Stability";
+            if (mode === 'stability') label = "Cluster by Source";
+            if (mode === 'source') label = "Switch to Force";
 
             toggleBtn.text(label);
-            if (currentData) renderGraph(currentData);
+            if (currentData) renderAtlas(currentData);
         });
 
-        dropZone.on("click", () => fileInput.node().click());
-        fileInput.on("change", (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        processData(data);
-                    } catch (err) {
-                        alert("Error processing file: " + err.message);
-                        console.error(err);
-                    }
-                };
-                reader.readAsText(file);
-            }
-        });
+        // Search Logic
+        const fileSearch = document.getElementById('file-search');
+        if (fileSearch) {
+            fileSearch.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val) window.open(`explorer.html?file=${val}`, '_blank');
+            });
+        }
 
         // File Selector Logic
-        const fileSearch = document.getElementById('file-search');
         const fileList = document.getElementById('file-list');
         const loadBtn = document.getElementById('load-btn');
 
@@ -303,41 +170,16 @@
                 const response = await fetch(`../../data/atlas_canonical/graphs/${filename}`);
                 if (!response.ok) throw new Error("File not found");
                 const data = await response.json();
-                processData(data);
+                currentData = data;
+                const stats = computeSummary(currentData);
+                renderSummary(stats);
+                renderConstraintTimeline(stats);
+                // renderGraph(currentData); // Graph rendering is now handled by renderAtlas
             } catch (err) {
                 alert(`Error loading ${filename}: ${err.message}`);
                 console.error(err);
             }
         });
-
-        function processData(data) {
-            currentData = data;
-            const stats = computeSummary(currentData);
-            renderSummary(stats);
-            renderConstraintTimeline(stats);
-            renderGraph(currentData);
-        }
-
-        document.addEventListener("dragover", e => e.preventDefault());
-        document.addEventListener("drop", e => {
-            e.preventDefault();
-            const file = e.dataTransfer.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        processData(data);
-                    } catch (err) {
-                        alert("Error processing dropped file: " + err.message);
-                        console.error(err);
-                    }
-                };
-                reader.readAsText(file);
-            }
-        });
-
-        let currentData = null;
 
         // Edge color mapping
         const edgeColors = {
@@ -518,7 +360,7 @@
                     const stats = computeSummary(currentData);
                     renderSummary(stats);
                     renderConstraintTimeline(stats);
-                    renderGraph(currentData);
+                    // renderGraph(currentData); // Graph rendering is now handled by renderAtlas
                 } catch (err) {
                     alert("Error parsing JSON file. Is this a valid Atlas graph?");
                     console.error(err);
@@ -529,8 +371,22 @@
 
         let simulation;
 
-        function renderGraph(data) {
+        async function loadAtlas() {
+            try {
+                const response = await fetch("../../data/atlas_canonical/meta_graph.json");
+                if (!response.ok) throw new Error("Meta-graph not found");
+                const data = await response.json();
+                currentData = data;
+                renderAtlas(data);
+            } catch (err) {
+                alert("Could not load Atlas: " + err.message);
+            }
+        }
+
+        function renderAtlas(data) {
+            const svg = d3.select("#viz");
             svg.selectAll("*").remove();
+
             const width = document.getElementById('center-panel').clientWidth;
             const height = document.getElementById('center-panel').clientHeight;
 
@@ -544,18 +400,18 @@
             svg.call(zoom);
 
             // Filter nodes based on active types
-            const filteredNodes = data.nodes.filter(n => activeTypes.has(n.node_type));
-            const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+            // const filteredNodes = data.nodes.filter(n => activeTypes.has(n.node_type));
+            // const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
 
             // Filter links: both source and target must be in filteredNodeIds
-            const filteredLinks = data.links.filter(l => {
-                const sId = typeof l.source === 'string' ? l.source : l.source.id;
-                const tId = typeof l.target === 'string' ? l.target : l.target.id;
-                return filteredNodeIds.has(sId) && filteredNodeIds.has(tId);
-            });
+            // const filteredLinks = data.links.filter(l => {
+            //     const sId = typeof l.source === 'string' ? l.source : l.source.id;
+            //     const tId = typeof l.target === 'string' ? l.target : l.target.id;
+            //     return filteredNodeIds.has(sId) && filteredNodeIds.has(tId);
+            // });
 
-            const links = filteredLinks;
-            const nodes = filteredNodes;
+            const links = data.links; // filteredLinks;
+            const nodes = data.nodes; // filteredNodes;
 
             // Arrows — one marker per edge color
             const usedEdgeTypes = [...new Set(links.map(l => l.edge_type))];
@@ -585,81 +441,40 @@
 
             if (simulation) simulation.stop();
 
-            // Meta-Graph uses a weaker force for the "galaxy" effect
+            // Meta-Graph Force Simulation
             simulation = d3.forceSimulation(nodes)
-                .force("link", d3.forceLink(links).id(d => d.id).distance(mode === 'timeline' ? 50 : 80)) // Relaxed distance
-                .force("charge", d3.forceManyBody().strength(mode === 'timeline' ? -100 : -300)) // Stronger repulsion
+                .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-80))
                 .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("collision", d3.forceCollide().radius(30));
+                .force("collide", d3.forceCollide(6));
 
-            if (mode === 'timeline') {
-                simulation.force("x", d3.forceX(d => {
-                    if (d.node_type === "Turn") return width / 2;
-                    if (d.node_type === "Move") return width / 2 - 150;
-                    if (d.node_type === "Constraint") return width / 2 + 200;
-                    if (d.node_type === "ViolationEvent") return width / 2 + 100;
-                    return width / 2;
-                }).strength(1));
 
-                simulation.force("y", d3.forceY(d => {
-                    if (d.node_type === "Turn") return 100 + d.turn_index * 120;
-                    if (d.node_type === "Move") return 100 + d.turn_index * 120;
-                    if (d.node_type === "ViolationEvent") return 100 + d.turn_index * 120 + 40;
-                    return height / 2;
-                }).strength(1));
-            }
-
-            if (mode === 'cluster') {
-                const centerX = width / 2;
-                const centerY = height / 2;
-                const radius = Math.min(width, height) * 0.3;
-
-                // For Turn nodes, calculate ring positions
-                const turnNodes = nodes.filter(n => n.node_type === "Turn");
-                const turnPositions = new Map();
-
-                if (turnNodes.length > 0) {
-                    const ringRadius = radius * 0.5; // Slightly larger ring
-                    const angleStep = (2 * Math.PI) / turnNodes.length;
-
-                    turnNodes.forEach((turn, idx) => {
-                        const angle = idx * angleStep - Math.PI / 2; // Start at top
-                        turnPositions.set(turn.id, {
-                            x: centerX + ringRadius * Math.cos(angle),
-                            y: centerY + ringRadius * Math.sin(angle)
-                        });
-                    });
-                }
-
-                // Standard cluster positions for other types
-                const clusters = {
-                    "Conversation": { x: centerX, y: centerY },
-                    "Move": { x: centerX - radius * 1.2, y: centerY }, // Left
-                    "Constraint": { x: centerX + radius * 1.2, y: centerY - radius * 0.7 }, // Top Right
-                    "ViolationEvent": { x: centerX + radius * 1.2, y: centerY + radius * 0.7 }, // Bottom Right
-                    "InteractionMode": { x: centerX, y: centerY + radius * 1.2 } // Bottom Center
+            if (mode === 'stability') {
+                const foci = {
+                    "Task Maintained": { x: width * 0.5, y: height * 0.5 },
+                    "Constraint Drift": { x: width * 0.2, y: height * 0.2 },
+                    "Task Shift": { x: width * 0.8, y: height * 0.2 },
+                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 }, // Bottom Center
+                    "No Constraints": { x: width * 0.9, y: height * 0.9 }, // Bottom Right
+                    "Unknown": { x: width * 0.1, y: height * 0.9 }
                 };
-
-                simulation.force("x", d3.forceX(d => {
-                    if (d.node_type === "Turn" && turnPositions.has(d.id)) {
-                        return turnPositions.get(d.id).x;
-                    }
-                    return clusters[d.node_type]?.x || centerX;
-                }).strength(0.8));
-
-                simulation.force("y", d3.forceY(d => {
-                    if (d.node_type === "Turn" && turnPositions.has(d.id)) {
-                        return turnPositions.get(d.id).y;
-                    }
-                    return clusters[d.node_type]?.y || centerY;
-                }).strength(0.8));
-
-                simulation.force("charge", d3.forceManyBody().strength(-100)); // Stronger repulsion
-                simulation.force("collide", d3.forceCollide().radius(d =>
-                    d.node_type === "Conversation" ? 25 : 18
-                ));
+                simulation.force("x", d3.forceX(d => foci[d.stability]?.x || width / 2).strength(0.6));
+                simulation.force("y", d3.forceY(d => foci[d.stability]?.y || height / 2).strength(0.6));
+                simulation.force("charge", d3.forceManyBody().strength(-20)); // Pack tighter
             }
 
+            if (mode === 'source') {
+                const foci = {
+                    "WildChat": { x: width * 0.3, y: height * 0.5 },
+                    "lmsys-chat-1m": { x: width * 0.7, y: height * 0.5 },
+                    "OpenAssistant": { x: width * 0.5, y: height * 0.2 }
+                };
+                simulation.force("x", d3.forceX(d => foci[d.source]?.x || width / 2).strength(0.5));
+                simulation.force("y", d3.forceY(d => foci[d.source]?.y || height / 2).strength(0.5));
+            }
+
+
+            // Edges (Weak links)
             const link = container.append("g")
                 .attr("class", "links")
                 .selectAll("line")
@@ -712,21 +527,11 @@
             // Node background circle
             node.append("circle")
                 .attr("r", d => d.node_type === "Conversation" ? 16 : 12)
-                .attr("fill", d => colors[d.node_type] || "var(--gray)")
-                .attr("stroke", "#ffffff")
-                .attr("stroke-width", 2)
-                .attr("class", d => d.node_type === "Conversation" ? "node-filled" : "node-filled");
+                .attr("fill", d => colors[d.node_type] || "#94a3b8")
+                .attr("stroke", "none"); // Changed from "#fff" to "none" for Atlas nodes
 
             // Material Icon
-            node.append("text")
-                .attr("class", "material-symbols-rounded")
-                .attr("text-anchor", "middle")
-                .attr("dominant-baseline", "central")
-                .attr("fill", d => d.node_type === "Turn" ? "var(--black)" : "#ffffff")
-                .attr("font-size", d => d.node_type === "Conversation" ? "20px" : "16px")
-                .style("font-weight", "bold")
-                .style("pointer-events", "none") // Let clicks pass to the group
-                .text(d => getNodeIcon(d));
+            // node.append("text") ... removed for Atlas, specific to single graph types usually
 
             svg.on("click", () => resetFocus());
 
@@ -774,7 +579,120 @@
             });
         }
 
+        async function loadAtlas() {
+            try {
+                const response = await fetch("../../data/atlas_canonical/meta_graph.json");
+                if (!response.ok) throw new Error("Meta-graph not found");
+                const data = await response.json();
+                currentData = data;
+                renderAtlas(data);
+            } catch (err) {
+                alert("Could not load Atlas: " + err.message);
+            }
+        }
 
+        function renderAtlas(data) {
+            const svg = d3.select("#viz");
+            svg.selectAll("*").remove();
+
+            const width = document.getElementById('center-panel').clientWidth;
+            const height = document.getElementById('center-panel').clientHeight;
+
+            const container = svg.append("g");
+
+            // Meta-Graph uses a weaker force for the "galaxy" effect
+            const simulation = d3.forceSimulation(data.nodes)
+                .force("link", d3.forceLink(data.links).id(d => d.id).distance(120)) // Relaxed
+                .force("charge", d3.forceManyBody().strength(-80)) // Stronger repulsion
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collide", d3.forceCollide(6));
+
+            if (mode === 'stability') {
+                const foci = {
+                    "Task Maintained": { x: width * 0.5, y: height * 0.5 },
+                    "Constraint Drift": { x: width * 0.2, y: height * 0.2 },
+                    "Task Shift": { x: width * 0.8, y: height * 0.2 },
+                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 }, // Bottom Center
+                    "No Constraints": { x: width * 0.9, y: height * 0.9 }, // Bottom Right
+                    "Unknown": { x: width * 0.1, y: height * 0.9 }
+                };
+                simulation.force("x", d3.forceX(d => foci[d.stability]?.x || width / 2).strength(0.6));
+                simulation.force("y", d3.forceY(d => foci[d.stability]?.y || height / 2).strength(0.6));
+                simulation.force("charge", d3.forceManyBody().strength(-20)); // Pack tighter
+            }
+
+            if (mode === 'source') {
+                const foci = {
+                    "WildChat": { x: width * 0.3, y: height * 0.5 },
+                    "lmsys-chat-1m": { x: width * 0.7, y: height * 0.5 },
+                    "OpenAssistant": { x: width * 0.5, y: height * 0.2 }
+                };
+                simulation.force("x", d3.forceX(d => foci[d.source]?.x || width / 2).strength(0.5));
+                simulation.force("y", d3.forceY(d => foci[d.source]?.y || height / 2).strength(0.5));
+            }
+
+            // Edges (Weak links)
+            const link = container.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(data.links)
+                .enter().append("line")
+                .attr("stroke", "#475569")
+                .attr("stroke-width", 1)
+                .attr("stroke-opacity", 0.3);
+
+            // Nodes (Conversations)
+            const node = container.append("g")
+                .attr("class", "nodes")
+                .selectAll("g.atlas-node")
+                .data(data.nodes)
+                .enter().append("g")
+                .attr("class", "atlas-node")
+                .attr("cursor", "pointer")
+                .call(drag(simulation))
+                .on("click", (event, d) => {
+                    // Load the specific graph in new tab
+                    event.stopPropagation();
+                    window.open(`explorer.html?file=${d.filename}`, '_blank');
+                });
+
+            node.append("circle")
+                .attr("r", 4)
+                .attr("fill", d => {
+                    const stabilityColors = {
+                        "Task Maintained": "var(--green)", // Green
+                        "Constraint Drift": "var(--yellow)", // Yellow
+                        "Task Shift": "var(--orange)", // Orange
+                        "Agency Collapse": "var(--violation)", // Red
+                        "No Constraints": "var(--gray)" // Slate
+                    };
+                    return stabilityColors[d.stability] || "var(--gray)";
+                })
+                .attr("stroke", "none");
+
+            // Simple tooltip for Atlas
+            node.append("title")
+                .text(d => `${d.id}\nSource: ${d.source}\nConstraints: ${d.constraint_count}`);
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+
+            // Re-apply zoom
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", (event) => {
+                    container.attr("transform", event.transform);
+                });
+            svg.call(zoom);
+        }
 
         function showMetadata(d) {
             metadataPanel.style("display", "block");

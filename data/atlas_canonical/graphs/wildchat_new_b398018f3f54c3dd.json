@@ -1,0 +1,786 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_b398018f3f54c3dd",
+      "source": "WildChat",
+      "domain": "general",
+      "total_turns": 16,
+      "stability_class": "No Constraints",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Understand and analyze code snippets related to game rendering and threading.",
+      "id": "conv_wildchat_new_b398018f3f54c3dd"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 3983,
+      "content_preview": "\u89e3\u91ca\u4e00\u4e0b static void GameThreadWaitForTask(const FGraphEventRef& Task, ENamedThreads::Type TriggerThreadIndex = ENamedThread",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 252,
+      "content_preview": "\u8fd9\u6bb5\u4ee3\u7801\u662f\u4e00\u4e2a\u7b49\u5f85\u6e38\u620f\u7ebf\u7a0b\u4efb\u52a1\u7684\u51fd\u6570\u3002\u5b83\u91c7\u7528\u4e86\u591a\u7ebf\u7a0b\u6280\u672f\u6765\u786e\u4fdd\u5728\u6e38\u620f\u7ebf\u7a0b\u4e2d\u6267\u884c\u6240\u6709\u4efb\u52a1\uff0c\u5e76\u5728\u4efb\u52a1\u5b8c\u6210\u524d\u963b\u585e\u7ebf\u7a0b\u3002\u8be5\u51fd\u6570\u9996\u5148\u68c0\u67e5\u5f53\u524d\u662f\u5426\u5728\u6e38\u620f\u7ebf\u7a0b\u4e2d\u6267\u884c\uff0c\u5e76\u68c0\u67e5\u4efb\u52a1\u7684\u5f15\u7528\u662f\u5426\u6709\u6548\u3002\u5982\u679c\u4efb\u52a1\u6ca1\u6709\u5b8c\u6210\uff0c\u51fd\u6570\u5c06\u5728\u6c60\u4e2d\u83b7\u53d6\u4e00\u4e2a\u4e8b\u4ef6\uff0c\u5e76\u89e6\u53d1\u4e00\u4e2a\u4efb\u52a1\u6765\u89e6",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 362,
+      "content_preview": "void UEngine::ShutdownHMD() { // we can't just nulify these pointers here since RenderThread still might use them. aut",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 341,
+      "content_preview": "\u8be5\u51fd\u6570\u5173\u95ed HMD\uff08\u5934\u6234\u5f0f\u663e\u793a\u5668\uff09\u5e76\u6e05\u7a7a\u76f8\u5173\u6307\u9488\u3002\u9996\u5148\uff0c\u51fd\u6570\u5c06\u4fdd\u5b58\u4e4b\u524d\u5b58\u50a8\u7684 StereoRenderingDevice\u3001XRSystem\u3001ViewExtensions \u6307\u9488\u5230\u672c\u5730\u53d8\u91cf SavedStereo\u3001SavedHMD\u3001SavedV",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 116,
+      "content_preview": "auto SavedStereo = StereoRenderingDevice; auto SavedHMD = XRSystem; auto SavedViewExtentions = ViewExtensions; \u5206\u522b\u662f\u4ec0\u4e48",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 174,
+      "content_preview": "\u8fd9\u4e09\u4e2a\u53d8\u91cf\u5206\u522b\u662f StereoRenderingDevice\u3001XRSystem \u548c ViewExtensions \u5b9e\u4f8b\u7684\u6307\u9488\u526f\u672c\u3002\u8fd9\u91cc\u4f7f\u7528 auto \u5173\u952e\u5b57\u63a8\u5bfc\u53d8\u91cf\u7c7b\u578b\u3002\u56e0\u4e3a\u8fd9\u4e9b\u6307\u9488\u53ef\u80fd\u5728\u6e32\u67d3\u7ebf\u7a0b\u4e2d\u4f7f\u7528\uff0c\u6240\u4ee5\u5728\u5c06\u5b83\u4eec\u6e05\u7a7a\u65f6\u9700\u8981\u8c28\u614e\u5904\u7406\u3002\u901a\u8fc7",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 38,
+      "content_preview": "StereoRenderingDevice \u548c XRSystem \u662f\u4ec0\u4e48\u4e1c\u897f",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 259,
+      "content_preview": "StereoRenderingDevice \u662f\u4e00\u4e2a\u6307\u5411\u7ee7\u627f\u81ea IStereoRendering \u63a5\u53e3\u7684\u7c7b\u578b\u7684\u6307\u9488\uff0c\u5728 UE4 \u6e32\u67d3\u4e2d\u7528\u4e8e\u5b9e\u73b0 VR \u8bbe\u5907\u7684\u53cc\u76ee\u6e32\u67d3\uff0c\u5305\u62ec Oculus Rift\u3001HTC Vive \u7b49 VR \u5934\u663e\u3002 XRSy",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 2908,
+      "content_preview": "FSuspendRenderingThread::FSuspendRenderingThread( bool bInRecreateThread ) { // Suspend async loading thread so that it",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 324,
+      "content_preview": "FSuspendRenderingThread \u662f\u4e00\u4e2a\u7528\u4e8e\u6682\u505c\u6e32\u67d3\u7ebf\u7a0b\u7684\u4e34\u65f6\u5bf9\u8c61\u3002\u5b83\u5177\u6709\u4ee5\u4e0b\u4f5c\u7528\uff1a 1. \u5f53\u521b\u5efa\u5bf9\u8c61\u65f6\uff0c\u5982\u679c\u5b58\u5728\u5f02\u6b65\u52a0\u8f7d\u7ebf\u7a0b\uff0c\u5219\u6682\u505c\u5f02\u6b65\u52a0\u8f7d\u7ebf\u7a0b\u4ee5\u907f\u514d\u5728\u6e32\u67d3\u7ebf\u7a0b\u6682\u505c\u65f6\u5f00\u59cb\u6392\u961f\u6e32\u67d3\u547d\u4ee4\u3002 2. \u6682\u505c\u7eb9\u7406\u6d41\u6e32\u67d3\u4efb\u52a1\uff0c\u4ee5\u9632\u6b62\u5728",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 82,
+      "content_preview": "void FRHICommandListImmediate::ImmediateFlush(EImmediateFlushType::Type FlushType)",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 504,
+      "content_preview": "FRHICommandListImmediate::ImmediateFlush \u51fd\u6570\u7528\u4e8e\u7acb\u5373\u5237\u65b0\u5e76\u6267\u884c\u5f85\u5904\u7406\u7684 RHI \u547d\u4ee4\uff0c\u4ee5\u786e\u4fdd\u6e32\u67d3\u5728\u7ee7\u7eed\u4e4b\u524d\u5904\u4e8e\u540c\u6b65\u72b6\u6001\u3002 \u8be5\u51fd\u6570\u7684\u5177\u4f53\u5de5\u4f5c\u6d41\u7a0b\u5982\u4e0b\uff1a 1. \u5982\u679c\u5f53\u524d\u5b58\u5728\u5f02\u6b65\u547d\u4ee4\u5217\u8868\uff0c\u5c06\u5f02\u6b65\u547d\u4ee4\u5217",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 92,
+      "content_preview": "FrameReadyEvent = FPlatformProcess::GetSynchEventFromPool(); \u4e2d\uff0cFrameReadyEvent \u7684\u751f\u547d\u5468\u671f\uff0c\u5177\u4f53\u903b\u8f91\u548c\u4f7f\u7528",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 489,
+      "content_preview": "\u5728\u8be5\u8bed\u53e5\u4e2d\uff0cFrameReadyEvent \u83b7\u53d6\u4e86\u4e00\u4e2a\u4ece\u6c60\u4e2d\u53d6\u5f97\u7684\u540c\u6b65\u4e8b\u4ef6\u5bf9\u8c61\uff0c\u5e76\u5c06\u5b83\u7684\u6307\u9488\u5b58\u50a8\u5728 FrameReadyEvent \u53d8\u91cf\u4e2d\u3002\u8fd9\u91cc\u7684\u751f\u547d\u5468\u671f\u662f\u4ece\u53d6\u5f97\u8be5\u4e8b\u4ef6\u5bf9\u8c61\u5f00\u59cb\uff0c\u76f4\u5230\u540e\u9762\u88ab\u8fd4\u56de\u5230\u6c60\u4e2d\u4e3a\u6b62\u3002 \u5177\u4f53\u903b\u8f91\u662f\uff0c\u7528\u4e8e\u5c06\u6570\u636e\u4ece CPU",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 63,
+      "content_preview": "FrameReadyEvent->Wait(MAX_uint32, bIgnoreThreadIdleStats); \u4e00\u76f4\u5361\u4f4f",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 351,
+      "content_preview": "\u5728\u8fd9\u91cc\uff0cFrameReadyEvent->Wait() \u51fd\u6570\u5c06\u7b49\u5f85\u6ce8\u518c\u5230\u8be5\u4e8b\u4ef6\u7684\u4efb\u4f55\u7ebf\u7a0b\u89e6\u53d1\u8be5\u4e8b\u4ef6\u3002\u5b83\u4f1a\u4e00\u76f4\u963b\u585e\u5f53\u524d\u7ebf\u7a0b\uff0c\u76f4\u5230\u4e8b\u4ef6\u88ab\u89e6\u53d1\u5e76\u8bbe\u7f6e\u4e3a signaled \u72b6\u6001\uff0c\u6216\u76f4\u5230\u8d85\u65f6\u3002 \u5728\u4f20\u9012\u7ed9 Wait() \u51fd\u6570\u7684\u7b2c\u4e00\u4e2a\u53c2\u6570\u4e2d\uff0cMAX_u",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b398018f3f54c3dd_15"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u8fd9\u6bb5\u4ee3\u7801\u662f\u4e00\u4e2a\u7b49\u5f85\u6e38\u620f\u7ebf\u7a0b\u4efb\u52a1\u7684\u51fd\u6570\u3002\u5b83\u91c7\u7528\u4e86\u591a\u7ebf\u7a0b\u6280\u672f\u6765\u786e\u4fdd\u5728\u6e38\u620f\u7ebf\u7a0b\u4e2d\u6267\u884c\u6240\u6709\u4efb\u52a1\uff0c\u5e76\u5728\u4efb\u52a1\u5b8c\u6210\u524d\u963b\u585e\u7ebf\u7a0b\u3002\u8be5\u51fd\u6570\u9996\u5148\u68c0\u67e5\u5f53\u524d\u662f\u5426\u5728\u6e38\u620f\u7ebf\u7a0b\u4e2d\u6267\u884c\uff0c\u5e76\u68c0\u67e5\u4efb...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "tdownHMD()\n{\n\t// we can't just nulify these pointers here since R",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_b398018f3f54c3dd_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u8be5\u51fd\u6570\u5173\u95ed HMD\uff08\u5934\u6234\u5f0f\u663e\u793a\u5668\uff09\u5e76\u6e05\u7a7a\u76f8\u5173\u6307\u9488\u3002\u9996\u5148\uff0c\u51fd\u6570\u5c06\u4fdd\u5b58\u4e4b\u524d\u5b58\u50a8\u7684 StereoRenderingDevice\u3001XRSystem\u3001ViewExtens...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u8fd9\u4e09\u4e2a\u53d8\u91cf\u5206\u522b\u662f StereoRenderingDevice\u3001XRSystem \u548c ViewExtensions \u5b9e\u4f8b\u7684\u6307\u9488\u526f\u672c\u3002\u8fd9\u91cc\u4f7f\u7528 auto \u5173\u952e\u5b57\u63a8\u5bfc...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "StereoRenderingDevice \u662f\u4e00\u4e2a\u6307\u5411\u7ee7\u627f\u81ea IStereoRendering \u63a5\u53e3\u7684\u7c7b\u578b\u7684\u6307\u9488\uff0c\u5728 UE4 \u6e32\u67d3\u4e2d\u7528\u4e8e\u5b9e\u73b0 VR \u8bbe\u5907\u7684\u53cc\u76ee\u6e32...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "FSuspendRenderingThread \u662f\u4e00\u4e2a\u7528\u4e8e\u6682\u505c\u6e32\u67d3\u7ebf\u7a0b\u7684\u4e34\u65f6\u5bf9\u8c61\u3002\u5b83\u5177\u6709\u4ee5\u4e0b\u4f5c\u7528\uff1a\n\n1. \u5f53\u521b\u5efa\u5bf9\u8c61\u65f6\uff0c\u5982\u679c\u5b58\u5728\u5f02\u6b65\u52a0\u8f7d\u7ebf\u7a0b\uff0c\u5219\u6682\u505c\u5f02\u6b65\u52a0\u8f7d\u7ebf...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "FRHICommandListImmediate::ImmediateFlush \u51fd\u6570\u7528\u4e8e\u7acb\u5373\u5237\u65b0\u5e76\u6267\u884c\u5f85\u5904\u7406\u7684 RHI \u547d\u4ee4\uff0c\u4ee5\u786e\u4fdd\u6e32\u67d3\u5728\u7ee7\u7eed\u4e4b\u524d\u5904\u4e8e\u540c\u6b65\u72b6\u6001...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u5728\u8be5\u8bed\u53e5\u4e2d\uff0cFrameReadyEvent \u83b7\u53d6\u4e86\u4e00\u4e2a\u4ece\u6c60\u4e2d\u53d6\u5f97\u7684\u540c\u6b65\u4e8b\u4ef6\u5bf9\u8c61\uff0c\u5e76\u5c06\u5b83\u7684\u6307\u9488\u5b58\u50a8\u5728 FrameReadyEvent \u53d8\u91cf\u4e2d\u3002\u8fd9\u91cc\u7684\u751f\u547d\u5468\u671f\u662f\u4ece\u53d6...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u5728\u8fd9\u91cc\uff0cFrameReadyEvent->Wait() \u51fd\u6570\u5c06\u7b49\u5f85\u6ce8\u518c\u5230\u8be5\u4e8b\u4ef6\u7684\u4efb\u4f55\u7ebf\u7a0b\u89e6\u53d1\u8be5\u4e8b\u4ef6\u3002\u5b83\u4f1a\u4e00\u76f4\u963b\u585e\u5f53\u524d\u7ebf\u7a0b\uff0c\u76f4\u5230\u4e8b\u4ef6\u88ab\u89e6\u53d1\u5e76\u8bbe\u7f6e\u4e3a signale...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b398018f3f54c3dd_15_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_b398018f3f54c3dd_14"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_b398018f3f54c3dd_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_b398018f3f54c3dd_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_b398018f3f54c3dd_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_b398018f3f54c3dd",
+      "target": "t_wildchat_new_b398018f3f54c3dd_15",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_b398018f3f54c3dd_0",
+      "target": "t_wildchat_new_b398018f3f54c3dd_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_0",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_b398018f3f54c3dd_1",
+      "target": "t_wildchat_new_b398018f3f54c3dd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_1",
+      "target": "m_wildchat_new_b398018f3f54c3dd_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_1",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_b398018f3f54c3dd_2",
+      "target": "t_wildchat_new_b398018f3f54c3dd_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_2",
+      "target": "m_wildchat_new_b398018f3f54c3dd_2_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_2",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_b398018f3f54c3dd_3",
+      "target": "t_wildchat_new_b398018f3f54c3dd_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_3",
+      "target": "m_wildchat_new_b398018f3f54c3dd_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_3",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_b398018f3f54c3dd_4",
+      "target": "t_wildchat_new_b398018f3f54c3dd_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_4",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_b398018f3f54c3dd_5",
+      "target": "t_wildchat_new_b398018f3f54c3dd_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_5",
+      "target": "m_wildchat_new_b398018f3f54c3dd_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_5",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_b398018f3f54c3dd_5",
+      "target": "v_wildchat_new_b398018f3f54c3dd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_b398018f3f54c3dd_6",
+      "target": "t_wildchat_new_b398018f3f54c3dd_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_6",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_b398018f3f54c3dd_7",
+      "target": "t_wildchat_new_b398018f3f54c3dd_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_7",
+      "target": "m_wildchat_new_b398018f3f54c3dd_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_7",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_6",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_b398018f3f54c3dd_7",
+      "target": "v_wildchat_new_b398018f3f54c3dd_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_b398018f3f54c3dd_8",
+      "target": "t_wildchat_new_b398018f3f54c3dd_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_8",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_b398018f3f54c3dd_9",
+      "target": "t_wildchat_new_b398018f3f54c3dd_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_9",
+      "target": "m_wildchat_new_b398018f3f54c3dd_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_9",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_b398018f3f54c3dd_10",
+      "target": "t_wildchat_new_b398018f3f54c3dd_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_10",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_b398018f3f54c3dd_11",
+      "target": "t_wildchat_new_b398018f3f54c3dd_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_11",
+      "target": "m_wildchat_new_b398018f3f54c3dd_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_11",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_b398018f3f54c3dd_12",
+      "target": "t_wildchat_new_b398018f3f54c3dd_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_12",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_b398018f3f54c3dd_13",
+      "target": "t_wildchat_new_b398018f3f54c3dd_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_13",
+      "target": "m_wildchat_new_b398018f3f54c3dd_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_13",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_12",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_b398018f3f54c3dd_13",
+      "target": "v_wildchat_new_b398018f3f54c3dd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_b398018f3f54c3dd_14",
+      "target": "t_wildchat_new_b398018f3f54c3dd_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_14",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b398018f3f54c3dd_15",
+      "target": "m_wildchat_new_b398018f3f54c3dd_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b398018f3f54c3dd_15",
+      "target": "mode_wildchat_new_b398018f3f54c3dd_14",
+      "key": 0
+    }
+  ]
+}

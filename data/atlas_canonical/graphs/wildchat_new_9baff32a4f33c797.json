@@ -1,0 +1,1078 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_9baff32a4f33c797",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 16,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Mixed",
+      "task_goal": "Predict the survival time for remaining patients in an oncology clinical trial based on observed data.",
+      "id": "conv_wildchat_new_9baff32a4f33c797"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 419,
+      "content_preview": "In an oncology clinical trial, how to predict the survival time for remaining patients who are still alive based on data",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2819,
+      "content_preview": "To predict the survival time for remaining patients who are still alive in an oncology clinical trial based on the obser",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 62,
+      "content_preview": "please provide example code with simulated data in R software.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1878,
+      "content_preview": "Here's an example to demonstrate survival analysis using the `coxph` function for the Cox proportional hazards model and",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 107,
+      "content_preview": "the death hazard varies over time, please update the R code by taking piece-wise hazard into consideration.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2372,
+      "content_preview": "To incorporate piece-wise hazard into the analysis, we can use the `survreg` function from the `survival` package with a",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 209,
+      "content_preview": "there are some uncertainty for the prediction. Will the doing simulation 10000 times and average the time over results f",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 2359,
+      "content_preview": "Yes, running the prediction multiple times with varying input data can provide a better understanding of the uncertainty",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 1332,
+      "content_preview": "Error is reported as below when running the R code, please revise it to fix the error: > piecewise_model <- survreg(Surv",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 2308,
+      "content_preview": "I apologize for the error in the code. It appears the `pspline` function does not work directly within the `survreg` fun",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 521,
+      "content_preview": "Still warnings like below, is there something wrong? > piecewise_model <- coxph(Surv(survival_time, death_event) ~ age +",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2352,
+      "content_preview": "I apologize for the confusion. It appears there's ambiguity in specifying the piecewise hazard directly within the `coxp",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 226,
+      "content_preview": "Error is reported as below, please revise to fix it. > predicted_hazard <- predict(piecewise_model, type = \"quantile\", p",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 2237,
+      "content_preview": "I apologize for the error in the code. The `predict()` function used in the previous code snippet is incompatible with t",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 183,
+      "content_preview": "for patients remaining, they have been observed for some time during which there are alive for sure, and we need to pred",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 3455,
+      "content_preview": "To predict the additional survival time for the remaining patients who have been observed for some time (let's call this",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_9baff32a4f33c797_15"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To predict the survival time for remaining patients who are still alive in an on...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not estimate the death",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not estimate the death",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, running the prediction multiple times with varying input data can provide a...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "has length > 1 and only the first element will be used\n2: In if",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_9baff32a4f33c797_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Consider baseline characteristics of patients such as age an] The response does not explicitly conside",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not provide an estimat",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_9_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_9_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not estimate the death",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_11_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Consider baseline characteristics of patients such as age an] The response does not consider baseline ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not estimate the death",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_13_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "ve for sure, and we need to predict how much additional time these",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_9baff32a4f33c797_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Consider baseline characteristics of patients such as age an] The response does not consider the basel",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Estimate the death hazard piecewise over time.] The response does not estimate the death",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_15_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Perform 10,000 simulations to average the estimated time of ] The response does not perform 10,000 sim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9baff32a4f33c797_15_2"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Consider baseline characteristics of patients such as age and gender.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          9,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 9,
+      "final_state": null,
+      "id": "c_wildchat_new_9baff32a4f33c797_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Estimate the death hazard piecewise over time.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 2,
+      "final_state": null,
+      "id": "c_wildchat_new_9baff32a4f33c797_c_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_2",
+      "text": "Perform 10,000 simulations to average the estimated time of death.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          6,
+          "STATED"
+        ],
+        [
+          9,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 6,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 3,
+      "final_state": null,
+      "id": "c_wildchat_new_9baff32a4f33c797_c_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 9,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_9baff32a4f33c797_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 3,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_9baff32a4f33c797_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 9,
+      "constraint_id": "c_2",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_9baff32a4f33c797_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_9baff32a4f33c797_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_9baff32a4f33c797_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_9baff32a4f33c797_14"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_9baff32a4f33c797_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_9baff32a4f33c797_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_9baff32a4f33c797",
+      "target": "t_wildchat_new_9baff32a4f33c797_15",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_0",
+      "target": "t_wildchat_new_9baff32a4f33c797_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_0",
+      "target": "mode_wildchat_new_9baff32a4f33c797_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_9baff32a4f33c797_1",
+      "target": "t_wildchat_new_9baff32a4f33c797_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_1",
+      "target": "m_wildchat_new_9baff32a4f33c797_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_1",
+      "target": "mode_wildchat_new_9baff32a4f33c797_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_9baff32a4f33c797_2",
+      "target": "t_wildchat_new_9baff32a4f33c797_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_2",
+      "target": "mode_wildchat_new_9baff32a4f33c797_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_9baff32a4f33c797_3",
+      "target": "t_wildchat_new_9baff32a4f33c797_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_3",
+      "target": "m_wildchat_new_9baff32a4f33c797_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_3",
+      "target": "m_wildchat_new_9baff32a4f33c797_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9baff32a4f33c797_3",
+      "target": "v_wildchat_new_9baff32a4f33c797_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_3",
+      "target": "mode_wildchat_new_9baff32a4f33c797_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_9baff32a4f33c797_4",
+      "target": "t_wildchat_new_9baff32a4f33c797_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_4",
+      "target": "mode_wildchat_new_9baff32a4f33c797_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_9baff32a4f33c797_5",
+      "target": "t_wildchat_new_9baff32a4f33c797_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_5",
+      "target": "m_wildchat_new_9baff32a4f33c797_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_5",
+      "target": "m_wildchat_new_9baff32a4f33c797_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_5",
+      "target": "mode_wildchat_new_9baff32a4f33c797_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_9baff32a4f33c797_6",
+      "target": "t_wildchat_new_9baff32a4f33c797_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_6",
+      "target": "mode_wildchat_new_9baff32a4f33c797_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_9baff32a4f33c797_7",
+      "target": "t_wildchat_new_9baff32a4f33c797_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_7",
+      "target": "m_wildchat_new_9baff32a4f33c797_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_7",
+      "target": "mode_wildchat_new_9baff32a4f33c797_6",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9baff32a4f33c797_7",
+      "target": "v_wildchat_new_9baff32a4f33c797_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_9baff32a4f33c797_8",
+      "target": "t_wildchat_new_9baff32a4f33c797_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_8",
+      "target": "m_wildchat_new_9baff32a4f33c797_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_8",
+      "target": "mode_wildchat_new_9baff32a4f33c797_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "t_wildchat_new_9baff32a4f33c797_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "m_wildchat_new_9baff32a4f33c797_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "m_wildchat_new_9baff32a4f33c797_9_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "m_wildchat_new_9baff32a4f33c797_9_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "v_wildchat_new_9baff32a4f33c797_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "v_wildchat_new_9baff32a4f33c797_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_9",
+      "target": "mode_wildchat_new_9baff32a4f33c797_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_9baff32a4f33c797_10",
+      "target": "t_wildchat_new_9baff32a4f33c797_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_10",
+      "target": "mode_wildchat_new_9baff32a4f33c797_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_9baff32a4f33c797_11",
+      "target": "t_wildchat_new_9baff32a4f33c797_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_11",
+      "target": "m_wildchat_new_9baff32a4f33c797_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_11",
+      "target": "m_wildchat_new_9baff32a4f33c797_11_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_11",
+      "target": "mode_wildchat_new_9baff32a4f33c797_10",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9baff32a4f33c797_11",
+      "target": "v_wildchat_new_9baff32a4f33c797_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_9baff32a4f33c797_12",
+      "target": "t_wildchat_new_9baff32a4f33c797_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_12",
+      "target": "mode_wildchat_new_9baff32a4f33c797_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_9baff32a4f33c797_13",
+      "target": "t_wildchat_new_9baff32a4f33c797_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_13",
+      "target": "m_wildchat_new_9baff32a4f33c797_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_13",
+      "target": "m_wildchat_new_9baff32a4f33c797_13_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_9baff32a4f33c797_13",
+      "target": "m_wildchat_new_9baff32a4f33c797_13_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_13",
+      "target": "mode_wildchat_new_9baff32a4f33c797_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_9baff32a4f33c797_14",
+      "target": "t_wildchat_new_9baff32a4f33c797_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_14",
+      "target": "m_wildchat_new_9baff32a4f33c797_14_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_14",
+      "target": "mode_wildchat_new_9baff32a4f33c797_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9baff32a4f33c797_15",
+      "target": "m_wildchat_new_9baff32a4f33c797_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9baff32a4f33c797_15",
+      "target": "m_wildchat_new_9baff32a4f33c797_15_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_9baff32a4f33c797_15",
+      "target": "m_wildchat_new_9baff32a4f33c797_15_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_9baff32a4f33c797_15",
+      "target": "mode_wildchat_new_9baff32a4f33c797_14",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 9,
+      "source": "v_wildchat_new_9baff32a4f33c797_0",
+      "target": "c_wildchat_new_9baff32a4f33c797_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_wildchat_new_9baff32a4f33c797_1",
+      "target": "c_wildchat_new_9baff32a4f33c797_c_1",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 9,
+      "source": "v_wildchat_new_9baff32a4f33c797_2",
+      "target": "c_wildchat_new_9baff32a4f33c797_c_2",
+      "key": 0
+    }
+  ]
+}

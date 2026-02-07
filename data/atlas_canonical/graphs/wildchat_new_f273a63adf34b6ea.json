@@ -1,0 +1,858 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_f273a63adf34b6ea",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 16,
+      "stability_class": "No Constraints",
+      "task_architecture": "Planning",
+      "constraint_hardness": "Strict",
+      "task_goal": "Optimize the scheduling of nurses for handling COVID-19 cases at Cornell Health.",
+      "id": "conv_wildchat_new_f273a63adf34b6ea"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 4773,
+      "content_preview": "1. Introduction In this recitation we will learn how to employ the newsvendor problem to solve a scheduling problem. Mor",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 103,
+      "content_preview": "# Solution 1 prevalence = (data['pop_percent'] / 100 * data['covid_prevalence'] / 100).sum() prevalence",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 1328,
+      "content_preview": "We will now run a simulation to generate many scenarios. Each scenario will include the number of positive students arri",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 248,
+      "content_preview": "# Solution 2 num_pos = rand.binomial(num_arrivals, prevalence, M) work = (num_pos * (30 + 4*20)).tolist() nurses_needed",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 1573,
+      "content_preview": "To optimize for the number of nurses we bring in, we will write a function that calculates the number of extra nurses re",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 274,
+      "content_preview": "# Solution 3 def eval_N(nurses_needed, nurses_scheduled): overage = (nurses_scheduled - nurses_needed).clip(lower =",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 360,
+      "content_preview": "Question 4: Using eval_N, plot the underage and overage vs. the number of nurses scheduled. Do this for nurses_scheduled",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 452,
+      "content_preview": "# Solution 4 underage_list = [] overage_list = [] for n in range(10): underage, overage = eval_N(simulation_df['nur",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 719,
+      "content_preview": "Now, we want to define a function optimize(df, alpha). It should return: * the optimal number of nurses to schedule suc",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 733,
+      "content_preview": "# Solution 5 def optimize(nurses_needed, alpha): cost = [0]*10 best_cost = np.inf opt_N = -1 opt_underag",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 425,
+      "content_preview": "Question 6: Test your function by using it to find the optimal N, underage and overage at these values: alpha = 0 (you s",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 948,
+      "content_preview": "# Solution 6 # Test 1: alpha = 0 opt_N, opt_underage, opt_overage = optimize(simulation_df['nurses_needed'], 0) print(\"",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 1038,
+      "content_preview": "Creating a Pareto Frontier Unfortunately, it isn't easy for a human decision-maker to tell you their objective function.",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 369,
+      "content_preview": "# Solution 7 alpha = np.arange(0,2.5,.05) overage = [0] * len(alpha) underage = [0] * len(alpha) opt_N = [0] * len(alpha",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 396,
+      "content_preview": "When we show this plot to management, they say that they like the point that has underage closest to 0.4 (roughly speaki",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 206,
+      "content_preview": "# Solution 8 index = (np.abs(np.array(underage)-0.4)).argmin() print(\"Optimal number of nurses to schedule: \", opt_N[ind",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_f273a63adf34b6ea_15"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "cally, we want to find the optimal number of nurses to be scheduled to work o",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "re specifically, we want to find the optimal number of nurses to be",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_0_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 1\nprevalence = (data['pop_percent'] / 100 * data['covid_prevalence']...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 2\nnum_pos = rand.binomial(num_arrivals, prevalence, M)\nwork = (num_po...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 3\ndef eval_N(nurses_needed, nurses_scheduled):\n    overage = (nurses_...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 4\nunderage_list = []\noverage_list = []\n\nfor n in range(10):\n    under...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "Now, we want to define a function optimize(df, alpha). It should return:\n*",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "Now, we want to define a function optimize(df, alpha).",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_8_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 5\ndef optimize(nurses_needed, alpha):\n    cost = [0]*10\n    best_cost...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 6\n\n# Test 1: alpha = 0\nopt_N, opt_underage, opt_overage = optimize(si...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "you their objective function. Instead, what we can do is to plot things that mu",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "to plot things that must be traded off in an optimal solution an",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_12_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "r to tell you their objective function. Instead, what we can do is to",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_12_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 7\nalpha = np.arange(0,2.5,.05)\noverage = [0] * len(alpha)\nunderage =...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "y is 40% that we'll need to call in an extra nurse).\nQuestion 8:\nWh",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_f273a63adf34b6ea_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# Solution 8\nindex = (np.abs(np.array(underage)-0.4)).argmin()\nprint(\"Optimal nu...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_f273a63adf34b6ea_15_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_f273a63adf34b6ea_14"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "v_wildchat_new_f273a63adf34b6ea_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_f273a63adf34b6ea",
+      "target": "t_wildchat_new_f273a63adf34b6ea_15",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_f273a63adf34b6ea_0",
+      "target": "t_wildchat_new_f273a63adf34b6ea_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_0",
+      "target": "m_wildchat_new_f273a63adf34b6ea_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_f273a63adf34b6ea_0",
+      "target": "m_wildchat_new_f273a63adf34b6ea_0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_0",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_f273a63adf34b6ea_1",
+      "target": "t_wildchat_new_f273a63adf34b6ea_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_1",
+      "target": "m_wildchat_new_f273a63adf34b6ea_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_1",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_f273a63adf34b6ea_1",
+      "target": "v_wildchat_new_f273a63adf34b6ea_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_f273a63adf34b6ea_2",
+      "target": "t_wildchat_new_f273a63adf34b6ea_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_2",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_f273a63adf34b6ea_3",
+      "target": "t_wildchat_new_f273a63adf34b6ea_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_3",
+      "target": "m_wildchat_new_f273a63adf34b6ea_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_3",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_f273a63adf34b6ea_4",
+      "target": "t_wildchat_new_f273a63adf34b6ea_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_4",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_f273a63adf34b6ea_5",
+      "target": "t_wildchat_new_f273a63adf34b6ea_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_5",
+      "target": "m_wildchat_new_f273a63adf34b6ea_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_5",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_f273a63adf34b6ea_6",
+      "target": "t_wildchat_new_f273a63adf34b6ea_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_6",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_f273a63adf34b6ea_7",
+      "target": "t_wildchat_new_f273a63adf34b6ea_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_7",
+      "target": "m_wildchat_new_f273a63adf34b6ea_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_7",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_f273a63adf34b6ea_8",
+      "target": "t_wildchat_new_f273a63adf34b6ea_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_8",
+      "target": "m_wildchat_new_f273a63adf34b6ea_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_f273a63adf34b6ea_8",
+      "target": "m_wildchat_new_f273a63adf34b6ea_8_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_8",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_f273a63adf34b6ea_9",
+      "target": "t_wildchat_new_f273a63adf34b6ea_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_9",
+      "target": "m_wildchat_new_f273a63adf34b6ea_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_9",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_f273a63adf34b6ea_10",
+      "target": "t_wildchat_new_f273a63adf34b6ea_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_10",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_f273a63adf34b6ea_11",
+      "target": "t_wildchat_new_f273a63adf34b6ea_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_11",
+      "target": "m_wildchat_new_f273a63adf34b6ea_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_11",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_f273a63adf34b6ea_12",
+      "target": "t_wildchat_new_f273a63adf34b6ea_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_12",
+      "target": "m_wildchat_new_f273a63adf34b6ea_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_f273a63adf34b6ea_12",
+      "target": "m_wildchat_new_f273a63adf34b6ea_12_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_f273a63adf34b6ea_12",
+      "target": "m_wildchat_new_f273a63adf34b6ea_12_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_12",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_f273a63adf34b6ea_13",
+      "target": "t_wildchat_new_f273a63adf34b6ea_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_13",
+      "target": "m_wildchat_new_f273a63adf34b6ea_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_13",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_f273a63adf34b6ea_14",
+      "target": "t_wildchat_new_f273a63adf34b6ea_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_14",
+      "target": "m_wildchat_new_f273a63adf34b6ea_14_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_14",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f273a63adf34b6ea_15",
+      "target": "m_wildchat_new_f273a63adf34b6ea_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_f273a63adf34b6ea_15",
+      "target": "mode_wildchat_new_f273a63adf34b6ea_14",
+      "key": 0
+    }
+  ]
+}

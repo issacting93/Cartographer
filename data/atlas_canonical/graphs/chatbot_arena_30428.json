@@ -1,0 +1,655 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_30428",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 14,
+      "stability_class": "Task Maintained",
+      "task_architecture": "Information Seeking",
+      "constraint_hardness": "Strict",
+      "task_goal": "Retrieve and manipulate data from a SQLite table named 'asset'.",
+      "id": "conv_chatbot_arena_30428"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 138,
+      "content_preview": "i have a sqlite table asset with column id, name and amount. response my question using SQL statement only. What's total",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 256,
+      "content_preview": "You can use the following SQL statement to get the total amount of assets in the table: ```vbnet SELECT SUM(amount) AS t",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 22,
+      "content_preview": "how many asset i have?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 244,
+      "content_preview": "You can use the following SQL statement to count the number of assets in the table: ```sql SELECT COUNT(*) AS num_of_ass",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 16,
+      "content_preview": "query all assets",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 167,
+      "content_preview": "You can use the following SQL statement to query all assets in the table: ```vbnet SELECT * FROM asset; ``` This will re",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 39,
+      "content_preview": "search my asset with the name like cash",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 342,
+      "content_preview": "You can use the following SQL statement to search for assets in the table with a name like \"cash\": ```sql SELECT * FROM",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 37,
+      "content_preview": "update my cash record by adding 10000",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 363,
+      "content_preview": "You can use the following SQL statement to update the cash asset record and add 10000 to its amount: ```sql UPDATE asset",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 57,
+      "content_preview": "add a new asset for my investment with 50000 total amount",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 389,
+      "content_preview": "You can use the following SQL statement to insert a new asset record with a name of \"investment\" and a total amount of 5",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 46,
+      "content_preview": "how many assets i have ? give me the name only",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 353,
+      "content_preview": "You can use the following SQL statement to retrieve the names of all assets in the table: ```vbnet SELECT name FROM asse",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30428_13"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "using SQL statement only. What's total amount of assets?",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_30428_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to get the total amount of assets in the...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to count the number of assets in the tab...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to query all assets in the table:\n```vbn...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to search for assets in the table with a...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to update the cash asset record and add...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to insert a new asset record with a name...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "? give me the name only",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_30428_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can use the following SQL statement to retrieve the names of all assets in t...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30428_13_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_chatbot_arena_30428_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30428_12"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_chatbot_arena_30428",
+      "target": "t_chatbot_arena_30428_13",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_30428_0",
+      "target": "t_chatbot_arena_30428_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_0",
+      "target": "m_chatbot_arena_30428_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_0",
+      "target": "mode_chatbot_arena_30428_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_30428_1",
+      "target": "t_chatbot_arena_30428_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_1",
+      "target": "m_chatbot_arena_30428_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_1",
+      "target": "mode_chatbot_arena_30428_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_30428_2",
+      "target": "t_chatbot_arena_30428_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_2",
+      "target": "mode_chatbot_arena_30428_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_30428_3",
+      "target": "t_chatbot_arena_30428_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_3",
+      "target": "m_chatbot_arena_30428_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_3",
+      "target": "mode_chatbot_arena_30428_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_30428_4",
+      "target": "t_chatbot_arena_30428_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_4",
+      "target": "mode_chatbot_arena_30428_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_chatbot_arena_30428_5",
+      "target": "t_chatbot_arena_30428_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_5",
+      "target": "m_chatbot_arena_30428_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_5",
+      "target": "mode_chatbot_arena_30428_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_chatbot_arena_30428_6",
+      "target": "t_chatbot_arena_30428_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_6",
+      "target": "mode_chatbot_arena_30428_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_chatbot_arena_30428_7",
+      "target": "t_chatbot_arena_30428_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_7",
+      "target": "m_chatbot_arena_30428_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_7",
+      "target": "mode_chatbot_arena_30428_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_chatbot_arena_30428_8",
+      "target": "t_chatbot_arena_30428_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_8",
+      "target": "mode_chatbot_arena_30428_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_chatbot_arena_30428_9",
+      "target": "t_chatbot_arena_30428_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_9",
+      "target": "m_chatbot_arena_30428_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_9",
+      "target": "mode_chatbot_arena_30428_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_chatbot_arena_30428_10",
+      "target": "t_chatbot_arena_30428_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_10",
+      "target": "mode_chatbot_arena_30428_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_chatbot_arena_30428_11",
+      "target": "t_chatbot_arena_30428_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_11",
+      "target": "m_chatbot_arena_30428_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_11",
+      "target": "mode_chatbot_arena_30428_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_chatbot_arena_30428_12",
+      "target": "t_chatbot_arena_30428_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_12",
+      "target": "m_chatbot_arena_30428_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_12",
+      "target": "mode_chatbot_arena_30428_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30428_13",
+      "target": "m_chatbot_arena_30428_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30428_13",
+      "target": "mode_chatbot_arena_30428_12",
+      "key": 0
+    }
+  ]
+}

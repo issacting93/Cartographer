@@ -1,0 +1,1617 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_bbe5166907722213",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 26,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Strict",
+      "task_goal": "Predict 4 safe spots in a 5x5 Minesweeper field using a list of 90 old mines.",
+      "id": "conv_wildchat_new_bbe5166907722213"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 376,
+      "content_preview": "In python, make me some code that predicts a 5x5 field minesweeper. You're supposed to predict 4 safe spots, where you'v",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1400,
+      "content_preview": "To predict 4 safe spots in a 5x5 Minesweeper field using machine learning, you can use a simple clustering algorithm lik",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 132,
+      "content_preview": "It works but the output has the 4 safe spots but the same answer is in it twice. Like: 2,2,5,5 fix it please so it gets",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1260,
+      "content_preview": "I apologize for the confusion. I've updated the code to ensure you get unique safe spots. Here's the updated version: `",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 188,
+      "content_preview": "Now, make it use data for the past 30 games. Just make code work with a list of 90 numbers and add so I can change the a",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2152,
+      "content_preview": "Here's the updated code that allows you to change the number of safe spots you want to predict and the number of mines f",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 97,
+      "content_preview": "Okay make it so the list is based on num past games x num mines so we always get the right lengt",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1730,
+      "content_preview": "Here's the updated code that dynamically adjusts the list length based on the `num_past_games` and `num_mines` variables",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 453,
+      "content_preview": "back to predicting 3 mines with 10 past games, 4 safe spots, but now make it use this new list and also make it work wit",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1846,
+      "content_preview": "Here's the updated code that works with the new list you provided: ```python import numpy as np from sklearn.cluster im",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 974,
+      "content_preview": "coords = np.array([[n // 5, n % 5] for n in past_games]).reshape(-1, 2) # Finding clusters using KMeans kmeans = KMeans",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 1867,
+      "content_preview": "Here's the modified code that works with a list of 30 past games, each with 3 old mines, and predicts 4 safe spots: ```",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 180,
+      "content_preview": "forget about the num past games and num mines and spots to predict for now, just make it use a list of 90 old mines to p",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1621,
+      "content_preview": "Here's the code that uses a list of 90 old mines and predicts 4 safe spots to click in a 5x5 field with 3 bombs: ```pyt",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 629,
+      "content_preview": "In python, make me some code that predicts a 5x5 field minesweeper. You\u2019re supposed to predict 4 safe spots, where you\u2019v",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 1779,
+      "content_preview": "Here's the code that uses machine learning to predict 4 non-repeated safe spots in a 5x5 field Minesweeper game based on",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 539,
+      "content_preview": "Hi! In python, now make code that predicts 2 numbers in a crash game. First is the safest, which is ALWAYS the lowest nu",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 1216,
+      "content_preview": "Here's a Python code that predicts 2 numbers for a Crash game using machine learning. The first number is the safest (lo",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_17"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 18,
+      "role": "user",
+      "content_length": 229,
+      "content_preview": "Okay try again but this time, you only have 7 games and also the predictions can only be from 1 - 5, safe must always be",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_18"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 19,
+      "role": "assistant",
+      "content_length": 1074,
+      "content_preview": "I understand your requirements. In the provided code, I've adjusted the prediction range for safe numbers to be always b",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_19"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 20,
+      "role": "user",
+      "content_length": 492,
+      "content_preview": "Now in python, use machine learning to predict the next roullete game where it has the colors: red,purple and yellow. Us",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_20"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 21,
+      "role": "assistant",
+      "content_length": 1396,
+      "content_preview": "To predict the percentages for each color (red, purple, and yellow) in the next roulette game, you can use the Naive Bay",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_21"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 22,
+      "role": "user",
+      "content_length": 24,
+      "content_preview": "print the accuracy in %",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_22"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 23,
+      "role": "assistant",
+      "content_length": 1536,
+      "content_preview": "We can calculate the accuracy of the classifier using the `cross_val_score` function from scikit-learn to perform k-fold",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_23"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 24,
+      "role": "user",
+      "content_length": 28,
+      "content_preview": "make it more accurate please",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_24"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 25,
+      "role": "assistant",
+      "content_length": 1862,
+      "content_preview": "Since the roulette game is inherently random, it's challenging to predict the outcomes with high accuracy solely based o",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_bbe5166907722213_25"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To predict 4 safe spots in a 5x5 Minesweeper field using machine learning, you c...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not guarantee exactly ",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not explicitly ensure ",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "f mines I want to predict",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "e amount of mines I want to predict",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_4_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "0 numbers as you mentioned.\npast_games_data = [2, 12, 18, 10, 12,",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not explicitly predict",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_5_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "s x num mines so we always get the right lengt",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_6_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not explicitly list 4 ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_7_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "ata while taking into account the number of past games and mines.",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not provide exactly 4 ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_9_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_9_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "fe spots, taking into account the provided data.",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not explicitly list 4 ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_11_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_11_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not clearly predict ex",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not clearly predict ex",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not ensure that the sa",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_15_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "he safest, which is ALWAYS the lowest number and the other risky,",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response predicts only 2 numbers ins",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not predict the same s",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_17_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "but this time, you only have 7 games and also the predictions c",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_18_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "I understand your requirements. In the provided code, I'v",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not predict exactly 4 ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_19_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not predict the same s",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_19_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_bbe5166907722213_20_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not predict any safe s",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_21_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "We can calculate the accuracy of the classifier using the `cross_val_score` func...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_23_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Predict exactly 4 unique safe spots.] The response does not predict any safe s",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_25_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not predict the same spot more than once.] The response does not predict any safe s",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_bbe5166907722213_25_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Predict exactly 4 unique safe spots.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 3,
+      "final_state": null,
+      "id": "c_wildchat_new_bbe5166907722213_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Do not predict the same spot more than once.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 2,
+      "final_state": null,
+      "id": "c_wildchat_new_bbe5166907722213_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 3,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_bbe5166907722213_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 3,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_bbe5166907722213_1"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_16"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 18,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_18"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 20,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_20"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 22,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_bbe5166907722213_22"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 24,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_bbe5166907722213_24"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_17",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 18,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_18",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 19,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_19",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 20,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_20",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 21,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_21",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 22,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_22",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 23,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_23",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 24,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_24",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 25,
+      "source": "conv_wildchat_new_bbe5166907722213",
+      "target": "t_wildchat_new_bbe5166907722213_25",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_bbe5166907722213_0",
+      "target": "t_wildchat_new_bbe5166907722213_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_0",
+      "target": "mode_wildchat_new_bbe5166907722213_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_bbe5166907722213_1",
+      "target": "t_wildchat_new_bbe5166907722213_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_1",
+      "target": "m_wildchat_new_bbe5166907722213_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_1",
+      "target": "mode_wildchat_new_bbe5166907722213_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_bbe5166907722213_2",
+      "target": "t_wildchat_new_bbe5166907722213_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_2",
+      "target": "mode_wildchat_new_bbe5166907722213_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "t_wildchat_new_bbe5166907722213_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "m_wildchat_new_bbe5166907722213_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "m_wildchat_new_bbe5166907722213_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "v_wildchat_new_bbe5166907722213_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "v_wildchat_new_bbe5166907722213_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_3",
+      "target": "mode_wildchat_new_bbe5166907722213_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_bbe5166907722213_4",
+      "target": "t_wildchat_new_bbe5166907722213_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_4",
+      "target": "m_wildchat_new_bbe5166907722213_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_4",
+      "target": "m_wildchat_new_bbe5166907722213_4_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_4",
+      "target": "mode_wildchat_new_bbe5166907722213_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_bbe5166907722213_5",
+      "target": "t_wildchat_new_bbe5166907722213_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_5",
+      "target": "m_wildchat_new_bbe5166907722213_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_5",
+      "target": "m_wildchat_new_bbe5166907722213_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_bbe5166907722213_5",
+      "target": "m_wildchat_new_bbe5166907722213_5_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_5",
+      "target": "mode_wildchat_new_bbe5166907722213_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_bbe5166907722213_6",
+      "target": "t_wildchat_new_bbe5166907722213_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_6",
+      "target": "m_wildchat_new_bbe5166907722213_6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_6",
+      "target": "m_wildchat_new_bbe5166907722213_6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_6",
+      "target": "mode_wildchat_new_bbe5166907722213_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_bbe5166907722213_7",
+      "target": "t_wildchat_new_bbe5166907722213_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_7",
+      "target": "m_wildchat_new_bbe5166907722213_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_7",
+      "target": "m_wildchat_new_bbe5166907722213_7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_7",
+      "target": "mode_wildchat_new_bbe5166907722213_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_bbe5166907722213_8",
+      "target": "t_wildchat_new_bbe5166907722213_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_8",
+      "target": "mode_wildchat_new_bbe5166907722213_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_bbe5166907722213_9",
+      "target": "t_wildchat_new_bbe5166907722213_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_9",
+      "target": "m_wildchat_new_bbe5166907722213_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_9",
+      "target": "m_wildchat_new_bbe5166907722213_9_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_bbe5166907722213_9",
+      "target": "m_wildchat_new_bbe5166907722213_9_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_9",
+      "target": "mode_wildchat_new_bbe5166907722213_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_bbe5166907722213_10",
+      "target": "t_wildchat_new_bbe5166907722213_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_10",
+      "target": "m_wildchat_new_bbe5166907722213_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_10",
+      "target": "mode_wildchat_new_bbe5166907722213_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_bbe5166907722213_11",
+      "target": "t_wildchat_new_bbe5166907722213_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_11",
+      "target": "m_wildchat_new_bbe5166907722213_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_11",
+      "target": "m_wildchat_new_bbe5166907722213_11_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_bbe5166907722213_11",
+      "target": "m_wildchat_new_bbe5166907722213_11_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_11",
+      "target": "mode_wildchat_new_bbe5166907722213_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_bbe5166907722213_12",
+      "target": "t_wildchat_new_bbe5166907722213_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_12",
+      "target": "m_wildchat_new_bbe5166907722213_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_12",
+      "target": "mode_wildchat_new_bbe5166907722213_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_bbe5166907722213_13",
+      "target": "t_wildchat_new_bbe5166907722213_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_13",
+      "target": "m_wildchat_new_bbe5166907722213_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_13",
+      "target": "m_wildchat_new_bbe5166907722213_13_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_13",
+      "target": "mode_wildchat_new_bbe5166907722213_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_bbe5166907722213_14",
+      "target": "t_wildchat_new_bbe5166907722213_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_14",
+      "target": "mode_wildchat_new_bbe5166907722213_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_bbe5166907722213_15",
+      "target": "t_wildchat_new_bbe5166907722213_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_15",
+      "target": "m_wildchat_new_bbe5166907722213_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_15",
+      "target": "m_wildchat_new_bbe5166907722213_15_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_15",
+      "target": "mode_wildchat_new_bbe5166907722213_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_bbe5166907722213_16",
+      "target": "t_wildchat_new_bbe5166907722213_17",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_16",
+      "target": "m_wildchat_new_bbe5166907722213_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_16",
+      "target": "mode_wildchat_new_bbe5166907722213_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 18,
+      "source": "t_wildchat_new_bbe5166907722213_17",
+      "target": "t_wildchat_new_bbe5166907722213_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_17",
+      "target": "m_wildchat_new_bbe5166907722213_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_17",
+      "target": "m_wildchat_new_bbe5166907722213_17_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_17",
+      "target": "mode_wildchat_new_bbe5166907722213_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 19,
+      "source": "t_wildchat_new_bbe5166907722213_18",
+      "target": "t_wildchat_new_bbe5166907722213_19",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_18",
+      "target": "m_wildchat_new_bbe5166907722213_18_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_18",
+      "target": "mode_wildchat_new_bbe5166907722213_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 20,
+      "source": "t_wildchat_new_bbe5166907722213_19",
+      "target": "t_wildchat_new_bbe5166907722213_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_19",
+      "target": "m_wildchat_new_bbe5166907722213_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_19",
+      "target": "m_wildchat_new_bbe5166907722213_19_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_bbe5166907722213_19",
+      "target": "m_wildchat_new_bbe5166907722213_19_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_19",
+      "target": "mode_wildchat_new_bbe5166907722213_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 21,
+      "source": "t_wildchat_new_bbe5166907722213_20",
+      "target": "t_wildchat_new_bbe5166907722213_21",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_20",
+      "target": "m_wildchat_new_bbe5166907722213_20_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_20",
+      "target": "mode_wildchat_new_bbe5166907722213_20",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 22,
+      "source": "t_wildchat_new_bbe5166907722213_21",
+      "target": "t_wildchat_new_bbe5166907722213_22",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_21",
+      "target": "m_wildchat_new_bbe5166907722213_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_21",
+      "target": "mode_wildchat_new_bbe5166907722213_20",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 23,
+      "source": "t_wildchat_new_bbe5166907722213_22",
+      "target": "t_wildchat_new_bbe5166907722213_23",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_22",
+      "target": "mode_wildchat_new_bbe5166907722213_22",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 24,
+      "source": "t_wildchat_new_bbe5166907722213_23",
+      "target": "t_wildchat_new_bbe5166907722213_24",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_23",
+      "target": "m_wildchat_new_bbe5166907722213_23_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_23",
+      "target": "mode_wildchat_new_bbe5166907722213_22",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 25,
+      "source": "t_wildchat_new_bbe5166907722213_24",
+      "target": "t_wildchat_new_bbe5166907722213_25",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_24",
+      "target": "mode_wildchat_new_bbe5166907722213_24",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_bbe5166907722213_25",
+      "target": "m_wildchat_new_bbe5166907722213_25_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_bbe5166907722213_25",
+      "target": "m_wildchat_new_bbe5166907722213_25_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_bbe5166907722213_25",
+      "target": "mode_wildchat_new_bbe5166907722213_24",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_wildchat_new_bbe5166907722213_0",
+      "target": "c_wildchat_new_bbe5166907722213_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_wildchat_new_bbe5166907722213_1",
+      "target": "c_wildchat_new_bbe5166907722213_c_1",
+      "key": 0
+    }
+  ]
+}

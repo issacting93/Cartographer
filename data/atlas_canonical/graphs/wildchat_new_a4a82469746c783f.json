@@ -1,0 +1,1001 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_a4a82469746c783f",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 18,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Information Seeking",
+      "constraint_hardness": "Strict",
+      "task_goal": "Display data from Firebase in a RecyclerView.",
+      "id": "conv_wildchat_new_a4a82469746c783f"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 11795,
+      "content_preview": "I am using a recycleview to display data from firebase database so that i can create a history table but i am having tro",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2218,
+      "content_preview": "Based on the codes provided and assuming that the firebase structure is correct, I spot a few issues in the `Result.java",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 6506,
+      "content_preview": "I get the data but still error D/Result: Data snapshot exists: DataSnapshot { key = 09123456789, value = {-NT4APsSDZAVN",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1278,
+      "content_preview": "The error message shows that there's a problem with converting a `Long` type value from Firebase to a `String`. Let's up",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 138,
+      "content_preview": "'UserItem(java.lang.String, java.lang.String)' in 'com.example.profile.UserItem' cannot be applied to '(java.lang.String",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 823,
+      "content_preview": "Apologies for the confusion. In step 2A of my last response, I mentioned using `String.valueOf()` to convert `emg_data`",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 106,
+      "content_preview": "can i use this? databaseReference = FirebaseDatabase.getInstance().getReference().child(Database_Path);",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 867,
+      "content_preview": "Yes, you can use the following line to reference the database path: ```java databaseReference = FirebaseDatabase.getIns",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 40,
+      "content_preview": "can you modify the code to implement it?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1597,
+      "content_preview": "Here's how you can modify the `Result.java` file to use the new database reference with the correct path: 1. Remove the",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 1663,
+      "content_preview": "D/AndroidRuntime: Shutting down VM E/AndroidRuntime: FATAL EXCEPTION: main Process: com.example.profile, PID: 6076",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 823,
+      "content_preview": "This error occurs because Firebase is unable to convert the received data to the UserData class, indicating that there m",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 389,
+      "content_preview": "This is the structure of database 09123456789 -NT4APgDfX15GW0fi1pP emg_data : 930 gsr_data : 394 soreness_label : \"exha",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1613,
+      "content_preview": "Thank you for providing the structure of your Firebase database. The issue might be caused by the incorrect parsing of t",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 74,
+      "content_preview": "it seems that i keep getting the same problem should i change my database?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 986,
+      "content_preview": "Before changing your database, let's make sure that your data is being parsed correctly from your Firebase database. The",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 1661,
+      "content_preview": "D/AndroidRuntime: Shutting down VM E/AndroidRuntime: FATAL EXCEPTION: main Process: com.example.profile, PID: 6582",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 1206,
+      "content_preview": "I apologize for the confusion. It appears that the error persists due to the inability to convert the object of type Str",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_a4a82469746c783f_17"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data must be retrieved from the correct Firebase path.] The response suggests accessing the Fire",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data types in UserData class must match the structure of the] The response does not verify if the data",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data types in UserData class must match the structure of the] The data types in UserData class do not ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "e.profile.UserItem' cannot be applied to '(java.lang.String, java.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_a4a82469746c783f_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Apologies for the confusion. In step 2A of my last response, I mentioned using `...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, you can use the following line to reference the database path:\n\n```java\ndat...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data must be retrieved from the correct Firebase path.] The response suggests using the path 'us",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": ".DatabaseException: Can't convert object of type java.lang.String",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_a4a82469746c783f_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "This error occurs because Firebase is unable to convert the received data to the...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Thank you for providing the structure of your Firebase database. The issue might...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data types in UserData class must match the structure of the] The data types in UserData class do not ",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": ".DatabaseException: Can't convert object of type java.lang.String",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_a4a82469746c783f_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Data types in UserData class must match the structure of the] The response indicates that the 'passwor",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_a4a82469746c783f_17_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Data must be retrieved from the correct Firebase path.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          1,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
+      "final_state": null,
+      "id": "c_wildchat_new_a4a82469746c783f_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Data types in UserData class must match the structure of the data in Firebase.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          3,
+          "STATED"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 3,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
+      "final_state": null,
+      "id": "c_wildchat_new_a4a82469746c783f_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 1,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_a4a82469746c783f_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 3,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_a4a82469746c783f_1"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_a4a82469746c783f_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_a4a82469746c783f_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_a4a82469746c783f_16"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_a4a82469746c783f_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 14,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_a4a82469746c783f_3"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_a4a82469746c783f",
+      "target": "t_wildchat_new_a4a82469746c783f_17",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_a4a82469746c783f_0",
+      "target": "t_wildchat_new_a4a82469746c783f_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_0",
+      "target": "mode_wildchat_new_a4a82469746c783f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_a4a82469746c783f_1",
+      "target": "t_wildchat_new_a4a82469746c783f_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_1",
+      "target": "m_wildchat_new_a4a82469746c783f_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_a4a82469746c783f_1",
+      "target": "m_wildchat_new_a4a82469746c783f_1_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_a4a82469746c783f_1",
+      "target": "v_wildchat_new_a4a82469746c783f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_1",
+      "target": "mode_wildchat_new_a4a82469746c783f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_a4a82469746c783f_2",
+      "target": "t_wildchat_new_a4a82469746c783f_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_2",
+      "target": "mode_wildchat_new_a4a82469746c783f_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_a4a82469746c783f_3",
+      "target": "t_wildchat_new_a4a82469746c783f_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_3",
+      "target": "m_wildchat_new_a4a82469746c783f_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_a4a82469746c783f_3",
+      "target": "v_wildchat_new_a4a82469746c783f_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_3",
+      "target": "mode_wildchat_new_a4a82469746c783f_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_a4a82469746c783f_4",
+      "target": "t_wildchat_new_a4a82469746c783f_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_4",
+      "target": "m_wildchat_new_a4a82469746c783f_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_4",
+      "target": "mode_wildchat_new_a4a82469746c783f_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_a4a82469746c783f_5",
+      "target": "t_wildchat_new_a4a82469746c783f_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_5",
+      "target": "m_wildchat_new_a4a82469746c783f_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_5",
+      "target": "mode_wildchat_new_a4a82469746c783f_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_a4a82469746c783f_6",
+      "target": "t_wildchat_new_a4a82469746c783f_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_6",
+      "target": "mode_wildchat_new_a4a82469746c783f_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_a4a82469746c783f_7",
+      "target": "t_wildchat_new_a4a82469746c783f_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_7",
+      "target": "m_wildchat_new_a4a82469746c783f_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_7",
+      "target": "mode_wildchat_new_a4a82469746c783f_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_a4a82469746c783f_8",
+      "target": "t_wildchat_new_a4a82469746c783f_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_8",
+      "target": "mode_wildchat_new_a4a82469746c783f_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_a4a82469746c783f_9",
+      "target": "t_wildchat_new_a4a82469746c783f_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_9",
+      "target": "m_wildchat_new_a4a82469746c783f_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_9",
+      "target": "mode_wildchat_new_a4a82469746c783f_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_a4a82469746c783f_10",
+      "target": "t_wildchat_new_a4a82469746c783f_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_10",
+      "target": "m_wildchat_new_a4a82469746c783f_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_10",
+      "target": "mode_wildchat_new_a4a82469746c783f_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_a4a82469746c783f_11",
+      "target": "t_wildchat_new_a4a82469746c783f_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_11",
+      "target": "m_wildchat_new_a4a82469746c783f_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_11",
+      "target": "mode_wildchat_new_a4a82469746c783f_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_a4a82469746c783f_12",
+      "target": "t_wildchat_new_a4a82469746c783f_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_12",
+      "target": "mode_wildchat_new_a4a82469746c783f_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_a4a82469746c783f_13",
+      "target": "t_wildchat_new_a4a82469746c783f_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_13",
+      "target": "m_wildchat_new_a4a82469746c783f_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_13",
+      "target": "mode_wildchat_new_a4a82469746c783f_12",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_a4a82469746c783f_13",
+      "target": "v_wildchat_new_a4a82469746c783f_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_a4a82469746c783f_14",
+      "target": "t_wildchat_new_a4a82469746c783f_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_14",
+      "target": "mode_wildchat_new_a4a82469746c783f_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_a4a82469746c783f_15",
+      "target": "t_wildchat_new_a4a82469746c783f_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_15",
+      "target": "m_wildchat_new_a4a82469746c783f_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_15",
+      "target": "mode_wildchat_new_a4a82469746c783f_14",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_a4a82469746c783f_15",
+      "target": "v_wildchat_new_a4a82469746c783f_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_a4a82469746c783f_16",
+      "target": "t_wildchat_new_a4a82469746c783f_17",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_16",
+      "target": "m_wildchat_new_a4a82469746c783f_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_16",
+      "target": "mode_wildchat_new_a4a82469746c783f_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_a4a82469746c783f_17",
+      "target": "m_wildchat_new_a4a82469746c783f_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_a4a82469746c783f_17",
+      "target": "mode_wildchat_new_a4a82469746c783f_16",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_a4a82469746c783f_0",
+      "target": "c_wildchat_new_a4a82469746c783f_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_wildchat_new_a4a82469746c783f_1",
+      "target": "c_wildchat_new_a4a82469746c783f_c_1",
+      "key": 0
+    }
+  ]
+}

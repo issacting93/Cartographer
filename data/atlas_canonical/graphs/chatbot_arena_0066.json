@@ -1,0 +1,370 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0066",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 8,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "User wants to hear jokes.",
+      "id": "conv_chatbot_arena_0066"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 14,
+      "content_preview": "Tell me a joke",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 69,
+      "content_preview": "Q: What did one leaf say to the other? A: I'm feeling a bit 'rusty'!",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 14,
+      "content_preview": "I don't get it",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 82,
+      "content_preview": "The joke is that 'rusty' is a pun since the leaf is feeling a bit rusty -- get it?",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 19,
+      "content_preview": "Tell me another one",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 66,
+      "content_preview": "Q: What did the ocean say to the wave? A: Nothing, it just waved!",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 20,
+      "content_preview": "I don't get it again",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 85,
+      "content_preview": "The joke is that 'waved' is a pun since the ocean didn't say anything, it just waved!",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0066_7"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The joke is that 'rusty' is a pun since the leaf is feeling a bit rusty -- get i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0066_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The joke is that 'waved' is a pun since the ocean didn't say anything, it just w...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0066_7_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0066_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0066_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0066_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0066_6"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_0066_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_0066_1"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_chatbot_arena_0066",
+      "target": "t_chatbot_arena_0066_7",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0066_0",
+      "target": "t_chatbot_arena_0066_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_0",
+      "target": "mode_chatbot_arena_0066_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0066_1",
+      "target": "t_chatbot_arena_0066_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_1",
+      "target": "mode_chatbot_arena_0066_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0066_2",
+      "target": "t_chatbot_arena_0066_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_2",
+      "target": "mode_chatbot_arena_0066_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0066_3",
+      "target": "t_chatbot_arena_0066_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0066_3",
+      "target": "m_chatbot_arena_0066_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_3",
+      "target": "mode_chatbot_arena_0066_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0066_3",
+      "target": "v_chatbot_arena_0066_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0066_4",
+      "target": "t_chatbot_arena_0066_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_4",
+      "target": "mode_chatbot_arena_0066_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_chatbot_arena_0066_5",
+      "target": "t_chatbot_arena_0066_6",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_5",
+      "target": "mode_chatbot_arena_0066_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_chatbot_arena_0066_6",
+      "target": "t_chatbot_arena_0066_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_6",
+      "target": "mode_chatbot_arena_0066_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0066_7",
+      "target": "m_chatbot_arena_0066_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0066_7",
+      "target": "mode_chatbot_arena_0066_6",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0066_7",
+      "target": "v_chatbot_arena_0066_1",
+      "key": 0
+    }
+  ]
+}

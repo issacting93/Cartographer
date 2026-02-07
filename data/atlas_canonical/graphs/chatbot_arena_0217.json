@@ -1,0 +1,323 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0217",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "User wants to create questions about etymology that incorporate personal experiences.",
+      "id": "conv_chatbot_arena_0217"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 119,
+      "content_preview": "I want to make some questions help me understand etymology, and these questions should use user's personal experiences.",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 350,
+      "content_preview": "Alright, what kind of questions would you like to ask? You can ask me anything related to etymology and I'll do my best",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 10,
+      "content_preview": "Make some.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 588,
+      "content_preview": "Alright, here are some questions related to etymology that you can answer using your personal experiences: 1. What word",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 61,
+      "content_preview": "And classify questions according to revised Bloom's taxonomy/",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 252,
+      "content_preview": "Sure, I can classify questions according to revised Bloom's taxonomy. For example, questions that require recalling fact",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0217_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "I want to make some questions help me understand etymology, and these",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_0217_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "I want to make some questions help me understand",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_0217_0_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Alright, what kind of questions would you like to ask? You can ask me anything r...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0217_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "REQUEST_CLARIFICATION",
+      "text_span": "here are some questions related to etymology that you can answe",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0217_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROVIDE_INFORMATION",
+      "text_span": "[response to clarification request]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_chatbot_arena_0217_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure, I can classify questions according to revised Bloom's taxonomy. For exampl...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0217_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0217_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0217_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0217_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0217",
+      "target": "t_chatbot_arena_0217_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0217_0",
+      "target": "t_chatbot_arena_0217_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0217_0",
+      "target": "m_chatbot_arena_0217_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_0217_0",
+      "target": "m_chatbot_arena_0217_0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_0",
+      "target": "mode_chatbot_arena_0217_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0217_1",
+      "target": "t_chatbot_arena_0217_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0217_1",
+      "target": "m_chatbot_arena_0217_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_1",
+      "target": "mode_chatbot_arena_0217_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0217_2",
+      "target": "t_chatbot_arena_0217_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_2",
+      "target": "mode_chatbot_arena_0217_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0217_3",
+      "target": "t_chatbot_arena_0217_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0217_3",
+      "target": "m_chatbot_arena_0217_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_3",
+      "target": "mode_chatbot_arena_0217_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0217_4",
+      "target": "t_chatbot_arena_0217_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0217_4",
+      "target": "m_chatbot_arena_0217_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_4",
+      "target": "mode_chatbot_arena_0217_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0217_5",
+      "target": "m_chatbot_arena_0217_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0217_5",
+      "target": "mode_chatbot_arena_0217_4",
+      "key": 0
+    }
+  ]
+}

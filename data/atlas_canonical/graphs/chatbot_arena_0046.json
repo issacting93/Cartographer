@@ -1,0 +1,335 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0046",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "Information Seeking",
+      "constraint_hardness": "Strict",
+      "task_goal": "Understand the MKUltra program and its implications.",
+      "id": "conv_chatbot_arena_0046"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 17,
+      "content_preview": "What was MKUltra?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 886,
+      "content_preview": "MKUltra was a secret program conducted by the CIA between the 1950s and the 1970s. Its purpose was to study the effects",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 19,
+      "content_preview": "Why was it started?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 533,
+      "content_preview": "The CIA started the project as an extension of its earlier projects such as the Scientific American Committee and the Te",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 37,
+      "content_preview": "Dis anything positive come out of it?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 527,
+      "content_preview": "While some believe that the program's real aim was to develop methods of mind control and behavior modification that cou",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0046_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "MKUltra was a secret program conducted by the CIA between the 1950s and the 1970...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0046_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The CIA started the project as an extension of its earlier projects such as the...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0046_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "While some believe that the program's real aim was to develop methods of mind co...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0046_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0046_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0046_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0046_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_chatbot_arena_0046_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_0046_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_0046_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0046",
+      "target": "t_chatbot_arena_0046_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0046_0",
+      "target": "t_chatbot_arena_0046_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_0",
+      "target": "mode_chatbot_arena_0046_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0046_1",
+      "target": "t_chatbot_arena_0046_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0046_1",
+      "target": "m_chatbot_arena_0046_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_1",
+      "target": "mode_chatbot_arena_0046_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0046_1",
+      "target": "v_chatbot_arena_0046_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0046_2",
+      "target": "t_chatbot_arena_0046_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_2",
+      "target": "mode_chatbot_arena_0046_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0046_3",
+      "target": "t_chatbot_arena_0046_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0046_3",
+      "target": "m_chatbot_arena_0046_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_3",
+      "target": "mode_chatbot_arena_0046_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0046_3",
+      "target": "v_chatbot_arena_0046_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0046_4",
+      "target": "t_chatbot_arena_0046_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_4",
+      "target": "mode_chatbot_arena_0046_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0046_5",
+      "target": "m_chatbot_arena_0046_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0046_5",
+      "target": "mode_chatbot_arena_0046_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0046_5",
+      "target": "v_chatbot_arena_0046_2",
+      "key": 0
+    }
+  ]
+}

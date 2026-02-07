@@ -1,0 +1,1008 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_32b6033f6d9994a3",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 20,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Strict",
+      "task_goal": "Create a C# property that behaves differently based on the requested type (int or double).",
+      "id": "conv_wildchat_new_32b6033f6d9994a3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 141,
+      "content_preview": "in c# how can I make a property with the same name that if asked by double returns a double hours and if asked for int r",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1613,
+      "content_preview": "You can achieve this by implementing a property with the same name that returns different values based on the data type",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 110,
+      "content_preview": "for the time, are these equivalent or which one is better? (int)(value * 60) or (int)Math.Floor(value* 60);",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 757,
+      "content_preview": "Both expressions achieve the same result, which is to convert the `value` to an integer representing the number of minut",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 856,
+      "content_preview": "It works for the set but when I try to use it as int or double it doesn't automatically transform into int or double, ex",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1617,
+      "content_preview": "The reason why you're getting the unexpected result is that the `+` operator works differently between dynamic numbers a",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 98,
+      "content_preview": "I tried this: Console.WriteLine((int)Entrada + 10); But it still output 15, what could go wrong?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1585,
+      "content_preview": "You're casting `Entrada` to an `int` before applying the `+` operator, so that's good. However, the property `Entrada` i",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 79,
+      "content_preview": "Can I just do this instead? int Entrada {get; set;} double Entrada {get; set;}",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1742,
+      "content_preview": "No, you cannot define two properties with the same name and different types in the same class in C#. This is because the",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 90,
+      "content_preview": "can this public class TimeEntry be an struct instead since it doesn't have a constructor?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 1375,
+      "content_preview": "Yes, you can define the `TimeEntry` class as a struct instead of a class. Structs in C# are value types that have simila",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 297,
+      "content_preview": "how can I access the textboxes inside the current window? I have this code: MyMethod(TextBox), and I want to loop over",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1368,
+      "content_preview": "Here's an example of how you can loop through every `TextBox` control in the current `Window` and call a method on it:",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 113,
+      "content_preview": "can you tell me how to clone an object to another so that way it has the same values but different object easily?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 3294,
+      "content_preview": "Yes, you can clone an object to another object so that the new object has the same values but is a different instance. H",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 654,
+      "content_preview": "this is my sql string, do a ternary with each value and only assign the values if they are different from original: int",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 1487,
+      "content_preview": "Here's an example of how you can use the ternary operator to conditionally assign values in your SQL string based on whe",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_17"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 18,
+      "role": "user",
+      "content_length": 106,
+      "content_preview": "in c# how can I get a way to check if last printing job ended up correctly printing instead of cancelling?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_18"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 19,
+      "role": "assistant",
+      "content_length": 168,
+      "content_preview": "In C#, you can use the `PrintDocument.PrintController` property to access the print controller for a `PrintDocument` obj",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_32b6033f6d9994a3_19"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can achieve this by implementing a property with the same name that returns...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Both expressions achieve the same result, which is to convert the `value` to an...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The reason why you're getting the unexpected result is that the `+` operator wor...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You're casting `Entrada` to an `int` before applying the `+` operator, so that's...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "No, you cannot define two properties with the same name and different types in t...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, you can define the `TimeEntry` class as a struct instead of a class. Struct...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "x), and I want to loop over every textbox element inside the current window a",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_32b6033f6d9994a3_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "TASK_SHIFT",
+      "text_span": "[shift to: Access and loop over all TextBox elements in the current window and call MyMetho]",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "user",
+      "id": "m_wildchat_new_32b6033f6d9994a3_12_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "hod(TextBox), and I want to loop over every textbox element inside",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_32b6033f6d9994a3_12_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Here's an example of how you can loop through every `TextBox` control in the cur...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, you can clone an object to another object so that the new object has the sa...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "with each value and only assign the values if they are different",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_32b6033f6d9994a3_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Here's an example of how you can use the ternary operator to conditionally assig...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "In C#, you can use the `PrintDocument.PrintController` property to access the pr...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_32b6033f6d9994a3_19_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_16"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 18,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_wildchat_new_32b6033f6d9994a3_18"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_32b6033f6d9994a3_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_32b6033f6d9994a3_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 16,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_32b6033f6d9994a3_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_17",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 18,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 19,
+      "source": "conv_wildchat_new_32b6033f6d9994a3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_19",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_32b6033f6d9994a3_0",
+      "target": "t_wildchat_new_32b6033f6d9994a3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_0",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_32b6033f6d9994a3_1",
+      "target": "t_wildchat_new_32b6033f6d9994a3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_1",
+      "target": "m_wildchat_new_32b6033f6d9994a3_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_1",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_32b6033f6d9994a3_2",
+      "target": "t_wildchat_new_32b6033f6d9994a3_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_2",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_32b6033f6d9994a3_3",
+      "target": "t_wildchat_new_32b6033f6d9994a3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_3",
+      "target": "m_wildchat_new_32b6033f6d9994a3_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_3",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_32b6033f6d9994a3_3",
+      "target": "v_wildchat_new_32b6033f6d9994a3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_32b6033f6d9994a3_4",
+      "target": "t_wildchat_new_32b6033f6d9994a3_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_4",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_32b6033f6d9994a3_5",
+      "target": "t_wildchat_new_32b6033f6d9994a3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_5",
+      "target": "m_wildchat_new_32b6033f6d9994a3_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_5",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_32b6033f6d9994a3_6",
+      "target": "t_wildchat_new_32b6033f6d9994a3_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_6",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_32b6033f6d9994a3_7",
+      "target": "t_wildchat_new_32b6033f6d9994a3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_7",
+      "target": "m_wildchat_new_32b6033f6d9994a3_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_7",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_32b6033f6d9994a3_8",
+      "target": "t_wildchat_new_32b6033f6d9994a3_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_8",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_32b6033f6d9994a3_9",
+      "target": "t_wildchat_new_32b6033f6d9994a3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_9",
+      "target": "m_wildchat_new_32b6033f6d9994a3_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_9",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_32b6033f6d9994a3_10",
+      "target": "t_wildchat_new_32b6033f6d9994a3_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_10",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_32b6033f6d9994a3_11",
+      "target": "t_wildchat_new_32b6033f6d9994a3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_11",
+      "target": "m_wildchat_new_32b6033f6d9994a3_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_11",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_32b6033f6d9994a3_11",
+      "target": "v_wildchat_new_32b6033f6d9994a3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_32b6033f6d9994a3_12",
+      "target": "t_wildchat_new_32b6033f6d9994a3_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_12",
+      "target": "m_wildchat_new_32b6033f6d9994a3_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_32b6033f6d9994a3_12",
+      "target": "m_wildchat_new_32b6033f6d9994a3_12_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_32b6033f6d9994a3_12",
+      "target": "m_wildchat_new_32b6033f6d9994a3_12_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_12",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_32b6033f6d9994a3_13",
+      "target": "t_wildchat_new_32b6033f6d9994a3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_13",
+      "target": "m_wildchat_new_32b6033f6d9994a3_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_13",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_32b6033f6d9994a3_14",
+      "target": "t_wildchat_new_32b6033f6d9994a3_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_14",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_32b6033f6d9994a3_15",
+      "target": "t_wildchat_new_32b6033f6d9994a3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_15",
+      "target": "m_wildchat_new_32b6033f6d9994a3_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_15",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_32b6033f6d9994a3_16",
+      "target": "t_wildchat_new_32b6033f6d9994a3_17",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_16",
+      "target": "m_wildchat_new_32b6033f6d9994a3_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_16",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 18,
+      "source": "t_wildchat_new_32b6033f6d9994a3_17",
+      "target": "t_wildchat_new_32b6033f6d9994a3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_17",
+      "target": "m_wildchat_new_32b6033f6d9994a3_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_17",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_32b6033f6d9994a3_17",
+      "target": "v_wildchat_new_32b6033f6d9994a3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 19,
+      "source": "t_wildchat_new_32b6033f6d9994a3_18",
+      "target": "t_wildchat_new_32b6033f6d9994a3_19",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_18",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_32b6033f6d9994a3_19",
+      "target": "m_wildchat_new_32b6033f6d9994a3_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_32b6033f6d9994a3_19",
+      "target": "mode_wildchat_new_32b6033f6d9994a3_18",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,1061 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_0882d4fa2612e170",
+      "source": "WildChat",
+      "domain": "code",
+      "total_turns": 18,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Debug and improve a homography-related image processing function.",
+      "id": "conv_wildchat_new_0882d4fa2612e170"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 184,
+      "content_preview": "I am having RuntimeWarning: divide by zero encountered in true_divide and RuntimeWarning: invalid value encountered in t",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1702,
+      "content_preview": "These warnings indicate that your code is trying to perform division by zero or the result of the division is leading to",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 1006,
+      "content_preview": "I get the error in this function can you spot it : \"def ransac_homography(src_pts, dst_pts, iterations=2000, threshold=3",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1827,
+      "content_preview": "The error might be caused by the line: ```python projected_point = projected_point / projected_point[-1] ``` Here, you",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 304,
+      "content_preview": "you found the line to cause problem however your solution is too simple, for this solution the ransac_homography fails f",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2516,
+      "content_preview": "I apologize for the oversimplification. Here's an improved version of the `ransac_homography` function that should be mo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 1215,
+      "content_preview": "well here is my compute_homography_matrix function, feel free to check for implementation error and change it if there a",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1921,
+      "content_preview": "Your `compute_homography_matrix` function seems to be implemented correctly. It uses the Direct Linear Transformation (D",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 2372,
+      "content_preview": "okay then I need you to get me a image merging function, which will use my warp perspective function. It will take image",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1900,
+      "content_preview": "Your `warp_perspective` function seems to be implemented correctly. It takes an image and a homography matrix as input a",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 516,
+      "content_preview": "okay well there are couple things to consider, my images are different sized and first image is reference so it won't ha",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2320,
+      "content_preview": "I understand your requirements better now. Based on your description, I have updated the `image_merging` function to han",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 474,
+      "content_preview": "I am having error in image_merging(images, homographies) 195 y_offset, x_offset = max(0, -min_y), max(0, -mi",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 2197,
+      "content_preview": "I apologize for the confusion. The error occurs because the dimensions of the `mask` and the `merged_image_slice` do not",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 205,
+      "content_preview": "something is wrong with height and width, for some reason panorama image is vertically got bigger instead of horizontall",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 2565,
+      "content_preview": "I apologize for the confusion. It seems that the issue is caused by the way the merged image size is computed. Let's upd",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 8381,
+      "content_preview": "ok look I fixed the problem and it was irrelevant but now I have a new problem, in my warp perspective function when I w",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 374,
+      "content_preview": "I apologize for the confusion earlier. Based on your description, it seems that the issue is related to the way the homo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_0882d4fa2612e170_17"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the function is error-proof.] The response suggests modifying the beha",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response uses a method (np.dot) that",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the function is error-proof.] The function does not handle the case wh",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response uses a function 'compute_ho",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "are. Again you can only use NumPY. : \"def compute_homography_ma",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0882d4fa2612e170_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response mentions using NumPy but do",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the function is error-proof.] The function does not handle the case wh",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_7_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Your `warp_perspective` function seems to be implemented correctly. It takes an...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "inal panorama image must not lose image data and get as much as",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0882d4fa2612e170_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "I understand your requirements better now. Based on your description, I have updated the `image_",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response uses a function 'warp_persp",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_11_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the function is error-proof.] The function does not handle potential e",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_11_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_wildchat_new_0882d4fa2612e170_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response uses a function 'warp_persp",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the function is error-proof.] The function does not handle potential e",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not use OpenCV or any library other than NumPy.] The response uses a function 'warp_persp",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "ce warp_perspective only warps perspective according to already",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_0882d4fa2612e170_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion earlier. Based on your description, it seems that...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0882d4fa2612e170_17_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Do not use OpenCV or any library other than NumPy.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          4,
+          "STATED"
+        ],
+        [
+          5,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 4,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_wildchat_new_0882d4fa2612e170_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Ensure the function is error-proof.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          8,
+          "STATED"
+        ],
+        [
+          11,
+          "ACTIVE"
+        ],
+        [
+          11,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 8,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 3,
+      "final_state": null,
+      "id": "c_wildchat_new_0882d4fa2612e170_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 5,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_0882d4fa2612e170_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 11,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_0882d4fa2612e170_1"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0882d4fa2612e170_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0882d4fa2612e170_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0882d4fa2612e170_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0882d4fa2612e170_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_0882d4fa2612e170_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0882d4fa2612e170_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0882d4fa2612e170_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_wildchat_new_0882d4fa2612e170_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_wildchat_new_0882d4fa2612e170_16"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_wildchat_new_0882d4fa2612e170_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_0882d4fa2612e170",
+      "target": "t_wildchat_new_0882d4fa2612e170_17",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_0882d4fa2612e170_0",
+      "target": "t_wildchat_new_0882d4fa2612e170_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_0",
+      "target": "mode_wildchat_new_0882d4fa2612e170_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_0882d4fa2612e170_1",
+      "target": "t_wildchat_new_0882d4fa2612e170_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_1",
+      "target": "m_wildchat_new_0882d4fa2612e170_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_1",
+      "target": "mode_wildchat_new_0882d4fa2612e170_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0882d4fa2612e170_1",
+      "target": "v_wildchat_new_0882d4fa2612e170_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_0882d4fa2612e170_2",
+      "target": "t_wildchat_new_0882d4fa2612e170_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_2",
+      "target": "mode_wildchat_new_0882d4fa2612e170_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_0882d4fa2612e170_3",
+      "target": "t_wildchat_new_0882d4fa2612e170_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_3",
+      "target": "m_wildchat_new_0882d4fa2612e170_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0882d4fa2612e170_3",
+      "target": "m_wildchat_new_0882d4fa2612e170_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_3",
+      "target": "mode_wildchat_new_0882d4fa2612e170_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_0882d4fa2612e170_4",
+      "target": "t_wildchat_new_0882d4fa2612e170_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_4",
+      "target": "mode_wildchat_new_0882d4fa2612e170_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_0882d4fa2612e170_5",
+      "target": "t_wildchat_new_0882d4fa2612e170_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_5",
+      "target": "m_wildchat_new_0882d4fa2612e170_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0882d4fa2612e170_5",
+      "target": "v_wildchat_new_0882d4fa2612e170_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_5",
+      "target": "mode_wildchat_new_0882d4fa2612e170_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_0882d4fa2612e170_6",
+      "target": "t_wildchat_new_0882d4fa2612e170_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_6",
+      "target": "m_wildchat_new_0882d4fa2612e170_6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_6",
+      "target": "mode_wildchat_new_0882d4fa2612e170_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_0882d4fa2612e170_7",
+      "target": "t_wildchat_new_0882d4fa2612e170_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_7",
+      "target": "m_wildchat_new_0882d4fa2612e170_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0882d4fa2612e170_7",
+      "target": "m_wildchat_new_0882d4fa2612e170_7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_7",
+      "target": "mode_wildchat_new_0882d4fa2612e170_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_0882d4fa2612e170_8",
+      "target": "t_wildchat_new_0882d4fa2612e170_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_8",
+      "target": "mode_wildchat_new_0882d4fa2612e170_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_0882d4fa2612e170_9",
+      "target": "t_wildchat_new_0882d4fa2612e170_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_9",
+      "target": "m_wildchat_new_0882d4fa2612e170_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_9",
+      "target": "mode_wildchat_new_0882d4fa2612e170_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_0882d4fa2612e170_10",
+      "target": "t_wildchat_new_0882d4fa2612e170_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_10",
+      "target": "m_wildchat_new_0882d4fa2612e170_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_10",
+      "target": "mode_wildchat_new_0882d4fa2612e170_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "t_wildchat_new_0882d4fa2612e170_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "m_wildchat_new_0882d4fa2612e170_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "m_wildchat_new_0882d4fa2612e170_11_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "m_wildchat_new_0882d4fa2612e170_11_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "v_wildchat_new_0882d4fa2612e170_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_11",
+      "target": "mode_wildchat_new_0882d4fa2612e170_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_0882d4fa2612e170_12",
+      "target": "t_wildchat_new_0882d4fa2612e170_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_12",
+      "target": "m_wildchat_new_0882d4fa2612e170_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_12",
+      "target": "mode_wildchat_new_0882d4fa2612e170_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_0882d4fa2612e170_13",
+      "target": "t_wildchat_new_0882d4fa2612e170_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_13",
+      "target": "m_wildchat_new_0882d4fa2612e170_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0882d4fa2612e170_13",
+      "target": "m_wildchat_new_0882d4fa2612e170_13_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_13",
+      "target": "mode_wildchat_new_0882d4fa2612e170_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_0882d4fa2612e170_14",
+      "target": "t_wildchat_new_0882d4fa2612e170_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_14",
+      "target": "mode_wildchat_new_0882d4fa2612e170_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_0882d4fa2612e170_15",
+      "target": "t_wildchat_new_0882d4fa2612e170_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_15",
+      "target": "m_wildchat_new_0882d4fa2612e170_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_15",
+      "target": "mode_wildchat_new_0882d4fa2612e170_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_0882d4fa2612e170_16",
+      "target": "t_wildchat_new_0882d4fa2612e170_17",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_16",
+      "target": "m_wildchat_new_0882d4fa2612e170_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_16",
+      "target": "mode_wildchat_new_0882d4fa2612e170_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0882d4fa2612e170_17",
+      "target": "m_wildchat_new_0882d4fa2612e170_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_0882d4fa2612e170_17",
+      "target": "mode_wildchat_new_0882d4fa2612e170_16",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 5,
+      "source": "v_wildchat_new_0882d4fa2612e170_0",
+      "target": "c_wildchat_new_0882d4fa2612e170_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 11,
+      "source": "v_wildchat_new_0882d4fa2612e170_1",
+      "target": "c_wildchat_new_0882d4fa2612e170_c_1",
+      "key": 0
+    }
+  ]
+}
