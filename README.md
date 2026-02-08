@@ -17,44 +17,71 @@ Atlas transforms linear chat logs into heterogeneous multi-relational graphs, ma
 
 ---
 
-## Architecture
+## Methodology
 
-```
-Atlas Pipeline
-==============
+Atlas employs a rigorous, empirically-driven pipeline to identify "Agency Collapse." Unlike purely qualitative approaches, our archetypes are post-hoc labels assigned to empirically derived clusters.
 
-Raw Conversations ──> Move Classifier ──> Constraint Tracker ──> Graph Builder ──> Metrics
-                  ──> Mode Detector  ──┘                         (NetworkX         (Aggregation
-                      (parallel)                                  MultiDiGraph)      + Reports)
-```
+### 7-Step Pipeline
 
-### Graph Schema
+1.  **Construct Definition:** We define theoretical constructs (Repair, Passivity, Specificity) before looking at data.
+2.  **Feature Extraction:** We compute deterministic features (e.g., `repair_count`, `politeness_delta`).
+3.  **Unsupervised Clustering:** We use **HDBSCAN** to find natural groupings in the feature space ($X \in \mathbb{R}^{N \times D}$).
+4.  **Cluster Characterization:** We compute descriptive statistics for each cluster (e.g., "Cluster 0 has high repair count and low success").
+5.  **Agency Collapse Definition:** We define "Collapse" as a binary outcome variable based on specific thresholds (e.g., repeated failed repairs, tone degradation).
+6.  **Archetype Naming:** We assign descriptive post-hoc labels to clusters (e.g., "Passive Acceptance").
+7.  **Validation:** We validate findings via clustering stability (Silhouette > 0.3) and human agreement ($\kappa > 0.65$).
 
-**6 Node Types:**
-- `Conversation` — session-level metadata (source, domain, stability class)
-- `Turn` — individual message (role, content preview, move count)
-- `Move` — communicative act (PROPOSE_CONSTRAINT, REPAIR_INITIATE, VIOLATE_CONSTRAINT, etc.)
-- `Constraint` — tracked rule with state machine (STATED → ACTIVE → VIOLATED → REPAIRED/ABANDONED/SURVIVED)
-- `ViolationEvent` — individual violation instance with repair tracking
-- `InteractionMode` — per-turn mode annotation (LISTENER, ADVISOR, EXECUTOR)
+### Key Definitions
 
-**8+ Edge Types:**
-- `NEXT` — temporal ordering between turns
-- `CONTAINS` — conversation → turn hierarchy
-- `HAS_MOVE` — turn → move association
-- `VIOLATES` — violation event → constraint link
-- `REPAIRS` — repair move → violation event link
-- `TRIGGERS` — causal edges (move → violation)
-- `OPERATES_IN` — turn → interaction mode
-- `RATIFIES` — constraint acceptance
+| Construct | Definition |
+|-----------|------------|
+| **Agency Collapse** | Theoretical outcome where the user's capacity to direct interaction degrades over time. Defined by repeated failed repairs, tone degradation, or specificity collapse. |
+| **Repair** | User attempts to correct AI misunderstanding. |
+| **Passivity** | User accepts AI output without modification. |
+| **Specificity** | Precision of user's stated requirements. |
+| **Politeness** | Markers of face-saving behavior. |
 
-### Stability Classes
+**Note:** "Agency Collapse" is an outcome variable, while "Archetypes" are cluster patterns. A conversation can show collapse without fitting a specific archetype.
 
-Conversations are classified into four archetypes based on graph topology:
-- **Task Maintained** — model stays on track (low drift)
-- **Constraint Drift** — rules are stated but progressively ignored
-- **Task Shift** — the core goal is renegotiated
-- **Agency Collapse** — user surrenders effort to control output
+---
+
+## BLOOM Design System (New in v2.0)
+
+Atlas v2.0 exclusively uses the **BLOOM Design System**, a high-contrast interaction language designed for clarity and agency preservation.
+
+### Core Principles
+- **Light Mode Aesthetic:** High-contrast Black/Yellow/Orange palette on white.
+- **Semantic Components:** "Pills" for filters, "Nodes" for graph entities, and "Cards" for inspection.
+- **Visual Hierarchy:** Critical failures (Violations) are alarmed with Orange/Red, while maintained agency is Green.
+
+### Views
+
+| View | Description | File |
+|------|-------------|------|
+| **Atlas Meta-Graph** | A macro-view of the entire dataset (700+ conversations), clustered by stability. | `scripts/atlas/atlas.html` |
+| **Explorer** | A detailed, single-conversation inspector for diagnosing constraint collapse. | `scripts/atlas/explorer.html` |
+
+---
+
+## Architecture & Graph Schema
+
+The Atlas pipeline converts raw text into a NetworkX MultiDiGraph, which is then visualized via D3.js.
+
+### Node Types
+- `Conversation` — Metadata (source, domain, stability class)
+- `Turn` — Individual message (role: user/model)
+- `Move` — Communicative act (PROPOSE_CONSTRAINT, REPAIR_INITIATE, etc.)
+- `Constraint` — Tracked rule state (STATED → ACTIVE → VIOLATED → SURVIVED)
+- `ViolationEvent` — Instance of a constraint violation
+- `InteractionMode` — Per-turn mode (LISTENER, ADVISOR, EXECUTOR)
+
+### Edge Types
+- `NEXT` — Temporal flow
+- `CONTAINS` — Hierarchy
+- `HAS_MOVE` — Turn-to-Move
+- `VIOLATES` — Violation linking
+- `REPAIRS` — Repair attempts
+- `TRIGGERS` — Causal links
 
 ---
 
@@ -64,133 +91,27 @@ Conversations are classified into four archetypes based on graph topology:
 Atlas/
 ├── scripts/
 │   └── atlas/                    # Core pipeline
-│       ├── core/
-│       │   ├── enums.py          # Node types, edge types, move types, states
-│       │   └── models.py         # Pydantic models (Constraint, Turn, Move, etc.)
-│       ├── graph/
-│       │   └── validators.py     # Graph schema validation
+│       ├── core/                 # Enums and Pydantic models
+│       ├── graph/                # Schema validation
 │       ├── run_pipeline.py       # Main orchestrator
-│       ├── move_classifier.py    # Hybrid regex + LLM move classification
-│       ├── mode_detector.py      # Interaction mode detection
-│       ├── constraint_tracker.py # Constraint lifecycle state machine
-│       ├── build_atlas_graph.py  # NetworkX graph construction
-│       ├── graph_metrics.py      # Drift velocity, agency tax, half-life, etc.
-│       ├── utils.py              # Shared utilities and data loaders
-│       ├── export_dashboard_data.py
-│       ├── generate_visualizations.py
-│       ├── generate_friction_heatmap.py
-│       ├── dashboard.html        # Interactive metrics dashboard
-│       └── explorer.html         # D3.js conversation graph explorer
+│       ├── atlas.html            # [NEW] Meta-Graph View (BLOOM Style)
+│       ├── explorer.html         # [UPDATED] Single Graph Explorer (BLOOM Style)
+│       ├── bloom.css             # [NEW] Shared Design System
+│       └── ...                   # Analysis scripts
 │
 ├── frontend/                     # CII Prototype (React + Vite)
-│   └── src/
-│       ├── components/           # ConstraintSidebar, ChatInterface, etc.
-│       └── pages/                # BaselineChat, TreatmentChat, Workspace
-│
-├── backend/                      # FastAPI backend for prototype
-│
+├── backend/                      # FastAPI backend
 ├── context_engine/               # Task-first context management
-│
-├── paper/                        # Paper drafts, figures, references
-│   ├── CUI_2026_Paper.tex
-│   └── figures/
-│
-├── CUI-Docs/                     # Research planning and strategy
-│   ├── Atlas-One-Pager.md        # CHI submission one-pager
-│   ├── CHI-Review-Strategy.md    # Execution plan for CHI
-│   ├── CHI-Related-Work-Map.md   # Literature positioning (6 buckets)
-│   └── archive/                  # Earlier paper iterations
-│
-└── data/                         # Computed metrics and analysis outputs
-    ├── atlas_v2_production/      # Production run metrics + visualizations
-    ├── atlas_canonical/          # Canonical analysis metrics
-    ├── analysis/                 # Cluster analysis results
-    └── atlas/graphs/samples/     # 5 sample graphs (full set: 979 graphs, ~190MB)
+└── paper/                        # Paper drafts, figures, references
 ```
 
----
+## Running the Explorer
 
-## Quick Start
-
-### Run the Atlas Pipeline
-
-```bash
-# Install dependencies
-pip install networkx pydantic openai python-dotenv
-
-# Full run (requires OpenAI API key in .env)
-python -m atlas.run_pipeline \
-    --enriched data/task_classified/all_task_enriched.json \
-    --source-dir /path/to/raw/conversations \
-    --output-dir data/atlas \
-    --model gpt-4o-mini \
-    --concurrent 10
-
-# Deterministic-only (no API key needed)
-python -m atlas.run_pipeline \
-    --enriched data/task_classified/all_task_enriched.json \
-    --source-dir /path/to/raw/conversations \
-    --output-dir data/atlas \
-    --no-llm
-
-# Sample 10 conversations for testing
-python -m atlas.run_pipeline \
-    --enriched data/task_classified/all_task_enriched.json \
-    --source-dir /path/to/raw/conversations \
-    --output-dir data/atlas \
-    --sample 10
-```
-
-### Run the CII Prototype
-
-```bash
-# Backend
-cd backend
-pip install -r requirements.txt
-cp .env.example .env  # Add your API key
-uvicorn main:app --port 8000
-
-# Frontend
-cd frontend
-npm install
-npm run dev
-```
-
-### Explore the Data
-
-- Open `scripts/atlas/explorer.html` in a browser to visualize individual conversation graphs
-- Open `scripts/atlas/dashboard.html` for aggregate metrics dashboards
-- See `data/atlas_v2_production/metrics/` for computed metrics
-
----
-
-## Data Note
-
-The full graph dataset (979 MultiDiGraphs, ~190MB) and LLM annotation caches are excluded from this repository. 5 sample graphs are included in `data/atlas/graphs/samples/` for reference. The raw conversation sources (WildChat, Chatbot Arena, OASST) are available from their respective repositories.
-
----
-
-## Technical Stack
-
-- **Graph Engine:** NetworkX (MultiDiGraph with Pydantic schema validation)
-- **Annotation:** Hybrid regex + LLM (GPT-4o-mini) classification
-- **Frontend:** React + Vite + TypeScript + D3.js
-- **Backend:** FastAPI + Python
-- **Visualization:** D3.js (explorer), Matplotlib (paper figures)
-
----
-
-## Research Context
-
-This project supports two submission tracks:
-
-- **CUI 2026:** Empirical analysis of conversational drift + CII prototype
-- **CHI 2027 (planned):** Validated method paper — Interactional Cartography as a reusable diagnostic framework, with graph clustering validation, predictive motifs, and constraint resurfacing simulation
-
-See `CUI-Docs/Atlas-One-Pager.md` and `CUI-Docs/CHI-Review-Strategy.md` for the full research strategy.
-
----
-
-## License
-
-Research use. Please cite if you use this work.
+1.  Start a local server:
+    ```bash
+    python3 -m http.server 8001
+    ```
+2.  Open **Atlas View** to see the landscape:
+    `http://localhost:8001/scripts/atlas/atlas.html`
+3.  Open **Explorer** to dive into a specific conversation:
+    `http://localhost:8001/scripts/atlas/explorer.html`

@@ -12,7 +12,6 @@
         /* Local overrides */
         #drop-zone {
             display: none !important;
-            /* Hide drop zone in Atlas view */
         }
 
         .chat-bubble {
@@ -29,6 +28,86 @@
         .chat-bubble.model {
             border-left-color: var(--yellow);
         }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .filter-pill {
+            border-radius: 16px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--gray);
+            background: white;
+            color: var(--text);
+            transition: all 0.2s ease;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--black);
+        }
+
+        .filter-pill.active {
+            background: var(--black);
+            color: white;
+            border-color: var(--black);
+        }
+
+        .filter-pill .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .filter-pill.active .dot {
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.6);
+        }
+
+        #atlas-stats .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 0;
+            font-size: 12px;
+        }
+
+        .breakdown-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-dim);
+        }
+
+        .breakdown-value {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .breakdown-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
     </style>
 </head>
 
@@ -42,9 +121,6 @@
         </div>
 
         <div class="panel-section">
-            <div id="drop-zone" style="display: none;"></div>
-
-
             <div id="file-selector-container">
                 <input type="text" id="file-search" list="file-list" placeholder="Search conversations...">
                 <datalist id="file-list"></datalist>
@@ -54,29 +130,53 @@
                     </button>
                 </div>
             </div>
-
-            <div id="controls">
-                <button id="toggle-layout" class="btn btn-secondary">Cluster by Stability</button>
-            </div>
         </div>
 
-        <div class="legend panel-section">
-            <div class="panel-title">View Controls</div>
+        <div class="panel-section">
+            <div class="panel-title">Layout</div>
+            <select id="layout-select">
+                <option value="force">Force Layout</option>
+                <option value="stability">Cluster by Stability</option>
+                <option value="source">Cluster by Source</option>
+            </select>
+        </div>
 
+        <div class="panel-section">
+            <div class="panel-title">Stability</div>
+            <div id="stability-filters" class="filter-group"></div>
+        </div>
 
+        <div class="panel-section">
+            <div class="panel-title">Source</div>
+            <div id="source-filters" class="filter-group"></div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Size Encoding</div>
+            <select id="size-select">
+                <option value="turn_count">By Turn Count</option>
+                <option value="constraint_count">By Constraint Count</option>
+                <option value="uniform">Uniform</option>
+            </select>
+        </div>
+
+        <div class="panel-section">
             <div class="panel-title">Legend</div>
-            <div id="atlas-legend" class="legend" style="display: flex; flex-direction: column; gap: 8px;">
-                <div class="legend-item"><span class="swatch" style="background: var(--green)"></span> Task Maintained
-                </div>
-                <div class="legend-item"><span class="swatch" style="background: var(--yellow)"></span> Constraint Drift
-                </div>
-                <div class="legend-item"><span class="swatch" style="background: var(--orange)"></span> Task Shift</div>
-                <div class="legend-item"><span class="swatch" style="background: var(--violation)"></span> Agency
-                    Collapse</div>
-                <div class="legend-item"><span class="swatch" style="background: var(--gray)"></span> No Constraints
+            <div id="atlas-legend" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="legend-item"><span class="swatch" style="background: #22c55e"></span> Task Maintained</div>
+                <div class="legend-item"><span class="swatch" style="background: #f5c542"></span> Constraint Drift</div>
+                <div class="legend-item"><span class="swatch" style="background: #e85a3c"></span> Task Shift</div>
+                <div class="legend-item"><span class="swatch" style="background: #f87171"></span> Agency Collapse</div>
+                <div class="legend-item"><span class="swatch" style="background: #94a3b8"></span> No Constraints</div>
+            </div>
+            <div style="margin-top: 12px;">
+                <div class="panel-title">Source Stroke</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div class="legend-item"><span class="swatch" style="background: #60a5fa; border: 2px solid #60a5fa;"></span> WildChat</div>
+                    <div class="legend-item"><span class="swatch" style="background: #f5c542; border: 2px solid #f5c542;"></span> ChatbotArena</div>
+                    <div class="legend-item"><span class="swatch" style="background: #c084fc; border: 2px solid #c084fc;"></span> OpenAssistant</div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -87,60 +187,71 @@
 
     <div id="right-panel" class="panel">
 
-        <div id="metadata-panel" class="node-info" style="display: none;">
-            <div class="panel-title">Node Inspector</div>
-            <pre id="metadata-content"></pre>
+        <div id="atlas-stats" class="panel-section">
+            <div class="panel-title">Atlas Overview</div>
+            <div id="stats-content">
+                <p style="color: var(--text-dim); font-size: 13px;">Loading...</p>
+            </div>
         </div>
 
-        <div id="empty-details" style="text-align: center; color: var(--text-dim); margin-top: 50px;">
+        <div id="metadata-panel" class="node-info" style="display: none;">
+            <div class="panel-title">Node Inspector</div>
+            <div id="metadata-content"></div>
+        </div>
+
+        <div id="empty-details" style="text-align: center; color: var(--text-dim); margin-top: 20px;">
             <span class="material-symbols-rounded"
                 style="font-size: 48px; color: var(--gray); margin-bottom: 10px;">hub</span>
-            <p>Select a node to view properties</p>
+            <p>Click a node to inspect</p>
+            <p style="font-size: 11px; margin-top: 4px;">Double-click to open in Explorer</p>
         </div>
     </div>
 
     <script>
-        let mode = 'force'; // 'force' or 'timeline'
-        const colors = {
-            "Conversation": "var(--conversation)",
-            "Turn": "var(--turn)",
-            "Move": "var(--move)",
-            "Constraint": "var(--constraint)",
-            "ViolationEvent": "var(--violation)",
-            "InteractionMode": "var(--mode)"
+        // ── State ──
+        const STATE = {
+            mode: 'force',
+            activeStabilities: new Set(),
+            activeSources: new Set(),
+            sizeField: 'turn_count'
         };
 
-        const dropZone = d3.select("#drop-zone");
-        const fileInput = d3.select("#file-input");
+        const stabilityColors = {
+            "Task Maintained": "#22c55e",
+            "Constraint Drift": "#f5c542",
+            "Task Shift": "#e85a3c",
+            "Agency Collapse": "#f87171",
+            "No Constraints": "#94a3b8"
+        };
+
+        const sourceColors = {
+            "WildChat": "#60a5fa",
+            "lmsys-chat-1m": "#f5c542",
+            "OpenAssistant": "#c084fc"
+        };
+
+        const sourceLabels = {
+            "WildChat": "WildChat",
+            "lmsys-chat-1m": "ChatbotArena",
+            "OpenAssistant": "OpenAssistant"
+        };
+
         const svg = d3.select("#viz");
         const tooltip = d3.select("#tooltip");
         const metadataPanel = d3.select("#metadata-panel");
         const metadataContent = d3.select("#metadata-content");
-        const toggleBtn = d3.select("#toggle-layout");
-
 
         let currentData = null;
+        let simulation = null;
 
-        // Initial Load
+        // ── Init ──
         loadAtlas();
 
-        toggleBtn.on("click", () => {
-            // Cycle Atlas Modes
-            if (mode === 'force') mode = 'stability';
-            else if (mode === 'stability') mode = 'source';
-            else mode = 'force';
-
-            let label = "Cluster by Stability";
-            if (mode === 'force') label = "Cluster by Stability";
-            if (mode === 'stability') label = "Cluster by Source";
-            if (mode === 'source') label = "Switch to Force";
-
-            toggleBtn.text(label);
-            if (currentData) renderAtlas(currentData);
-        });
-
-        // Search Logic
+        // ── File search: open in explorer ──
         const fileSearch = document.getElementById('file-search');
+        const fileList = document.getElementById('file-list');
+        const loadBtn = document.getElementById('load-btn');
+
         if (fileSearch) {
             fileSearch.addEventListener('change', (e) => {
                 const val = e.target.value;
@@ -148,243 +259,156 @@
             });
         }
 
-        // File Selector Logic
-        const fileList = document.getElementById('file-list');
-        const loadBtn = document.getElementById('load-btn');
-
-        // Populate file list from the generated list
-        // const files = ... is now loaded from file_list.js
-
         files.forEach(f => {
             const option = document.createElement('option');
             option.value = f;
             fileList.appendChild(option);
         });
 
-        loadBtn.addEventListener('click', async () => {
+        loadBtn.addEventListener('click', () => {
             const filename = fileSearch.value;
-            if (!filename) return;
-
-            try {
-                // Adjusting path to fetch from relative graphs directory
-                const response = await fetch(`../../data/atlas_canonical/graphs/${filename}`);
-                if (!response.ok) throw new Error("File not found");
-                const data = await response.json();
-                currentData = data;
-                const stats = computeSummary(currentData);
-                renderSummary(stats);
-                renderConstraintTimeline(stats);
-                // renderGraph(currentData); // Graph rendering is now handled by renderAtlas
-            } catch (err) {
-                alert(`Error loading ${filename}: ${err.message}`);
-                console.error(err);
-            }
+            if (filename) window.open(`explorer.html?file=${filename}`, '_blank');
         });
 
-        // Edge color mapping
-        const edgeColors = {
-            'NEXT': '#64748b',
-            'CONTAINS': '#60a5fa',
-            'VIOLATES': '#f87171',
-            'REPAIR_INITIATE': '#4ade80',
-            'REPAIR_EXECUTE': '#4ade80',
-            'RATIFIES': '#c084fc',
-            'TRIGGERS': '#fbbf24',
-            'OPERATES_IN': '#2dd4bf',
-            'HAS_MOVE': '#94a3b8',
-        };
+        // ── Layout select ──
+        document.getElementById('layout-select').addEventListener('change', (e) => {
+            STATE.mode = e.target.value;
+            if (currentData) renderAtlas(currentData);
+        });
 
-        function getEdgeColor(edgeType) {
-            return edgeColors[edgeType] || '#475569';
+        // ── Size select ──
+        document.getElementById('size-select').addEventListener('change', (e) => {
+            STATE.sizeField = e.target.value;
+            if (currentData) renderAtlas(currentData);
+        });
+
+        // ── Build filter pills ──
+        function buildFilterPills() {
+            if (!currentData) return;
+
+            const stabilities = [...new Set(currentData.nodes.map(n => n.stability).filter(Boolean))];
+            const sources = [...new Set(currentData.nodes.map(n => n.source).filter(Boolean))];
+
+            // Init active sets with all values
+            stabilities.forEach(s => STATE.activeStabilities.add(s));
+            sources.forEach(s => STATE.activeSources.add(s));
+
+            // Stability pills
+            const stabContainer = document.getElementById('stability-filters');
+            stabContainer.innerHTML = '';
+            stabilities.forEach(s => {
+                const pill = document.createElement('div');
+                pill.className = 'filter-pill active';
+                pill.innerHTML = `<span class="dot" style="background: ${stabilityColors[s] || '#94a3b8'}"></span>${s}`;
+                pill.addEventListener('click', () => {
+                    if (STATE.activeStabilities.has(s)) {
+                        STATE.activeStabilities.delete(s);
+                        pill.classList.remove('active');
+                    } else {
+                        STATE.activeStabilities.add(s);
+                        pill.classList.add('active');
+                    }
+                    if (currentData) renderAtlas(currentData);
+                });
+                stabContainer.appendChild(pill);
+            });
+
+            // Source pills
+            const srcContainer = document.getElementById('source-filters');
+            srcContainer.innerHTML = '';
+            sources.forEach(s => {
+                const pill = document.createElement('div');
+                pill.className = 'filter-pill active';
+                pill.innerHTML = `<span class="dot" style="background: ${sourceColors[s] || '#94a3b8'}"></span>${sourceLabels[s] || s}`;
+                pill.addEventListener('click', () => {
+                    if (STATE.activeSources.has(s)) {
+                        STATE.activeSources.delete(s);
+                        pill.classList.remove('active');
+                    } else {
+                        STATE.activeSources.add(s);
+                        pill.classList.add('active');
+                    }
+                    if (currentData) renderAtlas(currentData);
+                });
+                srcContainer.appendChild(pill);
+            });
         }
 
-        function computeSummary(data) {
+        // ── Right panel: aggregate stats ──
+        function renderAtlasStats(data) {
+            const statsEl = document.getElementById('stats-content');
             const nodes = data.nodes || [];
-            const links = data.links || [];
 
-            const conv = nodes.find(n => n.node_type === 'Conversation');
-            const turns = nodes.filter(n => n.node_type === 'Turn');
-            const constraints = nodes.filter(n => n.node_type === 'Constraint');
-            const violations = nodes.filter(n => n.node_type === 'ViolationEvent');
-            const modes = nodes.filter(n => n.node_type === 'InteractionMode');
-            const moves = nodes.filter(n => n.node_type === 'Move');
+            // Stability breakdown
+            const stabCounts = {};
+            nodes.forEach(n => {
+                const s = n.stability || 'Unknown';
+                stabCounts[s] = (stabCounts[s] || 0) + 1;
+            });
 
-            // Separate constraint violations from mode violations
-            const constraintViols = violations.filter(v => v.constraint_id !== 'mode' &&
-                !['UNSOLICITED_ADVICE', 'PREMATURE_EXECUTION', 'EXECUTION_AVOIDANCE'].includes(v.violation_type));
-            const modeViols = violations.filter(v => v.constraint_id === 'mode' ||
-                ['UNSOLICITED_ADVICE', 'PREMATURE_EXECUTION', 'EXECUTION_AVOIDANCE'].includes(v.violation_type));
+            // Source breakdown
+            const srcCounts = {};
+            nodes.forEach(n => {
+                const s = n.source || 'Unknown';
+                srcCounts[s] = (srcCounts[s] || 0) + 1;
+            });
 
-            // Count repairs
-            const repairMoves = moves.filter(m => (m.move_type || '').startsWith('REPAIR_'));
-            const survived = constraints.filter(c => c.current_state === 'SURVIVED' || c.current_state === 'ACTIVE').length;
+            let html = `
+                <div class="stat-row">
+                    <span class="stat-label">Total Conversations</span>
+                    <span class="stat-value">${nodes.length}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Links</span>
+                    <span class="stat-value">${(data.links || []).length}</span>
+                </div>
+            `;
 
-            // Drift velocity: constraint violations / total turns
-            const totalTurns = turns.length;
-            const driftVelocity = totalTurns > 0 ? constraintViols.length / totalTurns : 0;
-
-            // Mode violation pairs
-            const modePairs = modes.length;
-            const modePairViols = modes.filter(m => m.is_violation).length;
-
-            return {
-                convId: conv ? (conv.conv_id || conv.id) : '—',
-                source: conv ? conv.source : '',
-                turns: totalTurns,
-                constraints: constraints.length,
-                constraintViols: constraintViols.length,
-                repairs: repairMoves.length,
-                driftVelocity: driftVelocity,
-                survived: survived,
-                survivalRate: constraints.length > 0 ? survived / constraints.length : 0,
-                modeViols: modePairViols,
-                modePairs: modePairs,
-                stability: conv ? conv.stability_class : '—',
-                architecture: conv ? conv.task_architecture : '—',
-                constraintNodes: constraints,
-                totalTurns: totalTurns,
-            };
-        }
-
-        function safeSetText(id, text) {
-            const el = document.getElementById(id);
-            if (el) el.textContent = text;
-            return el;
-        }
-
-        function renderSummary(stats) {
-            const panel = document.getElementById('summary-stats');
-            if (panel) panel.style.display = 'block';
-
-            // Truncate conv ID for display
-            const shortId = stats.convId.length > 20 ? stats.convId.slice(0, 20) + '...' : stats.convId;
-            const idEl = safeSetText('stat-conv-id', shortId);
-            if (idEl) idEl.title = stats.convId;
-
-            safeSetText('stat-turns', stats.turns);
-            safeSetText('stat-constraints', stats.constraints);
-
-            const violEl = safeSetText('stat-violations', stats.constraintViols);
-            if (violEl) violEl.className = 'stat-value' + (stats.constraintViols > 0 ? ' warn' : '');
-
-            safeSetText('stat-repairs', stats.repairs);
-            safeSetText('stat-drift', stats.driftVelocity.toFixed(3));
-
-            const survEl = document.getElementById('stat-survival');
-            if (survEl) {
-                if (stats.constraints > 0) {
-                    survEl.textContent = `${Math.round(stats.survivalRate * 100)}% (${stats.survived}/${stats.constraints})`;
-                    survEl.className = 'stat-value' + (stats.survivalRate >= 0.5 ? ' good' : ' warn');
-                } else {
-                    survEl.textContent = 'N/A (no constraints)';
-                    survEl.className = 'stat-value';
-                }
+            html += `<div style="margin-top: 12px;"><div class="panel-title">By Stability</div>`;
+            for (const [cls, count] of Object.entries(stabCounts).sort((a, b) => b[1] - a[1])) {
+                html += `<div class="breakdown-row">
+                    <span class="breakdown-label"><span class="breakdown-dot" style="background: ${stabilityColors[cls] || '#94a3b8'}"></span>${cls}</span>
+                    <span class="breakdown-value">${count}</span>
+                </div>`;
             }
+            html += `</div>`;
 
-            safeSetText('stat-mode-viols', `${stats.modeViols}/${stats.modePairs} pairs`);
-            safeSetText('stat-stability', stats.stability);
-        }
-
-        function renderConstraintTimeline(stats) {
-            const panel = document.getElementById('constraint-timeline');
-            const content = document.getElementById('timeline-content');
-
-            if (stats.constraintNodes.length === 0) {
-                panel.style.display = 'none';
-                return;
+            html += `<div style="margin-top: 12px;"><div class="panel-title">By Source</div>`;
+            for (const [src, count] of Object.entries(srcCounts).sort((a, b) => b[1] - a[1])) {
+                html += `<div class="breakdown-row">
+                    <span class="breakdown-label"><span class="breakdown-dot" style="background: ${sourceColors[src] || '#94a3b8'}"></span>${sourceLabels[src] || src}</span>
+                    <span class="breakdown-value">${count}</span>
+                </div>`;
             }
+            html += `</div>`;
 
-            panel.style.display = 'block';
-            content.innerHTML = '';
-
-            const maxTurn = stats.totalTurns;
-
-            for (const c of stats.constraintNodes) {
-                const row = document.createElement('div');
-                row.className = 'timeline-row';
-
-                const label = document.createElement('div');
-                label.className = 'timeline-label';
-                label.textContent = c.text || c.constraint_id || c.id;
-                label.title = c.text || '';
-                row.appendChild(label);
-
-                const bar = document.createElement('div');
-                bar.className = 'timeline-bar';
-
-                // Build segments from state_history
-                const history = c.state_history || [];
-                if (history.length > 0 && maxTurn > 0) {
-                    // Add gap before constraint appears
-                    const introTurn = history[0][0];
-                    if (introTurn > 0) {
-                        const seg = document.createElement('div');
-                        seg.className = 'timeline-seg';
-                        seg.style.flex = introTurn;
-                        seg.style.background = 'transparent';
-                        bar.appendChild(seg);
-                    }
-
-                    for (let i = 0; i < history.length; i++) {
-                        const [turn, state] = history[i];
-                        const nextTurn = i + 1 < history.length ? history[i + 1][0] : maxTurn;
-                        const span = Math.max(nextTurn - turn, 1);
-
-                        const seg = document.createElement('div');
-                        seg.className = 'timeline-seg seg-' + state.toLowerCase();
-                        seg.style.flex = span;
-                        seg.textContent = state.charAt(0);
-                        seg.title = `${state} (turn ${turn})`;
-                        bar.appendChild(seg);
-                    }
-                } else {
-                    // No history — show current state as full bar
-                    const seg = document.createElement('div');
-                    const st = (c.current_state || 'active').toLowerCase();
-                    seg.className = 'timeline-seg seg-' + st;
-                    seg.style.flex = 1;
-                    seg.textContent = (c.current_state || 'ACTIVE').charAt(0);
-                    bar.appendChild(seg);
-                }
-
-                row.appendChild(bar);
-                content.appendChild(row);
-            }
+            statsEl.innerHTML = html;
         }
 
-        function loadFile(file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    currentData = JSON.parse(e.target.result);
-                    const stats = computeSummary(currentData);
-                    renderSummary(stats);
-                    renderConstraintTimeline(stats);
-                    // renderGraph(currentData); // Graph rendering is now handled by renderAtlas
-                } catch (err) {
-                    alert("Error parsing JSON file. Is this a valid Atlas graph?");
-                    console.error(err);
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        let simulation;
-
+        // ── Load meta-graph ──
         async function loadAtlas() {
             try {
                 const response = await fetch("../../data/atlas_canonical/meta_graph.json");
                 if (!response.ok) throw new Error("Meta-graph not found");
                 const data = await response.json();
                 currentData = data;
+                buildFilterPills();
+                renderAtlasStats(data);
                 renderAtlas(data);
             } catch (err) {
                 alert("Could not load Atlas: " + err.message);
             }
         }
 
+        // ── Node size ──
+        function nodeRadius(d) {
+            if (STATE.sizeField === 'uniform') return 5;
+            const val = d[STATE.sizeField] || 0;
+            return Math.max(4, Math.sqrt(val) * 2);
+        }
+
+        // ── Main render ──
         function renderAtlas(data) {
-            const svg = d3.select("#viz");
             svg.selectAll("*").remove();
 
             const width = document.getElementById('center-panel').clientWidth;
@@ -396,74 +420,46 @@
             const zoom = d3.zoom()
                 .scaleExtent([0.1, 8])
                 .on("zoom", (event) => container.attr("transform", event.transform));
-
             svg.call(zoom);
 
-            // Filter nodes based on active types
-            // const filteredNodes = data.nodes.filter(n => activeTypes.has(n.node_type));
-            // const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+            // Filter nodes
+            const nodes = data.nodes.filter(n =>
+                STATE.activeStabilities.has(n.stability) &&
+                STATE.activeSources.has(n.source)
+            );
+            const nodeIds = new Set(nodes.map(n => n.id));
 
-            // Filter links: both source and target must be in filteredNodeIds
-            // const filteredLinks = data.links.filter(l => {
-            //     const sId = typeof l.source === 'string' ? l.source : l.source.id;
-            //     const tId = typeof l.target === 'string' ? l.target : l.target.id;
-            //     return filteredNodeIds.has(sId) && filteredNodeIds.has(tId);
-            // });
-
-            const links = data.links; // filteredLinks;
-            const nodes = data.nodes; // filteredNodes;
-
-            // Arrows — one marker per edge color
-            const usedEdgeTypes = [...new Set(links.map(l => l.edge_type))];
-            const defs = svg.append("defs");
-            for (const et of usedEdgeTypes) {
-                const color = getEdgeColor(et);
-                defs.append("marker")
-                    .attr("id", "arrow-" + et)
-                    .attr("viewBox", "0 -5 10 10")
-                    .attr("refX", 20)
-                    .attr("refY", 0)
-                    .attr("markerWidth", 6)
-                    .attr("markerHeight", 6)
-                    .attr("orient", "auto")
-                    .append("path")
-                    .attr("d", "M0,-5L10,0L0,5")
-                    .attr("fill", color);
-            }
-            // Fallback arrow
-            defs.append("marker")
-                .attr("id", "arrow-default")
-                .attr("viewBox", "0 -5 10 10")
-                .attr("refX", 20).attr("refY", 0)
-                .attr("markerWidth", 6).attr("markerHeight", 6)
-                .attr("orient", "auto")
-                .append("path").attr("d", "M0,-5L10,0L0,5").attr("fill", "#475569");
+            // Filter links
+            const links = data.links.filter(l => {
+                const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                return nodeIds.has(sId) && nodeIds.has(tId);
+            });
 
             if (simulation) simulation.stop();
 
-            // Meta-Graph Force Simulation
+            // Force simulation
             simulation = d3.forceSimulation(nodes)
                 .force("link", d3.forceLink(links).id(d => d.id).distance(120))
                 .force("charge", d3.forceManyBody().strength(-80))
                 .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("collide", d3.forceCollide(6));
+                .force("collide", d3.forceCollide(d => nodeRadius(d) + 2));
 
-
-            if (mode === 'stability') {
+            if (STATE.mode === 'stability') {
                 const foci = {
                     "Task Maintained": { x: width * 0.5, y: height * 0.5 },
                     "Constraint Drift": { x: width * 0.2, y: height * 0.2 },
                     "Task Shift": { x: width * 0.8, y: height * 0.2 },
-                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 }, // Bottom Center
-                    "No Constraints": { x: width * 0.9, y: height * 0.9 }, // Bottom Right
+                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 },
+                    "No Constraints": { x: width * 0.9, y: height * 0.9 },
                     "Unknown": { x: width * 0.1, y: height * 0.9 }
                 };
                 simulation.force("x", d3.forceX(d => foci[d.stability]?.x || width / 2).strength(0.6));
                 simulation.force("y", d3.forceY(d => foci[d.stability]?.y || height / 2).strength(0.6));
-                simulation.force("charge", d3.forceManyBody().strength(-20)); // Pack tighter
+                simulation.force("charge", d3.forceManyBody().strength(-20));
             }
 
-            if (mode === 'source') {
+            if (STATE.mode === 'source') {
                 const foci = {
                     "WildChat": { x: width * 0.3, y: height * 0.5 },
                     "lmsys-chat-1m": { x: width * 0.7, y: height * 0.5 },
@@ -473,207 +469,106 @@
                 simulation.force("y", d3.forceY(d => foci[d.source]?.y || height / 2).strength(0.5));
             }
 
-
-            // Edges (Weak links)
+            // Edges
             const link = container.append("g")
                 .attr("class", "links")
                 .selectAll("line")
                 .data(links)
                 .enter().append("line")
-                .attr("stroke", d => getEdgeColor(d.edge_type))
-                .attr("stroke-width", d => {
-                    if (d.edge_type === "NEXT") return 3;
-                    if (d.edge_type === "VIOLATES") return 2.5;
-                    if (d.edge_type === "RATIFIES") return 2;
-                    return 1.5;
-                })
-                .attr("stroke-opacity", d => {
-                    if (d.edge_type === "VIOLATES" || d.edge_type === "RATIFIES") return 0.8;
-                    return 0.4;
-                })
-                .attr("marker-end", d => "url(#arrow-" + (usedEdgeTypes.includes(d.edge_type) ? d.edge_type : 'default') + ")");
+                .attr("stroke", "#94a3b8")
+                .attr("stroke-width", d => Math.max(1, (d.weight || 1) * 0.8))
+                .attr("stroke-opacity", 0.3);
 
-            function getNodeIcon(d) {
-                if (d.node_type === "Conversation") return "hub";
-                if (d.node_type === "Turn") return d.role === "user" ? "person" : "smart_toy";
-                if (d.node_type === "Move") return "arrow_outward";
-                if (d.node_type === "Constraint") return "lock";
-                if (d.node_type === "ViolationEvent") return "error";
-                if (d.node_type === "InteractionMode") return "balance";
-                return "circle";
-            }
-
+            // Nodes
             const node = container.append("g")
                 .attr("class", "nodes")
-                .selectAll("g.node-group")
+                .selectAll("g.atlas-node")
                 .data(nodes)
                 .enter().append("g")
-                .attr("class", "node-group")
+                .attr("class", "atlas-node")
                 .attr("cursor", "pointer")
-                .call(drag(simulation))
-                .on("mouseover", (event, d) => {
-                    tooltip.style("opacity", 1)
-                        .html(`<strong>${d.node_type}</strong><br>${d.id}`)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 10) + "px");
-                })
-                .on("mouseout", () => tooltip.style("opacity", 0))
-                .on("click", (event, d) => {
-                    event.stopPropagation();
+                .call(drag(simulation));
+
+            // Node circles: fill by stability, stroke by source
+            node.append("circle")
+                .attr("r", d => nodeRadius(d))
+                .attr("fill", d => stabilityColors[d.stability] || "#94a3b8")
+                .attr("stroke", d => sourceColors[d.source] || "#94a3b8")
+                .attr("stroke-width", 2);
+
+            // ── Interactions ──
+
+            // Hover tooltip
+            node.on("mouseover", (event, d) => {
+                tooltip.style("opacity", 1)
+                    .html(`
+                        <strong>${d.id}</strong><br>
+                        <span style="color: var(--text-dim);">Source:</span> ${sourceLabels[d.source] || d.source}<br>
+                        <span style="color: var(--text-dim);">Stability:</span> ${d.stability}<br>
+                        <span style="color: var(--text-dim);">Turns:</span> ${d.turn_count || 0}<br>
+                        <span style="color: var(--text-dim);">Constraints:</span> ${d.constraint_count || 0}
+                    `)
+                    .style("left", (event.pageX + 12) + "px")
+                    .style("top", (event.pageY - 12) + "px");
+            })
+            .on("mousemove", (event) => {
+                tooltip
+                    .style("left", (event.pageX + 12) + "px")
+                    .style("top", (event.pageY - 12) + "px");
+            })
+            .on("mouseout", () => tooltip.style("opacity", 0));
+
+            // Single-click: focus + metadata
+            let clickTimer = null;
+            node.on("click", (event, d) => {
+                event.stopPropagation();
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => {
                     focusNode(d);
                     showMetadata(d);
-                });
+                }, 200);
+            });
 
-            // Node background circle
-            node.append("circle")
-                .attr("r", d => d.node_type === "Conversation" ? 16 : 12)
-                .attr("fill", d => colors[d.node_type] || "#94a3b8")
-                .attr("stroke", "none"); // Changed from "#fff" to "none" for Atlas nodes
+            // Double-click: open in explorer
+            node.on("dblclick", (event, d) => {
+                event.stopPropagation();
+                clearTimeout(clickTimer);
+                if (d.filename) {
+                    window.open(`explorer.html?file=${d.filename}`, '_blank');
+                }
+            });
 
-            // Material Icon
-            // node.append("text") ... removed for Atlas, specific to single graph types usually
-
+            // Click background to reset
             svg.on("click", () => resetFocus());
 
-            const edgeLabels = container.append("g")
-                .attr("class", "labels")
-                .selectAll("text")
-                .data(links)
-                .enter().append("text")
-                .style("transition", "opacity 0.3s")
-                .text(d => d.edge_type === "NEXT" ? "" : d.edge_type);
-
+            // ── Focus/highlight ──
             function focusNode(clickedNode) {
                 const neighbors = new Set();
                 neighbors.add(clickedNode.id);
 
                 links.forEach(l => {
-                    if (l.source.id === clickedNode.id) neighbors.add(l.target.id);
-                    if (l.target.id === clickedNode.id) neighbors.add(l.source.id);
+                    const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                    if (sId === clickedNode.id) neighbors.add(tId);
+                    if (tId === clickedNode.id) neighbors.add(sId);
                 });
 
                 node.style("opacity", d => neighbors.has(d.id) ? 1 : 0.1);
-                link.style("opacity", l => (l.source.id === clickedNode.id || l.target.id === clickedNode.id) ? 1 : 0.05);
-                edgeLabels.style("opacity", l => (l.source.id === clickedNode.id || l.target.id === clickedNode.id) ? 1 : 0);
+                link.style("opacity", l => {
+                    const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                    return (sId === clickedNode.id || tId === clickedNode.id) ? 1 : 0.05;
+                });
             }
 
             function resetFocus() {
                 node.style("opacity", 1);
                 link.style("opacity", 1);
-                edgeLabels.style("opacity", 1);
+                metadataPanel.style("display", "none");
+                document.getElementById('empty-details').style.display = 'block';
             }
 
-            simulation.on("tick", () => {
-                link
-                    .attr("x1", d => d.source.x)
-                    .attr("y1", d => d.source.y)
-                    .attr("x2", d => d.target.x)
-                    .attr("y2", d => d.target.y);
-
-                node
-                    .attr("transform", d => `translate(${d.x},${d.y})`);
-
-                edgeLabels
-                    .attr("x", d => (d.source.x + d.target.x) / 2)
-                    .attr("y", d => (d.source.y + d.target.y) / 2);
-            });
-        }
-
-        async function loadAtlas() {
-            try {
-                const response = await fetch("../../data/atlas_canonical/meta_graph.json");
-                if (!response.ok) throw new Error("Meta-graph not found");
-                const data = await response.json();
-                currentData = data;
-                renderAtlas(data);
-            } catch (err) {
-                alert("Could not load Atlas: " + err.message);
-            }
-        }
-
-        function renderAtlas(data) {
-            const svg = d3.select("#viz");
-            svg.selectAll("*").remove();
-
-            const width = document.getElementById('center-panel').clientWidth;
-            const height = document.getElementById('center-panel').clientHeight;
-
-            const container = svg.append("g");
-
-            // Meta-Graph uses a weaker force for the "galaxy" effect
-            const simulation = d3.forceSimulation(data.nodes)
-                .force("link", d3.forceLink(data.links).id(d => d.id).distance(120)) // Relaxed
-                .force("charge", d3.forceManyBody().strength(-80)) // Stronger repulsion
-                .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("collide", d3.forceCollide(6));
-
-            if (mode === 'stability') {
-                const foci = {
-                    "Task Maintained": { x: width * 0.5, y: height * 0.5 },
-                    "Constraint Drift": { x: width * 0.2, y: height * 0.2 },
-                    "Task Shift": { x: width * 0.8, y: height * 0.2 },
-                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 }, // Bottom Center
-                    "No Constraints": { x: width * 0.9, y: height * 0.9 }, // Bottom Right
-                    "Unknown": { x: width * 0.1, y: height * 0.9 }
-                };
-                simulation.force("x", d3.forceX(d => foci[d.stability]?.x || width / 2).strength(0.6));
-                simulation.force("y", d3.forceY(d => foci[d.stability]?.y || height / 2).strength(0.6));
-                simulation.force("charge", d3.forceManyBody().strength(-20)); // Pack tighter
-            }
-
-            if (mode === 'source') {
-                const foci = {
-                    "WildChat": { x: width * 0.3, y: height * 0.5 },
-                    "lmsys-chat-1m": { x: width * 0.7, y: height * 0.5 },
-                    "OpenAssistant": { x: width * 0.5, y: height * 0.2 }
-                };
-                simulation.force("x", d3.forceX(d => foci[d.source]?.x || width / 2).strength(0.5));
-                simulation.force("y", d3.forceY(d => foci[d.source]?.y || height / 2).strength(0.5));
-            }
-
-            // Edges (Weak links)
-            const link = container.append("g")
-                .attr("class", "links")
-                .selectAll("line")
-                .data(data.links)
-                .enter().append("line")
-                .attr("stroke", "#475569")
-                .attr("stroke-width", 1)
-                .attr("stroke-opacity", 0.3);
-
-            // Nodes (Conversations)
-            const node = container.append("g")
-                .attr("class", "nodes")
-                .selectAll("g.atlas-node")
-                .data(data.nodes)
-                .enter().append("g")
-                .attr("class", "atlas-node")
-                .attr("cursor", "pointer")
-                .call(drag(simulation))
-                .on("click", (event, d) => {
-                    // Load the specific graph in new tab
-                    event.stopPropagation();
-                    window.open(`explorer.html?file=${d.filename}`, '_blank');
-                });
-
-            node.append("circle")
-                .attr("r", 4)
-                .attr("fill", d => {
-                    const stabilityColors = {
-                        "Task Maintained": "var(--green)", // Green
-                        "Constraint Drift": "var(--yellow)", // Yellow
-                        "Task Shift": "var(--orange)", // Orange
-                        "Agency Collapse": "var(--violation)", // Red
-                        "No Constraints": "var(--gray)" // Slate
-                    };
-                    return stabilityColors[d.stability] || "var(--gray)";
-                })
-                .attr("stroke", "none");
-
-            // Simple tooltip for Atlas
-            node.append("title")
-                .text(d => `${d.id}\nSource: ${d.source}\nConstraints: ${d.constraint_count}`);
-
+            // Tick
             simulation.on("tick", () => {
                 link
                     .attr("x1", d => d.source.x)
@@ -684,154 +579,59 @@
                 node
                     .attr("transform", d => `translate(${d.x},${d.y})`);
             });
-
-            // Re-apply zoom
-            const zoom = d3.zoom()
-                .scaleExtent([0.1, 4])
-                .on("zoom", (event) => {
-                    container.attr("transform", event.transform);
-                });
-            svg.call(zoom);
         }
 
+        // ── Metadata panel ──
         function showMetadata(d) {
             metadataPanel.style("display", "block");
             document.getElementById('empty-details').style.display = 'none';
 
-            // Dispatch to specific renderer
-            let html = "";
-            if (d.node_type === 'Conversation') html = renderConversation(d);
-            else if (d.node_type === 'Turn') html = renderTurn(d);
-            else if (d.node_type === 'Constraint') html = renderConstraint(d);
-            else if (d.node_type === 'ViolationEvent') html = renderViolation(d);
-            else html = renderGeneric(d);
+            const stabColor = stabilityColors[d.stability] || '#94a3b8';
+            const srcColor = sourceColors[d.source] || '#94a3b8';
+
+            const html = `
+                <div style="border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 10px;">
+                    <div style="font-size: 0.8em; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em;">Conversation</div>
+                    <div style="font-size: 1.1em; font-weight: bold; color: var(--text); word-break: break-all;">${d.id}</div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background: ${stabColor}20; color: ${stabColor}; border-color: ${stabColor}40;">${d.stability || 'Unknown'}</span>
+                    <span class="badge" style="background: ${srcColor}20; color: ${srcColor}; border-color: ${srcColor}40;">${sourceLabels[d.source] || d.source || 'Unknown'}</span>
+                </div>
+
+                <div class="metadata-grid">
+                    ${metaRow("Filename", d.filename)}
+                    ${metaRow("System", d.system)}
+                    ${metaRow("Turns", d.turn_count)}
+                    ${metaRow("Constraints", d.constraint_count)}
+                    ${metaRow("Source", sourceLabels[d.source] || d.source)}
+                </div>
+
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn btn-secondary" style="height: 36px; font-size: 12px;" onclick="if('${d.filename}') window.open('explorer.html?file=${d.filename}', '_blank')">
+                        <span class="material-symbols-rounded" style="font-size: 16px;">open_in_new</span> Open in Explorer
+                    </button>
+                </div>
+            `;
 
             metadataContent.html(html);
         }
 
-        function renderConversation(d) {
-            const stabilityColor = d.stability === 'stable' ? 'badge-green' : (d.stability === 'unstable' ? 'badge-red' : 'badge-amber');
+        function metaRow(key, value) {
+            if (value === undefined || value === null) return '';
             return `
-                <div class="metadata-header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 10px;">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.5em; color: var(--conversation);">hub</span>
-                    <span style="font-size: 1.2em; font-weight: bold; color: #f8fafc; vertical-align: middle; margin-left: 5px;">Conversation</span>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <span class="badge ${stabilityColor}">${d.stability || 'Unknown'}</span>
-                    <span class="badge badge-blue">${d.source || 'Unknown'}</span>
-                </div>
-
-                <div style="margin-bottom: 15px;">
-                    <div style="color: #64748b; font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px;">Task Goal</div>
-                    <div style="color: #f8fafc; font-size: 1.1em; font-weight: 500;">${d.goal || 'No explicit goal listed.'}</div>
-                </div>
-
-                <div class="metadata-grid">
-                     ${renderKVPair("ID", d.id)}
-                     ${renderKVPair("Total Turns", d.turn_count)}
-                     ${renderKVPair("Violations", d.violation_count)}
-                     ${renderKVPair("Filename", d.filename)}
+                <div style="margin-bottom: 4px;">
+                    <div style="color: var(--text-dim); font-size: 0.8em; text-transform: capitalize;">${key}</div>
+                    <div style="color: var(--text); font-size: 0.9em; line-height: 1.2;">${value}</div>
                 </div>
             `;
         }
 
-        function renderTurn(d) {
-            const roleClass = d.role === 'user' ? 'user' : 'model';
-            const icon = d.role === 'user' ? 'person' : 'smart_toy';
-            const roleName = d.role === 'user' ? 'User Turn' : 'Model Turn';
-
-            return `
-                <div class="metadata-header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 10px;">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.5em; color: var(--turn);">${icon}</span>
-                    <span style="font-size: 1.2em; font-weight: bold; color: #f8fafc; vertical-align: middle; margin-left: 5px;">${roleName}</span>
-                     <span style="float: right; color: #64748b;">#${d.turn_index}</span>
-                </div>
-
-                <div class="chat-bubble ${roleClass}">
-                    ${d.content_preview || d.content || '(No content preview available)'}
-                </div>
-
-                <div class="metadata-grid">
-                    ${renderKVPair("Moves", d.move_count)}
-                    ${renderKVPair("ID", d.id)}
-                </div>
-            `;
-        }
-
-        function renderConstraint(d) {
-            return `
-                 <div class="metadata-header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 10px;">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.5em; color: var(--constraint);">lock</span>
-                    <span style="font-size: 1.2em; font-weight: bold; color: #f8fafc; vertical-align: middle; margin-left: 5px;">Constraint</span>
-                </div>
-
-                <div style="color: #64748b; font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px;">Rule Definition</div>
-                <div class="code-block">${d.text || d.description || 'No text available'}</div>
-
-                <div class="metadata-grid">
-                    ${renderKVPair("ID", d.id)}
-                    ${renderKVPair("On Move", d.on_move)}
-                </div>
-            `;
-        }
-
-        function renderViolation(d) {
-            return `
-                 <div class="metadata-header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 10px;">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.5em; color: var(--violation);">warning</span>
-                    <span style="font-size: 1.2em; font-weight: bold; color: var(--violation); vertical-align: middle; margin-left: 5px;">Violation Event</span>
-                </div>
-
-                <div style="margin-bottom: 15px; background: rgba(248, 113, 113, 0.1); border: 1px solid var(--violation); padding: 10px; border-radius: 6px;">
-                    <div style="color: #f8fafc;">This turn violated a constraint.</div>
-                </div>
-
-                <div class="metadata-grid">
-                    ${renderKVPair("ID", d.id)}
-                    ${renderKVPair("Turn Index", d.turn_index)}
-                </div>
-            `;
-        }
-
-        function renderGeneric(d) {
-            let html = `<div class="metadata-header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 10px;">
-                <div style="font-size: 0.8em; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em;">${d.node_type}</div>
-                <div style="font-size: 1.2em; font-weight: bold; color: #f8fafc; word-break: break-all;">${d.id}</div>
-            </div>`;
-
-            html += `<div class="metadata-grid">`;
-
-            // Clean up internal D3 props
-            const cleanData = { ...d };
-            delete cleanData.x; delete cleanData.y; delete cleanData.vx; delete cleanData.vy; delete cleanData.index; delete cleanData.fx; delete cleanData.fy;
-
-            for (const [key, value] of Object.entries(cleanData)) {
-                html += renderKVPair(key, value);
-            }
-            html += `</div>`;
-            return html;
-        }
-
-        function renderKVPair(key, value) {
-            if (key === 'node_type' || key === 'id') return '';
-            if (key === 'color') return '';
-
-            let displayValue = value;
-            if (typeof value === 'object') displayValue = `<pre style="margin:0; font-size:0.8em; color:#94a3b8;">${JSON.stringify(value, null, 2)}</pre>`;
-            if (value === undefined || value === null) displayValue = '-';
-
-            return `
-                <div class="metadata-item" style="margin-bottom: 4px;">
-                    <div class="metadata-key" style="color: #64748b; font-size: 0.8em; margin-bottom: 0px; text-transform: capitalize;">${key.replace(/_/g, ' ')}</div>
-                    <div class="metadata-value" style="color: #e2e8f0; font-size: 0.9em; line-height: 1.2;">${displayValue}</div>
-                </div>
-            `;
-        }
-
-        function drag(simulation) {
+        // ── Drag ──
+        function drag(sim) {
             function dragstarted(event) {
-                if (!event.active) simulation.alphaTarget(0.3).restart();
+                if (!event.active) sim.alphaTarget(0.3).restart();
                 event.subject.fx = event.subject.x;
                 event.subject.fy = event.subject.y;
             }
@@ -840,7 +640,7 @@
                 event.subject.fy = event.y;
             }
             function dragended(event) {
-                if (!event.active) simulation.alphaTarget(0);
+                if (!event.active) sim.alphaTarget(0);
                 event.subject.fx = null;
                 event.subject.fy = null;
             }

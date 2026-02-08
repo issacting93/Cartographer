@@ -15,12 +15,18 @@
             --panel: #1e293b;
             --text: #f8fafc;
             --accent: #38bdf8;
-            --turn: #60a5fa;
-            --move: #4ade80;
-            --constraint: #c084fc;
+            --turn: #f5c542;
+            /* YELLOW (Matches Explorer) */
+            --move: #22c55e;
+            /* GREEN */
+            --constraint: #e85a3c;
+            /* ORANGE */
             --violation: #f87171;
-            --conversation: #fbbf24;
-            --mode: #2dd4bf;
+            /* RED */
+            --conversation: #ffffff;
+            /* WHITE (dark mode contrast) */
+            --mode: #94a3b8;
+            /* SLATE */
         }
 
         body {
@@ -586,6 +592,7 @@
         </div>
     </div>
 
+    <link href="bloom.css" rel="stylesheet">
     <script>
         let mode = 'force'; // 'force' or 'timeline'
         const colors = {
@@ -1083,12 +1090,11 @@
                     showMetadata(d);
                 });
 
-            // Node background circle
             node.append("circle")
                 .attr("r", d => d.node_type === "Conversation" ? 16 : 12)
-                .attr("fill", d => colors[d.node_type] || "#94a3b8")
+                .style("fill", d => colors[d.node_type] || "#94a3b8")
                 .attr("stroke", "#fff")
-                .attr("stroke-width", 2);
+                .attr("stroke-width", 1.5);
 
             // Material Icon
             node.append("text")
