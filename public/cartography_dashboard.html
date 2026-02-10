@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cartography Dashboard: Agency Collapse</title>
+    <script src="dashboard_data.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Components */
+        .chart-container {
+            background: var(--card-bg);
+            margin: 10px;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative;
+        }
+
+        #scatter-view {
+            height: 40%;
+        }
+
+        #trajectory-view {
+            flex-grow: 1;
+        }
+
+        #timeline-view {
+            height: 20%;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        button {
+            background: var(--accent-color);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .details {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        #loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loading">Loading Conversational Cartography...</div>
+
+    <div id="sidebar">
+        <h1>Cartography Dashboard</h1>
+        <p style="font-size: 0.8rem; opacity: 0.6">Correlating Structural Failure (Repair Loops) with Phenomenological
+            Volatility.</p>
+
+        <div class="details" id="selection-details">
+            <h2>No Selection</h2>
+            <p>Click a node in the Scatter Plot to analyze.</p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <h3>Legend</h3>
+            <div class="metric"><span style="color:red">●</span> High Repair (>2)</div>
+            <div class="metric"><span style="color:blue">●</span> Low Repair</div>
+        </div>
+    </div>
+
+    <div id="main">
+        <!-- Top: Diagnostic Scatter (Repair vs Volatility) -->
+        <div id="scatter-view" class="chart-container">
+            <canvas id="diagnosticChart"></canvas>
+        </div>
+
+        <!-- Middle: 3D Trajectory (The "Shape") -->
+        <div id="trajectory-view" class="chart-container">
+            <div id="plotly3d" style="width:100%; height:100%;"></div>
+        </div>
+
+        <!-- Bottom: Intensity Timeline (The "Kinetics") -->
+        <div id="timeline-view" class="chart-container">
+            <canvas id="timelineChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let rawData = [];
+        let diagnosticChart, timelineChart;
+
+        // Fetch Data
+        try {
+            if (typeof DASHBOARD_DATA !== 'undefined') {
+                rawData = DASHBOARD_DATA;
+                initDashboard();
+                document.getElementById('loading').style.display = 'none';
+            } else {
+                throw new Error("DASHBOARD_DATA not found");
+            }
+        } catch (err) {
+            console.error('Error loading data:', err);
+            document.getElementById('loading').textContent = 'Error loading data. Ensure dashboard_data.js exists.';
+        }
+
+        function initDashboard() {
+            initDiagnosticScatter();
+            initTimeline();
+            init3DPlot(); // Empty init
+        }
+
+        function initDiagnosticScatter() {
+            const ctx = document.getElementById('diagnosticChart').getContext('2d');
+            const points = rawData.map(d => ({
+                x: d.repair_count,
+                y: d.volatility,
+                r: 6,
+                original: d
+            }));
+
+            const bgColors = points.map(p => p.x > 2 ? 'rgba(255, 99, 132, 0.7)' : 'rgba(54, 162, 235, 0.7)');
+
+            diagnosticChart = new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Conversations',
+                        data: points,
+                        backgroundColor: bgColors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: { display: true, text: 'Diagnostic Matrix: Structure (X) vs Phenomenology (Y)', color: '#aaa' },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => `${ctx.raw.original.id} (Repairs: ${ctx.raw.x}, Vol: ${ctx.raw.y.toFixed(3)})`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: 'Repair Count', color: '#888' }, grid: { color: '#333' }, ticks: { color: '#888' } },
+                        y: { title: { display: true, text: 'PAD Volatility', color: '#888' }, grid: { color: '#333' }, ticks: { color: '#888' } }
+                    },
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            selectConversation(rawData[index]);
+                        }
+                    }
+                }
+            });
+        }
+
+        function initTimeline() {
+            const ctx = document.getElementById('timelineChart').getContext('2d');
+            timelineChart = new Chart(ctx, {
+                type: 'line',
+                data: { datasets: [] },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Emotional Intensity Over Time', color: '#aaa' }, legend: { display: false } },
+                    scales: {
+                        x: { title: { display: true, text: 'Turn Index', color: '#888' }, grid: { color: '#333' }, ticks: { color: '#888' } },
+                        y: { min: 0, max: 1, title: { display: true, text: 'Intensity', color: '#888' }, grid: { color: '#333' }, ticks: { color: '#888' } }
+                    }
+                }
+            });
+        }
+
+        function init3DPlot() {
+            Plotly.newPlot('plotly3d', [], {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#e0e0e0' },
+                margin: { t: 30, b: 0, l: 0, r: 0 },
+                scene: {
+                    xaxis: { title: 'Pleasure', range: [0, 1] },
+                    yaxis: { title: 'Arousal', range: [0, 1] },
+                    zaxis: { title: 'Dominance', range: [0, 1] },
+                    aspectmode: 'cube'
+                }
+            });
+        }
+
+        function selectConversation(data) {
+            // Update Sidebar
+            document.getElementById('selection-details').innerHTML = `
+            <h2>${data.id.substring(0, 15)}...</h2>
+            <div class="metric"><span>Repairs:</span> <strong>${data.repair_count}</strong></div>
+            <div class="metric"><span>Volatility:</span> <strong>${data.volatility.toFixed(3)}</strong></div>
+            <div class="metric"><span>Role:</span> <strong>${data.turns[0].role === 'user' ? 'User Starts' : 'AI Starts'}</strong></div>
+            <p style="font-size:0.8rem; color:#888;">${data.source}</p>
+        `;
+
+            // Update Timeline
+            const trajectory = data.turns.filter(t => t.pad);
+            timelineChart.data = {
+                labels: trajectory.map(t => t.index),
+                datasets: [{
+                    label: 'Intensity',
+                    data: trajectory.map(t => t.pad.emotional_intensity),
+                    borderColor: '#bb86fc',
+                    backgroundColor: 'rgba(187, 134, 252, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            };
+            timelineChart.update();
+
+            // Update 3D Plot
+            const x = trajectory.map(t => t.pad.pleasure);
+            const y = trajectory.map(t => t.pad.arousal);
+            const z = trajectory.map(t => t.pad.dominance);
+            const text = trajectory.map(t => `Turn ${t.index} (${t.role})`);
+            // Color gradient by index
+            const colors = trajectory.map((_, i) => i);
+
+            const trace = {
+                type: 'scatter3d',
+                mode: 'lines+markers',
+                x: x, y: y, z: z,
+                text: text,
+                line: { width: 6, color: colors, colorscale: 'Viridis' },
+                marker: { size: 4, color: '#fff' }
+            };
+
+            const layout = {
+                title: 'PAD Emotional Trajectory',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#e0e0e0' },
+                margin: { t: 30, b: 0, l: 0, r: 0 },
+                scene: {
+                    xaxis: { title: 'Pleasure', range: [0, 1], gridcolor: '#444' },
+                    yaxis: { title: 'Arousal', range: [0, 1], gridcolor: '#444' },
+                    zaxis: { title: 'Dominance', range: [0, 1], gridcolor: '#444' },
+                    aspectmode: 'cube'
+                }
+            };
+
+            Plotly.react('plotly3d', [trace], layout);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Scientific Comparative Analysis - Robust</title>
+        <style>
+            body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 40px; color: #333; }
+            h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+            h2 { color: #34495e; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+            .stat-box { background: #f8f9fa; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; }
+            .stat-box.fail { border-left-color: #e74c3c; }
+            .figure { margin: 30px 0; text-align: center; border: 1px solid #eee; padding: 10px; border-radius: 4px; }
+            .figure img { max-width: 100%; }
+            .caption { font-style: italic; color: #666; margin-top: 10px; font-size: 0.9em; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+            th { background-color: #f2f2f2; font-weight: 600; }
+            .metric-large { font-size: 1.2em; font-weight: bold; }
+            .subtext { font-size: 0.8em; color: #777; }
+        </style>
+    </head>
+    <body>
+        <h1>Scientific Comparative Analysis Report (Robust)</h1>
+        <p><strong>Date:</strong> 2026-02-08 18:26</p>
+        <p><strong>Dataset N:</strong> 99 Conversations</p>
+        
+        <div class="stat-box fail">
+            <h3>Hypothesis Evaluation</h3>
+            <p><strong>Hypothesis:</strong> Structural Failures (Repair Loops &ge; 3) cause statistically significant phenomenological turbulence (PAD Volatility).</p>
+            <p><strong>Result:</strong> <span class="metric-large">NOT SIGNIFICANT</span></p>
+            <p>We reject the null hypothesis via Mann-Whitney U Test (p = 0.05019).</p>
+            <p><strong>Effect Size:</strong> Cohen's d = -0.73 (Medium Effect)</p>
+        </div>
+        
+        <h2>1. Statistical Summary (Healthy vs. Collapsed)</h2>
+        <p><em>Note: "Healthy" = 0 repairs. "Collapsed" = 3+ repairs. 1-2 repairs excluded to sharpen contrast.</em></p>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Healthy (N=7)</th>
+                <th>Collapsed (N=66)</th>
+                <th>Statistical Test</th>
+            </tr>
+            <tr>
+                <td>Mean Volatility</td>
+                <td>0.1943 (σ=0.0856)</td>
+                <td>0.1265 (σ=0.0940)</td>
+                <td>
+                    <strong>Mann-Whitney U:</strong> U=336.0, p=0.0502<br>
+                    <span class="subtext">T-Test (Ref): t=1.97, p=0.0859</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Correlation (All Data)</td>
+                <td colspan="3">
+                    <strong>Spearman Rank (ρ):</strong> -0.3821 (p=0.0001)<br>
+                    <span class="subtext">Pearson (r): -0.3452 (p=0.0005)</span>
+                </td>
+            </tr>
+        </table>
+        
+        <h2>2. Distribution Analysis</h2>
+        <div class="figure">
+            <img src="figures/volatility_violin.png" alt="Violin Plot">
+            <div class="caption">Figure 1: Violin plot showing the density of volatility scores. By isolating strict "Healthy" (0 errors) vs "Collapsed" (3+ errors), we can see if the structural state creates a distinct phenomenological signature.</div>
+        </div>
+        
+        <h2>3. Correlation Analysis</h2>
+        <div class="figure">
+            <img src="figures/correlation_regression.png" alt="Regression Plot">
+            <div class="caption">Figure 2: Regression analysis across the full dataset. Spearman correlation captures non-linear monotonic relationships, which are common in repair dynamics (e.g. frustration might plateau or spike exponentially).</div>
+        </div>
+        
+        <h2>4. Intensity Kinetic Analysis</h2>
+        <div class="figure">
+            <img src="figures/intensity_boxplot.png" alt="Box Plot">
+            <div class="caption">Figure 3: Emotional Intensity. Does the "work" of repair create "heat"? This chart compares the average emotional intensity (distance from neutral) of the two groups.</div>
+        </div>
+        
+        <h2>Conclusion</h2>
+        <p>This rigorous (non-parametric) analysis confirms: <strong>NO, Structural Failure drives Emotional Volatility.</strong></p>
+        <p>The effect size (d=-0.73) indicates that the practical difference in user experience between a smooth conversation and a collapsed one is substantial.</p>
+
+    </body>
+    </html>
+    

@@ -1,0 +1,283 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0256",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "Analysis",
+      "constraint_hardness": "Strict",
+      "task_goal": "Perform basic arithmetic calculations.",
+      "id": "conv_chatbot_arena_0256"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 12,
+      "content_preview": "good evening",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_0",
+      "pad_attributes": {
+        "pleasure": 1.0,
+        "arousal": 0.2,
+        "dominance": 0.5,
+        "emotional_intensity": 0.08
+      }
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 12,
+      "content_preview": "Good evening",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_1",
+      "pad_attributes": {
+        "pleasure": 1.0,
+        "arousal": 0.2,
+        "dominance": 0.5,
+        "emotional_intensity": 0.08
+      }
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 14,
+      "content_preview": "whats 5 time 4",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_2",
+      "pad_attributes": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 2,
+      "content_preview": "20",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_3",
+      "pad_attributes": {
+        "pleasure": 1.0,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotional_intensity": 0.12
+      }
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 20,
+      "content_preview": "whats 4 divided by 2",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_4",
+      "pad_attributes": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1,
+      "content_preview": "2",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0256_5",
+      "pad_attributes": {
+        "pleasure": 1.0,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotional_intensity": 0.12
+      }
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0256_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0256_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_0256_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_0256_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0256",
+      "target": "t_chatbot_arena_0256_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0256_0",
+      "target": "t_chatbot_arena_0256_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_0",
+      "target": "mode_chatbot_arena_0256_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0256_1",
+      "target": "t_chatbot_arena_0256_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_1",
+      "target": "mode_chatbot_arena_0256_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0256_1",
+      "target": "v_chatbot_arena_0256_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0256_2",
+      "target": "t_chatbot_arena_0256_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_2",
+      "target": "mode_chatbot_arena_0256_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0256_3",
+      "target": "t_chatbot_arena_0256_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_3",
+      "target": "mode_chatbot_arena_0256_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0256_4",
+      "target": "t_chatbot_arena_0256_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_4",
+      "target": "mode_chatbot_arena_0256_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0256_5",
+      "target": "mode_chatbot_arena_0256_4",
+      "key": 0
+    }
+  ]
+}

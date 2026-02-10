@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas of Human-AI Relationships</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="css/bloom.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            margin-top: 4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 2rem;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .card {
+            background-color: var(--panel);
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gray);
+            transition: background 0.3s ease;
+        }
+
+        .card:hover::before {
+            background: var(--accent);
+        }
+
+        .card h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-dim);
+            line-height: 1.6;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+
+        .card .action {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            transition: gap 0.2s ease;
+            gap: 4px;
+        }
+
+        .card:hover .action {
+            color: #60a5fa;
+            gap: 8px;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover .icon {
+            filter: grayscale(0%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Interactional Cartography Analysis Suite</h1>
+        <p class="subtitle">Mapping Agency, Alignment, and Collapse in Human-AI Interaction</p>
+    </header>
+
+    <div class="grid">
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="card">
+            <div class="icon">📊</div>
+            <h2>Findings Dashboard</h2>
+            <p>High-level statistics, KPI tracking, and global trends across the entire dataset. Start here to see the
+                big picture.</p>
+            <div class="action">Open Dashboard &rarr;</div>
+        </a>
+
+        <!-- Atlas (Meta-Graph) -->
+        <a href="global_view.html" class="card">
+            <div class="icon">🌍</div>
+            <h2>Atlas Global View</h2>
+            <p>A meta-graph visualization of all conversations, clustered by semantic similarity and structural health.
+            </p>
+            <div class="action">Explore Atlas &rarr;</div>
+        </a>
+
+        <!-- Explorer (Single View) -->
+        <a href="explorer.html" class="card">
+            <div class="icon">🔍</div>
+            <h2>Cartography Explorer</h2>
+            <p>Deep-dive into individual conversations. Visualize the graph topology, repair loops, and emotional
+                trajectory.</p>
+            <div class="action">Open Explorer &rarr;</div>
+        </a>
+
+        <!-- Compare (Side-by-Side) -->
+        <a href="compare.html" class="card">
+            <div class="icon">⚖️</div>
+            <h2>Side-by-Side Comparison</h2>
+            <p>Compare two conversations directly to analyze divergence in structural integrity and flow.</p>
+            <div class="action">Start Comparison &rarr;</div>
+        </a>
+    </div>
+
+</body>
+
+</html>

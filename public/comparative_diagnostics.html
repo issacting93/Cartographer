@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparative Diagnostics: Structure vs. Phenomenology</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        #stats { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparative Diagnostics</h1>
+        <p>Correlating <strong>Structural Failure</strong> (Repair Count) with <strong>Phenomenological Volatility</strong> (PAD Trajectory).</p>
+        
+        <canvas id="scatterChart"></canvas>
+        
+        <div id="stats">
+            <h3>Analysis</h3>
+            <p>Total Conversations: 99</p>
+            <p><strong>Hypothesis:</strong> High Repair Count -> High Volatility.</p>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('scatterChart').getContext('2d');
+        const rawData = [{"x": 4, "y": 0.30224325323447565, "r": 5, "id": "wildchat_new_c90d8abfdd553920"}, {"x": 7, "y": 0.08612147947739006, "r": 5, "id": "wildchat_new_6f70f08d030687da"}, {"x": 6, "y": 0.1529411764705882, "r": 5, "id": "wildchat_new_1ef0fc7856bab5a4"}, {"x": 4, "y": 0.13815643509394074, "r": 5, "id": "wildchat_new_4dd1d97ccfede948"}, {"x": 0, "y": 0.17027648939368198, "r": 5, "id": "chatbot_arena_30428"}, {"x": 14, "y": 0.1440281819798477, "r": 5, "id": "wildchat_new_7d26ed4d32a5282e"}, {"x": 9, "y": 0.04097056274847713, "r": 5, "id": "wildchat_new_bfc75824cde006fd"}, {"x": 6, "y": 0.19748817512520128, "r": 5, "id": "wildchat_new_0e94b8b971522de4"}, {"x": 14, "y": 0.1110680728803371, "r": 5, "id": "wildchat_new_c92cf3aec78d8cd8"}, {"x": 2, "y": 0.17836116248912243, "r": 5, "id": "wildchat_443a2d5d2bfa97e3ce7f375c88c57eb9"}, {"x": 4, "y": 0.08071830771246977, "r": 5, "id": "wildchat_c6a0d3a0a21be9d076c56e0757ab5db4"}, {"x": 4, "y": 0.03225806451612903, "r": 5, "id": "wildchat_new_2b07f8520fc6fce5"}, {"x": 8, "y": 0.032258064516129024, "r": 5, "id": "wildchat_new_98c7cf3f35159584"}, {"x": 3, "y": 0.21515002889443108, "r": 5, "id": "oasst-50c933f5-b08a-4697-aba7-2c8adbb32104_0015"}, {"x": 4, "y": 0.2222222222222222, "r": 5, "id": "chatbot_arena_20469"}, {"x": 9, "y": 0.06451475999932363, "r": 5, "id": "wildchat_new_e020643b30612cf8"}, {"x": 4, "y": 0.16800038677571622, "r": 5, "id": "wildchat_new_59c5cc35f57cb0ad"}, {"x": 4, "y": 0.11346870059402948, "r": 5, "id": "wildchat_new_de021a4954068746"}, {"x": 3, "y": 0.3657688451366004, "r": 5, "id": "wildchat_new_d68fb52f269bb547"}, {"x": 3, "y": 0.31809088953619774, "r": 5, "id": "chatbot_arena_0165"}, {"x": 2, "y": 0.22637152262317983, "r": 5, "id": "chatbot_arena_0098"}, {"x": 1, "y": 0.17839065048791602, "r": 5, "id": "wildchat_new_36c92500aad92ec0"}, {"x": 2, "y": 0.09754895892494561, "r": 5, "id": "chatbot_arena_0132"}, {"x": 1, "y": 0.09057820367795771, "r": 5, "id": "wildchat_new_e4e6da86508b9e44"}, {"x": 3, "y": 0.0, "r": 5, "id": "wildchat_new_72e51c646c388d2f"}, {"x": 6, "y": 0.0, "r": 5, "id": "wildchat_new_89724196c88d406b"}, {"x": 3, "y": 0.07869867499538527, "r": 5, "id": "chatbot_arena_04622"}, {"x": 6, "y": 0.15323203023538592, "r": 5, "id": "wildchat_new_d7d2d778a4315557"}, {"x": 5, "y": 0.11575867059646965, "r": 5, "id": "chatbot_arena_19"}, {"x": 2, "y": 0.14506214557111716, "r": 5, "id": "wildchat_new_6566cece5ad4247c"}, {"x": 5, "y": 0.33166247903554, "r": 5, "id": "wildchat_new_938cc1af8be449d3"}, {"x": 1, "y": 0.36083318936115877, "r": 5, "id": "wildchat_a4a0963cb7b71b2c0c285bf8ec8007dd"}, {"x": 8, "y": 0.10781799274042012, "r": 5, "id": "wildchat_new_7121c38b3903cb46"}, {"x": 15, "y": 0.03571312197375959, "r": 5, "id": "wildchat_new_195f6e367767a53e"}, {"x": 3, "y": 0.14805061467040842, "r": 5, "id": "chatbot_arena_31887"}, {"x": 11, "y": 0.074965556829412, "r": 5, "id": "wildchat_new_135f87bc1199b104"}, {"x": 2, "y": 0.12124355652982137, "r": 5, "id": "chatbot_arena_17370"}, {"x": 3, "y": 0.0707649984080279, "r": 5, "id": "wildchat_new_25ce239d2faa9517"}, {"x": 1, "y": 0.11720838388174701, "r": 5, "id": "chatbot_arena_1650"}, {"x": 6, "y": 0.0, "r": 5, "id": "wildchat_new_7d6e2d98970e91a3"}, {"x": 21, "y": 0.04756648521619481, "r": 5, "id": "wildchat_new_aa3896df72b38c51"}, {"x": 3, "y": 0.13833437431886153, "r": 5, "id": "wildchat_new_57b075a71631f497"}, {"x": 7, "y": 0.13118948102995132, "r": 5, "id": "wildchat_new_f6dfcb51267561f5"}, {"x": 1, "y": 0.23226049386953349, "r": 5, "id": "wildchat_new_4b81d7b3720c9f98"}, {"x": 1, "y": 0.24776780838294601, "r": 5, "id": "wildchat_f3afbea5a75078a1ae9bc3d9cf1e4712"}, {"x": 3, "y": 0.17542562584220406, "r": 5, "id": "wildchat_new_c909da1c11b942fe"}, {"x": 7, "y": 0.11912585827868909, "r": 5, "id": "wildchat_bb153caa0f21691b3850ba8bd8962c85"}, {"x": 4, "y": 0.17391304347826086, "r": 5, "id": "wildchat_new_c7782ce8e801aa25"}, {"x": 6, "y": 0.3463889818861454, "r": 5, "id": "wildchat_new_adbcbfb8fe6ef363"}, {"x": 1, "y": 0.06000000000000001, "r": 5, "id": "wildchat_0b5d5362c441b68ae4d732fc76fcefa9"}, {"x": 1, "y": 0.2532957333599862, "r": 5, "id": "chatbot_arena_0145"}, {"x": 5, "y": 0.0, "r": 5, "id": "chatbot_arena_0450"}, {"x": 5, "y": 0.0, "r": 5, "id": "chatbot_arena_29078"}, {"x": 2, "y": 0.0, "r": 5, "id": "wildchat_new_bb26c63b2733f9d1"}, {"x": 1, "y": 0.21212871440776215, "r": 5, "id": "wildchat_new_ac858ed256ba90c2"}, {"x": 1, "y": 0.11647991845851369, "r": 5, "id": "wildchat_new_762d68d1a6d64549"}, {"x": 2, "y": 0.1952380952380952, "r": 5, "id": "wildchat_new_55575dc13209a38a"}, {"x": 3, "y": 0.16809836694575328, "r": 5, "id": "chatbot_arena_0057"}, {"x": 6, "y": 0.11648414209864182, "r": 5, "id": "wildchat_new_59449856add20225"}, {"x": 1, "y": 0.412310562561766, "r": 5, "id": "chatbot_arena_02685"}, {"x": 1, "y": 0.1881933652860006, "r": 5, "id": "oasst-ad592ee4-5f6d-4bdd-9d81-3d48de7fb402_0028"}, {"x": 6, "y": 0.23948695459605676, "r": 5, "id": "chatbot_arena_17468"}, {"x": 2, "y": 0.03318437763520803, "r": 5, "id": "wildchat_2d4c273b7968ae656f8cff3ea3a52e00"}, {"x": 3, "y": 0.058858745971726835, "r": 5, "id": "wildchat_new_05a3af74ec8896c7"}, {"x": 7, "y": 0.09019375063712186, "r": 5, "id": "wildchat_new_0072e644cc16b5a1"}, {"x": 1, "y": 0.14128990204491956, "r": 5, "id": "chatbot_arena_0169"}, {"x": 3, "y": 0.2065318493090729, "r": 5, "id": "chatbot_arena_0240"}, {"x": 0, "y": 0.21910772712194512, "r": 5, "id": "oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007"}, {"x": 8, "y": 0.12478354962115547, "r": 5, "id": "wildchat_new_3713f84626cb3ae5"}, {"x": 4, "y": 0.08823529411764704, "r": 5, "id": "wildchat_new_85d00425f12a7785"}, {"x": 0, "y": 0.12498969660814946, "r": 5, "id": "wildchat_new_1ac4742676edfaab"}, {"x": 1, "y": 0.4729012679205106, "r": 5, "id": "wildchat_cca67bd122e091565b5327eae488ee10"}, {"x": 1, "y": 0.06897753035351699, "r": 5, "id": "chatbot_arena_0094"}, {"x": 7, "y": 0.06664231354561055, "r": 5, "id": "wildchat_new_711a6288f62ac819"}, {"x": 0, "y": 0.23268827230335917, "r": 5, "id": "chatbot_arena_0217"}, {"x": 27, "y": 0.004561979233461596, "r": 5, "id": "wildchat_new_b33435af56df77f5"}, {"x": 0, "y": 0.05294117647058823, "r": 5, "id": "wildchat_new_80f915d2fda87e23"}, {"x": 2, "y": 0.0, "r": 5, "id": "wildchat_new_71a95612bdc7c3af"}, {"x": 3, "y": 0.22258064516129036, "r": 5, "id": "wildchat_new_81798871317b70df"}, {"x": 5, "y": 0.0893187513077744, "r": 5, "id": "wildchat_new_93813a32b55b5527"}, {"x": 0, "y": 0.24987929684623605, "r": 5, "id": "wildchat_new_2b2ee69f7f556cd1"}, {"x": 10, "y": 0.1512744683433266, "r": 5, "id": "wildchat_new_a14819708d3335fc"}, {"x": 5, "y": 0.1339033094733644, "r": 5, "id": "wildchat_new_0f1ebe84acaad73c"}, {"x": 3, "y": 0.27231902409607495, "r": 5, "id": "chatbot_arena_22874"}, {"x": 6, "y": 0.16129032258064516, "r": 5, "id": "wildchat_new_83bec2c50a7e458f"}, {"x": 4, "y": 0.103076225063286, "r": 5, "id": "wildchat_new_7138da74b53e1c0e"}, {"x": 6, "y": 0.036363636363636355, "r": 5, "id": "chatbot_arena_06644"}, {"x": 3, "y": 0.3728461954256485, "r": 5, "id": "wildchat_new_328d578f385e0b49"}, {"x": 1, "y": 0.4397289263249763, "r": 5, "id": "chatbot_arena_0256"}, {"x": 7, "y": 0.0651084739625981, "r": 5, "id": "chatbot_arena_28653"}, {"x": 5, "y": 0.0, "r": 5, "id": "chatbot_arena_25963"}, {"x": 5, "y": 0.1866982570997951, "r": 5, "id": "wildchat_new_4762955493b66da4"}, {"x": 4, "y": 0.07058823529411766, "r": 5, "id": "wildchat_new_85e1d86ce095514c"}, {"x": 2, "y": 0.0446593756538872, "r": 5, "id": "wildchat_new_a718e7ac335f2397"}, {"x": 0, "y": 0.31012668345468214, "r": 5, "id": "wildchat_new_ae914bd51f10f661"}, {"x": 7, "y": 0.0646975196835997, "r": 5, "id": "wildchat_new_286d762ce8b15777"}, {"x": 5, "y": 0.10578443328840549, "r": 5, "id": "wildchat_new_c60517ad71cbc7b6"}, {"x": 3, "y": 0.022857142857142864, "r": 5, "id": "wildchat_new_f1d40ba9667508ed"}, {"x": 15, "y": 0.09558546596019711, "r": 5, "id": "wildchat_new_1d4faa1c28e26f1c"}];
+        
+        const chart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Conversations',
+                    data: rawData,
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Repair Count (Structural Friction)' },
+                        min: 0
+                    },
+                    y: {
+                        title: { display: true, text: 'PAD Volatility (Phenomenological Turbulence)' },
+                        min: 0
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.id + ': Repairs=' + context.raw.x + ', Vol=' + context.raw.y.toFixed(3);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

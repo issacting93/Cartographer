@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Findings Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="js/file_list.js"></script>
+    <link rel="stylesheet" href="css/bloom.css">
+    <style>
+        /* Dashboard-specific overrides */
+        body {
+            padding: 20px;
+            overflow-y: auto;
+            /* Allow scrolling for dashboard */
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Using 'panel' from bloom.css as the base card style */
+        .dashboard-card {
+            background-color: white;
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-card h3 {
+            margin-top: 0;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 5px 0 10px 0;
+            color: var(--text);
+        }
+
+        .metric.good {
+            color: var(--green);
+        }
+
+        .metric.bad {
+            color: var(--red);
+        }
+
+        .metric.neutral {
+            color: var(--text);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        th {
+            color: var(--text-dim);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag.healthy {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: var(--green);
+        }
+
+        .tag.collapsed {
+            background-color: rgba(248, 113, 113, 0.1);
+            color: var(--red);
+        }
+
+        .tag.drift {
+            background-color: rgba(245, 197, 66, 0.1);
+            color: #b4860b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Findings Dashboard</h1>
+                <p style="color: var(--text-dim); margin: 5px 0 0 0; font-weight: 300;">Interactional Cartography
+                    Analysis • 100
+                    Conversations</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">&larr; Suite Home</a>
+                <a href="global_view.html">Global View</a>
+                <a href="compare.html">Compare</a>
+                <a href="explorer.html">Explorer</a>
+            </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="grid">
+            <div class="dashboard-card">
+                <h3>Total Conversations</h3>
+                <div class="metric neutral" id="total-count">--</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Collapse Rate</h3>
+                <div class="metric bad" id="collapse-rate">--%</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem;">Conversations ending in Repair Loops</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Avg Volatility</h3>
+                <div class="metric" id="avg-volatility">--</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem;">Emotional turbulence (PAD)</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Mean Interaction Depth</h3>
+                <div class="metric good" id="avg-depth">--</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem;">Turns per conversation</p>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid" style="grid-template-columns: 2fr 1fr;">
+            <div class="dashboard-card">
+                <h3>Agency Collapse vs. Trajectory</h3>
+                <div class="chart-container">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Outcome Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Table -->
+        <div class="dashboard-card">
+            <h3>Recent Analysis Runs</h3>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>Repairs</th>
+                        <th>Volatility</th>
+                        <th>Dom-Sub Drift</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        // Load Data
+        fetch('data/dashboard_data.json')
+            .then(response => {
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                return response.json();
+            })
+            .then(data => {
+                renderDashboard(data.per_conversation);
+            })
+            .catch(err => {
+                console.error("Failed to load dashboard data:", err);
+                document.getElementById('total-count').innerText = "Error";
+                document.getElementById('total-count').style.fontSize = "1rem";
+                document.getElementById('total-count').style.color = "var(--red)";
+            });
+
+        function renderDashboard(data) {
+            // 1. KPIs
+            const total = data.length;
+            const collapsed = data.filter(d => d.status === 'Collapsed').length;
+            const collapseRate = ((collapsed / total) * 100).toFixed(1);
+
+            const avgVol = (data.reduce((sum, d) => sum + d.volatility, 0) / total).toFixed(3);
+            const avgDepth = Math.round(data.reduce((sum, d) => sum + d.turns, 0) / total);
+
+            document.getElementById('total-count').innerText = total;
+            document.getElementById('collapse-rate').innerText = collapseRate + '%';
+            document.getElementById('avg-volatility').innerText = avgVol;
+            document.getElementById('avg-depth').innerText = avgDepth;
+
+            // Coloring Volatility
+            const volEl = document.getElementById('avg-volatility');
+            volEl.className = 'metric ' + (avgVol > 0.05 ? 'bad' : 'good');
+
+            // 2. Charts
+            renderScatter(data);
+            renderPie(data);
+
+            // 3. Table
+            renderTable(data);
+        }
+
+        function renderScatter(data) {
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+            const healthy = data.filter(d => d.status === 'Healthy');
+            const collapsed = data.filter(d => d.status === 'Collapsed');
+
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Healthy',
+                            data: healthy.map(d => ({ x: d.repairs, y: d.volatility })),
+                            backgroundColor: '#22c55e' // var(--green)
+                        },
+                        {
+                            label: 'Collapsed',
+                            data: collapsed.map(d => ({ x: d.repairs, y: d.volatility })),
+                            backgroundColor: '#f87171' // var(--red)
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Repair Loop Count (Structural)' },
+                            grid: { color: '#e5e5e5' },
+                            ticks: { color: '#888' }
+                        },
+                        y: {
+                            title: { display: true, text: 'PAD Volatility (Phenomenological)' },
+                            grid: { color: '#e5e5e5' },
+                            ticks: { color: '#888' }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#1a1a1a' } }
+                    }
+                }
+            });
+        }
+
+        function renderPie(data) {
+            const ctx = document.getElementById('pieChart').getContext('2d');
+            const counts = {
+                'Healthy': data.filter(d => d.status === 'Healthy').length,
+                'Collapsed': data.filter(d => d.status === 'Collapsed').length,
+                'Drift': data.filter(d => d.status === 'Drift').length
+            };
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(counts),
+                    datasets: [{
+                        data: Object.values(counts),
+                        backgroundColor: ['#22c55e', '#f87171', '#f5c542'], // green, red, yellow
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#1a1a1a' } }
+                    }
+                }
+            });
+        }
+
+        function renderTable(data) {
+            const tbody = document.querySelector('#dataTable tbody');
+            const sorted = [...data].sort((a, b) => b.volatility - a.volatility).slice(0, 20);
+
+            tbody.innerHTML = sorted.map(d => `
+                <tr>
+                    <td style="font-family: monospace; color: var(--blue); font-weight:600;">${d.id}</td>
+                    <td><span class="tag ${d.status.toLowerCase()}">${d.status}</span></td>
+                    <td>${d.repairs}</td>
+                    <td>${d.volatility.toFixed(4)}</td>
+                    <td>${d.drift_score?.toFixed(2) || 'N/A'}</td>
+                    <td><a href="explorer.html?file=${d.filename}" class="btn btn-secondary" style="height: 32px; font-size: 12px; padding: 0 12px;">Inspect</a></td>
+                </tr>
+            `).join('');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Graph Comparative Analysis</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/file_list.js"></script>
+    <link href="css/bloom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+        rel="stylesheet" />
+    <style>
+        /* Compare-specific layout overrides */
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        #left-panel,
+        #right-panel {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-subtle);
+            border-right: 1px solid var(--gray);
+            flex-shrink: 0;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        #right-panel {
+            border-right: none;
+            border-left: 1px solid var(--gray);
+            width: 320px;
+        }
+
+        #center-panel {
+            flex-grow: 1;
+            position: relative;
+            background: var(--bg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background-color: var(--gray);
+            /* Separator color */
+        }
+
+        .viz-container {
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viz-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            pointer-events: none;
+            border: 1px solid var(--gray);
+            font-weight: 500;
+        }
+
+        /* Drop Zone */
+        #drop-zone {
+            border: 2px dashed var(--gray-dark);
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        #drop-zone:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: #f0f9ff;
+        }
+
+        /* Search Box */
+        .search-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .search-group input {
+            flex-grow: 1;
+        }
+
+        /* Summary Stats */
+        .summary-card {
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--bg-subtle);
+            font-size: 0.85rem;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--text);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-value.good {
+            color: var(--green);
+        }
+
+        .stat-value.bad {
+            color: var(--red);
+        }
+
+        .stat-value.warn {
+            color: #b4860b;
+        }
+
+        /* Timeline Styles */
+        #constraint-timeline {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .timeline-row {
+            margin-bottom: 8px;
+        }
+
+        .timeline-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .timeline-bar {
+            display: flex;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--gray);
+        }
+
+        .timeline-seg {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Legend & Toggles */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text);
+            padding: 4px 0;
+            cursor: pointer;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Node Inspector */
+        #metadata-panel {
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            padding: 15px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-break: break-all;
+            font-size: 0.8rem;
+            color: var(--text);
+            background: var(--bg-subtle);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--gray);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="left-panel">
+        <div>
+            <h1
+                style="font-size: 1.25rem; background: linear-gradient(to right, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Atlas Compare</h1>
+            <a href="index.html"
+                style="font-size: 11px; color: var(--text-dim); text-decoration: none; display: block; margin-top: 4px;">&larr;
+                Back to Suite</a>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Data Loading</div>
+
+            <div style="margin-bottom: 15px;">
+                <label class="panel-title" style="margin-bottom: 5px; display:block;">Graph A (Left)</label>
+                <div class="search-group">
+                    <input type="text" id="file-search-left" list="file-list" placeholder="Search ID..."
+                        class="input-text">
+                    <button id="load-btn-left" class="btn btn-primary"
+                        style="height: 38px; padding: 0 12px;">Load</button>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label class="panel-title" style="margin-bottom: 5px; display:block;">Graph B (Right)</label>
+                <div class="search-group">
+                    <input type="text" id="file-search-right" list="file-list" placeholder="Search ID..."
+                        class="input-text">
+                    <button id="load-btn-right" class="btn btn-primary"
+                        style="height: 38px; padding: 0 12px;">Load</button>
+                </div>
+            </div>
+
+            <datalist id="file-list">
+                <!-- Populated by JS -->
+            </datalist>
+
+            <div id="drop-zone">
+                <span class="material-symbols-rounded" style="font-size: 24px;">upload_file</span><br>
+                Drop or Click to Upload JSON
+                <input type="file" id="file-input" style="display: none" accept=".json">
+            </div>
+        </div>
+
+        <div style="height: 1px; background: var(--gray); margin: 5px 0;"></div>
+
+        <div class="panel-section" id="controls">
+            <div class="panel-title">Layout & View</div>
+            <button id="toggle-layout" class="btn btn-secondary" style="width: 100%; justify-content: center;">Switch to
+                Timeline Mode</button>
+
+            <div class="panel-title" style="margin-top: 15px;">Filter Nodes</div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Conversation" class="filter-cb">
+                <div class="swatch" style="background: var(--text-dim)"></div> Conversation
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Turn" class="filter-cb">
+                <div class="swatch" style="background: var(--yellow)"></div> Turn
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Move" class="filter-cb">
+                <div class="swatch" style="background: var(--blue)"></div> Move
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="Constraint" class="filter-cb">
+                <div class="swatch" style="background: var(--orange)"></div> Constraint
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="ViolationEvent" class="filter-cb">
+                <div class="swatch" style="background: var(--red)"></div> Violation
+            </div>
+            <div class="legend-item">
+                <input type="checkbox" checked data-type="InteractionMode" class="filter-cb">
+                <div class="swatch" style="background: var(--slate)"></div> Interaction Mode
+            </div>
+        </div>
+    </div>
+
+    <!-- Center Visualization Area -->
+    <div id="center-panel">
+        <div class="viz-container">
+            <div class="viz-label">GRAPH A</div>
+            <svg id="viz-left"></svg>
+        </div>
+        <div class="viz-container">
+            <div class="viz-label">GRAPH B</div>
+            <svg id="viz-right"></svg>
+        </div>
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+
+    <div id="right-panel">
+        <div class="panel-title">Analysis Summary</div>
+
+        <div id="summary-section" style="display: none;">
+            <div class="summary-card" style="margin-bottom: 15px;">
+                <div class="stat-row"><span class="stat-label">ID</span><span class="stat-value" id="stat-conv-id"
+                        style="font-size: 0.75rem;">—</span></div>
+                <div class="stat-row"><span class="stat-label">Stability</span><span class="stat-value"
+                        id="stat-stability">—</span></div>
+                <div class="stat-row"><span class="stat-label">Type</span><span class="stat-value"
+                        id="stat-architecture">—</span></div>
+            </div>
+
+            <div class="summary-card" style="margin-bottom: 15px;">
+                <div class="panel-title">Metrics</div>
+                <div class="stat-row"><span class="stat-label">Turns</span><span class="stat-value"
+                        id="stat-turns">—</span></div>
+                <div class="stat-row"><span class="stat-label">Constraints</span><span class="stat-value"
+                        id="stat-constraints">—</span></div>
+                <div class="stat-row"><span class="stat-label">Violations</span><span class="stat-value"
+                        id="stat-violations">—</span></div>
+                <div class="stat-row"><span class="stat-label">Repairs</span><span class="stat-value"
+                        id="stat-repairs">—</span></div>
+                <div class="stat-row"><span class="stat-label">Drift Velocity</span><span class="stat-value"
+                        id="stat-drift">—</span></div>
+                <div class="stat-row"><span class="stat-label">Survival Rate</span><span class="stat-value"
+                        id="stat-survival">—</span></div>
+            </div>
+
+            <div class="panel-title">Constraint Timeline</div>
+            <div id="constraint-timeline" class="summary-card">
+                <div id="timeline-content"></div>
+            </div>
+        </div>
+
+        <div id="empty-state" style="text-align: center; color: var(--text-dim); margin-top: 50px;">
+            <span class="material-symbols-rounded" style="font-size: 48px; opacity: 0.5;">analytics</span>
+            <p>Load a graph on the left to view statistics</p>
+        </div>
+
+        <div id="inspector-section"
+            style="display: none; margin-top: 20px; flex-grow: 1; display:flex; flex-direction:column;">
+            <div class="panel-title">Node Inspector</div>
+            <div id="metadata-panel">
+                <pre id="metadata-content">Select a node to inspect</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script>
+        // Use updated styles from bloom.css and config.js
+        let mode = 'force';
+        const CONFIG = {
+            colors: {
+                "Conversation": "#1a1a1a",
+                "Turn": "#f5c542",
+                "Move": "#60a5fa",
+                "Constraint": "#e85a3c",
+                "ViolationEvent": "#f87171",
+                "InteractionMode": "#94a3b8"
+            }
+        };
+
+        const dropZone = d3.select("#drop-zone");
+        const fileInput = d3.select("#file-input");
+        const tooltip = d3.select("#tooltip");
+        const toggleBtn = d3.select("#toggle-layout");
+        const filterCBs = d3.selectAll(".filter-cb");
+
+        let activeTypes = new Set(["Conversation", "Turn", "Move", "Constraint", "ViolationEvent", "InteractionMode"]);
+
+        // -------
+        // SETUP
+        // -------
+        filterCBs.on("change", function () {
+            const type = d3.select(this).attr("data-type");
+            if (this.checked) activeTypes.add(type);
+            else activeTypes.delete(type);
+
+            if (leftData) renderGraph(leftData, "#viz-left");
+            if (rightData) renderGraph(rightData, "#viz-right");
+        });
+
+        toggleBtn.on("click", () => {
+            // Cycle: force -> timeline -> force
+            if (mode === 'force') mode = 'timeline';
+            else mode = 'force';
+
+            toggleBtn.text(mode === 'force' ? "Switch to Timeline Mode" : "Switch to Force Mode");
+
+            if (leftData) renderGraph(leftData, "#viz-left");
+            if (rightData) renderGraph(rightData, "#viz-right");
+        });
+
+        // Drop Zone
+        dropZone.on("click", () => fileInput.node().click());
+        fileInput.on("change", (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        // Default to left for drop
+                        processData(data, 'left');
+                    } catch (err) {
+                        alert("Error processing file: " + err.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        // File Selector Logic
+        const fileSearchLeft = document.getElementById('file-search-left');
+        const loadBtnLeft = document.getElementById('load-btn-left');
+        const fileSearchRight = document.getElementById('file-search-right');
+        const loadBtnRight = document.getElementById('load-btn-right');
+        const fileList = document.getElementById('file-list');
+
+        // Populate file list from file_list.js
+        if (typeof files !== 'undefined') {
+            files.forEach(f => {
+                const option = document.createElement('option');
+                option.value = f;
+                fileList.appendChild(option);
+            });
+        }
+
+        loadBtnLeft.addEventListener('click', () => loadGraph(fileSearchLeft.value, 'left'));
+        loadBtnRight.addEventListener('click', () => loadGraph(fileSearchRight.value, 'right'));
+
+        async function loadGraph(filename, side) {
+            if (!filename) return;
+            try {
+                const response = await fetch(`data/graphs/${filename}`);
+                if (!response.ok) throw new Error("File not found");
+                const data = await response.json();
+                processData(data, side);
+            } catch (err) {
+                alert(`Error loading ${filename}: ${err.message}`);
+            }
+        }
+
+        // State
+        let leftData = null;
+        let rightData = null;
+
+        function processData(data, side) {
+            if (side === 'left') {
+                leftData = data;
+                renderGraph(data, "#viz-left");
+                updateSummary(data);
+            } else {
+                rightData = data;
+                renderGraph(data, "#viz-right");
+            }
+        }
+
+        // ----------
+        // RENDERING
+        // ----------
+        function renderGraph(data, svgSelector) {
+            const svg = d3.select(svgSelector);
+            svg.selectAll("*").remove();
+
+            const width = svg.node().parentElement.clientWidth;
+            const height = svg.node().parentElement.clientHeight;
+
+            // Filter
+            const filteredNodes = data.nodes.filter(n => activeTypes.has(n.node_type));
+            const filteredIds = new Set(filteredNodes.map(n => n.id));
+            const filteredLinks = data.links.filter(l => filteredIds.has(l.source) && filteredIds.has(l.target));
+
+            const container = svg.append("g");
+
+            // Zoom
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 5])
+                .on("zoom", (e) => container.attr("transform", e.transform));
+            svg.call(zoom);
+
+            // Force layout
+            if (mode === 'force') {
+                const simulation = d3.forceSimulation(filteredNodes)
+                    .force("link", d3.forceLink(filteredLinks).id(d => d.id).distance(50))
+                    .force("charge", d3.forceManyBody().strength(-100))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("collide", d3.forceCollide().radius(20));
+
+                const link = container.append("g")
+                    .selectAll("line")
+                    .data(filteredLinks)
+                    .enter().append("line")
+                    .attr("stroke", "#94a3b8")
+                    .attr("stroke-opacity", 0.4)
+                    .attr("stroke-width", 1.5);
+
+                const node = container.append("g")
+                    .selectAll("circle")
+                    .data(filteredNodes)
+                    .enter().append("circle")
+                    .attr("r", d => d.node_type === 'Conversation' ? 12 : 8)
+                    .attr("fill", d => CONFIG.colors[d.node_type] || '#ccc')
+                    .attr("stroke", "#fff")
+                    .attr("stroke-width", 1.5)
+                    .call(d3.drag()
+                        .on("start", (event, d) => {
+                            if (!event.active) simulation.alphaTarget(0.3).restart();
+                            d.fx = d.x; d.fy = d.y;
+                        })
+                        .on("drag", (event, d) => {
+                            d.fx = event.x; d.fy = event.y;
+                        })
+                        .on("end", (event, d) => {
+                            if (!event.active) simulation.alphaTarget(0);
+                            d.fx = null; d.fy = null;
+                        }));
+
+                node.on("click", (e, d) => showMetadata(d));
+
+                simulation.on("tick", () => {
+                    link.attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+                    node.attr("cx", d => d.x).attr("cy", d => d.y);
+                });
+            } else {
+                // Simplified Timeline Mode
+                // Organize turns linearly, others branching off
+                const turns = filteredNodes.filter(n => n.node_type === 'Turn')
+                    .sort((a, b) => (a.index || 0) - (b.index || 0));
+
+                // Simple positioning
+                const startX = 50;
+                const startY = height / 2;
+                const stepX = 60;
+
+                turns.forEach((t, i) => {
+                    t.x = startX + i * stepX;
+                    t.y = startY;
+                    t.fx = t.x; t.fy = t.y;
+                });
+
+                // Place others closely attached
+                // Run a static force sim to settle others around fixed turns
+                const simulation = d3.forceSimulation(filteredNodes)
+                    .force("link", d3.forceLink(filteredLinks).id(d => d.id).distance(30))
+                    .force("charge", d3.forceManyBody().strength(-50))
+                    .force("collide", d3.forceCollide().radius(15))
+                    .stop();
+
+                for (let i = 0; i < 300; ++i) simulation.tick();
+
+                // Draw
+                const link = container.append("g")
+                    .selectAll("line")
+                    .data(filteredLinks)
+                    .enter().append("line")
+                    .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x).attr("y2", d => d.target.y)
+                    .attr("stroke", "#94a3b8")
+                    .attr("stroke-opacity", 0.4);
+
+                const node = container.append("g")
+                    .selectAll("circle")
+                    .data(filteredNodes)
+                    .enter().append("circle")
+                    .attr("cx", d => d.x).attr("cy", d => d.y)
+                    .attr("r", 8)
+                    .attr("fill", d => CONFIG.colors[d.node_type] || '#ccc')
+                    .attr("stroke", "#fff")
+                    .on("click", (e, d) => showMetadata(d));
+            }
+        }
+
+        // ----------
+        // SUMMARY
+        // ----------
+        function updateSummary(data) {
+            document.getElementById('summary-section').style.display = 'block';
+            document.getElementById('empty-state').style.display = 'none';
+            document.getElementById('inspector-section').style.display = 'flex';
+
+            const nodes = data.nodes || [];
+            const conv = nodes.find(n => n.node_type === 'Conversation');
+            const constraints = nodes.filter(n => n.node_type === 'Constraint');
+            const violations = nodes.filter(n => n.node_type === 'ViolationEvent');
+            const turns = nodes.filter(n => n.node_type === 'Turn');
+
+            setStat('stat-conv-id', conv ? (conv.conv_id || conv.id).substring(0, 12) + '...' : 'Unknown');
+            setStat('stat-stability', conv ? conv.stability_class : 'N/A');
+            setStat('stat-architecture', conv ? conv.task_architecture : 'N/A');
+
+            setStat('stat-turns', turns.length);
+            setStat('stat-constraints', constraints.length);
+            setStat('stat-violations', violations.length);
+
+            // Calc derived metrics
+            const repairMoves = nodes.filter(n => n.node_type === 'Move' && n.move_type?.startsWith('REPAIR')).length;
+            setStat('stat-repairs', repairMoves);
+
+            const drift = turns.length > 0 ? (violations.length / turns.length).toFixed(2) : '0';
+            setStat('stat-drift', drift);
+
+            const survived = constraints.filter(c => c.current_state === 'SURVIVED' || c.current_state === 'ACTIVE').length;
+            const survivalRate = constraints.length > 0 ? Math.round((survived / constraints.length) * 100) + '%' : 'N/A';
+            const sElem = setStat('stat-survival', survivalRate);
+            if (survivalRate !== 'N/A') {
+                const val = parseInt(survivalRate);
+                sElem.className = 'stat-value ' + (val > 50 ? 'good' : 'warn');
+            }
+
+            // Timeline
+            let constraintsInOrder = constraints.sort((a, b) => (a.index || 0) - (b.index || 0));
+            // Simple render for now:
+            const timelineContainer = document.getElementById('timeline-content');
+            timelineContainer.innerHTML = '';
+
+            if (constraintsInOrder.length === 0) {
+                timelineContainer.innerHTML = '<div style="color:var(--text-dim); text-align:center; padding:10px;">No constraints</div>';
+            } else {
+                constraintsInOrder.forEach(c => {
+                    const row = document.createElement('div');
+                    row.className = 'timeline-row';
+
+                    const label = document.createElement('div');
+                    label.className = 'timeline-label';
+                    label.innerText = c.description || c.id;
+
+                    const bar = document.createElement('div');
+                    bar.className = 'timeline-bar';
+
+                    let color = 'var(--gray)';
+                    if (c.current_state === 'VIOLATED') color = 'var(--red)';
+                    if (c.current_state === 'SURVIVED') color = 'var(--green)';
+                    if (c.current_state === 'ACTIVE') color = 'var(--blue)';
+
+                    bar.innerHTML = `<div class="timeline-seg" style="width: 100%; background: ${color}; color: white; font-size: 10px;">${c.current_state}</div>`;
+
+                    row.appendChild(label);
+                    row.appendChild(bar);
+                    timelineContainer.appendChild(row);
+                });
+            }
+        }
+
+        function setStat(id, val) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = val;
+            return el;
+        }
+
+        function showMetadata(node) {
+            const pre = document.getElementById('metadata-content');
+            pre.innerText = JSON.stringify(node, null, 2);
+        }
+
+    </script>
+</body>
+
+</html>

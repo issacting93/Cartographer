@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0');
+
+:root {
+    --bg: #ffffff;
+    --bg-subtle: #f8f8f8;
+    --black: #1a1a1a;
+    --gray: #e5e5e5;
+    --gray-dark: #999999;
+    --yellow: #f5c542;
+    --orange: #e85a3c;
+    --green: #22c55e;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --purple: #c084fc;
+    --slate: #94a3b8;
+
+    --text: #1a1a1a;
+    --text-dim: #888888;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.material-symbols-rounded {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Typography Helpers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--black);
+    font-weight: 700;
+}
+
+/* Panels */
+.panel {
+    background: var(--bg-subtle);
+    border-right: 1px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+#center-panel {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    /* Ensure tooltips/overlays align */
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.panel-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Components */
+
+/* Pill */
+.pill {
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: white;
+    border: 1px solid var(--gray);
+    color: var(--text);
+    user-select: none;
+}
+
+.pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--black);
+}
+
+.pill.active {
+    background: var(--black);
+    color: white;
+    border-color: var(--black);
+}
+
+.pill .material-symbols-rounded {
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn {
+    height: 48px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0 20px;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(245, 197, 66, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--text);
+    border: 1px solid var(--gray);
+}
+
+.btn-secondary:hover {
+    border-color: var(--black);
+}
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: white;
+    color: var(--text);
+}
+
+input[type="text"]:focus {
+    border-color: var(--black);
+}
+
+/* Cards / Badge */
+.node-info {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--gray);
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+}
+
+.badge-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--green);
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+.badge-red {
+    background: rgba(232, 90, 60, 0.1);
+    color: var(--orange);
+    border-color: rgba(232, 90, 60, 0.2);
+}
+
+.badge-yellow {
+    background: rgba(245, 197, 66, 0.1);
+    color: #b4860b;
+    border-color: rgba(245, 197, 66, 0.2);
+}
+
+.badge-gray {
+    background: var(--gray);
+    color: var(--text);
+}
+
+/* Graph Tooltip */
+.tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 20;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    color: var(--text);
+}
+
+/* File List */
+/* Panel sizing */
+#left-panel {
+    width: 300px;
+    min-width: 260px;
+}
+
+#right-panel {
+    width: 280px;
+    max-width: 280px;
+    min-width: 0;
+    flex-shrink: 0;
+    border-right: none;
+    border-left: 1px solid var(--gray);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Panel section spacing */
+.panel-section {
+    margin-bottom: 8px;
+}
+
+/* Stat rows */
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: 13px;
+}
+
+.stat-label {
+    color: var(--text-dim);
+}
+
+.stat-value {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Legend items */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Edge legend */
+.edge-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.edge-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.edge-swatch {
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+/* Select element */
+select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: var(--text);
+    transition: border-color 0.2s;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select:focus {
+    border-color: var(--black);
+}
+
+/* Hint text */
+.hint {
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+/* Metadata pre overflow */
+.node-info {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.node-info pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* File List */
+#file-selector-container {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--gray);
+}

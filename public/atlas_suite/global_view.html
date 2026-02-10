@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Graph Explorer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/file_list.js"></script>
+    <link href="css/bloom.css" rel="stylesheet">
+    <style>
+        /* Local overrides */
+        #drop-zone {
+            display: none !important;
+        }
+
+        .chat-bubble {
+            background: white;
+            border: 1px solid var(--gray);
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .chat-bubble.user {
+            border-left-color: var(--black);
+        }
+
+        .chat-bubble.model {
+            border-left-color: var(--yellow);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .filter-pill {
+            border-radius: 16px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--gray);
+            background: white;
+            color: var(--text);
+            transition: all 0.2s ease;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--black);
+        }
+
+        .filter-pill.active {
+            background: var(--black);
+            color: white;
+            border-color: var(--black);
+        }
+
+        .filter-pill .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .filter-pill.active .dot {
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+        }
+
+        #atlas-stats .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 0;
+            font-size: 12px;
+        }
+
+        .breakdown-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-dim);
+        }
+
+        .breakdown-value {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .breakdown-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="left-panel" class="panel">
+        <div class="guide-header"
+            style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--gray);">
+            <h1>BLOOM Atlas</h1>
+            <p style="font-size: 12px; color: var(--text-dim);">Meta-Graph Explorer</p>
+            <a href="index.html" style="font-size: 12px; color: var(--accent); text-decoration: none;">&larr; Back to
+                Suite</a>
+        </div>
+
+        <div class="panel-section">
+            <div id="file-selector-container">
+                <input type="text" id="file-search" list="file-list" placeholder="Search conversations...">
+                <datalist id="file-list"></datalist>
+                <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
+                    <button id="load-btn" class="btn btn-primary">
+                        <span class="material-symbols-rounded">play_arrow</span> Load
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Layout</div>
+            <select id="layout-select">
+                <option value="force">Force Layout</option>
+                <option value="stability">Cluster by Stability</option>
+                <option value="source">Cluster by Source</option>
+            </select>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Stability</div>
+            <div id="stability-filters" class="filter-group"></div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Source</div>
+            <div id="source-filters" class="filter-group"></div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Size Encoding</div>
+            <select id="size-select">
+                <option value="turn_count">By Turn Count</option>
+                <option value="constraint_count">By Constraint Count</option>
+                <option value="uniform">Uniform</option>
+            </select>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Legend</div>
+            <div id="atlas-legend" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="legend-item"><span class="swatch" style="background: #22c55e"></span> Task Maintained</div>
+                <div class="legend-item"><span class="swatch" style="background: #f5c542"></span> Constraint Drift</div>
+                <div class="legend-item"><span class="swatch" style="background: #e85a3c"></span> Task Shift</div>
+                <div class="legend-item"><span class="swatch" style="background: #f87171"></span> Agency Collapse</div>
+                <div class="legend-item"><span class="swatch" style="background: #94a3b8"></span> No Constraints</div>
+            </div>
+            <div style="margin-top: 12px;">
+                <div class="panel-title">Source Stroke</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div class="legend-item"><span class="swatch"
+                            style="background: #60a5fa; border: 2px solid #60a5fa;"></span> WildChat</div>
+                    <div class="legend-item"><span class="swatch"
+                            style="background: #f5c542; border: 2px solid #f5c542;"></span> ChatbotArena</div>
+                    <div class="legend-item"><span class="swatch"
+                            style="background: #c084fc; border: 2px solid #c084fc;"></span> OpenAssistant</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="center-panel">
+        <div class="tooltip" id="tooltip"></div>
+        <svg id="viz"></svg>
+    </div>
+
+    <div id="right-panel" class="panel">
+
+        <div id="atlas-stats" class="panel-section">
+            <div class="panel-title">Atlas Overview</div>
+            <div id="stats-content">
+                <p style="color: var(--text-dim); font-size: 13px;">Loading...</p>
+            </div>
+        </div>
+
+        <div id="metadata-panel" class="node-info" style="display: none;">
+            <div class="panel-title">Node Inspector</div>
+            <div id="metadata-content"></div>
+        </div>
+
+        <div id="empty-details" style="text-align: center; color: var(--text-dim); margin-top: 20px;">
+            <span class="material-symbols-rounded"
+                style="font-size: 48px; color: var(--gray); margin-bottom: 10px;">hub</span>
+            <p>Click a node to inspect</p>
+            <p style="font-size: 11px; margin-top: 4px;">Double-click to open in Explorer</p>
+        </div>
+    </div>
+
+    <script>
+        // ── State ──
+        const STATE = {
+            mode: 'force',
+            activeStabilities: new Set(),
+            activeSources: new Set(),
+            sizeField: 'turn_count'
+        };
+
+        const stabilityColors = {
+            "Task Maintained": "#22c55e",
+            "Constraint Drift": "#f5c542",
+            "Task Shift": "#e85a3c",
+            "Agency Collapse": "#f87171",
+            "No Constraints": "#94a3b8"
+        };
+
+        const sourceColors = {
+            "WildChat": "#60a5fa",
+            "lmsys-chat-1m": "#f5c542",
+            "OpenAssistant": "#c084fc"
+        };
+
+        const sourceLabels = {
+            "WildChat": "WildChat",
+            "lmsys-chat-1m": "ChatbotArena",
+            "OpenAssistant": "OpenAssistant"
+        };
+
+        const svg = d3.select("#viz");
+        const tooltip = d3.select("#tooltip");
+        const metadataPanel = d3.select("#metadata-panel");
+        const metadataContent = d3.select("#metadata-content");
+
+        let currentData = null;
+        let simulation = null;
+
+        // ── Init ──
+        loadAtlas();
+
+        // ── File search: open in explorer ──
+        const fileSearch = document.getElementById('file-search');
+        const fileList = document.getElementById('file-list');
+        const loadBtn = document.getElementById('load-btn');
+
+        if (fileSearch) {
+            fileSearch.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val) window.open(`explorer.html?file=${val}`, '_blank');
+            });
+        }
+
+        files.forEach(f => {
+            const option = document.createElement('option');
+            option.value = f;
+            fileList.appendChild(option);
+        });
+
+        loadBtn.addEventListener('click', () => {
+            const filename = fileSearch.value;
+            if (filename) window.open(`explorer.html?file=${filename}`, '_blank');
+        });
+
+        // ── Layout select ──
+        document.getElementById('layout-select').addEventListener('change', (e) => {
+            STATE.mode = e.target.value;
+            if (currentData) renderAtlas(currentData);
+        });
+
+        // ── Size select ──
+        document.getElementById('size-select').addEventListener('change', (e) => {
+            STATE.sizeField = e.target.value;
+            if (currentData) renderAtlas(currentData);
+        });
+
+        // ── Build filter pills ──
+        function buildFilterPills() {
+            if (!currentData) return;
+
+            const stabilities = [...new Set(currentData.nodes.map(n => n.stability).filter(Boolean))];
+            const sources = [...new Set(currentData.nodes.map(n => n.source).filter(Boolean))];
+
+            // Init active sets with all values
+            stabilities.forEach(s => STATE.activeStabilities.add(s));
+            sources.forEach(s => STATE.activeSources.add(s));
+
+            // Stability pills
+            const stabContainer = document.getElementById('stability-filters');
+            stabContainer.innerHTML = '';
+            stabilities.forEach(s => {
+                const pill = document.createElement('div');
+                pill.className = 'filter-pill active';
+                pill.innerHTML = `<span class="dot" style="background: ${stabilityColors[s] || '#94a3b8'}"></span>${s}`;
+                pill.addEventListener('click', () => {
+                    if (STATE.activeStabilities.has(s)) {
+                        STATE.activeStabilities.delete(s);
+                        pill.classList.remove('active');
+                    } else {
+                        STATE.activeStabilities.add(s);
+                        pill.classList.add('active');
+                    }
+                    if (currentData) renderAtlas(currentData);
+                });
+                stabContainer.appendChild(pill);
+            });
+
+            // Source pills
+            const srcContainer = document.getElementById('source-filters');
+            srcContainer.innerHTML = '';
+            sources.forEach(s => {
+                const pill = document.createElement('div');
+                pill.className = 'filter-pill active';
+                pill.innerHTML = `<span class="dot" style="background: ${sourceColors[s] || '#94a3b8'}"></span>${sourceLabels[s] || s}`;
+                pill.addEventListener('click', () => {
+                    if (STATE.activeSources.has(s)) {
+                        STATE.activeSources.delete(s);
+                        pill.classList.remove('active');
+                    } else {
+                        STATE.activeSources.add(s);
+                        pill.classList.add('active');
+                    }
+                    if (currentData) renderAtlas(currentData);
+                });
+                srcContainer.appendChild(pill);
+            });
+        }
+
+        // ── Right panel: aggregate stats ──
+        function renderAtlasStats(data) {
+            const statsEl = document.getElementById('stats-content');
+            const nodes = data.nodes || [];
+
+            // Stability breakdown
+            const stabCounts = {};
+            nodes.forEach(n => {
+                const s = n.stability || 'Unknown';
+                stabCounts[s] = (stabCounts[s] || 0) + 1;
+            });
+
+            // Source breakdown
+            const srcCounts = {};
+            nodes.forEach(n => {
+                const s = n.source || 'Unknown';
+                srcCounts[s] = (srcCounts[s] || 0) + 1;
+            });
+
+            let html = `
+                <div class="stat-row">
+                    <span class="stat-label">Total Conversations</span>
+                    <span class="stat-value">${nodes.length}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Links</span>
+                    <span class="stat-value">${(data.links || []).length}</span>
+                </div>
+            `;
+
+            html += `<div style="margin-top: 12px;"><div class="panel-title">By Stability</div>`;
+            for (const [cls, count] of Object.entries(stabCounts).sort((a, b) => b[1] - a[1])) {
+                html += `<div class="breakdown-row">
+                    <span class="breakdown-label"><span class="breakdown-dot" style="background: ${stabilityColors[cls] || '#94a3b8'}"></span>${cls}</span>
+                    <span class="breakdown-value">${count}</span>
+                </div>`;
+            }
+            html += `</div>`;
+
+            html += `<div style="margin-top: 12px;"><div class="panel-title">By Source</div>`;
+            for (const [src, count] of Object.entries(srcCounts).sort((a, b) => b[1] - a[1])) {
+                html += `<div class="breakdown-row">
+                    <span class="breakdown-label"><span class="breakdown-dot" style="background: ${sourceColors[src] || '#94a3b8'}"></span>${sourceLabels[src] || src}</span>
+                    <span class="breakdown-value">${count}</span>
+                </div>`;
+            }
+            html += `</div>`;
+
+            statsEl.innerHTML = html;
+        }
+
+        // ── Load meta-graph ──
+        async function loadAtlas() {
+            try {
+                // UPDATE PATH
+                const response = await fetch("data/meta_graph.json");
+                if (!response.ok) throw new Error("Meta-graph not found");
+                const data = await response.json();
+                currentData = data;
+                buildFilterPills();
+                renderAtlasStats(data);
+                renderAtlas(data);
+            } catch (err) {
+                alert("Could not load Atlas: " + err.message);
+            }
+        }
+
+        // ── Node size ──
+        function nodeRadius(d) {
+            if (STATE.sizeField === 'uniform') return 5;
+            const val = d[STATE.sizeField] || 0;
+            return Math.max(4, Math.sqrt(val) * 2);
+        }
+
+        // ── Main render ──
+        function renderAtlas(data) {
+            svg.selectAll("*").remove();
+
+            const width = document.getElementById('center-panel').clientWidth;
+            const height = document.getElementById('center-panel').clientHeight;
+
+            const container = svg.append("g");
+
+            // Zoom & Pan
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 8])
+                .on("zoom", (event) => container.attr("transform", event.transform));
+            svg.call(zoom);
+
+            // Filter nodes
+            const nodes = data.nodes.filter(n =>
+                STATE.activeStabilities.has(n.stability) &&
+                STATE.activeSources.has(n.source)
+            );
+            const nodeIds = new Set(nodes.map(n => n.id));
+
+            // Filter links
+            const links = data.links.filter(l => {
+                const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                return nodeIds.has(sId) && nodeIds.has(tId);
+            });
+
+            if (simulation) simulation.stop();
+
+            // Force simulation
+            simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-80))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collide", d3.forceCollide(d => nodeRadius(d) + 2));
+
+            if (STATE.mode === 'stability') {
+                const foci = {
+                    "Task Maintained": { x: width * 0.5, y: height * 0.5 },
+                    "Constraint Drift": { x: width * 0.2, y: height * 0.2 },
+                    "Task Shift": { x: width * 0.8, y: height * 0.2 },
+                    "Agency Collapse": { x: width * 0.5, y: height * 0.9 },
+                    "No Constraints": { x: width * 0.9, y: height * 0.9 },
+                    "Unknown": { x: width * 0.1, y: height * 0.9 }
+                };
+                simulation.force("x", d3.forceX(d => foci[d.stability]?.x || width / 2).strength(0.6));
+                simulation.force("y", d3.forceY(d => foci[d.stability]?.y || height / 2).strength(0.6));
+                simulation.force("charge", d3.forceManyBody().strength(-20));
+            }
+
+            if (STATE.mode === 'source') {
+                const foci = {
+                    "WildChat": { x: width * 0.3, y: height * 0.5 },
+                    "lmsys-chat-1m": { x: width * 0.7, y: height * 0.5 },
+                    "OpenAssistant": { x: width * 0.5, y: height * 0.2 }
+                };
+                simulation.force("x", d3.forceX(d => foci[d.source]?.x || width / 2).strength(0.5));
+                simulation.force("y", d3.forceY(d => foci[d.source]?.y || height / 2).strength(0.5));
+            }
+
+            // Edges
+            const link = container.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("stroke", "#94a3b8")
+                .attr("stroke-width", d => Math.max(1, (d.weight || 1) * 0.8))
+                .attr("stroke-opacity", 0.3);
+
+            // Nodes
+            const node = container.append("g")
+                .attr("class", "nodes")
+                .selectAll("g.atlas-node")
+                .data(nodes)
+                .enter().append("g")
+                .attr("class", "atlas-node")
+                .attr("cursor", "pointer")
+                .call(drag(simulation));
+
+            // Node circles: fill by stability, stroke by source
+            node.append("circle")
+                .attr("r", d => nodeRadius(d))
+                .attr("fill", d => stabilityColors[d.stability] || "#94a3b8")
+                .attr("stroke", d => sourceColors[d.source] || "#94a3b8")
+                .attr("stroke-width", 2);
+
+            // ── Interactions ──
+
+            // Hover tooltip
+            node.on("mouseover", (event, d) => {
+                tooltip.style("opacity", 1)
+                    .html(`
+                        <strong>${d.id}</strong><br>
+                        <span style="color: var(--text-dim);">Source:</span> ${sourceLabels[d.source] || d.source}<br>
+                        <span style="color: var(--text-dim);">Stability:</span> ${d.stability}<br>
+                        <span style="color: var(--text-dim);">Turns:</span> ${d.turn_count || 0}<br>
+                        <span style="color: var(--text-dim);">Constraints:</span> ${d.constraint_count || 0}
+                    `)
+                    .style("left", (event.pageX + 12) + "px")
+                    .style("top", (event.pageY - 12) + "px");
+            })
+                .on("mousemove", (event) => {
+                    tooltip
+                        .style("left", (event.pageX + 12) + "px")
+                        .style("top", (event.pageY - 12) + "px");
+                })
+                .on("mouseout", () => tooltip.style("opacity", 0));
+
+            // Single-click: focus + metadata
+            let clickTimer = null;
+            node.on("click", (event, d) => {
+                event.stopPropagation();
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => {
+                    focusNode(d);
+                    showMetadata(d);
+                }, 200);
+            });
+
+            // Double-click: open in explorer
+            node.on("dblclick", (event, d) => {
+                event.stopPropagation();
+                clearTimeout(clickTimer);
+                if (d.filename) {
+                    window.open(`explorer.html?file=${d.filename}`, '_blank');
+                }
+            });
+
+            // Click background to reset
+            svg.on("click", () => resetFocus());
+
+            // ── Focus/highlight ──
+            function focusNode(clickedNode) {
+                const neighbors = new Set();
+                neighbors.add(clickedNode.id);
+
+                links.forEach(l => {
+                    const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                    if (sId === clickedNode.id) neighbors.add(tId);
+                    if (tId === clickedNode.id) neighbors.add(sId);
+                });
+
+                node.style("opacity", d => neighbors.has(d.id) ? 1 : 0.1);
+                link.style("opacity", l => {
+                    const sId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const tId = typeof l.target === 'object' ? l.target.id : l.target;
+                    return (sId === clickedNode.id || tId === clickedNode.id) ? 1 : 0.05;
+                });
+            }
+
+            function resetFocus() {
+                node.style("opacity", 1);
+                link.style("opacity", 1);
+                metadataPanel.style("display", "none");
+                document.getElementById('empty-details').style.display = 'block';
+            }
+
+            // Tick
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+        }
+
+        // ── Metadata panel ──
+        function showMetadata(d) {
+            metadataPanel.style("display", "block");
+            document.getElementById('empty-details').style.display = 'none';
+
+            const stabColor = stabilityColors[d.stability] || '#94a3b8';
+            const srcColor = sourceColors[d.source] || '#94a3b8';
+
+            const html = `
+                <div style="border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 10px;">
+                    <div style="font-size: 0.8em; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em;">Conversation</div>
+                    <div style="font-size: 1.1em; font-weight: bold; color: var(--text); word-break: break-all;">${d.id}</div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background: ${stabColor}20; color: ${stabColor}; border-color: ${stabColor}40;">${d.stability || 'Unknown'}</span>
+                    <span class="badge" style="background: ${srcColor}20; color: ${srcColor}; border-color: ${srcColor}40;">${sourceLabels[d.source] || d.source || 'Unknown'}</span>
+                </div>
+
+                <div class="metadata-grid">
+                    ${metaRow("Filename", d.filename)}
+                    ${metaRow("System", d.system)}
+                    ${metaRow("Turns", d.turn_count)}
+                    ${metaRow("Constraints", d.constraint_count)}
+                    ${metaRow("Source", sourceLabels[d.source] || d.source)}
+                </div>
+
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn btn-secondary" style="height: 36px; font-size: 12px;" onclick="if('${d.filename}') window.open('explorer.html?file=${d.filename}', '_blank')">
+                        <span class="material-symbols-rounded" style="font-size: 16px;">open_in_new</span> Open in Explorer
+                    </button>
+                </div>
+            `;
+
+            metadataContent.html(html);
+        }
+
+        function metaRow(key, value) {
+            if (value === undefined || value === null) return '';
+            return `
+                <div style="margin-bottom: 4px;">
+                    <div style="color: var(--text-dim); font-size: 0.8em; text-transform: capitalize;">${key}</div>
+                    <div style="color: var(--text); font-size: 0.9em; line-height: 1.2;">${value}</div>
+                </div>
+            `;
+        }
+
+        // ── Drag ──
+        function drag(sim) {
+            function dragstarted(event) {
+                if (!event.active) sim.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+            function dragended(event) {
+                if (!event.active) sim.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+    </script>
+
+</body>
+
+</html>
