@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_0190",
+  "messages": [
+    {
+      "role": "user",
+      "content": "When I was 4, my sister was 2. Now I'm 44. How old is my sister?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Your sister is 42.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "Incorrect. She can be also 41 or 43",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.6,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.66
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand. Are you asking how old your sister is in years?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "How old is my sister?",
+        "Incorrect. She can be also 41 or 43"
+      ],
+      "rationale": "The human initiates the topic and corrects the AI.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Your sister is 42.",
+        "I'm sorry, I don't understand."
+      ],
+      "rationale": "The conversation lacks emotional language or tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.8,
+      "evidence": [
+        "Incorrect. She can be also 41 or 43",
+        "I'm sorry, I don't understand."
+      ],
+      "rationale": "The AI responds to the human's correction without strong direction.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "Your sister is 42.",
+        "Are you asking how old your sister is in years?"
+      ],
+      "rationale": "The AI provides factual information about age.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "The human seeks specific information about age.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "The conversation is brief and focused on a simple query.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "Both parties have similar message lengths.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "How old is my sister?"
+        }
+      ],
+      "rationale": "The human primarily seeks information.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Your sister is 42."
+        }
+      ],
+      "rationale": "The AI provides direct answers to factual questions.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:11:09.853303",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

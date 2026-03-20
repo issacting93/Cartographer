@@ -1,165 +1,103 @@
-# Cartographer: Interactional Cartography for Human-AI Conversation
+# Cartographer
 
-**A graph-structural framework for diagnosing governance failure in human-AI dialogue.**
+## What this project is about
 
-Cartographer transforms linear chat logs into heterogeneous multi-relational graphs, mapping how user constraints degrade across conversational turns. It provides computational evidence that constraint failure in AI conversation is a structural property of the interaction medium — not a model capability problem — leading to what we term **Agency Collapse**.
+When you tell a chatbot "answer in bullet points" or "don't use jargon" — does it actually listen?
 
----
+We looked at 1,383 real conversations between people and AI chatbots to find out. The answer is mostly no.
 
-## Key Findings
+**What we found:**
 
-| Phase | Study | N | Key Finding |
-|-------|-------|---|-------------|
-| **Phase 1** | Conversational Cartography | 562 | **83% of variance** explained by interaction dynamics, not role categories |
-| **Phase 2** | Agency Collapse | 863 | **50.4% collapse rate** — the "Repair Loop" is a structural trap |
-| **Phase 3** | Atlas 2.0 (canonical) | 744 | **71.5% constraint failure**, half-life of 2.49 turns, repair success <0.1% |
+- People gave 559 explicit instructions across those conversations
+- **69% were broken** by the AI
+- Only **17% were clearly followed**
+- The rest (14%) — we can't tell (the AI never acknowledged them, but didn't obviously break them either)
+- **24% were broken on the very first reply** — the AI didn't even try
+- **65% were broken within the first two exchanges**
+- Only 6% of people even bothered trying to correct the AI
+- When they did try, it worked **1% of the time**
 
-### Atlas 2.0 Metrics (N=744)
+We call this **Agency Collapse**: people give up trying to steer the conversation because the AI doesn't hold up its end.
 
-| Metric | Value | Interpretation |
-|--------|-------|----------------|
-| **Constraint Survival Rate** | 28.5% | 71.5% of verifiable instructions are violated silently |
-| **Constraint Half-Life** | 2.49 turns | Decay happens within 2–3 exchanges, not at context limits |
-| **Repair Success Rate** | 0.1% | Users attempt repair (19.9%), but the medium fails them |
-| **Mode Violation Rate** | 42.0% | The AI oversteps its role in nearly half of exchanges |
+## Why this happens
 
----
+Chatbots rebuild their understanding of the conversation from scratch every time they reply. There's no persistent memory of "the user told me to use bullet points." The instruction is just buried somewhere in the chat history, and the model may or may not pick up on it.
 
-## Methodology
+The fix isn't better models — it's better interfaces. Instructions should be visible, trackable, and editable, not hidden in a scrolling chat log.
 
-### 7-Step Pipeline
+## How we measure this
 
-1. **Construct Definition** — Define theoretical constructs (Repair, Passivity, Specificity) before looking at data.
-2. **Feature Extraction** — Compute deterministic features (e.g., `repair_count`, `politeness_delta`).
-3. **Unsupervised Clustering** — HDBSCAN finds natural groupings in the feature space.
-4. **Cluster Characterization** — Descriptive statistics for each cluster.
-5. **Agency Collapse Definition** — Binary outcome variable based on thresholds (repeated failed repairs, tone degradation).
-6. **Archetype Naming** — Post-hoc labels assigned to empirically derived clusters.
-7. **Validation** — Clustering stability (Silhouette > 0.3) and human agreement (kappa > 0.65).
+We built a pipeline called **Atlas** that reads a conversation and turns it into a graph:
 
-### Graph Schema
+1. **Move classification** — Labels each message with what it's doing (proposing a rule, breaking a rule, trying to fix things, giving up, etc.)
+2. **Constraint tracking** — Follows each instruction from when the user states it to when the AI breaks it (or doesn't)
 
-**Node Types:**
-- `Conversation` — Metadata (source, domain, stability class)
-- `Turn` — Individual message (role: user/model)
-- `Move` — Communicative act (PROPOSE_CONSTRAINT, REPAIR_INITIATE, etc.)
-- `Constraint` — Tracked rule state (STATED → ACTIVE → VIOLATED → SURVIVED)
-- `ViolationEvent` — Instance of a constraint violation
-- `InteractionMode` — Per-turn mode (LISTENER, ADVISOR, EXECUTOR)
+The output is a structured graph per conversation with nodes for turns, moves, constraints, and violations.
 
-**Edge Types:**
-- `NEXT` — Temporal flow
-- `CONTAINS` — Hierarchy
-- `HAS_MOVE` — Turn-to-Move
-- `VIOLATES` — Violation linking
-- `REPAIRS` — Repair attempts
-- `TRIGGERS` — Causal links
-
----
-
-## Project Structure
+## What's in this repo
 
 ```
-Cartographer/
-├── scripts/
-│   ├── atlas/                       # Core pipeline
-│   │   ├── core/                    # Enums and Pydantic models
-│   │   ├── graph/                   # Schema validation
-│   │   ├── pipeline/                # Pipeline stages
-│   │   ├── run_pipeline.py          # Main orchestrator
-│   │   ├── move_classifier.py       # Communicative act detection
-│   │   ├── mode_detector.py         # Interaction mode classification
-│   │   ├── constraint_tracker.py    # Constraint state machine
-│   │   ├── graph_metrics.py         # Graph-level metric computation
-│   │   └── analysis/                # Post-hoc analysis scripts
-│   └── analysis/                    # Comparative analysis
-│       ├── bridge_pad_scoring.py    # PAD (Pleasure-Arousal-Dominance) scoring
-│       ├── generate_comparative_viz.py
-│       └── scientific_analysis.py
-│
-├── data/
-│   ├── atlas_with_pad/              # 100+ PAD-annotated conversation graphs
-│   ├── atlas_canonical/             # Canonical Atlas 2.0 outputs
-│   ├── features.json                # Extracted feature vectors
-│   └── ...                          # Clustered/classified datasets
-│
-├── public/                          # Visualization & dashboards
-│   ├── atlas_suite/                 # BLOOM Design System explorer
-│   │   ├── index.html               # Landing page
-│   │   ├── explorer.html            # Single-conversation inspector
-│   │   ├── dashboard.html           # Aggregate metrics dashboard
-│   │   ├── compare.html             # Side-by-side comparison
-│   │   └── global_view.html         # Dataset-wide landscape
-│   ├── scientific_report/           # Generated figures & report
-│   ├── cartography_dashboard.html   # Cartography overview
-│   └── comparative_diagnostics.html # Comparative diagnostics view
-│
-├── paper/                           # Academic papers
-│   ├── CHI_2026_Proposal.md         # Agency Collapse (CHI 2026)
-│   ├── CUI_2026_Paper.md            # CUI 2026 submission
-│   ├── COMPREHENSIVE_FINDINGS_REPORT.md
-│   ├── PRIOR_WORK_CONVERSATIONAL_CARTOGRAPHY.md
-│   └── figures/                     # Paper figures
-│
-├── theory/                          # Working notes & theory development
-├── frontend/                        # CII Prototype (React + Vite)
-├── backend/                         # FastAPI backend
-└── context_engine/                  # Task-first context management
+scripts/
+  atlas/                    # The pipeline (move classifier, constraint tracker, graph builder)
+  analyze_instructions.py   # "Did the AI follow the instructions?" — plain-language analysis
+  compute_verified_stats.py # Single source of truth for all statistics
+  validate_report.py        # Checks that paper claims match computed data
+  classify_roles_srt.py     # Role classification (human/AI roles per conversation)
+  generate_v3_figures.py    # Paper figures (reads from verified_stats.json)
+  download_*.py             # Download source datasets
+  enrich_graphs.py          # Enrich conversation graphs with metadata
+
+data/
+  atlas_canonical/graphs/   # 1,383 conversation graphs (the main dataset)
+  v2_unified/               # Processed conversations + evidence features
+  v2_unified/reports/       # Computed statistics (verified_stats.json, instruction_analysis.json)
+  mental_health/            # Mental health conversation extension (pilot, N=150)
+
+paper/
+  CUI_2026_Short_Paper.md   # Conference submission (short paper)
+  CUI_2026_Paper.md         # Full paper draft
+  FINDINGS_REPORT_v2.md     # Detailed findings
+
+theory/
+  implicit_state_pathology.md  # Core theory: why stateless architectures fail at grounding
+  mode_taxonomy_v2.md          # Proposed taxonomy for interaction stances
+  related_work.md              # Literature review
+
+archive/                    # Old scripts, data, and documents no longer in active use
 ```
 
----
-
-## Running Locally
-
-### Atlas Pipeline
+## Running it
 
 ```bash
-# Run the full pipeline on a conversation dataset
-python scripts/atlas/run_pipeline.py --input data/atlas_canonical/ --output data/atlas_with_pad/
+# Compute all verified statistics
+python scripts/compute_verified_stats.py
+
+# Run the plain-language instruction analysis
+python scripts/analyze_instructions.py
+
+# Check that paper claims match the data
+python scripts/validate_report.py
+
+# Run the full pipeline on new conversations
+cd scripts && PYTHONPATH="." python -m atlas.run_pipeline \
+  --enriched ../data/atlas_canonical/all_task_enriched.json \
+  --source-dir ../data/conversations_raw \
+  --output-dir ../data/atlas_canonical/graphs
 ```
 
-### Analysis Scripts
+## Data sources
 
-```bash
-# Generate PAD bridge scores
-python scripts/analysis/bridge_pad_scoring.py
+Conversations come from three public datasets:
+- **Chatbot Arena** — People comparing AI models side-by-side
+- **WildChat** — Real conversations people had with ChatGPT
+- **OpenAssistant** — Community-contributed conversations
 
-# Produce comparative visualizations
-python scripts/analysis/generate_comparative_viz.py
+## Known limitations
 
-# Run scientific analysis
-python scripts/analysis/scientific_analysis.py
-```
+- Constraints are extracted by an LLM (GPT-4o-mini) with no human validation
+- Matching violations to constraints uses word overlap (Jaccard, threshold 0.15) — about half of extracted constraints are lost in this step
+- Mode detection (Listener/Advisor/Executor) is broken — it classifies AI responses by text length, not intent. We don't use it in our claims.
 
-### Explorer (BLOOM Design System)
+## Status
 
-```bash
-python3 -m http.server 8001 --directory public/
-```
-
-Then open:
-- **Atlas Suite:** `http://localhost:8001/atlas_suite/`
-- **Scientific Report:** `http://localhost:8001/scientific_report/`
-- **Cartography Dashboard:** `http://localhost:8001/cartography_dashboard.html`
-
----
-
-## Data Sources
-
-Conversations are drawn from three public datasets:
-- **WildChat** — Organic human-AI conversations
-- **Chatbot Arena** — Comparative evaluation dialogues
-- **OpenAssistant (OASST)** — Community-contributed conversations
-
----
-
-## Papers
-
-- **CHI 2026 Proposal** — *Agency Collapse: When Conversational Repair Fails in Human-AI Interaction*
-- **CUI 2026** — *Interactional Cartography for Conversational User Interfaces*
-
----
-
-## License
-
-Research use. See individual data source licenses for dataset terms.
+Active research. CUI 2026 short paper submitted. Statistics pass 60/60 validation checks.

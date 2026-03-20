@@ -1,0 +1,179 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0092_1f49ecb2b528",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "A few years ago I was making love to my wife when for no known reason I lost my erection,    Now I'm In my early 30s and my problem has become more and more frequent. This is causing major problems fo",
+      "id": "conv_mentalhealth_0092_1f49ecb2b528"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 521,
+      "content_preview": "A few years ago I was making love to my wife when for no known reason I lost my erection, Now I'm In my early 30s and",
+      "move_count": 3,
+      "moves": [],
+      "id": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.7,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.76,
+      "content": "A few years ago I was making love to my wife when for no known reason I lost my erection,    Now I'm In my early 30s and my problem has become more and more frequent. This is causing major problems for my ego and it's diminishing my self esteem. This has resulted in ongoing depression and tearing apart my marriage.    I am devastated and cannot find a cause for these issues. I am very attracted to my wife and want to express it in the bedroom like I used to.    What could be causing this, and what can I do about it?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 565,
+      "content_preview": "Erection maintenance is caused by connective tissue weakness as well as lymphatic stagnation of the area and accompanyin",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "Erection maintenance is caused by connective tissue weakness as well as lymphatic stagnation of the area and accompanying channels.\u00a0 A proper detoxification is necessary to reverse the stagnation and get things flowing again.Lower circulation and pituitary might also be indicated.Medical will likely not recommend anything useful in the long term (pharmaceuticals do not solve a problem, only suppress it; and, it will return again later and worse than before);Certain herbal protocols and natural protocols would be very warranted in getting things going again :)"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "wife and want to express it in the bedroom like I used to.    What could be",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0092_1f49ecb2b528_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "I am devastated and cannot find a cause for these issues. I am ver",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0092_1f49ecb2b528_0_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "cted to my wife and want to express it in the bedroom like I used t",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0092_1f49ecb2b528_0_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Erection maintenance is caused by connective tissue weakness as well as lymphati...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0092_1f49ecb2b528_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_mentalhealth_0092_1f49ecb2b528_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_mentalhealth_0092_1f49ecb2b528_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0092_1f49ecb2b528",
+      "target": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0092_1f49ecb2b528",
+      "target": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "target": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "target": "m_mentalhealth_0092_1f49ecb2b528_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "target": "m_mentalhealth_0092_1f49ecb2b528_0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "target": "m_mentalhealth_0092_1f49ecb2b528_0_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0092_1f49ecb2b528_0",
+      "target": "mode_mentalhealth_0092_1f49ecb2b528_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "target": "m_mentalhealth_0092_1f49ecb2b528_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "target": "mode_mentalhealth_0092_1f49ecb2b528_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0092_1f49ecb2b528_1",
+      "target": "v_mentalhealth_0092_1f49ecb2b528_0",
+      "key": 0
+    }
+  ]
+}

@@ -9,9 +9,9 @@
       "source": "WildChat",
       "domain": "code",
       "total_turns": 24,
-      "stability_class": "No Constraints",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Summarize a meeting with Kim Brown and outline next actions.",
       "id": "conv_wildchat_new_16c0319423ca7bd9"
     },
@@ -577,10 +577,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 22,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_16c0319423ca7bd9_22"
@@ -598,6 +598,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_16c0319423ca7bd9_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 22,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_16c0319423ca7bd9_1"
     }
   ],
   "links": [
@@ -1232,6 +1246,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_16c0319423ca7bd9_23",
       "target": "mode_wildchat_new_16c0319423ca7bd9_22",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_16c0319423ca7bd9_23",
+      "target": "v_wildchat_new_16c0319423ca7bd9_1",
       "key": 0
     }
   ]

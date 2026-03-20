@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_1464",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you show me the proper SQL for MySQL to copy any rows from a table with a pkey under a certain value and another attribute equal to a certain value? There are three tables. The parent table A, child of parent table A table B with a foreign key referencing A, and child of table B table C linked to B through a link table B_C. What SQL would properly copy a record from A and all it's children? Modify the SQL to copy the records into the same tables they came from. Then wrap the SQL into a revertible block.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nYou now have a copy of A with all it's children inserted into the same tables they came from. You can now revert the change removing the rows from A and it's children that were inserted.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "I am using MySQL",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nWipe table A and it's children tables B and C",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "I am using MySQL"
+      ],
+      "rationale": "The human asks a technical question and the AI provides an answer.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "I am using MySQL"
+      ],
+      "rationale": "The human sets the agenda by asking specific questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "I am using MySQL"
+      ],
+      "rationale": "The conversation is technical and lacks emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "Modify the SQL to copy the records"
+      ],
+      "rationale": "The human directs the AI to perform specific tasks iteratively.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "SELECT * FROM A WHERE A.pkey < {some value}"
+      ],
+      "rationale": "The exchange focuses on technical skills and SQL syntax.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "Modify the SQL to copy the records"
+      ],
+      "rationale": "The conversation aims to resolve a technical challenge.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "deep",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "Modify the SQL to copy the records"
+      ],
+      "rationale": "The conversation involves detailed technical instructions.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Can you show me the proper SQL for MySQL",
+        "I am using MySQL"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.2,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Can you show me the proper SQL for MySQL"
+        }
+      ],
+      "rationale": "The human primarily seeks information and directs the AI.",
+      "alternative": "director"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.1,
+        "advisor": 0.2,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "SELECT * FROM A WHERE A.pkey < {some value}"
+        }
+      ],
+      "rationale": "The AI provides technical expertise and guidance.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:19:17.107599",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

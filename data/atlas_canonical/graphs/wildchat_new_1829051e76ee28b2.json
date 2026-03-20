@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Provide R code to predict survival time for patients in an oncology clinical trial considering specific factors.",
       "id": "conv_wildchat_new_1829051e76ee28b2"
     },
@@ -281,7 +281,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Perform 10000 simulations to estimate average time of death ] The response mentions performing 10000 s",
+      "text_span": "[violates: Perform 10000 simulations to estimate average time of death ] The response does not perform 10000 simu",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -290,7 +290,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Incorporate hazard of censoring in the R code.] The response mentions incorporating the ",
+      "text_span": "[violates: Incorporate hazard of censoring in the R code.] The response does not clearly incorporat",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -584,7 +584,7 @@
           "ACTIVE"
         ],
         [
-          7,
+          5,
           "VIOLATED"
         ]
       ],
@@ -592,7 +592,7 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 5,
+      "lifespan": 3,
       "final_state": null,
       "id": "c_wildchat_new_1829051e76ee28b2_c_2"
     },
@@ -643,7 +643,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 7,
+      "turn_index": 5,
       "constraint_id": "c_2",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -1098,6 +1098,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_1829051e76ee28b2_5",
+      "target": "v_wildchat_new_1829051e76ee28b2_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_1829051e76ee28b2_5",
       "target": "mode_wildchat_new_1829051e76ee28b2_4",
@@ -1149,12 +1155,6 @@
       "sequence": 3,
       "source": "t_wildchat_new_1829051e76ee28b2_7",
       "target": "m_wildchat_new_1829051e76ee28b2_7_3",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_1829051e76ee28b2_7",
-      "target": "v_wildchat_new_1829051e76ee28b2_2",
       "key": 0
     },
     {
@@ -1483,7 +1483,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 7,
+      "at_turn": 5,
       "source": "v_wildchat_new_1829051e76ee28b2_2",
       "target": "c_wildchat_new_1829051e76ee28b2_c_2",
       "key": 0

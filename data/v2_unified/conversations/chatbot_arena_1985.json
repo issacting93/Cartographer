@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_1985",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Tell me a joke",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Why did the carrot turn red?\n\nBecause it saw the salad dressing!",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "user",
+      "content": "What is 20+-20",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.36
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "2",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.2,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.38
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "casual-chat",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me a joke",
+        "Why did the carrot turn red?"
+      ],
+      "rationale": "The conversation involves a joke and a simple arithmetic question, indicating a casual exchange.",
+      "alternative": "question-answer"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a joke",
+        "What is 20+-20"
+      ],
+      "rationale": "The human initiates both topics, directing the flow of conversation.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "playful",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a joke",
+        "Because it saw the salad dressing!"
+      ],
+      "rationale": "The joke and light arithmetic question suggest a playful tone.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me a joke",
+        "What is 20+-20"
+      ],
+      "rationale": "The AI responds directly to the human's prompts without further elaboration.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "What is 20+-20",
+        "2"
+      ],
+      "rationale": "The AI provides a factual response to a simple arithmetic question.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "entertainment",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a joke",
+        "Why did the carrot turn red?"
+      ],
+      "rationale": "The request for a joke and the playful nature of the exchange indicate entertainment.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Tell me a joke",
+        "What is 20+-20"
+      ],
+      "rationale": "The topics are addressed briefly without in-depth exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a joke",
+        "Why did the carrot turn red?"
+      ],
+      "rationale": "Both parties contribute equally to the conversation length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.5,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Tell me a joke"
+        }
+      ],
+      "rationale": "The human seeks information in the form of a joke and a math question.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.3,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.7,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Why did the carrot turn red?"
+        }
+      ],
+      "rationale": "The AI provides a joke, facilitating a playful interaction.",
+      "alternative": "expert-system"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:28:18.605631",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

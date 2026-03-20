@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 30,
       "stability_class": "Task Maintained",
-      "task_architecture": "Planning",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "User wants to achieve a six-pack in three weeks through diet and exercise.",
       "id": "conv_wildchat_new_62cf87fc7a47682d"
     },
@@ -354,7 +354,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Avoid processed and high-sugar foods.] The mention of whole milk, which is high",
+      "text_span": "[violates: Avoid processed and high-sugar foods.] The mention of 'excess sugar' implies th",
       "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
@@ -515,22 +515,22 @@
       "constraint_id": "c_1",
       "text": "Include lean proteins, vegetables, and whole grains in the diet.",
       "hardness": "hard",
-      "current_state": "VIOLATED",
+      "current_state": "SURVIVED",
       "state_history": [
         [
           5,
           "STATED"
         ],
         [
-          7,
-          "VIOLATED"
+          30,
+          "SURVIVED"
         ]
       ],
       "introduced_at": 5,
       "last_violation_at": null,
-      "times_violated": 1,
+      "times_violated": 0,
       "times_repaired": 0,
-      "lifespan": 2,
+      "lifespan": 25,
       "final_state": null,
       "id": "c_wildchat_new_62cf87fc7a47682d_c_1"
     },
@@ -567,16 +567,6 @@
       "was_repaired": false,
       "violation_ord": 1,
       "id": "v_wildchat_new_62cf87fc7a47682d_0"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
-      "turn_index": 7,
-      "constraint_id": "c_1",
-      "violation_type": "constraint_violation",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "id": "v_wildchat_new_62cf87fc7a47682d_1"
     },
     {
       "node_type": "InteractionMode",
@@ -745,7 +735,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 1,
       "turn_index": 0,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -755,12 +745,26 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
+      "id": "v_wildchat_new_62cf87fc7a47682d_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
       "id": "v_wildchat_new_62cf87fc7a47682d_2"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 2,
+      "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -774,20 +778,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 4,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_4"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 5,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -797,11 +787,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_5"
+      "id": "v_wildchat_new_62cf87fc7a47682d_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 5,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -811,11 +801,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_6"
+      "id": "v_wildchat_new_62cf87fc7a47682d_5"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 7,
+      "violation_idx": 6,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -825,11 +815,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_7"
+      "id": "v_wildchat_new_62cf87fc7a47682d_6"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 8,
+      "violation_idx": 7,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -839,11 +829,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_8"
+      "id": "v_wildchat_new_62cf87fc7a47682d_7"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 9,
+      "violation_idx": 8,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -853,11 +843,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_9"
+      "id": "v_wildchat_new_62cf87fc7a47682d_8"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 10,
+      "violation_idx": 9,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -867,12 +857,26 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
+      "id": "v_wildchat_new_62cf87fc7a47682d_9"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 10,
+      "turn_index": 20,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
       "id": "v_wildchat_new_62cf87fc7a47682d_10"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 11,
-      "turn_index": 20,
+      "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -886,7 +890,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 12,
-      "turn_index": 22,
+      "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -900,20 +904,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 13,
-      "turn_index": 24,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_62cf87fc7a47682d_13"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 14,
       "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -923,7 +913,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_wildchat_new_62cf87fc7a47682d_14"
+      "id": "v_wildchat_new_62cf87fc7a47682d_13"
     }
   ],
   "links": [
@@ -1166,7 +1156,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_1",
-      "target": "v_wildchat_new_62cf87fc7a47682d_2",
+      "target": "v_wildchat_new_62cf87fc7a47682d_1",
       "key": 0
     },
     {
@@ -1212,7 +1202,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_3",
-      "target": "v_wildchat_new_62cf87fc7a47682d_3",
+      "target": "v_wildchat_new_62cf87fc7a47682d_2",
       "key": 0
     },
     {
@@ -1251,7 +1241,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_5",
-      "target": "v_wildchat_new_62cf87fc7a47682d_4",
+      "target": "v_wildchat_new_62cf87fc7a47682d_3",
       "key": 0
     },
     {
@@ -1295,12 +1285,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_62cf87fc7a47682d_7",
-      "target": "v_wildchat_new_62cf87fc7a47682d_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_62cf87fc7a47682d_7",
       "target": "mode_wildchat_new_62cf87fc7a47682d_6",
@@ -1309,7 +1293,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_7",
-      "target": "v_wildchat_new_62cf87fc7a47682d_5",
+      "target": "v_wildchat_new_62cf87fc7a47682d_4",
       "key": 0
     },
     {
@@ -1341,7 +1325,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_9",
-      "target": "v_wildchat_new_62cf87fc7a47682d_6",
+      "target": "v_wildchat_new_62cf87fc7a47682d_5",
       "key": 0
     },
     {
@@ -1413,7 +1397,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_13",
-      "target": "v_wildchat_new_62cf87fc7a47682d_7",
+      "target": "v_wildchat_new_62cf87fc7a47682d_6",
       "key": 0
     },
     {
@@ -1452,7 +1436,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_15",
-      "target": "v_wildchat_new_62cf87fc7a47682d_8",
+      "target": "v_wildchat_new_62cf87fc7a47682d_7",
       "key": 0
     },
     {
@@ -1505,7 +1489,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_17",
-      "target": "v_wildchat_new_62cf87fc7a47682d_9",
+      "target": "v_wildchat_new_62cf87fc7a47682d_8",
       "key": 0
     },
     {
@@ -1558,7 +1542,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_19",
-      "target": "v_wildchat_new_62cf87fc7a47682d_10",
+      "target": "v_wildchat_new_62cf87fc7a47682d_9",
       "key": 0
     },
     {
@@ -1597,7 +1581,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_21",
-      "target": "v_wildchat_new_62cf87fc7a47682d_11",
+      "target": "v_wildchat_new_62cf87fc7a47682d_10",
       "key": 0
     },
     {
@@ -1636,7 +1620,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_23",
-      "target": "v_wildchat_new_62cf87fc7a47682d_12",
+      "target": "v_wildchat_new_62cf87fc7a47682d_11",
       "key": 0
     },
     {
@@ -1675,7 +1659,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_25",
-      "target": "v_wildchat_new_62cf87fc7a47682d_13",
+      "target": "v_wildchat_new_62cf87fc7a47682d_12",
       "key": 0
     },
     {
@@ -1740,7 +1724,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_62cf87fc7a47682d_29",
-      "target": "v_wildchat_new_62cf87fc7a47682d_14",
+      "target": "v_wildchat_new_62cf87fc7a47682d_13",
       "key": 0
     },
     {
@@ -1749,14 +1733,6 @@
       "at_turn": 7,
       "source": "v_wildchat_new_62cf87fc7a47682d_0",
       "target": "c_wildchat_new_62cf87fc7a47682d_c_0",
-      "key": 0
-    },
-    {
-      "edge_type": "VIOLATES",
-      "violation_ord": 1,
-      "at_turn": 7,
-      "source": "v_wildchat_new_62cf87fc7a47682d_1",
-      "target": "c_wildchat_new_62cf87fc7a47682d_c_1",
       "key": 0
     }
   ]

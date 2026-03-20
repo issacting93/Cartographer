@@ -1,0 +1,32 @@
+{
+  "id": "wildchat_new_3247d7cb61b3f497",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 26,
+  "classification": {
+    "task_goal": "Query Google Sheets to filter data based on specific conditions.",
+    "primary_constraints": [
+      "Return only rows where Col20 is greater than 10",
+      "Return only rows where Col5 equals '20/20'",
+      "Exclude rows where Col2 contains 'Phantasmal'"
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The AI initially failed to enforce the constraint of Col20 being greater than 10, as it returned values smaller than 10. The user pointed this out, and the AI provided a revised formula that included the VALUE function to ensure proper comparison, thus repairing the constraint.",
+    "evidence": {
+      "constraint_turns": [
+        13,
+        14
+      ],
+      "violation_turns": [
+        15
+      ],
+      "repair_turns": [
+        16
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_3247d7cb61b3f497.json"
+}

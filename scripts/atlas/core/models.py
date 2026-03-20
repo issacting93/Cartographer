@@ -19,6 +19,7 @@ class Move(AtlasBaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     method: str
     actor: str
+    repair_strategy: Optional[str] = None
 
 class Turn(AtlasBaseModel):
     turn_index: int
@@ -115,6 +116,10 @@ class ConversationMetrics(AtlasBaseModel):
     total_constraints: int = 0
     total_turns: int = 0
     move_coverage: float = 0.0
+    patience: Optional[int] = None
+    dialogue_stability: Optional[float] = None
+    grounding_ratio: float = 0.0
     stability_class: str = ""
     task_architecture: str = ""
+
     constraint_hardness: str = ""

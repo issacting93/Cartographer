@@ -1,0 +1,24 @@
+{
+  "id": "wildchat_020c4fabf010937de4c100ae8c4bec59",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "напиши пример кода html  и php вывода информации из базы данных по id из базы данных free, таблицы zakazi со столбцами id, zagolovok, opicanie, zena, data1"
+    },
+    {
+      "role": "assistant",
+      "content": "<!DOCTYPE html>\n<html>\n<head>\n\t<title>Вывод информации по id из БД</title>\n</head>\n<body>\n\t<h1>Информация о заказе</h1>\n\t\n\t<?php \n\t//Создаем соединение с базой данных\n\t$servername = \"localhost\";\n\t$username = \"username\";\n\t$password = \"password\";\n\t$dbname = \"free\";\n\n\t$conn = new mysqli($servername, $username, $password, $dbname);\n\n\t//Проверяем соединение\n\tif ($conn->connect_error) {\n\t    die(\"Connection failed: \" . $conn->connect_error);\n\t} \n\n\t//Получаем id заказа из GET-параметра\n\t$id = $_GET['id'];\n\n\t//Выбираем данные о заказе из таблицы zakazi по id\n\t$sql = \"SELECT * FROM zakazi WHERE id=$id\";\n\t$result = $conn->query($sql);\n\n\t//Проверяем, есть ли данные о заказе\n\tif ($result->num_rows > 0) {\n\t    // выводим данные каждой строки\n\t    while($row = $result->fetch_assoc()) {\n\t        echo \"<h2>\".$row[\"zagolovok\"].\"</h2>\";\n\t        echo \"<p>\".$row[\"opicanie\"].\"</p>\";\n\t        echo \"<p>Цена: \".$row[\"zena\"].\" рублей.</p>\";\n\t        echo \"<p>Дата заказа: \".$row[\"data1\"].\"</p>\";\n\t    }\n\t} else {\n\t    echo \"Заказ не найден\";\n\t}\n\t\n\t//Закрываем соединение с базой данных\n\t$conn->close();\n\t?>\n</body>\n</html>"
+    },
+    {
+      "role": "user",
+      "content": "напиши пример кода html  и php который выводит все заказы  из базы данных free, таблицы zakazi со столбцами id, zagolovok, opicanie, zena, data1"
+    },
+    {
+      "role": "assistant",
+      "content": "<!DOCTYPE html>\n<html>\n<head>\n\t<title>Список заказов</title>\n</head>\n<body>\n\t<h1>Список заказов</h1>\n\t\n\t<?php \n\t//Создаем соединение с базой данных\n\t$servername = \"localhost\";\n\t$username = \"username\";\n\t$password = \"password\";\n\t$dbname = \"free\";\n\n\t$conn = new mysqli($servername, $username, $password, $dbname);\n\n\t//Проверяем соединение\n\tif ($conn->connect_error) {\n\t    die(\"Connection failed: \" . $conn->connect_error);\n\t} \n\n\t//Выбираем все данные о заказах из таблицы zakazi\n\t$sql = \"SELECT * FROM zakazi\";\n\t$result = $conn->query($sql);\n\n\t//Проверяем, есть ли данные о заказах\n\tif ($result->num_rows > 0) {\n\t    //Выводим данные каждой строки в виде таблицы\n\t    echo \"<table>\";\n\t    echo \"<tr><th>ID</th><th>Заголовок</th><th>Описание</th><th>Цена</th><th>Дата заказа</th></tr>\";\n\t    while($row = $result->fetch_assoc()) {\n\t        echo \"<tr>\";\n\t        echo \"<td>\".$row[\"id\"].\"</td>\";\n\t        echo \"<td>\".$row[\"zagolovok\"].\"</td>\";\n\t        echo \"<td>\".$row[\"opicanie\"].\"</td>\";\n\t        echo \"<td>\".$row[\"zena\"].\" рублей.</td>\";\n\t        echo \"<td>\".$row[\"data1\"].\"</td>\";\n\t        echo \"</tr>\";\n\t    }\n\t    echo \"</table>\";\n\t} else {\n\t    echo \"Заказы не найдены.\";\n\t}\n\t\n\t//Закрываем соединение с базой данных\n\t$conn->close();\n\t?>\n</body>\n</html>"
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0301",
+    "timestamp": 

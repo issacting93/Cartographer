@@ -1,0 +1,147 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0070_4456c71db58a",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, but they are almost never triggered by something that I know of.",
+      "id": "conv_mentalhealth_0070_4456c71db58a"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 182,
+      "content_preview": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, bu",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0070_4456c71db58a_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.66,
+      "content": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, but they are almost never triggered by something that I know of."
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 986,
+      "content_preview": "Answers about our inner lives are most successfully reached from a sense of feeling grounded in oneself.First step is to",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0070_4456c71db58a_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "Answers about our inner lives are most successfully reached from a sense of feeling grounded in oneself.First step is to accept your nervousness and restless sleep. \u00a0As often as possible, sleep during daytimes in order for your body to catch up on its need for rest.Accept too about feeling down. \u00a0It is normal to feel down once in a while. \u00a0From this place of self-acceptance, trust any answers which come up to your mind. \u00a0Often answers about complicated topics come in small pieces, not all at once as a whole unit.Also, your description about panic attacks is also completely normal. \u00a0 They often arise unrelated to particular conditions at a given moment. \u00a0They are a healthy symptom your body is trying to expel bad feelings and does this by having the anxiety erupt at times.So, self-acceptance, tolerance of being on a process of clearing out worn out emotional clutter, and sleep at odd times if possible, are all ways to stabilize yourself, which will also feel calm and good!"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "but they are almost never triggered by something that I know of.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0070_4456c71db58a_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Answers about our inner lives are most successfully reached from a sense of feel...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0070_4456c71db58a_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_mentalhealth_0070_4456c71db58a_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_mentalhealth_0070_4456c71db58a_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0070_4456c71db58a",
+      "target": "t_mentalhealth_0070_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0070_4456c71db58a",
+      "target": "t_mentalhealth_0070_4456c71db58a_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0070_4456c71db58a_0",
+      "target": "t_mentalhealth_0070_4456c71db58a_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0070_4456c71db58a_0",
+      "target": "m_mentalhealth_0070_4456c71db58a_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0070_4456c71db58a_0",
+      "target": "mode_mentalhealth_0070_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0070_4456c71db58a_1",
+      "target": "m_mentalhealth_0070_4456c71db58a_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0070_4456c71db58a_1",
+      "target": "mode_mentalhealth_0070_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0070_4456c71db58a_1",
+      "target": "v_mentalhealth_0070_4456c71db58a_0",
+      "key": 0
+    }
+  ]
+}

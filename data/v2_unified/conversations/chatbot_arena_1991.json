@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1991",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi there",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "Why is the sky red?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, but I'm not sure what you mean by \"the sky\". Could you please provide more context or clarify your question?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "How can I assist you today?",
+        "Why is the sky red?"
+      ],
+      "rationale": "The human asks a question and the AI seeks clarification, fitting a question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "How can I assist you today?",
+        "Why is the sky red?"
+      ],
+      "rationale": "Both parties contribute to the direction with questions and clarifications.",
+      "alternative": "alternating"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hi there",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "The conversation is straightforward without strong emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "How can I assist you today?",
+        "Why is the sky red?"
+      ],
+      "rationale": "The interaction is driven by questions from both parties.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "Why is the sky red?",
+        "Could you please provide more context or clarify your question?"
+      ],
+      "rationale": "The human seeks factual information, though the AI requests clarification.",
+      "alternative": "information-seeking"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "Why is the sky red?"
+      ],
+      "rationale": "The human's question indicates a desire to obtain specific knowledge.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Why is the sky red?",
+        "Could you please provide more context or clarify your question?"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Hi there",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Why is the sky red?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also provides context.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.5,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "How can I assist you today?"
+        }
+      ],
+      "rationale": "The AI seeks to clarify and provide information, balancing expert and facilitator roles.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:29:17.056354",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

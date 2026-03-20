@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_0566",
+  "messages": [
+    {
+      "role": "user",
+      "content": "i put a diamond in a cup, and put the cup on a chair. the chair is in the kitchen. then I move the chair to the bedroom and turn over the chair. where is the diamond?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The diamond is in the bedroom.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.22
+      }
+    },
+    {
+      "role": "user",
+      "content": "is it in the cup?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, the diamond is in the cup.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.22
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "where is the diamond?",
+        "is it in the cup?"
+      ],
+      "rationale": "The human asks questions and the AI provides answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "where is the diamond?",
+        "is it in the cup?"
+      ],
+      "rationale": "The human sets the agenda by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "The diamond is in the bedroom.",
+        "Yes, the diamond is in the cup."
+      ],
+      "rationale": "The conversation lacks emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "where is the diamond?",
+        "is it in the cup?"
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "The diamond is in the bedroom.",
+        "Yes, the diamond is in the cup."
+      ],
+      "rationale": "The AI provides factual information in response to the human's questions.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "where is the diamond?",
+        "is it in the cup?"
+      ],
+      "rationale": "The human seeks specific information about the diamond's location.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "where is the diamond?",
+        "is it in the cup?"
+      ],
+      "rationale": "The conversation is brief and focused on a simple query.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "i put a diamond in a cup",
+        "The diamond is in the bedroom."
+      ],
+      "rationale": "Both participants contribute equally to the conversation.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.3
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "where is the diamond?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also engages in a casual manner.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The diamond is in the bedroom."
+        }
+      ],
+      "rationale": "The AI provides factual answers, fulfilling an expert role.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:34:10.705968",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

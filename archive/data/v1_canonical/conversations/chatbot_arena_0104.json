@@ -1,0 +1,178 @@
+{
+  "id": "chatbot_arena_0104",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Tell me a good joke",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "What did the banana say to the bus driver?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "user",
+      "content": "What",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Bus driver: \"Hey, banana, you want a ride?\"\nBanana: \"Yes, please! Where are you going?\"\nBus driver: \"To the store to buy some new bananas.\"\nBanana: \"Oh, that's nice of you to offer. But I think I'll walk.\"",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.24
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.55,
+      "evidence": [
+        "Tell me a good joke",
+        "What did the banana say to the bus driver?",
+        "What"
+      ],
+      "rationale": "Human requests content; AI responds with a setup question and then delivers the joke after the human prompt.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "Tell me a good joke"
+      ],
+      "rationale": "Human sets the agenda by requesting a joke; AI follows that request.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "playful",
+      "confidence": 0.75,
+      "evidence": [
+        "Tell me a good joke",
+        "What did the banana say to the bus driver?"
+      ],
+      "rationale": "The exchange is explicitly oriented toward humor and a joke format.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.55,
+      "evidence": [
+        "Tell me a good joke",
+        "What did the banana say to the bus driver?"
+      ],
+      "rationale": "AI primarily responds to the user's request rather than directing a broader exploration; the question is part of the joke setup.",
+      "alternative": "affirming"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.35,
+      "evidence": [
+        "Tell me a good joke"
+      ],
+      "rationale": "No clear factual/skill/opinion exchange occurs; the closest fit is content delivery (a joke) rather than personal sharing or meaning-making.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "entertainment",
+      "confidence": 0.85,
+      "evidence": [
+        "Tell me a good joke"
+      ],
+      "rationale": "The stated goal is to receive a joke for amusement.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a good joke"
+      ],
+      "rationale": "Brief, single-purpose exchange with no elaboration beyond the joke.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.7,
+      "evidence": [
+        "Bus driver: \"Hey, banana, you want a ride?\" Banana: \"Yes, please! Where are you going?\""
+      ],
+      "rationale": "AI provides the longest turn by delivering the full joke text; human turns are short.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.1,
+        "provider": 0.75,
+        "director": 0.05,
+        "collaborator": 0,
+        "social-expressor": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "Tell me a good joke"
+        },
+        {
+          "role": "provider",
+          "quote": "What"
+        }
+      ],
+      "rationale": "Human requests a joke and prompts continuation, positioning the AI as the content source.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.1,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0,
+        "social-facilitator": 0.75,
+        "relational-peer": 0.15
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "What did the banana say to the bus driver?"
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "Bus driver: \"Hey, banana, you want a ride?\""
+        }
+      ],
+      "rationale": "AI maintains a light, entertainment-oriented interaction by telling a joke and using a setup question to engage the user.",
+      "alternative": "relational-peer"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:13:02.043785",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 18262,
+    "fewShotExamples": "yes"
+  }
+}

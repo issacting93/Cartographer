@@ -1,0 +1,220 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_8f921a30c2a0e2b68b14290132886935",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "collaborative-refinement",
+      "id": "conv_wildchat_8f921a30c2a0e2b68b14290132886935"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 902,
+      "content_preview": "I want you to act as a screenwriter. This film features Marita Gissend, a beautiful young woman. Write long, original, i",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 3099,
+      "content_preview": "FADE IN: INT. HOSPITAL ROOM - DAY The hospital room is dimly lit, with large windows covered by partially drawn, patte",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 62,
+      "content_preview": "Suggest, what could be the backstory of this mysterious woman?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_8f921a30c2a0e2b68b14290132886935_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 2973,
+      "content_preview": "The backstory of Marita Gissend could be one of intrigue, resilience, and an unconventional journey. While the scene hin",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_8f921a30c2a0e2b68b14290132886935_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "'s body seems to be only covered by a blanket and a plaster cast",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_8f921a30c2a0e2b68b14290132886935_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "he hospital room is rather large, but patients' beds are separated",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_8f921a30c2a0e2b68b14290132886935_0_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "FADE IN:\n\nINT. HOSPITAL ROOM - DAY\n\nThe hospital room is dimly lit, with large w...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_8f921a30c2a0e2b68b14290132886935_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The backstory of Marita Gissend could be one of intrigue, resilience, and an unc...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_8f921a30c2a0e2b68b14290132886935_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_8f921a30c2a0e2b68b14290132886935",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_8f921a30c2a0e2b68b14290132886935",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_8f921a30c2a0e2b68b14290132886935",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_8f921a30c2a0e2b68b14290132886935",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "target": "m_wildchat_8f921a30c2a0e2b68b14290132886935_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "target": "m_wildchat_8f921a30c2a0e2b68b14290132886935_0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "target": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1",
+      "target": "m_wildchat_8f921a30c2a0e2b68b14290132886935_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_1",
+      "target": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "target": "t_wildchat_8f921a30c2a0e2b68b14290132886935_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "target": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_3",
+      "target": "m_wildchat_8f921a30c2a0e2b68b14290132886935_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_8f921a30c2a0e2b68b14290132886935_3",
+      "target": "mode_wildchat_8f921a30c2a0e2b68b14290132886935_2",
+      "key": 0
+    }
+  ]
+}

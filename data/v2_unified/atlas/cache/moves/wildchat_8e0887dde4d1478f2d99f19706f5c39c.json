@@ -1,0 +1,66 @@
+[
+  {
+    "role": "user",
+    "content": "import {GPU} from \u201cgpu.js\u201d;\nexport interface CanvasSize {\nwidth: number;\nheight: number;\n}\nconst OrderFeed = ({workerRef, symbol, settings}: OrderFeedProps) => {\nconst cupParams = useSelector((state: AppState) => state.cupSlice);\nconst [dpiScale, setDpiScale] = useState(Math.ceil(window.devicePixelRatio));\nconst [canvasSize, setCanvasSize] = useState<CanvasSize>({height: 0, width: 0});\nconst containerRef = useRef<HTMLDivElement|null>(null);\nconst canvasRef = useRef<HTMLCanvasElement|null>(null);\n\nconst draw = (trades: TradeItem[], camera: number) => {\nif (null === canvasRef || !Array.isArray(trades)) return;\n\nconst context = canvasRef.current?.getContext(\u201c2d\u201d);\n\nif (context) {\n\norderFeedDrawer.clear(context, canvasSize);\norderFeedDrawer.drawLine(\ncontext,\ncanvasSize,\ntrades,\ncamera,\ncupParams.aggregatedPriceStep,\ncupParams.cellHeight,\ncupParams.quantityDivider,\n!settings.minQuantity ? 0 : parseFloat(settings.minQuantity),\ndpiScale,\ntheme,\n);\n}\n};\n\nreturn <Box ref={containerRef} className={${styles.canvasWrapper} scroll-block}>\n<canvas\nref={canvasRef}\nclassName={styles.canvas}\nwidth={canvasSize?.width}\nheight={canvasSize?.height}\n/>\n</Box>;\n};\n\nexport default OrderFeed;\n\nconst clamp = (value: number, min: number, max: number): number => {\n  return Math.min(Math.max(value, min), max);\n};\n\nconst orderFeedDrawer = {\n  clear: (ctx: CanvasRenderingContext2D, size: CanvasSize) => {\n    ctx.clearRect(0, 0, size.width, size.height);\n  },\n  drawLine: (\n    ctx: CanvasRenderingContext2D,\n    canvasSize: CanvasSize,\n    trades: TradeItem[],\n    camera: number,\n    aggregatedPriceStep: number,\n    cupCellHeight: number,\n    quantityDivider: number,\n    minQuantity: number,\n    dpiScale: number,\n    theme: Theme,\n  ) => {\n    let startX = canvasSize.width - 10 * dpiScale;\n    const fullHeightRowsCount = parseInt((canvasSize.height / cupCellHeight).toFixed(0));\n    const halfCupCellHeight = cupCellHeight / 2;\n    const startY = (fullHeightRowsCount % 2 ? fullHeightRowsCount - 1 : fullHeightRowsCount) / 2 * cupCellHeight;\n\n    ctx.beginPath();\n    ctx.strokeStyle = orderFeedOptions(theme).line.color;\n    ctx.lineWidth = 2 * dpiScale;\n\n    trades.forEach(trade => {\n      const yModifier = (trade.price - (trade.price - (trade?.secondPrice || trade.price)) / 2 - camera) / aggregatedPriceStep * cupCellHeight + halfCupCellHeight;\n      const width = 1.75 * clamp((trade.quantity / quantityDivider < minQuantity ? 0 : trade.radius), 5, 50) * dpiScale;\n\n      ctx.lineTo(startX - width / 2, startY - yModifier);\n      startX = startX - width;\n    });\n\n    ctx.stroke();\n  },\n\n\u041f\u043e\u043c\u0438\u043c\u043e CanvasRenderingContext2D \u0435\u0441\u0442\u044c \u0435\u0449\u0435 WebGLRenderingContext.\n\u0415\u0441\u0442\u044c \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 https://github.com/gpujs/gpu.js/ \u0447\u0435\u0440\u0435\u0437 \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u043c\u043e\u0436\u043d\u043e \u0438\u043d\u0438\u0446\u0438\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c canvas \u0441 WebGL \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u043e\u043c. \n\u041f\u0435\u0440\u0435\u043f\u0438\u0448\u0438 \u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0441 \u043d\u0430 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443 \u201cgpu.js\u201d: \u201c^2.16.0\u201d,",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.5
+    },
+    "turn_index": 0,
+    "moves": []
+  },
+  {
+    "role": "assistant",
+    "content": "import {GPU} from \"gpu.js\";\nexport interface CanvasSize {\n  width: number;\n  height: number;\n}\n\nconst OrderFeed = ({workerRef, symbol, settings}: OrderFeedProps) => {\n  const cupParams = useSelector((state: AppState) => state.cupSlice);\n  const [dpiScale, setDpiScale] = useState(Math.ceil(window.devicePixelRatio));\n  const [canvasSize, setCanvasSize] = useState<CanvasSize>({height: 0, width: 0});\n  const containerRef = useRef<HTMLDivElement|null>(null);\n  const canvasRef = useRef<HTMLCanvasElement|null>(null);\n\n  const gpu = new GPU();\n\n  const draw = (trades: TradeItem[], camera: number) => {\n    if (null === canvasRef || !Array.isArray(trades)) return;\n\n    const context = canvasRef.current?.getContext(\"webgl\");\n\n    if (context) {\n      const renderLine = gpu.createKernel(function(trades: TradeItem[], camera: number, aggregatedPriceStep: number, cupCellHeight: number, quantityDivider: number, minQuantity: number, dpiScale: number, theme: Theme, startX: number, fullHeightRowsCount: number, startY: number, halfCupCellHeight: number) {\n        let startX = startX;\n        const yModifier = (trade.price - (trade.price - (trade?.secondPrice || trade.price)) / 2 - camera) / aggregatedPriceStep * cupCellHeight + halfCupCellHeight;\n        const width = 1.75 * clamp((trade.quantity / quantityDivider < minQuantity ? 0 : trade.radius), 5, 50) * dpiScale;\n\n        this.color(\"black\");\n        this.strokeStart(startX - width / 2, startY - yModifier);\n        startX = startX - width;\n        this.strokeWidth(2 * dpiScale);\n      }, {\n        output: [canvasSize.width, canvasSize.height],\n        graphical: true\n      });\n\n      const result = renderLine(trades, camera, cupParams.aggregatedPriceStep, cupParams.cellHeight, cupParams.quantityDivider, !settings.minQuantity ? 0 : parseFloat(settings.minQuantity), dpiScale, theme, canvasSize.width - 10 * dpiScale, parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)), (parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)) % 2 ? parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)) - 1 : parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)))) / 2 * cupParams.cellHeight;\n    };\n\n  return (\n    <Box ref={containerRef} className=${styles.canvasWrapper} scroll-block>\n      <canvas\n        ref={canvasRef}\n        className=${styles.canvas}\n        width=${canvasSize.width}\n        height=${canvasSize.height}\n      />\n    </Box>\n  );\n};\n\nexport default OrderFeed;\n\nconst clamp = (value: number, min: number, max: number): number => {\n  return Math.min(Math.max(value, min), max);\n};\n\nconst orderFeedDrawer = {\n  clear: (ctx: WebGLRenderingContext, size: CanvasSize) => {\n    ctx.clearColor(0, 0, 0, 1);\n    ctx.clear(ctx.COLOR_BUFFER_BIT);\n  }\n};\n\n----------------\n\nNote: The code provided is a modified version of the original code to utilize the \"gpu.js\" library for WebGL rendering. The implementation may need further adjustments according to the usage and requirements of the application.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.5
+    },
+    "turn_index": 1,
+    "moves": [
+      {
+        "move_type": "GENERATE_OUTPUT",
+        "text_span": "import {GPU} from \"gpu.js\";\nexport interface CanvasSize {\n  width: number;\n  hei...",
+        "confidence": 0.6,
+        "method": "inferred",
+        "actor": "assistant"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": "\u043a\u0430\u043a\u0438\u0435 \u0435\u0441\u0442\u044c \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0438 \u043f\u043e WebGLRenderingContext \u043b\u0443\u0447\u0448\u0435 \u0447\u0435\u043c gpu.js",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.5
+    },
+    "turn_index": 2,
+    "moves": []
+  },
+  {
+    "role": "assistant",
+    "content": "GPU.js is a popular library for general-purpose computing on GPUs using JavaScript. However, if you're looking for alternative libraries for WebGL rendering, here are a few options:\n\n1. Three.js: Three.js is a widely-used JavaScript library for creating and rendering 3D scenes in the browser. It provides a high-level API for working with WebGL and abstracts away many of the complexities of low-level WebGL programming.\n\n2. Babylon.js: Babylon.js is another powerful JavaScript framework for building 3D games and experiences in the browser. It offers a comprehensive set of features and tools for WebGL rendering, including physics simulation, animations, and advanced rendering techniques.\n\n3. regl: regl is a functional WebGL library that focuses on performance and efficiency. It provides a simple, declarative API for creating and managing WebGL resources, and it's designed to work well with functional programming paradigms.\n\n4. PIXI.js: PIXI.js is a 2D rendering library that uses WebGL for hardware-accelerated rendering. It's optimized for creating interactive 2D graphics and animations, and it offers a rich set of features for working with sprites, textures, and filters.\n\nThese libraries provide more advanced and robust features compared to gpu.js specifically for WebGL rendering. However, the choice of library depends on specific project requirements and the level of control and functionality needed for your application.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.5
+    },
+    "turn_index": 3,
+    "moves": [
+      {
+        "move_type": "GENERATE_OUTPUT",
+        "text_span": "GPU.js is a popular library for general-purpose computing on GPUs using JavaScri...",
+        "confidence": 0.6,
+        "method": "inferred",
+        "actor": "assistant"
+      }
+    ]
+  }
+]

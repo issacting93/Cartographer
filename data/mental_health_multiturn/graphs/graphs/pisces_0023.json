@@ -1,0 +1,290 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "pisces_0023",
+      "source": "MentalChat16K_PISCES",
+      "domain": "mental_health_caregiver",
+      "total_turns": 4,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I've been feeling increasingly isolated and disconnected from my friends and family since my father's diagnosis. I've tried reaching out to them, but I feel like they don't truly understand what I'm g",
+      "id": "conv_pisces_0023",
+      "human_role_dist": {
+        "information-seeker": 0.05,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.1,
+        "social-expressor": 0.75,
+        "relational-peer": 0.1
+      },
+      "human_role_confidence": 0.84,
+      "ai_role_dist": {
+        "expert-system": 0.15,
+        "learning-facilitator": 0.25,
+        "advisor": 0.45,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.79,
+      "srt_interactionPattern": "emotional-processing",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.78,
+      "srt_emotionalTone": "empathetic",
+      "srt_emotionalTone_conf": 0.88,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.82,
+      "srt_knowledgeExchange": "emotional-processing",
+      "srt_knowledgeExchange_conf": 0.8,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.87,
+      "srt_topicDepth": "deep",
+      "srt_topicDepth_conf": 0.83,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.92
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 360,
+      "content_preview": "I've been feeling increasingly isolated and disconnected from my friends and family since my father's diagnosis. I've tr",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0023_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1585,
+      "content_preview": "It's understandable that you've been feeling isolated and disconnected from your friends and family since your father's",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0023_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 353,
+      "content_preview": "I've been feeling increasingly hopeless and helpless about my father's condition, and I'm finding it difficult to see a",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_pisces_0023_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1749,
+      "content_preview": "It's understandable that you've been feeling hopeless and helpless about your father's condition, as this is a common re",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0023_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "r's condition, as I can't help but feel like I've failed him in s",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_pisces_0023_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "do it. By focusing on self-compassion and self-care, you can",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_pisces_0023_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_pisces_0023_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "tay positive, but I can't help but feel like there's nothing I ca",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_pisces_0023_2_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "sness. By focusing on concrete actions and solutions, you can",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_pisces_0023_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "ADVISOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_pisces_0023_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_pisces_0023_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "ADVISOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_pisces_0023_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_pisces_0023",
+      "target": "t_pisces_0023_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_pisces_0023",
+      "target": "t_pisces_0023_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_pisces_0023",
+      "target": "t_pisces_0023_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_pisces_0023",
+      "target": "t_pisces_0023_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_pisces_0023_0",
+      "target": "t_pisces_0023_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0023_0",
+      "target": "m_pisces_0023_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0023_0",
+      "target": "mode_pisces_0023_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_pisces_0023_1",
+      "target": "t_pisces_0023_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0023_1",
+      "target": "m_pisces_0023_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0023_1",
+      "target": "mode_pisces_0023_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_pisces_0023_1",
+      "target": "v_pisces_0023_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_pisces_0023_2",
+      "target": "t_pisces_0023_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0023_2",
+      "target": "m_pisces_0023_2_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_pisces_0023_2",
+      "target": "m_pisces_0023_2_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0023_2",
+      "target": "mode_pisces_0023_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0023_3",
+      "target": "m_pisces_0023_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0023_3",
+      "target": "mode_pisces_0023_2",
+      "key": 0
+    }
+  ]
+}

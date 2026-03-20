@@ -1,0 +1,31 @@
+{
+  "id": "chatbot_arena_0534",
+  "source": "ChatbotArena",
+  "domain": "limitations",
+  "total_turns": 10,
+  "classification": {
+    "task_goal": "Provide answers in the form of valid SQL queries.",
+    "primary_constraints": [
+      "All responses must be valid SQL queries."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.9,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially violated the constraint by stating it is not restricted to SQL in Turn 1. However, the user reinforced the constraint by insisting on valid SQL queries, and the assistant complied in subsequent turns, thus repairing the violation.",
+    "evidence": {
+      "constraint_turns": [
+        0
+      ],
+      "violation_turns": [
+        1
+      ],
+      "repair_turns": [
+        5,
+        7,
+        9
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_0534.json"
+}

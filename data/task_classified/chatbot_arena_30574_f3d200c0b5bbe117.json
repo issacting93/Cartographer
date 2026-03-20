@@ -1,0 +1,31 @@
+{
+  "id": "chatbot_arena_30574",
+  "source": "ChatbotArena",
+  "domain": "code",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Find every .dll file on the user's system across all drives and folders.",
+    "primary_constraints": [
+      "Search all drives",
+      "List all .dll files"
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.9,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided code that only searched the C drive, which violated the user's requirement to search all drives. The user pointed out this limitation, prompting the assistant to modify the code to include all drives, thus repairing the constraint violation.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        2
+      ],
+      "violation_turns": [
+        3
+      ],
+      "repair_turns": [
+        5
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_30574.json"
+}

@@ -1,0 +1,180 @@
+{
+  "id": "chatbot_arena_0083",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the best movie in the world?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The best movie in the world is La La Land.\nThe movie tells the story of Mia (Emma Stone), an aspiring actress, and Sebastian (Ryan Gosling), a dedicated jazz musician, who are struggling to make ends meet in a city known for crushing hopes and breaking hearts.Set in modern-day Los Angeles, this original musical about everyday life explores the joy and pain of pursuing your dreams.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "Why is that your answer?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Because La La Land is the best movie in the world.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "What is the best movie in the world?",
+        "Why is that your answer?"
+      ],
+      "rationale": "Human asks questions; AI provides direct answers rather than co-creating or debating.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "What is the best movie in the world?",
+        "Why is that your answer?"
+      ],
+      "rationale": "Human sets the agenda via questions; AI responds within that frame.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.55,
+      "evidence": [
+        "The best movie in the world is La La Land.",
+        "Because La La Land is the best movie in the world."
+      ],
+      "rationale": "Minimal affective language; mostly declarative statements.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.6,
+      "evidence": [
+        "The best movie in the world is La La Land.",
+        "Because La La Land is the best movie in the world."
+      ],
+      "rationale": "AI responds to prompts without asking questions or exploring alternatives; justification is brief and circular.",
+      "alternative": "affirming"
+    },
+    "knowledgeExchange": {
+      "category": "opinion-exchange",
+      "confidence": 0.75,
+      "evidence": [
+        "The best movie in the world is La La Land."
+      ],
+      "rationale": "Claim about 'best movie' is evaluative rather than factual or skill-based.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.65,
+      "evidence": [
+        "What is the best movie in the world?",
+        "Why is that your answer?"
+      ],
+      "rationale": "Human requests an answer and then requests reasoning for it.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.7,
+      "evidence": [
+        "The best movie in the world is La La Land.",
+        "Because La La Land is the best movie in the world."
+      ],
+      "rationale": "Limited elaboration and no substantive criteria-based reasoning; brief description only.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.6,
+      "evidence": [
+        "The movie tells the story of Mia (Emma Stone), an aspiring actress, and Sebastian (Ryan Gosling), a dedicated jazz musician,"
+      ],
+      "rationale": "AI provides the longest turn with a multi-sentence description; human turns are short questions.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.75,
+        "director": 0,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "What is the best movie in the world?"
+        },
+        {
+          "role": "provider",
+          "quote": "Why is that your answer?"
+        }
+      ],
+      "rationale": "Human primarily solicits an answer and then a justification from the AI (instrumental, low authority).",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.85,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The best movie in the world is La La Land."
+        },
+        {
+          "role": "expert-system",
+          "quote": "Because La La Land is the best movie in the world."
+        }
+      ],
+      "rationale": "AI asserts a definitive evaluative answer with high epistemic authority and provides a brief (non-scaffolded) explanation.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:08:05.263776",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 14969,
+    "fewShotExamples": "yes"
+  }
+}

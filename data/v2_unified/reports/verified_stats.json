@@ -1,0 +1,385 @@
+{
+  "corpus": {
+    "total_conversations": 2577,
+    "conversations_with_roles": 2576,
+    "sources": {
+      "chatbot_arena": 1739,
+      "wildchat": 786,
+      "oasst": 50,
+      "other": 2
+    },
+    "median_length": 6,
+    "mean_length": 10.1,
+    "human_roles": {
+      "information-seeker": 1904,
+      "director": 379,
+      "provider": 123,
+      "collaborator": 92,
+      "social-expressor": 62,
+      "relational-peer": 16
+    },
+    "ai_roles": {
+      "expert-system": 1998,
+      "co-constructor": 258,
+      "advisor": 121,
+      "social-facilitator": 107,
+      "relational-peer": 61,
+      "learning-facilitator": 31
+    },
+    "role_pairs": {
+      "information-seeker|expert-system": 1803,
+      "director|co-constructor": 170,
+      "provider|expert-system": 89,
+      "director|expert-system": 86,
+      "collaborator|co-constructor": 71,
+      "director|advisor": 55,
+      "social-expressor|social-facilitator": 49,
+      "director|relational-peer": 40,
+      "information-seeker|social-facilitator": 33,
+      "information-seeker|advisor": 30,
+      "provider|advisor": 29,
+      "director|social-facilitator": 22,
+      "information-seeker|learning-facilitator": 16,
+      "information-seeker|co-constructor": 12,
+      "collaborator|expert-system": 10,
+      "information-seeker|relational-peer": 10,
+      "collaborator|learning-facilitator": 6,
+      "director|learning-facilitator": 6,
+      "relational-peer|relational-peer": 5,
+      "relational-peer|expert-system": 5,
+      "social-expressor|relational-peer": 5,
+      "social-expressor|expert-system": 5,
+      "collaborator|advisor": 4,
+      "provider|co-constructor": 3,
+      "relational-peer|co-constructor": 2,
+      "social-expressor|advisor": 2,
+      "relational-peer|social-facilitator": 2,
+      "collaborator|social-facilitator": 1,
+      "relational-peer|advisor": 1,
+      "provider|relational-peer": 1,
+      "relational-peer|learning-facilitator": 1,
+      "provider|learning-facilitator": 1,
+      "social-expressor|learning-facilitator": 1
+    },
+    "purposes": {
+      "information-seeking": 1451,
+      "problem-solving": 569,
+      "capability-exploration": 178,
+      "entertainment": 156,
+      "collaborative-refinement": 113,
+      "relationship-building": 54,
+      "self-expression": 41,
+      "emotional-processing": 13,
+      "philosophical-dialogue": 1
+    },
+    "n_instrumental": 2498,
+    "pct_instrumental": 97.0,
+    "n_expressive": 78,
+    "pct_expressive": 3.0
+  },
+  "variance_ratio": {
+    "n_is_es_pairs": 1039,
+    "min_messages_filter": 6,
+    "smooth_id": "chatbot_arena_11761",
+    "smooth_variance": 7.3736666666666296e-06,
+    "volatile_id": "wildchat_new_300289e3c40bce07",
+    "volatile_variance": 0.020775278958333337,
+    "variance_ratio": 2817.0,
+    "variance_ratio_exact": 2817.4963552732843
+  },
+  "rf_role_pair": {
+    "target": "role_pair",
+    "n_conversations": 2525,
+    "n_classes": 16,
+    "chance_level": 0.0625,
+    "rf_accuracy_mean": 0.716,
+    "rf_accuracy_std": 0.0037,
+    "cv_folds": 5,
+    "n_estimators": 200,
+    "feature_importance": {
+      "div_mean": {
+        "importance": 0.05178454617322979,
+        "channel": "Divergence"
+      },
+      "length_ratio": {
+        "importance": 0.05174286100383204,
+        "channel": "Structure"
+      },
+      "affect_mean": {
+        "importance": 0.047468931046186186,
+        "channel": "Affect"
+      },
+      "affect_trend": {
+        "importance": 0.04689130896280236,
+        "channel": "Affect"
+      },
+      "affect_min": {
+        "importance": 0.04592570085907731,
+        "channel": "Affect"
+      },
+      "affect_variance": {
+        "importance": 0.044769795853657576,
+        "channel": "Affect"
+      },
+      "div_trend": {
+        "importance": 0.043951999085245656,
+        "channel": "Divergence"
+      },
+      "div_max_spike": {
+        "importance": 0.042799474680250506,
+        "channel": "Divergence"
+      },
+      "affect_range": {
+        "importance": 0.04227473774554875,
+        "channel": "Affect"
+      },
+      "expr_mean": {
+        "importance": 0.04218646789412745,
+        "channel": "Expressiveness"
+      },
+      "affect_max": {
+        "importance": 0.04076833959122716,
+        "channel": "Affect"
+      },
+      "div_range": {
+        "importance": 0.03877600659351035,
+        "channel": "Divergence"
+      },
+      "div_variance": {
+        "importance": 0.03830738993658798,
+        "channel": "Divergence"
+      },
+      "expr_trend": {
+        "importance": 0.03705869386837427,
+        "channel": "Expressiveness"
+      },
+      "goal_stability": {
+        "importance": 0.03516219527392641,
+        "channel": "Dynamics"
+      },
+      "goal_drift_mean": {
+        "importance": 0.034441019324050984,
+        "channel": "Dynamics"
+      },
+      "expr_variance": {
+        "importance": 0.03395848423762477,
+        "channel": "Expressiveness"
+      },
+      "valence_mean": {
+        "importance": 0.03347593812203271,
+        "channel": "Affect"
+      },
+      "goal_drift_variance": {
+        "importance": 0.029907656234197586,
+        "channel": "Dynamics"
+      },
+      "expr_shift": {
+        "importance": 0.029329574424990436,
+        "channel": "Expressiveness"
+      },
+      "valence_trend": {
+        "importance": 0.025674206378332926,
+        "channel": "Affect"
+      },
+      "valence_variance": {
+        "importance": 0.025150678988864743,
+        "channel": "Affect"
+      },
+      "constraint_pressure": {
+        "importance": 0.02419813986085292,
+        "channel": "Dynamics"
+      },
+      "hedge_assert_ratio": {
+        "importance": 0.02160145299455798,
+        "channel": "Dynamics"
+      },
+      "affect_peak_count": {
+        "importance": 0.020416757210906022,
+        "channel": "Affect"
+      },
+      "affect_valley_count": {
+        "importance": 0.02029771040432539,
+        "channel": "Affect"
+      },
+      "n_messages_log": {
+        "importance": 0.01997251529575732,
+        "channel": "Structure"
+      },
+      "ai_refusal_rate": {
+        "importance": 0.015511640189488508,
+        "channel": "Dynamics"
+      },
+      "expr_range": {
+        "importance": 0.011852494108962476,
+        "channel": "Expressiveness"
+      },
+      "repair_rate": {
+        "importance": 0.0043432836574716065,
+        "channel": "Dynamics"
+      }
+    },
+    "top_15": [
+      {
+        "feature": "div_mean",
+        "importance": 0.0518,
+        "channel": "Divergence"
+      },
+      {
+        "feature": "length_ratio",
+        "importance": 0.0517,
+        "channel": "Structure"
+      },
+      {
+        "feature": "affect_mean",
+        "importance": 0.0475,
+        "channel": "Affect"
+      },
+      {
+        "feature": "affect_trend",
+        "importance": 0.0469,
+        "channel": "Affect"
+      },
+      {
+        "feature": "affect_min",
+        "importance": 0.0459,
+        "channel": "Affect"
+      },
+      {
+        "feature": "affect_variance",
+        "importance": 0.0448,
+        "channel": "Affect"
+      },
+      {
+        "feature": "div_trend",
+        "importance": 0.044,
+        "channel": "Divergence"
+      },
+      {
+        "feature": "div_max_spike",
+        "importance": 0.0428,
+        "channel": "Divergence"
+      },
+      {
+        "feature": "affect_range",
+        "importance": 0.0423,
+        "channel": "Affect"
+      },
+      {
+        "feature": "expr_mean",
+        "importance": 0.0422,
+        "channel": "Expressiveness"
+      },
+      {
+        "feature": "affect_max",
+        "importance": 0.0408,
+        "channel": "Affect"
+      },
+      {
+        "feature": "div_range",
+        "importance": 0.0388,
+        "channel": "Divergence"
+      },
+      {
+        "feature": "div_variance",
+        "importance": 0.0383,
+        "channel": "Divergence"
+      },
+      {
+        "feature": "expr_trend",
+        "importance": 0.0371,
+        "channel": "Expressiveness"
+      },
+      {
+        "feature": "goal_stability",
+        "importance": 0.0352,
+        "channel": "Dynamics"
+      }
+    ],
+    "channel_contributions": {
+      "Divergence": 21.6,
+      "Expressiveness": 15.4,
+      "Dynamics": 16.5,
+      "Structure": 7.2,
+      "Affect": 39.3
+    }
+  },
+  "constraints": {
+    "source": "atlas_canonical",
+    "n_graphs": 1383,
+    "total_constraints": 559,
+    "survived": 173,
+    "violated": 386,
+    "survival_rate_pct": 30.9,
+    "violation_rate_pct": 69.1,
+    "half_life_median": 1.0,
+    "half_life_mean": 2.11,
+    "turn_0_violations": 93,
+    "turn_0_violation_pct": 24.1,
+    "half_life_distribution": {
+      "0": 93,
+      "1": 158,
+      "2": 26,
+      "3": 46,
+      "4": 11,
+      "5": 18,
+      "6": 6,
+      "7": 6,
+      "8": 5,
+      "9": 6,
+      "10": 2,
+      "11": 3,
+      "13": 1,
+      "14": 1,
+      "15": 2,
+      "20": 1,
+      "31": 1
+    },
+    "total_violation_events": 390,
+    "repaired_events": 4,
+    "repair_rate_event_pct": 1.03,
+    "repair_rate_per_conv_mean_pct": 0.68,
+    "agency_collapse": {
+      "n_conversations": 398,
+      "n_collapse": 200,
+      "collapse_rate_pct": 50.3
+    }
+  },
+  "cascade": {
+    "n_constrained_convs": 270,
+    "total_repair_turns": 17,
+    "total_turns_constrained": 4296,
+    "repair_density": 0.004,
+    "cascade_entries": 0,
+    "cascade_entry_rate": 0.0,
+    "cascade_collapses": 0,
+    "cascade_collapse_rate": 0,
+    "escape_probability": 0,
+    "patience": {
+      "mean_abandonment_turns": 14.2,
+      "median_abandonment_turns": 14,
+      "mean_persistence_turns": 11.55,
+      "median_persistence_turns": 9.5,
+      "abandonment_cases": 147,
+      "persistence_cases": 114
+    }
+  },
+  "mode_violations": {
+    "total_mode_pairs": 9347,
+    "total_violations": 4090,
+    "violation_rate_pct": 43.8,
+    "violation_types": {
+      "PREMATURE_EXECUTION": {
+        "count": 2770,
+        "pct": 67.7
+      },
+      "UNSOLICITED_ADVICE": {
+        "count": 1163,
+        "pct": 28.4
+      },
+      "EXECUTION_AVOIDANCE": {
+        "count": 151,
+        "pct": 3.7
+      }
+    }
+  }
+}

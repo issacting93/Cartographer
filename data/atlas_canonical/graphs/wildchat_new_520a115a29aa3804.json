@@ -9,10 +9,10 @@
       "source": "WildChat",
       "domain": "code",
       "total_turns": 26,
-      "stability_class": "Constraint Drift",
-      "task_architecture": "Other",
-      "constraint_hardness": "Strict",
-      "task_goal": "Run the tsc command on all TypeScript files in the directory above without switching directories.",
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Run the tsc command on all TypeScript files in the directory above the current one without switching directories.",
       "id": "conv_wildchat_new_520a115a29aa3804"
     },
     {
@@ -422,10 +422,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 0,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_520a115a29aa3804_0"
@@ -565,20 +565,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 0,
-      "turn_index": 0,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_520a115a29aa3804_0"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 1,
       "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -588,12 +574,26 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
+      "id": "v_wildchat_new_520a115a29aa3804_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 6,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
       "id": "v_wildchat_new_520a115a29aa3804_1"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 6,
+      "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -607,20 +607,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 8,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_520a115a29aa3804_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -630,11 +616,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_520a115a29aa3804_4"
+      "id": "v_wildchat_new_520a115a29aa3804_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 5,
+      "violation_idx": 4,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -644,7 +630,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_520a115a29aa3804_5"
+      "id": "v_wildchat_new_520a115a29aa3804_4"
     }
   ],
   "links": [
@@ -864,12 +850,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_520a115a29aa3804_1",
-      "target": "v_wildchat_new_520a115a29aa3804_0",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 3,
       "source": "t_wildchat_new_520a115a29aa3804_2",
@@ -952,7 +932,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_520a115a29aa3804_5",
-      "target": "v_wildchat_new_520a115a29aa3804_1",
+      "target": "v_wildchat_new_520a115a29aa3804_0",
       "key": 0
     },
     {
@@ -991,7 +971,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_520a115a29aa3804_7",
-      "target": "v_wildchat_new_520a115a29aa3804_2",
+      "target": "v_wildchat_new_520a115a29aa3804_1",
       "key": 0
     },
     {
@@ -1030,7 +1010,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_520a115a29aa3804_9",
-      "target": "v_wildchat_new_520a115a29aa3804_3",
+      "target": "v_wildchat_new_520a115a29aa3804_2",
       "key": 0
     },
     {
@@ -1142,7 +1122,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_520a115a29aa3804_15",
-      "target": "v_wildchat_new_520a115a29aa3804_4",
+      "target": "v_wildchat_new_520a115a29aa3804_3",
       "key": 0
     },
     {
@@ -1181,7 +1161,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_520a115a29aa3804_17",
-      "target": "v_wildchat_new_520a115a29aa3804_5",
+      "target": "v_wildchat_new_520a115a29aa3804_4",
       "key": 0
     },
     {

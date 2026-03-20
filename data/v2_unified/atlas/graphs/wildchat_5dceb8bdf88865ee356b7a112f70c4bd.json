@@ -1,0 +1,204 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_5dceb8bdf88865ee356b7a112f70c4bd",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "problem-solving",
+      "id": "conv_wildchat_5dceb8bdf88865ee356b7a112f70c4bd"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 1971,
+      "content_preview": "3 issues were found when checking AAR metadata: 1. Dependency 'androidx.activity:activity:1.8.0' requires libraries",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 628,
+      "content_preview": "The issues found when checking AAR metadata suggest that the dependencies 'androidx.activity:activity:1.8.0', 'androidx.",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 25,
+      "content_preview": "how to update my project?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1137,
+      "content_preview": "To update your project to use a newer compileSdk version, you can follow these steps: 1. Open your project in Android S",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "compileSdk\n      of at least 34, for example 34.\n\n      Note that up",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The issues found when checking AAR metadata suggest that the dependencies 'andro...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To update your project to use a newer compileSdk version, you can follow these s...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_5dceb8bdf88865ee356b7a112f70c4bd",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_5dceb8bdf88865ee356b7a112f70c4bd",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_5dceb8bdf88865ee356b7a112f70c4bd",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_5dceb8bdf88865ee356b7a112f70c4bd",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "target": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "target": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1",
+      "target": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_1",
+      "target": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "target": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "target": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3",
+      "target": "m_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_3",
+      "target": "mode_wildchat_5dceb8bdf88865ee356b7a112f70c4bd_2",
+      "key": 0
+    }
+  ]
+}

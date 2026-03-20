@@ -1,0 +1,299 @@
+{
+  "id": "wildchat_new_f273a63adf34b6ea",
+  "source": "WildChat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "1. Introduction\nIn this recitation we will learn how to employ the newsvendor problem to solve a scheduling problem. More specifically, we want to find the optimal number of nurses to be scheduled to work on the quarantine & isolation team at Cornell Health to handle positive COVID tests.\nWhenever a student tests positive, this team of nurses calls that student to check on their symptoms and to move them to a room at a hotel. The nursing team also calls students identified as close contacts of the positive student, and who may have already been infected, to move them into quarantine at a hotel. This is done to protect against the possibility that others would be infected by coming into contact with someone who is infectious. In many cases this is straightforward but it sometimes requires a substantial amount of work: the person being contacted might have a medical situation that requires extra attention (either from COVID or another condition); might not answer their phone (requiring repeated calls); might be belligerent or misrepresent the truth (requiring a longer conversation and sometimes the use of additional resources); or might simply have a great number of questions.\nThis is a newsvendor problem because demand is stochastic and there is a cost both for scheduling too few nurses, and for scheduling too many. If we schedule too many nurses, we create a burden for them and risk burning out the nursing team. If we schedule too few, we can ask unscheduled nurses to come on and work at the last minute, but this forces them to drop their personal life and start working (creating a burden and risking burnout). Also, scheduling too few nurses creates a risk that we might not be able to contact and move to quarantine / isolation all of the students who are potentially infectious, risking the creation of new COVID cases.\nWe focus on the arrival period for the Spring 2021 semester. During this period, students arriving from elsewhere were testing positive due to infections acquired at home. The rapid increase in arriving students and the changing nature of nationwide and international prevalence relative to the Fall 2020 semester made it difficult to plan based on past experience. This made mathematical modeling extremely useful. Indeed, code close to this recitation was actually used to make staffing decisions at Cornell Health over this period.\n\n\n# Importing basic libraries\nimport numpy as np\nimport pandas as pd\nimport numpy.random as rand\nimport matplotlib.pyplot as plt\nimport matplotlib as mpl\n%matplotlib inline\nimport math\nimport time\nfrom IPython import display\n\n# Setting the default parameters for the plots produced by matplotlib\n# Sets figure size. Width, height in inches.\nplt.rcParams[\"figure.figsize\"] = (10,10)\n# Sets label font sizes\nplt.rcParams['axes.labelsize'] = 14\nplt.rcParams['xtick.labelsize'] = 12\nplt.rcParams['ytick.labelsize'] = 12\n\n\n\n2. Planning for a Single Day\nWe will start by creating a model that plans for a single day, finding the optimal number of nurses to schedule for that day.\n\nFirst, we will model the probability of testing positive for an arriving student by specifying some constants.\nWe model students as arriving from one of the following location categories - 'New York State', 'Middle States', 'New England', 'Midwest', 'South', 'Southwest', 'West', 'Territories', 'USA, unknown', and 'International'.\nIf we know the distribution of the arriving Cornell student population over these location categories, and the COVID prevalence at each of these locations, we can estimate the probability that an arriving student will person testing postive if they arrive from 'X' location.\nWe can get the data we need from https://www.cornell.edu/about/facts.cfm\n\n\n\n# Data from website\nlocations = ['New York State','Middle States','New England','Midwest','South',\n            'Southwest','West','Territories','USA, unknown', 'International']    # Location categories\npop_percent = [27,12,7,6,8,3,11,2,2,22]  # Probability distribution of the origin locations for incoming Cornell students                                                                \ncovid_prevalence = [1.3,1.4,1.6,1.9,2.0,1.7,1.8,2.4,2.5,3.1]  # the probability that a person coming from each origin has COVID\n# Both pop_percent and covid_percents are expressed as percentages between 0 and 100.\n\n# Create a dataframe with the above information\ndata = pd.DataFrame(list(zip(locations, pop_percent, covid_prevalence)), columns=['location','pop_percent','covid_prevalence'])\n\ndata.head()\n\n\n\n\nQuestion 1: Write code that calculates the probability that an arriving student tests positive. This is\n∑\n𝑖\n𝑃(student origin is 𝑖)𝑃(student is positive|origin is 𝑖)\nStore this in a variable prevalence as a probability between 0 and 1.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 1\nprevalence = (data['pop_percent'] / 100 * data['covid_prevalence'] / 100).sum()\nprevalence",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "We will now run a simulation to generate many scenarios.\nEach scenario will include the number of positive students arriving on the day we are planning for, which is a binomial(p,n) random variable where p is the prevalence you calculated in question 1 and n is the number of students that arrive on that day. We set the number of arriving students to 1000.\nIt will then calculate the number of minutes of work required to handle those positive students, assuming that each positive case requires 30 minutes, each of their contacts requires 20 minutes, and each positive case has 4 contacts.\nIt then calculates the number of nurses needed to do this work, assuming that each nurse works an 8 hour shift.\n\n\nQuestion 2: Fill in the two missing lines in the code below\n\n# Defining constants\nnum_arrivals = 1000 # Number of arriving students\nM = 1000 # Number of simulation replications\n\nnurses_needed = []\nnum_pos = [0]*M\nwork = [0]*M\n\n# Run simulation\nfor m in range(M):\n    num_pos[m] = # Simulate a binomial(N, prevalence) random variable    \n    work[m] = # 30 min per positive, 20 min per contact, 4 contacts, work defined in terms of minutes \n    nurses_needed.append(int(work[m] / (8*60))) # nurse works 8h (8 x 60 minutes) shift\n\nsimulation_df = pd.DataFrame(nurses_needed, columns = ['nurses_needed'])\nsimulation_df.head()",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 2\nnum_pos = rand.binomial(num_arrivals, prevalence, M)\nwork = (num_pos * (30 + 4*20)).tolist()\nnurses_needed = [int(w / (8*60)) for w in work]\n\nsimulation_df = pd.DataFrame(nurses_needed, columns = ['nurses_needed'])\nsimulation_df.head()",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "user",
+      "content": "To optimize for the number of nurses we bring in, we will write a function that calculates the number of extra nurses required given that N nurses are currently working using our simulated data.\nAs discussed at the beginning of this recitation, there are two bad things that can happen:\n* the number of nurses scheduled on the day we are planning for could be strictly more than the number needed to do the work necessary on this day. In this case, the difference between the number scheduled and the number needed is called overage\n* the number of nurses scheduled on the day we are planning for could be strictly less than the number needed to do the work necessary on this day. In this case, the difference between the number needed and the number scheduled is called underage.\nIn particular, if the number of nurses scheduled is N and the number of nurses needed is D, then:\n* Overage = max(0,N-D)\n* Underage = max(0,D-N)\nWe estimate the expected overage and expected underage associated with a particular number of scheduled nurses, we calculate the overage and underage on each scenario and return the average over all scenarios.\nQuestion 3: Fill in the two lines below to define a function that calculates the overage and underage from sim_df.\nHint: One way to do this very quickly is to use the clip function with the lower keyword. df['x'].clip(lower=0) returns the value of max(x,0) for each entry in df['x'].\n\n\ndef eval_N(nurses_needed, nurses_scheduled):\n  overage = # FILL IN\n  underage = # FILL IN\n  return underage, overage\n\neval_N(sim_df['nurses_needed'],1)",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 3\ndef eval_N(nurses_needed, nurses_scheduled):\n    overage = (nurses_scheduled - nurses_needed).clip(lower = 0).mean()\n    underage = (nurses_needed - nurses_scheduled).clip(lower = 0).mean()\n    return underage, overage\n\neval_N(simulation_df['nurses_needed'], 1)",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "Question 4: Using eval_N, plot the underage and overage vs. the number of nurses scheduled. Do this for nurses_scheduled ranging from 0 to 9 inclusive. You should see that the underage is high when not many nurses are scheduled (our planned resourcing is under demand) and overage is high when many nurses are scheduled (our planned resourcing is over demand).",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 4\nunderage_list = []\noverage_list = []\n\nfor n in range(10):\n    underage, overage = eval_N(simulation_df['nurses_needed'],n)\n    underage_list.append(underage)\n    overage_list.append(overage)\n\nfig, ax = plt.subplots()\nax.plot(range(10), underage_list, label='Underage')\nax.plot(range(10), overage_list, label='Overage')\nax.legend()\nax.set_xlabel('Number of Nurses Scheduled')\nax.set_ylabel('Expected Number of Nurses (underage or overage)')",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "\nNow, we want to define a function optimize(df, alpha). It should return:\n* the optimal number of nurses to schedule such that we minimize the total cost (alpha*underage + overage).\n* the underage and overage at this optimal number of nurses to schedule\nWe will assume that we can schedule N = 0 to 9 (inclusive) nurses. For each N find the cost and return the N with least associated cost.\nQuestion 5: A part of the function has been filled in for you. Please complete the function.\n\ndef optimize(nurses_needed, alpha):\n  cost = [0]*10\n  best_cost = np.inf\n  opt_N = -1\n  opt_underage = -1\n  opt_overage = -1\n  for N in range(10):\n    # Your code here (fill in the for-loop)\n\n  return opt_N, opt_underage, opt_overage\n",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 5\ndef optimize(nurses_needed, alpha):\n    cost = [0]*10\n    best_cost = np.inf\n    opt_N = -1\n    opt_underage = -1\n    opt_overage = -1\n    \n    for N in range(10):\n        underage, overage = eval_N(nurses_needed, N)\n        cost[N] = alpha * underage + overage\n        if cost[N] < best_cost:\n            best_cost = cost[N]\n            opt_N = N\n            opt_underage = underage\n            opt_overage = overage\n\n    return opt_N, opt_underage, opt_overage\n\n\nopt_N, opt_underage, opt_overage = optimize(simulation_df['nurses_needed'], 1)\nprint(\"Optimal number of nurses to schedule: \", opt_N)\nprint(\"Underage at optimal number of nurses: \", opt_underage)\nprint(\"Overage at optimal number of nurses: \", opt_overage)",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Question 6: Test your function by using it to find the optimal N, underage and overage at these values:\nalpha = 0 (you should see that the optimal overage is 0 and the optimal N is 0)\nalpha = 1000 (you should see that the optimal underage is close to 0 and the optimal N is big)\nalpha = 1 (you should see the optimal underage and overage are similar to each other, and the optimal N is roughly in the middle between 0 and 10)",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 6\n\n# Test 1: alpha = 0\nopt_N, opt_underage, opt_overage = optimize(simulation_df['nurses_needed'], 0)\nprint(\"Test 1 --- Optimal number of nurses to schedule: \", opt_N)\nprint(\"Test 1 --- Underage at optimal number of nurses: \", opt_underage)\nprint(\"Test 1 --- Overage at optimal number of nurses: \", opt_overage)\n\n# Test 2: alpha = 1000\nopt_N, opt_underage, opt_overage = optimize(simulation_df['nurses_needed'], 1000)\nprint(\"Test 2 --- Optimal number of nurses to schedule: \", opt_N)\nprint(\"Test 2 --- Underage at optimal number of nurses: \", opt_underage)\nprint(\"Test 2 --- Overage at optimal number of nurses: \", opt_overage)\n\n# Test 3: alpha = 1\nopt_N, opt_underage, opt_overage = optimize(simulation_df['nurses_needed'], 1)\nprint(\"Test 3 --- Optimal number of nurses to schedule: \", opt_N)\nprint(\"Test 3 --- Underage at optimal number of nurses: \", opt_underage)\nprint(\"Test 3 --- Overage at optimal number of nurses: \", opt_overage)",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Creating a Pareto Frontier\nUnfortunately, it isn't easy for a human decision-maker to tell you their objective function. Instead, what we can do is to plot things that must be traded off in an optimal solution and ask them to choose the trade-off they like the best. This is called a \"Pareto Frontier\".\nWe can do this here by solving the optimization problem for many different values of alpha, calculating the underage and overage for each one, and then plotting underage vs. overage.\nThe nurse manager or medical director would then be able to select a point on this curve that they think will be best. We can then look up which value of alpha generated this point and what the optimal N was.\nQuestion 7: Write code to create a Pareto frontier,\n\nalpha = np.arange(0,2.5,.05)\noverage = [0] * len(alpha)\nunderage = [0] * len(alpha)\nopt_N = [0] * len(alpha)\nfor i in range(len(alpha)):\n  # FILL IN YOUR CODE HERE\n\nplt.plot(underage,overage,'.-')\nplt.title('Plan for Monday Feb 4')\nplt.xlabel('Underage Nurses')\nplt.ylabel('Overage Nurses')",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 7\nalpha = np.arange(0,2.5,.05)\noverage = [0] * len(alpha)\nunderage = [0] * len(alpha)\nopt_N = [0] * len(alpha)\nfor i in range(len(alpha)):\n    opt_N[i], underage[i], overage[i] = optimize(simulation_df['nurses_needed'], alpha[i])\n\nplt.plot(underage, overage, '.-')\nplt.title('Plan for Monday Feb 4')\nplt.xlabel('Underage Nurses')\nplt.ylabel('Overage Nurses')",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "When we show this plot to management, they say that they like the point that has underage closest to 0.4 (roughly speaking this means that the probability is 40% that we'll need to call in an extra nurse).\nQuestion 8:\nWhat is the number of nurses that we should schedule to achieve this tradeoff between overage and underage? What is the value of alpha that gave us this optimal number of nurses?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "# Solution 8\nindex = (np.abs(np.array(underage)-0.4)).argmin()\nprint(\"Optimal number of nurses to schedule: \", opt_N[index])\nprint(\"Value of alpha corresponding to optimal number of nurses: \", alpha[index])",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.26
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "collaborative",
+      "confidence": 0.9,
+      "evidence": [
+        "We will now run a simulation to generate many scenarios.",
+        "To optimize for the number of nurses we bring in, we will write a function"
+      ],
+      "rationale": "The conversation involves joint problem-solving and code development.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Question 1: Write code that calculates the probability",
+        "# Solution 1",
+        "Question 2: Fill in the two missing lines"
+      ],
+      "rationale": "Both parties contribute to the task, with the human posing questions and the AI providing solutions.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.9,
+      "evidence": [
+        "We will now run a simulation",
+        "Write code to create a Pareto frontier"
+      ],
+      "rationale": "The tone is formal and task-focused throughout the conversation.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.9,
+      "evidence": [
+        "Question 1: Write code",
+        "Fill in the two missing lines",
+        "Please complete the function"
+      ],
+      "rationale": "The human directs the AI to complete specific tasks iteratively.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "Write code that calculates",
+        "Fill in the two missing lines",
+        "Please complete the function"
+      ],
+      "rationale": "The conversation involves sharing coding techniques and methods.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.9,
+      "evidence": [
+        "We will now run a simulation",
+        "To optimize for the number of nurses",
+        "Write code to create a Pareto frontier"
+      ],
+      "rationale": "The primary goal is to solve a scheduling problem using code.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "deep",
+      "confidence": 0.9,
+      "evidence": [
+        "We will now run a simulation",
+        "To optimize for the number of nurses",
+        "Write code to create a Pareto frontier"
+      ],
+      "rationale": "The conversation involves detailed exploration of coding and optimization.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Question 1: Write code",
+        "# Solution 1",
+        "Question 2: Fill in the two missing lines"
+      ],
+      "rationale": "Both parties contribute equally to the conversation length and content.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.1,
+        "provider": 0.1,
+        "director": 0.6,
+        "collaborator": 0.2,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "Please complete the function"
+        }
+      ],
+      "rationale": "The human primarily directs the AI to complete tasks and provides guidance.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.1,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.7,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "co-constructor",
+          "quote": "# Solution 1"
+        }
+      ],
+      "rationale": "The AI collaborates with the human to develop solutions and complete tasks.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T19:20:56.979142",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_1464",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you show me the proper SQL for MySQL to copy any rows from a table with a pkey under a certain value and another attribute equal to a certain value? There are three tables. The parent table A, child of parent table A table B with a foreign key referencing A, and child of table B table C linked to B through a link table B_C. What SQL would properly copy a record from A and all it's children? Modify the SQL to copy the records into the same tables they came from. Then wrap the SQL into a revertible block."
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nYou now have a copy of A with all it's children inserted into the same tables they came from. You can now revert the change removing the rows from A and it's children that were inserted."
+    },
+    {
+      "role": "user",
+      "content": "I am using MySQL"
+    },
+    {
+      "role": "assistant",
+      "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nWipe table A and it's children tables B and C"
+    }
+  ]
+}

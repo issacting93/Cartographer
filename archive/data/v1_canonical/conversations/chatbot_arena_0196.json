@@ -1,0 +1,183 @@
+{
+  "id": "chatbot_arena_0196",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Have you ever read Umberto Eco's Foucault's Pendulum?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I have not read Foucault's Pendulum by Umberto Eco.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "What is it about?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Foucault's Pendulum is a novel by Umberto Eco that explores the conspiracy theory surrounding the death of the Knights Templar.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "Have you ever read Umberto Eco's Foucault's Pendulum?",
+        "What is it about?"
+      ],
+      "rationale": "Human asks direct questions; AI responds with direct answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.75,
+      "evidence": [
+        "Have you ever read Umberto Eco's Foucault's Pendulum?",
+        "What is it about?"
+      ],
+      "rationale": "Human sets the agenda by initiating and steering with questions; AI follows by answering.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I have not read Foucault's Pendulum by Umberto Eco.",
+        "Foucault's Pendulum is a novel by Umberto Eco"
+      ],
+      "rationale": "Matter-of-fact informational exchange without explicit warmth, humor, or affective language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "Have you ever read Umberto Eco's Foucault's Pendulum?",
+        "What is it about?"
+      ],
+      "rationale": "Progression is driven by the human's questions prompting AI responses.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.75,
+      "evidence": [
+        "What is it about?",
+        "Foucault's Pendulum is a novel by Umberto Eco that explores the conspiracy theory"
+      ],
+      "rationale": "User requests a description; AI provides a factual summary of the book.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "What is it about?"
+      ],
+      "rationale": "User explicitly seeks information about the novel's content.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.65,
+      "evidence": [
+        "What is it about?",
+        "explores the conspiracy theory surrounding the death of the Knights Templar."
+      ],
+      "rationale": "Only a brief, high-level description is exchanged with no elaboration or nuance.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "Have you ever read Umberto Eco's Foucault's Pendulum?",
+        "I have not read Foucault's Pendulum by Umberto Eco.",
+        "What is it about?",
+        "Foucault's Pendulum is a novel by Umberto Eco that explores the conspiracy theory surrounding the death of the Knights Templar."
+      ],
+      "rationale": "Both parties contribute one short turn each twice; AI's final turn is longer but overall exchange is fairly even.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.85,
+        "provider": 0.1,
+        "director": 0,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What is it about?"
+        },
+        {
+          "role": "provider",
+          "quote": "Have you ever read Umberto Eco's Foucault's Pendulum?"
+        }
+      ],
+      "rationale": "Human primarily requests information; the initial question also checks the AI's experience/knowledge state.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Foucault's Pendulum is a novel by Umberto Eco that explores the conspiracy theory"
+        },
+        {
+          "role": "expert-system",
+          "quote": "I have not read Foucault's Pendulum by Umberto Eco."
+        }
+      ],
+      "rationale": "AI provides direct declarative information and a direct statement of (non-)experience, consistent with an expert-system response style.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:30:30.022656",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 15680,
+    "fewShotExamples": "yes"
+  }
+}

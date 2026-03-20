@@ -1,0 +1,865 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_b1509d792d00f952",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_wildchat_new_b1509d792d00f952"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 65,
+      "content_preview": "Implement a simple transformer in Pytorch using \"nn.Transformer\".",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2541,
+      "content_preview": "Here's an implementation of a simple transformer using PyTorch's built-in `nn.Transformer` module: ```python import tor",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 65,
+      "content_preview": "I see you are initializing the weights manually. It is mandatory?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1748,
+      "content_preview": "No, it is not mandatory to initialize weights manually in pyTorch when using the `nn.Transformer` module. The PyTorch `n",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 182,
+      "content_preview": "Rewrite your implementation of the transformer but only provide the class, don't bother with manual weight initializatio",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 2543,
+      "content_preview": "Sure, here is my implementation of the transformer using `nn.Transformer` and without manual weight initialization: ```",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 133,
+      "content_preview": "What is the purpose of the line \"output = self.decoder(output[-1, :, :])\"? Seems just another linear layer on top of the",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1401,
+      "content_preview": "Yes, you are correct. The purpose of the line `output = self.decoder(output[-1, :, :])` is to apply a linear transformat",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 166,
+      "content_preview": "What should I pass to \"self.embedding(src)\"? What shape should the input src have? For input I have a string of text and",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 2307,
+      "content_preview": "You should pass a tensor of indices that represent the input text to `self.embedding`. Before passing the text as input,",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 208,
+      "content_preview": "Ok, I think for now I need every token to be a single character, not a word. Provide a function that converts a string i",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2708,
+      "content_preview": "Sure! Here's an example function that converts a string into a tensor of character indices that can be passed to `self.e",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 129,
+      "content_preview": "Nice, rewrite the code knowing that the vocabulary are ALL possible 8-bit characters. This is fixed and it's not going t",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1291,
+      "content_preview": "Sure thing! Here's an updated version of the code, assuming the vocabulary only contains all possible 8-bit characters:",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 42,
+      "content_preview": "Is it possible to simplify away the class?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 2211,
+      "content_preview": "Yes! Since the vocabulary is fixed and known in advance, you can use a simple function encapsulating the vocabulary mapp",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 117,
+      "content_preview": "What should be the lengfth of the text? Can I feed the transformer an input of any length or is there a max or a min?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 135,
+      "content_preview": "The length of the input text can vary depending on the specific transformer model and hardware configuration that you're",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_b1509d792d00f952_17"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Here's an implementation of a simple transformer using PyTorch's built-in `nn.Tr...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "No, it is not mandatory to initialize weights manually in pyTorch when using the...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "the transformer but only provide the class, don't bother with ma",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_b1509d792d00f952_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure, here is my implementation of the transformer using `nn.Transformer` and wi...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, you are correct. The purpose of the line `output = self.decoder(output[-1,...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "ext and I want to convert it into the correct format.",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_b1509d792d00f952_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "tring of text and I want to convert it into the correct format.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_b1509d792d00f952_8_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You should pass a tensor of indices that represent the input text to `self.embed...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure! Here's an example function that converts a string into a tensor of charact...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure thing! Here's an updated version of the code, assuming the vocabulary only...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes! Since the vocabulary is fixed and known in advance, you can use a simple fu...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The length of the input text can vary depending on the specific transformer mode...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_b1509d792d00f952_17_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_b1509d792d00f952_16"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 8,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "v_wildchat_new_b1509d792d00f952_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_b1509d792d00f952",
+      "target": "t_wildchat_new_b1509d792d00f952_17",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_b1509d792d00f952_0",
+      "target": "t_wildchat_new_b1509d792d00f952_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_0",
+      "target": "mode_wildchat_new_b1509d792d00f952_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_b1509d792d00f952_1",
+      "target": "t_wildchat_new_b1509d792d00f952_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_1",
+      "target": "m_wildchat_new_b1509d792d00f952_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_1",
+      "target": "mode_wildchat_new_b1509d792d00f952_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_b1509d792d00f952_2",
+      "target": "t_wildchat_new_b1509d792d00f952_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_2",
+      "target": "mode_wildchat_new_b1509d792d00f952_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_b1509d792d00f952_3",
+      "target": "t_wildchat_new_b1509d792d00f952_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_3",
+      "target": "m_wildchat_new_b1509d792d00f952_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_3",
+      "target": "mode_wildchat_new_b1509d792d00f952_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_b1509d792d00f952_4",
+      "target": "t_wildchat_new_b1509d792d00f952_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_4",
+      "target": "m_wildchat_new_b1509d792d00f952_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_4",
+      "target": "mode_wildchat_new_b1509d792d00f952_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_b1509d792d00f952_5",
+      "target": "t_wildchat_new_b1509d792d00f952_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_5",
+      "target": "m_wildchat_new_b1509d792d00f952_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_5",
+      "target": "mode_wildchat_new_b1509d792d00f952_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_b1509d792d00f952_6",
+      "target": "t_wildchat_new_b1509d792d00f952_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_6",
+      "target": "mode_wildchat_new_b1509d792d00f952_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_b1509d792d00f952_7",
+      "target": "t_wildchat_new_b1509d792d00f952_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_7",
+      "target": "m_wildchat_new_b1509d792d00f952_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_7",
+      "target": "mode_wildchat_new_b1509d792d00f952_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_b1509d792d00f952_8",
+      "target": "t_wildchat_new_b1509d792d00f952_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_8",
+      "target": "m_wildchat_new_b1509d792d00f952_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_b1509d792d00f952_8",
+      "target": "m_wildchat_new_b1509d792d00f952_8_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_8",
+      "target": "mode_wildchat_new_b1509d792d00f952_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_b1509d792d00f952_9",
+      "target": "t_wildchat_new_b1509d792d00f952_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_9",
+      "target": "m_wildchat_new_b1509d792d00f952_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_9",
+      "target": "mode_wildchat_new_b1509d792d00f952_8",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_b1509d792d00f952_9",
+      "target": "v_wildchat_new_b1509d792d00f952_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_b1509d792d00f952_10",
+      "target": "t_wildchat_new_b1509d792d00f952_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_10",
+      "target": "mode_wildchat_new_b1509d792d00f952_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_b1509d792d00f952_11",
+      "target": "t_wildchat_new_b1509d792d00f952_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_11",
+      "target": "m_wildchat_new_b1509d792d00f952_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_11",
+      "target": "mode_wildchat_new_b1509d792d00f952_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_b1509d792d00f952_12",
+      "target": "t_wildchat_new_b1509d792d00f952_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_12",
+      "target": "mode_wildchat_new_b1509d792d00f952_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_b1509d792d00f952_13",
+      "target": "t_wildchat_new_b1509d792d00f952_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_13",
+      "target": "m_wildchat_new_b1509d792d00f952_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_13",
+      "target": "mode_wildchat_new_b1509d792d00f952_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_b1509d792d00f952_14",
+      "target": "t_wildchat_new_b1509d792d00f952_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_14",
+      "target": "mode_wildchat_new_b1509d792d00f952_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_b1509d792d00f952_15",
+      "target": "t_wildchat_new_b1509d792d00f952_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_15",
+      "target": "m_wildchat_new_b1509d792d00f952_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_15",
+      "target": "mode_wildchat_new_b1509d792d00f952_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_b1509d792d00f952_16",
+      "target": "t_wildchat_new_b1509d792d00f952_17",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_16",
+      "target": "mode_wildchat_new_b1509d792d00f952_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_b1509d792d00f952_17",
+      "target": "m_wildchat_new_b1509d792d00f952_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_b1509d792d00f952_17",
+      "target": "mode_wildchat_new_b1509d792d00f952_16",
+      "key": 0
+    }
+  ]
+}

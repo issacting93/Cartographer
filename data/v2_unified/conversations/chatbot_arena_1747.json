@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1747",
+  "messages": [
+    {
+      "role": "user",
+      "content": "My brother is 5 years older than me.  How old am I?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "You can't tell me how old you are based on the information you provided. The only thing you told me is that your brother is 5 years older than you. That doesn't tell me how old you are, only that your brother is 5 years older than you.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.66
+      }
+    },
+    {
+      "role": "user",
+      "content": "My brother is 25.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "If your brother is 25, then you are 20 years old. You can calculate this by subtracting 5 from your brother's age.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.32
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "How old am I?",
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer based on the information given.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "My brother is 5 years older than me.",
+        "My brother is 25."
+      ],
+      "rationale": "The human sets the agenda by asking questions and providing information.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "How old am I?",
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "The conversation is factual and lacks emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "How old am I?",
+        "My brother is 25."
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "The AI provides factual information based on the human's input.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "How old am I?",
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "The human seeks specific information about their age.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "How old am I?",
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "The conversation is brief and addresses a simple calculation.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "My brother is 5 years older than me.",
+        "If your brother is 25, then you are 20 years old."
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "How old am I?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also provides necessary data.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.2,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "If your brother is 25, then you are 20 years old."
+        }
+      ],
+      "rationale": "The AI provides a direct answer based on the human's input.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:00:45.655872",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

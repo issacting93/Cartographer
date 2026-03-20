@@ -1,0 +1,193 @@
+{
+  "id": "chatbot_arena_29532",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hey! What's up?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hi! How are you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Can you give me some ideas about what I can do today in my free time?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! What are you in the mood for? Something relaxing like reading a book, or something more active like going for a walk or playing a sport?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.6,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.36
+      }
+    },
+    {
+      "role": "user",
+      "content": "Something more active",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Great! How about you go for a bike ride or try out that new hiking trail? Or if you're feeling adventurous, you could even try rock climbing or go-karting!",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.6,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.3
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you give me some ideas about what I can do today in my free time?",
+        "Sure! What are you in the mood for?"
+      ],
+      "rationale": "The human asks a question seeking suggestions, and the AI provides answers.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Can you give me some ideas about what I can do today in my free time?",
+        "Something more active"
+      ],
+      "rationale": "The human initiates the topic and directs the conversation by specifying preferences.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hi! How are you?",
+        "Great! How about you go for a bike ride"
+      ],
+      "rationale": "The conversation maintains a neutral tone without strong emotional expressions.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you give me some ideas about what I can do today in my free time?",
+        "What are you in the mood for?"
+      ],
+      "rationale": "The conversation is driven by questions from both parties.",
+      "alternative": "exploring"
+    },
+    "knowledgeExchange": {
+      "category": "opinion-exchange",
+      "confidence": 0.6,
+      "evidence": [
+        "How about you go for a bike ride or try out that new hiking trail?"
+      ],
+      "rationale": "The AI provides suggestions based on possible preferences.",
+      "alternative": "experience-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "Can you give me some ideas about what I can do today in my free time?"
+      ],
+      "rationale": "The human seeks information on activities to do.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you give me some ideas about what I can do today in my free time?",
+        "How about you go for a bike ride"
+      ],
+      "rationale": "The conversation remains at a surface level with brief suggestions.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Hey! What's up?",
+        "Hi! How are you?",
+        "Can you give me some ideas about what I can do today in my free time?",
+        "Sure! What are you in the mood for?"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.1,
+        "social-expressor": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Can you give me some ideas about what I can do today in my free time?"
+        }
+      ],
+      "rationale": "The human primarily seeks information and suggestions from the AI.",
+      "alternative": "collaborator"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.1,
+        "learning-facilitator": 0.1,
+        "advisor": 0.6,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "advisor",
+          "quote": "How about you go for a bike ride or try out that new hiking trail?"
+        }
+      ],
+      "rationale": "The AI provides advice and suggestions based on the human's preferences.",
+      "alternative": "co-constructor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T17:18:50.801506",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

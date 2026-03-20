@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_1673",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I have a game running inside a linux vm.\nThe virtio-snd device inside the vm keeps reporting xrun.\nBut looks like it's normal in the host's audio server\n\nCan you suggest me what should I do to fix?\nI'm using crosvm as the hypervisor and chromeOS as a guest"
+    },
+    {
+      "role": "assistant",
+      "content": "Run a separate audio server inside the vm and share it with the host."
+    },
+    {
+      "role": "user",
+      "content": "where should I put that configuration"
+    },
+    {
+      "role": "assistant",
+      "content": "/etc/security/limits.d/audio.conf"
+    }
+  ]
+}

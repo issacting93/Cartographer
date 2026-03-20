@@ -9,10 +9,10 @@
       "source": "WildChat",
       "domain": "code",
       "total_turns": 36,
-      "stability_class": "Task Maintained",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
-      "task_goal": "To understand the relationship between amplitude and period in oscillatory motion through experimentation and reasoning.",
+      "stability_class": "No Constraints",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Investigate how the amplitude of oscillation affects the period of a cart on a spring.",
       "id": "conv_wildchat_new_69fa9f5f397f4b92"
     },
     {
@@ -679,10 +679,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 22,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_69fa9f5f397f4b92_22"
@@ -826,21 +826,21 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 22,
+      "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
       "violation_ord": 1,
       "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
+      "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_69fa9f5f397f4b92_5"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 24,
+      "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -854,20 +854,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 28,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_69fa9f5f397f4b92_7"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 8,
       "turn_index": 34,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -877,7 +863,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_69fa9f5f397f4b92_8"
+      "id": "v_wildchat_new_69fa9f5f397f4b92_7"
     }
   ],
   "links": [
@@ -1574,12 +1560,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_69fa9f5f397f4b92_23",
-      "target": "v_wildchat_new_69fa9f5f397f4b92_5",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 25,
       "source": "t_wildchat_new_69fa9f5f397f4b92_24",
@@ -1615,7 +1595,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_69fa9f5f397f4b92_25",
-      "target": "v_wildchat_new_69fa9f5f397f4b92_6",
+      "target": "v_wildchat_new_69fa9f5f397f4b92_5",
       "key": 0
     },
     {
@@ -1687,7 +1667,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_69fa9f5f397f4b92_29",
-      "target": "v_wildchat_new_69fa9f5f397f4b92_7",
+      "target": "v_wildchat_new_69fa9f5f397f4b92_6",
       "key": 0
     },
     {
@@ -1785,7 +1765,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_69fa9f5f397f4b92_35",
-      "target": "v_wildchat_new_69fa9f5f397f4b92_8",
+      "target": "v_wildchat_new_69fa9f5f397f4b92_7",
       "key": 0
     }
   ]

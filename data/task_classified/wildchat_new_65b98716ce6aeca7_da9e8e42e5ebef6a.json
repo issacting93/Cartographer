@@ -1,0 +1,36 @@
+{
+  "id": "wildchat_new_65b98716ce6aeca7",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 18,
+  "classification": {
+    "task_goal": "Process all images in the specified folder and save them to a processed folder.",
+    "primary_constraints": [
+      "The output folder must exist before saving processed images.",
+      "Only image files with specific extensions (jpeg, png, jpg) should be processed."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The user initially provided code that did not ensure the output folder existed before saving images, which is a violation of the constraints. However, the user later corrected this by ensuring the output folder was created if it did not exist, thus repairing the violation.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        9,
+        13
+      ],
+      "violation_turns": [
+        12
+      ],
+      "repair_turns": [
+        13
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_65b98716ce6aeca7.json"
+}

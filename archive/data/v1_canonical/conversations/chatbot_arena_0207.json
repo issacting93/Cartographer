@@ -1,0 +1,184 @@
+{
+  "id": "chatbot_arena_0207",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is my name?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Your name is [name].",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "Who was the best president in US history?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "President Abraham Lincoln was the best U.S. president in history.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "What is my name?",
+        "Who was the best president in US history?"
+      ],
+      "rationale": "Human asks direct questions; AI provides direct answers in response.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "What is my name?",
+        "Who was the best president in US history?"
+      ],
+      "rationale": "Human sets the agenda by initiating both topics via questions; AI follows.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.55,
+      "evidence": [
+        "Your name is [name].",
+        "President Abraham Lincoln was the best U.S. president in history."
+      ],
+      "rationale": "Responses are declarative and task-focused without explicit warmth, humor, or affect.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.6,
+      "evidence": [
+        "Your name is [name].",
+        "President Abraham Lincoln was the best U.S. president in history."
+      ],
+      "rationale": "AI reacts by answering; no follow-up questions or exploration are introduced.",
+      "alternative": "affirming"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "Your name is [name].",
+        "President Abraham Lincoln was the best U.S. president in history."
+      ],
+      "rationale": "AI provides asserted facts/claims as answers (including a normative claim framed as fact).",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.75,
+      "evidence": [
+        "What is my name?",
+        "Who was the best president in US history?"
+      ],
+      "rationale": "Both human turns request answers rather than collaboration or social bonding.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.75,
+      "evidence": [
+        "What is my name?",
+        "Who was the best president in US history?"
+      ],
+      "rationale": "Questions are broad and answered without elaboration or nuance.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "What is my name?",
+        "Your name is [name].",
+        "Who was the best president in US history?",
+        "President Abraham Lincoln was the best U.S. president in history."
+      ],
+      "rationale": "Two short turns each; neither party dominates by length.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.8,
+        "director": 0.05,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "What is my name?"
+        },
+        {
+          "role": "provider",
+          "quote": "Who was the best president in US history?"
+        }
+      ],
+      "rationale": "Human primarily requests information from the AI via direct questions, indicating low authority in knowledge provision.",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.03,
+        "relational-peer": 0.02
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Your name is [name]."
+        },
+        {
+          "role": "expert-system",
+          "quote": "President Abraham Lincoln was the best U.S. president in history."
+        }
+      ],
+      "rationale": "AI provides direct, authoritative answers without scaffolding or collaborative exploration.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:33:15.300770",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 17211,
+    "fewShotExamples": "yes"
+  }
+}

@@ -409,7 +409,9 @@ async def main():
     args = parser.parse_args()
     
     # Load .env explicitly if allowed
-    env_path = Path(__file__).parent.parent / ".env"
+    # __file__ = scripts/atlas/pipeline/classify_task_first.py
+    # parents[0] = pipeline, [1] = atlas, [2] = scripts, [3] = root
+    env_path = Path(__file__).resolve().parents[3] / ".env"
     load_dotenv(dotenv_path=env_path)
     
     api_key = os.getenv("OPENAI_API_KEY")

@@ -1,0 +1,131 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0079_48d8274471b6",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this a",
+      "id": "conv_mentalhealth_0079_48d8274471b6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 223,
+      "content_preview": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I ca",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0079_48d8274471b6_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.72,
+      "content": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this anxierty and depression?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1496,
+      "content_preview": "Wanting to make changes and asking for assistance is the first step. Overcoming anxiety and depression is not an easy fe",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0079_48d8274471b6_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "Wanting to make changes and asking for assistance is the first step. Overcoming anxiety and depression is not an easy feat to do on your own, especially if it's been something you have been battling for years.\u00a0 There are some different routes you may go down in order to start the healing process:Therapy - find a therapist who has a lot of experience with anxiety and depression. You can do this by googling \"anxiety depression therapist \" in your city.\u00a0 CounselChat also has a directory of amazing therapists, as does Psychology TodayMedication - Depending on what other symptoms you may be struggling with depends on what medication you will be prescribed. Be 100% honest with the doctor and ask about different side effects or potential risks associated with the medication. You more than likely will be prescribed an SSRI.Therapy & Medication - The outcomes are very good for those who decide to do both. Medication can help level out out your mood and therapy can help you process through your emotions and keep you accountable for you goals , as you will be seeing your therapist more often than your psychiatristTherapy & Homeopathy - Homeopathy could potentially be a good tool to use alongside with therapy in case you are not interested in going down the medication route.\u00a0Arsenicum album is most commonly given to those who struggle with anxiety and depression.The choice is yours. My recommendation is to start with therapy and explore your options more in depth with your therapist."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Wanting to make changes and asking for assistance is the first step. Overcoming...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0079_48d8274471b6_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0079_48d8274471b6_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_mentalhealth_0079_48d8274471b6_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0079_48d8274471b6",
+      "target": "t_mentalhealth_0079_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0079_48d8274471b6",
+      "target": "t_mentalhealth_0079_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0079_48d8274471b6_0",
+      "target": "t_mentalhealth_0079_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0079_48d8274471b6_0",
+      "target": "mode_mentalhealth_0079_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0079_48d8274471b6_1",
+      "target": "m_mentalhealth_0079_48d8274471b6_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0079_48d8274471b6_1",
+      "target": "mode_mentalhealth_0079_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0079_48d8274471b6_1",
+      "target": "v_mentalhealth_0079_48d8274471b6_0",
+      "key": 0
+    }
+  ]
+}

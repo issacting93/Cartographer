@@ -10,9 +10,9 @@
       "domain": "general",
       "total_turns": 16,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Find a web-based file explorer for Windows that can access shared folders.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Find a web-based file explorer that can access existing Windows files and shared folders.",
       "id": "conv_wildchat_new_0d141813b43c4f7b"
     },
     {
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 1120,
       "content_preview": "There are several options for web-based frontends for WebDAV you could consider: 1. Nextcloud - Nextcloud is an open-so",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0d141813b43c4f7b_11"
     },
@@ -214,7 +214,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Must have a web interface] The response suggests FreeCommander, whi",
+      "text_span": "[violates: Must have a web interface] The response suggests using FreeCommande",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -294,12 +294,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "There are several options for web-based frontends for WebDAV you could consider:...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Must support Windows authentication (AD/SAM)] The response does not mention support fo",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0d141813b43c4f7b_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Must open existing Windows files] The response does not confirm that the o",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0d141813b43c4f7b_11_1"
     },
     {
       "node_type": "Move",
@@ -971,6 +980,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_0d141813b43c4f7b_11",
       "target": "m_wildchat_new_0d141813b43c4f7b_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0d141813b43c4f7b_11",
+      "target": "m_wildchat_new_0d141813b43c4f7b_11_1",
       "key": 0
     },
     {

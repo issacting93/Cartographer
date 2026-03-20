@@ -1,0 +1,293 @@
+{
+  "id": "wildchat_new_c3c0004bca6ea3d7",
+  "source": "WildChat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "@RequiresApi(Build.VERSION_CODES.O)\n@Composable\nfun ExpensesGraph(paddingValues: PaddingValues) {\n    val db = FirebaseFirestore.getInstance()\n\n    // Define your timeframes\n    val timeFrames = listOf(\"Daily\", \"Weekly\", \"Monthly\", \"Yearly\")\n    val selectedIndex = remember { mutableStateOf(0) }\n\n    // Fetch and process the expenses data\n    val chartEntries = remember { mutableStateOf(entriesOf(*arrayOf<Float>())) }\n    var chartModelProducer = ChartEntryModelProducer(chartEntries.value)\n\n    var xAxisLabels = remember {\n        mutableStateOf(listOf(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"))\n    }\n\n    var bottomAxisValueFormatter =\n        AxisValueFormatter<AxisPosition.Horizontal.Bottom> { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n\n    val expensesMap = mutableMapOf<String, Float>().apply {\n        xAxisLabels.value.forEach { put(it, 0f) }\n    }\n\n    fun fetchExpensesData(timeFrame: String) {\n        val startCalendar = Calendar.getInstance()\n        val endCalendar = Calendar.getInstance()\n        var dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n        when (timeFrame) {\n            \"Daily\" -> {\n                // Daily: Showing 7 days in a week\n                startCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek + 1)\n                startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                startCalendar.set(Calendar.MINUTE, 0)\n                startCalendar.set(Calendar.SECOND, 0)\n                startCalendar.set(Calendar.MILLISECOND, 0)\n                endCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek)\n                endCalendar.add(Calendar.DATE, 6)\n                endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                endCalendar.set(Calendar.MINUTE, 0)\n                endCalendar.set(Calendar.SECOND, 0)\n                endCalendar.set(Calendar.MILLISECOND, 0)\n                dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n                val c = Calendar.getInstance()\n                c.time = startCalendar.time\n                while (c.timeInMillis < endCalendar.timeInMillis) {\n                    val date = dateFormat.format(c.time)\n                    expensesMap[date] = 0f\n                    c.add(Calendar.DATE, 1)\n                }\n\n                xAxisLabels.value = listOf(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\")\n                bottomAxisValueFormatter =\n                    AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n            }\n\n            \"Weekly\" -> {\n                // Weekly: Showing 4 weeks in a month\n                startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                startCalendar.set(Calendar.MINUTE, 0)\n                startCalendar.set(Calendar.SECOND, 0)\n                startCalendar.set(Calendar.MILLISECOND, 0)\n                endCalendar.set(\n                    Calendar.DAY_OF_MONTH,\n                    startCalendar.getActualMaximum(Calendar.DAY_OF_MONTH),\n                )\n                endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                endCalendar.set(Calendar.MINUTE, 0)\n                endCalendar.set(Calendar.SECOND, 0)\n                endCalendar.set(Calendar.MILLISECOND, 0)\n                dateFormat = SimpleDateFormat(\"W_MMM_yyyy\", Locale.getDefault())\n\n                xAxisLabels.value = (1..4).map { \"Week $it\" }\n                println(xAxisLabels.value)\n                bottomAxisValueFormatter =\n                    AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n            }\n\n            \"Monthly\" -> {\n                // Monthly: Showing 12 months in a year\n                startCalendar.set(Calendar.MONTH, 0)\n                startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                startCalendar.set(Calendar.MINUTE, 0)\n                startCalendar.set(Calendar.SECOND, 0)\n                startCalendar.set(Calendar.MILLISECOND, 0)\n                endCalendar.set(Calendar.MONTH, 11)\n                endCalendar.set(\n                    Calendar.DAY_OF_MONTH,\n                    endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)\n                )\n                endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                endCalendar.set(Calendar.MINUTE, 0)\n                endCalendar.set(Calendar.SECOND, 0)\n                endCalendar.set(Calendar.MILLISECOND, 0)\n                dateFormat = SimpleDateFormat(\"MMM_yyyy\", Locale.getDefault())\n\n                xAxisLabels.value = listOf(\n                    \"Jan\",\n                    \"Feb\",\n                    \"Mar\",\n                    \"Apr\",\n                    \"May\",\n                    \"June\",\n                    \"July\",\n                    \"Aug\",\n                    \"Sep\",\n                    \"Oct\",\n                    \"Nov\",\n                    \"Dec\"\n                )\n                bottomAxisValueFormatter =\n                    AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n            }\n\n            \"Yearly\" -> {\n                startCalendar.set(Calendar.MONTH, 0)\n                startCalendar.set(Calendar.DAY_OF_MONTH, -1)\n                startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                startCalendar.set(Calendar.MINUTE, 0)\n                startCalendar.set(Calendar.SECOND, 0)\n                startCalendar.set(Calendar.MILLISECOND, 0)\n                endCalendar.set(Calendar.MONTH, 11)\n                endCalendar.set(Calendar.DAY_OF_MONTH, 31)\n                endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                endCalendar.set(Calendar.MINUTE, 0)\n                endCalendar.set(Calendar.SECOND, 0)\n                endCalendar.set(Calendar.MILLISECOND, 0)\n                dateFormat = SimpleDateFormat(\"yyyy\", Locale.getDefault())\n            }\n\n            else -> {\n                throw IllegalArgumentException(\"Unsupported time frame: $timeFrame\")\n            }\n        }\n\n        val expensesMap = mutableMapOf<String, Float>().apply {\n            xAxisLabels.value.forEach { put(it, 0f) }\n        }\n\n        val query = db.collection(\"expenses\")\n            .document(\"Kantin\")\n            .collection(timeFrame.lowercase())\n\n        query.get().addOnSuccessListener { result ->\n            val expenses = mutableListOf<Pair<Float, Date>>()\n            for (document in result) {\n                val total = document.getDouble(\"total\")?.toFloat() ?: 0f\n                val date = dateFormat.parse(document.id) ?: Date()\n                expenses.add(total to date)\n            }\n\n            expenses.groupBy({ dateFormat.format(it.second) }, { it.first }).forEach { date, values ->\n                values.sum().let { expenseSum ->\n                    expensesMap[date] = expensesMap.getOrDefault(date, 0f) + expenseSum\n                }\n            }\n\n            for (expense in expenses) {\n                val dateFormatted = dateFormat.format(expense.second)\n                expensesMap[dateFormatted] = expense.first\n            }\n\n            chartEntries.value =\n                entriesOf(*expensesMap.entries.mapIndexed { index, (_, expense) -> index.toFloat() to expense }\n                    .toTypedArray())\n        }\n    }\n\n        LaunchedEffect(Unit) {\n            fetchExpensesData(timeFrames[0])\n        }\n\n    Column(modifier = Modifier.padding(paddingValues)) {\n        timeFrames.forEachIndexed { index, timeFrame ->\n            Button(\n                onClick = {\n                    selectedIndex.value = index\n                    fetchExpensesData(timeFrame)\n                },\n                colors = ButtonDefaults.buttonColors(\n                    containerColor = if (selectedIndex.value == index) DarkGray else LightGray\n                )\n            ) {\n                Text(timeFrame)\n            }\n        }\n        val AXIS_VALUE_OVERRIDER_Y_FRACTION = 1.2f\n        val axisValueOverrider =\n            AxisValuesOverrider.adaptiveYValues(\n                yFraction = AXIS_VALUE_OVERRIDER_Y_FRACTION,\n                round = true\n            )\n\n        ProvideChartStyle(chartStyle = m3ChartStyle()) {\n            Chart(\n                chart = columnChart(\n                    axisValuesOverrider = axisValueOverrider\n                ),\n                chartModelProducer = chartModelProducer,\n                startAxis = startAxis(),\n                bottomAxis = bottomAxis(\n                    valueFormatter = bottomAxisValueFormatter\n                ),\n                marker = rememberMarker()\n            )\n        }\n    }\n}\n\nit is still showing two weeks for the daily graph and 6 weeks for the weekly graph, maybe there is something wrong with the query?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Based on previous discussions, I can make some assumptions about what you want to fix in your code. First, you want to display 7 days of data in the \"Daily\" graph and 4 weeks of data in the \"Weekly\" graph. Your current code doesn't seem to limit the number of days or weeks in the graph to meet these requirements.\n\nLet's analyze the code and make the necessary changes. I will provide solutions for both \"Daily\" and \"Weekly\" graphs.\n\n1. In `fetchExpensesData`, after you set the start and end calendar for each time frame, you need to use these calendars in your Firestore query to fetch only the relevant data.\n\nHere's how to modify your `\"Daily\"` and `\"Weekly\"` cases to fetch the data between start and end dates:\n\n```kotlin\nwhen (timeFrame) {\n    \"Daily\" -> {\n        // Daily: Showing 7 days in a week\n        ...\n        \n        // Add this at the end of the \"Daily\" case\n        query = query.whereGreaterThanOrEqualTo(\"date\", startCalendar.time)\n            .whereLessThanOrEqualTo(\"date\", endCalendar.time)\n        ...\n    }\n\n    \"Weekly\" -> {\n        // Weekly: Showing 4 weeks in a month\n        ...\n        \n        // Add this at the end of the \"Weekly\" case\n        query = query.whereGreaterThanOrEqualTo(\"date\", startCalendar.time)\n            .whereLessThanOrEqualTo(\"date\", endCalendar.time)\n        ...\n    }\n    ...\n}\n```\n\nReplace `\"date\"` with the appropriate field name in your Firestore documents that stores the date.\n\nNow, the query will only fetch the relevant data between the start and end dates for each time frame.\n\n2. Make sure the xAxisLabels are correct for the time frame you're fetching.\n\nIn the `\"Daily\"` and `\"Weekly\"` cases, you're currently using the day of the week and week number as xAxisLabels, respectively. You should update the xAxisLabels according to the specific date you're showing on the graph.\n\nFor example, let's update the xAxisLabels for the `\"Daily\"` graph to display specific dates within the 7 days. Replace the line that updates `xAxisLabels.value` in the `\"Daily\"` case with the following code:\n\n```kotlin\nval c = Calendar.getInstance()\nc.time = startCalendar.time\nxAxisLabels.value = mutableListOf<String>()\nwhile (c.timeInMillis < endCalendar.timeInMillis) {\n    xAxisLabels.value.add(dateFormat.format(c.time))\n    c.add(Calendar.DATE, 1)\n}\n```\n\nThis will update the xAxisLabels to show specific dates for 7 days (like \"Mon_21_Sep_2021\").\n\nYou can do a similar update for the xAxisLabels in the `\"Weekly\"` case. However, it might be better to display the week number on the xAxisLabels, as you're already doing. You can even improve it by adding the month name to each week, like \"Week 1 Sep\" or \"Week 2 Sep\".\n\nThese changes should help you display 7 days for the \"Daily\" graph and 4 weeks for the \"Weekly\" graph. Please let me know if you have any questions or need further assistance.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "user",
+      "content": "I use the documents name to store the date, for example Saturday_22_Apr_2023",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "In that case, you should modify the queries in the \"Daily\" and \"Weekly\" cases to use the proper field name, which in this case is \"id\" (since you're using the document name to store the date). You can achieve this by creating a range query on document IDs, which unfortunately is not directly supported in Firestore. However, you can use a workaround using a combination of `startAt()` and `endAt()` query functions:\n\nTo create this range query, you can modify the end of the \"Daily\" and \"Weekly\" cases like this:\n\n```kotlin\nwhen (timeFrame) {\n    \"Daily\" -> {\n        // Daily: Showing 7 days in a week\n        ...\n\n        // Add this at the end of the \"Daily\" case\n        val startDocId = dateFormat.format(startCalendar.time)\n        val endDocId = dateFormat.format(endCalendar.time)\n        query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n        ...\n    }\n\n    \"Weekly\" -> {\n        // Weekly: Showing 4 weeks in a month\n        ...\n\n        // Add this at the end of the \"Weekly\" case\n        val startDocId = dateFormat.format(startCalendar.time)\n        val endDocId = dateFormat.format(endCalendar.time)\n        query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n        ...\n    }\n    ...\n}\n```\n\nThis will order the documents by their document IDs and fetch only the relevant documents in the specified range based on the start and end document IDs.\n\nOne thing to note with this approach is that the document IDs should be ordered lexicographically. Since you're creating your document IDs in the format \"Saturday_22_Apr_2023\", it looks like this assumption holds. However, I would suggest using a more standard date format like \"yyyy_MM_dd\" for the document IDs, so ordering them lexicographically gives you the correct date order.\n\nThis should help you fetch the relevant data between the start and end dates for each time frame based on the document IDs.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "Smart cast to 'MutableList<String>' is impossible, because 'xAxisLabels.value' is a complex expression",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "My apologies for the confusion. You're right; directly assigning a new instance to `xAxisLabels.value` using a complex expression might not work. Instead, you can create a new list first, populate it, and then assign it to `xAxisLabels.value`.\n\nReplace the code that updates `xAxisLabels.value` in the \"Daily\" case with the following:\n\n```kotlin\nval c = Calendar.getInstance()\nc.time = startCalendar.time\nval newLabels = mutableListOf<String>()\nwhile (c.timeInMillis < endCalendar.timeInMillis) {\n    newLabels.add(dateFormat.format(c.time))\n    c.add(Calendar.DATE, 1)\n}\nxAxisLabels.value = newLabels\n```\n\nThis code first creates a new list called `newLabels`, populates it with the specific dates within the 7 days, and then assigns `newLabels` to `xAxisLabels.value`.\n\nSimilarly, if you want to update the xAxisLabels for the \"Weekly\" graph, you can follow the same approach with a new list, populate it accordingly, and then assign it to `xAxisLabels.value`.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "now it is showing 10 days for the daily graph and sunday is missing",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "It seems like the number of days shown in the \"Daily\" graph is not correct. Let's fix the issue by making sure the start and end calendar values are correct and that the xAxisLabels are also being updated correctly.\n\nTo fix the issue with the \"Daily\" graph, first, update the start and end calendar values in the \"Daily\" case to fix their week starting and ending days. Here's the updated code:\n\n```kotlin\n\"Daily\" -> {\n    // Daily: Showing 7 days in a week\n    startCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek)\n    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n    startCalendar.set(Calendar.MINUTE, 0)\n    startCalendar.set(Calendar.SECOND, 0)\n    startCalendar.set(Calendar.MILLISECOND, 0)\n\n    endCalendar.time = startCalendar.time\n    endCalendar.add(Calendar.DATE, 6)\n    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n    endCalendar.set(Calendar.MINUTE, 0)\n    endCalendar.set(Calendar.SECOND, 0)\n    endCalendar.set(Calendar.MILLISECOND, 0)\n\n    ...\n```\n\nNow, update the code that sets xAxisLabels for the \"Daily\" graph to make sure it updates with the correct values:\n\n```kotlin\nval c = Calendar.getInstance()\nc.time = startCalendar.time\nval newLabels = mutableListOf<String>()\nwhile (c.timeInMillis <= endCalendar.timeInMillis) {\n    newLabels.add(dateFormat.format(c.time))\n    c.add(Calendar.DATE, 1)\n}\nxAxisLabels.value = newLabels\n```\n\nNote the change in the while loop condition from `<` to `<=`. This will ensure that the loop iterates for all 7 days, including Sunday.\n\nWith these changes, the \"Daily\" graph should now show 7 days, including Sunday. Remember to apply necessary changes for the \"Weekly\" graph as well if required. Let me know if there are any other issues or further assistance is needed.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "fun fetchExpensesData(timeFrame: String) {\n        val startCalendar = Calendar.getInstance()\n        val endCalendar = Calendar.getInstance()\n        var dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n        val query = db.collection(\"expenses\")\n            .document(\"Kantin\")\n            .collection(timeFrame.lowercase())\n\n        query.get().addOnSuccessListener { result ->\n            val expenses = mutableListOf<Pair<Float, Date>>()\n            for (document in result) {\n                val total = document.getDouble(\"total\")?.toFloat() ?: 0f\n                val date = dateFormat.parse(document.id) ?: Date()\n                expenses.add(total to date)\n            }\n\n            when (timeFrame) {\n                \"Daily\" -> {\n                    // Daily: Showing 7 days in a week\n                    startCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n\n//                    endCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek + 2)\n                    endCalendar.add(Calendar.DATE, 6)\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n                    \n                    val c = Calendar.getInstance()\n                    c.time = startCalendar.time\n                    val newLabels = mutableListOf<String>()\n                    println(c.timeInMillis)\n                    println(endCalendar.timeInMillis)\n                    while (c.timeInMillis <= endCalendar.timeInMillis) {\n                        newLabels.add(dateFormat.format(c.time))\n                        c.add(Calendar.DATE, 1)\n                    }\n                    xAxisLabels.value = newLabels\n\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n\n                    println(\"1\" + startCalendar.time)\n                    println(\"2\" + endCalendar.time)\n                    val startDocId = dateFormat.format(startCalendar.time)\n                    val endDocId = dateFormat.format(endCalendar.time)\n                    query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n                }\n\n                \"Weekly\" -> {\n                    // Weekly: Showing 4 weeks in a month\n                    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(\n                        Calendar.DAY_OF_MONTH,\n                        startCalendar.getActualMaximum(Calendar.DAY_OF_MONTH),\n                    )\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"W_MMM_yyyy\", Locale.getDefault())\n\n                    xAxisLabels.value = (1..4).map { \"Week $it\" }\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n                }\n\n                \"Monthly\" -> {\n                    // Monthly: Showing 12 months in a year\n                    startCalendar.set(Calendar.MONTH, 0)\n                    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(Calendar.MONTH, 11)\n                    endCalendar.set(\n                        Calendar.DAY_OF_MONTH,\n                        endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)\n                    )\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"MMM_yyyy\", Locale.getDefault())\n\n                    xAxisLabels.value = listOf(\n                        \"Jan\",\n                        \"Feb\",\n                        \"Mar\",\n                        \"Apr\",\n                        \"May\",\n                        \"June\",\n                        \"July\",\n                        \"Aug\",\n                        \"Sep\",\n                        \"Oct\",\n                        \"Nov\",\n                        \"Dec\"\n                    )\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n                }\n\n                \"Yearly\" -> {\n                    startCalendar.set(Calendar.MONTH, 0)\n                    startCalendar.set(Calendar.DAY_OF_MONTH, -1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(Calendar.MONTH, 11)\n                    endCalendar.set(Calendar.DAY_OF_MONTH, 31)\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"yyyy\", Locale.getDefault())\n                }\n\n                else -> {\n                    throw IllegalArgumentException(\"Unsupported time frame: $timeFrame\")\n                }\n            }\n\n            val expensesMap = mutableMapOf<String, Float>().apply {\n                xAxisLabels.value.forEach { put(it, 0f) }\n            }\n\n            expenses.groupBy({ dateFormat.format(it.second) }, { it.first })\n                .forEach { date, values ->\n                    values.sum().let { expenseSum ->\n                        expensesMap[date] = expensesMap.getOrDefault(date, 0f) + expenseSum\n                    }\n                }\n\n            for (expense in expenses) {\n                val dateFormatted = dateFormat.format(expense.second)\n                expensesMap[dateFormatted] = expense.first\n            }\n\n            chartEntries.value =\n                entriesOf(*expensesMap.entries.mapIndexed { index, (_, expense) -> index.toFloat() to expense }\n                    .toTypedArray())\n        }\n    }\n\nwhy do you think the date is March 14 and May 15, I want it to only show 7 days in the current week, weeks in current month, months in the  current year",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Apologies for the confusion earlier. It appears that the logic to filter documents based on the date was placed inside the query's `addOnSuccessListener` block. Instead, this logic should be moved outside the block to correctly build the query before fetching the data from Firestore.\n\nWorking within your current code setup, you can update the `fetchExpensesData` function as follows:\n\n```kotlin\nfun fetchExpensesData(timeFrame: String) {\n    val startCalendar = Calendar.getInstance()\n    val endCalendar = Calendar.getInstance()\n    var dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n    when (timeFrame) {\n        \"Daily\" -> {\n            // Daily: Showing 7 days in a week\n            ...\n            // Move the query building logic related to start and end documents here\n            val startDocId = dateFormat.format(startCalendar.time)\n            val endDocId = dateFormat.format(endCalendar.time)\n            query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n        }\n\n        \"Weekly\" -> {\n            // Weekly: Showing 4 weeks in a month\n            ...\n            // Move the query building logic related to start and end documents here\n            val startDocId = dateFormat.format(startCalendar.time)\n            val endDocId = dateFormat.format(endCalendar.time)\n            query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n        }\n\n        \"Monthly\" -> {\n            // Monthly: Showing 12 months in a year\n            ...\n        }\n\n        \"Yearly\" -> {\n            ...\n        }\n\n        else -> {\n            throw IllegalArgumentException(\"Unsupported time frame: $timeFrame\")\n        }\n    }\n\n    val query = db.collection(\"expenses\")\n        .document(\"Kantin\")\n        .collection(timeFrame.lowercase())\n\n    query.get().addOnSuccessListener { result ->\n        ...\n    }\n}\n```\n\nThis change will ensure that the proper filtering of the documents based on the start and end dates is done before fetching the data.\n\nAdditionally, make sure you apply any other changes previously discussed, such as updating the `\"Daily\"` case to show the correct 7-day range and xAxisLabels, and any other relevant changes.\n\nWith these changes, the \"Daily\", \"Weekly\", \"Monthly\", and \"Yearly\" graphs should now display the correct data as expected. Let me know if there are any other issues or if you need further assistance.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "fun fetchExpensesData(timeFrame: String) {\n        val startCalendar = Calendar.getInstance()\n        val endCalendar = Calendar.getInstance()\n        var dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n        startCalendar.firstDayOfWeek = Calendar.MONDAY\n        endCalendar.firstDayOfWeek = Calendar.MONDAY\n\n        val query = db.collection(\"expenses\")\n            .document(\"Kantin\")\n            .collection(timeFrame.lowercase())\n\n        query.get().addOnSuccessListener { result ->\n            val expenses = mutableListOf<Pair<Float, Date>>()\n            for (document in result) {\n                val total = document.getDouble(\"total\")?.toFloat() ?: 0f\n                val date = dateFormat.parse(document.id) ?: Date()\n                if (date.time >= startCalendar.timeInMillis && date.time <= endCalendar.timeInMillis) {\n                    expenses.add(total to date)\n                }\n            }\n\n            when (timeFrame) {\n                \"Daily\" -> {\n                    // Daily: Showing 7 days in a week\n                    startCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n\n//                    endCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek + 2)\n                    endCalendar.set(Calendar.DAY_OF_WEEK, startCalendar.firstDayOfWeek + 6)\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 23)\n                    endCalendar.set(Calendar.MINUTE, 59)\n                    endCalendar.set(Calendar.SECOND, 59)\n                    endCalendar.set(Calendar.MILLISECOND, 999)\n                    dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n                    val c = Calendar.getInstance()\n                    c.time = startCalendar.time\n                    val newLabels = mutableListOf<String>()\n                    println(c.timeInMillis)\n                    println(endCalendar.timeInMillis)\n                    while (c.timeInMillis <= endCalendar.timeInMillis) {\n                        newLabels.add(dateFormat.format(c.time))\n                        c.add(Calendar.DATE, 1)\n                    }\n                    xAxisLabels.value = newLabels\n\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n\n                    println(\"1\" + startCalendar.time)\n                    println(\"2\" + endCalendar.time)\n                    val startDocId = dateFormat.format(startCalendar.time)\n                    val endDocId = dateFormat.format(endCalendar.time)\n                    query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n                }\n\n                \"Weekly\" -> {\n                    // Weekly: Showing 4 weeks in a month\n                    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(\n                        Calendar.DAY_OF_MONTH,\n                        startCalendar.getActualMaximum(Calendar.DAY_OF_MONTH),\n                    )\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"W_MMM_yyyy\", Locale.getDefault())\n\n                    xAxisLabels.value = (1..4).map { \"Week $it\" }\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n                }\n\n                \"Monthly\" -> {\n                    // Monthly: Showing 12 months in a year\n                    startCalendar.set(Calendar.MONTH, 0)\n                    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(Calendar.MONTH, 11)\n                    endCalendar.set(\n                        Calendar.DAY_OF_MONTH,\n                        endCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)\n                    )\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"MMM_yyyy\", Locale.getDefault())\n\n                    xAxisLabels.value = listOf(\n                        \"Jan\",\n                        \"Feb\",\n                        \"Mar\",\n                        \"Apr\",\n                        \"May\",\n                        \"June\",\n                        \"July\",\n                        \"Aug\",\n                        \"Sep\",\n                        \"Oct\",\n                        \"Nov\",\n                        \"Dec\"\n                    )\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n                }\n\n                \"Yearly\" -> {\n                    startCalendar.set(Calendar.MONTH, 0)\n                    startCalendar.set(Calendar.DAY_OF_MONTH, -1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(Calendar.MONTH, 11)\n                    endCalendar.set(Calendar.DAY_OF_MONTH, 31)\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"yyyy\", Locale.getDefault())\n                }\n\n                else -> {\n                    throw IllegalArgumentException(\"Unsupported time frame: $timeFrame\")\n                }\n            }\n\n            val expensesMap = mutableMapOf<String, Float>().apply {\n                xAxisLabels.value.forEach { put(it, 0f) }\n            }\n\n            expenses.groupBy({ dateFormat.format(it.second) }, { it.first })\n                .forEach { date, values ->\n                    values.sum().let { expenseSum ->\n                        expensesMap[date] = expensesMap.getOrDefault(date, 0f) + expenseSum\n                    }\n                }\n\n            for (expense in expenses) {\n                val dateFormatted = dateFormat.format(expense.second)\n                expensesMap[dateFormatted] = expense.first\n            }\n\n            chartEntries.value =\n                entriesOf(*expensesMap.entries.mapIndexed { index, (_, expense) -> index.toFloat() to expense }\n                    .toTypedArray())\n        }\n    }\n\nthis code will correctly shows Monday to Sunday in the daily timeframe graph but it will not add any data into the graph",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I see that you moved the logic to calculate startCalendar and endCalendar values inside the `addOnSuccessListener` block. Instead, the logic should be placed outside the block, before fetching the data from Firestore, which I recommended in one of my previous responses.\n\nThe issue with the data not showing in the graph is the filtering logic that you added inside the `addOnSuccessListener` block. Instead of manually filtering the data inside the block, we should build the query before fetching the data. The filtering will then automatically happen on the server-side.\n\nHere's the updated `fetchExpensesData` function with the correct logic in place:\n\n```kotlin\nfun fetchExpensesData(timeFrame: String) {\n    val startCalendar = Calendar.getInstance()\n    val endCalendar = Calendar.getInstance()\n    startCalendar.firstDayOfWeek = Calendar.MONDAY\n    endCalendar.firstDayOfWeek = Calendar.MONDAY\n    var dateFormat = SimpleDateFormat(\"EEEE_dd_MMM_yyyy\", Locale.getDefault())\n\n    when (timeFrame) {\n        \"Daily\" -> {\n            // Daily: Showing 7 days in a week\n            ...\n            val startDocId = dateFormat.format(startCalendar.time)\n            val endDocId = dateFormat.format(endCalendar.time)\n            query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n        }\n        ...\n    }\n\n    val query = db.collection(\"expenses\")\n        .document(\"Kantin\")\n        .collection(timeFrame.lowercase())\n\n    query.get().addOnSuccessListener { result ->\n        ...\n    }\n}\n```\n\nMake sure the `\"Daily\"` case logic for setting startCalendar and endCalendar values is correct, as shown in one of my previous responses. This way, the filtering based on the start and end dates for each time frame will be done automatically by Firestore, and you don't need to do manual filtering inside the `addOnSuccessListener` block.\n\nWith this change, your daily graph should show the correct 7-day range with data for each day displayed properly. Let me know if you have any issues or require further assistance.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "the daily is perfect now, how to fix the weekly timeframe it is still showing 6 weeks\n\n  \"Weekly\" -> {\n                    // Weekly: Showing 4 weeks in a month\n                    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n                    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    startCalendar.set(Calendar.MINUTE, 0)\n                    startCalendar.set(Calendar.SECOND, 0)\n                    startCalendar.set(Calendar.MILLISECOND, 0)\n                    endCalendar.set(\n                        Calendar.DAY_OF_MONTH,\n                        startCalendar.getActualMaximum(Calendar.DAY_OF_MONTH),\n                    )\n                    endCalendar.set(Calendar.HOUR_OF_DAY, 0)\n                    endCalendar.set(Calendar.MINUTE, 0)\n                    endCalendar.set(Calendar.SECOND, 0)\n                    endCalendar.set(Calendar.MILLISECOND, 0)\n                    dateFormat = SimpleDateFormat(\"W_MMM_yyyy\", Locale.getDefault())\n\n                    xAxisLabels.value = (1..4).map { \"Week $it\" }\n                    bottomAxisValueFormatter =\n                        AxisValueFormatter { x, _ -> xAxisLabels.value[x.toInt() % xAxisLabels.value.size] }\n\n                    val startDocId = dateFormat.format(startCalendar.time)\n                    val endDocId = dateFormat.format(endCalendar.time)\n                    query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n                }",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm glad the daily graph works as expected. To fix the \"Weekly\" timeframe, we need to adjust some logic inside the \"Weekly\" case.\n\nFirst, update the start and end calendar values in the \"Weekly\" case to match the start and end weeks of the current month. You can compute the start and end of the weeks by getting the first week of the month and adding three weeks to it.\n\nHere's the updated code inside the \"Weekly\" case for setting the start and end calendar values:\n\n```kotlin\n\"Weekly\" -> {\n    // Weekly: Showing 4 weeks in a month\n    startCalendar.set(Calendar.DAY_OF_MONTH, 1)\n    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n    startCalendar.set(Calendar.MINUTE, 0)\n    startCalendar.set(Calendar.SECOND, 0)\n    startCalendar.set(Calendar.MILLISECOND, 0)\n\n    // Move to the first day of the week\n    while (startCalendar.get(Calendar.DAY_OF_WEEK) != startCalendar.firstDayOfWeek) {\n        startCalendar.add(Calendar.DATE, -1)\n    }\n\n    endCalendar.time = startCalendar.time\n    endCalendar.add(Calendar.DATE, 3 * 7) // Move to the end of the fourth week\n    endCalendar.set(Calendar.HOUR_OF_DAY, 23)\n    endCalendar.set(Calendar.MINUTE, 59)\n    endCalendar.set(Calendar.SECOND, 59)\n    endCalendar.set(Calendar.MILLISECOND, 999)\n    \n    dateFormat = SimpleDateFormat(\"W_MMM_yyyy\", Locale.getDefault())\n\n    val startDocId = dateFormat.format(startCalendar.time)\n    val endDocId = dateFormat.format(endCalendar.time)\n    query = query.orderBy(FieldPath.documentId()).startAt(startDocId).endAt(endDocId)\n\n    ...\n}\n```\n\nThis will compute the correct start and end calendar values for the \"Weekly\" timeframe at the beginning of the fourth week.\n\nAlso, make sure you update the logic to create xAxisLabels for the \"Weekly\" graph if necessary to reflect the correct labels for the four weeks.\n\nWith these changes, your weekly graph should now show only the four weeks of the current month. Let me know if there are any other issues or if you need further assistance.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "I want to design my weekly timeframe as such, so for example April 2023 has 6 weeks, I want each month to only have 4 weeks, each week has to be clean so Monday to Sunday",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Understood, you want to display the first 4 weeks of each month in the weekly timeframe. \n\nTo implement this, use the startCalendar to point to the first weekday of the first week of the month, then update the endCalendar to point to the last weekday of the fourth week of that month. Here's how to update the \"Weekly\" case:\n\n```kotlin\n\"Weekly\" -> {\n    // Weekly: Showing 4 weeks in a month\n    startCalendar.set(Calendar.DAY_OF_MONTH, 1) // Set to the first day of the month\n    while (startCalendar.get(Calendar.DAY_OF_WEEK) != startCalendar.firstDayOfWeek) {\n        startCalendar.add(Calendar.DATE, -1) // Move backward until reaching the first day of the week\n    }\n    startCalendar.set(Calendar.HOUR_OF_DAY, 0)\n    startCalendar.set(Calendar.MINUTE, 0)\n    startCalendar.set(Calendar.SECOND, 0)\n    startCalendar.set(Calendar.MILLISECOND, 0)\n\n    endCalendar.time = startCalendar.time\n    endCalendar.add(Calendar.DATE, 4 * 7 - 1) // Move forward 4 weeks (minus 1 day to include the start day)\n    endCalendar.set(Calendar.HOUR_OF_DAY, 23)\n    end",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "collaborative",
+      "confidence": 0.8,
+      "evidence": [
+        "Let's analyze the code and make the necessary changes.",
+        "I want to design my weekly timeframe as such"
+      ],
+      "rationale": "The conversation involves joint problem-solving and code refinement.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "I want to design my weekly timeframe as such",
+        "Let's analyze the code and make the necessary changes."
+      ],
+      "rationale": "Both parties contribute to the direction of the conversation.",
+      "alternative": "alternating"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.9,
+      "evidence": [
+        "Let's analyze the code and make the necessary changes.",
+        "To implement this, use the startCalendar"
+      ],
+      "rationale": "The conversation is task-focused and formal.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.8,
+      "evidence": [
+        "Here's how to modify your 'Daily' and 'Weekly' cases",
+        "To implement this, use the startCalendar"
+      ],
+      "rationale": "The AI provides iterative commands to refine the code.",
+      "alternative": "exploring"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "Here's how to modify your 'Daily' and 'Weekly' cases",
+        "To implement this, use the startCalendar"
+      ],
+      "rationale": "The conversation involves sharing coding techniques and methods.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.9,
+      "evidence": [
+        "Let's analyze the code and make the necessary changes.",
+        "I want to design my weekly timeframe as such"
+      ],
+      "rationale": "The primary goal is to resolve coding issues.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "deep",
+      "confidence": 0.8,
+      "evidence": [
+        "Here's how to modify your 'Daily' and 'Weekly' cases",
+        "To implement this, use the startCalendar"
+      ],
+      "rationale": "The conversation involves detailed exploration of coding solutions.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "I want to design my weekly timeframe as such",
+        "To implement this, use the startCalendar"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.1,
+        "director": 0.2,
+        "collaborator": 0.4,
+        "social-expressor": 0.0,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "collaborator",
+          "quote": "I want to design my weekly timeframe as such"
+        }
+      ],
+      "rationale": "The human engages in collaborative problem-solving and provides direction.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.2,
+        "learning-facilitator": 0.1,
+        "advisor": 0.3,
+        "co-constructor": 0.3,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "co-constructor",
+          "quote": "Let's analyze the code and make the necessary changes."
+        }
+      ],
+      "rationale": "The AI provides advice and collaborates on code refinement.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T19:04:43.775088",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

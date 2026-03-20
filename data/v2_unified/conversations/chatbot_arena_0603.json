@@ -1,0 +1,175 @@
+{
+  "id": "chatbot_arena_0603",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "how are you",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "user",
+      "content": "who are you",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.52
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I am a virtual assistant. I assist people with their online businesses. I do tasks for my clients and post the work on Fiverr.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "who are you",
+        "I am a virtual assistant."
+      ],
+      "rationale": "The human asks questions and the AI provides answers, but the conversation is short.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.5,
+      "evidence": [
+        "who are you",
+        "I am a virtual assistant."
+      ],
+      "rationale": "The human initiates and directs the conversation with questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "hello",
+        "how are you"
+      ],
+      "rationale": "The conversation lacks emotional content, remaining factual and straightforward.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.6,
+      "evidence": [
+        "who are you",
+        "how are you"
+      ],
+      "rationale": "The human engages by asking questions to learn more about the AI.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a virtual assistant.",
+        "I assist people with their online businesses."
+      ],
+      "rationale": "The AI provides factual information about its role and functions.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.6,
+      "evidence": [
+        "who are you",
+        "I am a virtual assistant."
+      ],
+      "rationale": "The human seeks information about the AI's identity and role.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "I am a virtual assistant.",
+        "I assist people with their online businesses."
+      ],
+      "rationale": "The conversation remains at an introductory level with brief exchanges.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "hello",
+        "how are you",
+        "who are you",
+        "I am a virtual assistant."
+      ],
+      "rationale": "Both parties contribute equally to the conversation in terms of turns.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "who are you"
+        }
+      ],
+      "rationale": "The human primarily seeks information about the AI.",
+      "alternative": "relational-peer"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.3,
+        "relational-peer": 0.2
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am a virtual assistant."
+        }
+      ],
+      "rationale": "The AI provides factual information about its capabilities and role.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:39:08.072908",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

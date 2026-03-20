@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_0758",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello there",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Tell me a song ",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! How about \"Shape of You\" by Ed Sheeran? It's a popular song with a catchy beat.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me a song",
+        "How about \"Shape of You\" by Ed Sheeran?"
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a song"
+      ],
+      "rationale": "The human directs the conversation by asking a question.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello! How can I assist you today?",
+        "How about \"Shape of You\" by Ed Sheeran?"
+      ],
+      "rationale": "The tone is straightforward and lacks emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me a song"
+      ],
+      "rationale": "The human engages by asking a question.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "How about \"Shape of You\" by Ed Sheeran?"
+      ],
+      "rationale": "The AI provides factual information about a song.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me a song"
+      ],
+      "rationale": "The human seeks information about a song.",
+      "alternative": "entertainment"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Tell me a song",
+        "How about \"Shape of You\" by Ed Sheeran?"
+      ],
+      "rationale": "The conversation briefly touches on a song recommendation.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "hello there",
+        "Hello! How can I assist you today?",
+        "Tell me a song",
+        "How about \"Shape of You\" by Ed Sheeran?"
+      ],
+      "rationale": "The human and AI have an equal number of turns.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.3,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Tell me a song"
+        }
+      ],
+      "rationale": "The human primarily seeks information by asking a question.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "How about \"Shape of You\" by Ed Sheeran?"
+        }
+      ],
+      "rationale": "The AI provides a direct answer to the human's question.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:59:15.540418",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

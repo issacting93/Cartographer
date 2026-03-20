@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0138",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Could you add defensive programming to the previous function?"
+    },
+    {
+      "role": "assistant",
+      "content": "<div><div><p>Certainly! Here is an updated version of the program that includes defensive programming techniques:</p><pre><div><div>Copy code</div><div><code><span>class</span> <span>MyClass</span>:\n    <span>def</span> <span>__init__</span>(<span>self, a, b</span>):\n        self.a = a\n        self.b = b\n    \n    <span>def</span> <span>subtract</span>(<span>self</span>):\n        <span>if</span> self.a &lt; 0:\n            <span>return</span> <span>1</span> * (self.a + (self.a // <span>2</span>))\n        <span>else</span>:\n            <span>return</span> <span>1</span> * (self.a - (self.a // <span>2</span>))\n    \n    <span>def</span> <span>multiply</span>(<span>self</span>):\n        result = self.a * self.b\n        self.a = self.b = <span>0</span>\n        <span>return</span> result\n    \n    <span>def</span> <span>rmul</span>(<span>self</span>):\n        result = self.a * self.b\n        self.a = self.b = <span>0</span>\n        <span>return</span> result\n    \n    <span>def</span> <span>idiv</span>(<span>self</span>):\n        if self.a == <span>0</span>:\n            <span>return</span> <span>0</span>\n        result = (self.a * self.b) // self.b\n        self.a = self.b = <span>0</span>\n        <span>return</span> result\n    \n    <span>def</span> <span>truediv</span>(<span>self</span>):\n        if self.a == <span>0</span>:\n            <span>return</span> <span>"
+    },
+    {
+      "role": "user",
+      "content": "Could you write a generic C function for 'state machines' defined with a table/structure?"
+    },
+    {
+      "role": "assistant",
+      "content": "<div><div><p>Certainly! Here is an example of a generic C function for implementing state machines:</p><pre><div><div>Copy code</div><div><code><span>#<span>include</span> <span>&lt;stdlib.h&gt;</span></span>\n\n<span>#<span>define</span> MAX_STATE_COUNT 256</span>\n\n<span>typedef</span> <span>struct</span> <span>StateMachine</span> {\n    <span>char</span> state_table[MAX_STATE_COUNT][<span>2</span>];\n    <span>char</span> event_table[MAX_STATE_COUNT][<span>2</span>];\n    <span>int</span> current_state;\n    <span>int</span> next_state;\n} StateMachine;\n\n<span>void</span> <span>step_machine</span>(StateMachine *sm, <span>int</span> id) {\n    <span>if</span> (sm->state_table[sm->current_state][<span>0</span>] == id) {\n        sm->next_state = sm->state_table[sm->current_state][<span>1</span>];\n    } <span>else</span> {\n        sm->current_state = sm->event_table[sm->current_state][<span>0</span>];\n        sm->next_state = sm->event_table[sm->current_state][<span>1</span>];\n    }\n}\n\n<span>int</span> <span>get_state</span>(StateMachine *sm, <span>int</span> id) {\n    <span>return</span> sm->state_table[sm->current_state][<span>0</span>];\n}\n\n<span>int</span> <span>get_event</span>(StateMachine *sm, <span>int</span> id) {\n    <span>return</span> sm->state_table[sm->current_state][<span>1</span>];\n}\n\n<span>int</span> <span"
+    }
+  ]
+}

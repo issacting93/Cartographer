@@ -1,0 +1,180 @@
+{
+  "id": "chatbot_arena_0103",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "tell me about Allan Donald",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Allan Donald is a former South African cricketer who played as a fast bowler for the South African national team and several domestic teams. He was one of the most successful fast bowlers in the history of cricket, and is often considered one of the greatest cricketers of all time.\n\nDonald made his debut for the South African national team in 1992 and quickly became a key player for the team. He was known for his speed, aggression, and accuracy, and became one of the most feared fast bowlers in the world. He played in 72 Test matches and took 330 wickets, making him the second highest wicket-taker in the history of the format. He also played in 164 One Day Internationals and took 272 wickets, making him the highest wicket-taker in the history of the format for his country.\n\nDonald was also a key player for several domestic teams, including Natal and Transvaal. He was known for his fierce competitiveness and determination, and was known for physically intimidating batsmen. He was a key player in the South African team that won the 1992 World Cup, and was also part of the team that won the 1998 Commonwealth Games.\n\nDonald retired from international cricket in 2003, but continued to play domestic cricket until 2008. He is now a cricket commentator and analyst, and is also involved in charitable work in South Africa.",
+      "pad": {
+        "pleasure": 0.75,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.35
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.78,
+      "evidence": [
+        "tell me about Allan Donald",
+        "Allan Donald is a former South African cricketer"
+      ],
+      "rationale": "Human requests information; AI responds with an extended informational answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.62,
+      "evidence": [
+        "tell me about Allan Donald"
+      ],
+      "rationale": "Human sets the agenda by selecting the topic; AI follows with content delivery.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.64,
+      "evidence": [
+        "How can I assist you today?",
+        "Allan Donald is a former South African cricketer"
+      ],
+      "rationale": "Task-focused, informational tone with minimal affective language.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.66,
+      "evidence": [
+        "tell me about Allan Donald",
+        "Allan Donald is a former South African cricketer"
+      ],
+      "rationale": "AI primarily responds to the user's prompt without iterative questioning or exploration.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "He played in 72 Test matches and took 330 wickets",
+        "He also played in 164 One Day Internationals and took 272 wickets"
+      ],
+      "rationale": "Exchange centers on biographical and statistical facts.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "tell me about Allan Donald"
+      ],
+      "rationale": "User explicitly requests information about a person.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.6,
+      "evidence": [
+        "Donald made his debut for the South African national team in 1992",
+        "Donald retired from international cricket in 2003"
+      ],
+      "rationale": "Provides multiple facets (career timeline, style, stats), but not deeply analytical.",
+      "alternative": "surface"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.72,
+      "evidence": [
+        "tell me about Allan Donald",
+        "Allan Donald is a former South African cricketer who played as a fast bowler for the South African national team and several domestic teams."
+      ],
+      "rationale": "AI produces a much longer message than the human's short prompts.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.8,
+        "director": 0.05,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.63,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "tell me about Allan Donald"
+        },
+        {
+          "role": "information-seeker",
+          "quote": "Hi"
+        }
+      ],
+      "rationale": "User requests information from the AI about a specific topic; minimal social content beyond greeting.",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0
+      },
+      "confidence": 0.74,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Hello! How can I assist you today?"
+        },
+        {
+          "role": "expert-system",
+          "quote": "Allan Donald is a former South African cricketer who played as a fast bowler"
+        }
+      ],
+      "rationale": "AI provides direct factual/biographical information with epistemic authority, plus a brief service-oriented opener.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:12:42.988916",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 12214,
+    "fewShotExamples": "yes"
+  }
+}

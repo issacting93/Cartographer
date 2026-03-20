@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0841",
+  "messages": [
+    {
+      "role": "user",
+      "content": "provide the basic template for a react hook that connects to a graphql api backend"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's a basic template for a React hook that connects to a GraphQL API:\n\n```jsx\nimport { useState, useEffect } from 'react';\nimport { useQuery, useMutation } from '@apollo/client';\n\nconst QUERY = gql`\n  query {\n    ...\n  }\n`;\n\nconst MUTATION = gql`\n  mutation {\n    ...\n  }\n`;\n\nexport const useGraphQL = () => {\n  const [data, setData] = useState();\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState();\n\n  const { data: queryData, loading: queryLoading, error: queryError } = useQuery(QUERY);\n  \n  const [mutate] = useMutation(MUTATION);\n\n  useEffect(() => {\n    if (queryData) {\n      setData(queryData);\n      setLoading(false);\n    }\n  }, [queryData]);\n  \n  useEffect(() => {\n    if (queryError) setError(queryError);\n  }, [queryError]);\n\n  const fetchData = () => {\n    setLoading(true);\n  };\n\n  const submitMutation = (variables) => {\n    mutate({ variables });\n  };\n\n  return {\n    data,\n    loading, \n    error,\n    fetchData,\n    submitMutation\n  };\n};\n```\n\nThis hook:\n\n- Defines a QUERY and MUTATION constant for a GraphQL query and mutation\n- Uses the useQuery hook to execute the query and get the result\n- Stores the query result in state and handles loading/error\n- Exposes the query data, loading state, and error in the returned object \n- Also exposes a fetchData method to manually refetch the query\n- Uses the useMutation hook to execute the mutation\n- Exposes a submitMutation method to call the mutation\n\nSo you can use this hook in a component to connect to your GraphQL API! Let me know if you have any other questions."
+    },
+    {
+      "role": "user",
+      "content": "what are some fun things to do in calgary"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are some fun things to do in Calgary:\n\n• Visit the Calgary Zoo. Calgary Zoo is home to over 1,000 animals including giant pandas, penguins, tigers, and lemurs. It has beautiful botanical gardens and offers educational programs.\n\n• Check out the Calgary Stampede. The Calgary Stampede is a very popular annual rodeo, exhibition, and festival held every July. It features chuckwagon races, bull riding, fairgrounds, live music, and lots of food.\n\n• Explore Prince's Island Park. Prince's Island Park is a beautiful urban park located on an island in the Bow River. It's a great place to go for a walk, have a picnic, or just enjoy nature.\n\n• Visit Heritage Park Historical Village. Heritage Park Historical Village is Canada's largest living history museum. It depicts life in pre-1914 Alberta and has costumed interpreters, historic buildings, and antique equipment.\n\n• Check out the Glenbow Museum. The Glenbow Museum is Alberta's largest museum and home to art, history, and culture. It has art galleries, historic artifacts, and travelling exhibits.\n\n• Walk around Stephen Avenue. Stephen Avenue is a historic street in downtown Calgary lined with shops, restaurants, bars, and cafes. It's a popular spot for dining, shopping, and exploring the city center. \n\n• Visit Calaway Park. Calaway Park is Western Canada's largest outdoor family amusement park. It features over 30 rides and attractions including rollercoasters, bumper cars, a log ride, and a giant ferris wheel.\n\n• Check out Canada Olympic Park. Canada Olympic Park is a recreational park built for the 1988 Winter Olympics. It is open year-round for skiing, snowboarding, mountain biking, zip lining, mini golf, and other activities. You can ride the ski lift and bobsleigh track in the summer.\n\n• Explore the Bow River pathway. The Bow River pathway is one of the longest urban pathways in North America. It runs along the Bow River through Calgary and is great for walking, biking, jogging, and other activities. There are many parks, playgrounds, and attractions along the pathway."
+    }
+  ]
+}

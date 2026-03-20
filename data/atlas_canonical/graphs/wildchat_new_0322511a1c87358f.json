@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 28,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Transformation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Modify an Android layout to replace TextViews with a RecyclerView.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Modify the Android app to replace TextViews with a RecyclerView for displaying data.",
       "id": "conv_wildchat_new_0322511a1c87358f"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 2343,
       "content_preview": "To replace the TextViews with a RecyclerView, you need to modify the data structure for the RecyclerView's adapter and u",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_3"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 1627,
       "content_preview": "To display the output in activity_result.xml, modify the layout file by adding a RecyclerView for listing items. Here's",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_7"
     },
@@ -211,7 +211,7 @@
       "role": "assistant",
       "content_length": 1307,
       "content_preview": "Based on the error message in your logcat output, it seems that there is a NullPointerException when calling `setOnEdito",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_19"
     },
@@ -231,7 +231,7 @@
       "role": "assistant",
       "content_length": 2141,
       "content_preview": "This EditText component is used as an input field where users can enter a node name (or in your case, a phone number) th",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_21"
     },
@@ -251,7 +251,7 @@
       "role": "assistant",
       "content_length": 1013,
       "content_preview": "In your `Result.java` file, inside the `onCreate()` method, you need to set an input type on the EditText to prevent pre",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_23"
     },
@@ -271,7 +271,7 @@
       "role": "assistant",
       "content_length": 471,
       "content_preview": "If `InputType` is not recognized, you need to import the required class. Please add the following import statement at th",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0322511a1c87358f_25"
     },
@@ -298,7 +298,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -307,7 +307,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not provide any inform",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not address the need t",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -333,26 +333,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "To replace the TextViews with a RecyclerView, you need to modify the data struct...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_3_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not indicate that the ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_0322511a1c87358f_3_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -361,7 +352,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not provide any inform",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not indicate that the ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -369,12 +360,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "To display the output in activity_result.xml, modify the layout file by adding a...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not mention any update",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0322511a1c87358f_7_1"
     },
     {
       "node_type": "Move",
@@ -397,7 +397,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The RecyclerView must be added to the ac",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -406,7 +406,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the config",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -415,7 +415,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not confirm that the R",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -424,7 +424,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the config",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not mention or address",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -433,7 +433,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not confirm that the R",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -442,7 +442,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the proper",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not address the need t",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -451,7 +451,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not mention the defini",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -460,7 +460,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not confirm that the R",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -469,7 +469,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not mention or confirm",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -478,7 +478,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not indicate that the ",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not confirm that the d",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -486,57 +486,30 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not confirm that the R",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Based on the error message in your logcat output, it seems that there is a NullP...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_19_0"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the config",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_0322511a1c87358f_19_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention the additi",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "This EditText component is used as an input field where users can enter a node n...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_21_0"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the config",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_0322511a1c87358f_21_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "In your `Result.java` file, inside the `onCreate()` method, you need to set an i...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_23_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the proper",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_0322511a1c87358f_23_1"
     },
     {
       "node_type": "Move",
@@ -549,26 +522,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "If `InputType` is not recognized, you need to import the required class. Please...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0322511a1c87358f_25_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the proper",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_0322511a1c87358f_25_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be added to the activity_result.xml la] The response does not mention adding the",
+      "text_span": "[violates: The RecyclerView must be properly defined in the activity_re] The response does not mention the proper",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -577,7 +541,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The RecyclerView must be properly configured in the Result.j] The response does not address the proper",
+      "text_span": "[violates: The data structure for the RecyclerView's adapter must be up] The response does not address the need t",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -586,7 +550,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "The RecyclerView must be added to the activity_result.xml layout file.",
+      "text": "The RecyclerView must be properly defined in the activity_result.xml layout file.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -595,7 +559,7 @@
           "STATED"
         ],
         [
-          9,
+          7,
           "VIOLATED"
         ]
       ],
@@ -603,14 +567,14 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 3,
+      "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_new_0322511a1c87358f_c_0"
     },
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "The RecyclerView must be properly configured in the Result.java file.",
+      "text": "The data structure for the RecyclerView's adapter must be updated to store key-value pairs.",
       "hardness": "hard",
       "current_state": "SURVIVED",
       "state_history": [
@@ -634,7 +598,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 9,
+      "turn_index": 7,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -710,10 +674,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 12,
-      "user_requested": "LISTENER",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_0322511a1c87358f_12"
@@ -812,20 +776,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 12,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_0322511a1c87358f_2"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 3,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -835,11 +785,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_wildchat_new_0322511a1c87358f_3"
+      "id": "v_wildchat_new_0322511a1c87358f_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 4,
+      "violation_idx": 3,
       "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -849,11 +799,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_0322511a1c87358f_4"
+      "id": "v_wildchat_new_0322511a1c87358f_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 5,
+      "violation_idx": 4,
       "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -863,11 +813,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_0322511a1c87358f_5"
+      "id": "v_wildchat_new_0322511a1c87358f_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 5,
       "turn_index": 26,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -877,7 +827,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_0322511a1c87358f_6"
+      "id": "v_wildchat_new_0322511a1c87358f_5"
     }
   ],
   "links": [
@@ -1159,13 +1109,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_0322511a1c87358f_3",
-      "target": "m_wildchat_new_0322511a1c87358f_3_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0322511a1c87358f_3",
       "target": "mode_wildchat_new_0322511a1c87358f_2",
@@ -1239,6 +1182,19 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0322511a1c87358f_7",
+      "target": "m_wildchat_new_0322511a1c87358f_7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0322511a1c87358f_7",
+      "target": "v_wildchat_new_0322511a1c87358f_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0322511a1c87358f_7",
       "target": "mode_wildchat_new_0322511a1c87358f_6",
@@ -1290,12 +1246,6 @@
       "sequence": 1,
       "source": "t_wildchat_new_0322511a1c87358f_9",
       "target": "m_wildchat_new_0322511a1c87358f_9_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_0322511a1c87358f_9",
-      "target": "v_wildchat_new_0322511a1c87358f_0",
       "key": 0
     },
     {
@@ -1391,12 +1341,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_0322511a1c87358f_13",
-      "target": "v_wildchat_new_0322511a1c87358f_2",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 15,
       "source": "t_wildchat_new_0322511a1c87358f_14",
@@ -1439,7 +1383,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0322511a1c87358f_15",
-      "target": "v_wildchat_new_0322511a1c87358f_3",
+      "target": "v_wildchat_new_0322511a1c87358f_2",
       "key": 0
     },
     {
@@ -1510,13 +1454,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_0322511a1c87358f_19",
-      "target": "m_wildchat_new_0322511a1c87358f_19_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0322511a1c87358f_19",
       "target": "mode_wildchat_new_0322511a1c87358f_18",
@@ -1550,13 +1487,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_0322511a1c87358f_21",
-      "target": "m_wildchat_new_0322511a1c87358f_21_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0322511a1c87358f_21",
       "target": "mode_wildchat_new_0322511a1c87358f_20",
@@ -1565,7 +1495,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0322511a1c87358f_21",
-      "target": "v_wildchat_new_0322511a1c87358f_4",
+      "target": "v_wildchat_new_0322511a1c87358f_3",
       "key": 0
     },
     {
@@ -1596,13 +1526,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_0322511a1c87358f_23",
-      "target": "m_wildchat_new_0322511a1c87358f_23_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0322511a1c87358f_23",
       "target": "mode_wildchat_new_0322511a1c87358f_22",
@@ -1611,7 +1534,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0322511a1c87358f_23",
-      "target": "v_wildchat_new_0322511a1c87358f_5",
+      "target": "v_wildchat_new_0322511a1c87358f_4",
       "key": 0
     },
     {
@@ -1646,13 +1569,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_0322511a1c87358f_25",
       "target": "m_wildchat_new_0322511a1c87358f_25_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_0322511a1c87358f_25",
-      "target": "m_wildchat_new_0322511a1c87358f_25_1",
       "key": 0
     },
     {
@@ -1697,13 +1613,13 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0322511a1c87358f_27",
-      "target": "v_wildchat_new_0322511a1c87358f_6",
+      "target": "v_wildchat_new_0322511a1c87358f_5",
       "key": 0
     },
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 9,
+      "at_turn": 7,
       "source": "v_wildchat_new_0322511a1c87358f_0",
       "target": "c_wildchat_new_0322511a1c87358f_c_0",
       "key": 0

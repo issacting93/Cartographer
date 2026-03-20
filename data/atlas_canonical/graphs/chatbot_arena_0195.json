@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 8,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Write a heartfelt letter to the user's girlfriend, Audrey.",
       "id": "conv_chatbot_arena_0195"
     },
@@ -174,10 +174,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 4,
-      "user_requested": "EXECUTOR",
+      "user_requested": "LISTENER",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_chatbot_arena_0195_4"
@@ -206,6 +206,20 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "v_chatbot_arena_0195_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_chatbot_arena_0195_1"
     }
   ],
   "links": [
@@ -368,6 +382,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_0195_5",
       "target": "mode_chatbot_arena_0195_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0195_5",
+      "target": "v_chatbot_arena_0195_1",
       "key": 0
     },
     {

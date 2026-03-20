@@ -20,7 +20,7 @@ import numpy as np
 # ============= Configuration =============
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-DATA_DIR = os.path.join(PROJECT_ROOT, "data", "atlas_canonical")
+DATA_DIR = os.path.join(PROJECT_ROOT, "data", "v2_unified", "atlas")
 METRICS_DIR = os.path.join(DATA_DIR, "metrics")
 GRAPHS_DIR = os.path.join(DATA_DIR, "graphs")
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "paper", "figures")
@@ -87,16 +87,28 @@ def load_graph_data():
                 conv_node = n
                 conversations.append(n)
             elif nt == "Constraint":
+                # Legacy schema support
                 constraints.append(n)
                 for turn, state in n.get("state_history", []):
                     if state == "VIOLATED":
                         violation_turns_all.append(turn)
+            elif nt == "ViolationEvent":
+                # v2 schema support
+                violation_turns_all.append(n.get("turn_index"))
             elif nt == "InteractionMode":
                 if conv_node:
                     n["_source"] = conv_node.get("source", "")
                     n["_architecture"] = conv_node.get("task_architecture", "")
+                    
+                    # Synthesize constraint-like fields for v2 schema
+                    n["current_state"] = "VIOLATED" if n.get("is_violation") else "SURVIVED"
+                    n["hardness"] = conv_node.get("constraint_hardness", "unknown")
+                    
+                    # Treat InteractionMode as a constraint for lifecycle analysis
+                    constraints.append(n)
                 mode_annotations.append(n)
 
+    print(f"Loaded {len(conversations)} conversations")
     return constraints, mode_annotations, conversations, violation_turns_all
 
 
@@ -229,8 +241,8 @@ def plot_agency_tax_map(agg):
     fig, ax = plt.subplots(figsize=(10, 6))
 
     arch_data = agg["by_architecture"]
-    archs = [a for a in ["Planning", "Generation", "Transformation", "Analysis", "Information Seeking"]
-             if a in arch_data]
+    arch_data = agg["by_architecture"]
+    archs = list(arch_data.keys())
 
     x = [arch_data[a]["mean_drift_velocity"] for a in archs]
     y = [arch_data[a]["mean_agency_tax"] for a in archs]
@@ -258,8 +270,12 @@ def plot_agency_tax_map(agg):
 def plot_drift_heatmap(df):
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    archs = ["Planning", "Generation", "Transformation", "Analysis", "Information Seeking"]
-    hardnesses = ["Strict", "Mixed", "Flexible"]
+    archs = sorted(df["task_architecture"].unique())
+    # Handle case where architecture might be empty/null string
+    archs = [a if a else "Unknown" for a in archs]
+    
+    hardnesses = sorted(df["constraint_hardness"].unique())
+    hardnesses = [h if h else "Unknown" for h in hardnesses]
 
     matrix = np.zeros((len(archs), len(hardnesses)))
     for i, arch in enumerate(archs):
@@ -401,7 +417,8 @@ def plot_radar_signatures(agg):
                "mean_survival_rate", "mean_move_coverage"]
     metric_labels = ["Drift\nVelocity", "Agency\nTax", "Mode\nViolation", "Survival\nRate", "Move\nCoverage"]
 
-    archs = ["Planning", "Generation", "Analysis", "Information Seeking", "Transformation"]
+    arch_data = agg["by_architecture"]
+    archs = list(arch_data.keys())
     arch_data = agg["by_architecture"]
 
     # Normalize each metric to [0, 1] range across architectures
@@ -461,8 +478,8 @@ def plot_collapse_rates(agg):
     fig, ax = plt.subplots(figsize=(10, 5))
 
     arch_data = agg["by_architecture"]
-    archs = ["Planning", "Generation", "Transformation", "Analysis", "Information Seeking"]
-    archs = [a for a in archs if a in arch_data]
+    arch_data = agg["by_architecture"]
+    archs = list(arch_data.keys())
 
     survival = [arch_data[a]["mean_survival_rate"] * 100 for a in archs]
     mode_viol = [arch_data[a]["mean_mode_violation_rate"] * 100 for a in archs]
@@ -514,7 +531,6 @@ if __name__ == "__main__":
     print(f"  {len(df)} conversations, {len(constraints)} constraints, {len(mode_annotations)} mode annotations")
     print()
 
-    # Generate figures
     print("Generating figures...")
     plot_survival_distribution(df)
     plot_context_cliff(violation_turns)

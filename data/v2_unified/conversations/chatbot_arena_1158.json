@@ -1,0 +1,179 @@
+{
+  "id": "chatbot_arena_1158",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi!",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "what time is it?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm not sure, can you tell me what time it is where you are?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "what time is it?",
+        "can you tell me what time it is where you are?"
+      ],
+      "rationale": "The human asks a question and the AI responds with a related question.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "hi!",
+        "Hello! How can I help you?",
+        "what time is it?",
+        "I'm not sure, can you tell me what time it is where you are?"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": "alternating"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "hi!",
+        "Hello! How can I help you?",
+        "what time is it?",
+        "I'm not sure, can you tell me what time it is where you are?"
+      ],
+      "rationale": "The conversation lacks strong emotional coloring.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "what time is it?",
+        "can you tell me what time it is where you are?"
+      ],
+      "rationale": "The interaction is driven by questions from both parties.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "what time is it?",
+        "can you tell me what time it is where you are?"
+      ],
+      "rationale": "The conversation revolves around obtaining factual information.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "what time is it?",
+        "can you tell me what time it is where you are?"
+      ],
+      "rationale": "The human seeks specific information about the time.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "what time is it?",
+        "can you tell me what time it is where you are?"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "hi!",
+        "Hello! How can I help you?",
+        "what time is it?",
+        "I'm not sure, can you tell me what time it is where you are?"
+      ],
+      "rationale": "Both parties contribute equally in terms of message length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.0,
+        "collaborator": 0.1,
+        "social-expressor": 0.1,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "what time is it?"
+        }
+      ],
+      "rationale": "The human primarily seeks information.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.1,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.6,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Hello! How can I help you?"
+        }
+      ],
+      "rationale": "The AI maintains conversation flow and asks a follow-up question.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:44:23.584207",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

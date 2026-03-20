@@ -1,0 +1,169 @@
+{
+  "id": "chatbot_arena_1956",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, here's an example of a CRUD controller in Spring using Java 19 for a blogpost:\n```java\nimport java.util.List;\nimport java.util.Optional;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.http.HttpHeaders;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.DeleteMapping;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.annotation.PutMapping;\nimport org.springframework.web.bind.annotation.RequestBody;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\nimport org.springframework.web.multipart.MultipartHttpServletRequest;\nimport com.fasterxml.jackson.databind.JsonNode;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.SerializationFeature;\nimport com.fasterxml.jackson.databind.node.JsonNodeFactory;\nimport com.fasterxml.jackson.databind.node.ObjectNode;\nimport org.springframework.util.StringUtils;\n@RestController\n@RequestMapping(\"/blogposts\")\npublic class BlogPostController {\n    \n    @Autowired\n    private BlogPostService blogPostService;\n    \n    @PostMapping\n    public ResponseEntity<BlogPost> createBlogPost(@RequestBody BlogPost blogPost, MultipartHttpServletRequest request) {\n        blogPostService.createBlogPost(blogPost, request);\n        return new ResponseEntity<>(blogPost, HttpStatus.CREATED);\n    }\n    \n    @GetMapping(\"/{id}\")\n    public ResponseEntity<BlogPost> getBlogPost(@PathVariable Long id) {\n        Optional<BlogPost> blogPost = blogPostService.getBlogPost(id);\n        if (blogPost.isEmpty()) {\n            return new ResponseEntity<>(\"Blog post not found\", HttpStatus.NOT_FOUND);\n        }\n        return new ResponseEntity<>(blogPost.get",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "go on",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": ", HttpStatus.OK);\n    }\n    \n    @DeleteMapping(\"/{id}\")\n    public ResponseEntity<String> deleteBlogPost(@PathVariable Long id) {\n        blogPostService.deleteBlogPost(id);\n        return new ResponseEntity<>(\"Blog post deleted\", HttpStatus.OK);\n    }\n    \n    @PutMapping(\"/{id}\")\n    public ResponseEntity<BlogPost> updateBlogPost(@PathVariable Long id, @RequestBody BlogPost blogPost) {\n        blogPostService.updateBlogPost(blogPost, id);\n        return new ResponseEntity<>(blogPost, HttpStatus.OK);\n    }\n}\n```\nThis controller uses the `BlogPostService` to perform CRUD operations on the `BlogPost` class. The `createBlogPost` method creates a new blog post, the `getBlogPost` method retrieves a blog post by its ID, the `deleteBlogPost` method deletes a blog post by its ID, and the `updateBlogPost` method updates an existing blog post. The `MultipartHttpServletRequest` is used to handle file uploads. The controller also includes validation and error handling to ensure that the requests are properly formatted.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.32
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?",
+        "Sure, here's an example of a CRUD controller..."
+      ],
+      "rationale": "The human asks a question and the AI provides a detailed answer.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?",
+        "go on"
+      ],
+      "rationale": "The human initiates the request and prompts the AI to continue.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?",
+        "Sure, here's an example of a CRUD controller..."
+      ],
+      "rationale": "The conversation is focused on technical information without emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.7,
+      "evidence": [
+        "go on"
+      ],
+      "rationale": "The human directs the AI to continue providing information.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "here's an example of a CRUD controller..."
+      ],
+      "rationale": "The AI shares technical skills and code examples.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?"
+      ],
+      "rationale": "The human seeks specific technical information.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.8,
+      "evidence": [
+        "here's an example of a CRUD controller..."
+      ],
+      "rationale": "The conversation provides a detailed code example but does not deeply explore beyond the initial request.",
+      "alternative": "deep"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.8,
+      "evidence": [
+        "Sure, here's an example of a CRUD controller...",
+        ", HttpStatus.OK);"
+      ],
+      "rationale": "The AI provides a lengthy response compared to the human's input.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.2,
+        "director": 0.1,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Can you write a CRUD controller in Spring using Java 19 for a blogpost ?"
+        }
+      ],
+      "rationale": "The human primarily seeks information with a directive to continue.",
+      "alternative": "director"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Sure, here's an example of a CRUD controller..."
+        }
+      ],
+      "rationale": "The AI provides expert-level technical information.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:24:35.483119",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

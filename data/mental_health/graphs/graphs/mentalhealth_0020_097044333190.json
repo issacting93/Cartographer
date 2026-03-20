@@ -1,0 +1,181 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0020_097044333190",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I",
+      "id": "conv_mentalhealth_0020_097044333190",
+      "human_role_dist": {
+        "information-seeker": 0.15,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.1,
+        "social-expressor": 0.65,
+        "relational-peer": 0.1
+      },
+      "human_role_confidence": 0.82,
+      "ai_role_dist": {
+        "expert-system": 0.25,
+        "learning-facilitator": 0.15,
+        "advisor": 0.35,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.05
+      },
+      "ai_role_confidence": 0.76,
+      "srt_interactionPattern": "emotional-processing",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "balanced",
+      "srt_powerDynamics_conf": 0.72,
+      "srt_emotionalTone": "empathetic",
+      "srt_emotionalTone_conf": 0.88,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.81,
+      "srt_knowledgeExchange": "meaning-making",
+      "srt_knowledgeExchange_conf": 0.87,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.89,
+      "srt_topicDepth": "moderate",
+      "srt_topicDepth_conf": 0.75,
+      "srt_turnTaking": "balanced",
+      "srt_turnTaking_conf": 0.78
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 328,
+      "content_preview": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worth",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0020_097044333190_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.72,
+      "content": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I've always wanted to fix my issues, but I never get around to it.\n   How can I change my feeling of being worthless to everyone?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 497,
+      "content_preview": "The feeling of being worthless is caused by your inside being not matching your outside result. Your comparison to other",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0020_097044333190_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "The feeling of being worthless is caused by your inside being not matching your outside result. Your comparison to others and you thinking you need to be someone other than who you are. You are not worthless. No one is worthless. You need to find your worth and not let yourself talk yourself out of the good you find in yourself. I hope these words resonate with you and that you start looking for your worth even if it\u2019s as simple as I am able to get out of bed and call someone and make a joke."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "'t be here.\n   I've never tried or contemplated suicide. I've alw",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0020_097044333190_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The feeling of being worthless is caused by your inside being not matching your...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0020_097044333190_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_mentalhealth_0020_097044333190_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_mentalhealth_0020_097044333190_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0020_097044333190",
+      "target": "t_mentalhealth_0020_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0020_097044333190",
+      "target": "t_mentalhealth_0020_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0020_097044333190_0",
+      "target": "t_mentalhealth_0020_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0020_097044333190_0",
+      "target": "m_mentalhealth_0020_097044333190_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0020_097044333190_0",
+      "target": "mode_mentalhealth_0020_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0020_097044333190_1",
+      "target": "m_mentalhealth_0020_097044333190_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0020_097044333190_1",
+      "target": "mode_mentalhealth_0020_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0020_097044333190_1",
+      "target": "v_mentalhealth_0020_097044333190_0",
+      "key": 0
+    }
+  ]
+}

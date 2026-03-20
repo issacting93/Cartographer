@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_1435",
+  "messages": [
+    {
+      "role": "user",
+      "content": "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "If you want to create a separate label for each row in your 3D plot, you can specify row labels when you call ax.set_xticklabels() and/or ax.set_yticklabels(). Here's an example that adds a label for each row in the x axis:\n\nimport numpy as np\nfrom matplotlib.pyplot import plot, show, figure\n\nN = 20\nx = np.arange(0, N + 1, 0.1)\ny = np.arange(0, N + 1, 0.1)\nz = np.arange(0, N + 1, 0.1)\n\nfig = show()\nax = fig.gca(projection='3d')\n\nax.scatter(x, y, z)\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n    ax.set_yticklabels(['%d' % i])\n\nfig.show()",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "I don't want to label the ticks. I want to create a label additionally to the y-label.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "For example, in the code snippet above, you can create a label additionally to the y-label by doing the following:\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n\nHere's what the 3D plot with labels for each row and column would look like:",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "The human asks questions and the AI provides answers, fitting the question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "The human initiates and directs the conversation by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "The conversation is focused on technical details without emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "Here's an example that adds a label for each row in the x axis:",
+        "For example, in the code snippet above, you can create a label additionally to the y-label by doing the following:"
+      ],
+      "rationale": "The AI provides code examples and instructions, indicating skill-sharing.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "The human seeks specific information about labeling in Matplotlib.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.7,
+      "evidence": [
+        "Here's an example that adds a label for each row in the x axis:",
+        "For example, in the code snippet above, you can create a label additionally to the y-label by doing the following:"
+      ],
+      "rationale": "The conversation provides a moderate level of detail with code examples.",
+      "alternative": "surface"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+        "I don't want to label the ticks. I want to create a label additionally to the y-label."
+      ],
+      "rationale": "Both participants contribute equally in terms of turns.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.8,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also clarifies their needs.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Here's an example that adds a label for each row in the x axis:"
+        }
+      ],
+      "rationale": "The AI provides authoritative answers and examples, fitting the expert-system role.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:16:18.540850",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

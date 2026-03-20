@@ -1,0 +1,147 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0087_e6b191afbbc5",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my primary physician won't help. I am unemployed and overwhelmed. What would you sugge",
+      "id": "conv_mentalhealth_0087_e6b191afbbc5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 208,
+      "content_preview": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my pri",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0087_e6b191afbbc5_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.66,
+      "content": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my primary physician won't help. I am unemployed and overwhelmed. What would you suggest I do?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 415,
+      "content_preview": "Look up online what the local hospital offers to people. Also, google some of the key words you just wrote here, like d",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "pad_pleasure": 0.5,
+      "pad_arousal": 0.4,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.46,
+      "content": "Look up online what the local hospital offers to people. \u00a0Also, google some of the key words you just wrote here, like depression and counseling, low-cost counseling.Did your primary physician tell you their reason to not help you? \u00a0If not, then ask the person to tell you their reasoning. \u00a0Even if the specific doctor won't help you, by understanding their reason, you may be able to work with the answer you hear."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "y primary physician won't help. I am unemployed and overwhelmed.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0087_e6b191afbbc5_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Look up online what the local hospital offers to people. \u00a0Also, google some of t...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0087_e6b191afbbc5_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_mentalhealth_0087_e6b191afbbc5_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "v_mentalhealth_0087_e6b191afbbc5_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0087_e6b191afbbc5",
+      "target": "t_mentalhealth_0087_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0087_e6b191afbbc5",
+      "target": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0087_e6b191afbbc5_0",
+      "target": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0087_e6b191afbbc5_0",
+      "target": "m_mentalhealth_0087_e6b191afbbc5_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0087_e6b191afbbc5_0",
+      "target": "mode_mentalhealth_0087_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "target": "m_mentalhealth_0087_e6b191afbbc5_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "target": "mode_mentalhealth_0087_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0087_e6b191afbbc5_1",
+      "target": "v_mentalhealth_0087_e6b191afbbc5_0",
+      "key": 0
+    }
+  ]
+}

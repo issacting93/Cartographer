@@ -1,0 +1,24 @@
+{
+  "id": "wildchat_fe1a251dd89c4e7347d533525cf55a52",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "window10 文件夹软连"
+    },
+    {
+      "role": "assistant",
+      "content": "在Windows 10中创建文件夹软链接，可以使用以下命令：\n\n1. 打开命令提示符（CMD），以管理员身份运行。\n2. 使用以下命令创建文件夹软链接：\n```cmd\nmklink /D <目标文件夹路径> <源文件夹路径>\n```\n例如，要将名为“Folder1”的文件夹软链接到名为“Folder2”的文件夹中，可以使用以下命令：\n```cmd\nmklink /D C:\\Folder2 C:\\Folder1\n```\n\n3. 运行命令后，您将在“Folder2”文件夹中看到一个名为“Folder1”的软链接，点击进入后将跳转到原始文件夹“Folder1”的内容。\n\n请注意，创建软链接需要管理员权限，否则可能会出现权限错误。确保在管理员模式下运行命令提示符。"
+    },
+    {
+      "role": "user",
+      "content": "window10 文件夹硬连"
+    },
+    {
+      "role": "assistant",
+      "content": "在 Windows 10 中创建文件夹的硬链接可能没有直接的命令行选项，但你可以使用第三方工具来实现硬链接。一个常用的工具是 HardLinkShellExt，它可以轻松地在 Windows 中创建硬链接。\n\n以下是使用 HardLinkShellExt 创建文件夹的硬链接的步骤：\n\n1. 下载并安装 HardLinkShellExt：你可以在 https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html 下载 HardLinkShellExt，然后按照安装指南进行安装。\n\n2. 在 Windows 中选择要创建硬链接的源文件夹和目标文件夹。\n\n3. 在资源管理器中，右键单击源文件夹，然后选择“Pick Link Source”。\n\n4. 再次在目标文件夹上右键单击，然后选择“Drop As...” -> “Hardlink”.\n\n5. 现在，你将在目标文件夹中看到一个硬链接，指向源文件夹的内容。\n\n请注意，硬链接在 Windows 上的使用并不像软链接那样直观，并且较少被使用。确保在创建硬链接时谨慎操作，以免意外删除了文件夹的硬链接造成数据丢失。"
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0125",
+    "timestamp": 

@@ -1,0 +1,166 @@
+{
+  "id": "chatbot_arena_0170",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "how are you",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "write me some suggestions to go to in madrid",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "1. king arthur Circus\n2. madrid museum\n3. noria museum\n4. food circus\n5. palacio de la almohada\n6. romeria\n7. santiago de Compostela\n8. castillet",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "write me some suggestions to go to in madrid"
+      ],
+      "rationale": "The human asks for suggestions, and the AI provides a list of places.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "write me some suggestions to go to in madrid"
+      ],
+      "rationale": "The human sets the agenda by requesting suggestions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "hello",
+        "how are you"
+      ],
+      "rationale": "The conversation lacks emotional coloring and is straightforward.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "write me some suggestions to go to in madrid"
+      ],
+      "rationale": "The human's request prompts the AI to provide information.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "1. king arthur Circus 2. madrid museum"
+      ],
+      "rationale": "The AI provides factual information about places in Madrid.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "write me some suggestions to go to in madrid"
+      ],
+      "rationale": "The human seeks specific information about places to visit.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "1. king arthur Circus 2. madrid museum"
+      ],
+      "rationale": "The conversation provides a list without detailed exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.7,
+      "evidence": [
+        "1. king arthur Circus 2. madrid museum"
+      ],
+      "rationale": "The AI's response is longer and more detailed than the human's input.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "write me some suggestions to go to in madrid"
+        }
+      ],
+      "rationale": "The human primarily seeks information about Madrid.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.05,
+        "advisor": 0.1,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "1. king arthur Circus 2. madrid museum"
+        }
+      ],
+      "rationale": "The AI provides factual information and acts as an expert system.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:07:45.255802",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

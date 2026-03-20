@@ -1,0 +1,259 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0183",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_0183"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 239,
+      "content_preview": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I wan",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 143,
+      "content_preview": "ok, let me act as a Linux terminal. Here is the output of the command you typed: `pwd` # This is the directory where you",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 3,
+      "content_preview": "pwd",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 56,
+      "content_preview": "# This is the directory where you are currently located.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 25,
+      "content_preview": "python3 -c \"print(2 + 4)\"",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 26,
+      "content_preview": "# Output of the command: 6",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0183_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "show. I want you to only reply with the terminal output inside o",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_0183_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "ok, let me act as a Linux terminal. Here is the output of the command you typed:...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0183_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_0183_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_0183_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_0183_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_0183",
+      "target": "t_chatbot_arena_0183_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0183_0",
+      "target": "t_chatbot_arena_0183_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0183_0",
+      "target": "m_chatbot_arena_0183_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_0",
+      "target": "mode_chatbot_arena_0183_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0183_1",
+      "target": "t_chatbot_arena_0183_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0183_1",
+      "target": "m_chatbot_arena_0183_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_1",
+      "target": "mode_chatbot_arena_0183_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0183_2",
+      "target": "t_chatbot_arena_0183_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_2",
+      "target": "mode_chatbot_arena_0183_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_0183_3",
+      "target": "t_chatbot_arena_0183_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_3",
+      "target": "mode_chatbot_arena_0183_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_0183_4",
+      "target": "t_chatbot_arena_0183_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_4",
+      "target": "mode_chatbot_arena_0183_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0183_5",
+      "target": "mode_chatbot_arena_0183_4",
+      "key": 0
+    }
+  ]
+}

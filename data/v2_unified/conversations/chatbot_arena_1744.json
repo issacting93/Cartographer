@@ -1,0 +1,168 @@
+{
+  "id": "chatbot_arena_1744",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hey, how are you doing?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I am fine, thank you. How can I assist you?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "user",
+      "content": "I'm doing great. I'd like an answer to a question we have: what is it called when someone loves beer?",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "We call it beer lover.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.24
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "I'd like an answer to a question we have",
+        "We call it beer lover."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "I'd like an answer to a question we have"
+      ],
+      "rationale": "The human initiates the question and sets the agenda.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.6,
+      "evidence": [
+        "I am fine, thank you.",
+        "I'm doing great."
+      ],
+      "rationale": "The conversation is polite but lacks strong emotional coloring.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "I'd like an answer to a question we have"
+      ],
+      "rationale": "The human's question drives the interaction.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "We call it beer lover."
+      ],
+      "rationale": "The AI provides a factual term in response to a question.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "I'd like an answer to a question we have"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "We call it beer lover."
+      ],
+      "rationale": "The conversation is brief and does not explore the topic in depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Hey, how are you doing?",
+        "I am fine, thank you."
+      ],
+      "rationale": "The conversation has equal turns between human and AI.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "I'd like an answer to a question we have"
+        }
+      ],
+      "rationale": "The human primarily seeks information from the AI.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.1,
+        "advisor": 0.05,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "We call it beer lover."
+        }
+      ],
+      "rationale": "The AI provides a direct answer to the human's question.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:00:10.150587",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "pisces_0009",
+      "source": "MentalChat16K_PISCES",
+      "domain": "mental_health_caregiver",
+      "total_turns": 4,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I've been caring for my wife at home for the past year, and I've been doing my best to provide her with the care she needs. But lately, her condition has deteriorated, and I'm feeling overwhelmed. I k",
+      "id": "conv_pisces_0009",
+      "human_role_dist": {
+        "information-seeker": 0.1,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.15,
+        "social-expressor": 0.6,
+        "relational-peer": 0.15
+      },
+      "human_role_confidence": 0.8,
+      "ai_role_dist": {
+        "expert-system": 0.15,
+        "learning-facilitator": 0.25,
+        "advisor": 0.35,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.05
+      },
+      "ai_role_confidence": 0.75,
+      "srt_interactionPattern": "emotional-processing",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "balanced",
+      "srt_powerDynamics_conf": 0.75,
+      "srt_emotionalTone": "empathetic",
+      "srt_emotionalTone_conf": 0.9,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.8,
+      "srt_knowledgeExchange": "meaning-making",
+      "srt_knowledgeExchange_conf": 0.85,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.85,
+      "srt_topicDepth": "deep",
+      "srt_topicDepth_conf": 0.8,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.9
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 360,
+      "content_preview": "I've been caring for my wife at home for the past year, and I've been doing my best to provide her with the care she nee",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0009_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 613,
+      "content_preview": "Your feelings of guilt are understandable, given the deep bond you share with your wife and the role you've played in he",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0009_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 601,
+      "content_preview": "I've been struggling with the idea of remarrying after losing my spouse, feeling like I've missed my window of potential",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_pisces_0009_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1524,
+      "content_preview": "I can see how the demands of care-giving and raising children have left you feeling like you've missed your chance at fi",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_pisces_0009_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "best option, but I can't shake this feeling of guilt. I feel lik",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_pisces_0009_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Your feelings of guilt are understandable, given the deep bond you share with yo...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_pisces_0009_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I can see how the demands of care-giving and raising children have left you feel...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_pisces_0009_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_pisces_0009_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.8,
+      "method": "regex",
+      "id": "mode_pisces_0009_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_pisces_0009_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_pisces_0009",
+      "target": "t_pisces_0009_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_pisces_0009",
+      "target": "t_pisces_0009_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_pisces_0009",
+      "target": "t_pisces_0009_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_pisces_0009",
+      "target": "t_pisces_0009_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_pisces_0009_0",
+      "target": "t_pisces_0009_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0009_0",
+      "target": "m_pisces_0009_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0009_0",
+      "target": "mode_pisces_0009_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_pisces_0009_1",
+      "target": "t_pisces_0009_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0009_1",
+      "target": "m_pisces_0009_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0009_1",
+      "target": "mode_pisces_0009_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_pisces_0009_1",
+      "target": "v_pisces_0009_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_pisces_0009_2",
+      "target": "t_pisces_0009_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0009_2",
+      "target": "mode_pisces_0009_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_pisces_0009_3",
+      "target": "m_pisces_0009_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_pisces_0009_3",
+      "target": "mode_pisces_0009_2",
+      "key": 0
+    }
+  ]
+}

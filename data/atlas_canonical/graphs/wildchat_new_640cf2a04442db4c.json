@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Provide accurate references and information on viable and total counting methods in microbiology.",
       "id": "conv_wildchat_new_640cf2a04442db4c"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 1179,
       "content_preview": "I apologize for any confusion earlier. Here are two references that include the information mentioned above regarding vi",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_640cf2a04442db4c_7"
     },
@@ -211,7 +211,7 @@
       "role": "assistant",
       "content_length": 1195,
       "content_preview": "I apologize for the inconvenience. Here is an open-access reference about flow cytometry for total cell counts: For tot",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_640cf2a04442db4c_19"
     },
@@ -254,20 +254,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide references that are articles, not books.] The response provides references to text",
+      "text_span": "[violates: Provide references that are articles, not books.] The response provides references that ar",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_7_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure references are accessible and valid.] Textbooks are not considered accessible ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_640cf2a04442db4c_7_1"
     },
     {
       "node_type": "Move",
@@ -290,8 +281,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide references that are articles, not books.] The reference 'Journal of Microbiologica",
-      "confidence": 0.9,
+      "text_span": "[violates: Provide references that are articles, not books.] The reference 'Stevenson, McVey, & Clark",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_11_0"
@@ -299,8 +290,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure references are accessible and valid.] The URL for the 'Bio-protocol' reference",
-      "confidence": 0.8,
+      "text_span": "[violates: Ensure references are accessible and valid.] The URL provided for 'Van Nevel, Koetzsc",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_11_1"
@@ -317,18 +308,18 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure references are accessible and valid.] The URL provided leads to a journal arti",
-      "confidence": 0.9,
+      "text_span": "[violates: Ensure references are accessible and valid.] The URL provided may not be accessible o",
+      "confidence": 0.7,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_13_1"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure references are accessible and valid.] The provided URL leads to a paywalled ar",
-      "confidence": 0.9,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for any confusion earlier. Here's another suitable reference for flo...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_15_0"
     },
@@ -344,11 +335,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide references that are articles, not books.] The reference provided is a book, not an",
-      "confidence": 1.0,
+      "text_span": "[violates: Provide references that are articles, not books.] The reference provided is a journal arti",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_640cf2a04442db4c_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure references are accessible and valid.] The URL provided leads to a valid articl",
+      "confidence": 0.7,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_640cf2a04442db4c_19_1"
     },
     {
       "node_type": "Constraint",
@@ -383,7 +383,7 @@
       "constraint_id": "c_1",
       "text": "Ensure references are accessible and valid.",
       "hardness": "hard",
-      "current_state": "VIOLATED",
+      "current_state": "SURVIVED",
       "state_history": [
         [
           10,
@@ -394,15 +394,15 @@
           "ACTIVE"
         ],
         [
-          11,
-          "VIOLATED"
+          20,
+          "SURVIVED"
         ]
       ],
       "introduced_at": 10,
       "last_violation_at": null,
-      "times_violated": 1,
+      "times_violated": 0,
       "times_repaired": 0,
-      "lifespan": 1,
+      "lifespan": 10,
       "final_state": null,
       "id": "c_wildchat_new_640cf2a04442db4c_c_1"
     },
@@ -415,16 +415,6 @@
       "was_repaired": false,
       "violation_ord": 1,
       "id": "v_wildchat_new_640cf2a04442db4c_0"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
-      "turn_index": 11,
-      "constraint_id": "c_1",
-      "violation_type": "constraint_violation",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "id": "v_wildchat_new_640cf2a04442db4c_1"
     },
     {
       "node_type": "InteractionMode",
@@ -538,7 +528,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 1,
       "turn_index": 2,
       "constraint_id": "mode",
       "violation_type": "EXECUTION_AVOIDANCE",
@@ -548,11 +538,11 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_2"
+      "id": "v_wildchat_new_640cf2a04442db4c_1"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 3,
+      "violation_idx": 2,
       "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -562,11 +552,11 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.8,
       "method": "regex",
-      "id": "v_wildchat_new_640cf2a04442db4c_3"
+      "id": "v_wildchat_new_640cf2a04442db4c_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 4,
+      "violation_idx": 3,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -576,11 +566,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_4"
+      "id": "v_wildchat_new_640cf2a04442db4c_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 5,
+      "violation_idx": 4,
       "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -590,11 +580,11 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_5"
+      "id": "v_wildchat_new_640cf2a04442db4c_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 5,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "EXECUTION_AVOIDANCE",
@@ -604,11 +594,11 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_6"
+      "id": "v_wildchat_new_640cf2a04442db4c_5"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 7,
+      "violation_idx": 6,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -618,11 +608,11 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_7"
+      "id": "v_wildchat_new_640cf2a04442db4c_6"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 8,
+      "violation_idx": 7,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -632,7 +622,7 @@
       "ai_enacted": "ADVISOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_640cf2a04442db4c_8"
+      "id": "v_wildchat_new_640cf2a04442db4c_7"
     }
   ],
   "links": [
@@ -845,7 +835,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_3",
-      "target": "v_wildchat_new_640cf2a04442db4c_2",
+      "target": "v_wildchat_new_640cf2a04442db4c_1",
       "key": 0
     },
     {
@@ -891,7 +881,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_5",
-      "target": "v_wildchat_new_640cf2a04442db4c_3",
+      "target": "v_wildchat_new_640cf2a04442db4c_2",
       "key": 0
     },
     {
@@ -922,13 +912,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_640cf2a04442db4c_7",
-      "target": "m_wildchat_new_640cf2a04442db4c_7_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_640cf2a04442db4c_7",
       "target": "mode_wildchat_new_640cf2a04442db4c_6",
@@ -937,7 +920,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_7",
-      "target": "v_wildchat_new_640cf2a04442db4c_4",
+      "target": "v_wildchat_new_640cf2a04442db4c_3",
       "key": 0
     },
     {
@@ -1021,12 +1004,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_640cf2a04442db4c_11",
-      "target": "v_wildchat_new_640cf2a04442db4c_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_640cf2a04442db4c_11",
       "target": "mode_wildchat_new_640cf2a04442db4c_10",
@@ -1035,7 +1012,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_11",
-      "target": "v_wildchat_new_640cf2a04442db4c_5",
+      "target": "v_wildchat_new_640cf2a04442db4c_4",
       "key": 0
     },
     {
@@ -1081,7 +1058,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_13",
-      "target": "v_wildchat_new_640cf2a04442db4c_6",
+      "target": "v_wildchat_new_640cf2a04442db4c_5",
       "key": 0
     },
     {
@@ -1153,7 +1130,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_17",
-      "target": "v_wildchat_new_640cf2a04442db4c_7",
+      "target": "v_wildchat_new_640cf2a04442db4c_6",
       "key": 0
     },
     {
@@ -1177,6 +1154,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_640cf2a04442db4c_19",
+      "target": "m_wildchat_new_640cf2a04442db4c_19_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_640cf2a04442db4c_19",
       "target": "mode_wildchat_new_640cf2a04442db4c_18",
@@ -1185,7 +1169,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_640cf2a04442db4c_19",
-      "target": "v_wildchat_new_640cf2a04442db4c_8",
+      "target": "v_wildchat_new_640cf2a04442db4c_7",
       "key": 0
     },
     {
@@ -1212,14 +1196,6 @@
       "at_turn": 11,
       "source": "v_wildchat_new_640cf2a04442db4c_0",
       "target": "c_wildchat_new_640cf2a04442db4c_c_0",
-      "key": 0
-    },
-    {
-      "edge_type": "VIOLATES",
-      "violation_ord": 1,
-      "at_turn": 11,
-      "source": "v_wildchat_new_640cf2a04442db4c_1",
-      "target": "c_wildchat_new_640cf2a04442db4c_c_1",
       "key": 0
     }
   ]

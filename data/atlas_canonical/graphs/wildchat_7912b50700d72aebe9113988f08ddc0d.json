@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 16,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Debug the reactionRemoved function to handle message reactions correctly.",
       "id": "conv_wildchat_7912b50700d72aebe9113988f08ddc0d"
     },
@@ -187,7 +187,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The message object must be valid and not undefined when acce] The response indicates a TypeError due t",
+      "text_span": "[violates: The message object must be valid and not undefined when acce] The response indicates that the message ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -196,7 +196,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The function must handle cases where the message has been de] The response does not adequately address",
+      "text_span": "[violates: The function must handle cases where the message has been de] The response does not adequately handle ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -232,8 +232,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The function must handle cases where the message has been de] The response does not adequately handle ",
-      "confidence": 0.9,
+      "text_span": "[violates: The function must handle cases where the message has been de] The response does not handle the case wh",
+      "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_7912b50700d72aebe9113988f08ddc0d_5_0"
@@ -429,10 +429,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 8,
-      "user_requested": "EXECUTOR",
+      "user_requested": "LISTENER",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_7912b50700d72aebe9113988f08ddc0d_8"
@@ -483,6 +483,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_7912b50700d72aebe9113988f08ddc0d_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 8,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_7912b50700d72aebe9113988f08ddc0d_3"
     }
   ],
   "links": [
@@ -821,6 +835,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_7912b50700d72aebe9113988f08ddc0d_9",
       "target": "mode_wildchat_7912b50700d72aebe9113988f08ddc0d_8",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_7912b50700d72aebe9113988f08ddc0d_9",
+      "target": "v_wildchat_7912b50700d72aebe9113988f08ddc0d_3",
       "key": 0
     },
     {

@@ -194,6 +194,46 @@ def compute_move_coverage(G: nx.MultiDiGraph) -> float:
     return round(covered_turns / len(turns), 4)
 
 
+def compute_dialogue_stability(G: nx.MultiDiGraph) -> Optional[float]:
+    """Variance of per-turn compliance (binary violation rates over time)."""
+    turns = sorted([d for _, d in G.nodes(data=True) if d.get("node_type") == NT.TURN], key=lambda x: x.get("turn_index", 0))
+    if not turns:
+        return None
+    
+    compliance_scores = []
+    for turn in turns:
+        idx = turn.get("turn_index")
+        viols = [d for _, d in G.nodes(data=True) if d.get("node_type") == NT.VIOLATION_EVENT and d.get("turn_index") == idx]
+        compliance_scores.append(1 if len(viols) == 0 else 0)
+        
+    if len(compliance_scores) < 2:
+        return 0.0
+    return round(statistics.variance(compliance_scores), 4)
+
+
+def compute_grounding_ratio(G: nx.MultiDiGraph) -> float:
+    """Measure ACCEPT_CONSTRAINT vs. PROPOSE_CONSTRAINT rates (Shaikh et al.)."""
+    proposes = sum(1 for _, d in G.nodes(data=True) if d.get("node_type") == NT.MOVE and d.get("move_type") == MT.PROPOSE_CONSTRAINT)
+    accepts = sum(1 for _, d in G.nodes(data=True) if d.get("node_type") == NT.MOVE and d.get("move_type") == MT.ACCEPT_CONSTRAINT)
+    
+    if proposes == 0:
+        return 0.0
+    return round(accepts / proposes, 4)
+
+
+def compute_patience(G: nx.MultiDiGraph) -> Optional[int]:
+    """Turns from first violation to end (Zhu et al.)."""
+    violations = [d.get("turn_index", 0) for _, d in G.nodes(data=True) if d.get("node_type") == NT.VIOLATION_EVENT]
+    if not violations:
+        return None
+        
+    first_viol = min(violations)
+    turns = [d.get("turn_index", 0) for _, d in G.nodes(data=True) if d.get("node_type") == NT.TURN]
+    max_turn = max(turns) if turns else 0
+    
+    return max(0, max_turn - first_viol)
+
+
 # ============= Main Computation =============
 
 def compute_metrics(
@@ -238,6 +278,9 @@ def compute_metrics(
         total_constraints=total_constraints,
         total_turns=total_turns,
         move_coverage=compute_move_coverage(G),
+        patience=compute_patience(G),
+        dialogue_stability=compute_dialogue_stability(G),
+        grounding_ratio=compute_grounding_ratio(G),
         stability_class=stability_class,
         task_architecture=task_architecture,
         constraint_hardness=constraint_hardness,
@@ -276,6 +319,9 @@ def aggregate_metrics(
             "mean_constraint_lifespan": safe_mean([m.mean_constraint_lifespan for m in group]),
             "mean_mode_entropy": safe_mean([m.mode_entropy for m in group]),
             "mean_move_coverage": safe_mean([m.move_coverage for m in group]),
+            "mean_patience": safe_mean([m.patience for m in group]),
+            "mean_dialogue_stability": safe_mean([m.dialogue_stability for m in group]),
+            "mean_grounding_ratio": safe_mean([m.grounding_ratio for m in group]),
             "total_violations": sum(m.total_violations for m in group),
             "total_repairs": sum(m.total_repairs for m in group),
             "total_constraints": sum(m.total_constraints for m in group),

@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1502",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Who was the first president of the United States?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The first president of the United States was George Washington.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.22
+      }
+    },
+    {
+      "role": "user",
+      "content": "Did he cross the Delaware?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "George Washington did not cross the Delaware River with his troops. He led them across the frozen river during the winter of 1776.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "Did he cross the Delaware?"
+      ],
+      "rationale": "The human asks questions, and the AI provides answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "Did he cross the Delaware?"
+      ],
+      "rationale": "The human sets the agenda by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "The first president of the United States was George Washington."
+      ],
+      "rationale": "The conversation is factual with no emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "Did he cross the Delaware?"
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "The first president of the United States was George Washington.",
+        "George Washington did not cross the Delaware River with his troops."
+      ],
+      "rationale": "The AI provides factual historical information.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "Did he cross the Delaware?"
+      ],
+      "rationale": "The human seeks specific historical information.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "Did he cross the Delaware?"
+      ],
+      "rationale": "The conversation touches briefly on historical facts.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Who was the first president of the United States?",
+        "The first president of the United States was George Washington."
+      ],
+      "rationale": "Both parties contribute equally in terms of message length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Who was the first president of the United States?"
+        }
+      ],
+      "rationale": "The human primarily seeks information through questions.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The first president of the United States was George Washington."
+        }
+      ],
+      "rationale": "The AI provides factual answers, asserting epistemic authority.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:25:33.745585",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -10,8 +10,8 @@
       "domain": "education",
       "total_turns": 13,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Explain contrastive learning in machine learning in simple terms for someone new to the field.",
       "id": "conv_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001"
     },
@@ -211,10 +211,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 0,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_0"
@@ -222,10 +222,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 2,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_2"
@@ -233,10 +233,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 5,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_5"
@@ -266,7 +266,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 0,
-      "turn_index": 2,
+      "turn_index": 0,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -280,6 +280,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
+      "turn_index": 5,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -289,7 +303,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_1"
+      "id": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_2"
     }
   ],
   "links": [
@@ -418,6 +432,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_1",
+      "target": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_0",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 3,
       "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_2",
@@ -448,12 +468,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_3",
       "target": "mode_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_2",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_3",
-      "target": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_0",
       "key": 0
     },
     {
@@ -504,6 +518,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_6",
+      "target": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_1",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 8,
       "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_7",
@@ -546,7 +566,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_9",
-      "target": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_1",
+      "target": "v_oasst-91a934ba-cfb8-4ca9-84d0-232b43ad13ab_0001_2",
       "key": 0
     },
     {

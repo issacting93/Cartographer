@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 26,
       "stability_class": "No Constraints",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Analyze data and discuss insights related to UFO sightings and phenomena.",
       "id": "conv_wildchat_new_76cc20b52ef45a06"
     },
@@ -492,10 +492,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 16,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_76cc20b52ef45a06_16"
@@ -603,6 +603,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
+      "turn_index": 16,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_76cc20b52ef45a06_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 5,
       "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -612,7 +626,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_76cc20b52ef45a06_4"
+      "id": "v_wildchat_new_76cc20b52ef45a06_5"
     }
   ],
   "links": [
@@ -1120,6 +1134,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_76cc20b52ef45a06_17",
+      "target": "v_wildchat_new_76cc20b52ef45a06_4",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 19,
       "source": "t_wildchat_new_76cc20b52ef45a06_18",
@@ -1228,7 +1248,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_76cc20b52ef45a06_23",
-      "target": "v_wildchat_new_76cc20b52ef45a06_4",
+      "target": "v_wildchat_new_76cc20b52ef45a06_5",
       "key": 0
     },
     {

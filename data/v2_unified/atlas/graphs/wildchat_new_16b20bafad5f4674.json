@@ -1,0 +1,897 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_16b20bafad5f4674",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_wildchat_new_16b20bafad5f4674"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 171,
+      "content_preview": "I'm using, not training, a model with pyTorch on the CPU only but it is only, for the most part, able to use 4 cores in",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1351,
+      "content_preview": "This behavior could be due to a few different reasons: 1. Implementation: The implementation of the model itself could",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 124,
+      "content_preview": "If the model is capable of being efficiently used on a GPU, wouldn't that suggest that it is parallelizable, even highly",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 766,
+      "content_preview": "Yes, that's a good point. If the model is efficiently used on a GPU, it strongly suggests that it is highly parallelizab",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 64,
+      "content_preview": "It seems the limitation is due to some configuration of pyTorch.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1220,
+      "content_preview": "In that case, there are a few things that you can do to configure PyTorch to use more CPU cores: 1. Set the `OMP_NUM_TH",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 62,
+      "content_preview": "USE_OPENMP is set to ON not True, does that make a difference?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 463,
+      "content_preview": "No, setting `USE_OPENMP` to `ON` is the correct way to enable OpenMP support in PyTorch. This flag is used during the CM",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 205,
+      "content_preview": "OMP_NUM_THREADS does not seem to have any effect. I have the suspicion that pyTorch is not actually using OpenMP to run",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 1455,
+      "content_preview": "It's possible that PyTorch is not using OpenMP even though it appears to be enabled. One possible reason for this is tha",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 92,
+      "content_preview": "Still no change, even with export MKL_DEBUG_CPU_TYPE=5. How does torch.multiprocessing work?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2018,
+      "content_preview": "`torch.multiprocessing` is a module in PyTorch that provides support for multi-process parallelism. It allows you to spa",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 292,
+      "content_preview": "Ok, I want to avoid modifying the code if possible. The model runs fine and fast on a GPU, suggesting that it is highly",
+      "move_count": 4,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 1518,
+      "content_preview": "If you're not able to modify the code, there are still a few things you can try to increase CPU parallelization: 1. Inc",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 76,
+      "content_preview": "torch.set_num_threads seems to reduce the number of cores used if increased?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 1276,
+      "content_preview": "`torch.set_num_threads` sets the number of OpenMP threads to use for parallelizing CPU-bound operations in PyTorch. By d",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 369,
+      "content_preview": "Ok, i've ran the setup with different settings for torch.set_num_threads(n) with the following core utilization being th",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 1336,
+      "content_preview": "The behavior that you're seeing with `torch.set_num_threads` is unexpected, especially with the large drop-off in utiliz",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_16b20bafad5f4674_17"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "pyTorch on the CPU only but it is only, for the most part, able",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_16b20bafad5f4674_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "This behavior could be due to a few different reasons:\n\n1. Implementation: The i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, that's a good point. If the model is efficiently used on a GPU, it strongly...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "In that case, there are a few things that you can do to configure PyTorch to use...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "No, setting `USE_OPENMP` to `ON` is the correct way to enable OpenMP support in...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "It's possible that PyTorch is not using OpenMP even though it appears to be enab...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "`torch.multiprocessing` is a module in PyTorch that provides support for multi-p...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "Ok, I want to avoid modifying the code if possible. The model runs fine a",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_16b20bafad5f4674_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "on the CPU, it will only use up to 4 processir cores for most of",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_16b20bafad5f4674_12_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "modifying the code if possible. The model runs fine and fast on a GPU,",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_16b20bafad5f4674_12_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "Ok, I want to avoid modifying the code if possible. T",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_16b20bafad5f4674_12_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "If you're not able to modify the code, there are still a few things you can try...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "`torch.set_num_threads` sets the number of OpenMP threads to use for parallelizi...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The behavior that you're seeing with `torch.set_num_threads` is unexpected, espe...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_16b20bafad5f4674_17_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "ADVISOR",
+      "is_violation": true,
+      "violation_type": "EXECUTION_AVOIDANCE",
+      "confidence": 0.8,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_16b20bafad5f4674_16"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "EXECUTION_AVOIDANCE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "ADVISOR",
+      "confidence": 0.8,
+      "method": "regex",
+      "id": "v_wildchat_new_16b20bafad5f4674_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_16b20bafad5f4674",
+      "target": "t_wildchat_new_16b20bafad5f4674_17",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_16b20bafad5f4674_0",
+      "target": "t_wildchat_new_16b20bafad5f4674_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_0",
+      "target": "m_wildchat_new_16b20bafad5f4674_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_0",
+      "target": "mode_wildchat_new_16b20bafad5f4674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_16b20bafad5f4674_1",
+      "target": "t_wildchat_new_16b20bafad5f4674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_1",
+      "target": "m_wildchat_new_16b20bafad5f4674_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_1",
+      "target": "mode_wildchat_new_16b20bafad5f4674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_16b20bafad5f4674_2",
+      "target": "t_wildchat_new_16b20bafad5f4674_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_2",
+      "target": "mode_wildchat_new_16b20bafad5f4674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_16b20bafad5f4674_3",
+      "target": "t_wildchat_new_16b20bafad5f4674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_3",
+      "target": "m_wildchat_new_16b20bafad5f4674_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_3",
+      "target": "mode_wildchat_new_16b20bafad5f4674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_16b20bafad5f4674_4",
+      "target": "t_wildchat_new_16b20bafad5f4674_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_4",
+      "target": "mode_wildchat_new_16b20bafad5f4674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_16b20bafad5f4674_5",
+      "target": "t_wildchat_new_16b20bafad5f4674_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_5",
+      "target": "m_wildchat_new_16b20bafad5f4674_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_5",
+      "target": "mode_wildchat_new_16b20bafad5f4674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_16b20bafad5f4674_6",
+      "target": "t_wildchat_new_16b20bafad5f4674_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_6",
+      "target": "mode_wildchat_new_16b20bafad5f4674_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_16b20bafad5f4674_7",
+      "target": "t_wildchat_new_16b20bafad5f4674_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_7",
+      "target": "m_wildchat_new_16b20bafad5f4674_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_7",
+      "target": "mode_wildchat_new_16b20bafad5f4674_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_16b20bafad5f4674_8",
+      "target": "t_wildchat_new_16b20bafad5f4674_9",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_8",
+      "target": "mode_wildchat_new_16b20bafad5f4674_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_16b20bafad5f4674_9",
+      "target": "t_wildchat_new_16b20bafad5f4674_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_9",
+      "target": "m_wildchat_new_16b20bafad5f4674_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_9",
+      "target": "mode_wildchat_new_16b20bafad5f4674_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_16b20bafad5f4674_10",
+      "target": "t_wildchat_new_16b20bafad5f4674_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_10",
+      "target": "mode_wildchat_new_16b20bafad5f4674_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_16b20bafad5f4674_11",
+      "target": "t_wildchat_new_16b20bafad5f4674_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_11",
+      "target": "m_wildchat_new_16b20bafad5f4674_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_11",
+      "target": "mode_wildchat_new_16b20bafad5f4674_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "t_wildchat_new_16b20bafad5f4674_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "m_wildchat_new_16b20bafad5f4674_12_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "m_wildchat_new_16b20bafad5f4674_12_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "m_wildchat_new_16b20bafad5f4674_12_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 3,
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "m_wildchat_new_16b20bafad5f4674_12_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_12",
+      "target": "mode_wildchat_new_16b20bafad5f4674_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_16b20bafad5f4674_13",
+      "target": "t_wildchat_new_16b20bafad5f4674_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_13",
+      "target": "m_wildchat_new_16b20bafad5f4674_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_13",
+      "target": "mode_wildchat_new_16b20bafad5f4674_12",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_16b20bafad5f4674_13",
+      "target": "v_wildchat_new_16b20bafad5f4674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_16b20bafad5f4674_14",
+      "target": "t_wildchat_new_16b20bafad5f4674_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_14",
+      "target": "mode_wildchat_new_16b20bafad5f4674_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_16b20bafad5f4674_15",
+      "target": "t_wildchat_new_16b20bafad5f4674_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_15",
+      "target": "m_wildchat_new_16b20bafad5f4674_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_15",
+      "target": "mode_wildchat_new_16b20bafad5f4674_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_16b20bafad5f4674_16",
+      "target": "t_wildchat_new_16b20bafad5f4674_17",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_16",
+      "target": "mode_wildchat_new_16b20bafad5f4674_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_16b20bafad5f4674_17",
+      "target": "m_wildchat_new_16b20bafad5f4674_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_16b20bafad5f4674_17",
+      "target": "mode_wildchat_new_16b20bafad5f4674_16",
+      "key": 0
+    }
+  ]
+}

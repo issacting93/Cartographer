@@ -1,0 +1,184 @@
+{
+  "id": "chatbot_arena_1608",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello, Bob. How can I assist you today?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "user",
+      "content": "شونك",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand what you mean by \"شونك\". Could you please provide me with more context or clarify your question?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.6
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "How can I assist you today?",
+        "Could you please provide me with more context or clarify your question?"
+      ],
+      "rationale": "The AI asks questions to clarify and assist, indicating a question-answer pattern.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "ai-led",
+      "confidence": 0.6,
+      "evidence": [
+        "How can I assist you today?",
+        "Could you please provide me with more context or clarify your question?"
+      ],
+      "rationale": "The AI directs the conversation by asking clarifying questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello, Bob.",
+        "I'm sorry, I don't understand"
+      ],
+      "rationale": "The tone is straightforward and lacks emotional coloring.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "How can I assist you today?",
+        "Could you please provide me with more context or clarify your question?"
+      ],
+      "rationale": "The AI asks questions to engage the human.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "information-seeking",
+      "confidence": 0.6,
+      "evidence": [
+        "Could you please provide me with more context or clarify your question?"
+      ],
+      "rationale": "The AI seeks clarification to provide assistance.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "How can I assist you today?",
+        "Could you please provide me with more context or clarify your question?"
+      ],
+      "rationale": "The AI aims to understand the human's needs to provide information.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "hi",
+        "Hello, Bob.",
+        "شونك",
+        "I'm sorry, I don't understand"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "hi",
+        "Hello, Bob.",
+        "شونك",
+        "I'm sorry, I don't understand"
+      ],
+      "rationale": "The conversation consists of short, balanced turns.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.4,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.3,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "hi"
+        },
+        {
+          "role": "social-expressor",
+          "quote": "شونك"
+        }
+      ],
+      "rationale": "The human greets and uses informal language, indicating a mix of seeking information and social expression.",
+      "alternative": "relational-peer"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.4,
+        "learning-facilitator": 0.3,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.3,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "How can I assist you today?"
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "Hello, Bob."
+        }
+      ],
+      "rationale": "The AI provides assistance and maintains conversation flow, indicating a mix of roles.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:41:58.332127",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 22,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Fix the JavaScript code to write modified text to a file without errors.",
       "id": "conv_wildchat_new_9497e4821fd83134"
     },
@@ -191,7 +191,7 @@
       "role": "assistant",
       "content_length": 987,
       "content_preview": "The error message \"TypeError: Cannot read properties of undefined (reading 'length')\" means that you are trying to acces",
-      "move_count": 1,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_9497e4821fd83134_17"
     },
@@ -256,7 +256,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not ensure that output",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -292,7 +292,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not confirm that 'outp",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not confirm that outpu",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -310,7 +310,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure the callback function for fs.writeFile is defined.] The response does not ensure that the ca",
+      "text_span": "[violates: Ensure the callback function for fs.writeFile is defined.] The response does not define the callbac",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -382,7 +382,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not ensure outputText ",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not confirm that outpu",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -391,7 +391,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use a defined variable for the text to be written to the fil] The response does not use a defined vari",
+      "text_span": "[violates: Use a defined variable for the text to be written to the fil] The response does not explicitly define ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -409,7 +409,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not confirm that 'outp",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not confirm that `outp",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -427,11 +427,29 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not ensure that output",
+      "text_span": "[violates: Use a defined variable for the text to be written to the fil] The response does not use a defined vari",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_9497e4821fd83134_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure the callback function for fs.writeFile is defined.] The response does not define the callbac",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9497e4821fd83134_17_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not ensure that output",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_9497e4821fd83134_17_2"
     },
     {
       "node_type": "Move",
@@ -490,7 +508,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response attempts to call join() on ",
+      "text_span": "[violates: Ensure outputText is an array before calling join() on it.] The response does not ensure outputText ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -646,10 +664,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 10,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_9497e4821fd83134_10"
@@ -740,6 +758,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_9497e4821fd83134_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 5,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -749,26 +781,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_wildchat_new_9497e4821fd83134_4"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 5,
-      "turn_index": 14,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
       "id": "v_wildchat_new_9497e4821fd83134_5"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 16,
+      "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -782,7 +800,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 18,
+      "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -792,6 +810,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_9497e4821fd83134_7"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 8,
+      "turn_index": 18,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_9497e4821fd83134_8"
     }
   ],
   "links": [
@@ -1228,6 +1260,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_9497e4821fd83134_11",
+      "target": "v_wildchat_new_9497e4821fd83134_4",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 13,
       "source": "t_wildchat_new_9497e4821fd83134_12",
@@ -1277,7 +1315,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_9497e4821fd83134_13",
-      "target": "v_wildchat_new_9497e4821fd83134_4",
+      "target": "v_wildchat_new_9497e4821fd83134_5",
       "key": 0
     },
     {
@@ -1330,7 +1368,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_9497e4821fd83134_15",
-      "target": "v_wildchat_new_9497e4821fd83134_5",
+      "target": "v_wildchat_new_9497e4821fd83134_6",
       "key": 0
     },
     {
@@ -1368,6 +1406,20 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9497e4821fd83134_17",
+      "target": "m_wildchat_new_9497e4821fd83134_17_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_9497e4821fd83134_17",
+      "target": "m_wildchat_new_9497e4821fd83134_17_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_9497e4821fd83134_17",
       "target": "mode_wildchat_new_9497e4821fd83134_16",
@@ -1376,7 +1428,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_9497e4821fd83134_17",
-      "target": "v_wildchat_new_9497e4821fd83134_6",
+      "target": "v_wildchat_new_9497e4821fd83134_7",
       "key": 0
     },
     {
@@ -1436,7 +1488,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_9497e4821fd83134_19",
-      "target": "v_wildchat_new_9497e4821fd83134_7",
+      "target": "v_wildchat_new_9497e4821fd83134_8",
       "key": 0
     },
     {

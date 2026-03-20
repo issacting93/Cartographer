@@ -10,8 +10,8 @@
       "domain": "creative",
       "total_turns": 12,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Write a series of jokes featuring a penguin and a walrus in a bar.",
       "id": "conv_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023"
     },
@@ -245,13 +245,27 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 9,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 9,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_0"
     }
   ],
   "links": [
@@ -523,6 +537,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_10",
       "target": "mode_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_10",
+      "target": "v_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_0",
       "key": 0
     }
   ]

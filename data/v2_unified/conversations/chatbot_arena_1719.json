@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_1719",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is a good chunk size for searching through documents with word embeddings?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "It depends on your use case, but a good rule of thumb is to keep the number of documents per chunk between 10 to 100.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "What would be a good wat of measuring the quality of a search result?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Typical metrics like precision, recall, and F1 score do not capture the full picture. A better way to measure the quality of search result is to evaluate if the search result is relevant to the query, and useful to the user.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "What is a good chunk size",
+        "What would be a good way of measuring"
+      ],
+      "rationale": "The human asks questions and the AI provides answers, indicating a question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "What is a good chunk size",
+        "What would be a good way of measuring"
+      ],
+      "rationale": "The human initiates the topics and asks questions, guiding the conversation.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "It depends on your use case",
+        "Typical metrics like precision, recall"
+      ],
+      "rationale": "The conversation is factual and lacks emotional content, indicating a neutral tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "What is a good chunk size",
+        "What would be a good way of measuring"
+      ],
+      "rationale": "The human's questions drive the exploration of the topic.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "a good rule of thumb is to keep",
+        "Typical metrics like precision, recall"
+      ],
+      "rationale": "The AI provides factual information in response to the human's questions.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "What is a good chunk size",
+        "What would be a good way of measuring"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.7,
+      "evidence": [
+        "a good rule of thumb is to keep",
+        "Typical metrics like precision, recall"
+      ],
+      "rationale": "The conversation provides some exploration but not exhaustive detail.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "What is a good chunk size",
+        "It depends on your use case"
+      ],
+      "rationale": "The human and AI have roughly equal turns in the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.8,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What is a good chunk size"
+        }
+      ],
+      "rationale": "The human primarily seeks information, asking questions to fill knowledge gaps.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "a good rule of thumb is to keep"
+        }
+      ],
+      "rationale": "The AI provides direct answers and asserts epistemic authority.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:57:53.663750",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

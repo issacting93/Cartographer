@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_0123",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, nice weather today isn't it?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, it is a nice day. The temperature outside is currently 72 degrees Fahrenheit with mostly sunny skies.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "What location is that currently that warm outside?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "That location is currently San Diego, California.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "What location is that currently that warm outside?",
+        "That location is currently San Diego, California."
+      ],
+      "rationale": "The human asks questions and the AI provides answers.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello, nice weather today isn't it?",
+        "What location is that currently that warm outside?"
+      ],
+      "rationale": "The human initiates and directs the conversation with questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello, nice weather today isn't it?",
+        "Yes, it is a nice day."
+      ],
+      "rationale": "The conversation is factual and lacks emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "What location is that currently that warm outside?"
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "The temperature outside is currently 72 degrees Fahrenheit",
+        "That location is currently San Diego, California."
+      ],
+      "rationale": "The AI provides factual weather information.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "What location is that currently that warm outside?"
+      ],
+      "rationale": "The human seeks specific information about the weather location.",
+      "alternative": "casual-chat"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello, nice weather today isn't it?",
+        "Yes, it is a nice day."
+      ],
+      "rationale": "The conversation remains at a superficial level.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Hello, nice weather today isn't it?",
+        "Yes, it is a nice day."
+      ],
+      "rationale": "Both parties contribute similarly in length and frequency.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What location is that currently that warm outside?"
+        }
+      ],
+      "rationale": "The human primarily seeks information.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.05,
+        "advisor": 0.05,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The temperature outside is currently 72 degrees Fahrenheit"
+        }
+      ],
+      "rationale": "The AI provides factual information authoritatively.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T10:57:47.376887",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

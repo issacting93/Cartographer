@@ -1,0 +1,174 @@
+{
+  "id": "chatbot_arena_1103",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Describe the place where these descriptions may be: A dog and a boy",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hey there!",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.36
+      }
+    },
+    {
+      "role": "user",
+      "content": "What other information/descriptors would help you",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "What do you mean?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "What other information/descriptors would help you"
+      ],
+      "rationale": "The human asks questions, but AI responses are not informative, leading to ambiguity.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "What other information/descriptors would help you"
+      ],
+      "rationale": "The human initiates questions, guiding the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hey there!",
+        "What do you mean?"
+      ],
+      "rationale": "The tone is neutral with no strong emotional cues.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "What other information/descriptors would help you"
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.5,
+      "evidence": [
+        "Describe the place where these descriptions may be"
+      ],
+      "rationale": "The human seeks specific information, but AI does not provide it.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.6,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "What other information/descriptors would help you"
+      ],
+      "rationale": "The human seeks information, though AI's responses are unclear.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "What do you mean?"
+      ],
+      "rationale": "The conversation remains at a superficial level.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Describe the place where these descriptions may be",
+        "Hey there!",
+        "What other information/descriptors would help you",
+        "What do you mean?"
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Describe the place where these descriptions may be"
+        }
+      ],
+      "rationale": "The human primarily seeks information through questions.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.2,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.4,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Hey there!"
+        }
+      ],
+      "rationale": "The AI's responses are more social than informative.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:37:41.970769",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

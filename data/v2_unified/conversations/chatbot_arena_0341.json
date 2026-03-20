@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_0341",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello, how can I help you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "Do you know the game RimWorld? ",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm not familiar with that.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.52
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "Do you know the game RimWorld?",
+        "I'm not familiar with that."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.5,
+      "evidence": [
+        "Do you know the game RimWorld?"
+      ],
+      "rationale": "The human initiates the topic and asks a question.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello",
+        "Hello, how can I help you?"
+      ],
+      "rationale": "The conversation lacks strong emotional coloring.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.6,
+      "evidence": [
+        "Do you know the game RimWorld?"
+      ],
+      "rationale": "The human asks a question to engage the AI.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.5,
+      "evidence": [
+        "Do you know the game RimWorld?",
+        "I'm not familiar with that."
+      ],
+      "rationale": "The human seeks factual information about a game.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.6,
+      "evidence": [
+        "Do you know the game RimWorld?"
+      ],
+      "rationale": "The human is seeking information about a game.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.7,
+      "evidence": [
+        "Do you know the game RimWorld?",
+        "I'm not familiar with that."
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello",
+        "Hello, how can I help you?",
+        "Do you know the game RimWorld?",
+        "I'm not familiar with that."
+      ],
+      "rationale": "The conversation has equal turns between human and AI.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Do you know the game RimWorld?"
+        }
+      ],
+      "rationale": "The human seeks information about a game.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.5,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I'm not familiar with that."
+        }
+      ],
+      "rationale": "The AI provides a factual response.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:43:08.060615",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

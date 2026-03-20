@@ -1,0 +1,178 @@
+{
+  "id": "chatbot_arena_0121",
+  "messages": [
+    {
+      "role": "user",
+      "content": "David has two older brothers, namely Bob and Charlie. Bob is 10 years old and Charlie is 8 years old. How many younger brothers does Bob have?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "<div><div></div></div>\n<div><div><div><div><p>Bob has one younger brother, which is David. Charlie has one younger brother, which is also David.</p></div></div></div><div>\n</div></div>",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "David has two older siblings, namely Bob and Charlie. Bob is 10 years old and Charlie is 8 years old. How many younger brothers does Bob have?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "<div><div><p>Bob has one younger brother, which is David. Charlie has one younger brother, which is also David.</p></div></div>",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "How many younger brothers does Bob have?",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "Human asks a specific question; AI provides a direct answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "How many younger brothers does Bob have?",
+        "How many younger brothers does Bob have?"
+      ],
+      "rationale": "Human sets the agenda by posing (and repeating) the question; AI responds.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.75,
+      "evidence": [
+        "David has two older brothers, namely Bob and Charlie.",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "Factual, task-focused exchange without explicit affective language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.65,
+      "evidence": [
+        "How many younger brothers does Bob have?",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "AI responds directly to the prompt without probing or extending the interaction.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "Bob is 10 years old and Charlie is 8 years old.",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "Exchange centers on a concrete factual/logical answer derived from given facts.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "How many younger brothers does Bob have?",
+        "How many younger brothers does Bob have?"
+      ],
+      "rationale": "Human seeks a specific answer to a word-problem question.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.75,
+      "evidence": [
+        "David has two older brothers, namely Bob and Charlie.",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "Brief, single-step family-relationship reasoning with no extended exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "David has two older brothers, namely Bob and Charlie.",
+        "Bob has one younger brother, which is David."
+      ],
+      "rationale": "Both parties contribute short turns; AI output is slightly longer due to formatting but comparable content length.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.75,
+        "director": 0.05,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "How many younger brothers does Bob have?"
+        },
+        {
+          "role": "provider",
+          "quote": "How many younger brothers does Bob have?"
+        }
+      ],
+      "rationale": "Human primarily requests an answer from the AI (low-authority information request), repeating the question.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.95,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0.05,
+        "social-facilitator": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Bob has one younger brother, which is David."
+        }
+      ],
+      "rationale": "AI provides a direct solution statement rather than guiding the user through reasoning.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:16:17.758261",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 15474,
+    "fewShotExamples": "yes"
+  }
+}

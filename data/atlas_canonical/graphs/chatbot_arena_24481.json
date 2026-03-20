@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 18,
       "stability_class": "Task Maintained",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Identify countries based on their geographic positions relative to each other.",
       "id": "conv_chatbot_arena_24481"
     },
@@ -276,10 +276,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_chatbot_arena_24481_6"
@@ -384,7 +384,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 10,
+      "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -394,6 +394,20 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "v_chatbot_arena_24481_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 10,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_24481_4"
     }
   ],
   "links": [
@@ -646,6 +660,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_24481_7",
+      "target": "v_chatbot_arena_24481_3",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 9,
       "source": "t_chatbot_arena_24481_8",
@@ -714,7 +734,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_chatbot_arena_24481_11",
-      "target": "v_chatbot_arena_24481_3",
+      "target": "v_chatbot_arena_24481_4",
       "key": 0
     },
     {

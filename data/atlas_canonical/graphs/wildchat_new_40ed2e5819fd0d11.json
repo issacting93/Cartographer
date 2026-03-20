@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 28,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Implement drag detection for a UI widget in Unreal Engine using C++.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Implement drag detection for a UI widget in C++ without consuming mouse button events.",
       "id": "conv_wildchat_new_40ed2e5819fd0d11"
     },
     {
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 3008,
       "content_preview": "Here's an example implementation of a custom UUserWidget class that demonstrates a way to use DetectDrag on a widget per",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_40ed2e5819fd0d11_5"
     },
@@ -251,7 +251,7 @@
       "role": "assistant",
       "content_length": 2088,
       "content_preview": "I apologize for the inconvenience. If trying different event handlers still doesn't resolve the issue, there might be a",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_40ed2e5819fd0d11_23"
     },
@@ -271,7 +271,7 @@
       "role": "assistant",
       "content_length": 1706,
       "content_preview": "The `NativeOnMouseLeave` being called when left-clicking on the widget after clicking another button could be due to the",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_40ed2e5819fd0d11_25"
     },
@@ -291,14 +291,14 @@
       "role": "assistant",
       "content_length": 3434,
       "content_preview": "Sure! Here's an example demonstrating the use of DetectDrag and setting focus for a draggable widget in C++. In this exa",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_40ed2e5819fd0d11_27"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests using `NativeOnMou",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests consuming the left",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -307,7 +307,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -316,7 +316,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests using `DetectDrag`",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests overriding `Native",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -325,8 +325,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
-      "confidence": 1.0,
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not explicitly confirm",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_3_1"
@@ -334,7 +334,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The implementation consumes the left mou",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response consumes the left mouse but",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -343,17 +343,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not handle mouse butto",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_40ed2e5819fd0d11_5_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests overriding `Native",
-      "confidence": 1.0,
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response does not explicitly state t",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_7_0"
@@ -361,8 +352,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not clearly indicate h",
-      "confidence": 1.0,
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not confirm that Nativ",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_7_1"
@@ -370,7 +361,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests modifying the `Nat",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests modifying `NativeO",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -379,7 +370,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not correctly handle m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not ensure that `Nativ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -388,7 +379,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests using CaptureMouse",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests using CaptureMouse",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -397,7 +388,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not ensure that Native",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -415,7 +406,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests capturing the mous",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests capturing the poin",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -424,7 +415,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not mention or ensure ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -442,7 +433,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests handling drag-and-",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests handling drag-and-",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -451,7 +442,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not correctly handle m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not ensure that `Nativ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -460,7 +451,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests marking the FReply",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests marking the FReply",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -469,7 +460,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -478,7 +469,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests using `OnDragDetec",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests handling mouse but",
       "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
@@ -487,7 +478,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not correctly handle m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not ensure that Native",
       "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
@@ -496,7 +487,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests using OnMouseButto",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response suggests overriding `OnMous",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -505,7 +496,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
+      "text_span": "[violates: Ensure NativeOnMouseButtonUp is triggered correctly on mouse] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -513,62 +504,35 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response does not address the requir",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the inconvenience. If trying different event handlers still does...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_23_0"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response fails to mention handling m",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_40ed2e5819fd0d11_23_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response suggests overriding the `Na",
-      "confidence": 0.8,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The `NativeOnMouseLeave` being called when left-clicking on the widget after cli...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_25_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not address handling m",
-      "confidence": 0.9,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_40ed2e5819fd0d11_25_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use DetectDrag without consuming the left mouse button press] The response uses DetectDrag while consu",
+      "text_span": "[violates: Do not consume the left mouse button press in NativeOnMouseB] The response consumes the left mouse but",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_40ed2e5819fd0d11_27_0"
     },
     {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Handle mouse button up events correctly to reset drag state.] The response does not handle mouse butto",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_40ed2e5819fd0d11_27_1"
-    },
-    {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "Use DetectDrag without consuming the left mouse button press.",
+      "text": "Do not consume the left mouse button press in NativeOnMouseButtonDown.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -596,7 +560,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "Handle mouse button up events correctly to reset drag state.",
+      "text": "Ensure NativeOnMouseButtonUp is triggered correctly on mouse release.",
       "hardness": "hard",
       "current_state": "SURVIVED",
       "state_history": [
@@ -722,10 +686,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 16,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_40ed2e5819fd0d11_16"
@@ -860,10 +824,10 @@
       "violation_idx": 6,
       "turn_index": 16,
       "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
       "violation_ord": 1,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
@@ -1232,13 +1196,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_40ed2e5819fd0d11_5",
       "target": "m_wildchat_new_40ed2e5819fd0d11_5_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_40ed2e5819fd0d11_5",
-      "target": "m_wildchat_new_40ed2e5819fd0d11_5_1",
       "key": 0
     },
     {
@@ -1645,13 +1602,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_40ed2e5819fd0d11_23",
-      "target": "m_wildchat_new_40ed2e5819fd0d11_23_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_40ed2e5819fd0d11_23",
       "target": "mode_wildchat_new_40ed2e5819fd0d11_22",
@@ -1685,13 +1635,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_40ed2e5819fd0d11_25",
-      "target": "m_wildchat_new_40ed2e5819fd0d11_25_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_40ed2e5819fd0d11_25",
       "target": "mode_wildchat_new_40ed2e5819fd0d11_24",
@@ -1721,13 +1664,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_40ed2e5819fd0d11_27",
       "target": "m_wildchat_new_40ed2e5819fd0d11_27_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_40ed2e5819fd0d11_27",
-      "target": "m_wildchat_new_40ed2e5819fd0d11_27_1",
       "key": 0
     },
     {

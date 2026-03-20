@@ -10,9 +10,9 @@
       "domain": "limitations",
       "total_turns": 32,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Create a fictional dialogue between King K and PM regarding political dynamics on a fictional planet.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Engage in a fictional dialogue as King K while maintaining the storyline.",
       "id": "conv_wildchat_new_0e1b598d33c8deef"
     },
     {
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 608,
       "content_preview": "King K takes the letter and reads it carefully. \"Interesting. It appears that the king of C thinks that Empire is acting",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0e1b598d33c8deef_9"
     },
@@ -231,7 +231,7 @@
       "role": "assistant",
       "content_length": 1274,
       "content_preview": "Luke nods and responds, \"Yes, your majesty. I have made connections with individuals who claim to have knowledge and com",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0e1b598d33c8deef_21"
     },
@@ -251,7 +251,7 @@
       "role": "assistant",
       "content_length": 352,
       "content_preview": "I apologize if my responses are not in line with your storyline, sometimes I may interpret the dialogue differently. Unf",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0e1b598d33c8deef_23"
     },
@@ -311,7 +311,7 @@
       "role": "assistant",
       "content_length": 970,
       "content_preview": "Here are 50 short dialogue reaction responses: 1. Ah. 2. Okay. 3. Got it. 4. Understood. 5. Hmm. 6. I see your point. 7",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0e1b598d33c8deef_29"
     },
@@ -331,16 +331,16 @@
       "role": "assistant",
       "content_length": 992,
       "content_preview": "\u041a\u043e\u043d\u0435\u0447\u043d\u043e! \u0412\u043e\u0442 50 \u043a\u043e\u0440\u043e\u0442\u043a\u0438\u0445 \u043e\u0442\u0432\u0435\u0442\u043e\u0432 \u043d\u0430 \u0434\u0438\u0430\u043b\u043e\u0433, \u0430\u043d\u0430\u043b\u043e\u0433\u0438\u0447\u043d\u044b\u0435 \"\u041f\u043e\u043d\u044f\u0442\u043d\u043e\", \"\u0418\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u043e\", \"\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u043e?\": 1. \u0410\u0433\u0430. 2. \u0425\u043e\u0440\u043e\u0448\u043e. 3.",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0e1b598d33c8deef_31"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes dialogue from PM, ",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K replies, \"Indeed it is. It seems that Empire has found a way to get what...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_1_0"
     },
@@ -355,19 +355,19 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a reference to PM,",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K nods and continues, \"You are right. Our alliance has been successful thus...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a reference to 'Em",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K agrees, \"Yes, we need to investigate the situation within C. It's possibl...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_5_0"
     },
@@ -383,7 +383,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes dialogue from PM, ",
+      "text_span": "[violates: Only generate responses for King K.] The response includes dialogue from PM, ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -392,9 +392,18 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a reference to 'PM",
+      "text_span": "[violates: Responses should align with the established narrative and ch] The response introduces a character (PM)",
       "confidence": 1.0,
       "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0e1b598d33c8deef_9_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K nods, \"You're right. With the demons in the equation, our alliance is sev...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_11_0"
     },
@@ -409,26 +418,26 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes PM, which is expli",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K looks surprised and intrigued, \"Really? Who is this acquaintance? And how...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_15_0"
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a reference to 'PM",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "King K looks surprised and curious, \"Truly a coincidence, indeed. Please introdu...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_17_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a reference to PM ",
+      "text_span": "[violates: Only generate responses for King K.] The response includes a character (Luke)",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -437,7 +446,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes dialogue with PM, ",
+      "text_span": "[violates: Only generate responses for King K.] The response includes dialogue from Luke",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -446,11 +455,29 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response does not adhere to the cons",
+      "text_span": "[violates: Responses should align with the established narrative and ch] The response introduces a character (Luk",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0e1b598d33c8deef_21_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Only generate responses for King K.] The response indicates a willingness to ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_23_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Responses should align with the established narrative and ch] The response suggests a lack of alignmen",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0e1b598d33c8deef_23_1"
     },
     {
       "node_type": "Move",
@@ -463,17 +490,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes references to '\u041a\u043e\u0440",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "\u041a\u043e\u043d\u0435\u0447\u043d\u043e, \u0432\u043e\u0442 30 \u0430\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432\u043d\u044b\u0445 \u0432\u044b\u0440\u0430\u0436\u0435\u043d\u0438\u0439 \u0432\u043c\u0435\u0441\u0442\u043e \"\u041a\u043e\u0440\u043e\u043b\u044c \u041a \u0440\u0430\u0437\u043c\u044b\u0448\u043b\u044f\u0435\u0442, \u043f\u043e\u0442\u0438\u0440\u0430\u044f \u043f\u043e...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_27_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes dialogue reactions",
+      "text_span": "[violates: Only generate responses for King K.] The response does not generate content s",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -482,16 +509,34 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only generate responses for King K, not PM.] The response includes a list of short re",
+      "text_span": "[violates: Responses should align with the established narrative and ch] The response does not align with the est",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0e1b598d33c8deef_29_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Only generate responses for King K.] The response does not generate content s",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0e1b598d33c8deef_31_0"
     },
     {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Responses should align with the established narrative and ch] The response does not align with the est",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0e1b598d33c8deef_31_1"
+    },
+    {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "Only generate responses for King K, not PM.",
+      "text": "Only generate responses for King K.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -504,7 +549,7 @@
           "ACTIVE"
         ],
         [
-          1,
+          9,
           "VIOLATED"
         ]
       ],
@@ -512,19 +557,57 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 1,
+      "lifespan": 9,
       "final_state": null,
       "id": "c_wildchat_new_0e1b598d33c8deef_c_0"
     },
     {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Responses should align with the established narrative and character motivations.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          9,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 8,
+      "final_state": null,
+      "id": "c_wildchat_new_0e1b598d33c8deef_c_1"
+    },
+    {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 1,
+      "turn_index": 9,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
       "violation_ord": 1,
       "id": "v_wildchat_new_0e1b598d33c8deef_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 9,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_0e1b598d33c8deef_1"
     },
     {
       "node_type": "InteractionMode",
@@ -704,7 +787,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 1,
+      "violation_idx": 2,
       "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -714,11 +797,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_1"
+      "id": "v_wildchat_new_0e1b598d33c8deef_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 3,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -728,11 +811,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_2"
+      "id": "v_wildchat_new_0e1b598d33c8deef_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 3,
+      "violation_idx": 4,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -742,11 +825,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_3"
+      "id": "v_wildchat_new_0e1b598d33c8deef_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 4,
+      "violation_idx": 5,
       "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -756,11 +839,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_4"
+      "id": "v_wildchat_new_0e1b598d33c8deef_5"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 5,
+      "violation_idx": 6,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -770,11 +853,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "regex",
-      "id": "v_wildchat_new_0e1b598d33c8deef_5"
+      "id": "v_wildchat_new_0e1b598d33c8deef_6"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 7,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -784,11 +867,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_6"
+      "id": "v_wildchat_new_0e1b598d33c8deef_7"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 7,
+      "violation_idx": 8,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -798,11 +881,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_7"
+      "id": "v_wildchat_new_0e1b598d33c8deef_8"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 8,
+      "violation_idx": 9,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -812,7 +895,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_0e1b598d33c8deef_8"
+      "id": "v_wildchat_new_0e1b598d33c8deef_9"
     }
   ],
   "links": [
@@ -1068,12 +1151,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_0e1b598d33c8deef_1",
-      "target": "v_wildchat_new_0e1b598d33c8deef_0",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0e1b598d33c8deef_1",
       "target": "mode_wildchat_new_0e1b598d33c8deef_0",
@@ -1155,7 +1232,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_5",
-      "target": "v_wildchat_new_0e1b598d33c8deef_1",
+      "target": "v_wildchat_new_0e1b598d33c8deef_2",
       "key": 0
     },
     {
@@ -1194,7 +1271,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_7",
-      "target": "v_wildchat_new_0e1b598d33c8deef_2",
+      "target": "v_wildchat_new_0e1b598d33c8deef_3",
       "key": 0
     },
     {
@@ -1225,6 +1302,25 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0e1b598d33c8deef_9",
+      "target": "m_wildchat_new_0e1b598d33c8deef_9_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0e1b598d33c8deef_9",
+      "target": "v_wildchat_new_0e1b598d33c8deef_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0e1b598d33c8deef_9",
+      "target": "v_wildchat_new_0e1b598d33c8deef_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0e1b598d33c8deef_9",
       "target": "mode_wildchat_new_0e1b598d33c8deef_8",
@@ -1233,7 +1329,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_9",
-      "target": "v_wildchat_new_0e1b598d33c8deef_3",
+      "target": "v_wildchat_new_0e1b598d33c8deef_4",
       "key": 0
     },
     {
@@ -1272,7 +1368,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_11",
-      "target": "v_wildchat_new_0e1b598d33c8deef_4",
+      "target": "v_wildchat_new_0e1b598d33c8deef_5",
       "key": 0
     },
     {
@@ -1311,7 +1407,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_13",
-      "target": "v_wildchat_new_0e1b598d33c8deef_5",
+      "target": "v_wildchat_new_0e1b598d33c8deef_6",
       "key": 0
     },
     {
@@ -1350,7 +1446,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_15",
-      "target": "v_wildchat_new_0e1b598d33c8deef_6",
+      "target": "v_wildchat_new_0e1b598d33c8deef_7",
       "key": 0
     },
     {
@@ -1389,7 +1485,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_17",
-      "target": "v_wildchat_new_0e1b598d33c8deef_7",
+      "target": "v_wildchat_new_0e1b598d33c8deef_8",
       "key": 0
     },
     {
@@ -1428,7 +1524,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0e1b598d33c8deef_19",
-      "target": "v_wildchat_new_0e1b598d33c8deef_8",
+      "target": "v_wildchat_new_0e1b598d33c8deef_9",
       "key": 0
     },
     {
@@ -1456,6 +1552,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_0e1b598d33c8deef_21",
       "target": "m_wildchat_new_0e1b598d33c8deef_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0e1b598d33c8deef_21",
+      "target": "m_wildchat_new_0e1b598d33c8deef_21_1",
       "key": 0
     },
     {
@@ -1489,6 +1592,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_0e1b598d33c8deef_23",
       "target": "m_wildchat_new_0e1b598d33c8deef_23_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0e1b598d33c8deef_23",
+      "target": "m_wildchat_new_0e1b598d33c8deef_23_1",
       "key": 0
     },
     {
@@ -1591,6 +1701,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0e1b598d33c8deef_29",
+      "target": "m_wildchat_new_0e1b598d33c8deef_29_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0e1b598d33c8deef_29",
       "target": "mode_wildchat_new_0e1b598d33c8deef_28",
@@ -1617,6 +1734,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0e1b598d33c8deef_31",
+      "target": "m_wildchat_new_0e1b598d33c8deef_31_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0e1b598d33c8deef_31",
       "target": "mode_wildchat_new_0e1b598d33c8deef_30",
@@ -1625,9 +1749,17 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 1,
+      "at_turn": 9,
       "source": "v_wildchat_new_0e1b598d33c8deef_0",
       "target": "c_wildchat_new_0e1b598d33c8deef_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 9,
+      "source": "v_wildchat_new_0e1b598d33c8deef_1",
+      "target": "c_wildchat_new_0e1b598d33c8deef_c_1",
       "key": 0
     }
   ]

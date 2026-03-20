@@ -1,0 +1,208 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_0585",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_0585"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 5,
+      "content_preview": "Hello",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0585_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 123,
+      "content_preview": "Hello! It's nice to meet you. Is there anything I can help you with today? I'm here to answer any questions you might ha",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0585_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 31,
+      "content_preview": "What do you think of the world?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_0585_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 474,
+      "content_preview": "As an artificial intelligence, I don't have personal opinions or feelings. However, I can tell you that the world is a c",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_0585_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Hello! It's nice to meet you. Is there anything I can help you with today? I'm h...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0585_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "As an artificial intelligence, I don't have personal opinions or feelings. Howev...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_0585_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_0585_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_chatbot_arena_0585_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "v_chatbot_arena_0585_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_0585",
+      "target": "t_chatbot_arena_0585_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_0585",
+      "target": "t_chatbot_arena_0585_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_0585",
+      "target": "t_chatbot_arena_0585_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_0585",
+      "target": "t_chatbot_arena_0585_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_0585_0",
+      "target": "t_chatbot_arena_0585_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0585_0",
+      "target": "mode_chatbot_arena_0585_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_0585_1",
+      "target": "t_chatbot_arena_0585_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0585_1",
+      "target": "m_chatbot_arena_0585_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0585_1",
+      "target": "mode_chatbot_arena_0585_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_0585_2",
+      "target": "t_chatbot_arena_0585_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0585_2",
+      "target": "mode_chatbot_arena_0585_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0585_3",
+      "target": "m_chatbot_arena_0585_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_0585_3",
+      "target": "mode_chatbot_arena_0585_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_0585_3",
+      "target": "v_chatbot_arena_0585_0",
+      "key": 0
+    }
+  ]
+}

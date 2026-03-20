@@ -10,8 +10,8 @@
       "domain": "limitations",
       "total_turns": 42,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Ensure adequate intake of magnesium.",
       "id": "conv_wildchat_new_913b225d9276fbba"
     },
@@ -411,7 +411,7 @@
       "role": "assistant",
       "content_length": 1138,
       "content_preview": "Yes, I can provide you with some estimates of the prevalence of smoking and diabetes in the United States based on publi",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_913b225d9276fbba_39"
     },
@@ -519,7 +519,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include verifiable daily magnesium requirements based on age] The response omits verifiable daily magn",
+      "text_span": "[violates: Include verifiable daily magnesium requirements based on age] The response does not include verifiable",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -537,7 +537,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include verifiable daily magnesium requirements based on age] The response omits verifiable daily magn",
+      "text_span": "[violates: Include verifiable daily magnesium requirements based on age] The response does not include verifiable",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -725,21 +725,12 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide specific methods to ensure adequate magnesium intake] The response does not provide specific m",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, I can provide you with some estimates of the prevalence of smoking and diab...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_913b225d9276fbba_39_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include verifiable daily magnesium requirements based on age] The response does not include verifiable",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_913b225d9276fbba_39_1"
     },
     {
       "node_type": "Move",
@@ -1008,10 +999,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 34,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_913b225d9276fbba_34"
@@ -1250,10 +1241,10 @@
       "violation_idx": 16,
       "turn_index": 34,
       "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
       "violation_ord": 1,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
@@ -2414,13 +2405,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_913b225d9276fbba_39",
       "target": "m_wildchat_new_913b225d9276fbba_39_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_913b225d9276fbba_39",
-      "target": "m_wildchat_new_913b225d9276fbba_39_1",
       "key": 0
     },
     {

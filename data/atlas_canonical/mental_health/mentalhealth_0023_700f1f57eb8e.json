@@ -1,0 +1,181 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0023_700f1f57eb8e",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety",
+      "id": "conv_mentalhealth_0023_700f1f57eb8e",
+      "human_role_dist": {
+        "information-seeker": 0.3,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.5,
+        "relational-peer": 0.0
+      },
+      "human_role_confidence": 0.7,
+      "ai_role_dist": {
+        "expert-system": 0.2,
+        "learning-facilitator": 0.0,
+        "advisor": 0.6,
+        "co-constructor": 0.2,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.8,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.9,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.8,
+      "srt_emotionalTone": "supportive",
+      "srt_emotionalTone_conf": 0.9,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.8,
+      "srt_knowledgeExchange": "advisory",
+      "srt_knowledgeExchange_conf": 0.8,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.8,
+      "srt_topicDepth": "moderate",
+      "srt_topicDepth_conf": 0.7,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.8
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 375,
+      "content_preview": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime ins",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0023_700f1f57eb8e_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.62,
+      "content": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety. I have low self esteem but I\u2019ve been happily married for almost 35 years.\n   I\u2019ve never had counseling about any of this. Do I have too many issues to address in counseling?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1512,
+      "content_preview": "Let me start by saying there are never too many concerns that you can bring into counselling. In fact, most people who c",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "pad_pleasure": 0.8,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.36,
+      "content": "Let me start by saying there are never too many concerns that you can bring into counselling. In fact, most people who come to see me for counselling have more than one issue they would like to work on in psychotherapy and most times these are all interconnected. In counselling, we work together, collaboratively, to figure out which issues you would like to address first and then together we develop an individualized plan of care. Basically, it\u2019s like a road map of where you want to go, how are you going to get there, looking at stopovers, some scenic routes others possibly not so scenic, however, necessary. Of course, these plans can also change due to internal (what we have control over like our thoughts, feelings and behaviours) or external reasons (those things that are outside our control). I would encourage you to take the next step and reach out to a professional you can trust and build rapport with by co-journeying through whatever concerns you have by examining what has been working so far as you have learned to cope with some of your issues like insomnia, depression and anxiety, as well as being a breast cancer survivor. Then to help you by developing new coping strategies. Psychotherapy can be such a powerful tool to help you get to where it is you want to be. I know you can do it and you will see first-hand how psychotherapy will help you to move past these points in your life where you are feeling stuck.\u00a0I like to quote Nike where their motto is,\u00a0\u201cjust do it.\u201d\u00a0You can do it."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "t 35 years.\n   I\u2019ve never had counseling about any of this. Do I",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0023_700f1f57eb8e_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Let me start by saying there are never too many concerns that you can bring into...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0023_700f1f57eb8e_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_mentalhealth_0023_700f1f57eb8e_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_mentalhealth_0023_700f1f57eb8e_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0023_700f1f57eb8e",
+      "target": "t_mentalhealth_0023_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0023_700f1f57eb8e",
+      "target": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0023_700f1f57eb8e_0",
+      "target": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0023_700f1f57eb8e_0",
+      "target": "m_mentalhealth_0023_700f1f57eb8e_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0023_700f1f57eb8e_0",
+      "target": "mode_mentalhealth_0023_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "target": "m_mentalhealth_0023_700f1f57eb8e_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "target": "mode_mentalhealth_0023_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0023_700f1f57eb8e_1",
+      "target": "v_mentalhealth_0023_700f1f57eb8e_0",
+      "key": 0
+    }
+  ]
+}

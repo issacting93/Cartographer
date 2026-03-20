@@ -1,0 +1,173 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0001_097044333190",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I",
+      "id": "conv_mentalhealth_0001_097044333190",
+      "human_role_dist": {
+        "information-seeker": 0.35,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.55,
+        "relational-peer": 0.1
+      },
+      "human_role_confidence": 0.8,
+      "ai_role_dist": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.25,
+        "advisor": 0.2,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.75,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.95,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.85,
+      "srt_emotionalTone": "empathetic",
+      "srt_emotionalTone_conf": 0.9,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.8,
+      "srt_knowledgeExchange": "skill-sharing",
+      "srt_knowledgeExchange_conf": 0.85,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.8,
+      "srt_topicDepth": "deep",
+      "srt_topicDepth_conf": 0.85,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.95
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 328,
+      "content_preview": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worth",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0001_097044333190_0",
+      "content": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I've always wanted to fix my issues, but I never get around to it.\n   How can I change my feeling of being worthless to everyone?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2082,
+      "content_preview": "Hello, and thank you for your question and seeking advice on this. Feelings of worthlessness is unfortunately common. In",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0001_097044333190_1",
+      "content": "Hello, and thank you for your question and seeking advice on this. Feelings of worthlessness is unfortunately common. In fact, most people, if not all, have felt this to some degree at some point in their life. You are not alone.\u00a0Changing our feelings is like changing our thoughts - it's hard to do. Our minds are so amazing that the minute you change your thought another one can be right there to take it's place. Without your permission, another thought can just pop in there. The new thought may feel worse than the last one! My guess is that you have tried several things to improve this on your own even before reaching out on here. People often try thinking positive thoughts, debating with their thoughts, or simply telling themselves that they need to \"snap out of it\" - which is also a thought that carries some self-criticism.\u00a0Some people try a different approach, and there are counselors out there that can help you with this. The idea is that instead of trying to change the thoughts, you change how you respond to them. You learn skills that allow you to manage difficult thoughts and feelings differently so they don't have the same impact on you that they do right now. For some people, they actually DO begin to experience less hurtful thoughts once they learn how to manage the ones they have differently. Acceptance and Commitment Therapy may be a good choice for you.\u00a0There is information online and even self-help books that you can use to teach you the skills that I mentioned. Because they are skills, they require practice, but many people have found great relief and an enriched life by learning them.\u00a0As for suicidal thoughts, I am very glad to read that this has not happened to you. Still, you should watch out for this because it can be a sign of a worsening depression. If you begin to think about this, it is important to reach out to a support system right away. The National Suicide Prevention Lifeline is 1-800-273-8255. The text line is #741741.\u00a0I hope some other colleagues will provide you more suggestions.\u00a0Be well...Robin Landwehr, DBH, LPCC"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "'t be here.\n   I've never tried or contemplated suicide. I've alw",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0001_097044333190_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Hello, and thank you for your question and seeking advice on this. Feelings of w...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0001_097044333190_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0001_097044333190_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_mentalhealth_0001_097044333190_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0001_097044333190",
+      "target": "t_mentalhealth_0001_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0001_097044333190",
+      "target": "t_mentalhealth_0001_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0001_097044333190_0",
+      "target": "t_mentalhealth_0001_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0001_097044333190_0",
+      "target": "m_mentalhealth_0001_097044333190_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0001_097044333190_0",
+      "target": "mode_mentalhealth_0001_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0001_097044333190_1",
+      "target": "m_mentalhealth_0001_097044333190_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0001_097044333190_1",
+      "target": "mode_mentalhealth_0001_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0001_097044333190_1",
+      "target": "v_mentalhealth_0001_097044333190_0",
+      "key": 0
+    }
+  ]
+}

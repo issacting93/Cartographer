@@ -1,0 +1,172 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_1139",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_1139"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 11,
+      "content_preview": "Hello there",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1139_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 34,
+      "content_preview": "Hello! How can I assist you today?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1139_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 83,
+      "content_preview": "What were the underlying geopolitical factors that led to the cuban missile crisis?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1139_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1299,
+      "content_preview": "The Cuban Missile Crisis in 1959 was a geopolitical event that took place in Cuba in the early 1960s. It was the culmina",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1139_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The Cuban Missile Crisis in 1959 was a geopolitical event that took place in Cub...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1139_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1139_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1139_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_1139",
+      "target": "t_chatbot_arena_1139_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_1139",
+      "target": "t_chatbot_arena_1139_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_1139",
+      "target": "t_chatbot_arena_1139_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_1139",
+      "target": "t_chatbot_arena_1139_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_1139_0",
+      "target": "t_chatbot_arena_1139_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1139_0",
+      "target": "mode_chatbot_arena_1139_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_1139_1",
+      "target": "t_chatbot_arena_1139_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1139_1",
+      "target": "mode_chatbot_arena_1139_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_1139_2",
+      "target": "t_chatbot_arena_1139_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1139_2",
+      "target": "mode_chatbot_arena_1139_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1139_3",
+      "target": "m_chatbot_arena_1139_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1139_3",
+      "target": "mode_chatbot_arena_1139_2",
+      "key": 0
+    }
+  ]
+}

@@ -10,8 +10,8 @@
       "domain": "travel",
       "total_turns": 30,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Suggest rides and attractions for a theme park in Elstree, UK, based on British cultural references without using existing licenses or franchises.",
       "id": "conv_wildchat_new_d77d1e42269461b2"
     },
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 1835,
       "content_preview": "1. Bespoke Carousel - a classic carousel with animals and characters reflecting traditional British folklore such as dra",
-      "move_count": 3,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_d77d1e42269461b2_1"
     },
@@ -327,20 +327,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Avoid existing licenses or franchises] The response includes 'The Great British",
+      "text_span": "[violates: Consider attractions sponsored by British brand names] The response does not include any attrac",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_d77d1e42269461b2_1_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Avoid existing licenses or franchises] The response includes 'The Beatles Magic",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_d77d1e42269461b2_1_2"
     },
     {
       "node_type": "Move",
@@ -362,10 +353,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "What a great idea! A family-friendly ghost train could be a fantastic attraction...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Avoid existing licenses or franchises] The name 'Lord Hauntworthy's Lodge' sugg",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_d77d1e42269461b2_7_0"
     },
@@ -373,7 +364,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: Avoid existing licenses or franchises] The response describes 'Lord Hauntworthy",
-      "confidence": 0.8,
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_d77d1e42269461b2_9_0"
@@ -444,7 +435,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Avoid existing licenses or franchises] The name 'Steeplechase' is associated wi",
+      "text_span": "[violates: Avoid existing licenses or franchises] The response describes a ride called 'St",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -501,7 +492,7 @@
       "constraint_id": "c_1",
       "text": "Consider attractions sponsored by British brand names",
       "hardness": "hard",
-      "current_state": "SURVIVED",
+      "current_state": "VIOLATED",
       "state_history": [
         [
           0,
@@ -512,15 +503,15 @@
           "ACTIVE"
         ],
         [
-          30,
-          "SURVIVED"
+          1,
+          "VIOLATED"
         ]
       ],
       "introduced_at": 0,
       "last_violation_at": null,
-      "times_violated": 0,
+      "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 30,
+      "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_new_d77d1e42269461b2_c_1"
     },
@@ -533,6 +524,16 @@
       "was_repaired": false,
       "violation_ord": 1,
       "id": "v_wildchat_new_d77d1e42269461b2_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 1,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_d77d1e42269461b2_1"
     },
     {
       "node_type": "InteractionMode",
@@ -701,7 +702,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 1,
+      "violation_idx": 2,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -711,26 +712,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_d77d1e42269461b2_1"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
-      "turn_index": 18,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
       "id": "v_wildchat_new_d77d1e42269461b2_2"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 20,
+      "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -744,7 +731,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 22,
+      "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -758,7 +745,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 28,
+      "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -768,6 +755,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_d77d1e42269461b2_5"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 6,
+      "turn_index": 28,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_d77d1e42269461b2_6"
     }
   ],
   "links": [
@@ -1016,16 +1017,15 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
+      "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_1",
-      "target": "m_wildchat_new_d77d1e42269461b2_1_2",
+      "target": "v_wildchat_new_d77d1e42269461b2_0",
       "key": 0
     },
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_1",
-      "target": "v_wildchat_new_d77d1e42269461b2_0",
+      "target": "v_wildchat_new_d77d1e42269461b2_1",
       "key": 0
     },
     {
@@ -1235,7 +1235,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_13",
-      "target": "v_wildchat_new_d77d1e42269461b2_1",
+      "target": "v_wildchat_new_d77d1e42269461b2_2",
       "key": 0
     },
     {
@@ -1340,7 +1340,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_19",
-      "target": "v_wildchat_new_d77d1e42269461b2_2",
+      "target": "v_wildchat_new_d77d1e42269461b2_3",
       "key": 0
     },
     {
@@ -1379,7 +1379,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_21",
-      "target": "v_wildchat_new_d77d1e42269461b2_3",
+      "target": "v_wildchat_new_d77d1e42269461b2_4",
       "key": 0
     },
     {
@@ -1418,7 +1418,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_23",
-      "target": "v_wildchat_new_d77d1e42269461b2_4",
+      "target": "v_wildchat_new_d77d1e42269461b2_5",
       "key": 0
     },
     {
@@ -1516,7 +1516,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_d77d1e42269461b2_29",
-      "target": "v_wildchat_new_d77d1e42269461b2_5",
+      "target": "v_wildchat_new_d77d1e42269461b2_6",
       "key": 0
     },
     {
@@ -1525,6 +1525,14 @@
       "at_turn": 1,
       "source": "v_wildchat_new_d77d1e42269461b2_0",
       "target": "c_wildchat_new_d77d1e42269461b2_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_d77d1e42269461b2_1",
+      "target": "c_wildchat_new_d77d1e42269461b2_c_1",
       "key": 0
     }
   ]

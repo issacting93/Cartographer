@@ -1,0 +1,367 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_21516",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Explain quantum physics in 10 words, all starting with 'A'.",
+      "id": "conv_chatbot_arena_21516"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 4,
+      "content_preview": "test",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 32,
+      "content_preview": "Hello! How can I help you today?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 37,
+      "content_preview": "Explain quantum physics with 10 words",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 205,
+      "content_preview": "Quantum mechanics is a fundamental theory that describes the behavior of matter and energy at the atomic and subatomic l",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 41,
+      "content_preview": "10 words, all words start with letter \"A\"",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 151,
+      "content_preview": "Quantum mechanics is an A-stemmed theory that describes the A-nature of matter and energy using superposition, entanglem",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_21516_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: 10 words] Response exceeds 10 words.",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_21516_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: All words start with the letter 'A'] Response contains words that do not star",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_21516_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: 10 words] The response exceeds 10 words.",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_21516_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: All words start with the letter 'A'] The response contains words that do not ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_21516_5_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "10 words",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          2,
+          "STATED"
+        ],
+        [
+          2,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 2,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_chatbot_arena_21516_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "All words start with the letter 'A'",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          4,
+          "STATED"
+        ],
+        [
+          6,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 4,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 2,
+      "final_state": null,
+      "id": "c_chatbot_arena_21516_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 3,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_chatbot_arena_21516_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_21516_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_21516_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_21516_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_21516",
+      "target": "t_chatbot_arena_21516_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_21516_0",
+      "target": "t_chatbot_arena_21516_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_0",
+      "target": "mode_chatbot_arena_21516_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_21516_1",
+      "target": "t_chatbot_arena_21516_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_1",
+      "target": "mode_chatbot_arena_21516_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_21516_2",
+      "target": "t_chatbot_arena_21516_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_2",
+      "target": "mode_chatbot_arena_21516_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_21516_3",
+      "target": "t_chatbot_arena_21516_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_21516_3",
+      "target": "m_chatbot_arena_21516_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_21516_3",
+      "target": "m_chatbot_arena_21516_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_21516_3",
+      "target": "v_chatbot_arena_21516_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_3",
+      "target": "mode_chatbot_arena_21516_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_21516_4",
+      "target": "t_chatbot_arena_21516_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_4",
+      "target": "mode_chatbot_arena_21516_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_21516_5",
+      "target": "m_chatbot_arena_21516_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_21516_5",
+      "target": "m_chatbot_arena_21516_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_21516_5",
+      "target": "mode_chatbot_arena_21516_4",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_chatbot_arena_21516_0",
+      "target": "c_chatbot_arena_21516_c_0",
+      "key": 0
+    }
+  ]
+}

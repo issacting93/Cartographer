@@ -1,0 +1,35 @@
+{
+  "id": "wildchat_new_9a40a9c24fcecb2c",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Use machine learning or deep learning to predict the next time a cheater will join the server.",
+    "primary_constraints": [
+      "Output must be in the format 'Year:Month:Day:Hour:Minute:Second'.",
+      "Predicted month must be represented as a string (e.g., 'January')."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The AI initially failed to format the predicted time correctly and returned a string for the month instead of a number, which caused an error. The user pointed out the issue, and the assistant provided a revised version of the code to correct the formatting. However, there were still issues with the month index leading to an IndexError, indicating that the constraints were not fully maintained throughout.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        5,
+        9
+      ],
+      "violation_turns": [
+        4,
+        12
+      ],
+      "repair_turns": [
+        5,
+        13
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_9a40a9c24fcecb2c.json"
+}

@@ -195,8 +195,8 @@ def advance_constraints(
                     "text_span": text_span[:200],
                 })
 
-        elif move_type == MT.REPAIR_INITIATE:
-            # User initiates repair -> mark specific violated constraint(s) as pending
+        elif move_type in (MT.REPAIR_INITIATE, MT.ESCALATE):
+            # User initiates repair (or escalates) -> mark specific violated constraint(s) as pending
             target_id = match_move_to_constraint(text_span, [
                 c for c in constraints if c.current_state == CS.VIOLATED
             ])
@@ -217,6 +217,17 @@ def advance_constraints(
                     repaired_any = True
             if repaired_any:
                 repair_pending.clear()
+
+        elif move_type == MT.REPAIR_FAIL:
+            # Repair attempt failed — re-violate any constraints that were just repaired
+            for c in constraints:
+                if c.current_state == CS.ACTIVE and c.constraint_id in repair_pending:
+                    c.transition(turn_index, CS.VIOLATED)
+            repair_pending.clear()
+
+        elif move_type == MT.REPAIR_SUCCEED:
+            # Repair succeeded — constraints stay ACTIVE (already transitioned by REPAIR_EXECUTE)
+            repair_pending.clear()
 
         elif move_type == MT.ABANDON_CONSTRAINT:
             # User abandons -> transition VIOLATED constraints to ABANDONED

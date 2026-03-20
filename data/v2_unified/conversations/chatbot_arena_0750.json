@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_0750",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, how are you today?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "As an AI language model, I don't have emotions, but I'm ready to assist you in any way I can. How may I assist you today?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "What's the capital of Australia?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The capital city of Australia is Canberra.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "What's the capital of Australia?",
+        "The capital city of Australia is Canberra."
+      ],
+      "rationale": "The human asks a question and the AI provides a direct answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "What's the capital of Australia?",
+        "How may I assist you today?"
+      ],
+      "rationale": "The human initiates the topic and asks questions, guiding the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "As an AI language model, I don't have emotions."
+      ],
+      "rationale": "The AI explicitly states it does not have emotions, maintaining a neutral tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "How may I assist you today?",
+        "What's the capital of Australia?"
+      ],
+      "rationale": "The human's question prompts the AI's response, driving the interaction.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "The capital city of Australia is Canberra."
+      ],
+      "rationale": "The AI provides factual information in response to the human's question.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "What's the capital of Australia?"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "What's the capital of Australia?",
+        "The capital city of Australia is Canberra."
+      ],
+      "rationale": "The conversation remains at a surface level with a straightforward question and answer.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Hello, how are you today?",
+        "As an AI language model, I don't have emotions."
+      ],
+      "rationale": "The human and AI exchange turns with roughly equal contribution.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What's the capital of Australia?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also initiates the conversation.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The capital city of Australia is Canberra."
+        }
+      ],
+      "rationale": "The AI provides factual information and maintains a neutral, supportive tone.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:58:22.262322",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "wildchat_new_ebe3b5d26ab9a7f7",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Extract and translate terms from the Ummite language based on provided documents.",
+    "primary_constraints": [
+      "Do not invent words that are not in the Ummite lexicon.",
+      "Ask questions before answering to clarify user needs."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially violated the constraints by claiming it could not extract terms from the Ummite lexicon and later admitted to providing terms without credible sources. The user repaired the task by clarifying the source to be studied, which the assistant acknowledged but still could not fulfill due to its limitations. The user maintained the goal of extracting terms, leading to a repair of the task despite the assistant's constraints being violated.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1
+      ],
+      "violation_turns": [
+        3,
+        5,
+        15
+      ],
+      "repair_turns": [
+        4,
+        8,
+        14
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_ebe3b5d26ab9a7f7.json"
+}

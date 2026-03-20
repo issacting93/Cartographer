@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 22,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Assist the user with Python pip commands and configurations.",
       "id": "conv_wildchat_new_e94c59e08a746959"
     },
@@ -238,7 +238,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Translate error messages and explanations correctly into Chi] The response does not translate the erro",
+      "text_span": "[violates: Translate error messages and explanations accurately into Ch] The response does not translate the erro",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -274,7 +274,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Translate error messages and explanations correctly into Chi] The response does not translate any erro",
+      "text_span": "[violates: Translate error messages and explanations accurately into Ch] The response does not translate any erro",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -291,17 +291,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "\u8bbe\u7f6e pip \u7684 path\uff08\u8def\u5f84\uff09\u662f\u6307\u5728\u7cfb\u7edf\u73af\u5883\u53d8\u91cf\u4e2d\u6dfb\u52a0 pip \u7684\u5b89\u88c5\u8def\u5f84\uff0c\u8ba9\u7cfb\u7edf\u53ef\u4ee5\u81ea\u52a8\u8bc6\u522b pip \u547d\u4ee4\u3002\u4e0b\u9762\u662f\u4e00\u4e9b\u5e38\u89c1\u64cd\u4f5c\u7cfb\u7edf\u4e2d\u8bbe\u7f6e pip path...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Translate error messages and explanations accurately into Ch] The response does not translate any erro",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e94c59e08a746959_13_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Translate error messages and explanations correctly into Chi] The response does not translate any erro",
+      "text_span": "[violates: Translate error messages and explanations accurately into Ch] The response does not translate any erro",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -309,10 +309,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "\u8fd9\u6bb5\u4ee3\u7801\u4f7f\u7528 Python \u81ea\u5e26\u7684 venv \u6a21\u5757\u6765\u521b\u5efa\u4e00\u4e2a\u865a\u62df\u73af\u5883\u3002venv \u6a21\u5757\u662f Python 3.3 \u5f15\u5165\u7684\uff0c\u7528\u4e8e\u521b\u5efa\u548c\u7ba1\u7406\u865a\u62df\u73af\u5883\uff0c\u53ef\u4ee5\u5b9e\u73b0\u5c06\u4e0d\u540c\u7684...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Translate error messages and explanations accurately into Ch] The response does not translate any erro",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e94c59e08a746959_17_0"
     },
@@ -365,7 +365,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "Translate error messages and explanations correctly into Chinese.",
+      "text": "Translate error messages and explanations accurately into Chinese.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -509,10 +509,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 20,
-      "user_requested": "LISTENER",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_e94c59e08a746959_20"
@@ -558,20 +558,6 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_e94c59e08a746959_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
-      "turn_index": 20,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
-      "id": "v_wildchat_new_e94c59e08a746959_4"
     }
   ],
   "links": [
@@ -1107,12 +1093,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_e94c59e08a746959_21",
       "target": "mode_wildchat_new_e94c59e08a746959_20",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_e94c59e08a746959_21",
-      "target": "v_wildchat_new_e94c59e08a746959_4",
       "key": 0
     },
     {

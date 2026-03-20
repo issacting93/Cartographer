@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Create an Excel formula based on specific cell content conditions.",
       "id": "conv_wildchat_new_82ba5588865f3dc3"
     },
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 202,
       "content_preview": "Great! What do you need help with regarding your Excel sheet? As an AI language model, I might be able to assist you wit",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_1"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 606,
       "content_preview": "Sure, here's a formula that should accomplish what you're looking for: ``` =IF(D4=\"DS\",DS,IF(OR(D4=\"D\",D4=\"RDO\"),RDO,IF",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_3"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 835,
       "content_preview": "I apologize for the confusion. Based on your previous message, I understand that you're trying to copy certain contents",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_5"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 74,
       "content_preview": "Sure thing, please let me know how I can assist you with your Excel sheet.",
-      "move_count": 0,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_7"
     },
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 839,
       "content_preview": "Thank you for the clarification! Here's a modified formula that should work based on your updated specifications: ``` =",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_9"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 341,
       "content_preview": "I'm sorry that the formula I provided didn't work for you. Can you please tell me what the error message says so I can b",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_11"
     },
@@ -151,7 +151,7 @@
       "role": "assistant",
       "content_length": 762,
       "content_preview": "Thank you for the updated specifications! Here's the updated formula based on your new instructions: ``` =IF(OR(D4=\"D\",",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_13"
     },
@@ -171,7 +171,7 @@
       "role": "assistant",
       "content_length": 224,
       "content_preview": "I apologize that the formula still isn't working for you. Can you please provide a sample of your input data with some e",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_82ba5588865f3dc3_15"
     },
@@ -218,7 +218,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The response does not address the requir",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The response does not check the content ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -227,7 +227,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The formula does not copy values to E4 a",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The response does not check the content ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The formula does not check the content o",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -236,7 +245,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The formula is placed in cell I4 instead",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The formula fails to check the content o",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The formula does not check the content o",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -245,7 +263,34 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The formula does not conditionally copy ",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The formula does not check the content o",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The response does not check the content ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The response fails to check the content ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_7_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The formula does not check the content o",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -254,7 +299,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The response does not provide a formula ",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The formula does not check the content o",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_9_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The response does not check the content ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -263,7 +317,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The formula does not correctly copy valu",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The response fails to check the content ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_11_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The formula does not check the content o",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -272,11 +335,29 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The formula must check the content of D4 and conditionally c] The response does not address the requir",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The formula does not properly check the ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The formula must check the content of D4 and respond accordi] The response does not check the content ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_82ba5588865f3dc3_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: If D4 is 'RDO' or 'AL', the formula must check the content o] The response fails to check the content ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_82ba5588865f3dc3_15_1"
     },
     {
       "node_type": "Move",
@@ -326,7 +407,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "The formula must check the content of D4 and conditionally copy values to E4 based on specified rules.",
+      "text": "The formula must check the content of D4 and respond accordingly based on specified conditions.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -350,6 +431,30 @@
       "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_new_82ba5588865f3dc3_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "If D4 is 'RDO' or 'AL', the formula must check the content of B4 to determine the output.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          12,
+          "STATED"
+        ],
+        [
+          20,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 12,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 8,
+      "final_state": null,
+      "id": "c_wildchat_new_82ba5588865f3dc3_c_1"
     },
     {
       "node_type": "ViolationEvent",
@@ -683,6 +788,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_1",
+      "target": "m_wildchat_new_82ba5588865f3dc3_1_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_82ba5588865f3dc3_1",
       "target": "mode_wildchat_new_82ba5588865f3dc3_0",
@@ -719,6 +831,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_82ba5588865f3dc3_3",
       "target": "m_wildchat_new_82ba5588865f3dc3_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_3",
+      "target": "m_wildchat_new_82ba5588865f3dc3_3_1",
       "key": 0
     },
     {
@@ -761,6 +880,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_5",
+      "target": "m_wildchat_new_82ba5588865f3dc3_5_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_82ba5588865f3dc3_5",
       "target": "mode_wildchat_new_82ba5588865f3dc3_4",
@@ -784,6 +910,20 @@
       "order": 8,
       "source": "t_wildchat_new_82ba5588865f3dc3_7",
       "target": "t_wildchat_new_82ba5588865f3dc3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_82ba5588865f3dc3_7",
+      "target": "m_wildchat_new_82ba5588865f3dc3_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_7",
+      "target": "m_wildchat_new_82ba5588865f3dc3_7_1",
       "key": 0
     },
     {
@@ -826,6 +966,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_9",
+      "target": "m_wildchat_new_82ba5588865f3dc3_9_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_82ba5588865f3dc3_9",
       "target": "mode_wildchat_new_82ba5588865f3dc3_8",
@@ -856,6 +1003,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_82ba5588865f3dc3_11",
       "target": "m_wildchat_new_82ba5588865f3dc3_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_11",
+      "target": "m_wildchat_new_82ba5588865f3dc3_11_1",
       "key": 0
     },
     {
@@ -892,6 +1046,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_13",
+      "target": "m_wildchat_new_82ba5588865f3dc3_13_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_82ba5588865f3dc3_13",
       "target": "mode_wildchat_new_82ba5588865f3dc3_12",
@@ -922,6 +1083,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_82ba5588865f3dc3_15",
       "target": "m_wildchat_new_82ba5588865f3dc3_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_82ba5588865f3dc3_15",
+      "target": "m_wildchat_new_82ba5588865f3dc3_15_1",
       "key": 0
     },
     {

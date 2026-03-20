@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 22,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Create JavaScript classes for Hearthstone minions with specific abilities.",
       "id": "conv_wildchat_new_4dd1d97ccfede948"
     },
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 1242,
       "content_preview": "Sure, here's the code for the \"Sorcerer's Apprentice\" minion from Hearthstone: ``` class SorcerersApprentice { constr",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_4dd1d97ccfede948_9"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 1217,
       "content_preview": "`reduceNextSpellCostBy()` is a function that we assumed in the previous code snippet to clarify how `SorcerersApprentice",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4dd1d97ccfede948_11"
     },
@@ -231,16 +231,16 @@
       "role": "assistant",
       "content_length": 2453,
       "content_preview": "Sure, here's an updated implementation of the `SorcerersApprentice` class that reduces the cost of all spells by `1` whi",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4dd1d97ccfede948_21"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "1. create a variable called \"manaWyrm\" with the value of an object\n2. add proper...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The Mana Wyrm class must have an ability that adds +1 attack] The ability does not add +1 attack when ",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_4dd1d97ccfede948_1_0"
     },
@@ -283,11 +283,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The Sorcerer's Apprentice class must reduce the cost of all ] The ability does not reduce the cost of ",
+      "text_span": "[violates: The Sorcerer's Apprentice class must reduce the cost of all ] The response does not implement the requ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_4dd1d97ccfede948_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: When the Sorcerer's Apprentice is removed from the board, it] The response does not address the requir",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_4dd1d97ccfede948_9_1"
     },
     {
       "node_type": "Move",
@@ -297,15 +306,6 @@
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_4dd1d97ccfede948_11_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: When the Sorcerer's Apprentice is removed from the board, it] The response does not mention the effect",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_4dd1d97ccfede948_11_1"
     },
     {
       "node_type": "Move",
@@ -328,7 +328,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The Sorcerer's Apprentice class must reduce the cost of all ] The implementation does not include the ",
+      "text_span": "[violates: The Sorcerer's Apprentice class must reduce the cost of all ] The implementation does not reduce the c",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -337,7 +337,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: When the Sorcerer's Apprentice is removed from the board, it] The implementation does not include the ",
+      "text_span": "[violates: When the Sorcerer's Apprentice is removed from the board, it] The implementation does not include logi",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -389,15 +389,6 @@
       "id": "m_wildchat_new_4dd1d97ccfede948_21_0"
     },
     {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: When the Sorcerer's Apprentice is removed from the board, it] The response does not address the requir",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_4dd1d97ccfede948_21_1"
-    },
-    {
       "node_type": "Constraint",
       "constraint_id": "c_0",
       "text": "The Mana Wyrm class must have an ability that adds +1 attack when a spell is cast.",
@@ -413,7 +404,7 @@
           "ACTIVE"
         ],
         [
-          5,
+          1,
           "VIOLATED"
         ]
       ],
@@ -421,7 +412,7 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 5,
+      "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_new_4dd1d97ccfede948_c_0"
     },
@@ -476,7 +467,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 5,
+      "turn_index": 1,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -822,6 +813,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_4dd1d97ccfede948_1",
+      "target": "v_wildchat_new_4dd1d97ccfede948_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4dd1d97ccfede948_1",
       "target": "mode_wildchat_new_4dd1d97ccfede948_0",
@@ -885,12 +882,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_4dd1d97ccfede948_5",
       "target": "m_wildchat_new_4dd1d97ccfede948_5_0",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_4dd1d97ccfede948_5",
-      "target": "v_wildchat_new_4dd1d97ccfede948_0",
       "key": 0
     },
     {
@@ -967,6 +958,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_4dd1d97ccfede948_9",
+      "target": "m_wildchat_new_4dd1d97ccfede948_9_1",
+      "key": 0
+    },
+    {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4dd1d97ccfede948_9",
       "target": "v_wildchat_new_4dd1d97ccfede948_1",
@@ -1003,13 +1001,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_4dd1d97ccfede948_11",
       "target": "m_wildchat_new_4dd1d97ccfede948_11_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_4dd1d97ccfede948_11",
-      "target": "m_wildchat_new_4dd1d97ccfede948_11_1",
       "key": 0
     },
     {
@@ -1211,13 +1202,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_4dd1d97ccfede948_21",
-      "target": "m_wildchat_new_4dd1d97ccfede948_21_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4dd1d97ccfede948_21",
       "target": "mode_wildchat_new_4dd1d97ccfede948_20",
@@ -1226,7 +1210,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 5,
+      "at_turn": 1,
       "source": "v_wildchat_new_4dd1d97ccfede948_0",
       "target": "c_wildchat_new_4dd1d97ccfede948_c_0",
       "key": 0

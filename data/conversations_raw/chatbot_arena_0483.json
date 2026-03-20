@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0483",
+  "messages": [
+    {
+      "role": "user",
+      "content": "write smartsheet formula to find name of children from a row in another sheet\n"
+    },
+    {
+      "role": "assistant",
+      "content": "To find the names of children from a row in another sheet, you can use the following Smartsheet formula:\n```bash\nIF(REGEXMATCH(A1, \"(?i)parent_id:\\s*([^;]+)\")), B1, \"\")\n```\nThis formula assumes that the data in the row you want to extract the names from is in column A, and that the names you want to extract are in column B of the other sheet. The regex pattern `(?i)parent_id:\\s*([^;]+)` will match any row that contains the string \"parent\\_id:\" followed by any number of whitespace characters and then one or more non-semicolon characters, which are captured as a group and stored in a variable named \"match\". If the row matches the pattern, the formula will return the value of the \"match\" variable, which should be the name of the child. If the row does not match the pattern, the formula will return an empty string.\n\nNote that this formula assumes that the data in the other sheet is in a format that can be easily parsed using the regex pattern. If the data is not structured in this way, you may need to modify the formula to match the specific format of the other sheet."
+    },
+    {
+      "role": "user",
+      "content": "write smartsheet formula to find name of children from a row  and write it in an another sheet\n"
+    },
+    {
+      "role": "assistant",
+      "content": "To find the names of children from a row in another sheet and write it in another sheet, you can use the following Smartsheet formula:\n```less\nIF(REGEXMATCH(Sheet2!A1, \"(?i)parent_id:\\s*([^;]+)\")), \n  Sheet2!B1, \n  \"\")\n```\nThis formula assumes that the data in the row you want to extract the names from is in column A of Sheet2, and that the names you want to extract are in column B of the other sheet. The regex pattern `(?i)parent_id:\\s*([^;]+)` will match any row that contains the string \"parent\\_id:\" followed by any number of whitespace characters and then one or more non-semicolon characters, which are captured as a group and stored in a variable named \"match\". If the row matches the pattern, the formula will return the value of the \"match\" variable, which should be the name of the child. If the row does not match the pattern, the formula will return an empty string.\n\nTo write the results to another sheet, you can use the following formula:\n```less\nIF(REGEXMATCH(Sheet2!A1, \"(?i)parent_id:\\s*([^;]+)\")), \n  Sheet2!B1, \n  \"\")\n```\nThis formula will only write the values to the other sheet if they are not blank. If the values are blank, the formula will return an empty string. To write the values to the other sheet regardless of whether they are blank or not, you can use the following formula:\n```bash\nIF(REGEXMATCH(Sheet2!A1, \"(?i)parent_id:\\s*([^;]+)\")), \n  Sheet2!B1, \n  \"Name\")\n```\nThis formula will write the values to the other sheet, and if the values are blank, it will write the string \"Name\" to the other sheet. Note that writing to another sheet is a two-step process - you need to first write the formula to a cell, and then use the \"Update\" button to write the values to the other sheet."
+    }
+  ]
+}

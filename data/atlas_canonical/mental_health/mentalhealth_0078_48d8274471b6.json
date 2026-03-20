@@ -1,0 +1,131 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0078_48d8274471b6",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this a",
+      "id": "conv_mentalhealth_0078_48d8274471b6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 223,
+      "content_preview": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I ca",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0078_48d8274471b6_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.72,
+      "content": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this anxierty and depression?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 425,
+      "content_preview": "Life can bring us all kinds of struggles. Depression and Anxiety are very common reasons people come into counseling.",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0078_48d8274471b6_1",
+      "pad_pleasure": 0.5,
+      "pad_arousal": 0.4,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.46,
+      "content": "Life can bring us all kinds of struggles.\u00a0 \u00a0Depression and Anxiety are very common reasons people come into counseling.\u00a0 Both can be debilitating.\u00a0 Sometimes when life struggles and stresses build up anxiety and depression become prominent.\u00a0 Learning tools to ride the waves\u00a0 of life is a core part of counseling.\u00a0\u00a0If you are ready to manage the symptoms and come up with a plan visit staceybshapiro.com\u00a0for more information."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Life can bring us all kinds of struggles.\u00a0 \u00a0Depression and Anxiety are very comm...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0078_48d8274471b6_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_mentalhealth_0078_48d8274471b6_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_mentalhealth_0078_48d8274471b6_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0078_48d8274471b6",
+      "target": "t_mentalhealth_0078_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0078_48d8274471b6",
+      "target": "t_mentalhealth_0078_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0078_48d8274471b6_0",
+      "target": "t_mentalhealth_0078_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0078_48d8274471b6_0",
+      "target": "mode_mentalhealth_0078_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0078_48d8274471b6_1",
+      "target": "m_mentalhealth_0078_48d8274471b6_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0078_48d8274471b6_1",
+      "target": "mode_mentalhealth_0078_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0078_48d8274471b6_1",
+      "target": "v_mentalhealth_0078_48d8274471b6_0",
+      "key": 0
+    }
+  ]
+}

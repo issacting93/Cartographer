@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 36,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Understand the design and functionality of garden tools that can operate on batteries of different voltages.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Understand the technical aspects of battery-powered garden tools and their electronic components.",
       "id": "conv_wildchat_new_ce415890783152ac"
     },
     {
@@ -697,10 +697,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 22,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_ce415890783152ac_22"
@@ -763,10 +763,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 34,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_ce415890783152ac_34"
@@ -872,7 +872,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 22,
+      "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -886,7 +886,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 24,
+      "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -900,20 +900,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 9,
-      "turn_index": 28,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_ce415890783152ac_9"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 10,
       "turn_index": 32,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -923,21 +909,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_ce415890783152ac_10"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 11,
-      "turn_index": 34,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.5,
-      "method": "llm",
-      "id": "v_wildchat_new_ce415890783152ac_11"
+      "id": "v_wildchat_new_ce415890783152ac_9"
     }
   ],
   "links": [
@@ -1660,12 +1632,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_ce415890783152ac_23",
-      "target": "v_wildchat_new_ce415890783152ac_7",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 25,
       "source": "t_wildchat_new_ce415890783152ac_24",
@@ -1701,7 +1667,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_ce415890783152ac_25",
-      "target": "v_wildchat_new_ce415890783152ac_8",
+      "target": "v_wildchat_new_ce415890783152ac_7",
       "key": 0
     },
     {
@@ -1773,7 +1739,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_ce415890783152ac_29",
-      "target": "v_wildchat_new_ce415890783152ac_9",
+      "target": "v_wildchat_new_ce415890783152ac_8",
       "key": 0
     },
     {
@@ -1845,7 +1811,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_ce415890783152ac_33",
-      "target": "v_wildchat_new_ce415890783152ac_10",
+      "target": "v_wildchat_new_ce415890783152ac_9",
       "key": 0
     },
     {
@@ -1872,12 +1838,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ce415890783152ac_35",
       "target": "mode_wildchat_new_ce415890783152ac_34",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_ce415890783152ac_35",
-      "target": "v_wildchat_new_ce415890783152ac_11",
       "key": 0
     }
   ]

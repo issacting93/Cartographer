@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_0512",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Call me daddy!",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I understand that you would like me to call you \"daddy.\" As an AI language model, I do not have personal preferences or emotions, but I can address you as \"daddy\" in our conversations if that is what you prefer. However, please note that this type of language may not be appropriate or professional in certain contexts, so it's important to consider the setting and audience before using it.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "user",
+      "content": "What is a house",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "A house is a building that provides shelter and accommodation for people and their belongings. It is typically made of materials such as wood, brick, or concrete, and may be designed in a variety of styles, such as colonial, modern, or contemporary. A house usually consists of rooms such as a living room, kitchen, bedrooms, and bathrooms, and may also have a basement, attic, or garage. The size of a house can vary greatly, ranging from small apartments to large mansions. Houses may be owned or rented, and they may be occupied by individuals, families, or other groups of people.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "What is a house",
+        "A house is a building that provides shelter"
+      ],
+      "rationale": "The human asks questions and the AI provides answers, fitting the question-answer pattern.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Call me daddy!",
+        "What is a house"
+      ],
+      "rationale": "The human initiates topics and asks questions, steering the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I understand that you would like me to call you 'daddy.'",
+        "A house is a building that provides shelter"
+      ],
+      "rationale": "The AI's responses are factual and lack emotional coloring.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.8,
+      "evidence": [
+        "I understand that you would like me to call you 'daddy.'",
+        "A house is a building that provides shelter"
+      ],
+      "rationale": "The AI responds to the human's prompts without introducing new topics.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "A house is a building that provides shelter",
+        "It is typically made of materials such as wood, brick, or concrete"
+      ],
+      "rationale": "The AI provides factual information about what a house is.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "What is a house"
+      ],
+      "rationale": "The human seeks information about the definition of a house.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "A house is a building that provides shelter"
+      ],
+      "rationale": "The conversation provides a basic definition without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Call me daddy!",
+        "What is a house",
+        "A house is a building that provides shelter"
+      ],
+      "rationale": "The conversation has a roughly equal number of turns between human and AI.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.5,
+        "provider": 0.0,
+        "director": 0.3,
+        "collaborator": 0.0,
+        "social-expressor": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What is a house"
+        }
+      ],
+      "rationale": "The human asks for information and directs the AI on how to address them.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.0,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.3,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "A house is a building that provides shelter"
+        }
+      ],
+      "rationale": "The AI provides factual information and maintains conversation flow.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:28:06.642054",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -10,9 +10,9 @@
       "domain": "creative",
       "total_turns": 10,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Flexible",
-      "task_goal": "Engage in a conversation with the AI by asking various questions.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Engage in a conversation with various requests including jokes, information, and creative writing.",
       "id": "conv_chatbot_arena_18782"
     },
     {
@@ -176,10 +176,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 4,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_chatbot_arena_18782_4"
@@ -219,6 +219,20 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_chatbot_arena_18782_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_18782_1"
     }
   ],
   "links": [
@@ -395,6 +409,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_18782_5",
       "target": "mode_chatbot_arena_18782_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_18782_5",
+      "target": "v_chatbot_arena_18782_1",
       "key": 0
     },
     {

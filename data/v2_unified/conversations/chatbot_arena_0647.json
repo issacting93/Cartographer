@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_0647",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Give me a name with the world \"fox\", then name me with it",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, here's a name with the word \"fox\":\n\nFoxx Rider.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.22
+      }
+    },
+    {
+      "role": "user",
+      "content": "what si my name ?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I'm not sure what your name is. Could you please provide me with more information?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "AI: Sure, here's a name"
+      ],
+      "rationale": "The human asks questions and the AI provides answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "HUMAN: what si my name ?"
+      ],
+      "rationale": "The human initiates and directs the conversation by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Sure, here's a name",
+        "I'm sorry, I'm not sure"
+      ],
+      "rationale": "The conversation lacks strong emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "HUMAN: what si my name ?"
+      ],
+      "rationale": "The human's engagement is primarily through questions.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "AI: Sure, here's a name",
+        "AI: I'm sorry, I'm not sure"
+      ],
+      "rationale": "The AI provides factual responses to the human's requests.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "HUMAN: what si my name ?"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "AI: Sure, here's a name"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Give me a name",
+        "AI: Sure, here's a name"
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "HUMAN: Give me a name"
+        }
+      ],
+      "rationale": "The human is primarily seeking information from the AI.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "AI: Sure, here's a name"
+        }
+      ],
+      "rationale": "The AI provides factual information and maintains conversation flow.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:45:36.970220",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

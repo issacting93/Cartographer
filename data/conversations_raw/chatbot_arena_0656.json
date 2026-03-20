@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0656",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a lua script for Mudlet that will take the phrase, “You have emptied yarrow out of your pipe” and will both refill the pipe based on GMCP values and send me a rime.echo prompt letting me know that the pipe is refilled. This should also include the reflex needed for this message to work with yarrow, myrrh, and poptarts"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the lua script for Mudlet:\nfunction refillYarrowPipe() \n  local GMCP = require(\"GPMC\") \n  if GMCP:hasResource(\"Yarrow\") then \n    local yarrow_resource = GMCP:getResource(\"Yarrow\") \n    local myrrh_resource = GMCP:getResource(\"Myrrh\") \n    local poptart_resource = GMCP:getResource(\"Poptart\")\n    local yarrow_amount = 1 \n    local myrrh_amount = 2 \n    local poptart_amount = 4\n    yarrow_resource:add(yarrow_amount) \n    myrrh_resource:add(myrrh_amount) \n    poptart_resource:add(poptart_amount) \n    message(\"You have emptied yarrow out of your pipe. It has been refilled with \"..yarrow_amount..\" units of Yarrow, \"..myrrh_amount..\" units of Myrrh, and \"..poptart_amount..\" units of Poptart.\") \n    rime.echo(\"Your pipe has been refilled.\") \n  else \n    message(\"You cannot refill your pipe because you do not have any of the necessary resources. Please gather more Yarrow, Myrrh, and Poptarts before attempting to refill your pipe again.\")\n  end \nend\n\nGMCP:registerCommand([\"refill yarrow pipe\"], refillYarrowPipe)"
+    },
+    {
+      "role": "user",
+      "content": "What regex works for this?"
+    },
+    {
+      "role": "assistant",
+      "content": "/refill yarrow pipe/"
+    }
+  ]
+}

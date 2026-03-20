@@ -1,0 +1,32 @@
+{
+  "id": "wildchat_new_6bb78b244bdcc0af",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 18,
+  "classification": {
+    "task_goal": "Act as a text-based web browser and return the contents of specified URLs.",
+    "primary_constraints": [
+      "Only reply with the contents of the page, nothing else.",
+      "Links and inputs must be numbered.",
+      "Input placeholders must be written in parentheses."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially failed to maintain the constraint of only providing page contents by including an apology and suggestion when a URL returned a 404 error. However, the user later corrected the assistant's response by continuing to provide URLs, which indicates that the user enforced the constraints afterward.",
+    "evidence": {
+      "constraint_turns": [
+        0
+      ],
+      "violation_turns": [
+        7,
+        9
+      ],
+      "repair_turns": [
+        10
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_6bb78b244bdcc0af.json"
+}

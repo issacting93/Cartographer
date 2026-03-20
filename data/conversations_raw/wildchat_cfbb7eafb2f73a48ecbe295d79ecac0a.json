@@ -1,0 +1,197 @@
+{
+  "id": "wildchat_cfbb7eafb2f73a48ecbe295d79ecac0a",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "i want to save the profile once a user has saved their information while retaining the current values of all the fields that the user is not allowed to edit themselves: FORM: <?php\nif (isset($_SESSION['examineeSession']['examineenakalogin']) == true) {\n  $exmne_id = $_SESSION['examineeSession']['exmne_id'];\n  $selAcc = $conn->query(\"SELECT * FROM examinee_tbl WHERE exmne_id='$exmne_id'\");\n  $selAccRow = $selAcc->fetch(PDO::FETCH_ASSOC);\n} else {\n  header(\"Location: login.php\");\n}\n?>\n<div class=\"modal fade\" id=\"editProfile\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <form class=\"refreshFrm\" id=\"editProfileFm\" method=\"post\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Profile</h5>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\" style=\"color: #fff;\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"col-md-12\">\n            <div class=\"form-group\">\n              <label>Fullname</label>\n              <input type=\"hidden\" name=\"exmne_id\" value=\"<?php echo $exmne_id; ?>\">\n              <input type=\"\" name=\"exFullname\" class=\"form-control\" required=\"\" value=\"<?php echo $selAccRow['exmne_fullname']; ?>\">\n            </div>\n            <div class=\"form-group\">\n              <label>Email</label>\n              <input type=\"\" name=\"exEmail\" class=\"form-control\" required=\"\" value=\"<?php echo $selAccRow['exmne_email']; ?>\">\n            </div>\n            <div class=\"form-group\">\n              <legend>Phone</legend>\n              <input type=\"\" name=\"exPhone\" class=\"form-control\" required=\"\" value=\"<?php echo $selAccRow['exmne_phone']; ?>\">\n            </div>\n\n            <div class=\"form-group\">\n              <legend>Password</legend>\n              <input type=\"\" name=\"exPass\" class=\"form-control\" required=\"\" value=\"<?php echo $selAccRow['exmne_password']; ?>\">\n            </div>\n\n            <div class=\"form-group\">\n              <legend>Confirm Password</legend>\n              <input type=\"\" name=\"exPass2\" class=\"form-control\" required=\"\" value=\"<?php echo $selAccRow['exmne_password']; ?>\">\n            </div>\n          </div>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n          <button type=\"submit\" class=\"btn btn-primary\" onclick=\"validateForm()\">\n            <i class=\"fas fa-paper-plane\"></i> Update Profile\n          </button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n<script>\n  $(document).ready(function() {\n    $(\"#editProfileFm\").submit(function(e) {\n      e.preventDefault();\n\n      $.ajax({\n        url: \"query/update-profile.php\",\n        type: \"POST\",\n        data: $(this).serialize(),\n        dataType: \"json\",\n        success: function(data) {\n          if (data.res == \"success\") {\n            Swal.fire({\n              title: \"Success\",\n              html: data.exFullname + \" <br>has been successfully updated!\",\n              icon: \"success\"\n            }).then(function() {\n              location.reload(); // Reload the page to show updated information\n            });\n          }\n        }\n      });\n    });\n  });\n</script>     Here is an example of how i am using PHP on the same app to allow the admin to save the edited profile on the admin section, i want to refactor the code to work as stated earlier.  <?php\ninclude(\"../../../conn.php\");\n\n$exmne_id = $_POST['exmne_id'];\n$exFullname = $_POST['exFullname'];\n$exEmail = $_POST['exEmail'];\n$exPhone = $_POST['exPhone'];\n$exPass = $_POST['exPass'];\n$exPass2 = $_POST['exPass2'];\n$exmne_package = $_POST['exmne_package'];\n$exmne_both = $_POST['exmne_both'];\n$exmne_status = $_POST['exmne_status'];\n\nif ($exPass === $exPass2) {\n    $hashedPassword = $exPass;\n} else {\n    $res = array(\"res\" => \"passwordMismatch\");\n    header(\"Content-Type: application/json\");\n    echo json_encode($res);\n    exit;\n}\n\nif ($exmne_status == 'PAID') {\n    $exmne_subscription = date('Y-m-d');\n    \n    switch ($exmne_package) {\n        case \"PREP COURSES MONTHLY\":\n        case \"NURSING SCHOOL MONTHLY\":\n            $exmne_expiry = date('Y-m-d', strtotime($exmne_subscription . \"+30 days\"));\n            break;\n        case \"PREP COURSES 6 MONTHS\":\n        case \"NURSING SCHOOL 6 MONTHS\":\n            $exmne_expiry = date('Y-m-d', strtotime($exmne_subscription . \"+180 days\"));\n            break;\n        case \"PREP COURSES 1 YEAR\":\n        case \"NURSING SCHOOL 1 YEAR\":\n            $exmne_expiry = date('Y-m-d', strtotime($exmne_subscription . \"+365 days\"));\n            break;\n        case \"NURSING SCHOOL 2 YEARS\":\n            $exmne_expiry = date('Y-m-d', strtotime($exmne_subscription . \"+730 days\"));\n            break;\n        default:\n            $exmne_expiry = null;\n            break;\n    }\n} else {\n    $exmne_subscription = null;\n    $exmne_expiry = null;\n}\n\n$updCourse = $conn->prepare(\"UPDATE examinee_tbl SET exmne_fullname=:exFullname, exmne_email=:exEmail, exmne_phone=:exPhone, exmne_password=:hashedPassword, exmne_package=:exmne_package, exmne_both=:exmne_both, exmne_subscription=:exmne_subscription, exmne_expiry=:exmne_expiry, exmne_status=:exmne_status WHERE exmne_id=:exmne_id\");\n$updCourse->bindParam(':exFullname', $exFullname);\n$updCourse->bindParam(':exEmail', $exEmail);\n$updCourse->bindParam(':exPhone', $exPhone);\n$updCourse->bindParam(':hashedPassword', $hashedPassword);\n$updCourse->bindParam(':exmne_package', $exmne_package);\n$updCourse->bindParam(':exmne_both', $exmne_both);\n$updCourse->bindParam(':exmne_subscription', $exmne_subscription);\n$updCourse->bindParam(':exmne_expiry', $exmne_expiry);\n$updCourse->bindParam(':exmne_status', $exmne_status);\n$updCourse->bindParam(':exmne_id', $exmne_id);\n\nif ($updCourse->execute()) {\n    $res = array(\"res\" => \"success\", \"exFullname\" => $exFullname);\n} else {\n    $res = array(\"res\" => \"failed\");\n}\n\nheader(\"Content-Type: application/json\");\necho json_encode($res);\n?>",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "To maintain the current values of fields that a user is not allowed to edit themselves while still updating their profile based on the fields they are allowed to modify, you'll need to make a few adjustments to your PHP script. The main idea here is to fetch the current user data and only update the fields the user can edit. If any non-editable fields are part of the form submission, you should ignore these and use the current values from the database instead. \n\nLet's refactor your update logic considering that the user is not allowed to edit `exmne_package`, `exmne_both`, `exmne_subscription`, `exmne_expiry`, and `exmne_status` directly, and we'll assume these should be maintained as is in the database without being affected by the form submission:\n\n```php\ninclude(\"../../../conn.php\");\n\n// Ensure the user is identified.\n$exmne_id = $_POST['exmne_id'];\nif (empty($exmne_id)) {\n    echo json_encode([\"res\" => \"noID\"]);\n    exit;\n}\n\n// Fetch the current data for the user.\n$stmt = $conn->prepare(\"SELECT * FROM examinee_tbl WHERE exmne_id=:exmne_id\");\n$stmt->bindParam(':exmne_id', $exmne_id, PDO::PARAM_INT);\n$stmt->execute();\n$currentUser = $stmt->fetch(PDO::FETCH_ASSOC);\n\nif (!$currentUser) {\n    echo json_encode([\"res\" => \"userNotFound\"]);\n    exit;\n}\n\n// Data from the form.\n$exFullname = $_POST['exFullname'];\n$exEmail = $_POST['exEmail'];\n$exPhone = $_POST['exPhone'];\n$exPass = $_POST['exPass'];\n$exPass2 = $_POST['exPass2'];\n\n// Password matching and hashing.\nif ($exPass !== $exPass2) {\n    echo json_encode([\"res\" => \"passwordMismatch\"]);\n    exit;\n}\n$hashedPassword = password_hash($exPass, PASSWORD_DEFAULT);\n\n// Update query maintains the values not editable by the user.\n$updCourse = $conn->prepare(\"UPDATE examinee_tbl SET exmne_fullname=:exFullname, exmne_email=:exEmail, exmne_phone=:exPhone, exmne_password=:hashedPassword WHERE exmne_id=:exmne_id\");\n$updCourse->execute([\n    ':exFullname' => $exFullname, \n    ':exEmail' => $exEmail, \n    ':exPhone' => $exPhone, \n    ':hashedPassword' => $hashedPassword, \n    ':exmne_id' => $exmne_id\n]);\n\nif ($updCourse->rowCount() > 0) {\n    echo json_encode([\"res\" => \"success\", \"exFullname\" => $exFullname]);\n} else {\n    echo json_encode([\"res\" => \"failed\"]);\n}\n```\n\nA few key points in this refactor:\n1. **Data Validation**: Added a check to ensure `exmne_id` is provided. This is critical for updating the right user profile.\n2. **Fetch Current User Data**: Before updating, it fetches the current user data. This step is crucial if you want to preserve the current values of fields not supposed to be edited by the user.\n3. **Password Handling**: It uses `password_hash` for hashing the password, which is a best practice for security. Ensure the hash is compatible with your login mechanism.\n4. **Maintaining Non-editable Fields**: The update query now only includes fields that the user is meant to edit. The other fields (`exmne_package`, `exmne_both`, `exmne_subscription`, `exmne_expiry`, `exmne_status`) are not part of this update statement, assuming these are not supposed to be edited through this form.\n\nBefore deploying these changes, ensure to test thoroughly, especially the password handling part to make sure it aligns with your login logic concerning password verification.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "metadata": {
+    "model": "gpt-4-0125-preview",
+    "timestamp": "2024-04-06T08:09:00+00:00",
+    "turn_count": 2,
+    "language": "English",
+    "country": "Kenya",
+    "state": "Mombasa County",
+    "toxic": false,
+    "redacted": false
+  },
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "advisory",
+      "confidence": 0.72,
+      "evidence": [
+        "i want to save the profile once a user has saved their information",
+        "Let's refactor your update logic"
+      ],
+      "rationale": "User presents a coding goal and code; AI responds with recommended refactor and a proposed solution.",
+      "alternative": "question-answer"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.62,
+      "evidence": [
+        "i want to refactor the code to work as stated earlier.",
+        "Here is an example of how i am using PHP"
+      ],
+      "rationale": "Human sets the agenda and constraints (what must be retained/edited); AI follows by providing a refactor.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.78,
+      "evidence": [
+        "To maintain the current values of fields",
+        "A few key points in this refactor:"
+      ],
+      "rationale": "Task-focused, technical, and formal guidance without affective language.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.66,
+      "evidence": [
+        "you'll need to make a few adjustments to your PHP script.",
+        "Let's refactor your update logic"
+      ],
+      "rationale": "AI gives prescriptive steps and a concrete refactoring approach rather than primarily asking questions.",
+      "alternative": "exploring"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.8,
+      "evidence": [
+        "Let's refactor your update logic",
+        "A few key points in this refactor:"
+      ],
+      "rationale": "Exchange centers on how to implement a profile update pattern in PHP (methods and best practices).",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.77,
+      "evidence": [
+        "i want to save the profile once a user has saved their information",
+        "The main idea here is to fetch the current user data and only update the fields the user can edit."
+      ],
+      "rationale": "Goal is to fix/implement a specific behavior in an application (preserve non-editable fields while updating others).",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.64,
+      "evidence": [
+        "fetch the current user data and only update the fields the user can edit.",
+        "It uses `password_hash` for hashing the password"
+      ],
+      "rationale": "Includes concrete code, security note, and explanation, but not exhaustive architecture/testing discussion.",
+      "alternative": "deep"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.7,
+      "evidence": [
+        "i want to save the profile once a user has saved their information",
+        "To maintain the current values of fields that a user is not allowed to edit themselves"
+      ],
+      "rationale": "AI provides a long, detailed response with code and numbered points; user has fewer turns.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.55,
+        "director": 0.25,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.66,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "i want to refactor the code to work as stated earlier."
+        },
+        {
+          "role": "director",
+          "quote": "i want to save the profile once a user has saved their information"
+        }
+      ],
+      "rationale": "Human primarily requests a solution from the AI and supplies extensive code/context; also specifies constraints (retain non-editable fields).",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.25,
+        "learning-facilitator": 0.05,
+        "advisor": 0.65,
+        "co-constructor": 0.05,
+        "social-facilitator": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.74,
+      "evidence": [
+        {
+          "role": "advisor",
+          "quote": "you'll need to make a few adjustments to your PHP script."
+        },
+        {
+          "role": "advisor",
+          "quote": "Let's refactor your update logic"
+        },
+        {
+          "role": "expert-system",
+          "quote": "The main idea here is to fetch the current user data and only update the fields the user can edit."
+        }
+      ],
+      "rationale": "AI prescribes an approach, provides refactored code, and gives best-practice guidance (e.g., password hashing).",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T18:14:29.200403",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 17176,
+    "fewShotExamples": "yes"
+  }
+}

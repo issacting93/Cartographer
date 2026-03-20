@@ -1,0 +1,31 @@
+{
+  "id": "wildchat_new_7fcbf13cf99a0650",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Evaluate and improve the functionality of a weather data scraping and updating system.",
+    "primary_constraints": [
+      "The update_weather_data function must check today's date and the latest date of weather available in the DB, and download what\u2019s missing between those two points without duplicating any data.",
+      "The get_data function must iterate from the last date in the database to the current date."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The user identified a need for the get_data function to change its iteration direction to gather missing data, which was a violation of the intended functionality. The assistant provided a solution to modify the function accordingly, indicating that the user successfully repaired the constraint.",
+    "evidence": {
+      "constraint_turns": [
+        2,
+        12
+      ],
+      "violation_turns": [
+        12
+      ],
+      "repair_turns": [
+        13
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_7fcbf13cf99a0650.json"
+}

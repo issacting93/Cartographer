@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 20,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Provide information and references related to type 2 diabetes and its complications.",
       "id": "conv_wildchat_new_7138da74b53e1c0e"
     },
@@ -359,10 +359,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_7138da74b53e1c0e_6"
@@ -478,7 +478,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 16,
+      "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -488,6 +488,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_7138da74b53e1c0e_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
+      "turn_index": 16,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_7138da74b53e1c0e_4"
     }
   ],
   "links": [
@@ -789,6 +803,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_7138da74b53e1c0e_7",
+      "target": "v_wildchat_new_7138da74b53e1c0e_3",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 9,
       "source": "t_wildchat_new_7138da74b53e1c0e_8",
@@ -963,7 +983,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7138da74b53e1c0e_17",
-      "target": "v_wildchat_new_7138da74b53e1c0e_3",
+      "target": "v_wildchat_new_7138da74b53e1c0e_4",
       "key": 0
     },
     {

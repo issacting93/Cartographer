@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 24,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Create a program for medical diagnosis based on laboratory and instrumental test results.",
       "id": "conv_wildchat_new_fb43d08a61fdf0de"
     },
@@ -231,7 +231,7 @@
       "role": "assistant",
       "content_length": 4404,
       "content_preview": "In this example, we will create and train a neural network to determine whether a complete blood count (CBC) is normal o",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_fb43d08a61fdf0de_21"
     },
@@ -410,12 +410,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "In this example, we will create and train a neural network to determine whether...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Establish baseline normal values for laboratory tests and in] The response does not establish baseline",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_fb43d08a61fdf0de_21_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide a user interface for inputting test values and displ] The response does not provide a user int",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_fb43d08a61fdf0de_21_1"
     },
     {
       "node_type": "Move",
@@ -1235,6 +1244,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_fb43d08a61fdf0de_21",
       "target": "m_wildchat_new_fb43d08a61fdf0de_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_fb43d08a61fdf0de_21",
+      "target": "m_wildchat_new_fb43d08a61fdf0de_21_1",
       "key": 0
     },
     {

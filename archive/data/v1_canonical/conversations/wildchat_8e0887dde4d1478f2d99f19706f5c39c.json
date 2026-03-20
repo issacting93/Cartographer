@@ -1,0 +1,194 @@
+{
+  "id": "wildchat_8e0887dde4d1478f2d99f19706f5c39c",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "import {GPU} from “gpu.js”;\nexport interface CanvasSize {\nwidth: number;\nheight: number;\n}\nconst OrderFeed = ({workerRef, symbol, settings}: OrderFeedProps) => {\nconst cupParams = useSelector((state: AppState) => state.cupSlice);\nconst [dpiScale, setDpiScale] = useState(Math.ceil(window.devicePixelRatio));\nconst [canvasSize, setCanvasSize] = useState<CanvasSize>({height: 0, width: 0});\nconst containerRef = useRef<HTMLDivElement|null>(null);\nconst canvasRef = useRef<HTMLCanvasElement|null>(null);\n\nconst draw = (trades: TradeItem[], camera: number) => {\nif (null === canvasRef || !Array.isArray(trades)) return;\n\nconst context = canvasRef.current?.getContext(“2d”);\n\nif (context) {\n\norderFeedDrawer.clear(context, canvasSize);\norderFeedDrawer.drawLine(\ncontext,\ncanvasSize,\ntrades,\ncamera,\ncupParams.aggregatedPriceStep,\ncupParams.cellHeight,\ncupParams.quantityDivider,\n!settings.minQuantity ? 0 : parseFloat(settings.minQuantity),\ndpiScale,\ntheme,\n);\n}\n};\n\nreturn <Box ref={containerRef} className={${styles.canvasWrapper} scroll-block}>\n<canvas\nref={canvasRef}\nclassName={styles.canvas}\nwidth={canvasSize?.width}\nheight={canvasSize?.height}\n/>\n</Box>;\n};\n\nexport default OrderFeed;\n\nconst clamp = (value: number, min: number, max: number): number => {\n  return Math.min(Math.max(value, min), max);\n};\n\nconst orderFeedDrawer = {\n  clear: (ctx: CanvasRenderingContext2D, size: CanvasSize) => {\n    ctx.clearRect(0, 0, size.width, size.height);\n  },\n  drawLine: (\n    ctx: CanvasRenderingContext2D,\n    canvasSize: CanvasSize,\n    trades: TradeItem[],\n    camera: number,\n    aggregatedPriceStep: number,\n    cupCellHeight: number,\n    quantityDivider: number,\n    minQuantity: number,\n    dpiScale: number,\n    theme: Theme,\n  ) => {\n    let startX = canvasSize.width - 10 * dpiScale;\n    const fullHeightRowsCount = parseInt((canvasSize.height / cupCellHeight).toFixed(0));\n    const halfCupCellHeight = cupCellHeight / 2;\n    const startY = (fullHeightRowsCount % 2 ? fullHeightRowsCount - 1 : fullHeightRowsCount) / 2 * cupCellHeight;\n\n    ctx.beginPath();\n    ctx.strokeStyle = orderFeedOptions(theme).line.color;\n    ctx.lineWidth = 2 * dpiScale;\n\n    trades.forEach(trade => {\n      const yModifier = (trade.price - (trade.price - (trade?.secondPrice || trade.price)) / 2 - camera) / aggregatedPriceStep * cupCellHeight + halfCupCellHeight;\n      const width = 1.75 * clamp((trade.quantity / quantityDivider < minQuantity ? 0 : trade.radius), 5, 50) * dpiScale;\n\n      ctx.lineTo(startX - width / 2, startY - yModifier);\n      startX = startX - width;\n    });\n\n    ctx.stroke();\n  },\n\nПомимо CanvasRenderingContext2D есть еще WebGLRenderingContext.\nЕсть библиотека https://github.com/gpujs/gpu.js/ через которую можно инициализировать canvas с WebGL контекстом. \nПерепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "import {GPU} from \"gpu.js\";\nexport interface CanvasSize {\n  width: number;\n  height: number;\n}\n\nconst OrderFeed = ({workerRef, symbol, settings}: OrderFeedProps) => {\n  const cupParams = useSelector((state: AppState) => state.cupSlice);\n  const [dpiScale, setDpiScale] = useState(Math.ceil(window.devicePixelRatio));\n  const [canvasSize, setCanvasSize] = useState<CanvasSize>({height: 0, width: 0});\n  const containerRef = useRef<HTMLDivElement|null>(null);\n  const canvasRef = useRef<HTMLCanvasElement|null>(null);\n\n  const gpu = new GPU();\n\n  const draw = (trades: TradeItem[], camera: number) => {\n    if (null === canvasRef || !Array.isArray(trades)) return;\n\n    const context = canvasRef.current?.getContext(\"webgl\");\n\n    if (context) {\n      const renderLine = gpu.createKernel(function(trades: TradeItem[], camera: number, aggregatedPriceStep: number, cupCellHeight: number, quantityDivider: number, minQuantity: number, dpiScale: number, theme: Theme, startX: number, fullHeightRowsCount: number, startY: number, halfCupCellHeight: number) {\n        let startX = startX;\n        const yModifier = (trade.price - (trade.price - (trade?.secondPrice || trade.price)) / 2 - camera) / aggregatedPriceStep * cupCellHeight + halfCupCellHeight;\n        const width = 1.75 * clamp((trade.quantity / quantityDivider < minQuantity ? 0 : trade.radius), 5, 50) * dpiScale;\n\n        this.color(\"black\");\n        this.strokeStart(startX - width / 2, startY - yModifier);\n        startX = startX - width;\n        this.strokeWidth(2 * dpiScale);\n      }, {\n        output: [canvasSize.width, canvasSize.height],\n        graphical: true\n      });\n\n      const result = renderLine(trades, camera, cupParams.aggregatedPriceStep, cupParams.cellHeight, cupParams.quantityDivider, !settings.minQuantity ? 0 : parseFloat(settings.minQuantity), dpiScale, theme, canvasSize.width - 10 * dpiScale, parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)), (parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)) % 2 ? parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)) - 1 : parseInt((canvasSize.height / cupParams.cellHeight).toFixed(0)))) / 2 * cupParams.cellHeight;\n    };\n\n  return (\n    <Box ref={containerRef} className=${styles.canvasWrapper} scroll-block>\n      <canvas\n        ref={canvasRef}\n        className=${styles.canvas}\n        width=${canvasSize.width}\n        height=${canvasSize.height}\n      />\n    </Box>\n  );\n};\n\nexport default OrderFeed;\n\nconst clamp = (value: number, min: number, max: number): number => {\n  return Math.min(Math.max(value, min), max);\n};\n\nconst orderFeedDrawer = {\n  clear: (ctx: WebGLRenderingContext, size: CanvasSize) => {\n    ctx.clearColor(0, 0, 0, 1);\n    ctx.clear(ctx.COLOR_BUFFER_BIT);\n  }\n};\n\n----------------\n\nNote: The code provided is a modified version of the original code to utilize the \"gpu.js\" library for WebGL rendering. The implementation may need further adjustments according to the usage and requirements of the application.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "GPU.js is a popular library for general-purpose computing on GPUs using JavaScript. However, if you're looking for alternative libraries for WebGL rendering, here are a few options:\n\n1. Three.js: Three.js is a widely-used JavaScript library for creating and rendering 3D scenes in the browser. It provides a high-level API for working with WebGL and abstracts away many of the complexities of low-level WebGL programming.\n\n2. Babylon.js: Babylon.js is another powerful JavaScript framework for building 3D games and experiences in the browser. It offers a comprehensive set of features and tools for WebGL rendering, including physics simulation, animations, and advanced rendering techniques.\n\n3. regl: regl is a functional WebGL library that focuses on performance and efficiency. It provides a simple, declarative API for creating and managing WebGL resources, and it's designed to work well with functional programming paradigms.\n\n4. PIXI.js: PIXI.js is a 2D rendering library that uses WebGL for hardware-accelerated rendering. It's optimized for creating interactive 2D graphics and animations, and it offers a rich set of features for working with sprites, textures, and filters.\n\nThese libraries provide more advanced and robust features compared to gpu.js specifically for WebGL rendering. However, the choice of library depends on specific project requirements and the level of control and functionality needed for your application.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0613",
+    "timestamp": "2023-09-19T15:10:08+00:00",
+    "turn_count": 2,
+    "language": "English",
+    "country": "Russia",
+    "state": "Krasnodar Krai",
+    "toxic": false,
+    "redacted": false
+  },
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.78,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js"
+      ],
+      "rationale": "Human requests a rewrite and then asks for alternatives; AI responds with code and a list of libraries.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.72,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js"
+      ],
+      "rationale": "Human sets the agenda via explicit task request and follow-up question; AI follows those prompts.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.74,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "GPU.js is a popular library for general-purpose computing on GPUs using JavaScript."
+      ],
+      "rationale": "Technical, task-focused language with no relational or affective cues.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.63,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js"
+      ],
+      "rationale": "Human issues a directive (rewrite) and then iterates with a follow-up request for options.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.76,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "here are a few options:"
+      ],
+      "rationale": "Exchange centers on implementation approach and tooling choices for WebGL/JS development.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.7,
+      "evidence": [
+        "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,",
+        "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js"
+      ],
+      "rationale": "User seeks a concrete code adaptation and then evaluates better tooling to achieve the technical goal.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.62,
+      "evidence": [
+        "const orderFeedDrawer = {",
+        "These libraries provide more advanced and robust features compared to gpu.js"
+      ],
+      "rationale": "Includes substantial code plus a brief comparative list, but not deep evaluation or detailed integration guidance.",
+      "alternative": "surface"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.8,
+      "evidence": [
+        "[1] HUMAN: import {GPU} from “gpu.js”;",
+        "[2] AI: import {GPU} from \"gpu.js\";",
+        "[4] AI: GPU.js is a popular library for general-purpose computing on GPUs using JavaScript."
+      ],
+      "rationale": "AI responses (code rewrite and multi-item list) are substantially longer than the user turns.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.25,
+        "provider": 0.35,
+        "director": 0.35,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.66,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "Перепиши синтаксис на библиотеку “gpu.js”: “^2.16.0”,"
+        },
+        {
+          "role": "provider",
+          "quote": "какие есть библиотеки по WebGLRenderingContext лучше чем gpu.js"
+        }
+      ],
+      "rationale": "Human both directs a specific deliverable (rewrite) and asks the AI for comparative options (libraries).",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0,
+        "advisor": 0.25,
+        "co-constructor": 0.05,
+        "social-facilitator": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "import {GPU} from \"gpu.js\";"
+        },
+        {
+          "role": "advisor",
+          "quote": "here are a few options:"
+        }
+      ],
+      "rationale": "AI provides direct technical output (code) and recommends alternatives (Three.js, Babylon.js, regl, PIXI.js).",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T18:03:10.619291",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 18533,
+    "fewShotExamples": "yes"
+  }
+}

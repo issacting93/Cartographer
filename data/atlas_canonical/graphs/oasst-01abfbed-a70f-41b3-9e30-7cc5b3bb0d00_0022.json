@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 12,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Determine if a USB GPS dongle can be used with Google Maps on a Microsoft Surface tablet for navigation.",
       "id": "conv_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022"
     },
@@ -101,7 +101,7 @@
       "role": "assistant",
       "content_length": 1057,
       "content_preview": "When looking for a GPS dongle, here are some things to consider: GPS chipset: Look for a dongle with a high-quality GPS",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8"
     },
@@ -147,7 +147,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: An internet connection is required for Google Maps to functi] The response implies that the app may wo",
+      "text_span": "[violates: An internet connection is required for Google Maps to functi] The response suggests that the app may w",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -174,7 +174,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: An internet connection is required for Google Maps to functi] The response does not mention the need f",
+      "text_span": "[violates: An internet connection is required for Google Maps to functi] The response does not mention the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -191,21 +191,12 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The GPS dongle must be compatible with the Microsoft Surface] The response does not mention compatibil",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "When looking for a GPS dongle, here are some things to consider:\n\nGPS chipset: L...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: An internet connection is required for Google Maps to functi] The response does not address the requir",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8_1"
     },
     {
       "node_type": "Move",
@@ -258,22 +249,22 @@
       "constraint_id": "c_1",
       "text": "An internet connection is required for Google Maps to function properly.",
       "hardness": "hard",
-      "current_state": "VIOLATED",
+      "current_state": "SURVIVED",
       "state_history": [
         [
           6,
           "STATED"
         ],
         [
-          8,
-          "VIOLATED"
+          12,
+          "SURVIVED"
         ]
       ],
       "introduced_at": 6,
       "last_violation_at": null,
-      "times_violated": 1,
+      "times_violated": 0,
       "times_repaired": 0,
-      "lifespan": 2,
+      "lifespan": 6,
       "final_state": null,
       "id": "c_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_c_1"
     },
@@ -286,16 +277,6 @@
       "was_repaired": false,
       "violation_ord": 1,
       "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_0"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
-      "turn_index": 8,
-      "constraint_id": "c_1",
-      "violation_type": "constraint_violation",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1"
     },
     {
       "node_type": "InteractionMode",
@@ -332,8 +313,22 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 1,
       "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 2,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -347,20 +342,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 2,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
-      "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
       "turn_index": 7,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -370,7 +351,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_4"
+      "id": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_3"
     }
   ],
   "links": [
@@ -494,7 +475,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1",
-      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_2",
+      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1",
       "key": 0
     },
     {
@@ -533,7 +514,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_3",
-      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_3",
+      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_2",
       "key": 0
     },
     {
@@ -619,19 +600,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8",
-      "target": "m_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8",
-      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8",
       "target": "mode_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_7",
@@ -640,7 +608,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_8",
-      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_4",
+      "target": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_3",
       "key": 0
     },
     {
@@ -677,14 +645,6 @@
       "at_turn": 5,
       "source": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_0",
       "target": "c_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_c_0",
-      "key": 0
-    },
-    {
-      "edge_type": "VIOLATES",
-      "violation_ord": 1,
-      "at_turn": 8,
-      "source": "v_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_1",
-      "target": "c_oasst-01abfbed-a70f-41b3-9e30-7cc5b3bb0d00_0022_c_1",
       "key": 0
     }
   ]

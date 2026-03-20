@@ -1,0 +1,332 @@
+{
+  "id": "wildchat_new_f7f19987eb39a080",
+  "source": "WildChat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "CREATE TABLE customer(cust_id integer PRIMARY KEY, first_name varchar, last_name varchar, address varchar, city varchar, state varchar, postal varchar,  email varchar, balance DECIMAL(4, 2), credit_limit(10, 2), rep_id: intager);\n В чем ошибка в sql запросе? Ругается mysql",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Ошибка в запросе - отсутствует тип данных у поля credit_limit. Верный запрос:\nCREATE TABLE customer(cust_id integer PRIMARY KEY, first_name varchar, last_name varchar, address varchar, city varchar, state varchar, postal varchar,  email varchar, balance DECIMAL(4, 2), credit_limit DECIMAL(10, 2), rep_id integer);",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "CREATE TABLE customer (\n  cust_id integer PRIMARY KEY,\n  first_name varchar,\n  last_name varchar,\n  address varchar,\n  city varchar,\n  state varchar,\n  postal varchar,\n  email varchar,\n  balance DECIMAL(4, 2),\n  credit_limit DECIMAL(10, 2),\n  rep_id integer\n); Все равно пишет, что ожидается не \",\" а \")\"",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.7,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.7
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Ошибка в запросе - забыли указать тип данных для поля credit_limit. Верный запрос: \n\nCREATE TABLE customer (\n  cust_id integer PRIMARY KEY,\n  first_name varchar,\n  last_name varchar,\n  address varchar,\n  city varchar,\n  state varchar,\n  postal varchar,\n  email varchar,\n  balance DECIMAL(4, 2),\n  credit_limit DECIMAL(10, 2),\n  rep_id integer\n);",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "как записать значения из 2-х столбов в одно новое через sql",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Чтобы записать значения из 2-х столбцов в один новый столбец в таблице базы данных через SQL, вы можете использовать команду `CONCAT()`.\n\nПример на SQL:\n\n```\nUPDATE имя_таблицы SET новый_столбец = CONCAT(столбец_1, ' ', столбец_2);\n```\n\nЭтот пример создаст новый столбец с именем \"новый_столбец\" в таблице с именем \"имя_таблицы\", содержащий значения столбца 1 и столбца 2, разделенные пробелом. Символы в кавычках - это разделитель между значениями из столбцов. Вы можете использовать любые символы, которые вам нужны.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "SELECT first_name, last_name, credit_limit\n    INTO I_CUSTOMER_NAME, I_CREDIT_LIMIT\n    FROM customers\n    WHERE cust_id = I_CUST_ID; как в этом запросе сделать так, чтобы first_name и last_name записывались в столбец I_CUSTOMER_NAME",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Чтобы записать значения столбцов `first_name` и `last_name` в столбец `I_CUSTOMER_NAME` при использовании оператора SELECT INTO, вы можете объединить их с помощью функции `CONCAT ()`. А затем записать результат в `I_CUSTOMER_NAME`.\n\nПример на SQL:\n\n```\nSELECT CONCAT(first_name, ' ', last_name) AS full_name, credit_limit\n    INTO I_CUSTOMER_NAME, I_CREDIT_LIMIT\n    FROM customers\n    WHERE cust_id = I_CUST_ID;\n```\n\nЭтот запрос создаст новый столбец `full_name`, который содержит значение `first_name` и `last_name`, разделенные пробелом. Затем результат объединения будет записан в столбец `I_CUSTOMER_NAME`, а значение столбца `credit_limit` будет записано в `I_CREDIT_LIMIT`.\n\nОбратите внимание, что вы должны использовать ключевое слово `AS` и задать имя для нового столбца (в данном случае `full_name`). Это необходимо, чтобы сделать результат объединения двух столбцов доступным для записи в `I_CUSTOMER_NAME`.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "создай процедуру в mysql, которая будет создавать новую таблицу на основе полученного id",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Вот пример создания хранимой процедуры в MySQL, которая создает новую таблицу на основе полученного идентификатора:\n\n```\nDELIMITER //\n\nCREATE PROCEDURE create_new_table(IN id INT)\nBEGIN\n    DECLARE table_name VARCHAR(50);\n    SELECT CONCAT('new_table_', id) INTO table_name;\n    # Сгенерируем имя новой таблицы, добавив id\n    # в конец имени для уникальности\n\n    SET @sql = CONCAT('CREATE TABLE ', table_name, '(\n        # Здесь введите поля и их типы в новой таблице\n    )');\n\n    PREPARE stmt FROM @sql;\n    EXECUTE stmt;\n    DEALLOCATE PREPARE stmt;\n    # Создаем новую таблицу\n\nEND //\n\nDELIMITER ;\n```\n\nЭта хранимая процедура принимает входной параметр `id`, который добавляется к имени новой таблицы. Внутри процедуры мы объявляем переменную `table_name`, которая будет хранить имя новой таблицы. Затем мы генерируем имя таблицы, объединив строку \"new_table_\" с параметром `id`.\n\nДалее мы сохраняем SQL-запрос в переменной `@sql`, который динамически строится, используя имя таблицы, заданное в переменной `table_name`, а также список полей и их типов данных, которые вы можете настроить в соответствии с ваших потребностями.\n\nЗатем мы готовим запрос с помощью оператора `PREPARE`, выполняем его с помощью оператора `EXECUTE` и освобождаем зарезервированную память с помощью оператора `DEALLOCATE PREPARE stmt`.\n\nПосле этого вы можете вызвать хранимую процедуру, передавая ей идентификатор, например, `CALL create_new_table(123);`.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). The next words should be always capitalized.\n\nExamples\n\"the-stealth-warrior\" gets converted to \"theStealthWarrior\"",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Вот пример функции на языке Python, которая преобразует слова, разделенные дефисами или подчеркиваниями, в кэмелкейс (CamelCase):\n\n```python\ndef to_camel_case(text):\n    if not text:\n        return \"\"\n\n    words = text.replace('-', '_').split('_')\n    # Заменяем дефисы на подчеркивания и разбиваем на список слов\n\n    # Если первое слово в оригинальной строке начинается с заглавной буквы,\n    # то в кэмелкейс переделываем его тоже с заглавной буквы\n    camelcase_words = [words[0]] + [word.capitalize() for word in words[1:]]\n\n    return ''.join(camelcase_words)\n```\n\nНапример, вызов этой функции с аргументом \"the-stealth-warrior\" вернет значение \"theStealthWarrior\". В процессе работы функция заменяет дефисы на подчеркивания, разбивает текст на список слов, а затем формирует кэмелкейс-вариант, переводя первую букву каждого слова в заглавную, кроме первого слова, если оно начиналось с маленькой буквы.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": " a = text.split(\"-\")\n        c = a[0]\n        a = [a[i].capitalize() for i in range(1, len(a))]\n        a[0] = c\n        print(a)\n        b = \"\".join(a) Почему в этом коде в результате 1 слово пропалет? ",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.54
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Если в результате выполнения этого кода пропадает первое слово, то причина может быть в том, что разделитель между словами не является дефисом, а, например, дефисом с пробелом перед ним – `\" - \"`, или другими символами, которые не удаляются функцией split.\n\nЧтобы исправить эту проблему, вы можете попробовать использовать регулярные выражения, чтобы удалить все непечатаемые символы, а также символы разделителей между словами перед тем, как разбить текст на слова.\n\nНапример, вот такой код Python можно использовать для разбития текста на слова с любым разделителем, состоящим из любых непечатаемых символов:\n\n```python\nimport re\n\ndef split_text(text):\n    pattern = r'\\W+'   # шаблон для поиска любых символов, не являющихся буквами или цифрами\n    return re.split(pattern, text)\n\nwords = split_text(\"the - stealth; warrior\")\nprint(words)    # ['the', 'stealth', 'warrior']\n```\n\nПосле того, как вы получите список слов, вы можете исправить их регистр и объединить в одну строку, используя функцию `join`, как вы делаете это в своем вопросе.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.54
+      }
+    },
+    {
+      "role": "user",
+      "content": " a = text.split(\"-\")\n        c = a[0]\n        a = [a[i].capitalize() for i in range(1, len(a))]\n        a[0] = c\n        print(a)\n        b = \"\".join(a) Входные данные разделены \"-\", но первый элемент массива a проподает, почему?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Если первый элемент массива a пропадает, возможной причиной может быть наличие дефиса в начале строки, перед текстом. В этом случае, вызов функции `split(\"-\")` приведет к удалению первого элемента, который будет пустой строкой, а первый \"настоящий\" элемент будет находиться во второй позиции. \n\nНапример, если в переменной `text` имеется строка \"-the-stealth-warrior\", то после вызова `text.split(\"-\")` получим список `[\"\", \"the\", \"stealth\", \"warrior\"]`, где первый элемент – пустая строка. Когда в дальнейшем из списка a удаляется первый элемент (a[0] = c), происходит замена первого слова из списка a на первое слово из оригинальной строки. В результате, первое слово из списка a теряется, а все остальные слова остаются на своих местах.\n\nЧтобы исправить эту проблему, перед вызовом `split(\"-\")` вам необходимо удалить любые заданные символы в начале и в конце строки с помощью функции `strip()`. Рекомендуется использовать код вида:\n\n```python\na = text.strip(\"-\").split(\"-\")\n```\n\nДанный код сначала вызывает метод `strip`, который удалит любые заданные символы в начале и в конце строки (здесь – дефисы), а затем вызывает функцию `split(\"-\")` для разбиения строки на слова, используя дефис в качестве разделителя.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "Напиши телеграм бота на telebot, который 1) по команте старт отрпавляет Text1 с 3-мя инлайн-кнопками: кнопка1б кнопка2б кнопка3 2) по кнопке1 присылает text2 3) по кнопке2 присылает ссылку link1 4) по кнопке3 будет начато анкетирование с 3-мя вопросами: 4) по команде about присылает text4 с фотографией  ",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Вот пример кода на Python 3 для создания телеграм-бота в Telebot, который реализует требуемые действия:\n\n```python\nimport telebot\nfrom telebot import types\nimport os\n\n# Вставьте сюда токен вашего бота, который вы получили в BotFather\nTOKEN = 'your_token_here'\n\n# Создаем новый объект бота с указанным токеном\nbot = telebot.TeleBot(TOKEN)\n\n# Кнопки для сообщения Text1\nbutton1 = types.InlineKeyboardButton('Кнопка1', callback_data='button1')\nbutton2 = types.InlineKeyboardButton('Кнопка2', callback_data='button2')\nbutton3 = types.InlineKeyboardButton('Кнопка3', callback_data='button3')\nkeyboard = types.InlineKeyboardMarkup(row_width=3)\nkeyboard.add(button1, button2, button3)\n\n# Кнопки для анкетирования\nquestion1 = types.InlineKeyboardButton('Вопрос 1', callback_data='question1')\nquestion2 = types.InlineKeyboardButton('Вопрос 2', callback_data='question2')\nquestion3 = types.InlineKeyboardButton('Вопрос 3', callback_data='question3')\nquestionnaire_keyboard = types.InlineKeyboardMarkup(row_width=1)\nquestionnaire_keyboard.add(question1, question2, question3)\n\n\n@bot.message_handler(commands=['start'])\ndef start_command(message):\n    # Отправляем сообщение Text1 с кнопками\n    bot.send_message(message.chat.id, 'Text1', reply_markup=keyboard)\n\n\n@bot.callback_query_handler(func=lambda call: True)\ndef callback_handler(call):\n    if call.data == 'button1':\n        bot.send_message(call.message.chat.id, 'Text2')\n    elif call.data == 'button2':\n        bot.send_message(call.message.chat.id, 'Link1')\n    elif call.data == 'button3':\n        # Начинаем анкетирование\n        bot.send_message(call.message.chat.id, 'Вопрос 1', reply_markup=questionnaire_keyboard)\n\n\n@bot.message_handler(commands=['about'])\ndef about_command(message):\n    # Отправляем сообщение Text4 и изображение\n    photo = open('your_photo.jpg', 'rb')\n    bot.send_photo(message.chat.id, photo)\n    bot.send_message(message.chat.id, 'Text4')\n\n\nif __name__ == '__main__':\n    # Установка webhook\n    # Подробнее: https://core.telegram.org/bots/api#setwebhook\n    WEBHOOK_URL_BASE = os.getenv('WEBHOOK_URL_BASE')\n    WEBHOOK_URL_PATH = '/webhook/'\n    WEBHOOK_URL = f\"{WEBHOOK_URL_BASE}{WEBHOOK_URL_PATH}\"\n\n    # Удаляем предыдущие вебхуки (если они были)\n    bot.remove_webhook()\n\n    # Установка вебхука\n    bot.set_webhook(url=WEBHOOK_URL)\n\n    # Запуск сервера для обработки вебхуков в отдельном потоке\n    bot.polling(none_stop=True, interval=0, timeout=20)\n```\n\nВам необходимо заменить строку `your_token_here` на токен вашего бота Telegram; загрузить свою фотографию с именем `your_photo.jpg` в директорию с этим скриптом; установить `WEBHOOK_URL_BASE` равным адресу вашего сервера (например, `https://example.com`); и настроить соответствующие действия (например, заменить `Text1`, `Text2`, `Link1` и т.д. на свои сообщения).\n\nПосле запуска скрипта на своем сервере вы можете начать использовать вашего бота, написав ему в Telegram сообщение /start или /about.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "user",
+      "content": "код выглядит почти также как на библиотеке aiogram, у них один создатель?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Нет, библиотека aiogram не имеет никакого отношения к Telebot и их создатели различны. Aiogram – это асинхронная библиотека для Telegram Bot API на языке Python, которая предоставляет более высокоуровневый и современный API, позволяющий управлять ботом и взаимодействовать с пользователями. Создателем aiogram является А",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "В чем ошибка в sql запросе?",
+        "Ошибка в запросе - отсутствует тип данных у поля credit_limit."
+      ],
+      "rationale": "The conversation consists of the human asking questions and the AI providing answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "В чем ошибка в sql запросе?",
+        "как записать значения из 2-х столбов в одно новое через sql"
+      ],
+      "rationale": "The human initiates topics and asks questions, guiding the conversation.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "CREATE TABLE customer(cust_id integer PRIMARY KEY, first_name varchar, last_name varchar, address varchar, city varchar, state varchar, postal varchar, email varchar, balance DECIMAL(4, 2), credit_limit(10, 2), rep_id: intager);"
+      ],
+      "rationale": "The conversation is focused on technical issues without emotional language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "В чем ошибка в sql запросе?",
+        "как записать значения из 2-х столбов в одно новое через sql"
+      ],
+      "rationale": "The human frequently asks questions to explore solutions.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.9,
+      "evidence": [
+        "Ошибка в запросе - отсутствует тип данных у поля credit_limit.",
+        "Чтобы записать значения из 2-х столбцов в один новый столбец в таблице базы данных через SQL, вы можете использовать команду `CONCAT()`."
+      ],
+      "rationale": "The AI provides technical solutions and explanations.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.9,
+      "evidence": [
+        "В чем ошибка в sql запросе?",
+        "как записать значения из 2-х столбов в одно новое через sql"
+      ],
+      "rationale": "The conversation aims to resolve specific SQL issues.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.8,
+      "evidence": [
+        "Ошибка в запросе - отсутствует тип данных у поля credit_limit.",
+        "Чтобы записать значения из 2-х столбцов в один новый столбец в таблице базы данных через SQL, вы можете использовать команду `CONCAT()`."
+      ],
+      "rationale": "The discussion covers specific SQL syntax and solutions but not exhaustively.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "В чем ошибка в sql запросе?",
+        "Ошибка в запросе - отсутствует тип данных у поля credit_limit."
+      ],
+      "rationale": "Both participants contribute equally in terms of message length and frequency.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "В чем ошибка в sql запросе?"
+        }
+      ],
+      "rationale": "The human primarily seeks information and solutions to SQL problems.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.2,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Ошибка в запросе - отсутствует тип данных у поля credit_limit."
+        }
+      ],
+      "rationale": "The AI provides direct answers and corrections to technical queries.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T19:23:54.868251",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

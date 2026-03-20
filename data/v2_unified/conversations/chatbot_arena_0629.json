@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_0629",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How now brown... Then please do this 25*767.67 + 83273.45",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The result of 25*767.67 + 83273.45 is 103381.70.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "how now brown...",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I'm not sure what you're trying to say. Is there something else you need assistance with?",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Then please do this 25*767.67 + 83273.45",
+        "The result of 25*767.67 + 83273.45 is 103381.70."
+      ],
+      "rationale": "The human asks for a calculation, and the AI provides the answer.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Then please do this 25*767.67 + 83273.45",
+        "Is there something else you need assistance with?"
+      ],
+      "rationale": "The human initiates the task and the AI responds.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "The result of 25*767.67 + 83273.45 is 103381.70.",
+        "I'm sorry, I'm not sure what you're trying to say."
+      ],
+      "rationale": "The conversation is factual and lacks emotional content.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.8,
+      "evidence": [
+        "I'm sorry, I'm not sure what you're trying to say.",
+        "The result of 25*767.67 + 83273.45 is 103381.70."
+      ],
+      "rationale": "The AI responds directly to the human's input without further direction.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "The result of 25*767.67 + 83273.45 is 103381.70."
+      ],
+      "rationale": "The AI provides a factual calculation result.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "Then please do this 25*767.67 + 83273.45"
+      ],
+      "rationale": "The human seeks a specific calculation from the AI.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "The result of 25*767.67 + 83273.45 is 103381.70."
+      ],
+      "rationale": "The conversation is brief and focused on a single calculation.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Then please do this 25*767.67 + 83273.45",
+        "The result of 25*767.67 + 83273.45 is 103381.70."
+      ],
+      "rationale": "The human and AI have similar message lengths.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.1,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Then please do this 25*767.67 + 83273.45"
+        }
+      ],
+      "rationale": "The human primarily seeks information through a calculation request.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.2
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The result of 25*767.67 + 83273.45 is 103381.70."
+        }
+      ],
+      "rationale": "The AI provides a direct answer to a factual question.",
+      "alternative": "relational-peer"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:43:25.017523",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

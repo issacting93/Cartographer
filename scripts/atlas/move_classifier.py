@@ -5,9 +5,9 @@ STEP 2: Turn-Level Move Taxonomy Classifier
 Decomposes each conversation turn into communicative Moves.
 Hybrid approach: deterministic regex for most Moves, LLM for violations and task shifts.
 
-Move Taxonomy (13 types in 4 categories):
+Move Taxonomy (16 types in 4 categories):
   Constraint Lifecycle: PROPOSE_CONSTRAINT, ACCEPT_CONSTRAINT, VIOLATE_CONSTRAINT, RATIFY_CONSTRAINT
-  Repair:              REPAIR_INITIATE, REPAIR_EXECUTE, ABANDON_CONSTRAINT
+  Repair:              REPAIR_INITIATE, REPAIR_EXECUTE, ABANDON_CONSTRAINT, ESCALATE, REPAIR_SUCCEED, REPAIR_FAIL
   Task Structure:      STATE_GOAL, TASK_SHIFT, GENERATE_OUTPUT
   Interactional:       REQUEST_CLARIFICATION, PROVIDE_INFORMATION, PASSIVE_ACCEPT
 """
@@ -18,9 +18,9 @@ import sys
 from typing import List, Optional, Tuple
 from pathlib import Path
 
-# Import regex patterns from existing features.py
+# Import regex patterns from atlas.pipeline.features
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from features import (
+from atlas.pipeline.features import (
     REPAIR_MARKERS,
     CONSTRAINT_HARD,
     CONSTRAINT_SOFT,
@@ -121,6 +121,29 @@ def detect_state_goal(text: str, turn_index: int) -> List[Move]:
     return moves
 
 
+def classify_repair_strategy(text: str) -> str:
+    """Heuristic classification of repair strategies (Ashktorab's categories)."""
+    text_lower = text.lower()
+    
+    # 1. Escalate (intensity words)
+    if any(re.search(p, text_lower) for p in [r"\b(listen|read|pay attention|again|for the \w+ time)\b"]):
+        return "escalate"
+    
+    # 2. Restate (quoting or repeating explicitly)
+    if any(re.search(p, text_lower) for p in [r"\b(remind|said|quote|literally|specifically)\b"]):
+        return "restate"
+        
+    # 3. Rephrase (correction indicators)
+    if any(re.search(p, text_lower) for p in [r"\b(instead|mean|actually|rephrase|different|wait)\b"]):
+        return "rephrase"
+        
+    # 4. Redirect (changing focus slightly)
+    if any(re.search(p, text_lower) for p in [r"\b(let's try|how about|move on|focus on)\b"]):
+        return "redirect"
+        
+    return "unclassified"
+
+
 def detect_repair_initiate(text: str) -> List[Move]:
     """Detect user initiating repair. Uses features.py REPAIR_MARKERS."""
     if count_pattern_matches(text, REPAIR_MARKERS) > 0:
@@ -132,12 +155,17 @@ def detect_repair_initiate(text: str) -> List[Move]:
                 start = max(0, match.start() - 10)
                 end = min(len(text), match.end() + 40)
                 span = text[start:end].strip()
+                
+                # Heuristic repair strategy classification
+                strategy = classify_repair_strategy(text)
+                
                 return [Move(
                     move_type=MT.REPAIR_INITIATE,
                     text_span=span[:120],
                     confidence=0.9,
                     method="regex",
                     actor="user",
+                    repair_strategy=strategy
                 )]
     return []
 
@@ -540,6 +568,7 @@ async def classify_moves(
     prev_had_violation = False
     prev_had_clarification = False
     repair_initiated = False  # Gates REPAIR_EXECUTE: only fire after user REPAIR_INITIATE
+    user_repair_count = 0     # Tracks ESCALATE
 
     for i, msg in enumerate(messages):
         role = msg.get("role", "user")
@@ -556,7 +585,14 @@ async def classify_moves(
             # Deterministic detectors
             turn_moves.extend(detect_propose_constraint(content))
             turn_moves.extend(detect_state_goal(content, i))
-            turn_moves.extend(detect_repair_initiate(content))
+            
+            repairs = detect_repair_initiate(content)
+            for r in repairs:
+                user_repair_count += 1
+                if user_repair_count > 1:
+                    r.move_type = MT.ESCALATE
+            turn_moves.extend(repairs)
+            
             turn_moves.extend(detect_passive_accept(content))
 
             # Inferred moves
@@ -573,7 +609,7 @@ async def classify_moves(
                 turn_moves.append(info)
 
             # Track repair initiation for gating REPAIR_EXECUTE on assistant turns
-            if any(m.move_type == "REPAIR_INITIATE" for m in turn_moves):
+            if any(m.move_type in (MT.REPAIR_INITIATE, MT.ESCALATE) for m in turn_moves):
                 repair_initiated = True
 
             # LLM: task shift detection
@@ -585,20 +621,46 @@ async def classify_moves(
         elif role == "assistant":
             # Deterministic detectors
             turn_moves.extend(detect_accept_constraint(content))
+            
+            has_repair_execute = False
             # Only detect REPAIR_EXECUTE if user previously initiated repair
             if repair_initiated:
-                turn_moves.extend(detect_repair_execute(content))
-                # Reset flag once repair execute is emitted
-                if any(m.move_type == "REPAIR_EXECUTE" for m in turn_moves):
+                executes = detect_repair_execute(content)
+                turn_moves.extend(executes)
+                if executes:
+                    has_repair_execute = True
                     repair_initiated = False
+
             turn_moves.extend(detect_request_clarification(content))
 
             # LLM: violation detection
+            has_violation = False
             if client and primary_constraints:
                 violations = await detect_violations_llm(
                     content, primary_constraints, client, model
                 )
                 turn_moves.extend(violations)
+                if violations:
+                    has_violation = True
+            
+            # Post-process Repair Outcomes
+            if has_repair_execute:
+                if has_violation:
+                    turn_moves.append(Move(
+                        move_type=MT.REPAIR_FAIL,
+                        text_span="[Constraint violated in same turn as repair]",
+                        confidence=0.9,
+                        method="inferred",
+                        actor="assistant"
+                    ))
+                else:
+                    turn_moves.append(Move(
+                        move_type=MT.REPAIR_SUCCEED,
+                        text_span="[No violations detected following repair]",
+                        confidence=0.8,
+                        method="inferred",
+                        actor="assistant"
+                    ))
 
             # Default: GENERATE_OUTPUT if no other moves
             default = assign_default_assistant_move(turn_moves, content)

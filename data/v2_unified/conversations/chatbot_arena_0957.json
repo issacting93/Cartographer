@@ -1,0 +1,168 @@
+{
+  "id": "chatbot_arena_0957",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "Can you predict the weather today in Cyprus?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, as an AI language model, I don't have access to real-time weather information. However, you can check the latest weather forecast for Cyprus on reliable weather websites or apps, such as AccuWeather, The Weather Channel, or Weather Underground.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you predict the weather today in Cyprus?",
+        "I don't have access to real-time weather information."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer, fitting the question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you predict the weather today in Cyprus?"
+      ],
+      "rationale": "The human initiates the topic and asks a question, directing the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hi",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "The conversation is straightforward and lacks emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you predict the weather today in Cyprus?"
+      ],
+      "rationale": "The human's engagement is primarily through asking a question.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "I don't have access to real-time weather information."
+      ],
+      "rationale": "The AI provides factual information about its capabilities.",
+      "alternative": "information-seeking"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you predict the weather today in Cyprus?"
+      ],
+      "rationale": "The human seeks specific information about the weather.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Can you predict the weather today in Cyprus?"
+      ],
+      "rationale": "The conversation is brief and focused on a single question.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Hi",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "Both parties have equal turns in the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.9,
+        "provider": 0.1,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Can you predict the weather today in Cyprus?"
+        }
+      ],
+      "rationale": "The human's primary role is seeking information.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I don't have access to real-time weather information."
+        }
+      ],
+      "rationale": "The AI provides factual information about its capabilities, fitting the expert-system role.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:21:18.885760",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

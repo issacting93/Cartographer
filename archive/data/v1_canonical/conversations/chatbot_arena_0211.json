@@ -1,0 +1,183 @@
+{
+  "id": "chatbot_arena_0211",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello!",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "I'm having a good day so far. I need some help organising a dinner.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, I can help you with that! What kind of dinner are you looking for? Are you looking for a recipe, a place to order food from, or something else?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.55,
+      "evidence": [
+        "How can I help you?",
+        "I need some help organising a dinner.",
+        "What kind of dinner are you looking for?"
+      ],
+      "rationale": "The exchange is structured around the human stating a need and the AI asking clarifying questions to enable an answer.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.55,
+      "evidence": [
+        "I need some help organising a dinner."
+      ],
+      "rationale": "The human sets the agenda by introducing the task (organising a dinner), and the AI follows with clarifying questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "supportive",
+      "confidence": 0.6,
+      "evidence": [
+        "Sure, I can help you with that!"
+      ],
+      "rationale": "The AI uses encouraging, helpful language oriented toward assisting with the task.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "How can I help you?",
+        "What kind of dinner are you looking for?",
+        "Are you looking for a recipe, a place to order food from, or something else?"
+      ],
+      "rationale": "The AI drives progress via multiple questions to clarify requirements.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.55,
+      "evidence": [
+        "I need some help organising a dinner.",
+        "Are you looking for a recipe, a place to order food from, or something else?"
+      ],
+      "rationale": "The topic is practical planning/organization (how to arrange dinner), implying procedural guidance rather than personal storytelling or pure facts.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.65,
+      "evidence": [
+        "I need some help organising a dinner."
+      ],
+      "rationale": "The stated goal is to resolve a practical task (dinner organization).",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.75,
+      "evidence": [
+        "I need some help organising a dinner.",
+        "What kind of dinner are you looking for?"
+      ],
+      "rationale": "The conversation is at an initial scoping stage with no detailed constraints yet.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "Hello!",
+        "Hello! How can I help you?",
+        "I'm having a good day so far. I need some help organising a dinner.",
+        "Sure, I can help you with that! What kind of dinner are you looking for?"
+      ],
+      "rationale": "Both parties contribute similar-length turns; neither dominates with long messages.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.25,
+        "provider": 0.55,
+        "director": 0.05,
+        "collaborator": 0.05,
+        "social-expressor": 0.1,
+        "relational-peer": 0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "I need some help organising a dinner."
+        },
+        {
+          "role": "social-expressor",
+          "quote": "I'm having a good day so far."
+        }
+      ],
+      "rationale": "The human primarily requests help from the AI (low-authority instrumental seeking) with a small amount of personal state-sharing.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.05,
+        "learning-facilitator": 0.15,
+        "advisor": 0.25,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.5,
+        "relational-peer": 0
+      },
+      "confidence": 0.55,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Hello! How can I help you?"
+        },
+        {
+          "role": "learning-facilitator",
+          "quote": "What kind of dinner are you looking for?"
+        }
+      ],
+      "rationale": "The AI maintains conversational flow and initiates the help process with clarifying questions; it has not yet delivered substantive expert content or step-by-step advice.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:34:49.130106",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 17436,
+    "fewShotExamples": "yes"
+  }
+}

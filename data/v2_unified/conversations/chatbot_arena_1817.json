@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_1817",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "How can I help you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "Write a sequence of ten random coin tosses showing heads as 'H' and tails as 'T'.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "HHHHHHHHH",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "How can I help you?",
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer, fitting a question-answer pattern.",
+      "alternative": "directive-iterative"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.5,
+      "evidence": [
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The human sets the task, indicating a human-led dynamic.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hi",
+        "How can I help you?"
+      ],
+      "rationale": "The conversation lacks emotional coloring, appearing neutral.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.6,
+      "evidence": [
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The human gives a specific command, suggesting a directive style.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.5,
+      "evidence": [
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The human requests a factual output, indicating factual-info exchange.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.5,
+      "evidence": [
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Write a sequence of ten random coin tosses"
+      ],
+      "rationale": "The topic is addressed briefly without depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Hi",
+        "How can I help you?",
+        "Write a sequence of ten random coin tosses",
+        "HHHHHHHHH"
+      ],
+      "rationale": "Both parties contribute equally in terms of turns.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.5,
+        "provider": 0.3,
+        "director": 0.2,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Write a sequence of ten random coin tosses"
+        }
+      ],
+      "rationale": "The human seeks information and directs the task.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.2
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "How can I help you?"
+        }
+      ],
+      "rationale": "The AI provides a direct response to a factual request.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:09:09.625324",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

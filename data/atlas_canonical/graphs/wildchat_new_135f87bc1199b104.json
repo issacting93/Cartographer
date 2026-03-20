@@ -9,9 +9,9 @@
       "source": "WildChat",
       "domain": "finance",
       "total_turns": 34,
-      "stability_class": "Task Maintained",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Interpret Canadian law regarding property purchase and business operation for permanent residents.",
       "id": "conv_wildchat_new_135f87bc1199b104"
     },
@@ -375,10 +375,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As a legal language model, I can provide general information on the applicable l...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_5_0"
     },
@@ -393,37 +393,37 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Yes, a permanent resident in Canada can set up and operate an online business, i...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_9_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As an AI language model, I do not have access to Amazon.ca's internal policies o...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_11_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "No, not all valid SIN numbers would meet the requirements for opening a seller a...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_13_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Yes, according to Amazon.ca's policies on opening a seller account, a Canadian S...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_15_0"
     },
@@ -492,10 +492,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As far as I know, OpenAI is a private research organization and is not publicly...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_23_0"
     },
@@ -510,10 +510,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As OpenAI is a private research organization and is not publicly traded, there i...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Clarify the distinction between foreign individuals and perm] The response does not clarify the distin",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_25_0"
     },
@@ -552,6 +552,72 @@
       "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_135f87bc1199b104_33_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Provide accurate legal interpretations based on Canadian law.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          34,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 34,
+      "final_state": null,
+      "id": "c_wildchat_new_135f87bc1199b104_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Clarify the distinction between foreign individuals and permanent residents.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          5,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 4,
+      "final_state": null,
+      "id": "c_wildchat_new_135f87bc1199b104_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 5,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_135f87bc1199b104_0"
     },
     {
       "node_type": "InteractionMode",
@@ -742,7 +808,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 0,
+      "violation_idx": 1,
       "turn_index": 0,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -752,26 +818,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_135f87bc1199b104_0"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 1,
-      "turn_index": 2,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
       "id": "v_wildchat_new_135f87bc1199b104_1"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 4,
+      "turn_index": 2,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -785,6 +837,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_135f87bc1199b104_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -794,26 +860,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_135f87bc1199b104_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
-      "turn_index": 8,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
       "id": "v_wildchat_new_135f87bc1199b104_4"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 10,
+      "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -827,7 +879,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 12,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -841,6 +893,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_135f87bc1199b104_7"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 8,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -850,26 +916,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_135f87bc1199b104_7"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 8,
-      "turn_index": 26,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
       "id": "v_wildchat_new_135f87bc1199b104_8"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 9,
-      "turn_index": 30,
+      "turn_index": 26,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -883,7 +935,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 10,
-      "turn_index": 32,
+      "turn_index": 30,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -893,6 +945,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_135f87bc1199b104_10"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 11,
+      "turn_index": 32,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_135f87bc1199b104_11"
     }
   ],
   "links": [
@@ -1170,7 +1236,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_1",
-      "target": "v_wildchat_new_135f87bc1199b104_0",
+      "target": "v_wildchat_new_135f87bc1199b104_1",
       "key": 0
     },
     {
@@ -1209,7 +1275,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_3",
-      "target": "v_wildchat_new_135f87bc1199b104_1",
+      "target": "v_wildchat_new_135f87bc1199b104_2",
       "key": 0
     },
     {
@@ -1240,6 +1306,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_135f87bc1199b104_5",
+      "target": "v_wildchat_new_135f87bc1199b104_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_135f87bc1199b104_5",
       "target": "mode_wildchat_new_135f87bc1199b104_4",
@@ -1248,7 +1320,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_5",
-      "target": "v_wildchat_new_135f87bc1199b104_2",
+      "target": "v_wildchat_new_135f87bc1199b104_3",
       "key": 0
     },
     {
@@ -1287,7 +1359,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_7",
-      "target": "v_wildchat_new_135f87bc1199b104_3",
+      "target": "v_wildchat_new_135f87bc1199b104_4",
       "key": 0
     },
     {
@@ -1326,7 +1398,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_9",
-      "target": "v_wildchat_new_135f87bc1199b104_4",
+      "target": "v_wildchat_new_135f87bc1199b104_5",
       "key": 0
     },
     {
@@ -1365,7 +1437,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_11",
-      "target": "v_wildchat_new_135f87bc1199b104_5",
+      "target": "v_wildchat_new_135f87bc1199b104_6",
       "key": 0
     },
     {
@@ -1404,7 +1476,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_13",
-      "target": "v_wildchat_new_135f87bc1199b104_6",
+      "target": "v_wildchat_new_135f87bc1199b104_7",
       "key": 0
     },
     {
@@ -1443,7 +1515,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_15",
-      "target": "v_wildchat_new_135f87bc1199b104_7",
+      "target": "v_wildchat_new_135f87bc1199b104_8",
       "key": 0
     },
     {
@@ -1682,7 +1754,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_27",
-      "target": "v_wildchat_new_135f87bc1199b104_8",
+      "target": "v_wildchat_new_135f87bc1199b104_9",
       "key": 0
     },
     {
@@ -1754,7 +1826,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_31",
-      "target": "v_wildchat_new_135f87bc1199b104_9",
+      "target": "v_wildchat_new_135f87bc1199b104_10",
       "key": 0
     },
     {
@@ -1786,7 +1858,15 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_135f87bc1199b104_33",
-      "target": "v_wildchat_new_135f87bc1199b104_10",
+      "target": "v_wildchat_new_135f87bc1199b104_11",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 5,
+      "source": "v_wildchat_new_135f87bc1199b104_0",
+      "target": "c_wildchat_new_135f87bc1199b104_c_1",
       "key": 0
     }
   ]

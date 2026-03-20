@@ -1,0 +1,42 @@
+[
+  {
+    "role": "user",
+    "content": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd",
+    "turn_index": 0,
+    "moves": [
+      {
+        "move_type": "PROPOSE_CONSTRAINT",
+        "text_span": "show. I want you to only reply with the terminal output inside o",
+        "confidence": 0.85,
+        "method": "regex",
+        "actor": "user"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```bash\n/home/user\n```",
+    "turn_index": 1,
+    "moves": []
+  },
+  {
+    "role": "user",
+    "content": "ls",
+    "turn_index": 2,
+    "moves": []
+  },
+  {
+    "role": "assistant",
+    "content": "```bash\nDesktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos\n```",
+    "turn_index": 3,
+    "moves": [
+      {
+        "move_type": "GENERATE_OUTPUT",
+        "text_span": "```bash\nDesktop  Documents  Downloads  Music  Pictures  Public  Templates  Video...",
+        "confidence": 0.6,
+        "method": "inferred",
+        "actor": "assistant"
+      }
+    ]
+  }
+]

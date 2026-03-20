@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 32,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Flexible",
-      "task_goal": "The user seeks information and assistance on various topics, including life desires, audio demos, TikTok followers, YouTube gaming strategies, and horror stories.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Engage in a conversation about various topics including life desires, social media metrics, and horror stories.",
       "id": "conv_wildchat_new_81798871317b70df"
     },
     {
@@ -241,7 +241,7 @@
       "role": "user",
       "content_length": 11749,
       "content_preview": "Can you remove the timestamps from this transcript so you're ready to start marketing but 0:02 you have no plan where do",
-      "move_count": 5,
+      "move_count": 6,
       "moves": [],
       "id": "t_wildchat_new_81798871317b70df_22"
     },
@@ -481,17 +481,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "ompetition you\n4:41\nmust identify your target customer this\n4:43",
-      "confidence": 0.85,
-      "method": "regex",
+      "move_type": "TASK_SHIFT",
+      "text_span": "[shift to: Remove timestamps from a transcript related to marketing.]",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "user",
       "id": "m_wildchat_new_81798871317b70df_22_1"
     },
     {
       "node_type": "Move",
       "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "tep number one\n1:08\nideally it should be used to help you\n1:09\nset",
+      "text_span": "ompetition you\n4:41\nmust identify your target customer this\n4:43",
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
@@ -500,11 +500,20 @@
     {
       "node_type": "Move",
       "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "18\nhere at visme we aim to make your work\n0:20\nlife easier whet",
+      "text_span": "tep number one\n1:08\nideally it should be used to help you\n1:09\nset",
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
       "id": "m_wildchat_new_81798871317b70df_22_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "18\nhere at visme we aim to make your work\n0:20\nlife easier whet",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_81798871317b70df_22_4"
     },
     {
       "node_type": "Move",
@@ -513,7 +522,7 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_81798871317b70df_22_4"
+      "id": "m_wildchat_new_81798871317b70df_22_5"
     },
     {
       "node_type": "Move",
@@ -594,10 +603,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 4,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_81798871317b70df_4"
@@ -762,6 +771,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_81798871317b70df_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -771,11 +794,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_81798871317b70df_1"
+      "id": "v_wildchat_new_81798871317b70df_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 3,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -785,7 +808,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_81798871317b70df_2"
+      "id": "v_wildchat_new_81798871317b70df_3"
     }
   ],
   "links": [
@@ -1119,6 +1142,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_81798871317b70df_5",
+      "target": "v_wildchat_new_81798871317b70df_1",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 7,
       "source": "t_wildchat_new_81798871317b70df_6",
@@ -1154,7 +1183,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_81798871317b70df_7",
-      "target": "v_wildchat_new_81798871317b70df_1",
+      "target": "v_wildchat_new_81798871317b70df_2",
       "key": 0
     },
     {
@@ -1193,7 +1222,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_81798871317b70df_9",
-      "target": "v_wildchat_new_81798871317b70df_2",
+      "target": "v_wildchat_new_81798871317b70df_3",
       "key": 0
     },
     {
@@ -1462,6 +1491,13 @@
       "sequence": 4,
       "source": "t_wildchat_new_81798871317b70df_22",
       "target": "m_wildchat_new_81798871317b70df_22_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 5,
+      "source": "t_wildchat_new_81798871317b70df_22",
+      "target": "m_wildchat_new_81798871317b70df_22_5",
       "key": 0
     },
     {

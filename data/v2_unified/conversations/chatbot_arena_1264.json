@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_1264",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Good evening.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "How can I help you today?",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "Tell me about the Jedi war of Aztec.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, but I'm not sure what you mean by the \"Jedi war of Aztec.\" Could you please provide more context or clarify your question?",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec.",
+        "I'm sorry, but I'm not sure what you mean..."
+      ],
+      "rationale": "The human asks a question and the AI seeks clarification, fitting a question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec."
+      ],
+      "rationale": "The human initiates the topic and the AI responds to the human's query.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Good evening.",
+        "How can I help you today?"
+      ],
+      "rationale": "The conversation lacks emotional coloring, maintaining a neutral tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec.",
+        "Could you please provide more context or clarify your question?"
+      ],
+      "rationale": "Both parties use questions to drive the conversation.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec."
+      ],
+      "rationale": "The human seeks factual information, though the topic is unclear.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec."
+      ],
+      "rationale": "The human's request indicates a desire for information.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Tell me about the Jedi war of Aztec.",
+        "I'm sorry, but I'm not sure what you mean..."
+      ],
+      "rationale": "The conversation does not delve into any depth due to the unclear topic.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Good evening.",
+        "How can I help you today?"
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Tell me about the Jedi war of Aztec."
+        }
+      ],
+      "rationale": "The human seeks information but also provides unclear context, fitting both roles.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.5,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "learning-facilitator",
+          "quote": "Could you please provide more context or clarify your question?"
+        }
+      ],
+      "rationale": "The AI seeks clarification, guiding the human to provide more information.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:56:07.243649",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -10,9 +10,9 @@
       "domain": "creative",
       "total_turns": 32,
       "stability_class": "No Constraints",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Flexible",
-      "task_goal": "Engage in a conversation about literature, mythology, and language, including summarizing articles and discussing specific terms.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Engage in a conversation about literature, mythology, and language, including summarizing articles and answering specific questions.",
       "id": "conv_wildchat_new_05a3af74ec8896c7"
     },
     {
@@ -603,10 +603,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 22,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_05a3af74ec8896c7_22"
@@ -686,7 +686,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 26,
+      "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -696,6 +696,20 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "v_wildchat_new_05a3af74ec8896c7_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 26,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_05a3af74ec8896c7_3"
     }
   ],
   "links": [
@@ -1339,6 +1353,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_05a3af74ec8896c7_23",
+      "target": "v_wildchat_new_05a3af74ec8896c7_2",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 25,
       "source": "t_wildchat_new_05a3af74ec8896c7_24",
@@ -1400,7 +1420,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_05a3af74ec8896c7_27",
-      "target": "v_wildchat_new_05a3af74ec8896c7_2",
+      "target": "v_wildchat_new_05a3af74ec8896c7_3",
       "key": 0
     },
     {

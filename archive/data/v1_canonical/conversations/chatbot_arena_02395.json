@@ -1,0 +1,214 @@
+{
+  "id": "chatbot_arena_02395",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's go!",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, where would you like to go?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "Let's see what you can do.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "What type of activity do you want to do? You can choose from going to a restaurant, watching a movie, going shopping, or visiting a museum.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "Let's watch a movie.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, what type of movie do you want to watch? You can choose from comedy, drama, action, or animation.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.65,
+      "evidence": [
+        "Sure, where would you like to go?",
+        "Let's watch a movie.",
+        "what type of movie do you want to watch?"
+      ],
+      "rationale": "The AI asks constrained-choice questions and the human answers with selections, forming a Q&A selection flow.",
+      "alternative": "collaborative"
+    },
+    "powerDynamics": {
+      "category": "ai-led",
+      "confidence": 0.6,
+      "evidence": [
+        "What type of activity do you want to do?",
+        "You can choose from going to a restaurant, watching a movie, going shopping, or visiting a museum.",
+        "You can choose from comedy, drama, action, or animation."
+      ],
+      "rationale": "AI structures the interaction by proposing menus of options and driving the next steps with questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.75,
+      "evidence": [
+        "Sure, where would you like to go?",
+        "Okay, what type of movie do you want to watch?"
+      ],
+      "rationale": "The exchange is polite and task-focused without explicit warmth, humor, or emotional language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "where would you like to go?",
+        "What type of activity do you want to do?",
+        "what type of movie do you want to watch?"
+      ],
+      "rationale": "The AI advances the dialogue primarily through successive questions.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "personal-sharing",
+      "confidence": 0.55,
+      "evidence": [
+        "Let's watch a movie."
+      ],
+      "rationale": "The main content exchanged is the user's preference/choice rather than facts or skills.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "capability-exploration",
+      "confidence": 0.7,
+      "evidence": [
+        "Let's see what you can do."
+      ],
+      "rationale": "The user explicitly frames the interaction as testing what the AI can do, while proceeding through a simple activity-selection scenario.",
+      "alternative": "entertainment"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.85,
+      "evidence": [
+        "Let's go!",
+        "Let's watch a movie.",
+        "You can choose from comedy, drama, action, or animation."
+      ],
+      "rationale": "The dialogue stays at basic preference selection without elaboration or detailed discussion.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "Let's go!",
+        "Sure, where would you like to go?",
+        "Let's see what you can do.",
+        "Let's watch a movie."
+      ],
+      "rationale": "Both parties contribute similar-length turns in a short back-and-forth.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.1,
+        "provider": 0.35,
+        "director": 0.25,
+        "collaborator": 0.2,
+        "social-expressor": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "Let's go!"
+        },
+        {
+          "role": "provider",
+          "quote": "Let's see what you can do."
+        },
+        {
+          "role": "provider",
+          "quote": "Let's watch a movie."
+        }
+      ],
+      "rationale": "The human initiates and steers with imperatives ('Let's...') while also supplying choices in response to AI prompts, consistent with a mix of directing and providing requested preferences.",
+      "alternative": "collaborator"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.05,
+        "learning-facilitator": 0.05,
+        "advisor": 0.1,
+        "co-constructor": 0.2,
+        "social-facilitator": 0.55,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Sure, where would you like to go?"
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "You can choose from going to a restaurant, watching a movie, going shopping, or visiting a museum."
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "You can choose from comedy, drama, action, or animation."
+        }
+      ],
+      "rationale": "The AI maintains flow by prompting the user with structured options and follow-up questions, functioning mainly as a conversation/activity facilitator rather than providing factual expertise.",
+      "alternative": "co-constructor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:42:38.450356",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 14396,
+    "fewShotExamples": "yes"
+  }
+}

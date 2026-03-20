@@ -1,0 +1,29 @@
+{
+  "id": "chatbot_arena_28366",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the derivative of x^2"
+    },
+    {
+      "role": "assistant",
+      "content": "The derivative of x^2 with respect to x is 2x."
+    },
+    {
+      "role": "user",
+      "content": "Write a very simple Gradle buildscript to compile Java source code"
+    },
+    {
+      "role": "assistant",
+      "content": "```\nplugins {\n    id 'java'\n    id 'org.springframework.boot' version '2.4.0'\n}\n\ngroup = 'com.example'\nversion = '1.0-SNAPSHOT'\n\nsourceCompatibility = '1.8'\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation 'org.springframework.boot:spring-boot-starter-web'\n    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\n\n    testImplementation 'org.springframework.boot:spring-boot-starter-test'\n}\n\njava {\n    sourceCompatibility = '1.8'\n    targetCompatibility = '1.8'\n}\n\ndependencies {\n    compile 'org.springframework.boot:spring-boot-starter-validation'\n    compile 'org.thymeleaf:thymeleaf-spring5'\n}\n```"
+    },
+    {
+      "role": "user",
+      "content": "These examples are much too complicated. Please give me the bare-minimum buildscript to compile a pure java application"
+    },
+    {
+      "role": "assistant",
+      "content": "```\nplugins {\n    id 'java'\n}\n\ngroup = 'com.example'\nversion = '1.0-SNAPSHOT'\n\nsourceCompatibility = '1.8'\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    compile 'org.springframework.boot:spring-boot-starter-web'\n    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'\n    testCompile 'org.springframework.boot:spring-boot-starter-test'\n}\n```"
+    }
+  ]
+}

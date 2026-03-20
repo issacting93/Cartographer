@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_1059",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Helo",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "user",
+      "content": "hw r u",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm a text-based AI language model, so I don't have feelings or emotions like humans do. However, I'm here to help you with any questions or information you need. How can I assist you?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "casual-chat",
+      "confidence": 0.5,
+      "evidence": [
+        "Helo",
+        "hw r u"
+      ],
+      "rationale": "The conversation starts with informal greetings and a question about well-being.",
+      "alternative": "information-seeking"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "How can I assist you today?",
+        "How can I assist you?"
+      ],
+      "rationale": "Both participants contribute to the direction of the conversation.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I'm a text-based AI language model"
+      ],
+      "rationale": "The AI maintains a neutral tone, stating its nature without emotional expression.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.6,
+      "evidence": [
+        "How can I assist you today?",
+        "How can I assist you?"
+      ],
+      "rationale": "The AI responds to the human's input without strong direction.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "I'm a text-based AI language model"
+      ],
+      "rationale": "The AI provides factual information about its nature.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "relationship-building",
+      "confidence": 0.5,
+      "evidence": [
+        "Helo",
+        "hw r u"
+      ],
+      "rationale": "The initial interaction seems aimed at social bonding.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Helo",
+        "hw r u"
+      ],
+      "rationale": "The conversation remains at a superficial level with greetings.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Helo",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "Both participants have similar message lengths.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.3,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.2,
+        "relational-peer": 0.2
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "hw r u"
+        }
+      ],
+      "rationale": "The human's role is mixed, with elements of seeking information and social expression.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.3,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.4,
+        "relational-peer": 0.3
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I'm a text-based AI language model"
+        }
+      ],
+      "rationale": "The AI provides factual information and facilitates social interaction.",
+      "alternative": "relational-peer"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:31:44.840745",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

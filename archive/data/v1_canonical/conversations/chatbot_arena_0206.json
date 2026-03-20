@@ -1,0 +1,186 @@
+{
+  "id": "chatbot_arena_0206",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A succulent Chinese ________ ?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "A succulent Chinese dumpling?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "Get your hands off my ________ ?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Get your hands off my wallet?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.65,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "A succulent Chinese dumpling?",
+        "Get your hands off my ________ ?",
+        "Get your hands off my wallet?"
+      ],
+      "rationale": "Human prompts with fill-in-the-blank questions; AI responds with candidate completions.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "Get your hands off my ________ ?"
+      ],
+      "rationale": "Human sets the agenda by issuing the prompts; AI follows by answering.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "playful",
+      "confidence": 0.55,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "Get your hands off my ________ ?"
+      ],
+      "rationale": "The blanks and call-and-response phrasing suggest a humorous/quoting game rather than a serious request.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.65,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "Get your hands off my ________ ?"
+      ],
+      "rationale": "Human drives interaction through questions/prompts requiring an answer.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "opinion-exchange",
+      "confidence": 0.5,
+      "evidence": [
+        "A succulent Chinese dumpling?",
+        "Get your hands off my wallet?"
+      ],
+      "rationale": "AI offers guesses/completions rather than verifiable facts or skills; content is interpretive.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "entertainment",
+      "confidence": 0.6,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "Get your hands off my ________ ?"
+      ],
+      "rationale": "The exchange functions like a playful fill-in-the-blank/quote completion activity.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "Get your hands off my ________ ?"
+      ],
+      "rationale": "Very brief prompts with no elaboration or deeper exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.75,
+      "evidence": [
+        "A succulent Chinese ________ ?",
+        "A succulent Chinese dumpling?",
+        "Get your hands off my ________ ?",
+        "Get your hands off my wallet?"
+      ],
+      "rationale": "Two short turns each with similar length and pacing.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.1,
+        "provider": 0.25,
+        "director": 0.55,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.55,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "A succulent Chinese ________ ?"
+        },
+        {
+          "role": "director",
+          "quote": "Get your hands off my ________ ?"
+        }
+      ],
+      "rationale": "Human controls the task format (fill-in-the-blank prompts) and elicits specific completions from the AI.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.35,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0.1,
+        "social-facilitator": 0,
+        "relational-peer": 0.55
+      },
+      "confidence": 0.55,
+      "evidence": [
+        {
+          "role": "relational-peer",
+          "quote": "A succulent Chinese dumpling?"
+        },
+        {
+          "role": "relational-peer",
+          "quote": "Get your hands off my wallet?"
+        }
+      ],
+      "rationale": "AI participates in a playful completion game by offering guesses, aligning with the user's prompt style rather than instructing or advising.",
+      "alternative": "expert-system"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:32:57.235612",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 14261,
+    "fewShotExamples": "yes"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1261",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hey who are you?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I’m your personal assistant. I’m here to help you with any questions you might have.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "I want to be friends with you",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I really enjoy helping people and I’m happy to be here for you.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "casual-chat",
+      "confidence": 0.7,
+      "evidence": [
+        "I want to be friends with you",
+        "I really enjoy helping people"
+      ],
+      "rationale": "The conversation involves social exchange and expressions of friendship without a specific instrumental goal.",
+      "alternative": "relationship-building"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "Hey who are you?",
+        "I’m your personal assistant."
+      ],
+      "rationale": "Both participants contribute to the direction of the conversation.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "supportive",
+      "confidence": 0.8,
+      "evidence": [
+        "I really enjoy helping people",
+        "I’m happy to be here for you"
+      ],
+      "rationale": "The AI expresses warmth and willingness to assist, indicating a supportive tone.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "affirming",
+      "confidence": 0.7,
+      "evidence": [
+        "I’m happy to be here for you"
+      ],
+      "rationale": "The AI affirms the human's desire for friendship and expresses enjoyment in helping.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "personal-sharing",
+      "confidence": 0.6,
+      "evidence": [
+        "I want to be friends with you",
+        "I really enjoy helping people"
+      ],
+      "rationale": "The conversation involves sharing personal desires and roles.",
+      "alternative": "relationship-building"
+    },
+    "conversationPurpose": {
+      "category": "relationship-building",
+      "confidence": 0.8,
+      "evidence": [
+        "I want to be friends with you",
+        "I’m happy to be here for you"
+      ],
+      "rationale": "The human expresses a desire for friendship, and the AI responds positively.",
+      "alternative": "self-expression"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Hey who are you?",
+        "I want to be friends with you"
+      ],
+      "rationale": "The conversation remains at a surface level with brief exchanges.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Hey who are you?",
+        "I’m your personal assistant."
+      ],
+      "rationale": "Both participants have a similar number of turns and message lengths.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.4,
+        "relational-peer": 0.4
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-expressor",
+          "quote": "I want to be friends with you"
+        }
+      ],
+      "rationale": "The human expresses a desire for friendship and engages in casual conversation.",
+      "alternative": "relational-peer"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.0,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.5,
+        "relational-peer": 0.5
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "I’m happy to be here for you"
+        }
+      ],
+      "rationale": "The AI maintains a supportive and friendly tone, facilitating social interaction.",
+      "alternative": "relational-peer"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:55:49.955936",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

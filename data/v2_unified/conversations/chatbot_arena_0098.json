@@ -1,0 +1,213 @@
+{
+  "id": "chatbot_arena_0098",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I need help",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! What specifically do you need help with?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "What is your data cut off date?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "My training data was cut off on 2021-09, so any information or updates after that date I may not be aware of.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "Today is my birthday, i was born on October 26 1998",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Happy birthday! I hope you have a great day.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "What day is today?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Today is Thursday, February 8th, 2023.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "What is your data cut off date?",
+        "What day is today?"
+      ],
+      "rationale": "The human primarily asks questions, and the AI provides answers.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "I need help",
+        "What is your data cut off date?",
+        "What day is today?"
+      ],
+      "rationale": "The human sets the agenda by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "supportive",
+      "confidence": 0.7,
+      "evidence": [
+        "Happy birthday! I hope you have a great day."
+      ],
+      "rationale": "The AI provides a warm and encouraging response to the human's birthday.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "What is your data cut off date?",
+        "What day is today?"
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "My training data was cut off on 2021-09",
+        "Today is Thursday, February 8th, 2023."
+      ],
+      "rationale": "The AI provides factual information in response to the human's questions.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "What is your data cut off date?",
+        "What day is today?"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "What is your data cut off date?",
+        "What day is today?"
+      ],
+      "rationale": "The conversation involves brief and straightforward questions and answers.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "I need help",
+        "Of course! What specifically do you need help with?"
+      ],
+      "rationale": "The conversation involves a roughly equal number of turns between the human and AI.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What is your data cut off date?"
+        }
+      ],
+      "rationale": "The human primarily seeks information from the AI.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "My training data was cut off on 2021-09"
+        }
+      ],
+      "rationale": "The AI provides factual answers, asserting its knowledge.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T10:53:33.871139",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

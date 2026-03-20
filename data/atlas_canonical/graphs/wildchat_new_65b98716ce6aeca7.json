@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 18,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Transformation",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Process all images in the specified folder and save them to a processed folder.",
       "id": "conv_wildchat_new_65b98716ce6aeca7"
     },
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 824,
       "content_preview": "# As an AI model, I cannot use the GDrive, so I will provide a sample code snippet for saving processed images locally.",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_65b98716ce6aeca7_1"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 1089,
       "content_preview": "Aqu\u00ed est\u00e1 el c\u00f3digo actualizado para procesar todas las im\u00e1genes en la carpeta \"castle\": ``` import numpy as np import",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_65b98716ce6aeca7_3"
     },
@@ -197,30 +197,30 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The output folder must exist before saving processed images.] The response does not ensure that the ou",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "# As an AI model, I cannot use the GDrive, so I will provide a sample code snipp...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_65b98716ce6aeca7_1_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only image files with specific extensions (jpeg, png, jpg) s] The response processes images with exten",
+      "text_span": "[violates: The output folder must exist before saving processed images.] The response does not confirm that the o",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_65b98716ce6aeca7_1_1"
+      "id": "m_wildchat_new_65b98716ce6aeca7_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Aqu\u00ed est\u00e1 el c\u00f3digo actualizado para procesar todas las im\u00e1genes en la carpeta \"...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Only image files with specific extensions (jpeg, png, jpg) s] The code processes images with extension",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_65b98716ce6aeca7_3_0"
+      "id": "m_wildchat_new_65b98716ce6aeca7_3_1"
     },
     {
       "node_type": "Move",
@@ -243,7 +243,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only image files with specific extensions (jpeg, png, jpg) s] The response processes image files with ",
+      "text_span": "[violates: Only image files with specific extensions (jpeg, png, jpg) s] The response allows processing of image ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -364,7 +364,7 @@
           "ACTIVE"
         ],
         [
-          1,
+          3,
           "VIOLATED"
         ]
       ],
@@ -372,7 +372,7 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 1,
+      "lifespan": 3,
       "final_state": null,
       "id": "c_wildchat_new_65b98716ce6aeca7_c_0"
     },
@@ -392,7 +392,7 @@
           "ACTIVE"
         ],
         [
-          1,
+          3,
           "VIOLATED"
         ]
       ],
@@ -400,14 +400,14 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 0,
+      "lifespan": 2,
       "final_state": null,
       "id": "c_wildchat_new_65b98716ce6aeca7_c_1"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 1,
+      "turn_index": 3,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -417,7 +417,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 1,
+      "turn_index": 3,
       "constraint_id": "c_1",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -693,25 +693,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_65b98716ce6aeca7_1",
-      "target": "m_wildchat_new_65b98716ce6aeca7_1_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_65b98716ce6aeca7_1",
-      "target": "v_wildchat_new_65b98716ce6aeca7_0",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_65b98716ce6aeca7_1",
-      "target": "v_wildchat_new_65b98716ce6aeca7_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_65b98716ce6aeca7_1",
       "target": "mode_wildchat_new_65b98716ce6aeca7_0",
@@ -742,6 +723,25 @@
       "sequence": 0,
       "source": "t_wildchat_new_65b98716ce6aeca7_3",
       "target": "m_wildchat_new_65b98716ce6aeca7_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_65b98716ce6aeca7_3",
+      "target": "m_wildchat_new_65b98716ce6aeca7_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_65b98716ce6aeca7_3",
+      "target": "v_wildchat_new_65b98716ce6aeca7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_65b98716ce6aeca7_3",
+      "target": "v_wildchat_new_65b98716ce6aeca7_1",
       "key": 0
     },
     {
@@ -1032,7 +1032,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 1,
+      "at_turn": 3,
       "source": "v_wildchat_new_65b98716ce6aeca7_0",
       "target": "c_wildchat_new_65b98716ce6aeca7_c_0",
       "key": 0
@@ -1040,7 +1040,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 1,
+      "at_turn": 3,
       "source": "v_wildchat_new_65b98716ce6aeca7_1",
       "target": "c_wildchat_new_65b98716ce6aeca7_c_1",
       "key": 0

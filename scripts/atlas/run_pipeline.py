@@ -136,7 +136,7 @@ async def process_conversation(
     metrics = compute_metrics(
         G,
         conversation_id=conv_id,
-        stability_class=cls.get("stability_class", ""),
+        stability_class=cls.get("stability_class") or "",
         task_architecture=tax.get("architecture", ""),
         constraint_hardness=tax.get("constraint_hardness", ""),
     )
@@ -210,14 +210,21 @@ async def run_pipeline(args):
         except ImportError:
             pass
 
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            print("  Warning: OPENAI_API_KEY not set. Running deterministic-only.")
-            use_llm = False
-        else:
+        # Support both OpenAI and Anthropic models
+        anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+        openai_key = os.getenv("OPENAI_API_KEY")
+
+        if args.model.startswith("claude") and anthropic_key:
+            from atlas.anthropic_adapter import AsyncAnthropicOpenAIAdapter
+            client = AsyncAnthropicOpenAIAdapter(api_key=anthropic_key)
+            print(f"  LLM enabled (Anthropic): {args.model}")
+        elif openai_key:
             from openai import AsyncOpenAI
-            client = AsyncOpenAI(api_key=api_key)
-            print(f"  LLM enabled: {args.model}")
+            client = AsyncOpenAI(api_key=openai_key)
+            print(f"  LLM enabled (OpenAI): {args.model}")
+        else:
+            print("  Warning: No API key found. Running deterministic-only.")
+            use_llm = False
 
     if not use_llm:
         print("  Running in deterministic-only mode (no LLM)")

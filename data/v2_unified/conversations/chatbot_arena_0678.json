@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_0678",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello. Do you have a name?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "My name is Krishna.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.22
+      }
+    },
+    {
+      "role": "user",
+      "content": "What do you know about video games?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I can answer your question in three ways: a list of differences between video games and other activities, a list of similarities between video games and other activities, or an explanation of why people play video games.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.6,
+        "dominance": 0.7,
+        "emotionalIntensity": 0.36
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Do you have a name?",
+        "What do you know about video games?"
+      ],
+      "rationale": "The human asks questions and the AI provides responses.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Do you have a name?",
+        "What do you know about video games?"
+      ],
+      "rationale": "The human initiates topics and asks questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello. Do you have a name?",
+        "I can answer your question in three ways:"
+      ],
+      "rationale": "The conversation lacks strong emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Do you have a name?",
+        "What do you know about video games?"
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "What do you know about video games?",
+        "I can answer your question in three ways:"
+      ],
+      "rationale": "The AI offers to provide factual information about video games.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "What do you know about video games?"
+      ],
+      "rationale": "The human seeks information from the AI.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.6,
+      "evidence": [
+        "What do you know about video games?",
+        "I can answer your question in three ways:"
+      ],
+      "rationale": "The conversation touches on video games but does not delve deeply.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello. Do you have a name?",
+        "My name is Krishna."
+      ],
+      "rationale": "The conversation has a roughly equal exchange of turns.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What do you know about video games?"
+        }
+      ],
+      "rationale": "The human primarily seeks information from the AI.",
+      "alternative": "relational-peer"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.2,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I can answer your question in three ways:"
+        }
+      ],
+      "rationale": "The AI offers structured information, suggesting an expert role.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:49:40.165985",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

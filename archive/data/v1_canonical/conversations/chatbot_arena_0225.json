@@ -1,0 +1,183 @@
+{
+  "id": "chatbot_arena_0225",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How do you say \"bromance\" in Hungarian?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Bromancia",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "Explain the meaning of the word, first in English, then in Hungarian.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Bromancia = bromance (English)\nHungarian = Bromancia",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.75,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Explain the meaning of the word, first in English, then in Hungarian."
+      ],
+      "rationale": "Human asks for translation and then requests an explanation; AI provides brief answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Explain the meaning of the word, first in English, then in Hungarian."
+      ],
+      "rationale": "Human sets the agenda and specifies the response format; AI follows.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.6,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Bromancia"
+      ],
+      "rationale": "Task-focused exchange with no explicit affective language.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.6,
+      "evidence": [
+        "Explain the meaning of the word, first in English, then in Hungarian."
+      ],
+      "rationale": "Human gives a direct instruction about ordering and content of the response.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Explain the meaning of the word"
+      ],
+      "rationale": "Exchange centers on translation/definition-like information rather than personal experience or opinions.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.75,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Explain the meaning of the word"
+      ],
+      "rationale": "Human requests specific linguistic information (translation and meaning).",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.65,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Bromancia"
+      ],
+      "rationale": "Brief, single-term translation with minimal elaboration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "How do you say \"bromance\" in Hungarian?",
+        "Bromancia",
+        "Explain the meaning of the word, first in English, then in Hungarian.",
+        "Bromancia = bromance (English)"
+      ],
+      "rationale": "Both parties contribute short turns; neither dominates by length substantially.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.25,
+        "provider": 0.55,
+        "director": 0.2,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "How do you say \"bromance\" in Hungarian?"
+        },
+        {
+          "role": "director",
+          "quote": "Explain the meaning of the word, first in English, then in Hungarian."
+        }
+      ],
+      "rationale": "Human primarily requests information from the AI (translation/meaning) and also directs the output format.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.85,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Bromancia"
+        },
+        {
+          "role": "expert-system",
+          "quote": "Bromancia = bromance (English)"
+        }
+      ],
+      "rationale": "AI provides direct, declarative answers consistent with an informational/translation role rather than scaffolding or collaboration.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:37:57.582303",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 16776,
+    "fewShotExamples": "yes"
+  }
+}

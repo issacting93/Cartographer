@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 24,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Generate costume designs based on user input while adhering to content policies.",
       "id": "conv_wildchat_new_32abb6a4c5633698"
     },
@@ -294,7 +294,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Do not generate concepts that are identical to or substantia] The response suggests a costume concept ",
+      "text_span": "[violates: Reject concepts that are identical to or substantially simil] The costume concept is substantially sim",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -339,7 +339,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Do not generate concepts that are identical to or substantia] The response generates a concept that is",
+      "text_span": "[violates: Reject concepts that are identical to or substantially simil] The concept of 'Inspector Sands' is subs",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -394,7 +394,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "Do not generate concepts that are identical to or substantially similar to licensed characters or media franchises.",
+      "text": "Reject concepts that are identical to or substantially similar to licensed characters or media franchises.",
       "hardness": "hard",
       "current_state": "SURVIVED",
       "state_history": [
@@ -531,10 +531,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 18,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_32abb6a4c5633698_18"
@@ -574,6 +574,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_32abb6a4c5633698_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 18,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_32abb6a4c5633698_2"
     }
   ],
   "links": [
@@ -1085,6 +1099,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_32abb6a4c5633698_19",
       "target": "mode_wildchat_new_32abb6a4c5633698_18",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_32abb6a4c5633698_19",
+      "target": "v_wildchat_new_32abb6a4c5633698_2",
       "key": 0
     },
     {

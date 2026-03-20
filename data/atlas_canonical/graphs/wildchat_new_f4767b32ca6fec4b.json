@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 24,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "User seeks advice on reselling products on Taobao in 2023.",
       "id": "conv_wildchat_new_f4767b32ca6fec4b"
     },
@@ -450,10 +450,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 12,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_f4767b32ca6fec4b_12"
@@ -586,6 +586,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_f4767b32ca6fec4b_5"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 6,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -595,11 +609,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_f4767b32ca6fec4b_5"
+      "id": "v_wildchat_new_f4767b32ca6fec4b_6"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 7,
       "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -609,7 +623,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_f4767b32ca6fec4b_6"
+      "id": "v_wildchat_new_f4767b32ca6fec4b_7"
     }
   ],
   "links": [
@@ -1057,6 +1071,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_f4767b32ca6fec4b_13",
+      "target": "v_wildchat_new_f4767b32ca6fec4b_5",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 15,
       "source": "t_wildchat_new_f4767b32ca6fec4b_14",
@@ -1125,7 +1145,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_f4767b32ca6fec4b_17",
-      "target": "v_wildchat_new_f4767b32ca6fec4b_5",
+      "target": "v_wildchat_new_f4767b32ca6fec4b_6",
       "key": 0
     },
     {
@@ -1197,7 +1217,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_f4767b32ca6fec4b_21",
-      "target": "v_wildchat_new_f4767b32ca6fec4b_6",
+      "target": "v_wildchat_new_f4767b32ca6fec4b_7",
       "key": 0
     },
     {

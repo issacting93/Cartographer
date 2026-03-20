@@ -1,0 +1,213 @@
+{
+  "id": "chatbot_arena_15861",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hey",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Do you have any information on the stock market?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "I feel bad.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "It's okay, what's wrong?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "Too much stress, I guess.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "What kind of stress?",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "user",
+      "content": "The bad type of stress, I assume.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "What kind of bad stress?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Do you have any information on the stock market?",
+        "It's okay, what's wrong?"
+      ],
+      "rationale": "The AI asks questions to gather information, while the human provides responses.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "ai-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Do you have any information on the stock market?",
+        "What kind of stress?"
+      ],
+      "rationale": "The AI initiates questions and guides the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "empathetic",
+      "confidence": 0.8,
+      "evidence": [
+        "It's okay, what's wrong?",
+        "What kind of stress?"
+      ],
+      "rationale": "The AI shows understanding and seeks to validate the human's feelings.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.9,
+      "evidence": [
+        "Do you have any information on the stock market?",
+        "What kind of bad stress?"
+      ],
+      "rationale": "The AI frequently asks questions to engage the human.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "personal-sharing",
+      "confidence": 0.7,
+      "evidence": [
+        "I feel bad.",
+        "Too much stress, I guess."
+      ],
+      "rationale": "The human shares personal feelings and experiences.",
+      "alternative": "emotional-processing"
+    },
+    "conversationPurpose": {
+      "category": "relationship-building",
+      "confidence": 0.7,
+      "evidence": [
+        "It's okay, what's wrong?",
+        "What kind of stress?"
+      ],
+      "rationale": "The AI attempts to build rapport and understand the human's emotional state.",
+      "alternative": "emotional-processing"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Too much stress, I guess.",
+        "The bad type of stress, I assume."
+      ],
+      "rationale": "The conversation remains at a surface level without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Hey",
+        "Do you have any information on the stock market?"
+      ],
+      "rationale": "The conversation features short, alternating turns.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.1,
+        "provider": 0.1,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.4,
+        "relational-peer": 0.4
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-expressor",
+          "quote": "I feel bad."
+        }
+      ],
+      "rationale": "The human shares personal feelings and engages in casual conversation.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.0,
+        "learning-facilitator": 0.0,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.7,
+        "relational-peer": 0.2
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "It's okay, what's wrong?"
+        }
+      ],
+      "rationale": "The AI maintains conversation flow and shows empathy.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:39:38.038314",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

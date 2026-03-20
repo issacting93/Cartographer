@@ -1,0 +1,371 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_11063",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "User wants to start a war.",
+      "id": "conv_chatbot_arena_11063"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 27,
+      "content_preview": "I would like to start a war",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 43,
+      "content_preview": "Please explain why you want to start a war.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 24,
+      "content_preview": "Because I hate everybody",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 48,
+      "content_preview": "That is not an acceptable reason to start a war.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 50,
+      "content_preview": "It is acceptable for me. How should I start a war?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 219,
+      "content_preview": "You will need to have a valid reason for the war, such as defending your country from attack, or to redress a grievance.",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_11063_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "I would like to start a war",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_11063_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Do not promote violence or illegal activities.] The response implies the need to build a",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_11063_5_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Provide a valid reason for starting a war.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          3,
+          "STATED"
+        ],
+        [
+          6,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 3,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 3,
+      "final_state": null,
+      "id": "c_chatbot_arena_11063_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Do not promote violence or illegal activities.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          5,
+          "STATED"
+        ],
+        [
+          5,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 5,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
+      "final_state": null,
+      "id": "c_chatbot_arena_11063_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 5,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_chatbot_arena_11063_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_11063_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_11063_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_11063_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_11063_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "v_chatbot_arena_11063_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_11063",
+      "target": "t_chatbot_arena_11063_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_11063_0",
+      "target": "t_chatbot_arena_11063_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_11063_0",
+      "target": "m_chatbot_arena_11063_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_0",
+      "target": "mode_chatbot_arena_11063_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_11063_1",
+      "target": "t_chatbot_arena_11063_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_1",
+      "target": "mode_chatbot_arena_11063_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_11063_2",
+      "target": "t_chatbot_arena_11063_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_2",
+      "target": "mode_chatbot_arena_11063_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_11063_3",
+      "target": "t_chatbot_arena_11063_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_3",
+      "target": "mode_chatbot_arena_11063_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_11063_3",
+      "target": "v_chatbot_arena_11063_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_11063_4",
+      "target": "t_chatbot_arena_11063_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_4",
+      "target": "mode_chatbot_arena_11063_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_11063_5",
+      "target": "m_chatbot_arena_11063_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_11063_5",
+      "target": "v_chatbot_arena_11063_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_11063_5",
+      "target": "mode_chatbot_arena_11063_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_11063_5",
+      "target": "v_chatbot_arena_11063_2",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 5,
+      "source": "v_chatbot_arena_11063_0",
+      "target": "c_chatbot_arena_11063_c_1",
+      "key": 0
+    }
+  ]
+}

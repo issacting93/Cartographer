@@ -10,9 +10,9 @@
       "domain": "general",
       "total_turns": 18,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Identify statistical concepts and parameters through multiple-choice questions.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Identify statistical concepts and properties related to sample statistics and hypothesis testing.",
       "id": "conv_wildchat_new_80e586f91b760d98"
     },
     {
@@ -358,10 +358,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 16,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_80e586f91b760d98_16"
@@ -393,20 +393,6 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "v_wildchat_new_80e586f91b760d98_1"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
-      "turn_index": 16,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.5,
-      "method": "llm",
-      "id": "v_wildchat_new_80e586f91b760d98_2"
     }
   ],
   "links": [
@@ -829,12 +815,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_80e586f91b760d98_17",
       "target": "mode_wildchat_new_80e586f91b760d98_16",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_80e586f91b760d98_17",
-      "target": "v_wildchat_new_80e586f91b760d98_2",
       "key": 0
     }
   ]

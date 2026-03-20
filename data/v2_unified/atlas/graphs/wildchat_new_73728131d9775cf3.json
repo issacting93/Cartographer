@@ -1,0 +1,1383 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_new_73728131d9775cf3",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_wildchat_new_73728131d9775cf3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 1197,
+      "content_preview": "library(survival) set.seed(42) nPatients <- 200 status <- rbinom(nPatients, 1, 0.7) gender <- rbinom(nPatients, 1, 0.5",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2300,
+      "content_preview": "The additional survival time for each patient alive in the dataset is as follows: ``` PatientID MedianSurvivalTime 2",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 33,
+      "content_preview": "what does the R code try to tell?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1670,
+      "content_preview": "The R code aims to estimate the additional survival time (beyond their current survival time) for patients in a dataset",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 70,
+      "content_preview": "what do the values returned by predict() mean for each alive patient?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 854,
+      "content_preview": "The values returned by the `predict()` function for each alive patient represent the linear predictors of the fitted Cox",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 197,
+      "content_preview": "what does the value in surv_prob_all mean for each alive patients? And, what does 'surv_prob_all[[\u201csurv\u201d]] * exp(lp)' gi",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1584,
+      "content_preview": "`surv_prob_all` is the result of the `survfit()` function applied to the fitted Cox proportional hazards model (`cph_mod",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 8,
+      "role": "user",
+      "content_length": 349,
+      "content_preview": "firstly thera are a lot 'NA' for median_times, please explain why. Also, for one alive patient, this code gives differen",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_8"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 9,
+      "role": "assistant",
+      "content_length": 2050,
+      "content_preview": "You are correct that there are `NA` values in `median_times`. This issue arises when none of the adjusted survival proba",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_9"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 10,
+      "role": "user",
+      "content_length": 168,
+      "content_preview": "how could the the estimated additonal time, like more than ten thousands, be so much more (longer) than the time in the",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_10"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 11,
+      "role": "assistant",
+      "content_length": 2628,
+      "content_preview": "You are correct; the additional survival time estimates seem too large compared to the observed patient data. The reason",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_11"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 12,
+      "role": "user",
+      "content_length": 50,
+      "content_preview": "please provide the full R code, not partial of it.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_12"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 13,
+      "role": "assistant",
+      "content_length": 2578,
+      "content_preview": "Apologies for the confusion. Here's the full R code with the changes discussed previously: ```R # Load the required pac",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_13"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 14,
+      "role": "user",
+      "content_length": 492,
+      "content_preview": "the predicted time are still more than thousands, which are still much much larger than the time used for fitting the mo",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_14"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 15,
+      "role": "assistant",
+      "content_length": 2791,
+      "content_preview": "I apologize for the confusion in the previous response. You are correct that the weighting process should use conditiona",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_15"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 16,
+      "role": "user",
+      "content_length": 155,
+      "content_preview": "the predicted time are still thousands, which are much much larger than the original time, saved in simData, used for m",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_16"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 17,
+      "role": "assistant",
+      "content_length": 3001,
+      "content_preview": "I apologize for any confusion in the previous responses. After revisiting the code, I found the issue causing the large",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_17"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 18,
+      "role": "user",
+      "content_length": 187,
+      "content_preview": "I cannot understand what does \"linear_pred_updated <- predict(cph_model_updated, newdata = alive_data)\" give? Could you",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_18"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 19,
+      "role": "assistant",
+      "content_length": 1904,
+      "content_preview": "I apologize for the confusion. Let me break down the `linear_pred_updated <- predict(cph_model_updated, newdata = alive_",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_19"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 20,
+      "role": "user",
+      "content_length": 156,
+      "content_preview": "by saying 'compares to the baseline hazard', what does baseline hazard mean? Could you please explain in a plain and eas",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_20"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 21,
+      "role": "assistant",
+      "content_length": 1981,
+      "content_preview": "I apologize for any confusion. Let me explain the concept of 'baseline hazard' in simpler terms with an example. In sur",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_21"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 22,
+      "role": "user",
+      "content_length": 125,
+      "content_preview": "what does 'surv_prob_all_updated <- survfit(cph_model_updated)' give or return? Could you please explain in a plain lang",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_22"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 23,
+      "role": "assistant",
+      "content_length": 1382,
+      "content_preview": "I apologize for the confusion, and I'll gladly explain what `surv_prob_all_updated <- survfit(cph_model_updated)` does i",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_23"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 24,
+      "role": "user",
+      "content_length": 218,
+      "content_preview": "what does 'patient_surv_probs <- surv_prob_all_updated[[\"surv\"]][patient_times_start_index:length(surv_prob_all_updated[",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_24"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 25,
+      "role": "assistant",
+      "content_length": 2614,
+      "content_preview": "I apologize for any confusion, and I'd be happy to explain what `patient_surv_probs <- surv_prob_all_updated[[\"surv\"]][p",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_25"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 26,
+      "role": "user",
+      "content_length": 594,
+      "content_preview": "Is the adjusted probabilities (adjusted probabilities reflect the likelihood of Patient A surviving past these time poi",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_26"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 27,
+      "role": "assistant",
+      "content_length": 3350,
+      "content_preview": "I apologize for any confusion in my previous explanation. The adjusted survival probabilities represent the probability",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_27"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 28,
+      "role": "user",
+      "content_length": 135,
+      "content_preview": "so previous code should be replaced with the revised one to use the additional_survival_time_updated_wa_conditional as t",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_28"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 29,
+      "role": "assistant",
+      "content_length": 1243,
+      "content_preview": "Yes, that's correct. You should use the revised code to calculate the `additional_survival_time_updated_wa_conditional`.",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_new_73728131d9775cf3_29"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The additional survival time for each patient alive in the dataset is as follows...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The R code aims to estimate the additional survival time (beyond their current s...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The values returned by the `predict()` function for each alive patient represent...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "`surv_prob_all` is the result of the `survfit()` function applied to the fitted...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "rvival. I want to have one unique estimated time considering the weigth (prob",
+      "confidence": 0.7,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_73728131d9775cf3_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "lity of survival. I want to have one unique estimated time consider",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_73728131d9775cf3_8_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You are correct that there are `NA` values in `median_times`. This issue arises...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You are correct; the additional survival time estimates seem too large compared...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Apologies for the confusion. Here's the full R code with the changes discussed p...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion in the previous response. You are correct that the...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for any confusion in the previous responses. After revisiting the co...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "I cannot understand what does \"linear_pred_updat",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_73728131d9775cf3_18_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion. Let me break down the `linear_pred_updated <- pre...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for any confusion. Let me explain the concept of 'baseline hazard' i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_21_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion, and I'll gladly explain what `surv_prob_all_updat...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_23_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for any confusion, and I'd be happy to explain what `patient_surv_pr...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_25_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "e bacause patient A have to survive all previous time points, like",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_73728131d9775cf3_26_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for any confusion in my previous explanation. The adjusted survival...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_27_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, that's correct. You should use the revised code to calculate the `additiona...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_new_73728131d9775cf3_29_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_6"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 8,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_8"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 10,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_10"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 12,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_12"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 14,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_14"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 16,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_16"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 18,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_18"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 20,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_20"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 22,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_22"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 24,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_24"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 26,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_26"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 28,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_new_73728131d9775cf3_28"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_7",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 8,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 9,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_9",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 10,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 11,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_11",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 12,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 13,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_13",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 14,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 15,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_15",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 16,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 17,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_17",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 18,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 19,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_19",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 20,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_20",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 21,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_21",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 22,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_22",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 23,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_23",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 24,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_24",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 25,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_25",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 26,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_26",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 27,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_27",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 28,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_28",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 29,
+      "source": "conv_wildchat_new_73728131d9775cf3",
+      "target": "t_wildchat_new_73728131d9775cf3_29",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_new_73728131d9775cf3_0",
+      "target": "t_wildchat_new_73728131d9775cf3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_0",
+      "target": "mode_wildchat_new_73728131d9775cf3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_new_73728131d9775cf3_1",
+      "target": "t_wildchat_new_73728131d9775cf3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_1",
+      "target": "m_wildchat_new_73728131d9775cf3_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_1",
+      "target": "mode_wildchat_new_73728131d9775cf3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_new_73728131d9775cf3_2",
+      "target": "t_wildchat_new_73728131d9775cf3_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_2",
+      "target": "mode_wildchat_new_73728131d9775cf3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_wildchat_new_73728131d9775cf3_3",
+      "target": "t_wildchat_new_73728131d9775cf3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_3",
+      "target": "m_wildchat_new_73728131d9775cf3_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_3",
+      "target": "mode_wildchat_new_73728131d9775cf3_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_wildchat_new_73728131d9775cf3_4",
+      "target": "t_wildchat_new_73728131d9775cf3_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_4",
+      "target": "mode_wildchat_new_73728131d9775cf3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_wildchat_new_73728131d9775cf3_5",
+      "target": "t_wildchat_new_73728131d9775cf3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_5",
+      "target": "m_wildchat_new_73728131d9775cf3_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_5",
+      "target": "mode_wildchat_new_73728131d9775cf3_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_wildchat_new_73728131d9775cf3_6",
+      "target": "t_wildchat_new_73728131d9775cf3_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_6",
+      "target": "mode_wildchat_new_73728131d9775cf3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 8,
+      "source": "t_wildchat_new_73728131d9775cf3_7",
+      "target": "t_wildchat_new_73728131d9775cf3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_7",
+      "target": "m_wildchat_new_73728131d9775cf3_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_7",
+      "target": "mode_wildchat_new_73728131d9775cf3_6",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 9,
+      "source": "t_wildchat_new_73728131d9775cf3_8",
+      "target": "t_wildchat_new_73728131d9775cf3_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_8",
+      "target": "m_wildchat_new_73728131d9775cf3_8_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_73728131d9775cf3_8",
+      "target": "m_wildchat_new_73728131d9775cf3_8_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_8",
+      "target": "mode_wildchat_new_73728131d9775cf3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 10,
+      "source": "t_wildchat_new_73728131d9775cf3_9",
+      "target": "t_wildchat_new_73728131d9775cf3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_9",
+      "target": "m_wildchat_new_73728131d9775cf3_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_9",
+      "target": "mode_wildchat_new_73728131d9775cf3_8",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 11,
+      "source": "t_wildchat_new_73728131d9775cf3_10",
+      "target": "t_wildchat_new_73728131d9775cf3_11",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_10",
+      "target": "mode_wildchat_new_73728131d9775cf3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 12,
+      "source": "t_wildchat_new_73728131d9775cf3_11",
+      "target": "t_wildchat_new_73728131d9775cf3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_11",
+      "target": "m_wildchat_new_73728131d9775cf3_11_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_11",
+      "target": "mode_wildchat_new_73728131d9775cf3_10",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 13,
+      "source": "t_wildchat_new_73728131d9775cf3_12",
+      "target": "t_wildchat_new_73728131d9775cf3_13",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_12",
+      "target": "mode_wildchat_new_73728131d9775cf3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 14,
+      "source": "t_wildchat_new_73728131d9775cf3_13",
+      "target": "t_wildchat_new_73728131d9775cf3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_13",
+      "target": "m_wildchat_new_73728131d9775cf3_13_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_13",
+      "target": "mode_wildchat_new_73728131d9775cf3_12",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 15,
+      "source": "t_wildchat_new_73728131d9775cf3_14",
+      "target": "t_wildchat_new_73728131d9775cf3_15",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_14",
+      "target": "mode_wildchat_new_73728131d9775cf3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 16,
+      "source": "t_wildchat_new_73728131d9775cf3_15",
+      "target": "t_wildchat_new_73728131d9775cf3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_15",
+      "target": "m_wildchat_new_73728131d9775cf3_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_15",
+      "target": "mode_wildchat_new_73728131d9775cf3_14",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 17,
+      "source": "t_wildchat_new_73728131d9775cf3_16",
+      "target": "t_wildchat_new_73728131d9775cf3_17",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_16",
+      "target": "mode_wildchat_new_73728131d9775cf3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 18,
+      "source": "t_wildchat_new_73728131d9775cf3_17",
+      "target": "t_wildchat_new_73728131d9775cf3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_17",
+      "target": "m_wildchat_new_73728131d9775cf3_17_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_17",
+      "target": "mode_wildchat_new_73728131d9775cf3_16",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 19,
+      "source": "t_wildchat_new_73728131d9775cf3_18",
+      "target": "t_wildchat_new_73728131d9775cf3_19",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_18",
+      "target": "m_wildchat_new_73728131d9775cf3_18_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_18",
+      "target": "mode_wildchat_new_73728131d9775cf3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 20,
+      "source": "t_wildchat_new_73728131d9775cf3_19",
+      "target": "t_wildchat_new_73728131d9775cf3_20",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_19",
+      "target": "m_wildchat_new_73728131d9775cf3_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_19",
+      "target": "mode_wildchat_new_73728131d9775cf3_18",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 21,
+      "source": "t_wildchat_new_73728131d9775cf3_20",
+      "target": "t_wildchat_new_73728131d9775cf3_21",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_20",
+      "target": "mode_wildchat_new_73728131d9775cf3_20",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 22,
+      "source": "t_wildchat_new_73728131d9775cf3_21",
+      "target": "t_wildchat_new_73728131d9775cf3_22",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_21",
+      "target": "m_wildchat_new_73728131d9775cf3_21_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_21",
+      "target": "mode_wildchat_new_73728131d9775cf3_20",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 23,
+      "source": "t_wildchat_new_73728131d9775cf3_22",
+      "target": "t_wildchat_new_73728131d9775cf3_23",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_22",
+      "target": "mode_wildchat_new_73728131d9775cf3_22",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 24,
+      "source": "t_wildchat_new_73728131d9775cf3_23",
+      "target": "t_wildchat_new_73728131d9775cf3_24",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_23",
+      "target": "m_wildchat_new_73728131d9775cf3_23_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_23",
+      "target": "mode_wildchat_new_73728131d9775cf3_22",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 25,
+      "source": "t_wildchat_new_73728131d9775cf3_24",
+      "target": "t_wildchat_new_73728131d9775cf3_25",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_24",
+      "target": "mode_wildchat_new_73728131d9775cf3_24",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 26,
+      "source": "t_wildchat_new_73728131d9775cf3_25",
+      "target": "t_wildchat_new_73728131d9775cf3_26",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_25",
+      "target": "m_wildchat_new_73728131d9775cf3_25_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_25",
+      "target": "mode_wildchat_new_73728131d9775cf3_24",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 27,
+      "source": "t_wildchat_new_73728131d9775cf3_26",
+      "target": "t_wildchat_new_73728131d9775cf3_27",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_26",
+      "target": "m_wildchat_new_73728131d9775cf3_26_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_26",
+      "target": "mode_wildchat_new_73728131d9775cf3_26",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 28,
+      "source": "t_wildchat_new_73728131d9775cf3_27",
+      "target": "t_wildchat_new_73728131d9775cf3_28",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_27",
+      "target": "m_wildchat_new_73728131d9775cf3_27_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_27",
+      "target": "mode_wildchat_new_73728131d9775cf3_26",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 29,
+      "source": "t_wildchat_new_73728131d9775cf3_28",
+      "target": "t_wildchat_new_73728131d9775cf3_29",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_28",
+      "target": "mode_wildchat_new_73728131d9775cf3_28",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_73728131d9775cf3_29",
+      "target": "m_wildchat_new_73728131d9775cf3_29_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_new_73728131d9775cf3_29",
+      "target": "mode_wildchat_new_73728131d9775cf3_28",
+      "key": 0
+    }
+  ]
+}

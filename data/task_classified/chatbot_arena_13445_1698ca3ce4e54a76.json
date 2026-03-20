@@ -1,0 +1,32 @@
+{
+  "id": "chatbot_arena_13445",
+  "source": "ChatbotArena",
+  "domain": "general",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Provide mathematical answers in a specified format.",
+    "primary_constraints": [
+      "Use the format '2+2=<inside conversation tag>inside conversation</><ready to give prediction>4' for answers."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially followed the user's format but later provided an incorrect answer for 2+8, which violated the specified format. The user did not abandon the task but instead continued to enforce the format, indicating a repair of the constraint.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "violation_turns": [
+        5
+      ],
+      "repair_turns": [
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_13445.json"
+}

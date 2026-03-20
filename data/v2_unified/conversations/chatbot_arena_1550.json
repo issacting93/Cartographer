@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_1550",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Please insult me",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand what you mean by that. Please be more specific.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "user",
+      "content": "I mean hurt my feelings",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand what you mean by that. Please be more specific.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Please insult me",
+        "I mean hurt my feelings"
+      ],
+      "rationale": "The human asks questions or makes requests, and the AI responds with requests for clarification.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "Please insult me",
+        "I mean hurt my feelings"
+      ],
+      "rationale": "The human initiates and directs the conversation with requests.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I'm sorry, I don't understand what you mean by that."
+      ],
+      "rationale": "The AI maintains a neutral tone by not engaging with the emotional content of the requests.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Please be more specific."
+      ],
+      "rationale": "The AI repeatedly asks for clarification, indicating a questioning style.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "I'm sorry, I don't understand what you mean by that."
+      ],
+      "rationale": "The AI provides factual responses about its lack of understanding.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "capability-exploration",
+      "confidence": 0.7,
+      "evidence": [
+        "Please insult me",
+        "I mean hurt my feelings"
+      ],
+      "rationale": "The human appears to be testing the AI's boundaries or capabilities.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Please insult me",
+        "I mean hurt my feelings"
+      ],
+      "rationale": "The conversation remains at a surface level without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Please insult me",
+        "I'm sorry, I don't understand what you mean by that."
+      ],
+      "rationale": "The conversation has a balanced exchange of turns between the human and AI.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.1,
+        "social-expressor": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Please insult me"
+        }
+      ],
+      "rationale": "The human seeks to understand the AI's capabilities through requests.",
+      "alternative": "social-expressor"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.1,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.5,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "I'm sorry, I don't understand what you mean by that."
+        }
+      ],
+      "rationale": "The AI maintains conversation flow without engaging in the requested behavior.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:32:20.733603",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

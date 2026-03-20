@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_1444",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hi there! How can I help you?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "user",
+      "content": "I'm fine. Hurry up!",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.66
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sorry, I didn't understand your request. Can you please provide more context or clarify your question?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "Hi there! How can I help you?",
+        "Can you please provide more context or clarify your question?"
+      ],
+      "rationale": "The AI asks clarifying questions, indicating a question-answer pattern, but the human's intent is unclear.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "Hello.",
+        "Hurry up!"
+      ],
+      "rationale": "Both parties contribute to the conversation, but the human's directive tone suggests possible human-led dynamics.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.5,
+      "evidence": [
+        "Hello.",
+        "I'm fine. Hurry up!"
+      ],
+      "rationale": "The conversation lacks strong emotional signals, with brief and unclear exchanges.",
+      "alternative": "serious"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.6,
+      "evidence": [
+        "Sorry, I didn't understand your request."
+      ],
+      "rationale": "The AI reacts to the human's unclear directive without strong direction.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.3,
+      "evidence": [
+        "Can you please provide more context or clarify your question?"
+      ],
+      "rationale": "The AI seeks clarification, but no factual information is exchanged.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.5,
+      "evidence": [
+        "How can I help you?",
+        "Can you please provide more context or clarify your question?"
+      ],
+      "rationale": "The AI seeks to understand the human's needs, indicating an information-seeking purpose.",
+      "alternative": "relationship-building"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello.",
+        "I'm fine. Hurry up!"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "Hello.",
+        "Hi there! How can I help you?"
+      ],
+      "rationale": "Both parties contribute equally in terms of turn-taking.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.2,
+        "director": 0.3,
+        "collaborator": 0.1,
+        "social-expressor": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "Hurry up!"
+        }
+      ],
+      "rationale": "The human's directive tone suggests a director role, but the lack of clarity spreads probabilities across roles.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.3,
+        "learning-facilitator": 0.2,
+        "advisor": 0.1,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "How can I help you?"
+        }
+      ],
+      "rationale": "The AI's role is primarily to assist and clarify, fitting an expert-system role, but the lack of context spreads probabilities.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:17:15.485125",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

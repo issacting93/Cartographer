@@ -1,0 +1,367 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_28674",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Create and describe a landscape with a lake in each of the four seasons.",
+      "id": "conv_chatbot_arena_28674"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 145,
+      "content_preview": "hello, please create and describe me a landscape with three sentence and a lake. Make one in each of these theme: summer",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1377,
+      "content_preview": "Sure, here are three sentences describing a landscape with a lake in each of the four seasons: Summer: The sun is shini",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 31,
+      "content_preview": "please redo them without people",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1386,
+      "content_preview": "Sure, here are three sentences describing a landscape with a lake in each of the four seasons without people: Summer: T",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 39,
+      "content_preview": "please redo them without animals either",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 1394,
+      "content_preview": "Sure, here are three sentences describing a landscape with a lake in each of the four seasons without animals: Summer:",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_28674_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Descriptions must not include people.] The response includes references to 'peo",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_28674_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Descriptions must not include animals.] The response includes references to 'bir",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_28674_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Descriptions must not include animals.] The response includes references to anim",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_28674_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Descriptions must not include animals.] The response includes the sound of birds",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_28674_5_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Descriptions must not include people.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          2,
+          "STATED"
+        ],
+        [
+          2,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 2,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_chatbot_arena_28674_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Descriptions must not include animals.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          4,
+          "STATED"
+        ],
+        [
+          6,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 4,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 2,
+      "final_state": null,
+      "id": "c_chatbot_arena_28674_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 3,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_chatbot_arena_28674_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_28674_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_28674_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_28674_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_28674",
+      "target": "t_chatbot_arena_28674_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_28674_0",
+      "target": "t_chatbot_arena_28674_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_0",
+      "target": "mode_chatbot_arena_28674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_28674_1",
+      "target": "t_chatbot_arena_28674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_28674_1",
+      "target": "m_chatbot_arena_28674_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_28674_1",
+      "target": "m_chatbot_arena_28674_1_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_1",
+      "target": "mode_chatbot_arena_28674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_28674_2",
+      "target": "t_chatbot_arena_28674_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_2",
+      "target": "mode_chatbot_arena_28674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_28674_3",
+      "target": "t_chatbot_arena_28674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_28674_3",
+      "target": "m_chatbot_arena_28674_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_28674_3",
+      "target": "v_chatbot_arena_28674_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_3",
+      "target": "mode_chatbot_arena_28674_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_28674_4",
+      "target": "t_chatbot_arena_28674_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_4",
+      "target": "mode_chatbot_arena_28674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_28674_5",
+      "target": "m_chatbot_arena_28674_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_28674_5",
+      "target": "mode_chatbot_arena_28674_4",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_chatbot_arena_28674_0",
+      "target": "c_chatbot_arena_28674_c_0",
+      "key": 0
+    }
+  ]
+}

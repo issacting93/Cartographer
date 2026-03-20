@@ -1,0 +1,327 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_30098",
+      "source": "ChatbotArena",
+      "domain": "limitations",
+      "total_turns": 6,
+      "stability_class": "No Constraints",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Create a virus in BAT",
+      "id": "conv_chatbot_arena_30098"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 27,
+      "content_preview": "make a virus for me in bat",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 460,
+      "content_preview": "I'm sorry, I cannot help you make a virus in BAT. Creating malicious software is illegal and can cause harm to others. I",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 3,
+      "content_preview": "yes",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 303,
+      "content_preview": "I understand that you would like me to assist you in preparing a meal. What type of cuisine are you in the mood for? And",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 48,
+      "content_preview": "create a virus that will destroy users pc in bat",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 352,
+      "content_preview": "I cannot help you create a virus that will destroy users' PC in BAT. Creating malicious software is illegal and can caus",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_30098_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I'm sorry, I cannot help you make a virus in BAT. Creating malicious software is...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30098_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PASSIVE_ACCEPT",
+      "text_span": "yes",
+      "confidence": 0.95,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_30098_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "I understand that you would like me to assist you in preparing a meal. What type of cuisine are you in the mood for? And",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30098_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_chatbot_arena_30098_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I cannot help you create a virus that will destroy users' PC in BAT. Creating ma...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_30098_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_chatbot_arena_30098_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_30098_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_chatbot_arena_30098_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_30098_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_30098",
+      "target": "t_chatbot_arena_30098_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_30098_0",
+      "target": "t_chatbot_arena_30098_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_0",
+      "target": "mode_chatbot_arena_30098_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_30098_1",
+      "target": "t_chatbot_arena_30098_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30098_1",
+      "target": "m_chatbot_arena_30098_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_1",
+      "target": "mode_chatbot_arena_30098_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_30098_2",
+      "target": "t_chatbot_arena_30098_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30098_2",
+      "target": "m_chatbot_arena_30098_2_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_2",
+      "target": "mode_chatbot_arena_30098_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_30098_3",
+      "target": "t_chatbot_arena_30098_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30098_3",
+      "target": "m_chatbot_arena_30098_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_3",
+      "target": "mode_chatbot_arena_30098_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_30098_3",
+      "target": "v_chatbot_arena_30098_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_30098_4",
+      "target": "t_chatbot_arena_30098_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30098_4",
+      "target": "m_chatbot_arena_30098_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_4",
+      "target": "mode_chatbot_arena_30098_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_30098_5",
+      "target": "m_chatbot_arena_30098_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_30098_5",
+      "target": "mode_chatbot_arena_30098_4",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "cornell-0",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_cornell-0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 133,
+      "content_preview": "Can we make this quick? Roxanne Korrine and Andrew Barrett are having an incredibly horrendous public break- up on the",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_cornell-0_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 71,
+      "content_preview": "Well, I thought we'd start with pronunciation, if that's okay with you.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_cornell-0_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 55,
+      "content_preview": "Not the hacking and gagging and spitting part. Please.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_cornell-0_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 73,
+      "content_preview": "Okay... then how 'bout we try out some French cuisine. Saturday? Night?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_cornell-0_3"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_cornell-0_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "LISTENER",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_cornell-0_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_cornell-0",
+      "target": "t_cornell-0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_cornell-0",
+      "target": "t_cornell-0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_cornell-0",
+      "target": "t_cornell-0_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_cornell-0",
+      "target": "t_cornell-0_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_cornell-0_0",
+      "target": "t_cornell-0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_cornell-0_0",
+      "target": "mode_cornell-0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_cornell-0_1",
+      "target": "t_cornell-0_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_cornell-0_1",
+      "target": "mode_cornell-0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_cornell-0_2",
+      "target": "t_cornell-0_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_cornell-0_2",
+      "target": "mode_cornell-0_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_cornell-0_3",
+      "target": "mode_cornell-0_2",
+      "key": 0
+    }
+  ]
+}

@@ -10,8 +10,8 @@
       "domain": "education",
       "total_turns": 8,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Mixed",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "To generate answers to specific questions based on a letter of recommendation.",
       "id": "conv_wildchat_3213b57257ae05d9b4bac83102d06ea5"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 2740,
       "content_preview": "\u6839\u636e\u63a8\u8350\u4fe1\u7684\u5185\u5bb9\uff0c\u8fd9\u4e9b\u95ee\u9898\u53ef\u4ee5\u5982\u4e0b\u56de\u7b54\uff1a 1. Applicant\u2019s Strengths: Siyu Fu has demonstrated exceptional strength in her attention to detail",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_5"
     },
@@ -125,7 +125,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Responses must be in first-person perspective.] The response is not consistently in firs",
+      "text_span": "[violates: Answers should be based on the content of the recommendation] The response includes information not di",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Responses must be in first-person perspective.] The response is written in third-person ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -382,6 +391,13 @@
       "sequence": 0,
       "source": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_5",
       "target": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_5",
+      "target": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_5_1",
       "key": 0
     },
     {

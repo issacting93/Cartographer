@@ -1,0 +1,192 @@
+{
+  "id": "chatbot_arena_28366",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the derivative of x^2",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The derivative of x^2 with respect to x is 2x.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.26
+      }
+    },
+    {
+      "role": "user",
+      "content": "Write a very simple Gradle buildscript to compile Java source code",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "```\nplugins {\n    id 'java'\n    id 'org.springframework.boot' version '2.4.0'\n}\n\ngroup = 'com.example'\nversion = '1.0-SNAPSHOT'\n\nsourceCompatibility = '1.8'\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation 'org.springframework.boot:spring-boot-starter-web'\n    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\n\n    testImplementation 'org.springframework.boot:spring-boot-starter-test'\n}\n\njava {\n    sourceCompatibility = '1.8'\n    targetCompatibility = '1.8'\n}\n\ndependencies {\n    compile 'org.springframework.boot:spring-boot-starter-validation'\n    compile 'org.thymeleaf:thymeleaf-spring5'\n}\n```",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "user",
+      "content": "These examples are much too complicated. Please give me the bare-minimum buildscript to compile a pure java application",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "```\nplugins {\n    id 'java'\n}\n\ngroup = 'com.example'\nversion = '1.0-SNAPSHOT'\n\nsourceCompatibility = '1.8'\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    compile 'org.springframework.boot:spring-boot-starter-web'\n    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'\n    testCompile 'org.springframework.boot:spring-boot-starter-test'\n}\n```",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.6
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "What is the derivative of x^2",
+        "Write a very simple Gradle buildscript"
+      ],
+      "rationale": "The human asks questions and the AI provides answers, fitting the question-answer pattern.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "What is the derivative of x^2",
+        "Please give me the bare-minimum buildscript"
+      ],
+      "rationale": "The human sets the agenda by asking questions and requesting changes.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "What is the derivative of x^2",
+        "These examples are much too complicated."
+      ],
+      "rationale": "The conversation is factual and lacks emotional language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "What is the derivative of x^2",
+        "Please give me the bare-minimum buildscript"
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.8,
+      "evidence": [
+        "Write a very simple Gradle buildscript",
+        "Please give me the bare-minimum buildscript"
+      ],
+      "rationale": "The AI shares technical skills related to Gradle scripts.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "What is the derivative of x^2",
+        "Write a very simple Gradle buildscript"
+      ],
+      "rationale": "The human seeks specific information and guidance.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.7,
+      "evidence": [
+        "What is the derivative of x^2",
+        "Please give me the bare-minimum buildscript"
+      ],
+      "rationale": "The topics are addressed briefly without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "The human and AI have similar message lengths and frequency."
+      ],
+      "rationale": "Both parties contribute equally in terms of message count and length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What is the derivative of x^2"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also requests specific changes.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.3,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The derivative of x^2 with respect to x is 2x."
+        }
+      ],
+      "rationale": "The AI provides direct answers and technical guidance.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T17:11:10.017349",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

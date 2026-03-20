@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1626",
+  "messages": [
+    {
+      "role": "user",
+      "content": "SMAX is",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Not sure what you mean by this question. Can you please provide more context or clarify your question?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "user",
+      "content": "In the context of software products.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Sorry, I didn't quite understand your question. Can you please rephrase it or provide more context?",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Not sure what you mean by this question.",
+        "Can you please provide more context or clarify your question?"
+      ],
+      "rationale": "The AI is asking for clarification, indicating a question-answer pattern.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "SMAX is",
+        "In the context of software products."
+      ],
+      "rationale": "The human initiates and directs the conversation by asking questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Not sure what you mean by this question.",
+        "Can you please provide more context or clarify your question?"
+      ],
+      "rationale": "The conversation lacks emotional coloring, focusing on clarification.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Can you please provide more context or clarify your question?",
+        "Can you please rephrase it or provide more context?"
+      ],
+      "rationale": "The AI repeatedly asks for clarification, driving the engagement.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "In the context of software products."
+      ],
+      "rationale": "The human seeks factual information about 'SMAX' in software.",
+      "alternative": "information-seeking"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "SMAX is",
+        "In the context of software products."
+      ],
+      "rationale": "The human is clearly seeking information about 'SMAX'.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "SMAX is",
+        "In the context of software products."
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "SMAX is",
+        "In the context of software products."
+      ],
+      "rationale": "Both parties contribute equally in terms of turns.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "SMAX is"
+        }
+      ],
+      "rationale": "The human is primarily seeking information about 'SMAX'.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.3,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Can you please provide more context or clarify your question?"
+        }
+      ],
+      "rationale": "The AI attempts to clarify the question, acting as an expert-system.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:44:50.484662",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_1415",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Solve this crossword clue. Only output the answer, in uppercase.\nLow-calorie soda (7 letters)",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "DIET COKE",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "That's 8 letters",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.7,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.7
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "DIETPEPSI",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "AI: DIET COKE"
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "HUMAN: That's 8 letters"
+      ],
+      "rationale": "The human directs the task and corrects the AI.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "AI: DIET COKE"
+      ],
+      "rationale": "The conversation is task-focused without emotional expression.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "HUMAN: That's 8 letters"
+      ],
+      "rationale": "The human directs the AI and iterates based on feedback.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "AI: DIET COKE",
+        "AI: DIETPEPSI"
+      ],
+      "rationale": "The AI provides factual answers to the crossword clue.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.9,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "AI: DIET COKE"
+      ],
+      "rationale": "The goal is to solve a crossword clue.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "AI: DIET COKE"
+      ],
+      "rationale": "The interaction is brief and focused on a single task.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "HUMAN: Solve this crossword clue.",
+        "AI: DIET COKE"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "HUMAN: Solve this crossword clue."
+        }
+      ],
+      "rationale": "The human seeks information and corrects the AI.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.2,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "AI: DIET COKE"
+        }
+      ],
+      "rationale": "The AI provides answers to the human's query.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:13:26.557919",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0099_313fa35be7af",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I self-harm, and I stop for awhile. Then when I see something sad or depressing, I automatically want to self-harm.",
+      "id": "conv_mentalhealth_0099_313fa35be7af",
+      "human_role_dist": {
+        "information-seeker": 0.4,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.5,
+        "relational-peer": 0.1
+      },
+      "human_role_confidence": 0.65,
+      "ai_role_dist": {
+        "expert-system": 0.65,
+        "learning-facilitator": 0.15,
+        "advisor": 0.15,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.7,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.8,
+      "srt_emotionalTone": "professional",
+      "srt_emotionalTone_conf": 0.75,
+      "srt_engagementStyle": "directive-iterative",
+      "srt_engagementStyle_conf": 0.7,
+      "srt_knowledgeExchange": "factual-info",
+      "srt_knowledgeExchange_conf": 0.8,
+      "srt_conversationPurpose": "information-seeking",
+      "srt_conversationPurpose_conf": 0.65,
+      "srt_topicDepth": "moderate",
+      "srt_topicDepth_conf": 0.75,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.9
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 115,
+      "content_preview": "I self-harm, and I stop for awhile. Then when I see something sad or depressing, I automatically want to self-harm.",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_mentalhealth_0099_313fa35be7af_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.66,
+      "content": "I self-harm, and I stop for awhile. Then when I see something sad or depressing, I automatically want to self-harm."
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1260,
+      "content_preview": "In a way, self-harm can present somewhat like an addiction. According to new research within the field of neuroscience",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0099_313fa35be7af_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "In a way, self-harm can present somewhat like an addiction. \u00a0According to new research within the field of neuroscience there is a valid explanation for this. \u00a0When a person cuts or uses other forms of self harm, the body produces endorphins to help make a person feel better. \u00a0If a person was dealing with depression or high anxiety, that might be misinterpreted by the brain as a way to help oneself feel better and a new neural network or map might form (addiction) that would utilize this new behavior. \u00a0Another way to look at it would be thru a behavioral lens, a positive reward for a behavior, even though the behavior has other long term negative consequences. \u00a0Consider working with someone who can both have you work on and address those items that trigger your behavior and the root causes, in this case sadness or depression, and second find someone who can help give you alternatives that take into account the neurological requirement by replacing the behavior with another behavior (such as snapping a rubber band on the wrist) and working to extinguish the unwanted behavior. \u00a0 Someone who is trained in Dialectic Behavior Therapy and/or Interpersonal Neurobiology would most likely have the skills and means available to address this with you."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "STATE_GOAL",
+      "text_span": "matically want to self-harm.",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0099_313fa35be7af_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "ng, I automatically want to self-harm.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0099_313fa35be7af_0_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "In a way, self-harm can present somewhat like an addiction. \u00a0According to new re...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0099_313fa35be7af_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0099_313fa35be7af_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_mentalhealth_0099_313fa35be7af_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0099_313fa35be7af",
+      "target": "t_mentalhealth_0099_313fa35be7af_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0099_313fa35be7af",
+      "target": "t_mentalhealth_0099_313fa35be7af_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0099_313fa35be7af_0",
+      "target": "t_mentalhealth_0099_313fa35be7af_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0099_313fa35be7af_0",
+      "target": "m_mentalhealth_0099_313fa35be7af_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_mentalhealth_0099_313fa35be7af_0",
+      "target": "m_mentalhealth_0099_313fa35be7af_0_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0099_313fa35be7af_0",
+      "target": "mode_mentalhealth_0099_313fa35be7af_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0099_313fa35be7af_1",
+      "target": "m_mentalhealth_0099_313fa35be7af_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0099_313fa35be7af_1",
+      "target": "mode_mentalhealth_0099_313fa35be7af_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0099_313fa35be7af_1",
+      "target": "v_mentalhealth_0099_313fa35be7af_0",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_1374",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_1374"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 122,
+      "content_preview": "5 very specific, creative and crazy challenges focused on nightlife to try on a solo japan trip to work on social anxiet",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1374_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1483,
+      "content_preview": "1. Go to a Karaoke Bar Alone: One of the best ways to overcome social anxiety is to put yourself out there and try new t",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1374_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 109,
+      "content_preview": "how about 5 more but go into more detail for each, for example say exactly what I should say to someone or so",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1374_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1636,
+      "content_preview": "1. Start a Conversation with a Stranger: When you're out and about at night, take the opportunity to start a conversatio",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1374_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "1. Go to a Karaoke Bar Alone: One of the best ways to overcome social anxiety is...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1374_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "ch, for example say exactly what I should say to someone or so",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_chatbot_arena_1374_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "1. Start a Conversation with a Stranger: When you're out and about at night, tak...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1374_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1374_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1374_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_1374",
+      "target": "t_chatbot_arena_1374_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_1374",
+      "target": "t_chatbot_arena_1374_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_1374",
+      "target": "t_chatbot_arena_1374_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_1374",
+      "target": "t_chatbot_arena_1374_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_1374_0",
+      "target": "t_chatbot_arena_1374_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1374_0",
+      "target": "mode_chatbot_arena_1374_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_1374_1",
+      "target": "t_chatbot_arena_1374_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1374_1",
+      "target": "m_chatbot_arena_1374_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1374_1",
+      "target": "mode_chatbot_arena_1374_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_1374_2",
+      "target": "t_chatbot_arena_1374_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1374_2",
+      "target": "m_chatbot_arena_1374_2_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1374_2",
+      "target": "mode_chatbot_arena_1374_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1374_3",
+      "target": "m_chatbot_arena_1374_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1374_3",
+      "target": "mode_chatbot_arena_1374_2",
+      "key": 0
+    }
+  ]
+}

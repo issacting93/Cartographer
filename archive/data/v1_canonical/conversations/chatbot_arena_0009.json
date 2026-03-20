@@ -1,0 +1,182 @@
+{
+  "id": "chatbot_arena_0009",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How should I prepare for a marathon?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Preparing for a marathon requires consistent and gradual training, a healthy and balanced diet, adequate rest, and mental preparation. It is important to start training at least three months before the race, gradually increasing the distance and intensity of your runs. You should also focus on strength and mobility training, as well as stretching and foam rolling. Additionally, make sure to stay hydrated and fuel up with healthy snacks and meals throughout the day.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "How many weeks should my training plan be?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "A typical marathon training plan should be between 12 and 16 weeks long. The plan should have a gradual progression of mileage and intensity, with rest and recovery days built in. It is important to gradually build up your mileage, allowing your body to adapt to the stress of running and preparing for the race.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "How should I prepare for a marathon?",
+        "How many weeks should my training plan be?"
+      ],
+      "rationale": "Human asks direct questions; AI provides direct informational responses.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.75,
+      "evidence": [
+        "How should I prepare for a marathon?",
+        "How many weeks should my training plan be?"
+      ],
+      "rationale": "Human sets the agenda via successive questions; AI follows with answers.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.7,
+      "evidence": [
+        "Preparing for a marathon requires consistent and gradual training",
+        "A typical marathon training plan should be between 12 and 16 weeks long."
+      ],
+      "rationale": "Task-focused, instructional language with no explicit emotional/relational content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.55,
+      "evidence": [
+        "It is important to start training at least three months before the race",
+        "You should also focus on strength and mobility training"
+      ],
+      "rationale": "AI gives prescriptive guidance (\"important to\", \"should\"), though the human drives with questions.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.7,
+      "evidence": [
+        "gradually increasing the distance and intensity of your runs",
+        "The plan should have a gradual progression of mileage and intensity"
+      ],
+      "rationale": "Exchange centers on how-to training practices and planning rather than personal disclosure.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "How should I prepare for a marathon?",
+        "How many weeks should my training plan be?"
+      ],
+      "rationale": "Human requests guidance and specifics about marathon preparation and plan length.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.6,
+      "evidence": [
+        "start training at least three months before the race",
+        "between 12 and 16 weeks long"
+      ],
+      "rationale": "Provides several components and a typical duration, but not a detailed week-by-week plan.",
+      "alternative": "surface"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.65,
+      "evidence": [
+        "Preparing for a marathon requires consistent and gradual training, a healthy and balanced diet, adequate rest, and mental preparation.",
+        "A typical marathon training plan should be between 12 and 16 weeks long."
+      ],
+      "rationale": "AI responses are substantially longer than human questions.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.8,
+        "director": 0.03,
+        "collaborator": 0.02,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "How should I prepare for a marathon?"
+        },
+        {
+          "role": "provider",
+          "quote": "How many weeks should my training plan be?"
+        }
+      ],
+      "rationale": "Human primarily requests answers from the AI via direct questions, indicating low-authority information requesting.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.55,
+        "learning-facilitator": 0,
+        "advisor": 0.45,
+        "co-constructor": 0,
+        "social-facilitator": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.75,
+      "evidence": [
+        {
+          "role": "advisor",
+          "quote": "You should also focus on strength and mobility training"
+        },
+        {
+          "role": "expert-system",
+          "quote": "A typical marathon training plan should be between 12 and 16 weeks long."
+        }
+      ],
+      "rationale": "AI provides direct informational norms (plan length) and prescriptive recommendations (\"should\", \"important\").",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T14:55:39.110942",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 16652,
+    "fewShotExamples": "yes"
+  }
+}

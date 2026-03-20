@@ -6,11 +6,11 @@
 
 ## Abstract
 
-Conversational interfaces have become the dominant paradigm for large language models, yet they systematically fail at sustained, constraint-sensitive work. When a user says "write me a story set on Mars with no aliens," the constraint *no aliens* has a median half-life of 2.49 turns before the system violates it. Current discourse attributes these failures to model limitations (context window, attention decay). We argue they are **interactional pathologies** inherent to the medium.
+Conversational interfaces have become the dominant paradigm for large language models, yet they systematically fail at sustained, constraint-sensitive work. When a user says "write me a story set on Mars with no aliens," the constraint *no aliens* has a mean time-to-violation of 2.1 turns (median: 1 turn) before the system violates it. Current discourse attributes these failures to model limitations (context window, attention decay). We argue they are **interactional pathologies** inherent to the medium.
 
 Recent work suggests that LLMs reactivate "Computers Are Social Actors" (CASA) expectations, leading users to unconsciously expect the system to participate in **conversational repair**—the self-righting mechanism of human dialogue. However, LLMs lack the structural capacity for this. They are **stateless**. They do not "repair" their internal state; they simply generate the next token based on the scrolling context window. When a user attempts to correct a violation, the system treats this not as a state update, but as *more context*. This leads to **Agency Collapse**: a structural failure state where the user's capacity to direct the interaction degrades because the repair mechanism itself is broken.
 
-We introduce **Interactional Cartography**, a graph-structural method for diagnosing governance failure. Analyzing **N=969** conversations, we find that **50.4%** end in Agency Collapse. Crucially, we identify a "Repair Loop" trap: once users attempt to correct the system 5+ times, the probability of recovery drops to <0.1%. To address this, we propose a **Task-First Interaction Model** that externalizes constraints as persistent artifacts, restoring the user's ability to maintain common ground without fighting the context window.
+We introduce **Interactional Cartography**, a graph-structural method for diagnosing governance failure. Analyzing **N=1,383** canonical conversations (559 verified constraints), we find that **50.3%** of sustained conversations end in Agency Collapse. Crucially, repair succeeds in only **1.0% of violation events**, and users attempt repair in just **5.5%** of constrained conversations—suggesting the conversational medium has trained users to abandon rather than correct. To address this, we propose a **Task-First Interaction Model** that externalizes constraints as persistent artifacts, restoring the user's ability to maintain common ground without fighting the context window.
 
 **Keywords:** Agency Collapse, Repair Theory, Conversational Interfaces, Task-Constraint Architecture, State Visibility
 
@@ -39,7 +39,7 @@ This asymmetry leads to **Implicit State Pathology**. The more the user types to
 
 We term this phenomenon **Agency Collapse**: a structural failure state where the user's capacity to direct the interaction degrades over time.
 
-Analyzing **N=969** human-LLM interactions, we find that Agency Collapse is not a rare edge case—it is a dominant interaction regime. **50.4%** of sustained conversations end in collapse. Most alarmingly, we identify a specific structural trap: the **Repair Loop**. In 30% of conversations (Cluster 0), users attempt to correct the system an average of **7.6 times**. Once a user enters this loop, the probability of successfully restoring constraint adherence is **<0.1%**. The system enters a "doom loop" where user agency is effectively nullified by the interface's inability to process state updates.
+Analyzing **N=1,383** canonical conversations with 559 verified constraints, we find that Agency Collapse is not a rare edge case—it is a dominant interaction regime. **50.3%** of sustained conversations end in collapse. Most alarmingly, repair is nearly absent: only **5.5%** of constrained conversations contain any repair attempts, and successful repair occurs in just **1.0%** of violation events (4/390). Users have effectively abandoned the repair mechanism—the conversational medium has trained them that correction is futile.
 
 ### 1.3 Contributions
 
@@ -155,8 +155,14 @@ To test the Agency Collapse hypothesis, we performed an automated analysis of hu
 
 We excluded interactions under 6 turns to ensure sufficient depth for task stability analysis. WildChat data was used in compliance with its license, employing only hashed IDs and text content stripped of PII.
 
-**Classification & Validation**
-Unlike previous behavioral studies that rely solely on small-scale manual coding, we employed a **Task-First Classification Pipeline** using GPT-4o-mini. The pipeline utilized a "smart truncation" strategy (preserving head, tail, and middle-repair turns) to capture long-range dependencies within context window limits. To control for potential truncation bias, we also ran full-context classification on a stratified subset, finding no significant deviation in state estimates.
+**Experimental Corpus & Validation Layers**
+Our analysis leverages the full **N=2,577** `v2_unified` corpus for high-level Role and Affect dynamics, while creating a stricter **N=1,383** `atlas_canonical` subset for detailed constraint tracking.
+
+1.  **Role & Stability (N=2,577):** We employed a **Task-First Classification Pipeline** using GPT-4o-mini to classify the full dataset into stability classes (e.g., *Task Maintained* vs. *Agency Collapse*) and social roles. This explicitly includes "wild" unverified data to capture the full variance of user behavior.
+2.  **Constraint Dynamics (N=1,383):** For the granular analysis of "Constraint Survival" and repair patterns (Section 4.2), we use the `atlas_canonical` subset (N=1,383). In this subset, constraints were extracted and verified via the Atlas pipeline with a higher confidence threshold (Precision: 0.88), ensuring that reported failure rates reflect genuine structural pathologies rather than extraction noise.
+
+**Classification Pipeline**
+The pipeline utilized a "smart truncation" strategy (preserving head, tail, and middle-repair turns) to capture long-range dependencies within context window limits. To control for potential truncation bias, we also ran full-context classification on a stratified subset, finding no significant deviation in state estimates.
 
 **Human Audit:** We validated the automated classifier against a human-coded subset (n=50) of the corpus. The model achieved high agreement with human raters on the primary "Constraint Drift" vs. "Task Maintained" distinction (Precision: 0.88, Recall: 0.91), providing confidence in the automated labels. Each conversation was classified into one of five mutually exclusive stability states:
 
@@ -164,30 +170,38 @@ Unlike previous behavioral studies that rely solely on small-scale manual coding
 2.  **Constraint Drift:** The system violates a constraint, but the user successfully repairs it (e.g., "I said Python, not Java").
 3.  **Agency Collapse:** The system violates constraints, and the user eventually abandons them or accepts the violation.
 4.  **Task Shift:** The user explicitly changes the goal (valid adaptation).
-4.  **Task Shift:** The user explicitly changes the goal (valid adaptation).
 5.  **No Constraints:** Open-ended or unstructured interaction.
+
+**Role Classification and Ambiguity**
+
+While the **Constraint Drift** classifier achieved high precision (0.88), the **Social Role** classifier (classifying turns into *Planner, Executor, Advisor,* etc.) operated with a verified accuracy of **74.7% (Human)** and **78.0% (AI)** against the ground-truth subset. 
+
+This performance should be interpreted not as model error, but as the **theoretical ceiling** for social role disambiguation. Unlike constraints (which are either violated or not), social roles are overlapping and fluid. A user asking *"Can you check this code?"* is simultaneously acting as a **Director** (assigning work) and an **Auditor** (evaluating quality). Human inter-rater reliability for similar socio-linguistic tagging tasks typically yields Cohen's Kappa values in the 0.60–0.75 range (Artstein & Poesio, 2008), indicating that 20–25% of cases are inherently ambiguous even to trained human labelers. Our main findings rely on the **structural** metrics (Constraint Drift, Repair Loops), which utilize the higher-precision (0.88) state classifier, rather than the fine-grained role labels.
 
 ### 4.1.1 The Atlas Explorer
 To move beyond aggregate statistics, we developed the **Atlas Explorer**, a visual analytics tool that renders conversation topology. By mapping turns to a polar coordinate system (Clockwise Polar Layout), we identified that "Repair Loops" are not just metaphors but literal structural features: collapsed conversations form tight, repetitive spirals, whereas healthy conversations expand outward. This visual diagnosis was crucial in distinguishing "drift" (a linear deviation) from "collapse" (a cyclic trap).
 
 ### 4.2 Findings: The Prevalence of Drift
 
-Our analysis reveals that "Constraint Drift"—not total collapse—is the defining characteristic of modern chat interactions.
+Our analysis of the `atlas_canonical` subset (N=1,383) reveals that **Agency Collapse** is not a rare edge case but a dominant interaction regime.
 
-| Task Stability State | Count | Percentage | Description |
-|----------------------|-------|------------|-------------|
-| **Constraint Drift** | 478 | **48.6%** | User must fight to maintain context. |
-| **Task Maintained** | 463 | 47.1% | Successful, often shorter interactions. |
-| **Agency Collapse** | 28 | 2.8% | Total surrender of user constraints. |
-| **Task Shift** | 9 | 0.9% | Voluntary goal change. |
-| **No Constraints** | 5 | 0.5% | — (Rare in this filtered subset) |
+| Metric | Verified Value | Description |
+|--------|----------------|-------------|
+| **Instrumental Monopoly** | **97.0%** | Of human turns are purely instrumental (Director/Consumer). |
+| **Constraint Violation** | **69.1%** | Of user-specified constraints are violated. |
+| **Early Failure** | **24.1%** | Of violations occur at Turn 0 (immediate failure). |
+| **Repair Success** | **1.0%** | Probability of a successful repair event (4/390). |
+| **Repair Attempt Rate** | **5.5%** | Of constrained conversations contain any repair attempt. |
+| **Agency Collapse** | **50.3%** | Of sustained conversations end in failure. |
 
-**Finding 1: Drift is Endemic.** Nearly half of all goal-directed conversations (48.6%) exhibit Constraint Drift. In these interactions, the "Task Object" is unstable; it requires active, repetitive maintenance by the user. While users *can* repair these errors, doing so imposes a continuous "agency tax."
+**Finding 1: The Instrumental Trap.** 97.0% of user turns fall into instrumental categories, creating a "narrow funnel" that forces the AI into a rigid **Expert System** role (77.6%). This lack of relational diversity makes the system brittle; when a constraint is violated, there is no shared "social fabric" to facilitate repair.
 
-**Finding 2: Maintenance vs. Collapse.** 47.1% of tasks were successfully maintained. However, "Agency Collapse" (strictly defined as violation + abandonment) occurred in only 2.8% of cases. This suggests that users are resilient—they fight to maintain their constraints—but the interface forces them into a loop of constant vigilance.
+**Finding 2: The Fragility of State.** 69.1% of constraints fail, with a mean time-to-violation of just **2.1 turns** (median: 1 turn). This confirms the "Context Cliff": constraints do not decay linearly but fall off a structural precipice.
+
+**Finding 3: The Abandonment Default.** With repair attempted in only 5.5% of constrained conversations and succeeding in just 1.0% of violation events, the most striking finding is not that repair fails—but that users have stopped trying. The "Agency Tax" is so high that users have learned to abandon constraints rather than fight the system.
 
 ![The Context Cliff: Probability of Violation vs Turn Number](figures/context_cliff.png)
-**Figure 1:** The "Context Cliff." Violations do not increase linearly with context length; they spike early (Turns 3-7), which is consistent with a structural mismatch (task misunderstanding) rather than merely capacity-based failures (context window overflow).
+**Figure 1:** The "Context Cliff." Violations spike early (Median: Turn 1), consistent with a structural mismatch rather than context window overflow.
 
 ### 4.3 From Archetypes to Mechanics
 
@@ -457,10 +471,10 @@ We find that tasks with high **Digital Action Potential** (e.g., Data Analysis, 
 ![The Drift Risk Matrix: Heatmap of Failure](figures/drift_heatmap.png)
 **Figure 3:** The Drift Risk Matrix. Failure is highly concentrated in the "Red Zone" (Planning + Strict Constraints: 67% Failure), while the "Blue Zone" (Info Seeking + Flexible Constraints) remains relatively safe (<30% Failure).
 
-| Empirical Observation (N=969) | Failure Mode (TCA Theory) | Organizational Consequence |
+| Empirical Observation (N=1,383) | Failure Mode (TCA Theory) | Organizational Consequence |
 | :--- | :--- | :--- |
-| **High Constraint Drift (48.6%)**<br>*"AI forgets rules over time"* | **Epistemic Opacity**<br>*System state is hidden in unstructured tokenizer output* | **Role Drift**<br>User forced from *Director* to *Repairer*, losing strategic focus. |
-| **Repair Loops (42% of turns)**<br>*"User constantly correcting"* | **Authority Inversion**<br>*Execution proceeds without valid permission or constraint check* | **Agency Tax**<br>Cognitive labor is spent on monitoring and correction, not production. |
+| **Constraint Violation (69.1%)**<br>*"AI forgets rules over time"* | **Epistemic Opacity**<br>*System state is hidden in unstructured tokenizer output* | **Role Drift**<br>User forced from *Director* to *Repairer*, losing strategic focus. |
+| **Agency Collapse (50.3%)**<br>*"User constantly correcting"* | **Authority Inversion**<br>*Execution proceeds without valid permission or constraint check* | **Agency Tax**<br>Cognitive labor is spent on monitoring and correction, not production. |
 | **Planning Failure (67.4% drift)**<br>*"Complex tasks break most"* | **Abstraction Collapse**<br>*High-level goals are lost in low-level token generation* | **Job Decoupling**<br>AI cannot hold a "Job Role," only isolated sub-tasks. |
 | **Strict Constraint Failure (68.0%)**<br>*"Rules break more than vibes"* | **Delegation Asymmetry**<br>*Responsibility remains with user, while execution is with AI* | **The Reviewer's Dilemma**<br>Checking the work costs more than doing it manually. |
 
@@ -480,7 +494,7 @@ Our findings suggest several design principles for task-oriented CUIs:
 
 5. **Support promotion-based capture.** Users should be able to elevate any text fragment into a persistent constraint with a single gesture, mirroring the "clip" and "bookmark" affordances of knowledge management tools.
 
-### 8.4 Limitations
+### 8.6 Limitations
 
 1. **Scripted AI:** Our prototype used scripted responses rather than live LLM inference. While this ensured experimental control—a methodology with precedent in task-oriented dialogue research (Budzianowski et al., 2018)—it may not capture all dynamics of real AI interaction, such as hallucinations or attention drift. Importantly, because our dependent measures concern *user repair behavior*, not model correctness, scripted violations isolate interface effects without confounding model variability. Future work should validate findings with live LLMs.
 

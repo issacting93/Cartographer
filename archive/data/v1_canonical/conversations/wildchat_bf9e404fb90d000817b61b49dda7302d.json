@@ -1,0 +1,192 @@
+{
+  "id": "wildchat_bf9e404fb90d000817b61b49dda7302d",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I have this PostgreSQL statement: INNER JOIN teams t ON aa.tags->> 'ts-owner' = t.id\n\nWill there be an error if ts-owner doesnt exist in the tags column? ",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "No, there will not be an error if 'ts-owner' does not exist in the tags column. The INNER JOIN will simply not match any rows where the condition aa.tags->> 'ts-owner' = t.id is not met, resulting in those rows being excluded from the final result set.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "Awesome!",
+      "pad": {
+        "pleasure": 0.75,
+        "arousal": 0.2,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.23
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Glad to hear that! If you have any more questions or need further clarification, feel free to ask.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.42
+      }
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0125",
+    "timestamp": "2024-03-21T13:09:33+00:00",
+    "turn_count": 2,
+    "language": "English",
+    "country": "Germany",
+    "state": "Hesse",
+    "toxic": false,
+    "redacted": false
+  },
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "Will there be an error if ts-owner doesnt exist in the tags column?",
+        "No, there will not be an error if 'ts-owner' does not exist in the tags column."
+      ],
+      "rationale": "Human asks a specific technical question; AI provides a direct answer and explanation.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.75,
+      "evidence": [
+        "I have this PostgreSQL statement:",
+        "Will there be an error if ts-owner doesnt exist in the tags column?"
+      ],
+      "rationale": "Human sets the agenda by introducing the SQL snippet and posing the question; AI responds.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.7,
+      "evidence": [
+        "I have this PostgreSQL statement:",
+        "No, there will not be an error if 'ts-owner' does not exist in the tags column."
+      ],
+      "rationale": "Task-focused technical exchange with minimal affect; brief positive acknowledgment occurs but remains work-oriented.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.65,
+      "evidence": [
+        "No, there will not be an error if 'ts-owner' does not exist in the tags column.",
+        "If you have any more questions or need further clarification, feel free to ask."
+      ],
+      "rationale": "AI primarily responds to the user's query and invites follow-up rather than driving exploration with questions.",
+      "alternative": "affirming"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "No, there will not be an error if 'ts-owner' does not exist in the tags column.",
+        "The INNER JOIN will simply not match any rows"
+      ],
+      "rationale": "Exchange centers on factual behavior of PostgreSQL JSON operator and join semantics.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.85,
+      "evidence": [
+        "Will there be an error if ts-owner doesnt exist in the tags column?"
+      ],
+      "rationale": "User seeks a specific answer about whether an error occurs.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.65,
+      "evidence": [
+        "INNER JOIN teams t ON aa.tags->> 'ts-owner' = t.id",
+        "Will there be an error if ts-owner doesnt exist in the tags column?"
+      ],
+      "rationale": "Single focused question with brief explanation; no extended exploration of edge cases or alternatives.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "Will there be an error if ts-owner doesnt exist in the tags column?",
+        "No, there will not be an error if 'ts-owner' does not exist in the tags column."
+      ],
+      "rationale": "Both parties contribute multiple turns; AI's main answer is longer but overall exchange is short.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.9,
+        "provider": 0.05,
+        "director": 0,
+        "collaborator": 0,
+        "social-expressor": 0.05,
+        "relational-peer": 0
+      },
+      "confidence": 0.75,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Will there be an error if ts-owner doesnt exist in the tags column?"
+        },
+        {
+          "role": "social-expressor",
+          "quote": "Awesome!"
+        }
+      ],
+      "rationale": "Primary role is requesting technical information; brief positive feedback adds minor expressive content.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.85,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "No, there will not be an error if 'ts-owner' does not exist in the tags column."
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "If you have any more questions or need further clarification, feel free to ask."
+        }
+      ],
+      "rationale": "AI provides a direct authoritative explanation of expected query behavior, with a small conversational invitation for follow-up.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T17:55:18.989626",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 13834,
+    "fewShotExamples": "yes"
+  }
+}

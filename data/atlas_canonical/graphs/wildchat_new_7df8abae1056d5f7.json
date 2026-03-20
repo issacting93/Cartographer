@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 30,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Answer questions related to the Central Limit Theorem and sampling distributions.",
       "id": "conv_wildchat_new_7df8abae1056d5f7"
     },
@@ -414,10 +414,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_7df8abae1056d5f7_6"
@@ -574,7 +574,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 8,
+      "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -588,7 +588,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 10,
+      "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -602,7 +602,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 12,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -616,7 +616,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 14,
+      "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -630,7 +630,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 16,
+      "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -644,7 +644,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 18,
+      "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -658,7 +658,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 20,
+      "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -672,7 +672,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 9,
-      "turn_index": 24,
+      "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -686,6 +686,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 10,
+      "turn_index": 24,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_7df8abae1056d5f7_10"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 11,
       "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -695,7 +709,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_7df8abae1056d5f7_10"
+      "id": "v_wildchat_new_7df8abae1056d5f7_11"
     }
   ],
   "links": [
@@ -1047,6 +1061,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_7df8abae1056d5f7_7",
+      "target": "v_wildchat_new_7df8abae1056d5f7_2",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 9,
       "source": "t_wildchat_new_7df8abae1056d5f7_8",
@@ -1075,7 +1095,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_9",
-      "target": "v_wildchat_new_7df8abae1056d5f7_2",
+      "target": "v_wildchat_new_7df8abae1056d5f7_3",
       "key": 0
     },
     {
@@ -1107,7 +1127,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_11",
-      "target": "v_wildchat_new_7df8abae1056d5f7_3",
+      "target": "v_wildchat_new_7df8abae1056d5f7_4",
       "key": 0
     },
     {
@@ -1139,7 +1159,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_13",
-      "target": "v_wildchat_new_7df8abae1056d5f7_4",
+      "target": "v_wildchat_new_7df8abae1056d5f7_5",
       "key": 0
     },
     {
@@ -1171,7 +1191,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_15",
-      "target": "v_wildchat_new_7df8abae1056d5f7_5",
+      "target": "v_wildchat_new_7df8abae1056d5f7_6",
       "key": 0
     },
     {
@@ -1203,7 +1223,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_17",
-      "target": "v_wildchat_new_7df8abae1056d5f7_6",
+      "target": "v_wildchat_new_7df8abae1056d5f7_7",
       "key": 0
     },
     {
@@ -1242,7 +1262,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_19",
-      "target": "v_wildchat_new_7df8abae1056d5f7_7",
+      "target": "v_wildchat_new_7df8abae1056d5f7_8",
       "key": 0
     },
     {
@@ -1281,7 +1301,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_21",
-      "target": "v_wildchat_new_7df8abae1056d5f7_8",
+      "target": "v_wildchat_new_7df8abae1056d5f7_9",
       "key": 0
     },
     {
@@ -1339,7 +1359,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_25",
-      "target": "v_wildchat_new_7df8abae1056d5f7_9",
+      "target": "v_wildchat_new_7df8abae1056d5f7_10",
       "key": 0
     },
     {
@@ -1404,7 +1424,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_7df8abae1056d5f7_29",
-      "target": "v_wildchat_new_7df8abae1056d5f7_10",
+      "target": "v_wildchat_new_7df8abae1056d5f7_11",
       "key": 0
     }
   ]

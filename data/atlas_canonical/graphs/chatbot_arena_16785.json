@@ -1,0 +1,295 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_16785",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Complete the user's song starting with '3 2 1 test'.",
+      "id": "conv_chatbot_arena_16785"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 4,
+      "content_preview": "test",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 113,
+      "content_preview": "I'm sorry, I'm not sure what you're asking for. Can you please provide more information or clarify your question?",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 10,
+      "content_preview": "3 2 1 test",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 125,
+      "content_preview": "I'm sorry, but I'm not sure what you mean by \"3 2 1 test.\" Can you please provide more context or clarify what you're as",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 67,
+      "content_preview": "this is the beginning of my new song, could you complete it please?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 330,
+      "content_preview": "Sure! Here is the rest of the beginning of your song: 3 2 1 Start with a line that sets the tone And leave you feeling",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_16785_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I'm sorry, I'm not sure what you're asking for. Can you please provide more info...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16785_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I'm sorry, but I'm not sure what you mean by \"3 2 1 test.\" Can you please provid...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16785_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure! Here is the rest of the beginning of your song:\n\n3 2 1\nStart with a line t...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16785_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_16785_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_16785_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_chatbot_arena_16785_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "v_chatbot_arena_16785_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_16785",
+      "target": "t_chatbot_arena_16785_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_16785_0",
+      "target": "t_chatbot_arena_16785_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_0",
+      "target": "mode_chatbot_arena_16785_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_16785_1",
+      "target": "t_chatbot_arena_16785_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16785_1",
+      "target": "m_chatbot_arena_16785_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_1",
+      "target": "mode_chatbot_arena_16785_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_16785_2",
+      "target": "t_chatbot_arena_16785_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_2",
+      "target": "mode_chatbot_arena_16785_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_16785_3",
+      "target": "t_chatbot_arena_16785_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16785_3",
+      "target": "m_chatbot_arena_16785_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_3",
+      "target": "mode_chatbot_arena_16785_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_16785_4",
+      "target": "t_chatbot_arena_16785_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_4",
+      "target": "mode_chatbot_arena_16785_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16785_5",
+      "target": "m_chatbot_arena_16785_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16785_5",
+      "target": "mode_chatbot_arena_16785_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_16785_5",
+      "target": "v_chatbot_arena_16785_0",
+      "key": 0
+    }
+  ]
+}

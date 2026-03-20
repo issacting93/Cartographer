@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_0402",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "do this simple math: 2+2=?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "2 + 2 = 4.",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.22
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "do this simple math: 2+2=?",
+        "2 + 2 = 4."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "do this simple math: 2+2=?"
+      ],
+      "rationale": "The human initiates and directs the task.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello! How can I help you today?",
+        "2 + 2 = 4."
+      ],
+      "rationale": "The conversation lacks emotional content.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.6,
+      "evidence": [
+        "do this simple math: 2+2=?"
+      ],
+      "rationale": "The human gives a directive to perform a task.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "2 + 2 = 4."
+      ],
+      "rationale": "The AI provides a factual answer to a math question.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "do this simple math: 2+2=?"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "do this simple math: 2+2=?",
+        "2 + 2 = 4."
+      ],
+      "rationale": "The conversation is brief and addresses a simple question.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "hi",
+        "Hello! How can I help you today?",
+        "do this simple math: 2+2=?",
+        "2 + 2 = 4."
+      ],
+      "rationale": "The human and AI contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "do this simple math: 2+2=?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also directs the task.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "2 + 2 = 4."
+        }
+      ],
+      "rationale": "The AI provides a factual answer, fulfilling an expert role.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:54:03.740793",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

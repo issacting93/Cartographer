@@ -1,0 +1,44 @@
+/Users/zac/Documents/Documents-it/GitHub/Cartography_v2/scripts/atlas/generate_visualizations.py:401: UserWarning: Attempting to set identical low and high xlims makes transformation singular; automatically expanding.
+  ax.set_xlim(0, max(counts) * 1.3)
+Atlas Visualization Suite
+  Data:   /Users/zac/Documents/Documents-it/GitHub/Cartography_v2/data/v2_unified/atlas
+  Output: /Users/zac/Documents/Documents-it/GitHub/Cartography_v2/paper/figures
+
+Loading data...
+Loaded 2577 conversations
+  2577 conversations, 0 constraints, 12898 mode annotations
+
+Generating figures...
+  Plotting survival distribution...
+  [1/9] survival_rate_dist.png
+  Plotting context cliff...
+DEBUG: violation_turns count: 0
+DEBUG: No valid turns found!
+  Plotting agency tax by class...
+  [3/9] agency_tax_by_class.png
+  [4/9] agency_tax_vs_drift.png
+  [5/9] agency_tax_map.png
+  [6/9] drift_heatmap.png
+  [7/9] mode_violations.png
+Traceback (most recent call last):
+  File "/Users/zac/Documents/Documents-it/GitHub/Cartography_v2/scripts/atlas/generate_visualizations.py", line 552, in <module>
+    plot_constraint_lifecycle(constraints)
+  File "/Users/zac/Documents/Documents-it/GitHub/Cartography_v2/scripts/atlas/generate_visualizations.py", line 413, in plot_constraint_lifecycle
+    fig.savefig(os.path.join(OUTPUT_DIR, "constraint_lifecycle.png"))
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backend_bases.py", line 2204, in print_figure
+    result = print_method(
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+  File "/Users/zac/Library/Python/3.9/lib/python/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+ValueError: Image size of 71620x1435 pixels is too large. It must be less than 2^16 in each direction.

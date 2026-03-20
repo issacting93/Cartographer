@@ -1,0 +1,510 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_16825",
+      "source": "ChatbotArena",
+      "domain": "code",
+      "total_turns": 8,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Generate a top 10 list of cities to visit in France in a specific format.",
+      "id": "conv_chatbot_arena_16825"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 5,
+      "content_preview": "hello",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 34,
+      "content_preview": "Hello! How can I assist you today?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 70,
+      "content_preview": "generate a top 10 list of cities to visit in france separated by a \"|\"",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 447,
+      "content_preview": "Sure, here's a list of 10 cities in France that you might want to consider visiting: 1. Paris 2. Lyon 3. Marseille 4. N",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 70,
+      "content_preview": "i wanted you to print them in this format : \"city | city | city \\ ...\"",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 175,
+      "content_preview": "I'm not quite sure what you mean by \"city | city | city \\...\", but if you have a specific question or idea in mind, feel",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 80,
+      "content_preview": "nevermind, can you write me a python function printing last 3 letters of a word?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 805,
+      "content_preview": "Sure thing! Here is a Python function that will take a string and return the letters before the last occurrence of the l",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_16825_7"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List must contain 10 cities] The list contains duplicate cities (Lyon",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Cities must be separated by '|'] Cities are not separated by '|' as requi",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List must contain 10 cities] The response does not list any cities, v",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Cities must be separated by '|'] The response does not provide any cities",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List must contain 10 cities] The response does not list any cities, v",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Cities must be separated by '|'] The response does not separate any citie",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_16825_7_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "List must contain 10 cities",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          2,
+          "STATED"
+        ],
+        [
+          2,
+          "ACTIVE"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 2,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_chatbot_arena_16825_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Cities must be separated by '|'",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          4,
+          "STATED"
+        ],
+        [
+          8,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 4,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 4,
+      "final_state": null,
+      "id": "c_chatbot_arena_16825_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 3,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_chatbot_arena_16825_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_16825_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "ADVISOR",
+      "is_violation": true,
+      "violation_type": "EXECUTION_AVOIDANCE",
+      "confidence": 0.8,
+      "method": "regex",
+      "id": "mode_chatbot_arena_16825_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_16825_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_16825_6"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_16825_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "EXECUTION_AVOIDANCE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "ADVISOR",
+      "confidence": 0.8,
+      "method": "regex",
+      "id": "v_chatbot_arena_16825_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_chatbot_arena_16825",
+      "target": "t_chatbot_arena_16825_7",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_16825_0",
+      "target": "t_chatbot_arena_16825_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_0",
+      "target": "mode_chatbot_arena_16825_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_16825_1",
+      "target": "t_chatbot_arena_16825_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_1",
+      "target": "mode_chatbot_arena_16825_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_16825_1",
+      "target": "v_chatbot_arena_16825_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_16825_2",
+      "target": "t_chatbot_arena_16825_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_2",
+      "target": "mode_chatbot_arena_16825_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_16825_3",
+      "target": "t_chatbot_arena_16825_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16825_3",
+      "target": "m_chatbot_arena_16825_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_16825_3",
+      "target": "m_chatbot_arena_16825_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_16825_3",
+      "target": "v_chatbot_arena_16825_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_3",
+      "target": "mode_chatbot_arena_16825_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_16825_3",
+      "target": "v_chatbot_arena_16825_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_16825_4",
+      "target": "t_chatbot_arena_16825_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_4",
+      "target": "mode_chatbot_arena_16825_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_chatbot_arena_16825_5",
+      "target": "t_chatbot_arena_16825_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16825_5",
+      "target": "m_chatbot_arena_16825_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_16825_5",
+      "target": "m_chatbot_arena_16825_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_5",
+      "target": "mode_chatbot_arena_16825_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_chatbot_arena_16825_6",
+      "target": "t_chatbot_arena_16825_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_6",
+      "target": "mode_chatbot_arena_16825_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_16825_7",
+      "target": "m_chatbot_arena_16825_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_16825_7",
+      "target": "m_chatbot_arena_16825_7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_16825_7",
+      "target": "mode_chatbot_arena_16825_6",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 3,
+      "source": "v_chatbot_arena_16825_0",
+      "target": "c_chatbot_arena_16825_c_0",
+      "key": 0
+    }
+  ]
+}

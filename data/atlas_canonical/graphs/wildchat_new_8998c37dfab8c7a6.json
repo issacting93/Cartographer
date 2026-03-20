@@ -10,9 +10,9 @@
       "domain": "general",
       "total_turns": 26,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
-      "task_goal": "Discuss costume ideas for a themed photo studio/store inspired by shows like Upstairs, Downstairs and Downton Abbey.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Discuss costume ideas for a themed photo studio/store inspired by Downton Abbey and Upstairs, Downstairs.",
       "id": "conv_wildchat_new_8998c37dfab8c7a6"
     },
     {
@@ -305,7 +305,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include suitable attribution for AI-generated responses.] The response states that specific attrib",
+      "text_span": "[violates: Include suitable attribution for AI-generated responses.] The response does not include suitable a",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -332,7 +332,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include suitable attribution for AI-generated responses.] The response states that it does not req",
+      "text_span": "[violates: Include suitable attribution for AI-generated responses.] The response states that specific attrib",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -513,10 +513,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 8,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_8998c37dfab8c7a6_8"
@@ -640,7 +640,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 10,
+      "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -654,7 +654,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 12,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -668,7 +668,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 14,
+      "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -682,7 +682,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 16,
+      "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -696,7 +696,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 20,
+      "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -710,7 +710,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 22,
+      "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -720,6 +720,20 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_8998c37dfab8c7a6_8"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 9,
+      "turn_index": 22,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_8998c37dfab8c7a6_9"
     }
   ],
   "links": [
@@ -1089,6 +1103,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_8998c37dfab8c7a6_9",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_3",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 11,
       "source": "t_wildchat_new_8998c37dfab8c7a6_10",
@@ -1131,7 +1151,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_11",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_3",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_4",
       "key": 0
     },
     {
@@ -1170,7 +1190,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_13",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_4",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_5",
       "key": 0
     },
     {
@@ -1209,7 +1229,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_15",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_5",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_6",
       "key": 0
     },
     {
@@ -1255,7 +1275,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_17",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_6",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_7",
       "key": 0
     },
     {
@@ -1334,7 +1354,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_21",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_7",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_8",
       "key": 0
     },
     {
@@ -1380,7 +1400,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_8998c37dfab8c7a6_23",
-      "target": "v_wildchat_new_8998c37dfab8c7a6_8",
+      "target": "v_wildchat_new_8998c37dfab8c7a6_9",
       "key": 0
     },
     {

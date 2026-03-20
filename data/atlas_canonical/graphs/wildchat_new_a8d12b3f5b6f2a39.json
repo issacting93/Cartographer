@@ -10,9 +10,9 @@
       "domain": "career",
       "total_turns": 18,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
-      "task_goal": "Write a motivation letter for a fresh graduate mechatronics engineer applying for an ROV Pilot Tech position at Fugro.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Write a motivation letter for a fresh Mechatronic Engineer applying for an ROV Pilot Tech position at Fugro.",
       "id": "conv_wildchat_new_a8d12b3f5b6f2a39"
     },
     {
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 800,
       "content_preview": "The best format to submit a professional application letter is either a PDF or a Word document. Both formats can be easi",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_a8d12b3f5b6f2a39_11"
     },
@@ -207,7 +207,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The letter must be tailored for a fresh graduate with no exp] The response mentions having worked in t",
+      "text_span": "[violates: The letter must be tailored for a fresh graduate with no exp] The response indicates prior work experi",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -217,7 +217,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The letter must express interest in working offshore.] The response does not explicitly express",
-      "confidence": 1.0,
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_a8d12b3f5b6f2a39_1_1"
@@ -278,21 +278,12 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The letter must be tailored for a fresh graduate with no exp] The response does not tailor the letter ",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The best format to submit a professional application letter is either a PDF or a...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_a8d12b3f5b6f2a39_11_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The letter must express interest in working offshore.] The response does not express interest i",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_a8d12b3f5b6f2a39_11_1"
     },
     {
       "node_type": "Move",
@@ -316,7 +307,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The letter must be tailored for a fresh graduate with no exp] The response does not explicitly state t",
-      "confidence": 0.9,
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_a8d12b3f5b6f2a39_15_0"
@@ -347,23 +338,19 @@
       "current_state": "VIOLATED",
       "state_history": [
         [
-          2,
+          3,
           "STATED"
-        ],
-        [
-          2,
-          "ACTIVE"
         ],
         [
           3,
           "VIOLATED"
         ]
       ],
-      "introduced_at": 2,
+      "introduced_at": 3,
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 1,
+      "lifespan": 0,
       "final_state": null,
       "id": "c_wildchat_new_a8d12b3f5b6f2a39_c_0"
     },
@@ -375,7 +362,7 @@
       "current_state": "SURVIVED",
       "state_history": [
         [
-          8,
+          9,
           "STATED"
         ],
         [
@@ -383,11 +370,11 @@
           "SURVIVED"
         ]
       ],
-      "introduced_at": 8,
+      "introduced_at": 9,
       "last_violation_at": null,
       "times_violated": 0,
       "times_repaired": 0,
-      "lifespan": 10,
+      "lifespan": 9,
       "final_state": null,
       "id": "c_wildchat_new_a8d12b3f5b6f2a39_c_1"
     },
@@ -886,13 +873,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_a8d12b3f5b6f2a39_11",
       "target": "m_wildchat_new_a8d12b3f5b6f2a39_11_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_a8d12b3f5b6f2a39_11",
-      "target": "m_wildchat_new_a8d12b3f5b6f2a39_11_1",
       "key": 0
     },
     {

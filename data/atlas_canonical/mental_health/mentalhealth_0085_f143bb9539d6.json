@@ -1,0 +1,131 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0085_f143bb9539d6",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have a severe back problem. I've had 3 major and several minor operations, but I'm still in constant pain. How can I deal with the depression from this chronic pain?",
+      "id": "conv_mentalhealth_0085_f143bb9539d6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 167,
+      "content_preview": "I have a severe back problem. I've had 3 major and several minor operations, but I'm still in constant pain. How can I d",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0085_f143bb9539d6_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.62,
+      "content": "I have a severe back problem. I've had 3 major and several minor operations, but I'm still in constant pain. How can I deal with the depression from this chronic pain?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 328,
+      "content_preview": "Maybe if you started to address questions of an inner nature of what changed in your life as a result of the back proble",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0085_f143bb9539d6_1",
+      "pad_pleasure": 0.6,
+      "pad_arousal": 0.4,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.4,
+      "content": "Maybe if you started to address questions of an inner nature of what changed in your life as a result of the back problem.To know your limitations and the areas of your life which they affect, will greatly contribute to stronger self-knowledge within you.Greater awareness and sense of direction very often decreases depression."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Maybe if you started to address questions of an inner nature of what changed in...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0085_f143bb9539d6_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_mentalhealth_0085_f143bb9539d6_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_mentalhealth_0085_f143bb9539d6_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0085_f143bb9539d6",
+      "target": "t_mentalhealth_0085_f143bb9539d6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0085_f143bb9539d6",
+      "target": "t_mentalhealth_0085_f143bb9539d6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0085_f143bb9539d6_0",
+      "target": "t_mentalhealth_0085_f143bb9539d6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0085_f143bb9539d6_0",
+      "target": "mode_mentalhealth_0085_f143bb9539d6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0085_f143bb9539d6_1",
+      "target": "m_mentalhealth_0085_f143bb9539d6_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0085_f143bb9539d6_1",
+      "target": "mode_mentalhealth_0085_f143bb9539d6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0085_f143bb9539d6_1",
+      "target": "v_mentalhealth_0085_f143bb9539d6_0",
+      "key": 0
+    }
+  ]
+}

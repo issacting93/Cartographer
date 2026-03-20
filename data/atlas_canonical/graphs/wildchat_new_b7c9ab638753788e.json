@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 18,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Generate detailed information about the Pok\u00e9mon game mechanics and storyline elements.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Generate detailed information about the 'Deathmatch' game mechanic in the current generation of Pok\u00e9mon games.",
       "id": "conv_wildchat_new_b7c9ab638753788e"
     },
     {
@@ -21,7 +21,7 @@
       "role": "user",
       "content_length": 17063,
       "content_preview": "Pok\u00e9dex Entry Number: ### Name: Kontrataki Classification: Nuclear Deterrent Pok\u00e9mon Type: Steel & Fairy Height: 6\u20197",
-      "move_count": 5,
+      "move_count": 6,
       "moves": [],
       "id": "t_wildchat_new_b7c9ab638753788e_0"
     },
@@ -206,17 +206,17 @@
     },
     {
       "node_type": "Move",
-      "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "was puzzled, having never considered such a choice before. As the",
-      "confidence": 0.85,
-      "method": "regex",
+      "move_type": "TASK_SHIFT",
+      "text_span": "[shift to: Create a fictional Pok\u00e9mon character with detailed attributes and background.]",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "user",
       "id": "m_wildchat_new_b7c9ab638753788e_0_1"
     },
     {
       "node_type": "Move",
       "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "rves as a symbol of hope and redemption for the beautiful, fract",
+      "text_span": "was puzzled, having never considered such a choice before. As the",
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
@@ -225,11 +225,20 @@
     {
       "node_type": "Move",
       "move_type": "PROPOSE_CONSTRAINT",
-      "text_span": "hance to reduce the target\u2019s Special Defense.\n- Doom Desire: A uni",
+      "text_span": "rves as a symbol of hope and redemption for the beautiful, fract",
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
       "id": "m_wildchat_new_b7c9ab638753788e_0_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "hance to reduce the target\u2019s Special Defense.\n- Doom Desire: A uni",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_wildchat_new_b7c9ab638753788e_0_4"
     },
     {
       "node_type": "Move",
@@ -238,7 +247,7 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_b7c9ab638753788e_0_4"
+      "id": "m_wildchat_new_b7c9ab638753788e_0_5"
     },
     {
       "node_type": "Move",
@@ -588,6 +597,13 @@
       "sequence": 4,
       "source": "t_wildchat_new_b7c9ab638753788e_0",
       "target": "m_wildchat_new_b7c9ab638753788e_0_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 5,
+      "source": "t_wildchat_new_b7c9ab638753788e_0",
+      "target": "m_wildchat_new_b7c9ab638753788e_0_5",
       "key": 0
     },
     {

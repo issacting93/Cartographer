@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 44,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "List famous paintings in various art museums.",
       "id": "conv_wildchat_new_2277cf3253e87f8d"
     },
@@ -855,10 +855,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 28,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_2277cf3253e87f8d_28"
@@ -910,10 +910,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 38,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_2277cf3253e87f8d_38"
@@ -1041,7 +1041,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 28,
+      "turn_index": 30,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1055,20 +1055,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 30,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_2277cf3253e87f8d_8"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 9,
       "turn_index": 34,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -1078,12 +1064,26 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
+      "id": "v_wildchat_new_2277cf3253e87f8d_8"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 9,
+      "turn_index": 36,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
       "id": "v_wildchat_new_2277cf3253e87f8d_9"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 10,
-      "turn_index": 36,
+      "turn_index": 38,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1097,20 +1097,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 11,
-      "turn_index": 38,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
-      "id": "v_wildchat_new_2277cf3253e87f8d_11"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 12,
       "turn_index": 40,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -1120,11 +1106,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_2277cf3253e87f8d_12"
+      "id": "v_wildchat_new_2277cf3253e87f8d_11"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 13,
+      "violation_idx": 12,
       "turn_index": 42,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -1134,7 +1120,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_2277cf3253e87f8d_13"
+      "id": "v_wildchat_new_2277cf3253e87f8d_12"
     }
   ],
   "links": [
@@ -1998,12 +1984,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_2277cf3253e87f8d_29",
-      "target": "v_wildchat_new_2277cf3253e87f8d_7",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 31,
       "source": "t_wildchat_new_2277cf3253e87f8d_30",
@@ -2039,7 +2019,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_31",
-      "target": "v_wildchat_new_2277cf3253e87f8d_8",
+      "target": "v_wildchat_new_2277cf3253e87f8d_7",
       "key": 0
     },
     {
@@ -2125,7 +2105,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_35",
-      "target": "v_wildchat_new_2277cf3253e87f8d_9",
+      "target": "v_wildchat_new_2277cf3253e87f8d_8",
       "key": 0
     },
     {
@@ -2164,7 +2144,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_37",
-      "target": "v_wildchat_new_2277cf3253e87f8d_10",
+      "target": "v_wildchat_new_2277cf3253e87f8d_9",
       "key": 0
     },
     {
@@ -2210,7 +2190,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_39",
-      "target": "v_wildchat_new_2277cf3253e87f8d_11",
+      "target": "v_wildchat_new_2277cf3253e87f8d_10",
       "key": 0
     },
     {
@@ -2249,7 +2229,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_41",
-      "target": "v_wildchat_new_2277cf3253e87f8d_12",
+      "target": "v_wildchat_new_2277cf3253e87f8d_11",
       "key": 0
     },
     {
@@ -2281,7 +2261,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2277cf3253e87f8d_43",
-      "target": "v_wildchat_new_2277cf3253e87f8d_13",
+      "target": "v_wildchat_new_2277cf3253e87f8d_12",
       "key": 0
     }
   ]

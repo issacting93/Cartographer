@@ -1,0 +1,201 @@
+{
+  "id": "wildchat_7e953b1c94ae2db57e28a4f2f39aeb89",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "regex to exclude table in Flutter from w:tbl to w:tbl",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "As an AI language model, I do not have the complete context or the data set, but you can try using the following regular expression to exclude tables in Flutter from `<w:tbl>` to `<w:tbl>`:\n\n```\n<(w:tbl)[^>]*>[\\s\\S]*?<\\/\\1>\n```\n\nThis regex will match everything between `<w:tbl>` and `<w:tbl>` and exclude tables in Flutter. However, it's worth noting that using regex to parse HTML/XML is not always reliable and can lead to unexpected results. It's better to use a specialized XML/HTML parsing library instead.\n\nAlso, if you want to exclude tables in Flutter specifically, you may need to adjust the regex accordingly based on the particular structure and syntax used in Flutter.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "  List<String> getAllText() {\n    final regex = RegExp(r'<w:tbl>.*<\\/w:tbl>');\n    final textNodes = _document.findAllElements('w:t');\n    final textList = <String>[];\n\n    for (final node in textNodes) {\n      final text = node.innerText ?? '';\n      if (!regex.hasMatch(text)) {\n        textList.add(text);\n      }\n    }\n    return textList;\n  }\ni want exclude table in XML from docx zip in flutter\n",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "To exclude tables in XML from docx zip in Flutter, you can modify the regex in the `getAllText()` method to exclude the `<w:tbl>` and `</w:tbl>` tags. Here's an example:\n\n```\nList<String> getAllText() {\n  final regex = RegExp(r'<w:tbl>.*<\\/w:tbl>');\n  final textNodes = _document.findAllElements('w:t');\n  final textList = <String>[];\n\n  for (final node in textNodes) {\n    final text = node.innerText ?? '';\n    if (!regex.hasMatch(text)) {\n      textList.add(text);\n    }\n  }\n  return textList;\n}\n```\n\nThis will exclude any text nodes that are enclosed by `<w:tbl>` and `</w:tbl>` tags, which are used to represent tables in docx files.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0301",
+    "timestamp": "2023-06-18T07:12:31+00:00",
+    "turn_count": 2,
+    "language": "English",
+    "country": "Vietnam",
+    "state": "Bình Dương Province",
+    "toxic": false,
+    "redacted": false
+  },
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.65,
+      "evidence": [
+        "regex to exclude table in Flutter from w:tbl to w:tbl",
+        "i want exclude table in XML from docx zip in flutter"
+      ],
+      "rationale": "Human requests a specific technical solution; AI responds with a proposed regex/code guidance.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "regex to exclude table in Flutter from w:tbl to w:tbl",
+        "i want exclude table in XML from docx zip in flutter"
+      ],
+      "rationale": "Human sets the agenda by posing the technical need and providing code; AI follows that direction.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.7,
+      "evidence": [
+        "It's better to use a specialized XML/HTML parsing library instead.",
+        "To exclude tables in XML from docx zip in Flutter, you can modify the regex"
+      ],
+      "rationale": "Task-focused, technical language with no relational or affective content.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.62,
+      "evidence": [
+        "you can try using the following regular expression",
+        "you can modify the regex in the `getAllText()` method"
+      ],
+      "rationale": "AI provides prescriptive instructions (try/modify) aimed at changing code to achieve the goal.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.75,
+      "evidence": [
+        "List<String> getAllText() {",
+        "you can try using the following regular expression"
+      ],
+      "rationale": "Exchange centers on how to implement a regex/code approach in Flutter/Dart.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.72,
+      "evidence": [
+        "i want exclude table in XML from docx zip in flutter",
+        "To exclude tables in XML from docx zip in Flutter"
+      ],
+      "rationale": "Goal is to fix/implement a concrete behavior (excluding table content) in a code workflow.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "moderate",
+      "confidence": 0.55,
+      "evidence": [
+        "final regex = RegExp(r'<w:tbl>.*<\\/w:tbl>');",
+        "This regex will match everything between `<w:tbl>` and `<w:tbl>`"
+      ],
+      "rationale": "Includes some implementation detail (code snippet, regex), but limited exploration of edge cases/structure.",
+      "alternative": "surface"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.6,
+      "evidence": [
+        "As an AI language model, I do not have the complete context or the data set, but you can try using the following regular expression",
+        "However, it's worth noting that using regex to parse HTML/XML is not always reliable"
+      ],
+      "rationale": "AI responses are longer and more elaborated than the human prompts overall.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.25,
+        "provider": 0.55,
+        "director": 0.15,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.62,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "regex to exclude table in Flutter from w:tbl to w:tbl"
+        },
+        {
+          "role": "director",
+          "quote": "i want exclude table in XML from docx zip in flutter"
+        },
+        {
+          "role": "provider",
+          "quote": "List<String> getAllText() {"
+        }
+      ],
+      "rationale": "Human primarily requests a solution from the AI (provider/information-seeking) and specifies the desired outcome (director) while supplying code context.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.55,
+        "learning-facilitator": 0.05,
+        "advisor": 0.35,
+        "co-constructor": 0.05,
+        "social-facilitator": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.66,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "you can try using the following regular expression"
+        },
+        {
+          "role": "advisor",
+          "quote": "It's better to use a specialized XML/HTML parsing library instead."
+        },
+        {
+          "role": "advisor",
+          "quote": "you can modify the regex in the `getAllText()` method"
+        }
+      ],
+      "rationale": "AI provides direct technical content (regex) and prescriptive recommendations (better to use a parsing library; modify code).",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T18:39:29.131842",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 13024,
+    "fewShotExamples": "yes"
+  }
+}

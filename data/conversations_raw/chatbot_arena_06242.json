@@ -1,0 +1,29 @@
+{
+  "id": "chatbot_arena_06242",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write HEVC NAL parser in c++ that will parse SPS and PPS."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is a basic HEVC NAL parser in C++ that can parse SPS and PPS NAL units:\n```cpp\n#include <vector>\n#include <bitset>\n\nusing namespace std;\n\nenum class NALUnitType {\n    TRAIL_N = 0,\n    TRAIL_R = 1,\n    TSA_N   = 2,\n    TSA_R   = 3,\n    STAP_A  = 4, \n    STAP_B  = 5, \n    MTAP16  = 6,\n    MTAP24  = 7,\n    FU_A    = 8,\n    FU_B    = 9,\n    SPS     = 32,\n    PPS     = 33,\n    VPS     = 34,\n    SEI_PREFIX = 39,\n    SEI_SUFFIX = 40\n};\n\nstruct NALUnit {\n    NALUnitType type;\n    vector<uint8_t> data;\n};\n\nclass HEVCParser {\npublic:\n    vector<NALUnit> parse(vector<uint8_t>& data) {\n        vector<NALUnit> nalUnits;\n        uint32_t i = 0;\n        while (i < data.size()) {\n            // Find start code (0x00 00 00 01)\n            uint32_t startCodePos = i;\n            while (i < data.size() - 3 && data[i] == 0 && data[i+1] == 0 && data[i+2] == 0) {\n                i += 3;\n            }\n            if (i >= data.size() - 3) break;\n            if (data[i] != 1) { // Start code not found, move to next byte\n                i++;\n                continue;\n            } \n            \n            // Extract NAL unit type and size\n            uint8_t nalUnitType = (data[startCodePos + 3] & 0x7E) >> 1;\n            uint16_t nalUnitSize = 0;\n            for (int j = 0; j < 2; j++) {\n                nalUnitSize = (nalUnitSize << 8) | data[i + 1 + j];\n            }\n            i += 3; // Move past start code\n            \n            // Extract NAL unit data\n            vector<uint8_t> nalUnitData(nalUnitSize);\n            for (int j = 0; j < nalUnitSize"
+    },
+    {
+      "role": "user",
+      "content": "continue"
+    },
+    {
+      "role": "assistant",
+      "content": "; j++) {\n                nalUnitData[j] = data[i + j];\n            }\n            i += nalUnitSize;\n            \n            // Create NAL unit object\n            NALUnit nalUnit;\n            nalUnit.type = (NALUnitType)nalUnitType;\n            nalUnit.data = nalUnitData;\n            nalUnits.push_back(nalUnit);\n        }\n        return nalUnits;\n    }\n    \n    void parseSPS(NALUnit& sps) {\n        // SPS parsing logic here\n    }\n    \n    void parsePPS(NALUnit& pps) {\n        // PPS parsing logic here \n    }\n};\n\nint main() {\n    vector<uint8_t> data = {0, 0, 0, 1, 0x27, 0x62, 0x01, 0x0c, 0x01, 0x94, 0x00, 0x00, 0x03, 0x00, 0x01, 0x00}; \n    // Contains one SPS NAL unit\n    \n    HEVCParser parser;\n    vector<NALUnit> nalUnits = parser.parse(data);\n    \n    // Find and parse SPS\n    for (NALUnit& nalUnit : nalUnits) {\n        if (nalUnit.type == NALUnitType::SPS) {\n            parser.parseSPS(nalUnit);\n        }\n    }\n}\n```\n\nThis parser scans through the input data to find start codes (0x00 00 00 01) which indicate the beginning of a NAL unit. It then extracts the NAL unit type, size, and data. The SPS and PPS NAL units are parsed by calling the `parseSPS()` and `parsePPS()` methods respectively. Let me know if you have any questions!"
+    },
+    {
+      "role": "user",
+      "content": "Fill parseSPS function implementation"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is an implementation of the parseSPS() method:\n```cpp\nvoid HEVCParser::parseSPS(NALUnit& sps) {\n    // Extract raw byte sequence parameter set data\n    vector<uint8_t>& data = sps.data;\n    \n    // Get SPS ID\n    uint8_t spsId = (data[1] & 0x1F);\n    \n    // Get SPS size\n    uint16_t spsSize = 0;\n    for (int i = 0; i < 2; i++) {\n        spsSize = (spsSize << 8) | data[2 + i]; \n    }\n    \n    // Parse profile_tier_level\n    uint8_t ptlLength = data[4];\n    uint8_t profile_space = (data[5] >> 6) & 0x3;\n    uint8_t tier_flag   = (data[5] >> 5) & 0x1;\n    uint8_t profile_idc = data[5] & 0x1F;\n    \n    // Parse pic_width_in_luma_samples and pic_height_in_luma_samples\n    uint16_t picWidth  = 0;\n    for (int i = 0; i < 2; i++) {\n        picWidth = (picWidth << 8) | data[6 + i];\n    }\n    uint16_t picHeight = 0;\n    for (int i = 0; i < 2; i++) {\n        picHeight = (picHeight << 8) | data[8 + i]; \n    }\n    \n    // Parse bit depth and chroma format\n    uint8_t bitDepth   = (data[10] & 0xF0) >> 4; \n    uint8_t chromaFormatIdc = data[10] & 0x0F;\n    \n    // There are more fields to parse...\n}\n```\n\nThis parses some of the key fields in the SPS NAL unit like:\n\n- sps_id: Sequence parameter set ID \n- sps_size: Size of the SPS in bytes\n- profile_tier_level: Profile, tier, and level information \n- pic_width_in_luma_samples: Picture width in luma samples\n- pic_height_in_luma_samples: Picture height in luma samples\n- bit_depth: Bit depth of luma and chroma"
+    }
+  ]
+}

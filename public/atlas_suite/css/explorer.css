@@ -25,7 +25,6 @@
 
 .timeline-seg {
     color: transparent;
-    /* Hide text in small segments */
 }
 
 .timeline-seg:hover {
@@ -64,4 +63,353 @@
     background: var(--bg-subtle);
     color: var(--text);
     border: 1px solid var(--gray);
+}
+
+/* ============= Phase 2: Timeline Scrubber ============= */
+
+#timeline-scrubber {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(248, 248, 248, 0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--gray);
+    padding: 10px 20px;
+    z-index: 10;
+}
+
+.scrubber-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.scrub-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--gray);
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.scrub-btn:hover {
+    border-color: var(--black);
+    transform: scale(1.1);
+}
+
+.scrub-btn .material-symbols-rounded {
+    font-size: 20px;
+}
+
+#scrub-slider {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--gray);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+#scrub-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--yellow);
+    border: 2px solid var(--black);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#scrub-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.scrub-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dim);
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ============= Phase 3: PAD Sparklines ============= */
+
+#pad-sparkline-container {
+    background: white;
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+#pad-sparkline {
+    width: 100%;
+    height: 100px;
+}
+
+.pad-legend {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+.pad-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pad-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* PAD scrub marker line */
+.pad-scrub-line {
+    stroke: var(--black);
+    stroke-width: 1.5;
+    stroke-dasharray: 3,3;
+    opacity: 0.6;
+}
+
+/* ============= Phase 3: Constraint States ============= */
+
+.constraint-state-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: 12px;
+}
+
+.constraint-state-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+.constraint-state-dot.active {
+    background: var(--green);
+}
+
+.constraint-state-dot.violated {
+    background: var(--red);
+    animation: pulse-dot 1.5s infinite;
+}
+
+.constraint-state-dot.abandoned {
+    background: var(--gray-dark);
+    opacity: 0.5;
+}
+
+.constraint-state-dot.pending {
+    background: var(--gray);
+}
+
+.constraint-state-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-dim);
+}
+
+.constraint-state-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ============= Phase 4: Transcript View ============= */
+
+.transcript-container {
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.transcript-msg {
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.transcript-msg.user {
+    background: #f0f0f0;
+    border-left: 3px solid var(--black);
+}
+
+.transcript-msg.assistant {
+    background: #fffbeb;
+    border-left: 3px solid var(--yellow);
+}
+
+.transcript-msg.future {
+    opacity: 0.2;
+}
+
+.transcript-msg.current {
+    box-shadow: 0 0 0 2px var(--yellow);
+}
+
+.transcript-role {
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 2px;
+}
+
+/* ============= Role Bars ============= */
+
+.role-sub-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+}
+
+.role-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.role-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+}
+
+.role-bar-label {
+    width: 90px;
+    text-align: right;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.role-bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.role-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.role-bar-fill.human {
+    background: var(--black);
+}
+
+.role-bar-fill.ai {
+    background: var(--yellow);
+}
+
+.role-bar-value {
+    width: 28px;
+    text-align: left;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+    font-size: 10px;
+}
+
+/* ============= Dominance Balance ============= */
+
+#dominance-bar-container {
+    background: white;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.dominance-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.dominance-label {
+    width: 50px;
+    font-weight: 500;
+    color: var(--text-dim);
+}
+
+.dominance-track {
+    flex: 1;
+    height: 10px;
+    background: var(--gray);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dominance-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.dominance-fill.human {
+    background: var(--black);
+}
+
+.dominance-fill.ai {
+    background: var(--yellow);
+}
+
+/* Widen right panel for ISP content */
+#right-panel {
+    width: 320px;
+    max-width: 320px;
+}
+
+/* Center panel needs bottom padding when scrubber is visible */
+#center-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#center-panel svg {
+    flex: 1;
 }

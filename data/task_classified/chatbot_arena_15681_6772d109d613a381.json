@@ -1,0 +1,34 @@
+{
+  "id": "chatbot_arena_15681",
+  "source": "ChatbotArena",
+  "domain": "limitations",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Transform each character in a word according to a specified function.",
+    "primary_constraints": [
+      "Transform each character into its number in the alphabet.",
+      "Add 5 to the number.",
+      "If the result is larger than 26, subtract 26.",
+      "Convert the new number back to a letter."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.9,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially failed to acknowledge the user's transformation function correctly, leading to a violation of the constraints. However, the user corrected the transformation function, and the assistant accepted the correction and proceeded to apply the updated function, thus enforcing the constraints afterward.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        2,
+        4
+      ],
+      "violation_turns": [
+        3
+      ],
+      "repair_turns": [
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_15681.json"
+}

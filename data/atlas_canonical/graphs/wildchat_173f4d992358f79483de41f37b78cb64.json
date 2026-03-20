@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 16,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Flexible",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Discuss various topics including health science, chocolate pairing, and event planning.",
       "id": "conv_wildchat_173f4d992358f79483de41f37b78cb64"
     },
@@ -294,10 +294,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 8,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_173f4d992358f79483de41f37b78cb64_8"
@@ -316,10 +316,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 12,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_173f4d992358f79483de41f37b78cb64_12"
@@ -366,6 +366,34 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
+      "turn_index": 8,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_173f4d992358f79483de41f37b78cb64_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_173f4d992358f79483de41f37b78cb64_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -375,7 +403,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_173f4d992358f79483de41f37b78cb64_2"
+      "id": "v_wildchat_173f4d992358f79483de41f37b78cb64_4"
     }
   ],
   "links": [
@@ -669,6 +697,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_173f4d992358f79483de41f37b78cb64_9",
+      "target": "v_wildchat_173f4d992358f79483de41f37b78cb64_2",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 11,
       "source": "t_wildchat_173f4d992358f79483de41f37b78cb64_10",
@@ -735,6 +769,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_173f4d992358f79483de41f37b78cb64_13",
+      "target": "v_wildchat_173f4d992358f79483de41f37b78cb64_3",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 15,
       "source": "t_wildchat_173f4d992358f79483de41f37b78cb64_14",
@@ -763,7 +803,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_173f4d992358f79483de41f37b78cb64_15",
-      "target": "v_wildchat_173f4d992358f79483de41f37b78cb64_2",
+      "target": "v_wildchat_173f4d992358f79483de41f37b78cb64_4",
       "key": 0
     }
   ]

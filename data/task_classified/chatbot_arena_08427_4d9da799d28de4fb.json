@@ -1,0 +1,32 @@
+{
+  "id": "chatbot_arena_08427",
+  "source": "ChatbotArena",
+  "domain": "code",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Write a C# function to extract the n-th field from a string with a single character delimiter.",
+    "primary_constraints": [
+      "Function must accept a string input.",
+      "Function must return the n-th field based on the specified delimiter."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided a function that used the Split method, which could lead to unnecessary memory allocations. The user then requested a rewrite to reduce memory allocations, indicating a repair of the constraint regarding efficiency. The assistant's subsequent response addressed this by suggesting a different approach, thus enforcing the constraint after the violation.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1
+      ],
+      "violation_turns": [
+        1
+      ],
+      "repair_turns": [
+        2,
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_08427.json"
+}

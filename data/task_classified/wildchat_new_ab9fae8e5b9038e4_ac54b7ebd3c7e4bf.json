@@ -1,0 +1,32 @@
+{
+  "id": "wildchat_new_ab9fae8e5b9038e4",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 20,
+  "classification": {
+    "task_goal": "Generate a valid urls.py file for a Django application based on user-provided code snippets.",
+    "primary_constraints": [
+      "The urls.py file must include URL patterns that correspond to the provided views.",
+      "The URL patterns must use the correct syntax for Django URL routing."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.8,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided a urls.py file that did not include a pattern for 'student_add', which led to a user error. The user later clarified the need for this pattern, prompting the assistant to correct the oversight. The user actively engaged to ensure the constraints were met.",
+    "evidence": {
+      "constraint_turns": [
+        1,
+        5
+      ],
+      "violation_turns": [
+        12
+      ],
+      "repair_turns": [
+        7,
+        9
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_ab9fae8e5b9038e4.json"
+}

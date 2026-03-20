@@ -10,8 +10,8 @@
       "domain": "finance",
       "total_turns": 16,
       "stability_class": "Task Maintained",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Answer tax-related multiple-choice questions accurately.",
       "id": "conv_wildchat_new_f728840e906d485c"
     },
@@ -323,10 +323,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 10,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_f728840e906d485c_10"
@@ -334,10 +334,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 12,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_f728840e906d485c_12"
@@ -384,7 +384,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 12,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -720,6 +720,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_f728840e906d485c_11",
+      "target": "v_wildchat_new_f728840e906d485c_2",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 13,
       "source": "t_wildchat_new_f728840e906d485c_12",
@@ -757,12 +763,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_f728840e906d485c_13",
       "target": "mode_wildchat_new_f728840e906d485c_12",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_f728840e906d485c_13",
-      "target": "v_wildchat_new_f728840e906d485c_2",
       "key": 0
     },
     {

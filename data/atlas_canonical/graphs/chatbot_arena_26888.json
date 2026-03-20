@@ -1,0 +1,315 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_26888",
+      "source": "ChatbotArena",
+      "domain": "general",
+      "total_turns": 6,
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Solve the water jug puzzle using a 5-gallon and a 3-gallon jug.",
+      "id": "conv_chatbot_arena_26888"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 54,
+      "content_preview": "How do you get 4 gallons with a 5 and a 3 gallon jug?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 594,
+      "content_preview": "This is a classic problem in puzzle-solving and can be solved using the following steps: 1. Fill the 3-gallon jug compl",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 25,
+      "content_preview": "Have you seen Die Hard 3?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 241,
+      "content_preview": "As an AI language model, I have not \"seen\" Die Hard 3 as I am not capable of watching movies or any visual content. Howe",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 52,
+      "content_preview": "Are you aware that the above puzzle is in the movie?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 293,
+      "content_preview": "Yes, I am aware that the water jug puzzle is a significant part of the plot in the movie Die Hard with a Vengeance (Die",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_26888_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "This is a classic problem in puzzle-solving and can be solved using the followin...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_26888_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "As an AI language model, I have not \"seen\" Die Hard 3 as I am not capable of wat...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_26888_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Yes, I am aware that the water jug puzzle is a significant part of the plot in t...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_26888_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_26888_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "LISTENER",
+      "ai_enacted": "ADVISOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_26888_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_26888_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "ADVISOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_26888_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_26888_1"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_26888",
+      "target": "t_chatbot_arena_26888_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_26888_0",
+      "target": "t_chatbot_arena_26888_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_0",
+      "target": "mode_chatbot_arena_26888_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_26888_1",
+      "target": "t_chatbot_arena_26888_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_26888_1",
+      "target": "m_chatbot_arena_26888_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_1",
+      "target": "mode_chatbot_arena_26888_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_26888_2",
+      "target": "t_chatbot_arena_26888_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_2",
+      "target": "mode_chatbot_arena_26888_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_26888_3",
+      "target": "t_chatbot_arena_26888_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_26888_3",
+      "target": "m_chatbot_arena_26888_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_3",
+      "target": "mode_chatbot_arena_26888_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_26888_3",
+      "target": "v_chatbot_arena_26888_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_26888_4",
+      "target": "t_chatbot_arena_26888_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_4",
+      "target": "mode_chatbot_arena_26888_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_26888_5",
+      "target": "m_chatbot_arena_26888_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_26888_5",
+      "target": "mode_chatbot_arena_26888_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_26888_5",
+      "target": "v_chatbot_arena_26888_1",
+      "key": 0
+    }
+  ]
+}

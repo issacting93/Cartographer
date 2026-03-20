@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 12,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Identify the capitals and populations of England and France.",
       "id": "conv_chatbot_arena_0785"
     },
@@ -138,10 +138,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 0,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_chatbot_arena_0785_0"
@@ -182,10 +182,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 8,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_chatbot_arena_0785_8"
@@ -204,7 +204,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 0,
-      "turn_index": 0,
+      "turn_index": 2,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -218,20 +218,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 2,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.5,
-      "method": "llm",
-      "id": "v_chatbot_arena_0785_1"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -241,21 +227,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_chatbot_arena_0785_2"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 3,
-      "turn_index": 8,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.5,
-      "method": "llm",
-      "id": "v_chatbot_arena_0785_3"
+      "id": "v_chatbot_arena_0785_1"
     }
   ],
   "links": [
@@ -370,12 +342,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_chatbot_arena_0785_1",
-      "target": "v_chatbot_arena_0785_0",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 3,
       "source": "t_chatbot_arena_0785_2",
@@ -404,7 +370,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_chatbot_arena_0785_3",
-      "target": "v_chatbot_arena_0785_1",
+      "target": "v_chatbot_arena_0785_0",
       "key": 0
     },
     {
@@ -462,7 +428,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_chatbot_arena_0785_7",
-      "target": "v_chatbot_arena_0785_2",
+      "target": "v_chatbot_arena_0785_1",
       "key": 0
     },
     {
@@ -489,12 +455,6 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_0785_9",
       "target": "mode_chatbot_arena_0785_8",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_chatbot_arena_0785_9",
-      "target": "v_chatbot_arena_0785_3",
       "key": 0
     },
     {

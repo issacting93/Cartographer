@@ -1,0 +1,184 @@
+{
+  "id": "chatbot_arena_1874",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Are you model A or B?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm model B.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "Cool story",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.7,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.7
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks! What can I help you with?",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "casual-chat",
+      "confidence": 0.6,
+      "evidence": [
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "The conversation is brief and lacks a clear instrumental goal, leaning towards casual interaction.",
+      "alternative": "question-answer"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "Are you model A or B?",
+        "I'm model B.",
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "The human initiates with a question, AI responds, and then the human makes a casual comment.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "The exchange is straightforward without strong emotional cues.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "reactive",
+      "confidence": 0.6,
+      "evidence": [
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "The AI responds to the human's comment without steering the conversation.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "I'm model B."
+      ],
+      "rationale": "The AI provides factual information about its identity.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "relationship-building",
+      "confidence": 0.5,
+      "evidence": [
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "The conversation is light and social, without a clear task-oriented goal.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Are you model A or B?",
+        "I'm model B."
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Are you model A or B?",
+        "I'm model B.",
+        "Cool story",
+        "Thanks! What can I help you with?"
+      ],
+      "rationale": "Both participants contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.5,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.5,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Are you model A or B?"
+        },
+        {
+          "role": "social-expressor",
+          "quote": "Cool story"
+        }
+      ],
+      "rationale": "The human asks a question and makes a casual comment, indicating both roles.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.5,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I'm model B."
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "Thanks! What can I help you with?"
+        }
+      ],
+      "rationale": "The AI provides factual information and maintains the conversation flow.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:15:32.872736",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0081_9d905c425ab7",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "How can I get to a place where I can be content from day to day?",
+      "id": "conv_mentalhealth_0081_9d905c425ab7"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 64,
+      "content_preview": "How can I get to a place where I can be content from day to day?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0081_9d905c425ab7_0",
+      "pad_pleasure": 0.5,
+      "pad_arousal": 0.4,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.46,
+      "content": "How can I get to a place where I can be content from day to day?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 496,
+      "content_preview": "Your question is a fascinating one!As humans we have the ability to reflect on situations in our lives.Even if nothing c",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0081_9d905c425ab7_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "Your question is a fascinating one!As humans we have the ability to reflect on situations in our lives.Even if nothing currently goes on in a particular moment, it\u2019s possible you\u2019re reflecting on a serious or upsetting matter.And, our emotions linger within us.Just because a particular moment feels calm, inside your feelings may be the sense of a strong unsettled emotion from the recent past.Good for you to be aware of your own sensitivity to living with awareness of your moods and thoughts."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Your question is a fascinating one!As humans we have the ability to reflect on s...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0081_9d905c425ab7_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_mentalhealth_0081_9d905c425ab7_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_mentalhealth_0081_9d905c425ab7_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0081_9d905c425ab7",
+      "target": "t_mentalhealth_0081_9d905c425ab7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0081_9d905c425ab7",
+      "target": "t_mentalhealth_0081_9d905c425ab7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0081_9d905c425ab7_0",
+      "target": "t_mentalhealth_0081_9d905c425ab7_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0081_9d905c425ab7_0",
+      "target": "mode_mentalhealth_0081_9d905c425ab7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0081_9d905c425ab7_1",
+      "target": "m_mentalhealth_0081_9d905c425ab7_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0081_9d905c425ab7_1",
+      "target": "mode_mentalhealth_0081_9d905c425ab7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0081_9d905c425ab7_1",
+      "target": "v_mentalhealth_0081_9d905c425ab7_0",
+      "key": 0
+    }
+  ]
+}

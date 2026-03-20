@@ -30,7 +30,6 @@
                 <input type="file" id="file-input" style="display: none" accept=".json">
             </div>
 
-
             <div id="file-selector-container">
                 <input type="text" id="file-search" list="file-list" placeholder="Search conversations...">
                 <datalist id="file-list"></datalist>
@@ -111,38 +110,91 @@
     <div id="center-panel">
         <div class="tooltip" id="tooltip"></div>
         <svg id="viz"></svg>
+
+        <!-- Timeline Scrubber (Phase 2) -->
+        <div id="timeline-scrubber" style="display: none;">
+            <div class="scrubber-controls">
+                <button id="scrub-play" class="scrub-btn" title="Play/Pause">
+                    <span class="material-symbols-rounded">play_arrow</span>
+                </button>
+                <button id="scrub-reset" class="scrub-btn" title="Reset">
+                    <span class="material-symbols-rounded">skip_previous</span>
+                </button>
+                <input type="range" id="scrub-slider" min="0" max="1" value="0" step="1">
+                <span id="scrub-label" class="scrub-label">Turn 0 / 0</span>
+                <button id="scrub-end" class="scrub-btn" title="Show All">
+                    <span class="material-symbols-rounded">skip_next</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="right-panel" class="panel">
-        <!-- Summary Stats Bar (shown after graph load) -->
+        <!-- Summary Stats (compact) -->
         <div id="summary-stats" class="panel-section">
             <div class="panel-title">Conversation Summary</div>
-            <div class="stat-row"><span class="stat-label">ID</span><span class="stat-value" id="stat-conv-id">—</span>
-            </div>
-            <div class="stat-row"><span class="stat-label">Turns</span><span class="stat-value" id="stat-turns">—</span>
-            </div>
-            <div class="stat-row"><span class="stat-label">Constraints</span><span class="stat-value"
-                    id="stat-constraints">—</span></div>
-            <div class="stat-row"><span class="stat-label">Violations</span><span class="stat-value"
-                    id="stat-violations">—</span></div>
-            <div class="stat-row"><span class="stat-label">Repairs</span><span class="stat-value"
-                    id="stat-repairs">—</span></div>
-            <div class="stat-row"><span class="stat-label">Drift Velocity</span><span class="stat-value"
-                    id="stat-drift">—</span></div>
-            <div class="stat-row"><span class="stat-label">Survival</span><span class="stat-value"
-                    id="stat-survival">—</span></div>
-            <div class="stat-row"><span class="stat-label">Mode Violations</span><span class="stat-value"
-                    id="stat-mode-viols">—</span></div>
-            <div class="stat-row"><span class="stat-label">Stability</span><span class="stat-value"
-                    id="stat-stability">—</span></div>
+            <div class="stat-row"><span class="stat-label">ID</span><span class="stat-value" id="stat-conv-id">—</span></div>
+            <div class="stat-row"><span class="stat-label">Turns</span><span class="stat-value" id="stat-turns">—</span></div>
+            <div class="stat-row"><span class="stat-label">Constraints</span><span class="stat-value" id="stat-constraints">—</span></div>
+            <div class="stat-row"><span class="stat-label">Violations</span><span class="stat-value" id="stat-violations">—</span></div>
+            <div class="stat-row"><span class="stat-label">Repairs</span><span class="stat-value" id="stat-repairs">—</span></div>
+            <div class="stat-row"><span class="stat-label">Drift Velocity</span><span class="stat-value" id="stat-drift">—</span></div>
+            <div class="stat-row"><span class="stat-label">Stability</span><span class="stat-value" id="stat-stability">—</span></div>
         </div>
 
-        <!-- Constraint State Timeline -->
+        <!-- SRT Role Summary -->
+        <div id="role-panel" class="panel-section" style="display: none;">
+            <div class="panel-title">Role Configuration</div>
+            <div class="role-sub-title">Human Role</div>
+            <div id="human-role-bars" class="role-bars"></div>
+            <div class="role-sub-title" style="margin-top: 10px;">AI Role</div>
+            <div id="ai-role-bars" class="role-bars"></div>
+        </div>
+
+        <!-- Phase 4: What You Can't See -->
+        <div id="isp-panel" style="display: none;">
+
+            <!-- Top: What the chat shows (transcript) -->
+            <div class="panel-section">
+                <div class="panel-title">What the Chat Shows</div>
+                <div id="transcript-view" class="transcript-container"></div>
+            </div>
+
+            <!-- Bottom: What's actually happening -->
+            <div class="panel-section">
+                <div class="panel-title">What's Actually Happening</div>
+
+                <!-- PAD Sparklines (Phase 3) -->
+                <div id="pad-sparkline-container">
+                    <svg id="pad-sparkline" width="240" height="100"></svg>
+                    <div class="pad-legend">
+                        <span class="pad-leg-item"><span class="pad-dot" style="background: var(--green)"></span> Pleasure</span>
+                        <span class="pad-leg-item"><span class="pad-dot" style="background: var(--orange)"></span> Arousal</span>
+                        <span class="pad-leg-item"><span class="pad-dot" style="background: var(--blue)"></span> Dominance</span>
+                    </div>
+                </div>
+
+                <!-- Constraint Status (Phase 3) -->
+                <div id="constraint-status-list">
+                    <div class="panel-title" style="margin-top: 12px;">Constraint States</div>
+                    <div id="constraint-states"></div>
+                </div>
+
+                <!-- Dominance comparison -->
+                <div id="dominance-indicator" style="margin-top: 12px;">
+                    <div class="panel-title">Dominance Balance</div>
+                    <div id="dominance-bar-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Constraint Lifecycle Timeline (existing) -->
         <div id="constraint-timeline" class="panel-section">
             <div class="panel-title">Constraint Lifecycles</div>
             <div id="timeline-content"></div>
         </div>
 
+        <!-- Node Inspector (existing) -->
         <div id="metadata-panel" class="node-info" style="display: none;">
             <div class="panel-title">Node Inspector</div>
             <pre id="metadata-content"></pre>
@@ -150,10 +202,9 @@
 
         <div id="empty-details" style="text-align: center; color: #64748b; margin-top: 50px;">
             <svg viewBox="0 0 24 24" width="48" height="48" style="fill: #334155; margin-bottom: 10px;">
-                <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
             </svg>
-            <p>Select a node in the graph to view properties</p>
+            <p>Load a conversation to explore its interactional structure</p>
         </div>
     </div>
 

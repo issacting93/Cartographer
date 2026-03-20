@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 30,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Transformation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Reduce image resolution in all images in a folder and nested folders while maintaining folder structure.",
       "id": "conv_wildchat_new_2c6e544ac382434d"
     },
@@ -151,7 +151,7 @@
       "role": "assistant",
       "content_length": 1177,
       "content_preview": "If you see an error saying \"You must specify a name\" when you try to run a batch process in Photoshop without specifying",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_2c6e544ac382434d_13"
     },
@@ -171,7 +171,7 @@
       "role": "assistant",
       "content_length": 1073,
       "content_preview": "If the batch process is not keeping the folder structure when saving the modified images, it may be because the \"Structu",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_2c6e544ac382434d_15"
     },
@@ -390,20 +390,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Folder structure must be preserved in the output.] The response does not mention preserving",
+      "text_span": "[violates: Resolution must be reduced by a specified percentage.] The response does not mention the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_2c6e544ac382434d_13_1"
+      "id": "m_wildchat_new_2c6e544ac382434d_15_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "If the batch process is not keeping the folder structure when saving the modifie...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Folder structure must be preserved in the output.] The response does not explicitly confirm",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_2c6e544ac382434d_15_0"
+      "id": "m_wildchat_new_2c6e544ac382434d_15_1"
     },
     {
       "node_type": "Move",
@@ -453,7 +453,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Resolution must be reduced by a specified percentage.] The response does not mention reducing t",
+      "text_span": "[violates: Resolution must be reduced by a specified percentage.] The response does not mention any reduct",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -488,10 +488,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Yes, IrfanView can preserve the folder structure of images during batch processi...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Resolution must be reduced by a specified percentage.] The response does not mention any reduct",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_2c6e544ac382434d_29_0"
     },
@@ -531,23 +531,19 @@
       "current_state": "VIOLATED",
       "state_history": [
         [
-          0,
+          10,
           "STATED"
         ],
         [
-          0,
-          "ACTIVE"
-        ],
-        [
-          13,
+          15,
           "VIOLATED"
         ]
       ],
-      "introduced_at": 0,
+      "introduced_at": 10,
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 13,
+      "lifespan": 5,
       "final_state": null,
       "id": "c_wildchat_new_2c6e544ac382434d_c_1"
     },
@@ -564,7 +560,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 13,
+      "turn_index": 15,
       "constraint_id": "c_1",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -607,10 +603,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "LISTENER",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_2c6e544ac382434d_6"
@@ -753,20 +749,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 6,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_2c6e544ac382434d_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -776,11 +758,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_wildchat_new_2c6e544ac382434d_4"
+      "id": "v_wildchat_new_2c6e544ac382434d_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 5,
+      "violation_idx": 4,
       "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -790,12 +772,26 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "regex",
+      "id": "v_wildchat_new_2c6e544ac382434d_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 5,
+      "turn_index": 20,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
       "id": "v_wildchat_new_2c6e544ac382434d_5"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 20,
+      "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
       "was_repaired": false,
@@ -809,7 +805,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 22,
+      "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
       "was_repaired": false,
@@ -823,20 +819,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 24,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_2c6e544ac382434d_8"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 9,
       "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -846,7 +828,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_2c6e544ac382434d_9"
+      "id": "v_wildchat_new_2c6e544ac382434d_8"
     }
   ],
   "links": [
@@ -1205,12 +1187,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_2c6e544ac382434d_7",
-      "target": "v_wildchat_new_2c6e544ac382434d_3",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 9,
       "source": "t_wildchat_new_2c6e544ac382434d_8",
@@ -1246,7 +1222,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_9",
-      "target": "v_wildchat_new_2c6e544ac382434d_4",
+      "target": "v_wildchat_new_2c6e544ac382434d_3",
       "key": 0
     },
     {
@@ -1285,7 +1261,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_11",
-      "target": "v_wildchat_new_2c6e544ac382434d_5",
+      "target": "v_wildchat_new_2c6e544ac382434d_4",
       "key": 0
     },
     {
@@ -1323,19 +1299,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_2c6e544ac382434d_13",
-      "target": "m_wildchat_new_2c6e544ac382434d_13_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_2c6e544ac382434d_13",
-      "target": "v_wildchat_new_2c6e544ac382434d_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_2c6e544ac382434d_13",
       "target": "mode_wildchat_new_2c6e544ac382434d_12",
@@ -1366,6 +1329,19 @@
       "sequence": 0,
       "source": "t_wildchat_new_2c6e544ac382434d_15",
       "target": "m_wildchat_new_2c6e544ac382434d_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_2c6e544ac382434d_15",
+      "target": "m_wildchat_new_2c6e544ac382434d_15_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_2c6e544ac382434d_15",
+      "target": "v_wildchat_new_2c6e544ac382434d_1",
       "key": 0
     },
     {
@@ -1483,7 +1459,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_21",
-      "target": "v_wildchat_new_2c6e544ac382434d_6",
+      "target": "v_wildchat_new_2c6e544ac382434d_5",
       "key": 0
     },
     {
@@ -1536,7 +1512,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_23",
-      "target": "v_wildchat_new_2c6e544ac382434d_7",
+      "target": "v_wildchat_new_2c6e544ac382434d_6",
       "key": 0
     },
     {
@@ -1575,7 +1551,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_25",
-      "target": "v_wildchat_new_2c6e544ac382434d_8",
+      "target": "v_wildchat_new_2c6e544ac382434d_7",
       "key": 0
     },
     {
@@ -1640,7 +1616,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_2c6e544ac382434d_29",
-      "target": "v_wildchat_new_2c6e544ac382434d_9",
+      "target": "v_wildchat_new_2c6e544ac382434d_8",
       "key": 0
     },
     {
@@ -1654,7 +1630,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 13,
+      "at_turn": 15,
       "source": "v_wildchat_new_2c6e544ac382434d_1",
       "target": "c_wildchat_new_2c6e544ac382434d_c_1",
       "key": 0

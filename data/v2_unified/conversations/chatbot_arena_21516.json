@@ -1,0 +1,192 @@
+{
+  "id": "chatbot_arena_21516",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "Explain quantum physics with 10 words",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Quantum mechanics is a fundamental theory that describes the behavior of matter and energy at the atomic and subatomic level using principles such as superposition, entanglement, and wave-particle duality.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "10 words, all words start with letter \"A\"",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.6,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.6
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Quantum mechanics is an A-stemmed theory that describes the A-nature of matter and energy using superposition, entanglement, and wave-particle duality.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Explain quantum physics with 10 words",
+        "10 words, all words start with letter \"A\""
+      ],
+      "rationale": "The human asks questions and the AI provides answers.",
+      "alternative": "collaborative"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Explain quantum physics with 10 words",
+        "10 words, all words start with letter \"A\""
+      ],
+      "rationale": "The human sets the agenda by asking specific questions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello! How can I help you today?",
+        "Quantum mechanics is a fundamental theory..."
+      ],
+      "rationale": "The conversation lacks emotional language or tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "Explain quantum physics with 10 words",
+        "10 words, all words start with letter \"A\""
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "Quantum mechanics is a fundamental theory..."
+      ],
+      "rationale": "The AI provides factual information about quantum mechanics.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "Explain quantum physics with 10 words",
+        "10 words, all words start with letter \"A\""
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Explain quantum physics with 10 words"
+      ],
+      "rationale": "The conversation provides a brief overview of quantum mechanics.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "test",
+        "Hello! How can I help you today?",
+        "Explain quantum physics with 10 words"
+      ],
+      "rationale": "The conversation alternates turns evenly between human and AI.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.1,
+        "director": 0.1,
+        "collaborator": 0.05,
+        "social-expressor": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Explain quantum physics with 10 words"
+        }
+      ],
+      "rationale": "The human primarily seeks information through questions.",
+      "alternative": "director"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Quantum mechanics is a fundamental theory..."
+        }
+      ],
+      "rationale": "The AI provides factual information, demonstrating expertise.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:36:40.134624",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

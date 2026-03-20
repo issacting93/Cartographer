@@ -1,0 +1,131 @@
+============================================================
+ACCEPTANCE TESTS + EVALUATION (v2 Unified)
+============================================================
+
+  Loading data...
+  Common conversations: 2576
+
+============================================================
+TEST A: Predict labels from evidence features
+============================================================
+
+  Human Role (6 classes, chance=16.7%):
+    Accuracy: 74.7% +/- 0.6%
+    Status: WARNING
+
+  AI Role (6 classes, chance=16.7%):
+    Accuracy: 78.0% +/- 0.4%
+    Status: WARNING
+
+============================================================
+TEST B: Predict evidence from labels
+============================================================
+
+  Feature                              R2  Status
+  ------------------------------ --------  ----------
+  expr_mean                         0.054  PASS
+  div_mean                          0.000  PASS
+  div_variance                      0.000  PASS
+  div_trend                         0.000  PASS
+  div_max_spike                     0.000  PASS
+  div_range                         0.000  PASS
+  expr_variance                     0.000  PASS
+  expr_trend                        0.000  PASS
+  expr_range                        0.000  PASS
+  expr_shift                        0.000  PASS
+  repair_rate                       0.000  PASS
+  constraint_pressure               0.000  PASS
+  hedge_assert_ratio                0.000  PASS
+  ai_refusal_rate                   0.000  PASS
+  goal_drift_mean                   0.000  PASS
+
+  Summary: 0 warnings, 0 cautions, 30 pass
+
+============================================================
+TEST C: Correlation screening (|r| > 0.5)
+============================================================
+
+  No correlations above |r| > 0.5. PASS.
+
+============================================================
+ABLATION STUDY (K=7)
+============================================================
+
+  Evidence-only (KMeans) (30 features):
+    Silhouette:        0.1111
+    Davies-Bouldin:    2.0339 (lower=better)
+    Calinski-Harabasz: 205.9 (higher=better)
+
+  Evidence-only (Hierarchical) (30 features):
+    Silhouette:        0.1240
+    Davies-Bouldin:    1.8707 (lower=better)
+    Calinski-Harabasz: 163.8 (higher=better)
+
+  Labels-only (KMeans) (25 features):
+    Silhouette:        0.4528
+    Davies-Bouldin:    1.3780 (lower=better)
+    Calinski-Harabasz: 455.7 (higher=better)
+
+  Labels-only (Hierarchical) (25 features):
+    Silhouette:        0.4314
+    Davies-Bouldin:    1.5057 (lower=better)
+    Calinski-Harabasz: 409.4 (higher=better)
+
+  Combined (KMeans) (55 features):
+    Silhouette:        0.0873
+    Davies-Bouldin:    2.4602 (lower=better)
+    Calinski-Harabasz: 168.2 (higher=better)
+
+  Combined (Hierarchical) (55 features):
+    Silhouette:        0.0577
+    Davies-Bouldin:    2.6347 (lower=better)
+    Calinski-Harabasz: 132.6 (higher=better)
+
+============================================================
+EVIDENCE-ONLY FEATURE IMPORTANCE (5-fold CV)
+============================================================
+
+  RF accuracy: 91.4% +/- 0.5%
+
+  Feature                          Importance      Std
+  ------------------------------ ------------ --------
+  expr_trend                           0.0914   0.0022
+  div_max_spike                        0.0757   0.0028
+  n_messages_log                       0.0747   0.0029
+  affect_valley_count                  0.0588   0.0023
+  goal_stability                       0.0559   0.0025
+  div_range                            0.0551   0.0030
+  affect_peak_count                    0.0547   0.0035
+  goal_drift_mean                      0.0525   0.0026
+  div_variance                         0.0497   0.0015
+  expr_shift                           0.0488   0.0014
+  affect_range                         0.0414   0.0018
+  affect_max                           0.0359   0.0018
+  div_mean                             0.0349   0.0031
+  affect_variance                      0.0332   0.0024
+  valence_variance                     0.0259   0.0018
+  affect_min                           0.0248   0.0009
+  valence_mean                         0.0246   0.0013
+  affect_mean                          0.0216   0.0012
+  expr_variance                        0.0215   0.0018
+  goal_drift_variance                  0.0208   0.0014
+  expr_mean                            0.0185   0.0006
+  div_trend                            0.0184   0.0012
+  expr_range                           0.0149   0.0016
+  affect_trend                         0.0136   0.0005
+  valence_trend                        0.0100   0.0007
+  length_ratio                         0.0090   0.0003
+  constraint_pressure                  0.0050   0.0006
+  hedge_assert_ratio                   0.0042   0.0004
+  ai_refusal_rate                      0.0032   0.0002
+  repair_rate                          0.0012   0.0003
+
+  Category breakdown:
+    Divergence (Ch.A)          23.4%
+    Expressiveness (Ch.B)      19.5%
+    Dynamics (Ch.C)            15.2%
+    Affect Proxy               34.5%
+    Structure                   7.5%
+
+
+Report written to /Users/zac/Documents/Documents-it/GitHub/Cartography_v2/data/v2_unified/reports/acceptance_report.md

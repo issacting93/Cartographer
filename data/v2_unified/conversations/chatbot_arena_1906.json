@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1906",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hi. I am your assistant and I will answer all questions. Please feel free to ask any question and I will always answer it.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "user",
+      "content": "i'd like you to code an app for me",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'd like to help you. Please provide me with more information about what you want the app to do.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "Please feel free to ask any question",
+        "Please provide me with more information"
+      ],
+      "rationale": "The AI prompts the human to ask questions and seeks more information.",
+      "alternative": "collaborative"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "Hi. I am your assistant",
+        "i'd like you to code an app for me"
+      ],
+      "rationale": "Both parties contribute to the direction of the conversation.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "Hi. I am your assistant",
+        "I'd like to help you"
+      ],
+      "rationale": "The conversation is task-focused without strong emotional coloring.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.6,
+      "evidence": [
+        "Please provide me with more information"
+      ],
+      "rationale": "The AI asks for more details to proceed with the task.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.5,
+      "evidence": [
+        "i'd like you to code an app for me"
+      ],
+      "rationale": "The human seeks to initiate a task that involves technical skills.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.6,
+      "evidence": [
+        "i'd like you to code an app for me",
+        "Please provide me with more information"
+      ],
+      "rationale": "The conversation aims to address a task-oriented request.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.7,
+      "evidence": [
+        "i'd like you to code an app for me"
+      ],
+      "rationale": "The conversation is in the initial stages with limited detail.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "hi",
+        "Hi. I am your assistant",
+        "i'd like you to code an app for me",
+        "I'd like to help you"
+      ],
+      "rationale": "Both parties contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.4,
+        "provider": 0.3,
+        "director": 0.1,
+        "collaborator": 0.1,
+        "social-expressor": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "i'd like you to code an app for me"
+        }
+      ],
+      "rationale": "The human seeks assistance with a task, indicating an information-seeker role.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.3,
+        "learning-facilitator": 0.2,
+        "advisor": 0.1,
+        "co-constructor": 0.2,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am your assistant and I will answer all questions"
+        }
+      ],
+      "rationale": "The AI positions itself as a helper, ready to provide information.",
+      "alternative": "co-constructor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T16:19:12.969035",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

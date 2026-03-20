@@ -1,0 +1,197 @@
+{
+  "id": "chatbot_arena_17025",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hi",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "user",
+      "content": "who are you?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I am a generative model trained on large corpus of natural language text.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "user",
+      "content": "5+5 *100",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "85",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "who are you?",
+        "I am a generative model trained on large corpus of natural language text."
+      ],
+      "rationale": "The human asks questions and the AI provides answers, fitting the question-answer pattern.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "who are you?",
+        "5+5 *100"
+      ],
+      "rationale": "The human initiates topics and asks questions, guiding the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "Hi",
+        "I am a generative model trained on large corpus of natural language text."
+      ],
+      "rationale": "The conversation lacks emotional expressions, maintaining a neutral tone.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "who are you?",
+        "5+5 *100"
+      ],
+      "rationale": "The human's questions drive the conversation, indicating a questioning style.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a generative model trained on large corpus of natural language text.",
+        "85"
+      ],
+      "rationale": "The AI provides factual information in response to the human's queries.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "who are you?",
+        "5+5 *100"
+      ],
+      "rationale": "The human seeks information about the AI and a math calculation.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "who are you?",
+        "5+5 *100"
+      ],
+      "rationale": "The conversation addresses topics briefly without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "hi",
+        "Hi",
+        "who are you?",
+        "I am a generative model trained on large corpus of natural language text.",
+        "5+5 *100",
+        "85"
+      ],
+      "rationale": "The conversation alternates turns equally between the human and AI.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "who are you?"
+        }
+      ],
+      "rationale": "The human primarily seeks information, fitting the information-seeker role.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.1,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am a generative model trained on large corpus of natural language text."
+        }
+      ],
+      "rationale": "The AI provides factual answers, aligning with the expert-system role.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T15:54:48.397480",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

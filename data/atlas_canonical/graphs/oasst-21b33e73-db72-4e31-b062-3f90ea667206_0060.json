@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 12,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Transformation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Convert time between different time zones and formats.",
       "id": "conv_oasst-21b33e73-db72-4e31-b062-3f90ea667206_0060"
     },
@@ -138,7 +138,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide Unix epoch time for the specified date and time.] The provided Unix timestamp is incorrect",
+      "text_span": "[violates: Provide Unix timestamp for given UTC time.] The provided Unix timestamp is incorrect",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -147,7 +147,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide Unix epoch time for the specified date and time.] The provided Unix time is incorrect for ",
+      "text_span": "[violates: Provide Unix timestamp for given UTC time.] The provided Unix timestamp (1612684800)",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -184,7 +184,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "Provide Unix epoch time for the specified date and time.",
+      "text": "Provide Unix timestamp for given UTC time.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [

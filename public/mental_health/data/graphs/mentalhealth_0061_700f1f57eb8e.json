@@ -1,0 +1,147 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0061_700f1f57eb8e",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety",
+      "id": "conv_mentalhealth_0061_700f1f57eb8e"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 375,
+      "content_preview": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime ins",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0061_700f1f57eb8e_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.62,
+      "content": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety. I have low self esteem but I\u2019ve been happily married for almost 35 years.\n   I\u2019ve never had counseling about any of this. Do I have too many issues to address in counseling?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 351,
+      "content_preview": "Thank you for sharing your history. You do not have too many issues to address in counseling. It will help to prioritize",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "pad_pleasure": 0.8,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.32,
+      "content": "Thank you for sharing your history. You do not have too many issues to address in counseling. It will help to prioritize what you would like to work on first in therapy. Your therapist will create a treatment plan with you, which can always be changed while working together. Therapy is a process in working towards your best life, and you deserve it."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "t 35 years.\n   I\u2019ve never had counseling about any of this. Do I",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0061_700f1f57eb8e_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Thank you for sharing your history. You do not have too many issues to address i...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0061_700f1f57eb8e_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_mentalhealth_0061_700f1f57eb8e_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "v_mentalhealth_0061_700f1f57eb8e_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0061_700f1f57eb8e",
+      "target": "t_mentalhealth_0061_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0061_700f1f57eb8e",
+      "target": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0061_700f1f57eb8e_0",
+      "target": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0061_700f1f57eb8e_0",
+      "target": "m_mentalhealth_0061_700f1f57eb8e_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0061_700f1f57eb8e_0",
+      "target": "mode_mentalhealth_0061_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "target": "m_mentalhealth_0061_700f1f57eb8e_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "target": "mode_mentalhealth_0061_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0061_700f1f57eb8e_1",
+      "target": "v_mentalhealth_0061_700f1f57eb8e_0",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_05343",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_05343"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 1536,
+      "content_preview": "There are some data: ``` Addresses: address_id (INTEGER), address_details (VARCHAR(255)) Staff: staff_id (INTEGER), staf",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 52,
+      "content_preview": "Got it! Let me check if I can answer your questions.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 77,
+      "content_preview": "what is the \"format\" of data format? please don't tell me the detail of data.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 137,
+      "content_preview": "The data format is a CSV file. Each line contains a set of data with fields separated by commas. The first line contains",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 32,
+      "content_preview": "what is the name of this format?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 42,
+      "content_preview": "It is a Comma-Separated Values (CSV) file.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_05343_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The data format is a CSV file. Each line contains a set of data with fields sepa...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_05343_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_05343_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_05343_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_05343_4"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_05343",
+      "target": "t_chatbot_arena_05343_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_05343_0",
+      "target": "t_chatbot_arena_05343_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_0",
+      "target": "mode_chatbot_arena_05343_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_05343_1",
+      "target": "t_chatbot_arena_05343_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_1",
+      "target": "mode_chatbot_arena_05343_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_05343_2",
+      "target": "t_chatbot_arena_05343_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_2",
+      "target": "mode_chatbot_arena_05343_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_05343_3",
+      "target": "t_chatbot_arena_05343_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05343_3",
+      "target": "m_chatbot_arena_05343_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_3",
+      "target": "mode_chatbot_arena_05343_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_05343_4",
+      "target": "t_chatbot_arena_05343_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_4",
+      "target": "mode_chatbot_arena_05343_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_05343_5",
+      "target": "mode_chatbot_arena_05343_4",
+      "key": 0
+    }
+  ]
+}

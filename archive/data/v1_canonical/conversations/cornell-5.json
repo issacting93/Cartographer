@@ -1,0 +1,192 @@
+{
+  "id": "cornell-5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "C'esc ma tete. This is my head",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Right.  See?  You're ready for the quiz.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "I don't want to know how to say that though.  I want to know useful things. Like where the good stores are.  How much does champagne cost?  Stuff like Chat.  I have never in my life had to point out my head to someone.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "That's because it's such a nice one.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "Forget French.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "casual-chat",
+      "confidence": 0.5,
+      "evidence": [
+        "I want to know useful things. Like where the good stores are.",
+        "That's because it's such a nice one."
+      ],
+      "rationale": "The exchange is short and mixes language-learning context with social commentary and a compliment, without sustained Q&A or advice delivery.",
+      "alternative": "question-answer"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "I want to know useful things.",
+        "Forget French."
+      ],
+      "rationale": "The human sets and then changes the agenda (requests 'useful things' and then ends the topic).",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "playful",
+      "confidence": 0.55,
+      "evidence": [
+        "Right.  See?  You're ready for the quiz.",
+        "That's because it's such a nice one."
+      ],
+      "rationale": "The AI uses light teasing/banter ('quiz') and a compliment; the human is dismissive but not overtly serious or distressed.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.6,
+      "evidence": [
+        "I want to know useful things.",
+        "Forget French."
+      ],
+      "rationale": "The human gives explicit directives about what content they want and then instructs to drop the topic.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.5,
+      "evidence": [
+        "C'esc ma tete. This is my head",
+        "I don't want to know how to say that though."
+      ],
+      "rationale": "The conversation centers on what phrases to learn in French (language skill), even though the human rejects the specific phrase.",
+      "alternative": "personal-sharing"
+    },
+    "conversationPurpose": {
+      "category": "capability-exploration",
+      "confidence": 0.55,
+      "evidence": [
+        "I want to know useful things. Like where the good stores are.",
+        "How much does champagne cost?"
+      ],
+      "rationale": "The human probes what the AI/chat can provide (practical travel/shopping language/info) versus body-part vocabulary.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "This is my head",
+        "How much does champagne cost?"
+      ],
+      "rationale": "Brief, list-like mentions of desired topics without elaboration or follow-through.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "user-dominant",
+      "confidence": 0.75,
+      "evidence": [
+        "I don't want to know how to say that though.  I want to know useful things.",
+        "That's because it's such a nice one."
+      ],
+      "rationale": "The human contributes the longest, most content-heavy turns; the AI replies are short.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.25,
+        "provider": 0.15,
+        "director": 0.55,
+        "collaborator": 0,
+        "social-expressor": 0.05,
+        "relational-peer": 0
+      },
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "role": "director",
+          "quote": "I want to know useful things."
+        },
+        {
+          "role": "director",
+          "quote": "Forget French."
+        },
+        {
+          "role": "information-seeker",
+          "quote": "How much does champagne cost?"
+        }
+      ],
+      "rationale": "The human primarily directs the interaction (what to learn, then to stop), with some information-seeking questions embedded.",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.05,
+        "learning-facilitator": 0.25,
+        "advisor": 0,
+        "co-constructor": 0,
+        "social-facilitator": 0.35,
+        "relational-peer": 0.35
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "learning-facilitator",
+          "quote": "You're ready for the quiz."
+        },
+        {
+          "role": "relational-peer",
+          "quote": "That's because it's such a nice one."
+        }
+      ],
+      "rationale": "The AI lightly frames a learning activity ('quiz') but mostly engages in rapport/banter via a compliment rather than providing factual answers.",
+      "alternative": "social-facilitator"
+    }
+  },
+  "metadata": {
+    "reclassified": "2026-01-13T11:35:13.096035",
+    "reclassification_reason": "Updated from old taxonomy to Social Role Theory"
+  }
+}

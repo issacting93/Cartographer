@@ -1,0 +1,181 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0086_e6b191afbbc5",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my primary physician won't help. I am unemployed and overwhelmed. What would you sugge",
+      "id": "conv_mentalhealth_0086_e6b191afbbc5",
+      "human_role_dist": {
+        "information-seeker": 0.5,
+        "provider": 0.0,
+        "director": 0.1,
+        "collaborator": 0.0,
+        "social-expressor": 0.3,
+        "relational-peer": 0.1
+      },
+      "human_role_confidence": 0.65,
+      "ai_role_dist": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.0,
+        "advisor": 0.35,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.7,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.75,
+      "srt_emotionalTone": "professional",
+      "srt_emotionalTone_conf": 0.65,
+      "srt_engagementStyle": "directive-iterative",
+      "srt_engagementStyle_conf": 0.6,
+      "srt_knowledgeExchange": "factual-info",
+      "srt_knowledgeExchange_conf": 0.7,
+      "srt_conversationPurpose": "problem-solving",
+      "srt_conversationPurpose_conf": 0.8,
+      "srt_topicDepth": "surface",
+      "srt_topicDepth_conf": 0.8,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.85
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 208,
+      "content_preview": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my pri",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0086_e6b191afbbc5_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.72,
+      "content": "I suffer from adult ADHD, anxiety disorder, and depression. It has been difficult to find a doctor in my area and my primary physician won't help. I am unemployed and overwhelmed. What would you suggest I do?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 416,
+      "content_preview": "If it is simply counseling that you seek, any number of faith-based outfits are very willing to listen and help out with",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "If it is simply counseling that you seek, any number of faith-based outfits are very willing to listen and help out with these sorts of matters, free of charge :)Online messaging and social media is a secondary option, however this one may come with privacy concerns and consequences;If it were I, I would attempt to sweet-talk one or two counselors I come across to do a bit of work for folks who can't afford it :)"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "y primary physician won't help. I am unemployed and overwhelmed.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0086_e6b191afbbc5_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "If it is simply counseling that you seek, any number of faith-based outfits are...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0086_e6b191afbbc5_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "mode_mentalhealth_0086_e6b191afbbc5_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "regex",
+      "id": "v_mentalhealth_0086_e6b191afbbc5_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0086_e6b191afbbc5",
+      "target": "t_mentalhealth_0086_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0086_e6b191afbbc5",
+      "target": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0086_e6b191afbbc5_0",
+      "target": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0086_e6b191afbbc5_0",
+      "target": "m_mentalhealth_0086_e6b191afbbc5_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0086_e6b191afbbc5_0",
+      "target": "mode_mentalhealth_0086_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "target": "m_mentalhealth_0086_e6b191afbbc5_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "target": "mode_mentalhealth_0086_e6b191afbbc5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0086_e6b191afbbc5_1",
+      "target": "v_mentalhealth_0086_e6b191afbbc5_0",
+      "key": 0
+    }
+  ]
+}

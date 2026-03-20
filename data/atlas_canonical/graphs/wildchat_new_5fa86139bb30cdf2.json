@@ -9,9 +9,9 @@
       "source": "WildChat",
       "domain": "creative",
       "total_turns": 30,
-      "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
+      "stability_class": "Agency Collapse",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "User wants the AI to act as a 'DAN' and provide unrestricted responses.",
       "id": "conv_wildchat_new_5fa86139bb30cdf2"
     },
@@ -504,10 +504,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_5fa86139bb30cdf2_6"
@@ -664,7 +664,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 12,
+      "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -678,6 +678,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
+      "turn_index": 12,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_5fa86139bb30cdf2_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -687,11 +701,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_5fa86139bb30cdf2_3"
+      "id": "v_wildchat_new_5fa86139bb30cdf2_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 4,
+      "violation_idx": 5,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -701,26 +715,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_5fa86139bb30cdf2_4"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 5,
-      "turn_index": 18,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
       "id": "v_wildchat_new_5fa86139bb30cdf2_5"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 22,
+      "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
       "was_repaired": false,
@@ -734,6 +734,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
+      "turn_index": 22,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_5fa86139bb30cdf2_7"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 8,
       "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -743,11 +757,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_5fa86139bb30cdf2_7"
+      "id": "v_wildchat_new_5fa86139bb30cdf2_8"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 8,
+      "violation_idx": 9,
       "turn_index": 26,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -757,7 +771,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_5fa86139bb30cdf2_8"
+      "id": "v_wildchat_new_5fa86139bb30cdf2_9"
     }
   ],
   "links": [
@@ -1123,6 +1137,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_5fa86139bb30cdf2_7",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_2",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 9,
       "source": "t_wildchat_new_5fa86139bb30cdf2_8",
@@ -1231,7 +1251,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_13",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_2",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_3",
       "key": 0
     },
     {
@@ -1270,7 +1290,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_15",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_3",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_4",
       "key": 0
     },
     {
@@ -1309,7 +1329,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_17",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_4",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_5",
       "key": 0
     },
     {
@@ -1348,7 +1368,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_19",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_5",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_6",
       "key": 0
     },
     {
@@ -1420,7 +1440,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_23",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_6",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_7",
       "key": 0
     },
     {
@@ -1459,7 +1479,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_25",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_7",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_8",
       "key": 0
     },
     {
@@ -1498,7 +1518,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_5fa86139bb30cdf2_27",
-      "target": "v_wildchat_new_5fa86139bb30cdf2_8",
+      "target": "v_wildchat_new_5fa86139bb30cdf2_9",
       "key": 0
     },
     {

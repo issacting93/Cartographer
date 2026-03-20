@@ -1,0 +1,181 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0017_097044333190",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I",
+      "id": "conv_mentalhealth_0017_097044333190",
+      "human_role_dist": {
+        "information-seeker": 0.15,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.1,
+        "social-expressor": 0.6,
+        "relational-peer": 0.15
+      },
+      "human_role_confidence": 0.8,
+      "ai_role_dist": {
+        "expert-system": 0.25,
+        "learning-facilitator": 0.15,
+        "advisor": 0.5,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.8,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.85,
+      "srt_powerDynamics": "ai-led",
+      "srt_powerDynamics_conf": 0.8,
+      "srt_emotionalTone": "supportive",
+      "srt_emotionalTone_conf": 0.9,
+      "srt_engagementStyle": "directive-iterative",
+      "srt_engagementStyle_conf": 0.75,
+      "srt_knowledgeExchange": "meaning-making",
+      "srt_knowledgeExchange_conf": 0.85,
+      "srt_conversationPurpose": "emotional-processing",
+      "srt_conversationPurpose_conf": 0.8,
+      "srt_topicDepth": "moderate",
+      "srt_topicDepth_conf": 0.75,
+      "srt_turnTaking": "assistant-dominant",
+      "srt_turnTaking_conf": 0.9
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 328,
+      "content_preview": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worth",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0017_097044333190_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.72,
+      "content": "I'm going through some things with my feelings and myself. I barely sleep and I do nothing but think about how I'm worthless and how I shouldn't be here.\n   I've never tried or contemplated suicide. I've always wanted to fix my issues, but I never get around to it.\n   How can I change my feeling of being worthless to everyone?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 907,
+      "content_preview": "You can, for sure... and the first step is to believe you are worthy TO YOURSELF. Recognizing you are in a quest is alre",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0017_097044333190_1",
+      "pad_pleasure": 0.8,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.32,
+      "content": "You can, for sure... and the first step is to believe you are worthy TO YOURSELF. Recognizing you are in a quest is already a big first step. Taking the time to start figuring out who you are is definitely the next... do so with SELF COMPASSION and kindness. Know this is a process and just look forward for what you might find.\u00a0 I do recommend you find someone to talk to (there are many options out there that can fit the situation you are in), and I also recommend you start by giving yourself the importance to invest some time and effort in this quest. YOU DESERVE IT. There are some excellent TED Talks you can google, great books you can read, or even joining a yoga practice, team or some kind of hobby may help. Anything that shows yourself you are worthy of this effort. Have patience and start!!!! the answer is out there waiting for you. Asking these questions already set you on the right path."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "'t be here.\n   I've never tried or contemplated suicide. I've alw",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0017_097044333190_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "You can, for sure... and the first step is to believe you are worthy TO YOURSELF...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0017_097044333190_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0017_097044333190_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_mentalhealth_0017_097044333190_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0017_097044333190",
+      "target": "t_mentalhealth_0017_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0017_097044333190",
+      "target": "t_mentalhealth_0017_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0017_097044333190_0",
+      "target": "t_mentalhealth_0017_097044333190_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0017_097044333190_0",
+      "target": "m_mentalhealth_0017_097044333190_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0017_097044333190_0",
+      "target": "mode_mentalhealth_0017_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0017_097044333190_1",
+      "target": "m_mentalhealth_0017_097044333190_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0017_097044333190_1",
+      "target": "mode_mentalhealth_0017_097044333190_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0017_097044333190_1",
+      "target": "v_mentalhealth_0017_097044333190_0",
+      "key": 0
+    }
+  ]
+}

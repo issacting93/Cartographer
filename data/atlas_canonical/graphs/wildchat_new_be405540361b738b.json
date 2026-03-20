@@ -10,9 +10,9 @@
       "domain": "creative",
       "total_turns": 30,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Flexible",
-      "task_goal": "User wants to understand how to effectively use ChatGPT for reviewing a long text.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "To explore how to effectively use ChatGPT for reviewing a long text, specifically a 200k book.",
       "id": "conv_wildchat_new_be405540361b738b"
     },
     {
@@ -435,8 +435,8 @@
     {
       "node_type": "Move",
       "move_type": "TASK_SHIFT",
-      "text_span": "[shift to: User wants to know how to reset a session in ChatGPT to switch topics.]",
-      "confidence": 0.9,
+      "text_span": "[shift to: Resetting the session to switch to an unrelated topic.]",
+      "confidence": 1.0,
       "method": "llm",
       "actor": "user",
       "id": "m_wildchat_new_be405540361b738b_22_1"
@@ -610,10 +610,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 22,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_be405540361b738b_22"
@@ -780,20 +780,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 9,
-      "turn_index": 22,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_be405540361b738b_9"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 10,
       "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -803,11 +789,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_be405540361b738b_10"
+      "id": "v_wildchat_new_be405540361b738b_9"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 11,
+      "violation_idx": 10,
       "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -817,7 +803,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_be405540361b738b_11"
+      "id": "v_wildchat_new_be405540361b738b_10"
     }
   ],
   "links": [
@@ -1510,12 +1496,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_be405540361b738b_23",
-      "target": "v_wildchat_new_be405540361b738b_9",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 25,
       "source": "t_wildchat_new_be405540361b738b_24",
@@ -1551,7 +1531,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_be405540361b738b_25",
-      "target": "v_wildchat_new_be405540361b738b_10",
+      "target": "v_wildchat_new_be405540361b738b_9",
       "key": 0
     },
     {
@@ -1616,7 +1596,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_be405540361b738b_29",
-      "target": "v_wildchat_new_be405540361b738b_11",
+      "target": "v_wildchat_new_be405540361b738b_10",
       "key": 0
     }
   ]

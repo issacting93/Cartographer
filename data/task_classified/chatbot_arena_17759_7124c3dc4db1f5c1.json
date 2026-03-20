@@ -1,0 +1,33 @@
+{
+  "id": "chatbot_arena_17759",
+  "source": "ChatbotArena",
+  "domain": "general",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Write a brief introduction of Oranges within 100 words and show the word count.",
+    "primary_constraints": [
+      "Introduction must be within 100 words",
+      "Show the exact number of words used in the introduction"
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.9,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided incorrect word counts (57, then 50, then 53), which violated the constraints. The user pointed out these errors, prompting the assistant to correct the word count. The user enforced the constraints by asking for a recount, leading to a final correction.",
+    "evidence": {
+      "constraint_turns": [
+        0
+      ],
+      "violation_turns": [
+        1,
+        3,
+        5
+      ],
+      "repair_turns": [
+        2,
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_17759.json"
+}

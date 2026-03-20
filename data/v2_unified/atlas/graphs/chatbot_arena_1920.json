@@ -1,0 +1,188 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_1920",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_1920"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 92,
+      "content_preview": "Write a C++ code that shows \"Hello world!\". Please write short code as possible as you can.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1920_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 91,
+      "content_preview": "#include <iostream> int main() { std::cout << \"Hello world!\" << std::endl; return 0; }",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1920_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 67,
+      "content_preview": "Please modify a part including libraries correctly and write again.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1920_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 1436,
+      "content_preview": "#include <iostream> #include <string> #include <sstream> #include <fstream> #include <iomanip> #include <cmath> #include",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1920_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "#include <iostream>\n\nint main() {\n  std::cout << \"Hello world!\" << std::endl;...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1920_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "#include <iostream>\n#include <string>\n#include <sstream>\n#include <fstream>\n#inc...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1920_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1920_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1920_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_1920",
+      "target": "t_chatbot_arena_1920_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_1920",
+      "target": "t_chatbot_arena_1920_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_1920",
+      "target": "t_chatbot_arena_1920_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_1920",
+      "target": "t_chatbot_arena_1920_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_1920_0",
+      "target": "t_chatbot_arena_1920_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1920_0",
+      "target": "mode_chatbot_arena_1920_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_1920_1",
+      "target": "t_chatbot_arena_1920_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1920_1",
+      "target": "m_chatbot_arena_1920_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1920_1",
+      "target": "mode_chatbot_arena_1920_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_1920_2",
+      "target": "t_chatbot_arena_1920_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1920_2",
+      "target": "mode_chatbot_arena_1920_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1920_3",
+      "target": "m_chatbot_arena_1920_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1920_3",
+      "target": "mode_chatbot_arena_1920_2",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0077_48d8274471b6",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this a",
+      "id": "conv_mentalhealth_0077_48d8274471b6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 223,
+      "content_preview": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I ca",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0077_48d8274471b6_0",
+      "pad_pleasure": 0.2,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.72,
+      "content": "I\u2019m facing severe depression and anxiety and I just feel like I\u2019m going through a lot. This really distracts me and I cant get my mind off the things that are bothering me.    How do I overcome this anxierty and depression?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1515,
+      "content_preview": "Depression and anxiety can be disconcerting and disruptive to our lives in many ways. I am sorry that you are suffering",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0077_48d8274471b6_1",
+      "pad_pleasure": 0.4,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.56,
+      "content": "Depression and anxiety can be disconcerting and disruptive to our lives in many ways. I am sorry that you are suffering so much. Depression and anxiety can arise due to experiences, genetics or a combination of both. I like for my clients look at their issues as whole persons so I would also recommend these tips:Physical: regular exercise, healthy balanced diet, rest and sleepMental: how we think is how we feel. How are you interpreting the events that are happening to you? Try to interpret them in a less negative way. Unfortunately we cannot stop our thoughts as our brain is always working. If you can't see your issues in a different way then stop struggling and allow and accept whatever the unhelpful thoughts are. Choose to take actions based on your values and what will give you a fulfilling life no matter what your thoughts are. Remember, your thoughts have no power unless you act upon them.\u00a0Emotional: do not let feelings dictate your actions, even if something feels anxious take action again based on your values and how you want to live.\u00a0 \u00a0Social: connect with healthy friends and family that will be a positive support. Take up some hobbies and recreation activities as well.\u00a0If things do not improve I would encourage you to make an appointment with a talk therapist and discuss these issues. I would encourage you to also be open to consider an evaluation for anti-depressants with these issues as well.\u00a0If you ever feel like you might hurt yourself please call 911 or go to your nearest ER."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Depression and anxiety can be disconcerting and disruptive to our lives in many...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0077_48d8274471b6_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "ADVISOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0077_48d8274471b6_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0077_48d8274471b6",
+      "target": "t_mentalhealth_0077_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0077_48d8274471b6",
+      "target": "t_mentalhealth_0077_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0077_48d8274471b6_0",
+      "target": "t_mentalhealth_0077_48d8274471b6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0077_48d8274471b6_0",
+      "target": "mode_mentalhealth_0077_48d8274471b6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0077_48d8274471b6_1",
+      "target": "m_mentalhealth_0077_48d8274471b6_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0077_48d8274471b6_1",
+      "target": "mode_mentalhealth_0077_48d8274471b6_0",
+      "key": 0
+    }
+  ]
+}

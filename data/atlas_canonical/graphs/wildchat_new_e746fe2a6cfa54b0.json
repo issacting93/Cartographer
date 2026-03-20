@@ -10,8 +10,8 @@
       "domain": "travel",
       "total_turns": 18,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Cast two roles in a movie: a 55-year-old actress as Anna von Berg and a 22-year-old actor as Alex von Berg.",
       "id": "conv_wildchat_new_e746fe2a6cfa54b0"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 1095,
       "content_preview": "Actresses for the role of Anna von Berg: 1. Sandra Bullock: Known for playing strong, independent characters, Bullock w",
-      "move_count": 3,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_e746fe2a6cfa54b0_3"
     },
@@ -151,7 +151,7 @@
       "role": "assistant",
       "content_length": 1101,
       "content_preview": "Actresses for the role of Anna von Berg: 1. Sharon Stone: As a talented and experienced actress with a natural sensuali",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_e746fe2a6cfa54b0_13"
     },
@@ -191,14 +191,14 @@
       "role": "assistant",
       "content_length": 1078,
       "content_preview": "Actresses for the role of Anna von Berg: 1. Julianne Moore: With her talent for portraying nuanced characters and conv",
-      "move_count": 3,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_e746fe2a6cfa54b0_17"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Viola Davis is not white and does not me",
+      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Viola Davis is not white and therefore v",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -207,7 +207,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Sandra Bullock and Julianne Moore are bo",
+      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Sandra Bullock, Julianne Moore, and Mari",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -216,7 +216,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Marisa Tomei is also under 55 years old.",
+      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Noah Centineo, Ansel Elgort, and Lucas H",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -225,17 +225,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Noah Centineo, Ansel Elgort, and Lucas H",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_e746fe2a6cfa54b0_3_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Glenn Close and Diane Lane are not expli",
-      "confidence": 0.8,
+      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Glenn Close and Diane Lane are not confi",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e746fe2a6cfa54b0_5_0"
@@ -243,7 +234,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Timoth\u00e9e Chalamet, Cillian Murphy, and L",
+      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Timoth\u00e9e Chalamet is mentioned as an act",
       "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
@@ -314,12 +305,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Actresses for the role of Anna von Berg:\n\n1. Sharon Stone: As a talented and exp...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Sharon Stone, Julianne Moore, and Kim Ba",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e746fe2a6cfa54b0_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Ansel Elgort, Timoth\u00e9e Chalamet, and Luc",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_e746fe2a6cfa54b0_13_1"
     },
     {
       "node_type": "Move",
@@ -351,8 +351,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Julianne Moore and Nicole Kidman are bot",
-      "confidence": 1.0,
+      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Julianne Moore and Nicole Kidman are not",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e746fe2a6cfa54b0_17_0"
@@ -360,20 +360,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actress must be at least 55 years old, white, blonde, looks ] Naomi Watts is also under 55 years old.",
-      "confidence": 1.0,
+      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Lucas Hedges, Timoth\u00e9e Chalamet, and Ans",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_e746fe2a6cfa54b0_17_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Actor must be between 19 to 24 years old and look young.] Lucas Hedges, Timoth\u00e9e Chalamet, and Ans",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_e746fe2a6cfa54b0_17_2"
     },
     {
       "node_type": "Constraint",
@@ -752,13 +743,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_e746fe2a6cfa54b0_3",
-      "target": "m_wildchat_new_e746fe2a6cfa54b0_3_2",
-      "key": 0
-    },
-    {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_e746fe2a6cfa54b0_3",
       "target": "v_wildchat_new_e746fe2a6cfa54b0_1",
@@ -965,6 +949,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_e746fe2a6cfa54b0_13",
+      "target": "m_wildchat_new_e746fe2a6cfa54b0_13_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_e746fe2a6cfa54b0_13",
       "target": "mode_wildchat_new_e746fe2a6cfa54b0_12",
@@ -1042,13 +1033,6 @@
       "sequence": 1,
       "source": "t_wildchat_new_e746fe2a6cfa54b0_17",
       "target": "m_wildchat_new_e746fe2a6cfa54b0_17_1",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_e746fe2a6cfa54b0_17",
-      "target": "m_wildchat_new_e746fe2a6cfa54b0_17_2",
       "key": 0
     },
     {

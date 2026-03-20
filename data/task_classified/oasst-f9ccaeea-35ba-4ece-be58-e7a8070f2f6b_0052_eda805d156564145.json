@@ -1,0 +1,32 @@
+{
+  "id": "oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052",
+  "source": "OASST",
+  "domain": "code",
+  "total_turns": 12,
+  "classification": {
+    "task_goal": "Design a system to upload a file to S3, resize it with Lambda, and avoid multiple triggers for resizing.",
+    "primary_constraints": [
+      "The resized file must be stored in S3 with the same key as the original file but with a different format or identifier.",
+      "The Lambda function must only trigger once for each new file uploaded to S3."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 1,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially suggested storing the resized file with a different key, which violated the constraint of using the same key. However, the user prompted for a solution that kept the original filenames, leading to a repair of the constraint in subsequent responses.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        1
+      ],
+      "violation_turns": [
+        2
+      ],
+      "repair_turns": [
+        8,
+        9
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052.json"
+}

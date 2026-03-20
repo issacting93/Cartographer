@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 26,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Help the user create a realistic R6 ragdoll in Roblox that can be triggered with a RemoteEvent.",
       "id": "conv_wildchat_new_226b7fb117fd3f49"
     },
@@ -251,7 +251,7 @@
       "role": "assistant",
       "content_length": 2384,
       "content_preview": "I apologize for the mistake. It turns out that the `Velocity` property is not a member of the `Humanoid` object, as I me",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_226b7fb117fd3f49_23"
     },
@@ -296,7 +296,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The ragdoll code must be placed in a ServerScript, not a Loc] The ragdoll code is described to be plac",
+      "text_span": "[violates: The ragdoll code must be placed in a ServerScript, not a Loc] The ragdoll code is not placed in a Serv",
       "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
@@ -368,7 +368,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The ragdoll code must be placed in a ServerScript, not a Loc] The response does not specify that the r",
+      "text_span": "[violates: The ragdoll code must be placed in a ServerScript, not a Loc] The response does not mention that the r",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -440,7 +440,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The ragdoll object must be present and correctly named withi] The response mentions finding a 'Ragdoll",
+      "text_span": "[violates: The ragdoll object must be present and correctly named withi] The response indicates that the ragdoll ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -449,20 +449,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The ragdoll code must be placed in a ServerScript, not a Loc] The response does not confirm that the r",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_226b7fb117fd3f49_23_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The ragdoll object must be present and correctly named withi] The response indicates that the ragdoll ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_226b7fb117fd3f49_23_1"
+      "id": "m_wildchat_new_226b7fb117fd3f49_23_0"
     },
     {
       "node_type": "Move",
@@ -631,10 +622,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 16,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_226b7fb117fd3f49_16"
@@ -742,20 +733,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 16,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_226b7fb117fd3f49_5"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 6,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -765,11 +742,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_226b7fb117fd3f49_6"
+      "id": "v_wildchat_new_226b7fb117fd3f49_5"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 7,
+      "violation_idx": 6,
       "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -779,7 +756,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_226b7fb117fd3f49_7"
+      "id": "v_wildchat_new_226b7fb117fd3f49_6"
     }
   ],
   "links": [
@@ -1335,12 +1312,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_226b7fb117fd3f49_17",
-      "target": "v_wildchat_new_226b7fb117fd3f49_5",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 19,
       "source": "t_wildchat_new_226b7fb117fd3f49_18",
@@ -1376,7 +1347,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_226b7fb117fd3f49_19",
-      "target": "v_wildchat_new_226b7fb117fd3f49_6",
+      "target": "v_wildchat_new_226b7fb117fd3f49_5",
       "key": 0
     },
     {
@@ -1454,13 +1425,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_226b7fb117fd3f49_23",
-      "target": "m_wildchat_new_226b7fb117fd3f49_23_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_226b7fb117fd3f49_23",
       "target": "mode_wildchat_new_226b7fb117fd3f49_22",
@@ -1469,7 +1433,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_226b7fb117fd3f49_23",
-      "target": "v_wildchat_new_226b7fb117fd3f49_7",
+      "target": "v_wildchat_new_226b7fb117fd3f49_6",
       "key": 0
     },
     {

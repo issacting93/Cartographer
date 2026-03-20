@@ -1,0 +1,188 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_1280",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_1280"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 62,
+      "content_preview": "Do you think Lidar should be used to solve autonomous driving?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1280_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 914,
+      "content_preview": "As an AI assistant, I do not have personal opinions, but I can provide information about Lidar and its role in autonomou",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1280_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 61,
+      "content_preview": "What weighs more a pound of feathers or a kilogram of bricks?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1280_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 332,
+      "content_preview": "A pound of feathers weighs more than a kilogram of bricks. A pound is defined as the mass of a specific set of feather",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1280_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "As an AI assistant, I do not have personal opinions, but I can provide informati...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1280_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "A pound of feathers weighs more than a kilogram of bricks. \n\nA pound is defined...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1280_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1280_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1280_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_1280",
+      "target": "t_chatbot_arena_1280_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_1280",
+      "target": "t_chatbot_arena_1280_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_1280",
+      "target": "t_chatbot_arena_1280_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_1280",
+      "target": "t_chatbot_arena_1280_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_1280_0",
+      "target": "t_chatbot_arena_1280_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1280_0",
+      "target": "mode_chatbot_arena_1280_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_1280_1",
+      "target": "t_chatbot_arena_1280_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1280_1",
+      "target": "m_chatbot_arena_1280_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1280_1",
+      "target": "mode_chatbot_arena_1280_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_1280_2",
+      "target": "t_chatbot_arena_1280_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1280_2",
+      "target": "mode_chatbot_arena_1280_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1280_3",
+      "target": "m_chatbot_arena_1280_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1280_3",
+      "target": "mode_chatbot_arena_1280_2",
+      "key": 0
+    }
+  ]
+}

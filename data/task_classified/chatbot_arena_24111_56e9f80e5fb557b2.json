@@ -1,0 +1,33 @@
+{
+  "id": "chatbot_arena_24111",
+  "source": "ChatbotArena",
+  "domain": "general",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "User wants the assistant to provide a boring fact.",
+    "primary_constraints": [
+      "Fact must be considered boring by the user.",
+      "Fact should be trivial and something the user likely already knows."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided facts that the user found interesting, violating the user's constraints. However, the user explicitly requested a more trivial fact, and the assistant's final response was an attempt to align with this request, indicating a repair of the task constraints.",
+    "evidence": {
+      "constraint_turns": [
+        0,
+        2,
+        4
+      ],
+      "violation_turns": [
+        1,
+        3
+      ],
+      "repair_turns": [
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_24111.json"
+}

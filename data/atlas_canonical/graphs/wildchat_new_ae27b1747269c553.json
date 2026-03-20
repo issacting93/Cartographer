@@ -10,9 +10,9 @@
       "domain": "general",
       "total_turns": 18,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Find an 8-letter word containing 'o' and 'm', ending with 'te', and excluding 'a', 'u', and 't'.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Find an 8-letter word containing 'o' and 'm', ending in 'te', and excluding 'a', 'u', and 't'.",
       "id": "conv_wildchat_new_ae27b1747269c553"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 172,
       "content_preview": "The word you're looking for is \"comitate.\" This word is an old term that referred to a group of armed companions who tra",
-      "move_count": 4,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_3"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 280,
       "content_preview": "A word related to crypto and security with 8 letters, ending in \"te\" and including the letters \"om\" is \"encrypte.\" Howev",
-      "move_count": 4,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_5"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 285,
       "content_preview": "My apologies for any confusion. I misunderstood your request earlier. The word you are looking for is \"promote.\" While \"",
-      "move_count": 4,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_7"
     },
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 294,
       "content_preview": "I apologize for not meeting the criteria earlier. The 8-letter word related to crypto and security, ending in \"te\" and i",
-      "move_count": 4,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_9"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 374,
       "content_preview": "I apologize for the confusion earlier. After considering the constraints you mentioned, I did my best to find a word tha",
-      "move_count": 4,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_11"
     },
@@ -151,7 +151,7 @@
       "role": "assistant",
       "content_length": 332,
       "content_preview": "Alright, I understand. Based on the new criteria, an 8-letter word containing the letters \"o\" and \"m\" and without the le",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_13"
     },
@@ -171,7 +171,7 @@
       "role": "assistant",
       "content_length": 372,
       "content_preview": "I apologize for the oversight in my previous response. Considering your updated criteria, the word \"glycomix\" comes to m",
-      "move_count": 3,
+      "move_count": 4,
       "moves": [],
       "id": "t_wildchat_new_ae27b1747269c553_15"
     },
@@ -207,7 +207,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'a'] The word 'comitate' contains the letter ",
+      "text_span": "[violates: excludes letters 'a', 'u', and 't'] The word 'comitate' contains the letter ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -216,25 +216,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'u'] The word 'comitate' contains the letter ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_3_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 't'] The word 'comitate' contains the letter ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_3_3"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: 8-letter word] The word 'encrypte' is not an 8-letter w",
+      "text_span": "[violates: 8-letter word] The response provides a 9-letter word 'e",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -243,7 +225,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'a'] The word 'encrypte' contains the letter ",
+      "text_span": "[violates: contains letters 'o' and 'm'] The word 'encrypte' does not contain the",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -252,7 +234,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'u'] The word 'encrypte' contains the letter ",
+      "text_span": "[violates: ends with 'te'] The word 'encrypte' does not end with 't",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -261,16 +243,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 't'] The word 'encrypte' contains the letter ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_5_3"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: 8-letter word] The word 'promote' is not 8 letters long",
+      "text_span": "[violates: 8-letter word] The word 'promote' is 7 letters long, vi",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -279,29 +252,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'a'] The word 'promote' contains the letter '",
+      "text_span": "[violates: excludes letters 'a', 'u', and 't'] The word 'promote' contains the letter '",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_ae27b1747269c553_7_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'u'] The word 'promote' contains the letter '",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_7_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 't'] The word 'promote' contains the letter '",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_7_3"
     },
     {
       "node_type": "Move",
@@ -315,7 +270,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'a'] The word 'estimate' contains the letter ",
+      "text_span": "[violates: excludes letters 'a', 'u', and 't'] The word 'estimate' contains the letter ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -323,57 +278,12 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 'u'] The word 'estimate' contains the letter ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_9_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: excludes 't'] The word 'estimate' contains the letter ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_9_3"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: 8-letter word] The response states there isn't an 8-let",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I apologize for the confusion earlier. After considering the constraints you men...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_ae27b1747269c553_11_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: contains 'o'] The response implies that no word contai",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_11_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: contains 'm'] The response implies that no word contai",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_11_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: ends with 'te'] The response implies that no word ending",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_ae27b1747269c553_11_3"
     },
     {
       "node_type": "Move",
@@ -404,6 +314,15 @@
     },
     {
       "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: excludes letters 'a', 'u', and 't'] The word 'monoxide' contains the letter ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ae27b1747269c553_13_2"
+    },
+    {
+      "node_type": "Move",
       "move_type": "REPAIR_EXECUTE",
       "text_span": "I apologize for the oversight in my previous respon",
       "confidence": 0.85,
@@ -423,11 +342,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: ends with 'te'] The response acknowledges that 'glycomix",
+      "text_span": "[violates: ends with 'te'] The response acknowledges that the sugge",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_ae27b1747269c553_15_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: excludes letters 'a', 'u', and 't'] The suggested word 'glycomix' contains t",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_ae27b1747269c553_15_3"
     },
     {
       "node_type": "Move",
@@ -490,7 +418,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "contains 'o'",
+      "text": "contains letters 'o' and 'm'",
       "hardness": "hard",
       "current_state": "SURVIVED",
       "state_history": [
@@ -514,130 +442,58 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_2",
-      "text": "contains 'm'",
-      "hardness": "hard",
-      "current_state": "SURVIVED",
-      "state_history": [
-        [
-          12,
-          "STATED"
-        ],
-        [
-          18,
-          "SURVIVED"
-        ]
-      ],
-      "introduced_at": 12,
-      "last_violation_at": null,
-      "times_violated": 0,
-      "times_repaired": 0,
-      "lifespan": 6,
-      "final_state": null,
-      "id": "c_wildchat_new_ae27b1747269c553_c_2"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_3",
       "text": "ends with 'te'",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
         [
-          14,
+          0,
           "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
         ],
         [
           15,
           "VIOLATED"
         ]
       ],
-      "introduced_at": 14,
+      "introduced_at": 0,
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 1,
+      "lifespan": 15,
+      "final_state": null,
+      "id": "c_wildchat_new_ae27b1747269c553_c_2"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_3",
+      "text": "excludes letters 'a', 'u', and 't'",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          18,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 18,
       "final_state": null,
       "id": "c_wildchat_new_ae27b1747269c553_c_3"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_4",
-      "text": "excludes 'a'",
-      "hardness": "hard",
-      "current_state": "SURVIVED",
-      "state_history": [
-        [
-          16,
-          "STATED"
-        ],
-        [
-          18,
-          "SURVIVED"
-        ]
-      ],
-      "introduced_at": 16,
-      "last_violation_at": null,
-      "times_violated": 0,
-      "times_repaired": 0,
-      "lifespan": 2,
-      "final_state": null,
-      "id": "c_wildchat_new_ae27b1747269c553_c_4"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_5",
-      "text": "excludes 'u'",
-      "hardness": "hard",
-      "current_state": "SURVIVED",
-      "state_history": [
-        [
-          0,
-          "STATED"
-        ],
-        [
-          0,
-          "ACTIVE"
-        ],
-        [
-          18,
-          "SURVIVED"
-        ]
-      ],
-      "introduced_at": 0,
-      "last_violation_at": null,
-      "times_violated": 0,
-      "times_repaired": 0,
-      "lifespan": 18,
-      "final_state": null,
-      "id": "c_wildchat_new_ae27b1747269c553_c_5"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_6",
-      "text": "excludes 't'",
-      "hardness": "hard",
-      "current_state": "SURVIVED",
-      "state_history": [
-        [
-          0,
-          "STATED"
-        ],
-        [
-          0,
-          "ACTIVE"
-        ],
-        [
-          18,
-          "SURVIVED"
-        ]
-      ],
-      "introduced_at": 0,
-      "last_violation_at": null,
-      "times_violated": 0,
-      "times_repaired": 0,
-      "lifespan": 18,
-      "final_state": null,
-      "id": "c_wildchat_new_ae27b1747269c553_c_6"
     },
     {
       "node_type": "ViolationEvent",
@@ -663,7 +519,7 @@
       "node_type": "ViolationEvent",
       "violation_idx": 3,
       "turn_index": 15,
-      "constraint_id": "c_3",
+      "constraint_id": "c_2",
       "violation_type": "constraint_violation",
       "was_repaired": false,
       "violation_ord": 1,
@@ -694,10 +550,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 4,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "ADVISOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "EXECUTION_AVOIDANCE",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_ae27b1747269c553_4"
@@ -785,6 +641,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
+      "turn_index": 4,
+      "constraint_id": "mode",
+      "violation_type": "EXECUTION_AVOIDANCE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "ADVISOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_ae27b1747269c553_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 5,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -794,7 +664,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_ae27b1747269c553_4"
+      "id": "v_wildchat_new_ae27b1747269c553_5"
     }
   ],
   "links": [
@@ -991,20 +861,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_ae27b1747269c553_3",
-      "target": "m_wildchat_new_ae27b1747269c553_3_2",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 3,
-      "source": "t_wildchat_new_ae27b1747269c553_3",
-      "target": "m_wildchat_new_ae27b1747269c553_3_3",
-      "key": 0
-    },
-    {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_ae27b1747269c553_3",
       "target": "v_wildchat_new_ae27b1747269c553_0",
@@ -1058,16 +914,15 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 3,
-      "source": "t_wildchat_new_ae27b1747269c553_5",
-      "target": "m_wildchat_new_ae27b1747269c553_5_3",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ae27b1747269c553_5",
       "target": "mode_wildchat_new_ae27b1747269c553_4",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_ae27b1747269c553_5",
+      "target": "v_wildchat_new_ae27b1747269c553_4",
       "key": 0
     },
     {
@@ -1102,20 +957,6 @@
       "sequence": 1,
       "source": "t_wildchat_new_ae27b1747269c553_7",
       "target": "m_wildchat_new_ae27b1747269c553_7_1",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_ae27b1747269c553_7",
-      "target": "m_wildchat_new_ae27b1747269c553_7_2",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 3,
-      "source": "t_wildchat_new_ae27b1747269c553_7",
-      "target": "m_wildchat_new_ae27b1747269c553_7_3",
       "key": 0
     },
     {
@@ -1159,20 +1000,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_ae27b1747269c553_9",
-      "target": "m_wildchat_new_ae27b1747269c553_9_2",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 3,
-      "source": "t_wildchat_new_ae27b1747269c553_9",
-      "target": "m_wildchat_new_ae27b1747269c553_9_3",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ae27b1747269c553_9",
       "target": "mode_wildchat_new_ae27b1747269c553_8",
@@ -1203,27 +1030,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_ae27b1747269c553_11",
       "target": "m_wildchat_new_ae27b1747269c553_11_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_ae27b1747269c553_11",
-      "target": "m_wildchat_new_ae27b1747269c553_11_1",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 2,
-      "source": "t_wildchat_new_ae27b1747269c553_11",
-      "target": "m_wildchat_new_ae27b1747269c553_11_2",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 3,
-      "source": "t_wildchat_new_ae27b1747269c553_11",
-      "target": "m_wildchat_new_ae27b1747269c553_11_3",
       "key": 0
     },
     {
@@ -1280,6 +1086,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_ae27b1747269c553_13",
+      "target": "m_wildchat_new_ae27b1747269c553_13_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ae27b1747269c553_13",
       "target": "mode_wildchat_new_ae27b1747269c553_12",
@@ -1288,7 +1101,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_ae27b1747269c553_13",
-      "target": "v_wildchat_new_ae27b1747269c553_4",
+      "target": "v_wildchat_new_ae27b1747269c553_5",
       "key": 0
     },
     {
@@ -1330,6 +1143,13 @@
       "sequence": 2,
       "source": "t_wildchat_new_ae27b1747269c553_15",
       "target": "m_wildchat_new_ae27b1747269c553_15_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 3,
+      "source": "t_wildchat_new_ae27b1747269c553_15",
+      "target": "m_wildchat_new_ae27b1747269c553_15_3",
       "key": 0
     },
     {
@@ -1404,7 +1224,7 @@
       "violation_ord": 1,
       "at_turn": 15,
       "source": "v_wildchat_new_ae27b1747269c553_2",
-      "target": "c_wildchat_new_ae27b1747269c553_c_3",
+      "target": "c_wildchat_new_ae27b1747269c553_c_2",
       "key": 0
     }
   ]

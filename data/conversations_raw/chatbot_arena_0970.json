@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0970",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Give me a python implementation of quicksort"
+    },
+    {
+      "role": "assistant",
+      "content": "The python code for quicksort is as follows:\n\ndef quicksort(sequence):\n  if len(sequence) > 1:\n    p = partition(sequence, 1, len(sequence))\n    quicksort(sequence[:p])\n    quicksort(sequence[p+1:])\n  return sequence\n\n function partition(sequence, start, end)\n   pivot = sequence[start]\n   i = start\n   j = end - 1\n   while i < j:\n     while sequence[i] < pivot:\n       i += 1\n     while sequence[j] > pivot:\n       j -= 1\n     if i < j:\n       sequence[i], sequence[j] = sequence[j], sequence[i]\n       i += 1\n       j -= 1\n   return i\n\n Implementation of a Quicksort in python"
+    },
+    {
+      "role": "user",
+      "content": "Now, make the same algorithm in Haskell"
+    },
+    {
+      "role": "assistant",
+      "content": "The haskell code for quicksort is as follows:\n\nquicksort [] = []\nquicksort (p:ps) = qs ++ [x] ++ qs'\n    where (qs, qs') = splitAt 1 ps\n          x       = p"
+    }
+  ]
+}

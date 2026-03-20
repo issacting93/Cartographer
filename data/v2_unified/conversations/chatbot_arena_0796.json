@@ -1,0 +1,165 @@
+{
+  "id": "chatbot_arena_0796",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Basket A has 2 apples. Basket B has 1 apple and 2 bananas. Basket C has 1 orange, 1 apple, and 1 banana. Basket D is empty. Take 1 apple from Basket A, Basket B and move them to Basket D. List the content of each Basket.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Basket D: Only one apple is in the final basket.\nBasket A: Only one apple is in the final basket.\nBasket B: Two bananas and one orange are in the final basket.\nBasket C: One banana and one apple are in the final basket.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "user",
+      "content": "Basket A has 2 apples. Basket B has 1 apple and 2 bananas. Basket C has 1 orange, 1 apple, and 1 banana. Basket D is empty. Take 1 apple from Basket A and Basket B and move them to Basket D. List the content of each Basket.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Basket D: Only one apple is in the final basket.\nBasket A: Only one apple is in the final basket.\nBasket B: Two bananas and one orange are in the final basket.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "Take 1 apple from Basket A, Basket B and move them to Basket D."
+      ],
+      "rationale": "The human asks the AI to perform a task and provide results, fitting a question-answer pattern.",
+      "alternative": "collaborative"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.9,
+      "evidence": [
+        "Take 1 apple from Basket A, Basket B and move them to Basket D."
+      ],
+      "rationale": "The human directs the task and the AI follows instructions.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Basket A has 2 apples. Basket B has 1 apple and 2 bananas."
+      ],
+      "rationale": "The conversation is factual with no emotional language.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.8,
+      "evidence": [
+        "Take 1 apple from Basket A, Basket B and move them to Basket D."
+      ],
+      "rationale": "The human provides specific instructions and repeats them for clarification.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "Basket A has 2 apples. Basket B has 1 apple and 2 bananas."
+      ],
+      "rationale": "The conversation involves listing factual information about basket contents.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "problem-solving",
+      "confidence": 0.8,
+      "evidence": [
+        "List the content of each Basket."
+      ],
+      "rationale": "The human seeks a solution to a task involving basket contents.",
+      "alternative": "information-seeking"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "Basket A has 2 apples. Basket B has 1 apple and 2 bananas."
+      ],
+      "rationale": "The conversation is straightforward and factual without deep exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Basket A has 2 apples. Basket B has 1 apple and 2 bananas."
+      ],
+      "rationale": "The human and AI have roughly equal turns in the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.6,
+        "director": 0.2,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "Take 1 apple from Basket A, Basket B and move them to Basket D."
+        }
+      ],
+      "rationale": "The human provides instructions and expects the AI to execute them.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.3,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Basket D: Only one apple is in the final basket."
+        }
+      ],
+      "rationale": "The AI provides factual information based on the human's instructions.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:05:02.441735",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

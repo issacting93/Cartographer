@@ -1,0 +1,36 @@
+{
+  "id": "wildchat_new_83cb40852a5fd1d0",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 48,
+  "classification": {
+    "task_goal": "Play the game 'Roll the Dice' and keep track of scores.",
+    "primary_constraints": [
+      "User and assistant must keep accurate scores based on the game rules.",
+      "Scores must be doubled when a player reaches 25 points."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.9,
+    "violation_count": 5,
+    "user_response": "Repaired",
+    "reasoning": "The assistant repeatedly miscalculated its score, violating the constraints of keeping accurate scores. The user corrected the assistant multiple times, and the assistant acknowledged these corrections and adjusted its score accordingly, thus enforcing the constraints after the violations.",
+    "evidence": {
+      "constraint_turns": [
+        4,
+        20
+      ],
+      "violation_turns": [
+        14,
+        22,
+        26,
+        32
+      ],
+      "repair_turns": [
+        24,
+        27,
+        31
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_83cb40852a5fd1d0.json"
+}

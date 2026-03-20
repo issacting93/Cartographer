@@ -388,7 +388,7 @@ def build_graph(
         "source": task_classification.get("source", ""),
         "domain": task_classification.get("domain", ""),
         "total_turns": task_classification.get("total_turns", 0),
-        "stability_class": cls.get("stability_class", ""),
+        "stability_class": cls.get("stability_class") or None,
         "task_architecture": tax.get("architecture", ""),
         "constraint_hardness": tax.get("constraint_hardness", ""),
         "task_goal": cls.get("task_goal", ""),

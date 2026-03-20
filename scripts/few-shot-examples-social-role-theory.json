@@ -1,0 +1,659 @@
+{
+  "metadata": {
+    "version": "v2.0-social-role-theory",
+    "totalExamples": 6,
+    "targetCount": 6,
+    "selectionCriteria": "diverse role pairs showing instrumental vs expressive distinction, especially learning-facilitator vs social-facilitator",
+    "taxonomy": "6 human roles + 6 AI roles based on social role theory"
+  },
+  "examples": [
+    {
+      "conversationId": "example-learning-facilitator",
+      "transcript": "[1] HUMAN: I'm struggling with Python loops. How do I get started?\n[2] AI: That's a great question! What programming experience do you have so far? Have you worked with any other languages, or is Python your first?\n[3] HUMAN: I've done some JavaScript but loops confuse me.\n[4] AI: Got it. Let's start with the basics then. What do you think a loop does? Can you describe in your own words?\n[5] HUMAN: I think it repeats something?\n[6] AI: Exactly! Now, can you think of a situation where you'd want to repeat something in your code?",
+      "messageCount": 6,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "question-answer",
+            "confidence": 0.9,
+            "evidence": [
+              "I'm struggling with Python loops. How do I get started?",
+              "What programming experience do you have so far?"
+            ]
+          },
+          "powerDynamics": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "What do you think a loop does?",
+              "can you think of a situation"
+            ]
+          },
+          "emotionalTone": {
+            "category": "supportive",
+            "confidence": 0.8,
+            "evidence": [
+              "That's a great question!",
+              "Exactly!"
+            ]
+          },
+          "engagementStyle": {
+            "category": "questioning",
+            "confidence": 0.9,
+            "evidence": [
+              "What programming experience do you have so far?",
+              "What do you think a loop does?"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "skill-sharing",
+            "confidence": 0.9,
+            "evidence": [
+              "I'm struggling with Python loops",
+              "What programming experience do you have so far"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "information-seeking",
+            "confidence": 0.9,
+            "evidence": [
+              "How do I get started?",
+              "loops confuse me"
+            ]
+          },
+          "topicDepth": {
+            "category": "moderate",
+            "confidence": 0.7,
+            "evidence": [
+              "Let's start with the basics",
+              "What do you think a loop does?"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "I'm struggling with Python loops",
+              "What programming experience do you have so far"
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 0.8,
+            "provider": 0.0,
+            "director": 0.0,
+            "collaborator": 0.2,
+            "social-expressor": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "information-seeker",
+              "quote": "I'm struggling with Python loops. How do I get started?"
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.0,
+            "learning-facilitator": 0.9,
+            "advisor": 0.0,
+            "co-constructor": 0.0,
+            "social-facilitator": 0.0,
+            "relational-peer": 0.1
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "learning-facilitator",
+              "quote": "What do you think a loop does? Can you describe in your own words?"
+            }
+          ]
+        }
+      },
+      "rationale": "AI scaffolds learning through structured questions (What do you think? Can you describe?), guiding the user to discover answers rather than providing direct information. This is INSTRUMENTAL facilitation focused on learning/task completion."
+    },
+    {
+      "conversationId": "example-social-facilitator",
+      "transcript": "[1] HUMAN: hi ! i work as a gourmet cook .\n[2] AI: cool , i'm currently studying and enjoy going fishing in my spare time .\n[3] HUMAN: really . but , i can sing pitch perfect .\n[4] AI: that's interesting ! what do you do for a career ? i have a ton of hobbies if you are interested !\n[5] HUMAN: i like to watch kids\n[6] AI: oh nice ! how are you doing today ?",
+      "messageCount": 6,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "casual-chat",
+            "confidence": 0.9,
+            "evidence": [
+              "hi ! i work as a gourmet cook .",
+              "what do you do for a career ?"
+            ]
+          },
+          "powerDynamics": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "cool , i'm currently studying",
+              "that's interesting !"
+            ]
+          },
+          "emotionalTone": {
+            "category": "neutral",
+            "confidence": 0.7,
+            "evidence": [
+              "cool",
+              "that's interesting !"
+            ]
+          },
+          "engagementStyle": {
+            "category": "affirming",
+            "confidence": 0.8,
+            "evidence": [
+              "cool",
+              "that's interesting !"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "personal-sharing",
+            "confidence": 0.9,
+            "evidence": [
+              "i work as a gourmet cook",
+              "i'm currently studying"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "relationship-building",
+            "confidence": 0.9,
+            "evidence": [
+              "what do you do for a career ?",
+              "how are you doing today ?"
+            ]
+          },
+          "topicDepth": {
+            "category": "surface",
+            "confidence": 0.8,
+            "evidence": [
+              "i work as a gourmet cook",
+              "i'm currently studying"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "hi ! i work as a gourmet cook",
+              "cool , i'm currently studying"
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 0.0,
+            "provider": 0.0,
+            "director": 0.0,
+            "collaborator": 0.0,
+            "social-expressor": 0.6,
+            "relational-peer": 0.4
+          },
+          "confidence": 0.8,
+          "evidence": [
+            {
+              "role": "social-expressor",
+              "quote": "i work as a gourmet cook ."
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.0,
+            "learning-facilitator": 0.0,
+            "advisor": 0.0,
+            "co-constructor": 0.0,
+            "social-facilitator": 0.8,
+            "relational-peer": 0.2
+          },
+          "confidence": 0.8,
+          "evidence": [
+            {
+              "role": "social-facilitator",
+              "quote": "what do you do for a career ? i have a ton of hobbies if you are interested !"
+            }
+          ]
+        }
+      },
+      "rationale": "AI maintains conversation flow through casual questions (what do you do for a career?, how are you doing today?) and personal sharing. Goal is relationship-building/social bonding, not learning. This is EXPRESSIVE facilitation focused on rapport/connection."
+    },
+    {
+      "conversationId": "example-expert-system",
+      "transcript": "[1] HUMAN: What is Python?\n[2] AI: Python is a high-level, interpreted programming language known for its simple syntax and readability. It was created by Guido van Rossum and first released in 1991. Python supports multiple programming paradigms including procedural, object-oriented, and functional programming.\n[3] HUMAN: How do I install it?\n[4] AI: To install Python, visit python.org and download the installer for your operating system. For Windows, run the installer and check 'Add Python to PATH'. For macOS, Python 3 comes pre-installed, but you can install the latest version using Homebrew.",
+      "messageCount": 4,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "question-answer",
+            "confidence": 0.9,
+            "evidence": [
+              "What is Python?",
+              "Python is a high-level, interpreted programming language"
+            ]
+          },
+          "powerDynamics": {
+            "category": "human-led",
+            "confidence": 0.8,
+            "evidence": [
+              "What is Python?",
+              "How do I install it?"
+            ]
+          },
+          "emotionalTone": {
+            "category": "professional",
+            "confidence": 0.8,
+            "evidence": [
+              "Python is a high-level, interpreted programming language"
+            ]
+          },
+          "engagementStyle": {
+            "category": "questioning",
+            "confidence": 0.7,
+            "evidence": [
+              "What is Python?",
+              "How do I install it?"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "factual-info",
+            "confidence": 0.9,
+            "evidence": [
+              "Python is a high-level, interpreted programming language",
+              "visit python.org and download the installer"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "information-seeking",
+            "confidence": 0.9,
+            "evidence": [
+              "What is Python?",
+              "How do I install it?"
+            ]
+          },
+          "topicDepth": {
+            "category": "moderate",
+            "confidence": 0.7,
+            "evidence": [
+              "Python supports multiple programming paradigms",
+              "For Windows, run the installer and check 'Add Python to PATH'"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.7,
+            "evidence": [
+              "What is Python?",
+              "Python is a high-level, interpreted programming language"
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 1.0,
+            "provider": 0.0,
+            "director": 0.0,
+            "collaborator": 0.0,
+            "social-expressor": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "information-seeker",
+              "quote": "What is Python?"
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.95,
+            "learning-facilitator": 0.0,
+            "advisor": 0.05,
+            "co-constructor": 0.0,
+            "social-facilitator": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "expert-system",
+              "quote": "Python is a high-level, interpreted programming language known for its simple syntax and readability."
+            }
+          ]
+        }
+      },
+      "rationale": "AI provides direct factual answers immediately, asserting epistemic authority. No scaffolding or guiding questions—just direct information. INSTRUMENTAL role with HIGH authority."
+    },
+    {
+      "conversationId": "example-relational-peer",
+      "transcript": "[1] HUMAN: You have my word. As a gentleman\n[2] AI: You're sweet.\n[3] HUMAN: I really appreciate that\n[4] AI: I appreciate you too! You seem like a wonderful person.",
+      "messageCount": 4,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "casual-chat",
+            "confidence": 0.9,
+            "evidence": [
+              "You have my word. As a gentleman",
+              "You're sweet."
+            ]
+          },
+          "powerDynamics": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "You have my word",
+              "You're sweet"
+            ]
+          },
+          "emotionalTone": {
+            "category": "empathetic",
+            "confidence": 0.8,
+            "evidence": [
+              "You're sweet.",
+              "I appreciate you too!"
+            ]
+          },
+          "engagementStyle": {
+            "category": "affirming",
+            "confidence": 0.9,
+            "evidence": [
+              "You're sweet.",
+              "I appreciate you too!"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "personal-sharing",
+            "confidence": 0.9,
+            "evidence": [
+              "You have my word. As a gentleman",
+              "I appreciate you too!"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "relationship-building",
+            "confidence": 0.9,
+            "evidence": [
+              "You're sweet.",
+              "I appreciate you too!"
+            ]
+          },
+          "topicDepth": {
+            "category": "surface",
+            "confidence": 0.8,
+            "evidence": [
+              "You have my word",
+              "You're sweet"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.8,
+            "evidence": [
+              "You have my word. As a gentleman",
+              "You're sweet."
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 0.0,
+            "provider": 0.0,
+            "director": 0.0,
+            "collaborator": 0.0,
+            "social-expressor": 0.7,
+            "relational-peer": 0.3
+          },
+          "confidence": 0.8,
+          "evidence": [
+            {
+              "role": "social-expressor",
+              "quote": "You have my word. As a gentleman"
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.0,
+            "learning-facilitator": 0.0,
+            "advisor": 0.0,
+            "co-constructor": 0.0,
+            "social-facilitator": 0.2,
+            "relational-peer": 0.8
+          },
+          "confidence": 0.8,
+          "evidence": [
+            {
+              "role": "relational-peer",
+              "quote": "You're sweet."
+            }
+          ]
+        }
+      },
+      "rationale": "AI affirms and mirrors without imposing structure or asking guiding questions. Pure emotional alignment and rapport-building. EXPRESSIVE role with EQUAL authority—peer relationship."
+    },
+    {
+      "conversationId": "example-co-constructor",
+      "transcript": "[1] HUMAN: Let's build a todo app together. I want it to have categories.\n[2] AI: Great idea! Should we use React for the frontend? Or would you prefer something simpler?\n[3] HUMAN: React sounds good. What if we add drag-and-drop for reordering?\n[4] AI: Excellent! We could use react-beautiful-dnd for that. Should categories be nested or flat?\n[5] HUMAN: Flat for now, but maybe we can add nesting later.\n[6] AI: Perfect! Let's start with the basic structure then iterate.",
+      "messageCount": 6,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "collaborative",
+            "confidence": 0.9,
+            "evidence": [
+              "Let's build a todo app together",
+              "Should we use React for the frontend?"
+            ]
+          },
+          "powerDynamics": {
+            "category": "balanced",
+            "confidence": 0.9,
+            "evidence": [
+              "Let's build a todo app together",
+              "Should we use React for the frontend?"
+            ]
+          },
+          "emotionalTone": {
+            "category": "supportive",
+            "confidence": 0.8,
+            "evidence": [
+              "Great idea!",
+              "Excellent!"
+            ]
+          },
+          "engagementStyle": {
+            "category": "exploring",
+            "confidence": 0.9,
+            "evidence": [
+              "Should we use React for the frontend?",
+              "What if we add drag-and-drop"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "skill-sharing",
+            "confidence": 0.9,
+            "evidence": [
+              "Let's build a todo app together",
+              "We could use react-beautiful-dnd"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "collaborative-refinement",
+            "confidence": 0.9,
+            "evidence": [
+              "Let's build a todo app together",
+              "Let's start with the basic structure then iterate"
+            ]
+          },
+          "topicDepth": {
+            "category": "moderate",
+            "confidence": 0.7,
+            "evidence": [
+              "Should we use React for the frontend?",
+              "Should categories be nested or flat?"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.9,
+            "evidence": [
+              "Let's build a todo app together",
+              "Should we use React for the frontend?"
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 0.0,
+            "provider": 0.0,
+            "director": 0.2,
+            "collaborator": 0.8,
+            "social-expressor": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "collaborator",
+              "quote": "Let's build a todo app together. What if we add drag-and-drop for reordering?"
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.1,
+            "learning-facilitator": 0.0,
+            "advisor": 0.0,
+            "co-constructor": 0.9,
+            "social-facilitator": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "co-constructor",
+              "quote": "Should we use React for the frontend? Or would you prefer something simpler?"
+            }
+          ]
+        }
+      },
+      "rationale": "AI proposes alternatives (React vs simpler, nested vs flat) and builds on human's ideas iteratively. Joint problem-solving with equal authority. INSTRUMENTAL role with EQUAL authority—co-creation."
+    },
+    {
+      "conversationId": "example-advisor",
+      "transcript": "[1] HUMAN: I need to write a resume but don't know where to start.\n[2] AI: Here's a step-by-step approach: First, list all your work experience with dates. Then add your education. Include any relevant skills or certifications. Finally, write a brief summary at the top. Would you like me to help you draft each section?\n[3] HUMAN: Yes, let's start with the summary.\n[4] AI: For your summary, focus on 2-3 key strengths and your career goal. Keep it to 3-4 sentences. What are your main strengths?",
+      "messageCount": 4,
+      "classification": {
+        "dimensions1to8": {
+          "interactionPattern": {
+            "category": "advisory",
+            "confidence": 0.9,
+            "evidence": [
+              "I need to write a resume but don't know where to start",
+              "Here's a step-by-step approach: First, list all your work experience"
+            ]
+          },
+          "powerDynamics": {
+            "category": "human-led",
+            "confidence": 0.8,
+            "evidence": [
+              "I need to write a resume",
+              "Would you like me to help you draft each section?"
+            ]
+          },
+          "emotionalTone": {
+            "category": "professional",
+            "confidence": 0.8,
+            "evidence": [
+              "Here's a step-by-step approach",
+              "focus on 2-3 key strengths"
+            ]
+          },
+          "engagementStyle": {
+            "category": "directive-iterative",
+            "confidence": 0.8,
+            "evidence": [
+              "First, list all your work experience with dates. Then add your education",
+              "focus on 2-3 key strengths"
+            ]
+          },
+          "knowledgeExchange": {
+            "category": "skill-sharing",
+            "confidence": 0.9,
+            "evidence": [
+              "write a resume",
+              "Here's a step-by-step approach"
+            ]
+          },
+          "conversationPurpose": {
+            "category": "problem-solving",
+            "confidence": 0.9,
+            "evidence": [
+              "I need to write a resume but don't know where to start",
+              "Here's a step-by-step approach"
+            ]
+          },
+          "topicDepth": {
+            "category": "moderate",
+            "confidence": 0.7,
+            "evidence": [
+              "First, list all your work experience with dates",
+              "focus on 2-3 key strengths"
+            ]
+          },
+          "turnTaking": {
+            "category": "balanced",
+            "confidence": 0.7,
+            "evidence": [
+              "I need to write a resume",
+              "Here's a step-by-step approach: First, list all your work experience"
+            ]
+          }
+        },
+        "humanRole": {
+          "distribution": {
+            "information-seeker": 0.9,
+            "provider": 0.0,
+            "director": 0.1,
+            "collaborator": 0.0,
+            "social-expressor": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "role": "information-seeker",
+              "quote": "I need to write a resume but don't know where to start."
+            }
+          ]
+        },
+        "aiRole": {
+          "distribution": {
+            "expert-system": 0.3,
+            "learning-facilitator": 0.0,
+            "advisor": 0.7,
+            "co-constructor": 0.0,
+            "social-facilitator": 0.0,
+            "relational-peer": 0.0
+          },
+          "confidence": 0.8,
+          "evidence": [
+            {
+              "role": "advisor",
+              "quote": "Here's a step-by-step approach: First, list all your work experience with dates. Then add your education."
+            }
+          ]
+        }
+      },
+      "rationale": "AI prescribes specific steps (First, Then, Finally) with recommendations. Provides structured guidance rather than just explaining concepts. INSTRUMENTAL role with HIGH authority—prescriptive."
+    }
+  ]
+}
+

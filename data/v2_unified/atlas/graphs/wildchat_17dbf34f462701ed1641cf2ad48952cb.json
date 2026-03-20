@@ -1,0 +1,188 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_17dbf34f462701ed1641cf2ad48952cb",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "information-seeking",
+      "id": "conv_wildchat_17dbf34f462701ed1641cf2ad48952cb"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 83,
+      "content_preview": "For machine learning, what are the different overloades uses of the phrase \"model\"?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 3076,
+      "content_preview": "In the context of machine learning, the term \"model\" is indeed overloaded, encapsulating several distinct but related no",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 54,
+      "content_preview": "What about overloaded definitions of \"neural network\"?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 3654,
+      "content_preview": "The term \"neural network\" is another concept in machine learning and artificial intelligence that carries different mean",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "In the context of machine learning, the term \"model\" is indeed overloaded, encap...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_17dbf34f462701ed1641cf2ad48952cb_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "The term \"neural network\" is another concept in machine learning and artificial...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_17dbf34f462701ed1641cf2ad48952cb_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_17dbf34f462701ed1641cf2ad48952cb",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_17dbf34f462701ed1641cf2ad48952cb",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_17dbf34f462701ed1641cf2ad48952cb",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_17dbf34f462701ed1641cf2ad48952cb",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_0",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_0",
+      "target": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1",
+      "target": "m_wildchat_17dbf34f462701ed1641cf2ad48952cb_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_1",
+      "target": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "target": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "target": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_3",
+      "target": "m_wildchat_17dbf34f462701ed1641cf2ad48952cb_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_17dbf34f462701ed1641cf2ad48952cb_3",
+      "target": "mode_wildchat_17dbf34f462701ed1641cf2ad48952cb_2",
+      "key": 0
+    }
+  ]
+}

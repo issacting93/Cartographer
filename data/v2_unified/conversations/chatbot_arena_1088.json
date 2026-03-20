@@ -1,0 +1,170 @@
+{
+  "id": "chatbot_arena_1088",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What was the question I was going to ask?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand the question.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "user",
+      "content": "It was about AI and guessing the next token.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand the question.",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.5,
+      "evidence": [
+        "What was the question I was going to ask?",
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The human asks questions, and the AI attempts to respond, though it does not provide answers.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.5,
+      "evidence": [
+        "What was the question I was going to ask?",
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The human initiates topics and asks questions, guiding the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I'm sorry, I don't understand the question."
+      ],
+      "rationale": "The interaction lacks emotional content, focusing on clarification.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.6,
+      "evidence": [
+        "What was the question I was going to ask?",
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The human's questions drive the interaction.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.5,
+      "evidence": [
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The human seeks factual information about AI.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.6,
+      "evidence": [
+        "What was the question I was going to ask?",
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The human seeks information about AI.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.7,
+      "evidence": [
+        "It was about AI and guessing the next token."
+      ],
+      "rationale": "The conversation touches on a topic without deep exploration.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "What was the question I was going to ask?",
+        "I'm sorry, I don't understand the question."
+      ],
+      "rationale": "Both parties contribute equally in terms of turn length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What was the question I was going to ask?"
+        }
+      ],
+      "rationale": "The human seeks specific information about AI.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.5,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I'm sorry, I don't understand the question."
+        }
+      ],
+      "rationale": "The AI attempts to clarify but does not provide answers.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:35:59.620637",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

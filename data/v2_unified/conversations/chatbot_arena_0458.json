@@ -1,0 +1,173 @@
+{
+  "id": "chatbot_arena_0458",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The ball costs $0.10.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "If the ball cost $0.10 and the bat cost $1.00, that would mean that the bat costs $0.90 more than the ball, so this answer is not valid.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I apologize for my mistake. The correct answer is that the ball costs $0.05 and the bat costs $1.05. The bat costs $0.05 more than the ball.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.9,
+      "evidence": [
+        "A bat and a ball cost $1.10 in total.",
+        "The ball costs $0.10."
+      ],
+      "rationale": "The human asks a question and the AI provides an answer, fitting the question-answer pattern.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.8,
+      "evidence": [
+        "A bat and a ball cost $1.10 in total.",
+        "If the ball cost $0.10 and the bat cost $1.00, that would mean..."
+      ],
+      "rationale": "The human initiates the topic and corrects the AI, indicating human-led dynamics.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "The ball costs $0.10.",
+        "I apologize for my mistake."
+      ],
+      "rationale": "The conversation is factual and corrective without emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "A bat and a ball cost $1.10 in total.",
+        "How much does the ball cost?"
+      ],
+      "rationale": "The human's initial question sets a questioning engagement style.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "The ball costs $0.10.",
+        "The correct answer is that the ball costs $0.05."
+      ],
+      "rationale": "The exchange involves factual information about the cost of items.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "How much does the ball cost?",
+        "The correct answer is that the ball costs $0.05."
+      ],
+      "rationale": "The human seeks specific information about the cost of the ball.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "A bat and a ball cost $1.10 in total.",
+        "The ball costs $0.10."
+      ],
+      "rationale": "The conversation is brief and focused on a single question.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "A bat and a ball cost $1.10 in total.",
+        "The ball costs $0.10."
+      ],
+      "rationale": "Both participants have roughly equal turns in the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "How much does the ball cost?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also provides corrective feedback.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.3,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The ball costs $0.10."
+        }
+      ],
+      "rationale": "The AI provides factual answers but also corrects itself, showing some learning facilitation.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T12:01:59.910351",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

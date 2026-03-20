@@ -1,0 +1,181 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0029_700f1f57eb8e",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety",
+      "id": "conv_mentalhealth_0029_700f1f57eb8e",
+      "human_role_dist": {
+        "information-seeker": 0.6,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.4,
+        "relational-peer": 0.0
+      },
+      "human_role_confidence": 0.7,
+      "ai_role_dist": {
+        "expert-system": 0.0,
+        "learning-facilitator": 0.0,
+        "advisor": 0.7,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.3,
+        "relational-peer": 0.0
+      },
+      "ai_role_confidence": 0.8,
+      "srt_interactionPattern": "advisory",
+      "srt_interactionPattern_conf": 0.8,
+      "srt_powerDynamics": "human-led",
+      "srt_powerDynamics_conf": 0.7,
+      "srt_emotionalTone": "empathetic",
+      "srt_emotionalTone_conf": 0.9,
+      "srt_engagementStyle": "affirming",
+      "srt_engagementStyle_conf": 0.8,
+      "srt_knowledgeExchange": "experience-sharing",
+      "srt_knowledgeExchange_conf": 0.7,
+      "srt_conversationPurpose": "relationship-building",
+      "srt_conversationPurpose_conf": 0.6,
+      "srt_topicDepth": "moderate",
+      "srt_topicDepth_conf": 0.7,
+      "srt_turnTaking": "user-dominant",
+      "srt_turnTaking_conf": 0.8
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 375,
+      "content_preview": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime ins",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0029_700f1f57eb8e_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.62,
+      "content": "I have so many issues to address. I have a history of sexual abuse, I\u2019m a breast cancer survivor and I am a lifetime insomniac.    I have a long history of depression and I\u2019m beginning to have anxiety. I have low self esteem but I\u2019ve been happily married for almost 35 years.\n   I\u2019ve never had counseling about any of this. Do I have too many issues to address in counseling?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 282,
+      "content_preview": "Hi! Many people begin their therapeutic journey with histories just like yours and experience transformative shifts in t",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "pad_pleasure": 0.8,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.32,
+      "content": "Hi! Many people begin their therapeutic journey with histories just like yours and experience transformative shifts in their quality of life. \u00a0I hope you are able to find a counselor you feel comfortable working with and do the work if you feel called. Best of luck on your journey!"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "t 35 years.\n   I\u2019ve never had counseling about any of this. Do I",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0029_700f1f57eb8e_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Hi! Many people begin their therapeutic journey with histories just like yours a...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0029_700f1f57eb8e_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_mentalhealth_0029_700f1f57eb8e_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "v_mentalhealth_0029_700f1f57eb8e_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0029_700f1f57eb8e",
+      "target": "t_mentalhealth_0029_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0029_700f1f57eb8e",
+      "target": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0029_700f1f57eb8e_0",
+      "target": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0029_700f1f57eb8e_0",
+      "target": "m_mentalhealth_0029_700f1f57eb8e_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0029_700f1f57eb8e_0",
+      "target": "mode_mentalhealth_0029_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "target": "m_mentalhealth_0029_700f1f57eb8e_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "target": "mode_mentalhealth_0029_700f1f57eb8e_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0029_700f1f57eb8e_1",
+      "target": "v_mentalhealth_0029_700f1f57eb8e_0",
+      "key": 0
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "chatbot_arena_0494",
+  "messages": [
+    {
+      "role": "user",
+      "content": "HI",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.24
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.9,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.22
+      }
+    },
+    {
+      "role": "user",
+      "content": "The man asked the women: how much ___ shall we spend on our wedding? What is the most likely word that goes into the blank",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The most likely word in the blank is \"time\", as in \"how much time shall we spend on our wedding?\"",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.34
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "The man asked the women: how much ___ shall we spend on our wedding?"
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "The man asked the women: how much ___ shall we spend on our wedding?"
+      ],
+      "rationale": "The human initiates the topic and asks a question.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "The conversation lacks strong emotional coloring.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "The man asked the women: how much ___ shall we spend on our wedding?"
+      ],
+      "rationale": "The human's question drives the interaction.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "The most likely word in the blank is 'time'"
+      ],
+      "rationale": "The AI provides a factual answer to the human's query.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "The man asked the women: how much ___ shall we spend on our wedding?"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": "problem-solving"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "The most likely word in the blank is 'time'"
+      ],
+      "rationale": "The conversation is brief and not deeply explored.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "HI",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "The conversation has equal contributions from both parties.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.1,
+        "relational-peer": 0.1
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "The man asked the women: how much ___ shall we spend on our wedding?"
+        }
+      ],
+      "rationale": "The human primarily seeks information.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The most likely word in the blank is 'time'"
+        }
+      ],
+      "rationale": "The AI provides a direct answer, asserting knowledge.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:25:38.418150",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

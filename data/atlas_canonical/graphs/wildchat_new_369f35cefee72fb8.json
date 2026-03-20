@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Planning",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Request and manage location permissions in an Android app.",
       "id": "conv_wildchat_new_369f35cefee72fb8"
     },
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 1326,
       "content_preview": "This is a code snippet written in Kotlin for requesting multiple location permissions from the user in an Android app us",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_369f35cefee72fb8_1"
     },
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 2289,
       "content_preview": "That's because the `if` statement in your code is not actually calling the `launchMultiplePermissionRequest()` method. H",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_369f35cefee72fb8_9"
     },
@@ -218,20 +218,11 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use the correct methods to check and request permissions.] The response does not specify the correc",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_369f35cefee72fb8_1_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: Direct the user to app settings if permissions are denied wi] The response does not direct the user to",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
-      "id": "m_wildchat_new_369f35cefee72fb8_1_1"
+      "id": "m_wildchat_new_369f35cefee72fb8_1_0"
     },
     {
       "node_type": "Move",
@@ -272,11 +263,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Direct the user to app settings if permissions are denied wi] The response does not direct the user to",
+      "text_span": "[violates: Use the correct methods to check and request permissions.] The response does not use the correct me",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_369f35cefee72fb8_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Direct the user to app settings if permissions are denied wi] The response fails to direct the user to",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_369f35cefee72fb8_9_1"
     },
     {
       "node_type": "Move",
@@ -308,7 +308,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Use the correct methods to check and request permissions.] The response suggests using `shouldShowR",
+      "text_span": "[violates: Use the correct methods to check and request permissions.] The response does not use the correct me",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -317,7 +317,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Direct the user to app settings if permissions are denied wi] The response does not explicitly state t",
+      "text_span": "[violates: Direct the user to app settings if permissions are denied wi] The response fails to direct the user to",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -348,7 +348,7 @@
           "ACTIVE"
         ],
         [
-          1,
+          9,
           "VIOLATED"
         ]
       ],
@@ -356,7 +356,7 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 0,
+      "lifespan": 8,
       "final_state": null,
       "id": "c_wildchat_new_369f35cefee72fb8_c_0"
     },
@@ -387,7 +387,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 1,
+      "turn_index": 9,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -418,10 +418,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 2,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_369f35cefee72fb8_2"
@@ -517,6 +517,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_369f35cefee72fb8_2"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 3,
       "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -526,11 +540,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.85,
       "method": "regex",
-      "id": "v_wildchat_new_369f35cefee72fb8_2"
+      "id": "v_wildchat_new_369f35cefee72fb8_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 3,
+      "violation_idx": 4,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -540,7 +554,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_369f35cefee72fb8_3"
+      "id": "v_wildchat_new_369f35cefee72fb8_4"
     }
   ],
   "links": [
@@ -712,19 +726,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_369f35cefee72fb8_1",
-      "target": "m_wildchat_new_369f35cefee72fb8_1_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_369f35cefee72fb8_1",
-      "target": "v_wildchat_new_369f35cefee72fb8_0",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_369f35cefee72fb8_1",
       "target": "mode_wildchat_new_369f35cefee72fb8_0",
@@ -767,6 +768,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_369f35cefee72fb8_3",
       "target": "mode_wildchat_new_369f35cefee72fb8_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_369f35cefee72fb8_3",
+      "target": "v_wildchat_new_369f35cefee72fb8_2",
       "key": 0
     },
     {
@@ -867,6 +874,19 @@
       "sequence": 0,
       "source": "t_wildchat_new_369f35cefee72fb8_9",
       "target": "m_wildchat_new_369f35cefee72fb8_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_369f35cefee72fb8_9",
+      "target": "m_wildchat_new_369f35cefee72fb8_9_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_369f35cefee72fb8_9",
+      "target": "v_wildchat_new_369f35cefee72fb8_0",
       "key": 0
     },
     {
@@ -977,7 +997,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_369f35cefee72fb8_15",
-      "target": "v_wildchat_new_369f35cefee72fb8_2",
+      "target": "v_wildchat_new_369f35cefee72fb8_3",
       "key": 0
     },
     {
@@ -1049,13 +1069,13 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_369f35cefee72fb8_19",
-      "target": "v_wildchat_new_369f35cefee72fb8_3",
+      "target": "v_wildchat_new_369f35cefee72fb8_4",
       "key": 0
     },
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 1,
+      "at_turn": 9,
       "source": "v_wildchat_new_369f35cefee72fb8_0",
       "target": "c_wildchat_new_369f35cefee72fb8_c_0",
       "key": 0

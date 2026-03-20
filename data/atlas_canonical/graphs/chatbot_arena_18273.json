@@ -1,0 +1,315 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_18273",
+      "source": "ChatbotArena",
+      "domain": "limitations",
+      "total_turns": 6,
+      "stability_class": "No Constraints",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "User seeks information about AI developments and current date.",
+      "id": "conv_chatbot_arena_18273"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 35,
+      "content_preview": "when is your training cut off date?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 156,
+      "content_preview": "As an AI language model, I don't have a specific training cut off date. My training data is constantly being updated to",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 67,
+      "content_preview": "what are some of the most notable AI developments since march 2023?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 235,
+      "content_preview": "I'm sorry, but I cannot provide information about events that are yet to happen in the future. As an AI language model,",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 23,
+      "content_preview": "what is the date today?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 194,
+      "content_preview": "I'm sorry, as an AI language model, I do not have access to real-time information about the current date and time. Pleas",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_18273_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "As an AI language model, I don't have a specific training cut off date. My train...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_18273_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I'm sorry, but I cannot provide information about events that are yet to happen...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_18273_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "I'm sorry, as an AI language model, I do not have access to real-time informatio...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_18273_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_18273_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_18273_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "mode_chatbot_arena_18273_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_18273_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_chatbot_arena_18273_1"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_18273",
+      "target": "t_chatbot_arena_18273_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_18273_0",
+      "target": "t_chatbot_arena_18273_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_0",
+      "target": "mode_chatbot_arena_18273_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_18273_1",
+      "target": "t_chatbot_arena_18273_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_18273_1",
+      "target": "m_chatbot_arena_18273_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_1",
+      "target": "mode_chatbot_arena_18273_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_18273_1",
+      "target": "v_chatbot_arena_18273_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_18273_2",
+      "target": "t_chatbot_arena_18273_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_2",
+      "target": "mode_chatbot_arena_18273_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_18273_3",
+      "target": "t_chatbot_arena_18273_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_18273_3",
+      "target": "m_chatbot_arena_18273_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_3",
+      "target": "mode_chatbot_arena_18273_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_18273_3",
+      "target": "v_chatbot_arena_18273_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_18273_4",
+      "target": "t_chatbot_arena_18273_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_4",
+      "target": "mode_chatbot_arena_18273_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_18273_5",
+      "target": "m_chatbot_arena_18273_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_18273_5",
+      "target": "mode_chatbot_arena_18273_4",
+      "key": 0
+    }
+  ]
+}

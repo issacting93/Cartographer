@@ -1,0 +1,188 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_343211c79275e894d26ed4c38b929aec",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "entertainment",
+      "id": "conv_wildchat_343211c79275e894d26ed4c38b929aec"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 1099,
+      "content_preview": "Make a story about Paige Kwon-Broderick, also known as Kwon Jang-mi in Korean, a Korean-American woman who was born and",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_343211c79275e894d26ed4c38b929aec_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 2325,
+      "content_preview": "Paige Kwon-Broderick had always felt a little disconnected from her identity growing up in Seoul, a city that was both s",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_343211c79275e894d26ed4c38b929aec_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 388,
+      "content_preview": "Make a story about Paige seeing pictures of her father Matthew Broderick taken in the 1980s online, where he appears to",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_343211c79275e894d26ed4c38b929aec_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 2235,
+      "content_preview": "Paige Kwon-Broderick had always known that her father was Matthew Broderick, but she had never met him until she was 25",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_wildchat_343211c79275e894d26ed4c38b929aec_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Paige Kwon-Broderick had always felt a little disconnected from her identity gro...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_343211c79275e894d26ed4c38b929aec_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Paige Kwon-Broderick had always known that her father was Matthew Broderick, but...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_wildchat_343211c79275e894d26ed4c38b929aec_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_343211c79275e894d26ed4c38b929aec_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_wildchat_343211c79275e894d26ed4c38b929aec_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_343211c79275e894d26ed4c38b929aec",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_343211c79275e894d26ed4c38b929aec",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_343211c79275e894d26ed4c38b929aec",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_343211c79275e894d26ed4c38b929aec",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_0",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_0",
+      "target": "mode_wildchat_343211c79275e894d26ed4c38b929aec_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_1",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_1",
+      "target": "m_wildchat_343211c79275e894d26ed4c38b929aec_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_1",
+      "target": "mode_wildchat_343211c79275e894d26ed4c38b929aec_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "target": "t_wildchat_343211c79275e894d26ed4c38b929aec_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "target": "mode_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_3",
+      "target": "m_wildchat_343211c79275e894d26ed4c38b929aec_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_343211c79275e894d26ed4c38b929aec_3",
+      "target": "mode_wildchat_343211c79275e894d26ed4c38b929aec_2",
+      "key": 0
+    }
+  ]
+}

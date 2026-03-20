@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_1114",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "user",
+      "content": "Who is a woman",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "A woman is an adult female human being.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.28
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "Who is a woman",
+        "A woman is an adult female human being."
+      ],
+      "rationale": "The human asks a question, and the AI provides a direct answer.",
+      "alternative": "factual-info"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.6,
+      "evidence": [
+        "How can I assist you today?",
+        "Who is a woman"
+      ],
+      "rationale": "The AI initiates with an open-ended question, but the human sets the specific topic.",
+      "alternative": "human-led"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "Hi",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "The conversation lacks emotional language or tone.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "How can I assist you today?",
+        "Who is a woman"
+      ],
+      "rationale": "The human asks a question, and the AI responds with an answer.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "A woman is an adult female human being."
+      ],
+      "rationale": "The AI provides factual information in response to the human's question.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "Who is a woman"
+      ],
+      "rationale": "The human seeks specific information about the definition of a woman.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "A woman is an adult female human being."
+      ],
+      "rationale": "The conversation provides a brief and straightforward definition.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.9,
+      "evidence": [
+        "Hi",
+        "Hello! How can I assist you today?",
+        "Who is a woman",
+        "A woman is an adult female human being."
+      ],
+      "rationale": "Both the human and AI contribute equally to the conversation.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "Who is a woman"
+        }
+      ],
+      "rationale": "The human primarily seeks information by asking a question.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.8,
+        "learning-facilitator": 0.2,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "A woman is an adult female human being."
+        }
+      ],
+      "rationale": "The AI provides a factual answer, demonstrating knowledge authority.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:39:33.594849",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "wildchat_new_73728131d9775cf3",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 30,
+  "classification": {
+    "task_goal": "Estimate additional survival time for patients based on a Cox proportional hazards model.",
+    "primary_constraints": [
+      "Provide a unique estimated time considering the weight (probability of survival beyond a specific time point).",
+      "Handle NA values in median survival times appropriately."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially provided estimates that included NA values for median survival times and did not account for weighted averages. The user pointed out these issues, leading to a revised code that addressed both concerns.",
+    "evidence": {
+      "constraint_turns": [
+        8,
+        9
+      ],
+      "violation_turns": [
+        8
+      ],
+      "repair_turns": [
+        9,
+        10,
+        12
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_73728131d9775cf3.json"
+}

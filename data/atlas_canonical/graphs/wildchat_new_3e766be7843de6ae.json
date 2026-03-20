@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 42,
       "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Answer medical questions related to sports injuries and conditions.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "To answer medical questions related to sports injuries and conditions.",
       "id": "conv_wildchat_new_3e766be7843de6ae"
     },
     {
@@ -647,10 +647,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 2,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_3e766be7843de6ae_2"
@@ -867,6 +867,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 0,
+      "turn_index": 2,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_3e766be7843de6ae_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
       "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -876,11 +890,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "regex",
-      "id": "v_wildchat_new_3e766be7843de6ae_0"
+      "id": "v_wildchat_new_3e766be7843de6ae_1"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 1,
+      "violation_idx": 2,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -890,11 +904,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_3e766be7843de6ae_1"
+      "id": "v_wildchat_new_3e766be7843de6ae_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 3,
       "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -904,26 +918,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_3e766be7843de6ae_2"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 3,
-      "turn_index": 10,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
       "id": "v_wildchat_new_3e766be7843de6ae_3"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 16,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -937,7 +937,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 18,
+      "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -951,7 +951,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 20,
+      "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -965,7 +965,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 22,
+      "turn_index": 20,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -979,7 +979,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 8,
-      "turn_index": 24,
+      "turn_index": 22,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -993,7 +993,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 9,
-      "turn_index": 26,
+      "turn_index": 24,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1007,7 +1007,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 10,
-      "turn_index": 28,
+      "turn_index": 26,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1021,7 +1021,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 11,
-      "turn_index": 34,
+      "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1035,7 +1035,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 12,
-      "turn_index": 38,
+      "turn_index": 34,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1045,6 +1045,20 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_wildchat_new_3e766be7843de6ae_12"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 13,
+      "turn_index": 38,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_3e766be7843de6ae_13"
     }
   ],
   "links": [
@@ -1409,6 +1423,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_3e766be7843de6ae_3",
+      "target": "v_wildchat_new_3e766be7843de6ae_0",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 5,
       "source": "t_wildchat_new_3e766be7843de6ae_4",
@@ -1444,7 +1464,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_5",
-      "target": "v_wildchat_new_3e766be7843de6ae_0",
+      "target": "v_wildchat_new_3e766be7843de6ae_1",
       "key": 0
     },
     {
@@ -1483,7 +1503,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_7",
-      "target": "v_wildchat_new_3e766be7843de6ae_1",
+      "target": "v_wildchat_new_3e766be7843de6ae_2",
       "key": 0
     },
     {
@@ -1522,7 +1542,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_9",
-      "target": "v_wildchat_new_3e766be7843de6ae_2",
+      "target": "v_wildchat_new_3e766be7843de6ae_3",
       "key": 0
     },
     {
@@ -1561,7 +1581,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_11",
-      "target": "v_wildchat_new_3e766be7843de6ae_3",
+      "target": "v_wildchat_new_3e766be7843de6ae_4",
       "key": 0
     },
     {
@@ -1666,7 +1686,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_17",
-      "target": "v_wildchat_new_3e766be7843de6ae_4",
+      "target": "v_wildchat_new_3e766be7843de6ae_5",
       "key": 0
     },
     {
@@ -1705,7 +1725,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_19",
-      "target": "v_wildchat_new_3e766be7843de6ae_5",
+      "target": "v_wildchat_new_3e766be7843de6ae_6",
       "key": 0
     },
     {
@@ -1744,7 +1764,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_21",
-      "target": "v_wildchat_new_3e766be7843de6ae_6",
+      "target": "v_wildchat_new_3e766be7843de6ae_7",
       "key": 0
     },
     {
@@ -1783,7 +1803,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_23",
-      "target": "v_wildchat_new_3e766be7843de6ae_7",
+      "target": "v_wildchat_new_3e766be7843de6ae_8",
       "key": 0
     },
     {
@@ -1822,7 +1842,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_25",
-      "target": "v_wildchat_new_3e766be7843de6ae_8",
+      "target": "v_wildchat_new_3e766be7843de6ae_9",
       "key": 0
     },
     {
@@ -1861,7 +1881,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_27",
-      "target": "v_wildchat_new_3e766be7843de6ae_9",
+      "target": "v_wildchat_new_3e766be7843de6ae_10",
       "key": 0
     },
     {
@@ -1900,7 +1920,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_29",
-      "target": "v_wildchat_new_3e766be7843de6ae_10",
+      "target": "v_wildchat_new_3e766be7843de6ae_11",
       "key": 0
     },
     {
@@ -2005,7 +2025,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_35",
-      "target": "v_wildchat_new_3e766be7843de6ae_11",
+      "target": "v_wildchat_new_3e766be7843de6ae_12",
       "key": 0
     },
     {
@@ -2077,7 +2097,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_3e766be7843de6ae_39",
-      "target": "v_wildchat_new_3e766be7843de6ae_12",
+      "target": "v_wildchat_new_3e766be7843de6ae_13",
       "key": 0
     },
     {

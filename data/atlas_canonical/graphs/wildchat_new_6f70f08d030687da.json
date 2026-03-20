@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "No Constraints",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Flexible",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Discuss programming concepts and their applications in Power Apps.",
       "id": "conv_wildchat_new_6f70f08d030687da"
     },
@@ -350,10 +350,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 6,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_6f70f08d030687da_6"
@@ -394,10 +394,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 14,
-      "user_requested": "LISTENER",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "UNSOLICITED_ADVICE",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_6f70f08d030687da_14"
@@ -457,10 +457,10 @@
       "violation_idx": 2,
       "turn_index": 6,
       "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
+      "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
       "violation_ord": 1,
-      "user_requested": "LISTENER",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
@@ -483,20 +483,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 14,
-      "constraint_id": "mode",
-      "violation_type": "UNSOLICITED_ADVICE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "LISTENER",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.7,
-      "method": "llm",
-      "id": "v_wildchat_new_6f70f08d030687da_4"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 5,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -506,11 +492,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_6f70f08d030687da_5"
+      "id": "v_wildchat_new_6f70f08d030687da_4"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 6,
+      "violation_idx": 5,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -520,7 +506,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.7,
       "method": "llm",
-      "id": "v_wildchat_new_6f70f08d030687da_6"
+      "id": "v_wildchat_new_6f70f08d030687da_5"
     }
   ],
   "links": [
@@ -960,12 +946,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_6f70f08d030687da_15",
-      "target": "v_wildchat_new_6f70f08d030687da_4",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 17,
       "source": "t_wildchat_new_6f70f08d030687da_16",
@@ -1001,7 +981,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_6f70f08d030687da_17",
-      "target": "v_wildchat_new_6f70f08d030687da_5",
+      "target": "v_wildchat_new_6f70f08d030687da_4",
       "key": 0
     },
     {
@@ -1033,7 +1013,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_6f70f08d030687da_19",
-      "target": "v_wildchat_new_6f70f08d030687da_6",
+      "target": "v_wildchat_new_6f70f08d030687da_5",
       "key": 0
     }
   ]

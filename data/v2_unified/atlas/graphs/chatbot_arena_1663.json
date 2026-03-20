@@ -1,0 +1,188 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_1663",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "",
+      "id": "conv_chatbot_arena_1663"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 477,
+      "content_preview": "Can you transform each charachter in a word one by one if I give you the transoformation function? This is the transfor",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1663_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 976,
+      "content_preview": "Sure, I can do that. Here are the steps involved in transforming the word \"kjovoj\" using the given transformation functi",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1663_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 99,
+      "content_preview": "I think you did a good job until step 4. Can you do step 4 again? The numbers in step 3 look good.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_1663_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 829,
+      "content_preview": "Sure, I can do that. Here are the steps involved in converting the numbers in step 3 back to letters: 1. Convert each n",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_1663_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure, I can do that. Here are the steps involved in transforming the word \"kjovo...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1663_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure, I can do that. Here are the steps involved in converting the numbers in st...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_1663_3_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6666666666666666,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1663_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_chatbot_arena_1663_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_1663",
+      "target": "t_chatbot_arena_1663_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_1663",
+      "target": "t_chatbot_arena_1663_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_1663",
+      "target": "t_chatbot_arena_1663_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_1663",
+      "target": "t_chatbot_arena_1663_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_1663_0",
+      "target": "t_chatbot_arena_1663_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1663_0",
+      "target": "mode_chatbot_arena_1663_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_1663_1",
+      "target": "t_chatbot_arena_1663_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1663_1",
+      "target": "m_chatbot_arena_1663_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1663_1",
+      "target": "mode_chatbot_arena_1663_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_1663_2",
+      "target": "t_chatbot_arena_1663_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1663_2",
+      "target": "mode_chatbot_arena_1663_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1663_3",
+      "target": "m_chatbot_arena_1663_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_1663_3",
+      "target": "mode_chatbot_arena_1663_2",
+      "key": 0
+    }
+  ]
+}

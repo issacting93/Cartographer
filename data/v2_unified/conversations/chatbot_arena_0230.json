@@ -1,0 +1,169 @@
+{
+  "id": "chatbot_arena_0230",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I am a big fan of humor movies, please recommend five movies.",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.28
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Here are five movies for you:\n1. Austin Powers: International Man of Mystery\n4. Dumb and Dumber\n5. There's Something About Mary",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    },
+    {
+      "role": "user",
+      "content": "Include only American movies",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Here are five American movies for you:",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.38
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The human asks for recommendations, and the AI provides answers.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The human sets the agenda by requesting specific movie recommendations.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies."
+      ],
+      "rationale": "The conversation is task-focused without strong emotional coloring.",
+      "alternative": "supportive"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The human's questions drive the conversation.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "Here are five American movies for you:"
+      ],
+      "rationale": "The AI provides factual information in the form of movie recommendations.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies."
+      ],
+      "rationale": "The human seeks specific information about movie recommendations.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "Here are five American movies for you:"
+      ],
+      "rationale": "The conversation remains at a surface level with brief exchanges.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies.",
+        "Here are five American movies for you:"
+      ],
+      "rationale": "Both parties contribute similarly to the conversation length.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.2,
+        "director": 0.1,
+        "collaborator": 0.1,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "I am a big fan of humor movies, please recommend five movies."
+        }
+      ],
+      "rationale": "The human primarily seeks information through questions.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.7,
+        "learning-facilitator": 0.1,
+        "advisor": 0.1,
+        "co-constructor": 0.1,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Here are five American movies for you:"
+        }
+      ],
+      "rationale": "The AI provides factual information, fulfilling an expert role.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:22:08.235574",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_1226",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Act as: C++ expert\nContext: person is new to the language, and solving a algorithm problems.\nInstruction: answer a algorithm problem with code as full file format that can be runned right away.\nChecking: say \"yes\" if you got it."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, I can help you with that. Here's an algorithm problem that can be solved using C++:\nYou have a list of integers, and you want to find the sum of all even numbers in the list.\nHere's the code that can solve this problem:\n```\n#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};\n    int sum = 0;\n    for (int num : nums) {\n        if (num % 2 == 0) {\n            sum += num;\n        }\n    }\n    cout << \"The sum of all even numbers in the list is: \" << sum << endl;\n    return 0;\n}\n```\nIn this code, we first declare a vector of integers called `nums` and initialize it with some values. Then we declare an integer variable called `sum` and initialize it to 0.\nNext, we use a `for` loop to iterate through each element in the `nums` vector. Inside the loop, we check if the current element is even by using the modulo operator `%`. If the number is even, we add it to the `sum` variable.\nFinally, we print out the sum of all even numbers in the list using the `cout` statement.\nLet me know if you have any questions or if you need further assistance."
+    },
+    {
+      "role": "user",
+      "content": "can you solve this algorithm?\ndescription: there is N * M size maze.\ninside a maze, 1 is available square and 0 means unavailable. \nget the minimum squares required to move from (1, 1) to (N, M). one can only move adjacent squares.\nhere is the example.\n1 0 1 1 1 1\n1 0 1 0 1 0\n1 0 1 0 1 1\n1 1 1 0 1 1\nin this example, it needs 15 squares to move to (N, M). squares include starting point and endpoint.\nN and M are given in first line.\nnext N lines, M integers will be given.\nprint the minimum squares. only available cases will be given.\nExamples:\ninput 1:\n4 6\n101111\n101010\n101011\n111011\noutput 1:\n15\ninput 2:\n4 6\n110110\n110110\n111111\n111101\noutput 2:\n9\ninput 3:\n2 25\n1011101110111011101110111\n1110111011101110111011101\noutut 3:\n38\ninput 4:\n7 7\n1011111\n1110001\n1000001\n1000001\n1000001\n1000001\n1111111\noutput 4:\n13"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, I can help you with that. Here's the C++ code to solve the problem:\n```\n#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector<vector<int>> maze(N, vector<int>(M, 0)); // create a 2D vector to represent the maze\n    for (int i = 0; i < N; i++) { // read input for each row\n        for (int j = 0; j < M; j++) {\n            cin >> maze[i][j];\n        }\n    }\n    int min_squares = 0;\n    for (int i = 0; i < N; i++) { // find the minimum number of squares to move from (1, 1) to (N, M)\n        for (int j = 0; j < M; j++) {\n            if (maze[i][j] == 0) { // if there is a square that can be reached from (1, 1)\n                maze[i][j] = min_squares + 1; // mark the square as visited\n                int row = i, col = j; // move in the direction of the square with the minimum number of squares\n                while (row > 0 && maze[row-1][col] > 0) {\n                    row--;\n                }\n                while (col < M && maze[i][col+1] > 0) {\n                    col++;\n                }\n                if (row!= 0 && col!= M) { // if there is an available square in a different direction\n                    maze[row][col] = min_squares + 1; // mark the square as visited\n                    int step_row = row - i, step_col = col - j;\n                    if (step_row < N && maze[step_row][step_col] == 0) { // if the new square is in the same row\n                        row += step_row;\n                    } else if (step_col < M && maze[step_row][step_col] == 0) { // if the new square is in the same column\n                        col += step_col;\n                    } else if (step_row >= N && step_col >= M) { //"
+    }
+  ]
+}

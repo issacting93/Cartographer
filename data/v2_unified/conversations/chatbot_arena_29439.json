@@ -1,0 +1,203 @@
+{
+  "id": "chatbot_arena_29439",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.3,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.42
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How are you doing?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "user",
+      "content": "I cant say.",
+      "pad": {
+        "pleasure": 0.3,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.62
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry to hear that. Is there anything I can help you with?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "user",
+      "content": "can you provide medical assistance?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.56
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I am not a medical professional. However, I can provide you with the contact information for a nearby medical facility or suggest that you seek assistance from a trained professional.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "can you provide medical assistance?",
+        "I am not a medical professional."
+      ],
+      "rationale": "The conversation primarily consists of the human asking questions and the AI providing answers.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "can you provide medical assistance?",
+        "Is there anything I can help you with?"
+      ],
+      "rationale": "The human initiates the main topic and asks questions, directing the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "I cant say.",
+        "I'm sorry to hear that."
+      ],
+      "rationale": "The tone is neutral with a slight hint of empathy from the AI.",
+      "alternative": "empathetic"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "can you provide medical assistance?",
+        "Is there anything I can help you with?"
+      ],
+      "rationale": "The human asks questions, and the AI responds with clarifying questions.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "I am not a medical professional.",
+        "I can provide you with the contact information for a nearby medical facility."
+      ],
+      "rationale": "The AI provides factual information about its capabilities and offers practical advice.",
+      "alternative": "advisory"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "can you provide medical assistance?",
+        "I can provide you with the contact information for a nearby medical facility."
+      ],
+      "rationale": "The human seeks specific information about medical assistance.",
+      "alternative": "problem-solving"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "can you provide medical assistance?",
+        "I am not a medical professional."
+      ],
+      "rationale": "The conversation remains brief and does not delve deeply into any topic.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "Hello",
+        "Hello! How are you doing?",
+        "I cant say.",
+        "I'm sorry to hear that."
+      ],
+      "rationale": "The conversation features a roughly equal number of turns between the human and AI.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.7,
+        "provider": 0.3,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "can you provide medical assistance?"
+        },
+        {
+          "role": "provider",
+          "quote": "I cant say."
+        }
+      ],
+      "rationale": "The human primarily seeks information but also provides minimal context.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.6,
+        "learning-facilitator": 0.0,
+        "advisor": 0.4,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am not a medical professional."
+        },
+        {
+          "role": "advisor",
+          "quote": "I can provide you with the contact information for a nearby medical facility."
+        }
+      ],
+      "rationale": "The AI provides factual information and suggests actions.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T17:18:00.409049",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

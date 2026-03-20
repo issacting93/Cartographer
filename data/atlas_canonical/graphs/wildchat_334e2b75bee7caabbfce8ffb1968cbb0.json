@@ -10,8 +10,8 @@
       "domain": "general",
       "total_turns": 10,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Generate social media posts for Rivaah by Tanishq.",
       "id": "conv_wildchat_334e2b75bee7caabbfce8ffb1968cbb0"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 238,
       "content_preview": "1. \"Embrace modern love. #Rivaah #Tanishq\" 2. \"For the modern bride. #Rivaah #Tanishq\" 3. \"Love. Modernized. #Rivaah #Ta",
-      "move_count": 1,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5"
     },
@@ -118,7 +118,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Post copy should be 5-6 words long.] Post copy is incomplete and does not mee",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Post copy exceeds the required length of",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -127,7 +127,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Post copy should be 5-6 words long.] Post copy exceeds the required length of",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Post copy exceeds the 5-6 words limit.",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -135,17 +135,35 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "1. \"Embrace modern love. #Rivaah #Tanishq\"\n2. \"For the modern bride. #Rivaah #Ta...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Response 1 is 4 words long.",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Post copy should be 5-6 words long.] Response exceeds the 5-6 words limit.",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Response 2 is 4 words long.",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Response 3 is 3 words long.",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Post copy should be 5-6 words long.] Responses exceed the 5-6 word limit.",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -172,7 +190,7 @@
           "STATED"
         ],
         [
-          7,
+          5,
           "VIOLATED"
         ]
       ],
@@ -180,14 +198,14 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 3,
+      "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_c_0"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 7,
+      "turn_index": 5,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -415,6 +433,26 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5",
+      "target": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5",
+      "target": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5_2",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5",
+      "target": "v_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_5",
       "target": "mode_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_4",
@@ -445,12 +483,6 @@
       "sequence": 0,
       "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_7",
       "target": "m_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_7_0",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_7",
-      "target": "v_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_0",
       "key": 0
     },
     {
@@ -488,7 +520,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 7,
+      "at_turn": 5,
       "source": "v_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_0",
       "target": "c_wildchat_334e2b75bee7caabbfce8ffb1968cbb0_c_0",
       "key": 0

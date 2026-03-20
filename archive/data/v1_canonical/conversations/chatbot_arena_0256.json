@@ -1,0 +1,218 @@
+{
+  "id": "chatbot_arena_0256",
+  "messages": [
+    {
+      "role": "user",
+      "content": "good evening",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Good evening",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "whats 5 time 4",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "20",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "whats 4 divided by 2",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "2",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2",
+        "20",
+        "2"
+      ],
+      "rationale": "Human asks short factual questions; AI provides direct answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.75,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2"
+      ],
+      "rationale": "Human sets the agenda by initiating and selecting the questions; AI responds.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.6,
+      "evidence": [
+        "good evening",
+        "Good evening",
+        "20",
+        "2"
+      ],
+      "rationale": "Minimal affect; polite greeting followed by purely functional math exchange.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2"
+      ],
+      "rationale": "Interaction is driven by the human's questions requesting answers.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.8,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2",
+        "20",
+        "2"
+      ],
+      "rationale": "Exchange consists of basic arithmetic facts and direct numeric outputs.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2"
+      ],
+      "rationale": "Human requests specific answers to math questions.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.85,
+      "evidence": [
+        "whats 5 time 4",
+        "whats 4 divided by 2"
+      ],
+      "rationale": "Brief, simple arithmetic with no elaboration or extended exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "whats 5 time 4",
+        "20",
+        "whats 4 divided by 2",
+        "2"
+      ],
+      "rationale": "Turns alternate evenly with similarly short messages.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.8,
+        "director": 0,
+        "collaborator": 0,
+        "social-expressor": 0.05,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "whats 5 time 4"
+        },
+        {
+          "role": "provider",
+          "quote": "whats 4 divided by 2"
+        },
+        {
+          "role": "social-expressor",
+          "quote": "good evening"
+        }
+      ],
+      "rationale": "Human primarily asks the AI for answers (provider role per framework), with a brief polite greeting.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0,
+        "advisor": 0,
+        "co-constructor": 0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.75,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "20"
+        },
+        {
+          "role": "expert-system",
+          "quote": "2"
+        },
+        {
+          "role": "social-facilitator",
+          "quote": "Good evening"
+        }
+      ],
+      "rationale": "AI provides direct factual answers to arithmetic questions, plus a minimal greeting response.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:55:32.720293",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 11908,
+    "fewShotExamples": "yes"
+  }
+}

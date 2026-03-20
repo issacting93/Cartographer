@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 20,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Analysis",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Fix the image merging code to avoid broadcasting errors.",
       "id": "conv_wildchat_new_93813a32b55b5527"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 986,
       "content_preview": "The `curr_x += new_size[0]` line increments `curr_x` by the width of each new image that is being added to the panorama.",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_93813a32b55b5527_11"
     },
@@ -211,15 +211,15 @@
       "role": "assistant",
       "content_length": 578,
       "content_preview": "Based on the output, it seems that the issue may be coming from the fact that the size of the first image is not the sam",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_93813a32b55b5527_19"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response suggests creating a new arr",
-      "confidence": 0.9,
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response suggests creating a new arr",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_1_0"
@@ -228,7 +228,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The images passed to the merge_images function must be of co] The response indicates resizing images t",
-      "confidence": 0.8,
+      "confidence": 0.7,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_1_1"
@@ -236,8 +236,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response suggests modifying the dime",
-      "confidence": 0.9,
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response suggests resizing `warped_i",
+      "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_3_0"
@@ -246,7 +246,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The images passed to the merge_images function must be of co] The response implies that `warped_image`",
-      "confidence": 0.9,
+      "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_3_1"
@@ -272,7 +272,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response does not ensure that the di",
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response does not ensure that the di",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -298,17 +298,26 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "The `curr_x += new_size[0]` line increments `curr_x` by the width of each new im...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response suggests that the dimension",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_11_0"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response suggests setting the height",
+      "text_span": "[violates: The images passed to the merge_images function must be of co] The response implies that there could be",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_93813a32b55b5527_11_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response suggests setting the height",
       "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
@@ -318,7 +327,7 @@
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
       "text_span": "[violates: The images passed to the merge_images function must be of co] The response does not address the requir",
-      "confidence": 0.8,
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_13_1"
@@ -326,7 +335,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response suggests that the dimension",
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response suggests that the dimension",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -344,8 +353,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The dimensions of the panorama array must accommodate the me] The response does not ensure that the di",
-      "confidence": 1.0,
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response does not ensure that the di",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_17_0"
@@ -353,8 +362,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The images passed to the merge_images function must be of co] The response does not verify that the im",
-      "confidence": 1.0,
+      "text_span": "[violates: The images passed to the merge_images function must be of co] The response does not check if the image",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_17_1"
@@ -362,37 +371,42 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The images passed to the merge_images function must be of co] The response suggests resizing the first",
-      "confidence": 1.0,
+      "text_span": "[violates: The dimensions of the panorama array must accommodate all me] The response does not ensure that the di",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_93813a32b55b5527_19_0"
     },
     {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The images passed to the merge_images function must be of co] The response suggests resizing the first",
+      "confidence": 0.9,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_93813a32b55b5527_19_1"
+    },
+    {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "The dimensions of the panorama array must accommodate the merged images.",
+      "text": "The dimensions of the panorama array must accommodate all merged images.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
         [
-          1,
+          12,
           "STATED"
         ],
         [
-          1,
-          "ACTIVE"
-        ],
-        [
-          1,
+          13,
           "VIOLATED"
         ]
       ],
-      "introduced_at": 1,
+      "introduced_at": 12,
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 0,
+      "lifespan": 1,
       "final_state": null,
       "id": "c_wildchat_new_93813a32b55b5527_c_0"
     },
@@ -404,15 +418,15 @@
       "current_state": "VIOLATED",
       "state_history": [
         [
-          3,
+          13,
           "STATED"
         ],
         [
-          3,
+          13,
           "VIOLATED"
         ]
       ],
-      "introduced_at": 3,
+      "introduced_at": 13,
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
@@ -423,7 +437,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 1,
+      "turn_index": 13,
       "constraint_id": "c_0",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -433,7 +447,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 3,
+      "turn_index": 13,
       "constraint_id": "c_1",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -443,10 +457,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 0,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_new_93813a32b55b5527_0"
@@ -553,7 +567,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 2,
+      "turn_index": 0,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -567,7 +581,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 14,
+      "turn_index": 2,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -581,6 +595,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
+      "turn_index": 14,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_wildchat_new_93813a32b55b5527_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 5,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -590,7 +618,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "regex",
-      "id": "v_wildchat_new_93813a32b55b5527_4"
+      "id": "v_wildchat_new_93813a32b55b5527_5"
     }
   ],
   "links": [
@@ -769,15 +797,15 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_93813a32b55b5527_1",
-      "target": "v_wildchat_new_93813a32b55b5527_0",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_93813a32b55b5527_1",
       "target": "mode_wildchat_new_93813a32b55b5527_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_93813a32b55b5527_1",
+      "target": "v_wildchat_new_93813a32b55b5527_2",
       "key": 0
     },
     {
@@ -815,12 +843,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_93813a32b55b5527_3",
-      "target": "v_wildchat_new_93813a32b55b5527_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_93813a32b55b5527_3",
       "target": "mode_wildchat_new_93813a32b55b5527_2",
@@ -829,7 +851,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_93813a32b55b5527_3",
-      "target": "v_wildchat_new_93813a32b55b5527_2",
+      "target": "v_wildchat_new_93813a32b55b5527_3",
       "key": 0
     },
     {
@@ -973,6 +995,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_93813a32b55b5527_11",
+      "target": "m_wildchat_new_93813a32b55b5527_11_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_93813a32b55b5527_11",
       "target": "mode_wildchat_new_93813a32b55b5527_10",
@@ -1010,6 +1039,18 @@
       "sequence": 1,
       "source": "t_wildchat_new_93813a32b55b5527_13",
       "target": "m_wildchat_new_93813a32b55b5527_13_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_93813a32b55b5527_13",
+      "target": "v_wildchat_new_93813a32b55b5527_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_93813a32b55b5527_13",
+      "target": "v_wildchat_new_93813a32b55b5527_1",
       "key": 0
     },
     {
@@ -1061,7 +1102,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_93813a32b55b5527_15",
-      "target": "v_wildchat_new_93813a32b55b5527_3",
+      "target": "v_wildchat_new_93813a32b55b5527_4",
       "key": 0
     },
     {
@@ -1125,6 +1166,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_93813a32b55b5527_19",
+      "target": "m_wildchat_new_93813a32b55b5527_19_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_93813a32b55b5527_19",
       "target": "mode_wildchat_new_93813a32b55b5527_18",
@@ -1133,13 +1181,13 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_93813a32b55b5527_19",
-      "target": "v_wildchat_new_93813a32b55b5527_4",
+      "target": "v_wildchat_new_93813a32b55b5527_5",
       "key": 0
     },
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 1,
+      "at_turn": 13,
       "source": "v_wildchat_new_93813a32b55b5527_0",
       "target": "c_wildchat_new_93813a32b55b5527_c_0",
       "key": 0
@@ -1147,7 +1195,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 3,
+      "at_turn": 13,
       "source": "v_wildchat_new_93813a32b55b5527_1",
       "target": "c_wildchat_new_93813a32b55b5527_c_1",
       "key": 0

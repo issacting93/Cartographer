@@ -10,9 +10,9 @@
       "domain": "general",
       "total_turns": 26,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Transformation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Reduce text for academic integrity while maintaining sentence length.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Reduce text for academic writing while maintaining sentence length consistency.",
       "id": "conv_wildchat_new_3a91f0064417a547"
     },
     {
@@ -313,10 +313,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "\u7efc\u4e0a\u6240\u8ff0\uff0c\u672c\u6587\u901a\u8fc7\u6bd4\u8f83\u5b9e\u9a8c\u7ed3\u679c\u548c\u9a8c\u8bc1\u6307\u6807\u7684\u5206\u6790\uff0c\u6700\u7ec8\u663e\u793a\u51fa\u6211\u4eec\u7684\u65b9\u6cd5\u5728\u63d0\u5347\u5c0f\u6570\u636e\u96c6\u7684\u5206\u5272\u6548\u679c\u65b9\u9762\u662f\u53ef\u884c\u7684\u3002\u56e0\u6b64\uff0c\u672c\u6587\u63d0\u51fa\u7684\u57fa\u4e8e3D U-Net\u548c\u8fc1\u79fb\u5b66\u4e60\u7684\u81ea\u52a8\u5316...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Maintain sentence length consistency in the rewritten text.] The response contains sentences of varyi",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_3a91f0064417a547_17_0"
     },
@@ -331,28 +331,28 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "\u4ee5\u4e0b\u662f\u4e00\u4e2a\u7b80\u6d01\u7684\u672c\u79d1\u6bd5\u8bbe\u7b54\u8fa9PPT\u6a21\u677f\uff0c\u4f9b\u60a8\u53c2\u8003\uff1a\n\n\u5c01\u9762\uff1a\n- \u6807\u9898\uff1a\u6bd5\u4e1a\u8bbe\u8ba1/\u8bba\u6587\u7b54\u8fa9\n- \u5b66\u751f\u59d3\u540d\n- \u5b66\u53f7\n- \u6307\u5bfc\u6559\u5e08\u59d3\u540d\n- \u73ed\u7ea7\n- \u5b66\u9662\n\n\u63d0\u7eb2...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Maintain sentence length consistency in the rewritten text.] The response contains varying sentence l",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_3a91f0064417a547_21_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "\u4ee5\u4e0b\u662f\u4e00\u4e2a\u901a\u7528\u7684\u672c\u79d1\u6bd5\u4e1a\u8bbe\u8ba1\u7b54\u8fa9PPT\u6a21\u677f\uff0c\u6bcf\u4e00\u9875\u7684\u5185\u5bb9\u5982\u4e0b\uff1a\n\n1. \u5c01\u9762\n- \u9879\u76ee\u540d\u79f0\n- \u59d3\u540d\n- \u5b66\u53f7\n- \u5bfc\u5e08\u59d3\u540d\n- \u7b54\u8fa9\u65f6\u95f4\n\n2. \u7814\u7a76\u80cc\u666f\u4e0e\u610f...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Maintain sentence length consistency in the rewritten text.] The response does not maintain sentence ",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_3a91f0064417a547_23_0"
     },
     {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "Maintain sentence length consistency when paraphrasing.",
+      "text": "Maintain sentence length consistency in the rewritten text.",
       "hardness": "hard",
-      "current_state": "SURVIVED",
+      "current_state": "VIOLATED",
       "state_history": [
         [
           2,
@@ -363,17 +363,27 @@
           "ACTIVE"
         ],
         [
-          26,
-          "SURVIVED"
+          17,
+          "VIOLATED"
         ]
       ],
       "introduced_at": 2,
       "last_violation_at": null,
-      "times_violated": 0,
+      "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 24,
+      "lifespan": 15,
       "final_state": null,
       "id": "c_wildchat_new_3a91f0064417a547_c_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 17,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_3a91f0064417a547_0"
     },
     {
       "node_type": "InteractionMode",
@@ -966,6 +976,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_3a91f0064417a547_17",
+      "target": "v_wildchat_new_3a91f0064417a547_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_3a91f0064417a547_17",
       "target": "mode_wildchat_new_3a91f0064417a547_16",
@@ -1087,6 +1103,14 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_3a91f0064417a547_25",
       "target": "mode_wildchat_new_3a91f0064417a547_24",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 17,
+      "source": "v_wildchat_new_3a91f0064417a547_0",
+      "target": "c_wildchat_new_3a91f0064417a547_c_0",
       "key": 0
     }
   ]

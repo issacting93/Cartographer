@@ -1,0 +1,156 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "wildchat_e13a54680c6499500114b0a5545204aa",
+      "source": "",
+      "domain": "",
+      "total_turns": 0,
+      "stability_class": null,
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "information-seeking",
+      "id": "conv_wildchat_e13a54680c6499500114b0a5545204aa"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 45,
+      "content_preview": "How old was Ronald Regan when he won in 1984?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_e13a54680c6499500114b0a5545204aa_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 77,
+      "content_preview": "Ronald Reagan was 73 years old when he won the presidential election in 1984.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_e13a54680c6499500114b0a5545204aa_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 38,
+      "content_preview": "How old was Biden when we won in 2020?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_e13a54680c6499500114b0a5545204aa_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 73,
+      "content_preview": "Joe Biden was 78 years old when he won the presidential election in 2020.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_wildchat_e13a54680c6499500114b0a5545204aa_3"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_e13a54680c6499500114b0a5545204aa_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "AMBIGUOUS",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.3,
+      "method": "regex",
+      "id": "mode_wildchat_e13a54680c6499500114b0a5545204aa_2"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_wildchat_e13a54680c6499500114b0a5545204aa",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_wildchat_e13a54680c6499500114b0a5545204aa",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_wildchat_e13a54680c6499500114b0a5545204aa",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_wildchat_e13a54680c6499500114b0a5545204aa",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_3",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_0",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_0",
+      "target": "mode_wildchat_e13a54680c6499500114b0a5545204aa_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_1",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_1",
+      "target": "mode_wildchat_e13a54680c6499500114b0a5545204aa_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "target": "t_wildchat_e13a54680c6499500114b0a5545204aa_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "target": "mode_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_wildchat_e13a54680c6499500114b0a5545204aa_3",
+      "target": "mode_wildchat_e13a54680c6499500114b0a5545204aa_2",
+      "key": 0
+    }
+  ]
+}

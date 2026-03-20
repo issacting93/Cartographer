@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_0894",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "hi there! How can I help you?",
+      "pad": {
+        "pleasure": 0.8,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.32
+      }
+    },
+    {
+      "role": "user",
+      "content": "write me 5 non gluten foods",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.4
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Here are 5 non-gluten foods: rice, potatoes, fruits, vegetables, and lentils.",
+      "pad": {
+        "pleasure": 0.7,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.34
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.7,
+      "evidence": [
+        "write me 5 non gluten foods",
+        "Here are 5 non-gluten foods"
+      ],
+      "rationale": "The human asks a question and the AI provides an answer.",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "write me 5 non gluten foods"
+      ],
+      "rationale": "The human initiates the request, guiding the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.8,
+      "evidence": [
+        "hi",
+        "hi there! How can I help you?"
+      ],
+      "rationale": "The conversation is straightforward and lacks emotional coloring.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.7,
+      "evidence": [
+        "write me 5 non gluten foods"
+      ],
+      "rationale": "The human's request is a direct question.",
+      "alternative": "directive-iterative"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.9,
+      "evidence": [
+        "Here are 5 non-gluten foods: rice, potatoes, fruits, vegetables, and lentils."
+      ],
+      "rationale": "The AI provides factual information in response to the human's request.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.9,
+      "evidence": [
+        "write me 5 non gluten foods"
+      ],
+      "rationale": "The human seeks specific information from the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.8,
+      "evidence": [
+        "write me 5 non gluten foods",
+        "Here are 5 non-gluten foods"
+      ],
+      "rationale": "The conversation is brief and focused on a simple list.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.7,
+      "evidence": [
+        "hi",
+        "hi there! How can I help you?",
+        "write me 5 non gluten foods",
+        "Here are 5 non-gluten foods"
+      ],
+      "rationale": "Both participants contribute equally in terms of turns.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.8,
+        "provider": 0.2,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "write me 5 non gluten foods"
+        }
+      ],
+      "rationale": "The human's primary role is seeking information from the AI.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0.0,
+        "advisor": 0.1,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Here are 5 non-gluten foods"
+        }
+      ],
+      "rationale": "The AI provides factual information, acting as an expert system.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T14:14:07.438325",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

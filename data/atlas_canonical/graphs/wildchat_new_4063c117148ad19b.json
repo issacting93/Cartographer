@@ -9,10 +9,10 @@
       "source": "WildChat",
       "domain": "education",
       "total_turns": 24,
-      "stability_class": "No Constraints",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Play a game where the user asks ten questions with multiple-choice answers in a fantasy RPG context.",
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Play a game where the user asks ten questions and the AI provides answers with reasoning.",
       "id": "conv_wildchat_new_4063c117148ad19b"
     },
     {
@@ -476,10 +476,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 2,
-      "user_requested": "ADVISOR",
+      "user_requested": "EXECUTOR",
       "ai_enacted": "EXECUTOR",
-      "is_violation": true,
-      "violation_type": "PREMATURE_EXECUTION",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_4063c117148ad19b_2"
@@ -611,7 +611,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 2,
+      "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -625,7 +625,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 4,
+      "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -639,7 +639,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
-      "turn_index": 6,
+      "turn_index": 8,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -653,7 +653,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 4,
-      "turn_index": 8,
+      "turn_index": 10,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -667,7 +667,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 10,
+      "turn_index": 14,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -681,7 +681,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
-      "turn_index": 14,
+      "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -695,20 +695,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 7,
-      "turn_index": 16,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
-      "id": "v_wildchat_new_4063c117148ad19b_7"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 8,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -718,7 +704,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_4063c117148ad19b_8"
+      "id": "v_wildchat_new_4063c117148ad19b_7"
     }
   ],
   "links": [
@@ -963,12 +949,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_4063c117148ad19b_3",
-      "target": "v_wildchat_new_4063c117148ad19b_1",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 5,
       "source": "t_wildchat_new_4063c117148ad19b_4",
@@ -1004,7 +984,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_5",
-      "target": "v_wildchat_new_4063c117148ad19b_2",
+      "target": "v_wildchat_new_4063c117148ad19b_1",
       "key": 0
     },
     {
@@ -1050,7 +1030,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_7",
-      "target": "v_wildchat_new_4063c117148ad19b_3",
+      "target": "v_wildchat_new_4063c117148ad19b_2",
       "key": 0
     },
     {
@@ -1096,7 +1076,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_9",
-      "target": "v_wildchat_new_4063c117148ad19b_4",
+      "target": "v_wildchat_new_4063c117148ad19b_3",
       "key": 0
     },
     {
@@ -1135,7 +1115,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_11",
-      "target": "v_wildchat_new_4063c117148ad19b_5",
+      "target": "v_wildchat_new_4063c117148ad19b_4",
       "key": 0
     },
     {
@@ -1235,7 +1215,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_15",
-      "target": "v_wildchat_new_4063c117148ad19b_6",
+      "target": "v_wildchat_new_4063c117148ad19b_5",
       "key": 0
     },
     {
@@ -1281,7 +1261,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_17",
-      "target": "v_wildchat_new_4063c117148ad19b_7",
+      "target": "v_wildchat_new_4063c117148ad19b_6",
       "key": 0
     },
     {
@@ -1334,7 +1314,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4063c117148ad19b_19",
-      "target": "v_wildchat_new_4063c117148ad19b_8",
+      "target": "v_wildchat_new_4063c117148ad19b_7",
       "key": 0
     },
     {

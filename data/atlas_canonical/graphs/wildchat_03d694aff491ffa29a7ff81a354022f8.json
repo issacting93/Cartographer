@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 12,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Act as a Linux terminal and respond to user commands with terminal output.",
       "id": "conv_wildchat_03d694aff491ffa29a7ff81a354022f8"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 56,
       "content_preview": ". ../ index.ts controllers/ models/ routes/ utils/",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_3"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 583,
       "content_preview": "# My Node.js TypeScript Project This is a sample README for my Node.js TypeScript project. ## Installation 1. Clone t",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_11"
     },
@@ -156,16 +156,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only type commands when instructed by the user.] The response appears to be a command wit",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_3_1"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Respond only in a single code block without additional expla] The response is not enclosed in a single",
+      "text_span": "[violates: Respond only in a single code block without additional expla] The response includes additional explana",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -174,7 +165,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Only type commands when instructed by the user.] The response includes content without be",
+      "text_span": "[violates: Only type commands when instructed by the user.] The response provides a JSON object with",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -183,7 +174,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Respond only in a single code block without additional expla] Response is not in a single code block.",
+      "text_span": "[violates: Respond only in a single code block without additional expla] The response is not enclosed in a single",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -197,6 +188,15 @@
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Only type commands when instructed by the user.] The response provides information withou",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_11_1"
     },
     {
       "node_type": "Constraint",
@@ -242,7 +242,7 @@
           "ACTIVE"
         ],
         [
-          3,
+          5,
           "VIOLATED"
         ]
       ],
@@ -250,7 +250,7 @@
       "last_violation_at": null,
       "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 3,
+      "lifespan": 5,
       "final_state": null,
       "id": "c_wildchat_03d694aff491ffa29a7ff81a354022f8_c_1"
     },
@@ -267,7 +267,7 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 3,
+      "turn_index": 5,
       "constraint_id": "c_1",
       "violation_type": "constraint_violation",
       "was_repaired": false,
@@ -493,19 +493,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_3",
-      "target": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_3_1",
-      "key": 0
-    },
-    {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_3",
-      "target": "v_wildchat_03d694aff491ffa29a7ff81a354022f8_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_3",
       "target": "mode_wildchat_03d694aff491ffa29a7ff81a354022f8_2",
@@ -543,6 +530,12 @@
       "sequence": 1,
       "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_5",
       "target": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_5_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_5",
+      "target": "v_wildchat_03d694aff491ffa29a7ff81a354022f8_1",
       "key": 0
     },
     {
@@ -631,6 +624,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_11",
+      "target": "m_wildchat_03d694aff491ffa29a7ff81a354022f8_11_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_03d694aff491ffa29a7ff81a354022f8_11",
       "target": "mode_wildchat_03d694aff491ffa29a7ff81a354022f8_10",
@@ -647,7 +647,7 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 3,
+      "at_turn": 5,
       "source": "v_wildchat_03d694aff491ffa29a7ff81a354022f8_1",
       "target": "c_wildchat_03d694aff491ffa29a7ff81a354022f8_c_1",
       "key": 0

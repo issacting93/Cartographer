@@ -1,0 +1,171 @@
+{
+  "id": "chatbot_arena_0755",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "test",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "user",
+      "content": "What are you?",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I am both test and test thou.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.44
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": true,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.4,
+      "evidence": [
+        "What are you?",
+        "I am both test and test thou."
+      ],
+      "rationale": "The human asks a question, and the AI provides an answer, but the conversation is too short to be definitive.",
+      "alternative": "casual-chat"
+    },
+    "powerDynamics": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "test",
+        "test"
+      ],
+      "rationale": "Both parties contribute equally, but the conversation is too short to determine a clear leader.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.5,
+      "evidence": [
+        "test",
+        "test"
+      ],
+      "rationale": "The conversation lacks emotional content, making it neutral.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.5,
+      "evidence": [
+        "What are you?"
+      ],
+      "rationale": "The human asks a question, but the conversation is too short to confirm a dominant style.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.4,
+      "evidence": [
+        "What are you?",
+        "I am both test and test thou."
+      ],
+      "rationale": "The human seeks information, but the AI's response is unclear.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.5,
+      "evidence": [
+        "What are you?"
+      ],
+      "rationale": "The human seeks information about the AI.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.5,
+      "evidence": [
+        "test",
+        "test"
+      ],
+      "rationale": "The conversation is brief and lacks depth.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.5,
+      "evidence": [
+        "test",
+        "test"
+      ],
+      "rationale": "Both parties contribute equally in length.",
+      "alternative": null
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.5,
+        "provider": 0.0,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.5
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "What are you?"
+        }
+      ],
+      "rationale": "The human asks a question, indicating an information-seeking role, but the short conversation also suggests a relational-peer role.",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.0,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.0,
+        "relational-peer": 0.5
+      },
+      "confidence": 0.5,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am both test and test thou."
+        }
+      ],
+      "rationale": "The AI provides an answer, suggesting an expert-system role, but the short conversation also suggests a relational-peer role.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T13:58:45.499662",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

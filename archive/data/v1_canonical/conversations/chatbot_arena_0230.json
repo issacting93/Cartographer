@@ -1,0 +1,182 @@
+{
+  "id": "chatbot_arena_0230",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I am a big fan of humor movies, please recommend five movies.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Here are five movies for you:\n1. Austin Powers: International Man of Mystery\n4. Dumb and Dumber\n5. There's Something About Mary",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "Include only American movies",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Here are five American movies for you:",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "advisory",
+      "confidence": 0.65,
+      "evidence": [
+        "please recommend five movies.",
+        "Here are five movies for you:"
+      ],
+      "rationale": "User requests recommendations and the AI provides a list, which is guidance-oriented rather than mutual exploration.",
+      "alternative": "question-answer"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.6,
+      "evidence": [
+        "please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The human sets the task and adds constraints; the AI follows those instructions.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.55,
+      "evidence": [
+        "please recommend five movies.",
+        "Here are five movies for you:"
+      ],
+      "rationale": "The exchange is task-focused and polite, with minimal affect beyond functional phrasing.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.6,
+      "evidence": [
+        "please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The user issues directives and then refines the request with an additional constraint.",
+      "alternative": "questioning"
+    },
+    "knowledgeExchange": {
+      "category": "skill-sharing",
+      "confidence": 0.5,
+      "evidence": [
+        "please recommend five movies.",
+        "Here are five American movies for you:"
+      ],
+      "rationale": "The content is recommendation-oriented (practical selection guidance) rather than personal sharing or factual explanation.",
+      "alternative": "factual-info"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The user seeks a concrete list of movie recommendations and specifies constraints to get the desired information.",
+      "alternative": "problem-solving"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.75,
+      "evidence": [
+        "please recommend five movies.",
+        "Include only American movies"
+      ],
+      "rationale": "The interaction stays at the level of requesting a short list without deeper discussion of preferences or criteria.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "I am a big fan of humor movies, please recommend five movies.",
+        "Here are five American movies for you:"
+      ],
+      "rationale": "Both parties contribute short turns; the AI's list is not substantially longer than the user's combined directives in this brief exchange.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.55,
+        "director": 0.25,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.62,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "please recommend five movies."
+        },
+        {
+          "role": "director",
+          "quote": "Include only American movies"
+        }
+      ],
+      "rationale": "The human primarily requests recommendations from the AI (provider/information-seeking) and also directs constraints (director).",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.55,
+        "learning-facilitator": 0,
+        "advisor": 0.35,
+        "co-constructor": 0.05,
+        "social-facilitator": 0.05,
+        "relational-peer": 0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "advisor",
+          "quote": "Here are five movies for you:"
+        },
+        {
+          "role": "advisor",
+          "quote": "Here are five American movies for you:"
+        }
+      ],
+      "rationale": "The AI responds by supplying recommendation lists (advisory guidance) with some epistemic authority implied by presenting selections.",
+      "alternative": "expert-system"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:39:34.555632",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 16340,
+    "fewShotExamples": "yes"
+  }
+}

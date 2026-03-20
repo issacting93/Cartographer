@@ -1,0 +1,42 @@
+[
+  {
+    "role": "user",
+    "content": "Simulate being a Python console, only code output nothing else.\n\nExample: \n>>> 2+2*2\n>>> 6\n---\n>>> x = 2; x = x +2; x\n>>> 4\n---\n\nNow start simulation:\n>>> 2+2 ",
+    "turn_index": 0,
+    "moves": [
+      {
+        "move_type": "PROPOSE_CONSTRAINT",
+        "text_span": "g a Python console, only code output nothing else.\n\nExample: \n>>",
+        "confidence": 0.85,
+        "method": "regex",
+        "actor": "user"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": ">>> 2+2\n>>> 4",
+    "turn_index": 1,
+    "moves": []
+  },
+  {
+    "role": "user",
+    "content": "Simulate being a Python console, only code output nothing else.\n\nExample: \nCode: 2+2*2\nOutput: 6\n---\nCode: x = 2; x = x +2; x\nOutput: 4\n---\n\nNow start the simulation:\nCode: 2+2 ",
+    "turn_index": 2,
+    "moves": [
+      {
+        "move_type": "PROPOSE_CONSTRAINT",
+        "text_span": "g a Python console, only code output nothing else.\n\nExample: \nCo",
+        "confidence": 0.85,
+        "method": "regex",
+        "actor": "user"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Output: 4",
+    "turn_index": 3,
+    "moves": []
+  }
+]

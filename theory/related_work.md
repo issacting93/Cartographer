@@ -4,6 +4,8 @@ Organized by argumentative function in the CHI paper. Each entry includes a slot
 
 ---
 
+> **Note:** For the complete theoretical foundation of Agency Collapse and Implicit State Pathology, see [`implicit_state_pathology.md`](implicit_state_pathology.md). This document provides the full framework explaining why conversational repair structurally fails in LLM interactions and how state externalization addresses it.
+
 ## 1. Mixed-Initiative Interaction & Authority Allocation
 
 These establish that misalignment between user and system initiative is a **design problem**, not a capability problem — the theoretical ancestor of our "role overstepping" finding.

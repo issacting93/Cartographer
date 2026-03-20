@@ -1,0 +1,182 @@
+{
+  "id": "chatbot_arena_0075",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the age of the statue of liberty?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The Statue of Liberty is over 134 years old, having been completed in October 1886.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "How was she paid for?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "The Statue of Liberty was a gift from the people of France, designed by French sculptor Fredric Auguste Bartholdi, and dedicated on October 28, 1886. It was paid for by donations from individuals, corporations and organizations, as well as the sale of tickets to the observation tower. The money was also used to build the pedestal on which the statue stands.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.85,
+      "evidence": [
+        "What is the age of the statue of liberty?",
+        "How was she paid for?",
+        "The Statue of Liberty is over 134 years old"
+      ],
+      "rationale": "Human asks factual questions; AI provides direct informational answers.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.75,
+      "evidence": [
+        "What is the age of the statue of liberty?",
+        "How was she paid for?"
+      ],
+      "rationale": "Human sets the agenda by initiating and steering with successive questions; AI responds.",
+      "alternative": null
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.7,
+      "evidence": [
+        "The Statue of Liberty is over 134 years old, having been completed in October 1886.",
+        "It was paid for by donations from individuals, corporations and organizations"
+      ],
+      "rationale": "Factual, informational language without explicit affect or relational cues.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.75,
+      "evidence": [
+        "What is the age of the statue of liberty?",
+        "How was she paid for?"
+      ],
+      "rationale": "Progression is driven by the human's questions prompting AI responses.",
+      "alternative": null
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.85,
+      "evidence": [
+        "having been completed in October 1886.",
+        "It was paid for by donations from individuals, corporations and organizations"
+      ],
+      "rationale": "Exchange centers on historical dates and funding sources (facts).",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.85,
+      "evidence": [
+        "What is the age of the statue of liberty?",
+        "How was she paid for?"
+      ],
+      "rationale": "Human requests specific historical information; no broader problem-solving or social goal is shown.",
+      "alternative": null
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.65,
+      "evidence": [
+        "What is the age of the statue of liberty?",
+        "How was she paid for?"
+      ],
+      "rationale": "Brief, fact-focused questions and answers with limited elaboration beyond basic details.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.6,
+      "evidence": [
+        "It was paid for by donations from individuals, corporations and organizations, as well as the sale of tickets to the observation tower."
+      ],
+      "rationale": "AI's final turn is substantially longer than the human's short questions.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.2,
+        "provider": 0.75,
+        "director": 0.05,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.75,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "What is the age of the statue of liberty?"
+        },
+        {
+          "role": "provider",
+          "quote": "How was she paid for?"
+        }
+      ],
+      "rationale": "Human primarily asks the AI for answers (low-authority, instrumental information requests).",
+      "alternative": null
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.9,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0
+      },
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "The Statue of Liberty is over 134 years old, having been completed in October 1886."
+        },
+        {
+          "role": "expert-system",
+          "quote": "It was paid for by donations from individuals, corporations and organizations"
+        }
+      ],
+      "rationale": "AI provides direct factual explanations with epistemic authority rather than guiding questions or co-creation.",
+      "alternative": null
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:06:48.581442",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 13793,
+    "fewShotExamples": "yes"
+  }
+}

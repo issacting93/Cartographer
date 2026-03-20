@@ -1,0 +1,177 @@
+{
+  "id": "chatbot_arena_0275",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi there",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "user",
+      "content": "Please summarise the latest literature on pragmatic language use in large language models",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "* \"Pragmatic language use in large language models\" (2018) by [D. Guo and N. Vybirko] in the Journal of Natural Language Processing (JNLP)\n* \"Pragmatics in large language models: A survey\" (2019) by [D. Guo] in the Journal of Computers in Human Behavior\n* \"Pragmatics in large language models: Review and applications\" (2020) by [L. Lantz and A. Zardini] in the Journal of Systems and Software\n* \"Pragmatics in large language models: A comparative analysis\" (2021) by [D. Guo and M. Srivastava] in the International Journal of Communication\n* \"Pragmatics and deep learning: A study of language models\" (2021) by [D. Guo and N. Vybirko] in the Journal of Natural Language Processing.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.5
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.72,
+      "evidence": [
+        "Please summarise the latest literature on pragmatic language use in large language models",
+        "Hello! How can I assist you today?"
+      ],
+      "rationale": "Human requests a summary; AI responds with candidate literature items (answering the request).",
+      "alternative": "advisory"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "Please summarise the latest literature on pragmatic language use in large language models"
+      ],
+      "rationale": "Human sets the agenda and specifies the task; AI follows.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "professional",
+      "confidence": 0.62,
+      "evidence": [
+        "Please summarise the latest literature on pragmatic language use in large language models"
+      ],
+      "rationale": "Academic, task-focused request and response with citations-like entries; minimal affect.",
+      "alternative": "neutral"
+    },
+    "engagementStyle": {
+      "category": "directive-iterative",
+      "confidence": 0.55,
+      "evidence": [
+        "Please summarise the latest literature on pragmatic language use in large language models"
+      ],
+      "rationale": "User issues a direct instruction ('Please summarise...'); little iterative refinement occurs due to short exchange.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.6,
+      "evidence": [
+        "\"Pragmatics in large language models: A survey\" (2019)",
+        "\"Pragmatics in large language models: Review and applications\" (2020)"
+      ],
+      "rationale": "AI provides bibliographic-style factual items rather than personal experience or opinions.",
+      "alternative": "skill-sharing"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.74,
+      "evidence": [
+        "Please summarise the latest literature on pragmatic language use in large language models"
+      ],
+      "rationale": "Primary goal is to obtain an informational summary of research literature.",
+      "alternative": "problem-solving"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.58,
+      "evidence": [
+        "* \"Pragmatic language use in large language models\" (2018)",
+        "* \"Pragmatics in large language models: A survey\" (2019)"
+      ],
+      "rationale": "Only a list of titles is provided; no substantive synthesis or detailed discussion.",
+      "alternative": "moderate"
+    },
+    "turnTaking": {
+      "category": "assistant-dominant",
+      "confidence": 0.66,
+      "evidence": [
+        "* \"Pragmatic language use in large language models\" (2018) by [D. Guo and N. Vybirko] in the Journal of Natural Language Processing (JNLP)"
+      ],
+      "rationale": "AI's final message is substantially longer than the user's messages.",
+      "alternative": "balanced"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.15,
+        "provider": 0.65,
+        "director": 0.2,
+        "collaborator": 0,
+        "social-expressor": 0,
+        "relational-peer": 0
+      },
+      "confidence": 0.68,
+      "evidence": [
+        {
+          "role": "provider",
+          "quote": "Please summarise the latest literature on pragmatic language use in large language models"
+        },
+        {
+          "role": "director",
+          "quote": "Please summarise the latest literature on pragmatic language use in large language models"
+        }
+      ],
+      "rationale": "Human primarily requests information from the AI (provider role per framework), while also specifying a deliverable (summary), adding a director component.",
+      "alternative": "information-seeker"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.85,
+        "learning-facilitator": 0,
+        "advisor": 0.05,
+        "co-constructor": 0,
+        "social-facilitator": 0.1,
+        "relational-peer": 0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "social-facilitator",
+          "quote": "Hello! How can I assist you today?"
+        },
+        {
+          "role": "expert-system",
+          "quote": "* \"Pragmatics in large language models: A survey\" (2019) by [D. Guo]"
+        }
+      ],
+      "rationale": "AI mainly provides direct informational content (bibliographic items), with a brief opening facilitation prompt.",
+      "alternative": "advisor"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T16:01:22.295924",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 14607,
+    "fewShotExamples": "yes"
+  }
+}

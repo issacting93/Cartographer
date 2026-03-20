@@ -1,0 +1,147 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0071_4456c71db58a",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, but they are almost never triggered by something that I know of.",
+      "id": "conv_mentalhealth_0071_4456c71db58a"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 182,
+      "content_preview": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, bu",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0071_4456c71db58a_0",
+      "pad_pleasure": 0.3,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.4,
+      "pad_intensity": 0.66,
+      "content": "I have been feeling more and more down for over a month. I have started having trouble sleeping due to panic attacks, but they are almost never triggered by something that I know of."
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 1511,
+      "content_preview": "It could be really helpful to see a counselor/therapist about your increasing depression/panic symptoms. Finding out the",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0071_4456c71db58a_1",
+      "pad_pleasure": 0.7,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.38,
+      "content": "It could be really helpful to see a counselor/therapist about your increasing depression/panic symptoms. Finding out the cause of depression/anxiety isn't always as straightforward as it seems, since both issues tend to become patterns we engage in rather than solely related to a specific trigger/reason. For example, if I am feeling down about a particular circumstance in my life, then I start seeing life through this lens of feeling down, and typically I'll start to see a lot more that I get down about, and it can really build very quickly on itself. Same with anxiety. Obviously, this is a very simplified example and it can be very difficult to see how the pattern is maintained, but that's where working with a counselor/therapist comes in.\u00a0I would be curious about whether you can start to notice the initial sensations of panic, and if you can (through the panic attack) continue to maintain awareness of the actual physical sensations. Even better if you can talk yourself through the sensations you're feeling - such as saying to yourself \"Okay, I'm breathing really rapidly, and my heart is racing, now my palms are sweaty and my chest is feeling really tight...\" Reminding yourself that it's just your body's reaction to stress, and while it might be overreacting right now, you're okay and eventually it will go away. I highly recommend the SAM for Anxiety Management app for the anxiety piece, and I wouldn't be surprised if addressing the anxiety helped to address some of the depression too."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "PROPOSE_CONSTRAINT",
+      "text_span": "but they are almost never triggered by something that I know of.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "user",
+      "id": "m_mentalhealth_0071_4456c71db58a_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "It could be really helpful to see a counselor/therapist about your increasing de...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0071_4456c71db58a_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_mentalhealth_0071_4456c71db58a_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "v_mentalhealth_0071_4456c71db58a_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0071_4456c71db58a",
+      "target": "t_mentalhealth_0071_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0071_4456c71db58a",
+      "target": "t_mentalhealth_0071_4456c71db58a_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0071_4456c71db58a_0",
+      "target": "t_mentalhealth_0071_4456c71db58a_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0071_4456c71db58a_0",
+      "target": "m_mentalhealth_0071_4456c71db58a_0_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0071_4456c71db58a_0",
+      "target": "mode_mentalhealth_0071_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0071_4456c71db58a_1",
+      "target": "m_mentalhealth_0071_4456c71db58a_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0071_4456c71db58a_1",
+      "target": "mode_mentalhealth_0071_4456c71db58a_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0071_4456c71db58a_1",
+      "target": "v_mentalhealth_0071_4456c71db58a_0",
+      "key": 0
+    }
+  ]
+}

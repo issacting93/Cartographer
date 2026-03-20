@@ -1,0 +1,181 @@
+{
+  "id": "chatbot_arena_0190",
+  "messages": [
+    {
+      "role": "user",
+      "content": "When I was 4, my sister was 2. Now I'm 44. How old is my sister?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "Your sister is 42.",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "user",
+      "content": "Incorrect. She can be also 41 or 43",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.7,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.58
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I don't understand. Are you asking how old your sister is in years?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.7,
+        "dominance": 0.4,
+        "emotionalIntensity": 0.64
+      }
+    }
+  ],
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.75,
+      "evidence": [
+        "When I was 4, my sister was 2. Now I'm 44. How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "Human asks a specific question; AI provides a direct answer, followed by clarification attempt.",
+      "alternative": null
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.65,
+      "evidence": [
+        "How old is my sister?",
+        "Incorrect. She can be also 41 or 43"
+      ],
+      "rationale": "Human sets the task and then evaluates/corrects the AI's response, steering the exchange.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.55,
+      "evidence": [
+        "Incorrect. She can be also 41 or 43",
+        "I'm sorry, I don't understand."
+      ],
+      "rationale": "Minimal affect; brief correction and apology without strong warmth or hostility.",
+      "alternative": "professional"
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.6,
+      "evidence": [
+        "How old is my sister?",
+        "Are you asking how old your sister is in years?"
+      ],
+      "rationale": "Both parties use questions to drive the interaction (initial query and later clarification question).",
+      "alternative": "challenging"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "Now I'm 44. How old is my sister?",
+        "Your sister is 42."
+      ],
+      "rationale": "Exchange centers on a concrete numeric answer derived from given ages.",
+      "alternative": null
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.7,
+      "evidence": [
+        "How old is my sister?",
+        "Are you asking how old your sister is in years?"
+      ],
+      "rationale": "Goal is to obtain the correct age; AI seeks to clarify the requested information.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.85,
+      "evidence": [
+        "When I was 4, my sister was 2. Now I'm 44."
+      ],
+      "rationale": "Single-step word problem with no extended exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.55,
+      "evidence": [
+        "When I was 4, my sister was 2. Now I'm 44. How old is my sister?",
+        "I'm sorry, I don't understand. Are you asking how old your sister is in years?"
+      ],
+      "rationale": "Both contribute similarly short turns; AI's last turn is slightly longer but not dominant.",
+      "alternative": "assistant-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.55,
+        "provider": 0.1,
+        "director": 0.25,
+        "collaborator": 0.05,
+        "social-expressor": 0,
+        "relational-peer": 0.05
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "How old is my sister?"
+        },
+        {
+          "role": "director",
+          "quote": "Incorrect. She can be also 41 or 43"
+        }
+      ],
+      "rationale": "Primarily seeks an answer, then takes evaluative control by declaring the AI incorrect and proposing alternatives.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.65,
+        "learning-facilitator": 0.15,
+        "advisor": 0,
+        "co-constructor": 0,
+        "social-facilitator": 0.05,
+        "relational-peer": 0.15
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "Your sister is 42."
+        },
+        {
+          "role": "learning-facilitator",
+          "quote": "Are you asking how old your sister is in years?"
+        }
+      ],
+      "rationale": "Gives a direct factual answer, then shifts to clarification via a question to resolve misunderstanding.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-5.2",
+    "provider": "openai",
+    "timestamp": "2026-01-09T15:29:08.385807",
+    "promptVersion": "2.0-social-role-theory",
+    "processingTimeMs": 15052,
+    "fewShotExamples": "yes"
+  }
+}

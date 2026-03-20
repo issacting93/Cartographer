@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_0621",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello!"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?"
+    },
+    {
+      "role": "user",
+      "content": "Give me SQL to show all days of the current year. Use Snowflake SQL. "
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, here's the SQL query to show all the days of the current year using Snowflake SQL:\n\n```\nSELECT DATEADD(day, seq4(), DATE_TRUNC('YEAR', CURRENT_DATE)) AS day_of_year\nFROM TABLE(GENERATOR(rowcount => 365)) \n```\n\nThis query uses the `DATEADD` function to add a number of days to the start of the year, and the `GENERATOR` function to generate a sequence of 365 rows (one for each day of the year). We then add the sequence to the start of the year to get all the days of the current year."
+    }
+  ]
+}

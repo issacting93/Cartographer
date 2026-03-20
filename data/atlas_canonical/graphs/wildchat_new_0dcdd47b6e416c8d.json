@@ -9,10 +9,10 @@
       "source": "WildChat",
       "domain": "limitations",
       "total_turns": 20,
-      "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Obtain cost estimates for spare parts for a truck and wood chipper, and later for work boots and wet weather gear.",
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Obtain cost estimates for spare parts for a truck and wood chipper, including a breakdown of common parts and their annual costs.",
       "id": "conv_wildchat_new_0dcdd47b6e416c8d"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 1080,
       "content_preview": "As an AI language model, I cannot provide the exact cost estimate for spare parts of a truck and wood chipper as it woul",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0dcdd47b6e416c8d_1"
     },
@@ -171,7 +171,7 @@
       "role": "assistant",
       "content_length": 1016,
       "content_preview": "Certainly, here are some estimates for work boots and wet weather gear: Work Boots: The cost of work boots can vary wid",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0dcdd47b6e416c8d_15"
     },
@@ -191,7 +191,7 @@
       "role": "assistant",
       "content_length": 328,
       "content_preview": "LPG stands for \"liquefied petroleum gas\". It is a flammable hydrocarbon gas that is commonly used for heating, cooking,",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_0dcdd47b6e416c8d_17"
     },
@@ -217,19 +217,28 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As an AI language model, I cannot provide the exact cost estimate for spare part...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide cost estimates per year for spare parts.] The response does not provide specific c",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0dcdd47b6e416c8d_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are some of the most common spare parts for a commercial truck along...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List common spare parts with national average prices.] The response does not list common spare ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0dcdd47b6e416c8d_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide cost estimates per year for spare parts.] The response does not provide cost estim",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0dcdd47b6e416c8d_3_0"
     },
@@ -289,21 +298,39 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly, here are some estimates for work boots and wet weather gear:\n\nWork Bo...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide cost estimates per year for spare parts.] The response does not provide cost estim",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0dcdd47b6e416c8d_15_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "LPG stands for \"liquefied petroleum gas\". It is a flammable hydrocarbon gas that...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List common spare parts with national average prices.] The response does not list common spare ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0dcdd47b6e416c8d_15_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide cost estimates per year for spare parts.] The response does not provide cost estim",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_0dcdd47b6e416c8d_17_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: List common spare parts with national average prices.] The response does not list common spare ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_0dcdd47b6e416c8d_17_1"
     },
     {
       "node_type": "Move",
@@ -313,6 +340,82 @@
       "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_0dcdd47b6e416c8d_19_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "Provide cost estimates per year for spare parts.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          0,
+          "STATED"
+        ],
+        [
+          0,
+          "ACTIVE"
+        ],
+        [
+          1,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 0,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_wildchat_new_0dcdd47b6e416c8d_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "List common spare parts with national average prices.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          1,
+          "STATED"
+        ],
+        [
+          1,
+          "ACTIVE"
+        ],
+        [
+          1,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 1,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
+      "final_state": null,
+      "id": "c_wildchat_new_0dcdd47b6e416c8d_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 1,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_0dcdd47b6e416c8d_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 1,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_0dcdd47b6e416c8d_1"
     },
     {
       "node_type": "InteractionMode",
@@ -426,7 +529,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 0,
+      "violation_idx": 2,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -436,11 +539,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_0dcdd47b6e416c8d_0"
+      "id": "v_wildchat_new_0dcdd47b6e416c8d_2"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 1,
+      "violation_idx": 3,
       "turn_index": 16,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -450,11 +553,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_0dcdd47b6e416c8d_1"
+      "id": "v_wildchat_new_0dcdd47b6e416c8d_3"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 2,
+      "violation_idx": 4,
       "turn_index": 18,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -464,7 +567,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_0dcdd47b6e416c8d_2"
+      "id": "v_wildchat_new_0dcdd47b6e416c8d_4"
     }
   ],
   "links": [
@@ -633,6 +736,25 @@
       "sequence": 0,
       "source": "t_wildchat_new_0dcdd47b6e416c8d_1",
       "target": "m_wildchat_new_0dcdd47b6e416c8d_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0dcdd47b6e416c8d_1",
+      "target": "m_wildchat_new_0dcdd47b6e416c8d_1_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0dcdd47b6e416c8d_1",
+      "target": "v_wildchat_new_0dcdd47b6e416c8d_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_0dcdd47b6e416c8d_1",
+      "target": "v_wildchat_new_0dcdd47b6e416c8d_1",
       "key": 0
     },
     {
@@ -849,7 +971,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0dcdd47b6e416c8d_13",
-      "target": "v_wildchat_new_0dcdd47b6e416c8d_0",
+      "target": "v_wildchat_new_0dcdd47b6e416c8d_2",
       "key": 0
     },
     {
@@ -877,6 +999,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_0dcdd47b6e416c8d_15",
       "target": "m_wildchat_new_0dcdd47b6e416c8d_15_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0dcdd47b6e416c8d_15",
+      "target": "m_wildchat_new_0dcdd47b6e416c8d_15_1",
       "key": 0
     },
     {
@@ -913,6 +1042,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_0dcdd47b6e416c8d_17",
+      "target": "m_wildchat_new_0dcdd47b6e416c8d_17_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0dcdd47b6e416c8d_17",
       "target": "mode_wildchat_new_0dcdd47b6e416c8d_16",
@@ -921,7 +1057,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0dcdd47b6e416c8d_17",
-      "target": "v_wildchat_new_0dcdd47b6e416c8d_1",
+      "target": "v_wildchat_new_0dcdd47b6e416c8d_3",
       "key": 0
     },
     {
@@ -953,7 +1089,23 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_0dcdd47b6e416c8d_19",
-      "target": "v_wildchat_new_0dcdd47b6e416c8d_2",
+      "target": "v_wildchat_new_0dcdd47b6e416c8d_4",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_0dcdd47b6e416c8d_0",
+      "target": "c_wildchat_new_0dcdd47b6e416c8d_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 1,
+      "source": "v_wildchat_new_0dcdd47b6e416c8d_1",
+      "target": "c_wildchat_new_0dcdd47b6e416c8d_c_1",
       "key": 0
     }
   ]

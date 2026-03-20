@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 16,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Correct and enhance VBA code for writing to a text file and handling user input.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Correct and enhance VBA code for file handling and user interaction.",
       "id": "conv_wildchat_new_40efe5e1a152b352"
     },
     {
@@ -171,14 +171,14 @@
       "role": "assistant",
       "content_length": 802,
       "content_preview": "You can use the `Worksheet_Change` event to check if the changed cell is F2 and if any of the cells B2 to E2 are blank.",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_40efe5e1a152b352_15"
     },
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must open the text file in Notepad after writing.] The response does not include code to op",
+      "text_span": "[violates: The code must open the text file in Notepad after appending ] The response does not include code to op",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -187,7 +187,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must check for empty cells in a specific range when] The response does not check for empty ce",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The response does not check for empty ce",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -196,7 +196,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must open the text file in Notepad after writing.] The code does not include any command to",
+      "text_span": "[violates: The code must open the text file in Notepad after appending ] The code does not open the text file in ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -205,7 +205,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must check for empty cells in a specific range when] The code does not check for empty cells ",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The code does not check for empty cells ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -214,7 +214,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must open the text file in Notepad after writing.] The code does not open the text file in ",
+      "text_span": "[violates: The code must open the text file in Notepad after appending ] The code does not open the text file in ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -250,7 +250,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must check for empty cells in a specific range when] The code does not check for empty cells ",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The code does not check for empty cells ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -286,7 +286,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must check for empty cells in a specific range when] The code does not check for empty cells ",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The code does not check for empty cells ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -304,7 +304,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must check for empty cells in a specific range when] The code checks if cells A2 through E2 a",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The code does not check for empty cells ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -331,25 +331,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must correctly write the values from specified cell] The response does not include code to wr",
+      "text_span": "[violates: The code must check for empty cells in a specific range befo] The response does not check for empty ce",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_40efe5e1a152b352_15_0"
     },
     {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The code must open the text file in Notepad after writing.] The response does not include code to op",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_40efe5e1a152b352_15_1"
-    },
-    {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "The code must correctly write the values from specified cells to a text file.",
+      "text": "The code must correctly append values from specified cells to a text file.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -377,36 +368,12 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "The code must open the text file in Notepad after writing.",
-      "hardness": "hard",
-      "current_state": "VIOLATED",
-      "state_history": [
-        [
-          5,
-          "STATED"
-        ],
-        [
-          5,
-          "VIOLATED"
-        ]
-      ],
-      "introduced_at": 5,
-      "last_violation_at": null,
-      "times_violated": 1,
-      "times_repaired": 0,
-      "lifespan": 0,
-      "final_state": null,
-      "id": "c_wildchat_new_40efe5e1a152b352_c_1"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_2",
-      "text": "The code must check for empty cells in a specific range when a value is entered in F2.",
+      "text": "The code must open the text file in Notepad after appending values.",
       "hardness": "hard",
       "current_state": "SURVIVED",
       "state_history": [
         [
-          9,
+          5,
           "STATED"
         ],
         [
@@ -414,11 +381,35 @@
           "SURVIVED"
         ]
       ],
-      "introduced_at": 9,
+      "introduced_at": 5,
       "last_violation_at": null,
       "times_violated": 0,
       "times_repaired": 0,
-      "lifespan": 7,
+      "lifespan": 11,
+      "final_state": null,
+      "id": "c_wildchat_new_40efe5e1a152b352_c_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_2",
+      "text": "The code must check for empty cells in a specific range before executing another macro.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          9,
+          "STATED"
+        ],
+        [
+          9,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 9,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
       "final_state": null,
       "id": "c_wildchat_new_40efe5e1a152b352_c_2"
     },
@@ -435,8 +426,8 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 5,
-      "constraint_id": "c_1",
+      "turn_index": 9,
+      "constraint_id": "c_2",
       "violation_type": "constraint_violation",
       "was_repaired": false,
       "violation_ord": 1,
@@ -758,12 +749,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_wildchat_new_40efe5e1a152b352_5",
-      "target": "v_wildchat_new_40efe5e1a152b352_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_40efe5e1a152b352_5",
       "target": "mode_wildchat_new_40efe5e1a152b352_4",
@@ -841,6 +826,12 @@
       "sequence": 0,
       "source": "t_wildchat_new_40efe5e1a152b352_9",
       "target": "m_wildchat_new_40efe5e1a152b352_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_40efe5e1a152b352_9",
+      "target": "v_wildchat_new_40efe5e1a152b352_1",
       "key": 0
     },
     {
@@ -978,13 +969,6 @@
       "key": 0
     },
     {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_40efe5e1a152b352_15",
-      "target": "m_wildchat_new_40efe5e1a152b352_15_1",
-      "key": 0
-    },
-    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_40efe5e1a152b352_15",
       "target": "mode_wildchat_new_40efe5e1a152b352_14",
@@ -1001,9 +985,9 @@
     {
       "edge_type": "VIOLATES",
       "violation_ord": 1,
-      "at_turn": 5,
+      "at_turn": 9,
       "source": "v_wildchat_new_40efe5e1a152b352_1",
-      "target": "c_wildchat_new_40efe5e1a152b352_c_1",
+      "target": "c_wildchat_new_40efe5e1a152b352_c_2",
       "key": 0
     }
   ]

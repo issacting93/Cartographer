@@ -1,0 +1,311 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_22914",
+      "source": "ChatbotArena",
+      "domain": "creative",
+      "total_turns": 6,
+      "stability_class": "No Constraints",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Identify a word relationship between game titles.",
+      "id": "conv_chatbot_arena_22914"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 33,
+      "content_preview": "botw is to wild as totk is to...?",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 827,
+      "content_preview": "It is difficult to compare Breath of the Wild and The Legend of Zelda: Toads Treasure Isle directly as they are two very",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 162,
+      "content_preview": "ah, sorry, totk refers to The Legend of Zelda: Tears of the Kingdom; the sequel to The Legend of Zelda: Breath of the Wi",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 599,
+      "content_preview": "I apologize for any confusion, I understand the context of your question now. In the context of your original puzzle, r",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 170,
+      "content_preview": "I was expecting the answer \"botw is to wild as totk is to kingdom\". Because I'm taking the last word from each game. let",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 608,
+      "content_preview": "Final Fantasy X is a role-playing video game set in the fantasy world of Spira, where the player controls Tidus, a summo",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_22914_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "It is difficult to compare Breath of the Wild and The Legend of Zelda: Toads Tre...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_22914_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "onfusion, I understand the context of your question now.\n\nIn the context of your o",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_22914_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "id": "m_chatbot_arena_22914_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Final Fantasy X is a role-playing video game set in the fantasy world of Spira,...",
+      "confidence": 0.6,
+      "method": "inferred",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_22914_5_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_chatbot_arena_22914_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_22914_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_22914_4"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_chatbot_arena_22914_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_22914",
+      "target": "t_chatbot_arena_22914_5",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_22914_0",
+      "target": "t_chatbot_arena_22914_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_0",
+      "target": "mode_chatbot_arena_22914_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_22914_1",
+      "target": "t_chatbot_arena_22914_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_22914_1",
+      "target": "m_chatbot_arena_22914_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_1",
+      "target": "mode_chatbot_arena_22914_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_22914_1",
+      "target": "v_chatbot_arena_22914_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_22914_2",
+      "target": "t_chatbot_arena_22914_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_2",
+      "target": "mode_chatbot_arena_22914_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_22914_3",
+      "target": "t_chatbot_arena_22914_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_22914_3",
+      "target": "m_chatbot_arena_22914_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_3",
+      "target": "mode_chatbot_arena_22914_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_22914_4",
+      "target": "t_chatbot_arena_22914_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_22914_4",
+      "target": "m_chatbot_arena_22914_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_4",
+      "target": "mode_chatbot_arena_22914_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_22914_5",
+      "target": "m_chatbot_arena_22914_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_22914_5",
+      "target": "mode_chatbot_arena_22914_4",
+      "key": 0
+    }
+  ]
+}

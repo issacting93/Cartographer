@@ -1,0 +1,131 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "mentalhealth_0098_99ac439e6a1f",
+      "source": "MentalHealthCounseling",
+      "domain": "mental_health",
+      "total_turns": 2,
+      "stability_class": "No Constraints",
+      "task_architecture": "Generation",
+      "constraint_hardness": "Flexible",
+      "task_goal": "I struggle with depression as well as pretty intense mood swings throughout the month. I experience highs where I feel amazing and energetic and then lows where I lack focus, energy, and generally hav",
+      "id": "conv_mentalhealth_0098_99ac439e6a1f"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 270,
+      "content_preview": "I struggle with depression as well as pretty intense mood swings throughout the month. I experience highs where I feel a",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_mentalhealth_0098_99ac439e6a1f_0",
+      "pad_pleasure": 0.4,
+      "pad_arousal": 0.6,
+      "pad_dominance": 0.5,
+      "pad_intensity": 0.6,
+      "content": "I struggle with depression as well as pretty intense mood swings throughout the month. I experience highs where I feel amazing and energetic and then lows where I lack focus, energy, and generally have a more dark outlook on my life. How can I live a more balanced life?"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 818,
+      "content_preview": "You may already be living a balanced life because you are aware of your ups and downs due to hormonal changes of your me",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "pad_pleasure": 0.6,
+      "pad_arousal": 0.5,
+      "pad_dominance": 0.6,
+      "pad_intensity": 0.44,
+      "content": "You may already be living a balanced life because you are aware of your ups and downs due to hormonal changes of your menstrual cycle.As much as posible, schedule activities around your expected mood swings. \u00a0 This way you'll avoid feeling even more tired from a busy scheduled during a low energy time in the month.The hormonal cycle is normal.Opinions vary as to taking natural, homeopathic supplements or Pharma drugs which will influence your cycle and make your mood more even.There are side effects to at least the Pharma drugs, which is a consideration as to the value of taking them.Reflect on which is your style of living and what will make you feel successful in handling this problem.Sticking to a system which mirrors the type of person you are, means more than any one particular answer anyone gives you."
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "s problem.Sticking to a system which mirrors the type of pers",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "id": "m_mentalhealth_0098_99ac439e6a1f_1_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "mode_mentalhealth_0098_99ac439e6a1f_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.7,
+      "method": "llm",
+      "id": "v_mentalhealth_0098_99ac439e6a1f_0"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_mentalhealth_0098_99ac439e6a1f",
+      "target": "t_mentalhealth_0098_99ac439e6a1f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_mentalhealth_0098_99ac439e6a1f",
+      "target": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_mentalhealth_0098_99ac439e6a1f_0",
+      "target": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0098_99ac439e6a1f_0",
+      "target": "mode_mentalhealth_0098_99ac439e6a1f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "target": "m_mentalhealth_0098_99ac439e6a1f_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "target": "mode_mentalhealth_0098_99ac439e6a1f_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_mentalhealth_0098_99ac439e6a1f_1",
+      "target": "v_mentalhealth_0098_99ac439e6a1f_0",
+      "key": 0
+    }
+  ]
+}

@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 16,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Create a Firefox extension including its manifest and necessary files.",
       "id": "conv_wildchat_new_4b81d7b3720c9f98"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 953,
       "content_preview": "Sure thing! Here are two examples of simple files you can implement for the extension. 1. background.js: ``` function",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_4b81d7b3720c9f98_11"
     },
@@ -231,10 +231,10 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include basic functionality in background.js and content.js ] The response does not include any inform",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Sure! Here is an example of a basic manifest.json file for a Firefox extension:...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_4b81d7b3720c9f98_7_0"
     },
@@ -249,12 +249,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure thing! Here are two examples of simple files you can implement for the exte...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Provide a valid manifest.json file format.] The response does not provide a valid ma",
+      "confidence": 1.0,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_4b81d7b3720c9f98_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Include basic functionality in background.js and content.js ] The response does not include any specif",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_4b81d7b3720c9f98_11_1"
     },
     {
       "node_type": "Move",
@@ -270,22 +279,22 @@
       "constraint_id": "c_0",
       "text": "Provide a valid manifest.json file format.",
       "hardness": "hard",
-      "current_state": "SURVIVED",
+      "current_state": "VIOLATED",
       "state_history": [
         [
-          7,
+          6,
           "STATED"
         ],
         [
-          16,
-          "SURVIVED"
+          11,
+          "VIOLATED"
         ]
       ],
-      "introduced_at": 7,
+      "introduced_at": 6,
       "last_violation_at": null,
-      "times_violated": 0,
+      "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 9,
+      "lifespan": 5,
       "final_state": null,
       "id": "c_wildchat_new_4b81d7b3720c9f98_c_0"
     },
@@ -294,24 +303,44 @@
       "constraint_id": "c_1",
       "text": "Include basic functionality in background.js and content.js files.",
       "hardness": "hard",
-      "current_state": "SURVIVED",
+      "current_state": "VIOLATED",
       "state_history": [
         [
           11,
           "STATED"
         ],
         [
-          16,
-          "SURVIVED"
+          11,
+          "VIOLATED"
         ]
       ],
       "introduced_at": 11,
       "last_violation_at": null,
-      "times_violated": 0,
+      "times_violated": 1,
       "times_repaired": 0,
-      "lifespan": 5,
+      "lifespan": 0,
       "final_state": null,
       "id": "c_wildchat_new_4b81d7b3720c9f98_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 11,
+      "constraint_id": "c_0",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_4b81d7b3720c9f98_0"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 2,
+      "turn_index": 11,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_wildchat_new_4b81d7b3720c9f98_1"
     },
     {
       "node_type": "InteractionMode",
@@ -403,7 +432,7 @@
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 0,
+      "violation_idx": 2,
       "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -413,7 +442,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_4b81d7b3720c9f98_0"
+      "id": "v_wildchat_new_4b81d7b3720c9f98_2"
     }
   ],
   "links": [
@@ -743,6 +772,25 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_4b81d7b3720c9f98_11",
+      "target": "m_wildchat_new_4b81d7b3720c9f98_11_1",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_4b81d7b3720c9f98_11",
+      "target": "v_wildchat_new_4b81d7b3720c9f98_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_4b81d7b3720c9f98_11",
+      "target": "v_wildchat_new_4b81d7b3720c9f98_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4b81d7b3720c9f98_11",
       "target": "mode_wildchat_new_4b81d7b3720c9f98_10",
@@ -777,7 +825,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_4b81d7b3720c9f98_13",
-      "target": "v_wildchat_new_4b81d7b3720c9f98_0",
+      "target": "v_wildchat_new_4b81d7b3720c9f98_2",
       "key": 0
     },
     {
@@ -804,6 +852,22 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4b81d7b3720c9f98_15",
       "target": "mode_wildchat_new_4b81d7b3720c9f98_14",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 11,
+      "source": "v_wildchat_new_4b81d7b3720c9f98_0",
+      "target": "c_wildchat_new_4b81d7b3720c9f98_c_0",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 11,
+      "source": "v_wildchat_new_4b81d7b3720c9f98_1",
+      "target": "c_wildchat_new_4b81d7b3720c9f98_c_1",
       "key": 0
     }
   ]

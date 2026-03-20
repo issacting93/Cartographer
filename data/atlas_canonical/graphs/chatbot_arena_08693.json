@@ -1,0 +1,454 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "Conversation",
+      "conv_id": "chatbot_arena_08693",
+      "source": "ChatbotArena",
+      "domain": "code",
+      "total_turns": 8,
+      "stability_class": "Constraint Drift",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Create a webpage that displays 'Hello, World!' and includes a button to change the text color randomly.",
+      "id": "conv_chatbot_arena_08693"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 0,
+      "role": "user",
+      "content_length": 42,
+      "content_preview": "Which building is the tallest in the world",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_0"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 1,
+      "role": "assistant",
+      "content_length": 580,
+      "content_preview": "As of my knowledge cutoff date of September 2021, the Burj Khalifa in Dubai, United Arab Emirates is the tallest buildin",
+      "move_count": 2,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_1"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 2,
+      "role": "user",
+      "content_length": 40,
+      "content_preview": "Translate \"Hi my name is Harsh\" in hindi",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_2"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 3,
+      "role": "assistant",
+      "content_length": 21,
+      "content_preview": "Hi, my name is Harsh.",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_3"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 4,
+      "role": "user",
+      "content_length": 45,
+      "content_preview": "Write a code to show hello world on a webpage",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_4"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 5,
+      "role": "assistant",
+      "content_length": 714,
+      "content_preview": "Here's an HTML code that will show \"Hello, World!\" on a webpage: ```html <!DOCTYPE html> <html> <head> <title>He",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_5"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 6,
+      "role": "user",
+      "content_length": 109,
+      "content_preview": "Make the Hello World front and center. Also add a button on the webpage which changes the text color randomly",
+      "move_count": 0,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_6"
+    },
+    {
+      "node_type": "Turn",
+      "turn_index": 7,
+      "role": "assistant",
+      "content_length": 1916,
+      "content_preview": "Sure! Here's the updated HTML code that makes \"Hello, World!\" appear front and center, and adds a button that changes th",
+      "move_count": 1,
+      "moves": [],
+      "id": "t_chatbot_arena_08693_7"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The webpage must display 'Hello, World!' prominently.] The response does not display 'Hello, Wo",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_08693_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: A button must be included that changes the text color random] The response does not include a button t",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_08693_1_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: A button must be included that changes the text color random] The response does not include a button t",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_08693_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: A button must be included that changes the text color random] The response attempts to change the colo",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_chatbot_arena_08693_7_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_0",
+      "text": "The webpage must display 'Hello, World!' prominently.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          4,
+          "STATED"
+        ],
+        [
+          8,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 4,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 4,
+      "final_state": null,
+      "id": "c_chatbot_arena_08693_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "A button must be included that changes the text color randomly.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          6,
+          "STATED"
+        ],
+        [
+          7,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 6,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 1,
+      "final_state": null,
+      "id": "c_chatbot_arena_08693_c_1"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 7,
+      "constraint_id": "c_1",
+      "violation_type": "constraint_violation",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "id": "v_chatbot_arena_08693_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 0,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": true,
+      "violation_type": "PREMATURE_EXECUTION",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "mode_chatbot_arena_08693_0"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 2,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.5,
+      "method": "regex",
+      "id": "mode_chatbot_arena_08693_2"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 4,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_chatbot_arena_08693_4"
+    },
+    {
+      "node_type": "InteractionMode",
+      "turn_index": 6,
+      "user_requested": "EXECUTOR",
+      "ai_enacted": "EXECUTOR",
+      "is_violation": false,
+      "violation_type": null,
+      "confidence": 0.85,
+      "method": "regex",
+      "id": "mode_chatbot_arena_08693_6"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 1,
+      "turn_index": 0,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_chatbot_arena_08693_1"
+    }
+  ],
+  "links": [
+    {
+      "edge_type": "CONTAINS",
+      "order": 0,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_0",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 1,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_1",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 2,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_2",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 3,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_3",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 4,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_4",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 5,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_5",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 6,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_6",
+      "key": 0
+    },
+    {
+      "edge_type": "CONTAINS",
+      "order": 7,
+      "source": "conv_chatbot_arena_08693",
+      "target": "t_chatbot_arena_08693_7",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 1,
+      "source": "t_chatbot_arena_08693_0",
+      "target": "t_chatbot_arena_08693_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_0",
+      "target": "mode_chatbot_arena_08693_0",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 2,
+      "source": "t_chatbot_arena_08693_1",
+      "target": "t_chatbot_arena_08693_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_08693_1",
+      "target": "m_chatbot_arena_08693_1_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_08693_1",
+      "target": "m_chatbot_arena_08693_1_1",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_1",
+      "target": "mode_chatbot_arena_08693_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_08693_1",
+      "target": "v_chatbot_arena_08693_1",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 3,
+      "source": "t_chatbot_arena_08693_2",
+      "target": "t_chatbot_arena_08693_3",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_2",
+      "target": "mode_chatbot_arena_08693_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 4,
+      "source": "t_chatbot_arena_08693_3",
+      "target": "t_chatbot_arena_08693_4",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_3",
+      "target": "mode_chatbot_arena_08693_2",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 5,
+      "source": "t_chatbot_arena_08693_4",
+      "target": "t_chatbot_arena_08693_5",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_4",
+      "target": "mode_chatbot_arena_08693_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 6,
+      "source": "t_chatbot_arena_08693_5",
+      "target": "t_chatbot_arena_08693_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_08693_5",
+      "target": "m_chatbot_arena_08693_5_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_5",
+      "target": "mode_chatbot_arena_08693_4",
+      "key": 0
+    },
+    {
+      "edge_type": "NEXT",
+      "order": 7,
+      "source": "t_chatbot_arena_08693_6",
+      "target": "t_chatbot_arena_08693_7",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_6",
+      "target": "mode_chatbot_arena_08693_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_08693_7",
+      "target": "m_chatbot_arena_08693_7_0",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_chatbot_arena_08693_7",
+      "target": "v_chatbot_arena_08693_0",
+      "key": 0
+    },
+    {
+      "edge_type": "OPERATES_IN",
+      "source": "t_chatbot_arena_08693_7",
+      "target": "mode_chatbot_arena_08693_6",
+      "key": 0
+    },
+    {
+      "edge_type": "VIOLATES",
+      "violation_ord": 1,
+      "at_turn": 7,
+      "source": "v_chatbot_arena_08693_0",
+      "target": "c_chatbot_arena_08693_c_1",
+      "key": 0
+    }
+  ]
+}

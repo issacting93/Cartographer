@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 24,
       "stability_class": "Task Maintained",
-      "task_architecture": "Planning",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Upload 50,000 records from a CSV file to a REST API in batches using Python.",
       "id": "conv_wildchat_new_33b2ee77a9e0c822"
     },
@@ -151,7 +151,7 @@
       "role": "assistant",
       "content_length": 1785,
       "content_preview": "Sending a REST API request to upload 100,000 records can be a significant task. Here are a few suggestions for the best",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_33b2ee77a9e0c822_13"
     },
@@ -211,7 +211,7 @@
       "role": "assistant",
       "content_length": 2531,
       "content_preview": "Here's an example Python program that reads 50,000 records from a CSV file and makes a POST REST API call to process all",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_33b2ee77a9e0c822_19"
     },
@@ -267,7 +267,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response specifies using 4 CPU cores",
+      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not address the requir",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -276,7 +276,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not address the requir",
+      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response suggests using only 4 CPU c",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -294,7 +294,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not address the requir",
+      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not mention or ensure ",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -303,7 +303,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not mention utilizing ",
+      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not mention or ensure ",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_33b2ee77a9e0c822_13_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not demonstrate how to",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -312,7 +321,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not address the requir",
+      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not indicate the utili",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -321,7 +330,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not mention utilizing ",
+      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not confirm the abilit",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -330,7 +339,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not address the requir",
+      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not mention the utiliz",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -338,12 +347,21 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's an example Python program that reads 50,000 records from a CSV file and m...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Upload at least 36,000 records per minute.] The response does not guarantee an uploa",
+      "confidence": 0.9,
+      "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_33b2ee77a9e0c822_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: Utilize 8 CPU cores for processing.] The response does not explicitly confirm",
+      "confidence": 0.8,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_33b2ee77a9e0c822_19_1"
     },
     {
       "node_type": "Move",
@@ -384,7 +402,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "Utilize 8 CPU cores for processing.",
+      "text": "Upload at least 36,000 records per minute.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -408,7 +426,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_1",
-      "text": "Upload at least 36,000 records per minute.",
+      "text": "Utilize 8 CPU cores for processing.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -1051,6 +1069,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_33b2ee77a9e0c822_13",
+      "target": "m_wildchat_new_33b2ee77a9e0c822_13_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_33b2ee77a9e0c822_13",
       "target": "mode_wildchat_new_33b2ee77a9e0c822_12",
@@ -1185,6 +1210,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_33b2ee77a9e0c822_19",
       "target": "m_wildchat_new_33b2ee77a9e0c822_19_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_33b2ee77a9e0c822_19",
+      "target": "m_wildchat_new_33b2ee77a9e0c822_19_1",
       "key": 0
     },
     {

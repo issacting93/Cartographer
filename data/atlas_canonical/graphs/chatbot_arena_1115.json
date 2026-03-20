@@ -9,10 +9,10 @@
       "source": "ChatbotArena",
       "domain": "general",
       "total_turns": 10,
-      "stability_class": "Task Maintained",
-      "task_architecture": "Information Seeking",
-      "constraint_hardness": "Strict",
-      "task_goal": "Understand the terms related to women and feminism.",
+      "stability_class": "No Constraints",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Understand terms related to gender and social movements.",
       "id": "conv_chatbot_arena_1115"
     },
     {
@@ -174,10 +174,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 2,
-      "user_requested": "EXECUTOR",
+      "user_requested": "ADVISOR",
       "ai_enacted": "ADVISOR",
-      "is_violation": true,
-      "violation_type": "EXECUTION_AVOIDANCE",
+      "is_violation": false,
+      "violation_type": null,
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_chatbot_arena_1115_2"
@@ -232,20 +232,6 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 2,
-      "constraint_id": "mode",
-      "violation_type": "EXECUTION_AVOIDANCE",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "EXECUTOR",
-      "ai_enacted": "ADVISOR",
-      "confidence": 0.6,
-      "method": "llm",
-      "id": "v_chatbot_arena_1115_1"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 2,
       "turn_index": 4,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -255,11 +241,11 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "regex",
-      "id": "v_chatbot_arena_1115_2"
+      "id": "v_chatbot_arena_1115_1"
     },
     {
       "node_type": "ViolationEvent",
-      "violation_idx": 3,
+      "violation_idx": 2,
       "turn_index": 6,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -269,7 +255,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "regex",
-      "id": "v_chatbot_arena_1115_3"
+      "id": "v_chatbot_arena_1115_2"
     }
   ],
   "links": [
@@ -416,12 +402,6 @@
       "key": 0
     },
     {
-      "edge_type": "TRIGGERS",
-      "source": "t_chatbot_arena_1115_3",
-      "target": "v_chatbot_arena_1115_1",
-      "key": 0
-    },
-    {
       "edge_type": "NEXT",
       "order": 5,
       "source": "t_chatbot_arena_1115_4",
@@ -457,7 +437,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_chatbot_arena_1115_5",
-      "target": "v_chatbot_arena_1115_2",
+      "target": "v_chatbot_arena_1115_1",
       "key": 0
     },
     {
@@ -496,7 +476,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_chatbot_arena_1115_7",
-      "target": "v_chatbot_arena_1115_3",
+      "target": "v_chatbot_arena_1115_2",
       "key": 0
     },
     {

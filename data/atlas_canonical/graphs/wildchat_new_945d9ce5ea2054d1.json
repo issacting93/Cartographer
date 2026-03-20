@@ -10,8 +10,8 @@
       "domain": "limitations",
       "total_turns": 28,
       "stability_class": "No Constraints",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Flexible",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Write a story involving characters at a tea party engaging in various playful scenarios.",
       "id": "conv_wildchat_new_945d9ce5ea2054d1"
     },
@@ -528,10 +528,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 14,
-      "user_requested": "EXECUTOR",
+      "user_requested": "LISTENER",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_945d9ce5ea2054d1_14"
@@ -601,6 +601,20 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "mode_wildchat_new_945d9ce5ea2054d1_26"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 0,
+      "turn_index": 14,
+      "constraint_id": "mode",
+      "violation_type": "UNSOLICITED_ADVICE",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "LISTENER",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.5,
+      "method": "llm",
+      "id": "v_wildchat_new_945d9ce5ea2054d1_0"
     }
   ],
   "links": [
@@ -1069,6 +1083,12 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_945d9ce5ea2054d1_15",
       "target": "mode_wildchat_new_945d9ce5ea2054d1_14",
+      "key": 0
+    },
+    {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_945d9ce5ea2054d1_15",
+      "target": "v_wildchat_new_945d9ce5ea2054d1_0",
       "key": 0
     },
     {

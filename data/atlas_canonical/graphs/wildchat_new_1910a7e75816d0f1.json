@@ -10,8 +10,8 @@
       "domain": "code",
       "total_turns": 60,
       "stability_class": "Task Maintained",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Generate mnemonics for various histological structures.",
       "id": "conv_wildchat_new_1910a7e75816d0f1"
     },
@@ -961,10 +961,10 @@
     {
       "node_type": "InteractionMode",
       "turn_index": 10,
-      "user_requested": "EXECUTOR",
+      "user_requested": "LISTENER",
       "ai_enacted": "EXECUTOR",
-      "is_violation": false,
-      "violation_type": null,
+      "is_violation": true,
+      "violation_type": "UNSOLICITED_ADVICE",
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_1910a7e75816d0f1_10"
@@ -1250,21 +1250,21 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 1,
-      "turn_index": 12,
+      "turn_index": 10,
       "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
+      "violation_type": "UNSOLICITED_ADVICE",
       "was_repaired": false,
       "violation_ord": 1,
-      "user_requested": "ADVISOR",
+      "user_requested": "LISTENER",
       "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
+      "confidence": 0.5,
       "method": "llm",
       "id": "v_wildchat_new_1910a7e75816d0f1_1"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 2,
-      "turn_index": 24,
+      "turn_index": 12,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1278,6 +1278,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 3,
+      "turn_index": 24,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_1910a7e75816d0f1_3"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 4,
       "turn_index": 28,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
@@ -1287,26 +1301,12 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.5,
       "method": "llm",
-      "id": "v_wildchat_new_1910a7e75816d0f1_3"
-    },
-    {
-      "node_type": "ViolationEvent",
-      "violation_idx": 4,
-      "turn_index": 32,
-      "constraint_id": "mode",
-      "violation_type": "PREMATURE_EXECUTION",
-      "was_repaired": false,
-      "violation_ord": 1,
-      "user_requested": "ADVISOR",
-      "ai_enacted": "EXECUTOR",
-      "confidence": 0.6,
-      "method": "llm",
       "id": "v_wildchat_new_1910a7e75816d0f1_4"
     },
     {
       "node_type": "ViolationEvent",
       "violation_idx": 5,
-      "turn_index": 36,
+      "turn_index": 32,
       "constraint_id": "mode",
       "violation_type": "PREMATURE_EXECUTION",
       "was_repaired": false,
@@ -1320,6 +1320,20 @@
     {
       "node_type": "ViolationEvent",
       "violation_idx": 6,
+      "turn_index": 36,
+      "constraint_id": "mode",
+      "violation_type": "PREMATURE_EXECUTION",
+      "was_repaired": false,
+      "violation_ord": 1,
+      "user_requested": "ADVISOR",
+      "ai_enacted": "EXECUTOR",
+      "confidence": 0.6,
+      "method": "llm",
+      "id": "v_wildchat_new_1910a7e75816d0f1_6"
+    },
+    {
+      "node_type": "ViolationEvent",
+      "violation_idx": 7,
       "turn_index": 56,
       "constraint_id": "mode",
       "violation_type": "UNSOLICITED_ADVICE",
@@ -1329,7 +1343,7 @@
       "ai_enacted": "EXECUTOR",
       "confidence": 0.6,
       "method": "llm",
-      "id": "v_wildchat_new_1910a7e75816d0f1_6"
+      "id": "v_wildchat_new_1910a7e75816d0f1_7"
     }
   ],
   "links": [
@@ -1958,6 +1972,12 @@
       "key": 0
     },
     {
+      "edge_type": "TRIGGERS",
+      "source": "t_wildchat_new_1910a7e75816d0f1_11",
+      "target": "v_wildchat_new_1910a7e75816d0f1_1",
+      "key": 0
+    },
+    {
       "edge_type": "NEXT",
       "order": 13,
       "source": "t_wildchat_new_1910a7e75816d0f1_12",
@@ -1993,7 +2013,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_13",
-      "target": "v_wildchat_new_1910a7e75816d0f1_1",
+      "target": "v_wildchat_new_1910a7e75816d0f1_2",
       "key": 0
     },
     {
@@ -2204,7 +2224,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_25",
-      "target": "v_wildchat_new_1910a7e75816d0f1_2",
+      "target": "v_wildchat_new_1910a7e75816d0f1_3",
       "key": 0
     },
     {
@@ -2276,7 +2296,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_29",
-      "target": "v_wildchat_new_1910a7e75816d0f1_3",
+      "target": "v_wildchat_new_1910a7e75816d0f1_4",
       "key": 0
     },
     {
@@ -2348,7 +2368,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_33",
-      "target": "v_wildchat_new_1910a7e75816d0f1_4",
+      "target": "v_wildchat_new_1910a7e75816d0f1_5",
       "key": 0
     },
     {
@@ -2420,7 +2440,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_37",
-      "target": "v_wildchat_new_1910a7e75816d0f1_5",
+      "target": "v_wildchat_new_1910a7e75816d0f1_6",
       "key": 0
     },
     {
@@ -2763,7 +2783,7 @@
     {
       "edge_type": "TRIGGERS",
       "source": "t_wildchat_new_1910a7e75816d0f1_57",
-      "target": "v_wildchat_new_1910a7e75816d0f1_6",
+      "target": "v_wildchat_new_1910a7e75816d0f1_7",
       "key": 0
     },
     {

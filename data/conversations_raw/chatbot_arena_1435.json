@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_1435",
+  "messages": [
+    {
+      "role": "user",
+      "content": "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?"
+    },
+    {
+      "role": "assistant",
+      "content": "If you want to create a separate label for each row in your 3D plot, you can specify row labels when you call ax.set_xticklabels() and/or ax.set_yticklabels(). Here's an example that adds a label for each row in the x axis:\n\nimport numpy as np\nfrom matplotlib.pyplot import plot, show, figure\n\nN = 20\nx = np.arange(0, N + 1, 0.1)\ny = np.arange(0, N + 1, 0.1)\nz = np.arange(0, N + 1, 0.1)\n\nfig = show()\nax = fig.gca(projection='3d')\n\nax.scatter(x, y, z)\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n    ax.set_yticklabels(['%d' % i])\n\nfig.show()"
+    },
+    {
+      "role": "user",
+      "content": "I don't want to label the ticks. I want to create a label additionally to the y-label."
+    },
+    {
+      "role": "assistant",
+      "content": "For example, in the code snippet above, you can create a label additionally to the y-label by doing the following:\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n\nHere's what the 3D plot with labels for each row and column would look like:"
+    }
+  ]
+}

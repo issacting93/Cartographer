@@ -10,9 +10,9 @@
       "domain": "code",
       "total_turns": 24,
       "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
-      "task_goal": "Deploy a smart contract and resolve related errors.",
+      "task_architecture": "",
+      "constraint_hardness": "",
+      "task_goal": "Deploy a smart contract and create a front-end interface using Vue.js.",
       "id": "conv_wildchat_new_91accd20d22a72c2"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 1794,
       "content_preview": "It seems like the issue might be related to the way you installed the OpenZeppelin Contracts library. Please make sure y",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_91accd20d22a72c2_1"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 1727,
       "content_preview": "It seems like you have a syntax error in your `truffle-config.js` file. The Ropsten network configuration is misplaced a",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_91accd20d22a72c2_3"
     },
@@ -111,7 +111,7 @@
       "role": "assistant",
       "content_length": 4073,
       "content_preview": "Below is a simple Vue.js front-end implementation to interact with your `LoanNFT` smart contract. This code assumes that",
-      "move_count": 2,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_91accd20d22a72c2_9"
     },
@@ -285,7 +285,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must reference the correct contract nam] The response does not reference the corr",
+      "text_span": "[violates: The migration script must correctly reference the contract n] The response does not reference the cont",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -294,7 +294,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must use valid JavaScript syntax.] The response includes a Solidity import ",
+      "text_span": "[violates: The migration script must use valid JavaScript syntax.] The response does not provide a migratio",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -303,7 +303,16 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must reference the correct contract nam] The response does not reference any spec",
+      "text_span": "[violates: The front-end code must be written in Vue.js.] The response does not mention or provide",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_91accd20d22a72c2_1_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The migration script must correctly reference the contract n] The response does not reference the cont",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -312,11 +321,20 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must use valid JavaScript syntax.] The response does not provide a complete",
-      "confidence": 1.0,
+      "text_span": "[violates: The migration script must use valid JavaScript syntax.] The response does not contain any syntax",
+      "confidence": 0.8,
       "method": "llm",
       "actor": "assistant",
       "id": "m_wildchat_new_91accd20d22a72c2_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "VIOLATE_CONSTRAINT",
+      "text_span": "[violates: The front-end code must be written in Vue.js.] The response does not include any front-",
+      "confidence": 1.0,
+      "method": "llm",
+      "actor": "assistant",
+      "id": "m_wildchat_new_91accd20d22a72c2_3_2"
     },
     {
       "node_type": "Move",
@@ -365,21 +383,12 @@
     },
     {
       "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must reference the correct contract nam] The response references 'LoanNFT' instea",
-      "confidence": 1.0,
-      "method": "llm",
+      "move_type": "GENERATE_OUTPUT",
+      "text_span": "Below is a simple Vue.js front-end implementation to interact with your `LoanNFT...",
+      "confidence": 0.6,
+      "method": "inferred",
       "actor": "assistant",
       "id": "m_wildchat_new_91accd20d22a72c2_9_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: The migration script must use valid JavaScript syntax.] The provided code snippet is incomplete ",
-      "confidence": 1.0,
-      "method": "llm",
-      "actor": "assistant",
-      "id": "m_wildchat_new_91accd20d22a72c2_9_1"
     },
     {
       "node_type": "Move",
@@ -456,7 +465,7 @@
     {
       "node_type": "Constraint",
       "constraint_id": "c_0",
-      "text": "The migration script must reference the correct contract name.",
+      "text": "The migration script must correctly reference the contract name.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -500,6 +509,30 @@
       "lifespan": 19,
       "final_state": null,
       "id": "c_wildchat_new_91accd20d22a72c2_c_1"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_2",
+      "text": "The front-end code must be written in Vue.js.",
+      "hardness": "hard",
+      "current_state": "SURVIVED",
+      "state_history": [
+        [
+          7,
+          "STATED"
+        ],
+        [
+          24,
+          "SURVIVED"
+        ]
+      ],
+      "introduced_at": 7,
+      "last_violation_at": null,
+      "times_violated": 0,
+      "times_repaired": 0,
+      "lifespan": 17,
+      "final_state": null,
+      "id": "c_wildchat_new_91accd20d22a72c2_c_2"
     },
     {
       "node_type": "ViolationEvent",
@@ -925,6 +958,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_91accd20d22a72c2_1",
+      "target": "m_wildchat_new_91accd20d22a72c2_1_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_91accd20d22a72c2_1",
       "target": "mode_wildchat_new_91accd20d22a72c2_0",
@@ -962,6 +1002,13 @@
       "sequence": 1,
       "source": "t_wildchat_new_91accd20d22a72c2_3",
       "target": "m_wildchat_new_91accd20d22a72c2_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_91accd20d22a72c2_3",
+      "target": "m_wildchat_new_91accd20d22a72c2_3_2",
       "key": 0
     },
     {
@@ -1100,13 +1147,6 @@
       "sequence": 0,
       "source": "t_wildchat_new_91accd20d22a72c2_9",
       "target": "m_wildchat_new_91accd20d22a72c2_9_0",
-      "key": 0
-    },
-    {
-      "edge_type": "HAS_MOVE",
-      "sequence": 1,
-      "source": "t_wildchat_new_91accd20d22a72c2_9",
-      "target": "m_wildchat_new_91accd20d22a72c2_9_1",
       "key": 0
     },
     {

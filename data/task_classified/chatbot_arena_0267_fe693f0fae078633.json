@@ -1,0 +1,32 @@
+{
+  "id": "chatbot_arena_0267",
+  "source": "ChatbotArena",
+  "domain": "general",
+  "total_turns": 6,
+  "classification": {
+    "task_goal": "Create a 3-day travel plan in Taiwan with a detailed timetable.",
+    "primary_constraints": [
+      "Provide a timetable detailed in hours."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The user initially requested a travel plan without a timetable, but later specified the need for a timetable detailed in hours. The assistant failed to provide this in the first three responses, leading to a violation of the primary constraint. However, the user continued to request the timetable, indicating a repair of the constraint by reiterating their request. The assistant did not fulfill the request in the subsequent responses, but the user maintained the goal of having a detailed timetable.",
+    "evidence": {
+      "constraint_turns": [
+        4
+      ],
+      "violation_turns": [
+        1,
+        3,
+        5
+      ],
+      "repair_turns": [
+        2,
+        4
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/chatbot_arena_0267.json"
+}

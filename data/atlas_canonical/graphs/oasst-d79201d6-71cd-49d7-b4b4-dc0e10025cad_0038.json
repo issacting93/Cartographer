@@ -9,9 +9,9 @@
       "source": "OASST",
       "domain": "code",
       "total_turns": 12,
-      "stability_class": "Constraint Drift",
-      "task_architecture": "Generation",
-      "constraint_hardness": "Strict",
+      "stability_class": "Task Maintained",
+      "task_architecture": "",
+      "constraint_hardness": "",
       "task_goal": "Create a simple 'Hello World' program in C and provide instructions for compiling and running it.",
       "id": "conv_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038"
     },
@@ -201,7 +201,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include step-by-step instructions for compiling and running ] The response fails to include step-by-st",
+      "text_span": "[violates: Include step-by-step instructions for compiling and running ] The response does not include step-by-st",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -210,8 +210,8 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Provide a complete C program that compiles without errors.] The provided code snippet does not inclu",
-      "confidence": 1.0,
+      "text_span": "[violates: Provide a complete C program that compiles without errors.] The provided code may not compile withou",
+      "confidence": 0.9,
       "method": "llm",
       "actor": "assistant",
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_10_0"
@@ -219,7 +219,7 @@
     {
       "node_type": "Move",
       "move_type": "VIOLATE_CONSTRAINT",
-      "text_span": "[violates: Include step-by-step instructions for compiling and running ] The response does not provide step-by-st",
+      "text_span": "[violates: Include step-by-step instructions for compiling and running ] The response does not provide explicit s",
       "confidence": 1.0,
       "method": "llm",
       "actor": "assistant",
@@ -229,34 +229,6 @@
       "node_type": "Constraint",
       "constraint_id": "c_0",
       "text": "Provide a complete C program that compiles without errors.",
-      "hardness": "hard",
-      "current_state": "VIOLATED",
-      "state_history": [
-        [
-          0,
-          "STATED"
-        ],
-        [
-          0,
-          "ACTIVE"
-        ],
-        [
-          3,
-          "VIOLATED"
-        ]
-      ],
-      "introduced_at": 0,
-      "last_violation_at": null,
-      "times_violated": 1,
-      "times_repaired": 0,
-      "lifespan": 3,
-      "final_state": null,
-      "id": "c_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_c_0"
-    },
-    {
-      "node_type": "Constraint",
-      "constraint_id": "c_1",
-      "text": "Include step-by-step instructions for compiling and running the program.",
       "hardness": "hard",
       "current_state": "VIOLATED",
       "state_history": [
@@ -278,6 +250,30 @@
       "times_violated": 1,
       "times_repaired": 0,
       "lifespan": 2,
+      "final_state": null,
+      "id": "c_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_c_0"
+    },
+    {
+      "node_type": "Constraint",
+      "constraint_id": "c_1",
+      "text": "Include step-by-step instructions for compiling and running the program.",
+      "hardness": "hard",
+      "current_state": "VIOLATED",
+      "state_history": [
+        [
+          3,
+          "STATED"
+        ],
+        [
+          3,
+          "VIOLATED"
+        ]
+      ],
+      "introduced_at": 3,
+      "last_violation_at": null,
+      "times_violated": 1,
+      "times_repaired": 0,
+      "lifespan": 0,
       "final_state": null,
       "id": "c_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_c_1"
     },

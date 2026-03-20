@@ -1,0 +1,24 @@
+{
+  "id": "wildchat_8ef38b3eb0c361442178b04828668816",
+  "source": "wildchat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How do I check if String is a number in Kotlin?"
+    },
+    {
+      "role": "assistant",
+      "content": "You can use the `toDoubleOrNull()` function in Kotlin to check if a String can be converted to a number. \n\nHere's an example code snippet:\n\n```kotlin\nfun main() {\n    val inputString = \"123.45\"\n\n    val number = inputString.toDoubleOrNull()\n\n    if (number != null) {\n        println(\"String is a number: $number\")\n    } else {\n        println(\"String is not a number\")\n    }\n}\n```\n\nIn the above code, the `toDoubleOrNull()` function tries to convert the input string to a Double. If the conversion is successful, it returns the Double value, and if the conversion fails (i.e., the string is not a number), it returns null.\n\nYou can use the returned value to determine if the string is a number or not."
+    },
+    {
+      "role": "user",
+      "content": "I want to create a class that is a list of E with a parameter for the type of variables that the list contains. How would I do that? I'm coding in Kotlin"
+    },
+    {
+      "role": "assistant",
+      "content": "To create a class that represents a list of elements with a specific type parameter, you can use a generic class in Kotlin. This allows you to define a class that can work with different types without duplicating code.\n\nHere's an example code snippet of a generic class called `CustomList`:\n\n```kotlin\nclass CustomList<E> {\n    private val elements = mutableListOf<E>()\n\n    fun add(element: E) {\n        elements.add(element)\n    }\n\n    fun get(index: Int): E? {\n        if (index >= 0 && index < elements.size) {\n            return elements[index]\n        }\n        return null\n    }\n\n    fun size(): Int {\n        return elements.size\n    }\n}\n```\n\nIn the above code, the `CustomList` class is defined with a type parameter `E`, which represents the type of elements in the list. The `elements` property is a mutable list of type `E` where the elements are stored.\n\nThe class provides basic functionality like adding elements with the `add()` function, getting elements at a specific index with the `get()` function, and getting the size of the list with the `size()` function.\n\nHere's how you can use the `CustomList` class:\n\n```kotlin\nfun main() {\n    val list = CustomList<String>()\n    list.add(\"Hello\")\n    list.add(\"World\")\n\n    for (i in 0 until list.size()) {\n        val element = list.get(i)\n        if (element != null) {\n            println(element)\n        }\n    }\n}\n```\n\nIn this example, a `CustomList` is created with a type parameter `String`. Elements \"Hello\" and \"World\" are added to the list, and then the elements are printed by iterating over the list using the `get()` function."
+    }
+  ],
+  "metadata": {
+    "model": "gpt-3.5-turbo-0613",
+    "timestamp": 

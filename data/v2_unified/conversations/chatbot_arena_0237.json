@@ -1,0 +1,172 @@
+{
+  "id": "chatbot_arena_0237",
+  "messages": [
+    {
+      "role": "user",
+      "content": "wich model are you",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.4,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.46
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I am a conversational AI.",
+      "pad": {
+        "pleasure": 0.6,
+        "arousal": 0.3,
+        "dominance": 0.6,
+        "emotionalIntensity": 0.36
+      }
+    },
+    {
+      "role": "user",
+      "content": "can you compare yourself to OPENIA, LLM?",
+      "pad": {
+        "pleasure": 0.5,
+        "arousal": 0.5,
+        "dominance": 0.5,
+        "emotionalIntensity": 0.5
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I'm not sure what you mean. Can you rephrase your question?",
+      "pad": {
+        "pleasure": 0.4,
+        "arousal": 0.5,
+        "dominance": 0.3,
+        "emotionalIntensity": 0.56
+      }
+    }
+  ],
+  "source": "chatbot_arena",
+  "classification": {
+    "abstain": false,
+    "interactionPattern": {
+      "category": "question-answer",
+      "confidence": 0.8,
+      "evidence": [
+        "wich model are you",
+        "can you compare yourself to OPENIA, LLM?"
+      ],
+      "rationale": "The human asks questions and the AI provides answers or requests clarification.",
+      "alternative": "information-seeking"
+    },
+    "powerDynamics": {
+      "category": "human-led",
+      "confidence": 0.7,
+      "evidence": [
+        "wich model are you",
+        "can you compare yourself to OPENIA, LLM?"
+      ],
+      "rationale": "The human initiates questions and directs the conversation.",
+      "alternative": "balanced"
+    },
+    "emotionalTone": {
+      "category": "neutral",
+      "confidence": 0.9,
+      "evidence": [
+        "I am a conversational AI.",
+        "I'm sorry, I'm not sure what you mean."
+      ],
+      "rationale": "The interaction lacks emotional language and maintains a factual tone.",
+      "alternative": null
+    },
+    "engagementStyle": {
+      "category": "questioning",
+      "confidence": 0.8,
+      "evidence": [
+        "can you compare yourself to OPENIA, LLM?",
+        "I'm sorry, I'm not sure what you mean."
+      ],
+      "rationale": "The human's questions drive the conversation, and the AI requests clarification.",
+      "alternative": "reactive"
+    },
+    "knowledgeExchange": {
+      "category": "factual-info",
+      "confidence": 0.7,
+      "evidence": [
+        "I am a conversational AI."
+      ],
+      "rationale": "The AI provides factual information about its identity.",
+      "alternative": "opinion-exchange"
+    },
+    "conversationPurpose": {
+      "category": "information-seeking",
+      "confidence": 0.8,
+      "evidence": [
+        "wich model are you",
+        "can you compare yourself to OPENIA, LLM?"
+      ],
+      "rationale": "The human seeks specific information about the AI model.",
+      "alternative": "capability-exploration"
+    },
+    "topicDepth": {
+      "category": "surface",
+      "confidence": 0.9,
+      "evidence": [
+        "I am a conversational AI.",
+        "I'm sorry, I'm not sure what you mean."
+      ],
+      "rationale": "The conversation remains at a basic level without deep exploration.",
+      "alternative": null
+    },
+    "turnTaking": {
+      "category": "balanced",
+      "confidence": 0.8,
+      "evidence": [
+        "wich model are you",
+        "I am a conversational AI."
+      ],
+      "rationale": "Both participants contribute equally to the conversation length.",
+      "alternative": "user-dominant"
+    },
+    "humanRole": {
+      "distribution": {
+        "information-seeker": 0.6,
+        "provider": 0.4,
+        "director": 0.0,
+        "collaborator": 0.0,
+        "social-expressor": 0.0,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "role": "information-seeker",
+          "quote": "can you compare yourself to OPENIA, LLM?"
+        }
+      ],
+      "rationale": "The human primarily seeks information but also provides context for the AI to respond.",
+      "alternative": "provider"
+    },
+    "aiRole": {
+      "distribution": {
+        "expert-system": 0.5,
+        "learning-facilitator": 0.3,
+        "advisor": 0.0,
+        "co-constructor": 0.0,
+        "social-facilitator": 0.2,
+        "relational-peer": 0.0
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "role": "expert-system",
+          "quote": "I am a conversational AI."
+        }
+      ],
+      "rationale": "The AI provides factual information and seeks clarification, showing elements of both roles.",
+      "alternative": "learning-facilitator"
+    }
+  },
+  "classificationMetadata": {
+    "model": "gpt-4o",
+    "provider": "openai",
+    "timestamp": "2026-02-13T11:23:32.929515",
+    "promptVersion": "2.0-social-role-theory"
+  }
+}

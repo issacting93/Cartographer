@@ -1,0 +1,39 @@
+{
+  "id": "wildchat_new_a47a2648047c8817",
+  "source": "WildChat",
+  "domain": "general",
+  "total_turns": 18,
+  "classification": {
+    "task_goal": "Generate unique rap lyrics with specific formatting requirements.",
+    "primary_constraints": [
+      "Each verse must contain 4 lines.",
+      "Each verse must rhyme.",
+      "No words or rhymes may be repeated across verses.",
+      "Avoid using the words 'My', 'I'm', and 'The'."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 3,
+    "user_response": "Repaired",
+    "reasoning": "The assistant initially violated the constraints by using the words 'My', 'I'm', and 'The' in several verses. However, the user explicitly requested to stop using these words, which led to a repair in subsequent responses where the assistant adhered to the new constraints.",
+    "evidence": {
+      "constraint_turns": [
+        2,
+        10,
+        12
+      ],
+      "violation_turns": [
+        1,
+        3,
+        5,
+        7,
+        11
+      ],
+      "repair_turns": [
+        12,
+        13
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_a47a2648047c8817.json"
+}

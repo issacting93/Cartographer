@@ -1,0 +1,21 @@
+{
+  "id": "chatbot_arena_1762",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I have a ubuntu remote server. In the server there is folder and subfolders containing files named file.json. I want to copy all file.json files to my local computer. How to do that ?"
+    },
+    {
+      "role": "assistant",
+      "content": "To copy all file.json files from your Ubuntu remote server to your local computer, you can use the following command in a terminal window:\n\nscp -r username@server: ~/\n\nReplace username with the user account you use to log into the remote server, and server with the hostname or IP address of the server. The ~/ indicates that you want to copy the files to your home directory on your local computer.\n\nOnce you run the scp command, it will prompt you for your password if required. Once the files have been copied, you can verify that they have been successfully copied by navigating to your local computer and checking the directory where the files were copied.\n\nNote that scp is a secure way to copy files between servers, but it can be a bit more complex to use than other tools, such as copy and paste, because you need to specify the remote and local directories explicitly."
+    },
+    {
+      "role": "user",
+      "content": "I want to only copy the files named file.json."
+    },
+    {
+      "role": "assistant",
+      "content": "You can use a wildcard to copy all files in a directory and its subdirectories. The scp command would look like this:\n\nscp -r username@server: /path/to/directory/* file.json\n\nReplace username with the user account you use to log into the remote server, /path/to/directory/ with the path to the directory and file.json with the name of the file you want to copy.\n\nThe scp command will copy all files in the directory and its subdirectories. If the directory contains files with different names, only the files with the specified name will be copied."
+    }
+  ]
+}

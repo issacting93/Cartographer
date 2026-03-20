@@ -1,0 +1,34 @@
+{
+  "id": "wildchat_new_e51f0df67e8e3091",
+  "source": "WildChat",
+  "domain": "code",
+  "total_turns": 16,
+  "classification": {
+    "task_goal": "Process images from a directory and save the processed images to a new directory.",
+    "primary_constraints": [
+      "Process each image without exceeding memory limits.",
+      "Save processed images in the specified output directory."
+    ],
+    "stability_class": "Constraint Drift",
+    "confidence": 0.85,
+    "violation_count": 2,
+    "user_response": "Repaired",
+    "reasoning": "The AI initially suggested a batch processing method that led to memory errors, which the user addressed by requesting a one-by-one processing method. The AI then provided a solution that adhered to the user's constraints, but the memory issue persisted, indicating a drift in constraints. The user attempted to repair the situation by suggesting memory cleanup strategies.",
+    "evidence": {
+      "constraint_turns": [
+        1,
+        5
+      ],
+      "violation_turns": [
+        1,
+        6
+      ],
+      "repair_turns": [
+        3,
+        9,
+        11
+      ]
+    }
+  },
+  "file_path": "data/v2_unified/conversations/wildchat_new_e51f0df67e8e3091.json"
+}
