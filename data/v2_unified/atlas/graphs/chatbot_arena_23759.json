@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "emotional-processing",
       "id": "conv_chatbot_arena_23759"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 99,
       "content_preview": "Sadly, I can't do any of these thins you offered, I have work to do and my boss needs it right now.",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_23759_4"
     },
@@ -77,12 +77,27 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here are some things you can try to help yourself feel better:\n1. Get enou...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here are some things you can try to hel",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_23759_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_23759_4_0"
     },
     {
       "node_type": "Move",
@@ -91,15 +106,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_23759_4_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_23759_4_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "If you need to focus on work and your boss is pressing you too hard, there are s...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_chatbot_arena_23759_5_0"
     },
     {
@@ -270,6 +291,13 @@
       "sequence": 0,
       "source": "t_chatbot_arena_23759_4",
       "target": "m_chatbot_arena_23759_4_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_23759_4",
+      "target": "m_chatbot_arena_23759_4_1",
       "key": 0
     },
     {

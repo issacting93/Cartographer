@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_wildchat_new_04bcd92905841a10"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 41,
       "content_preview": "The total number of chapters is 11,946.5.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_04bcd92905841a10_1"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 40,
       "content_preview": "can you add all the numbers of last read",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_04bcd92905841a10_4"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 16,
       "content_preview": "and the total is",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_04bcd92905841a10_6"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 82,
       "content_preview": "if i read each chapter in 5 min how much time do I need to finish all the chapters",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_04bcd92905841a10_10"
     },
@@ -222,6 +222,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_0_0"
     },
     {
@@ -231,6 +234,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_0_1"
     },
     {
@@ -240,34 +246,94 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_0_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, the equation to calculate the total number of chapters is:\n\n160 + 23 + 89...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_new_04bcd92905841a10_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, the equation to calculate the total num",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, the equation to calculate the total number of last read chapters is:\n\n92 +...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_04bcd92905841a10_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, the equation to calculate the total num",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, if we subtract the total number of last read chapters (10,901.5) from the...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_04bcd92905841a10_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, if we subtract the total number of last",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_04bcd92905841a10_10_0"
     },
     {
       "node_type": "Move",
@@ -276,15 +342,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_04bcd92905841a10_10_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_04bcd92905841a10_10_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "To calculate the total time required to finish all the chapters, we can multiply...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_11_0"
     },
     {
@@ -294,15 +366,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_12_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "To calculate how many days it will take to finish all the chapters, we can divid...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_13_0"
     },
     {
@@ -312,6 +390,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_15_0"
     },
     {
@@ -321,6 +402,9 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_17_0"
     },
     {
@@ -330,6 +414,9 @@
       "confidence": 0.7,
       "method": "inferred",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_18_0"
     },
     {
@@ -339,6 +426,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_04bcd92905841a10_19_0"
     },
     {
@@ -649,6 +739,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_04bcd92905841a10_1",
+      "target": "m_wildchat_new_04bcd92905841a10_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_04bcd92905841a10_1",
       "target": "mode_wildchat_new_04bcd92905841a10_0",
@@ -701,6 +798,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_04bcd92905841a10_4",
+      "target": "m_wildchat_new_04bcd92905841a10_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_04bcd92905841a10_4",
       "target": "mode_wildchat_new_04bcd92905841a10_4",
@@ -731,6 +835,13 @@
       "order": 7,
       "source": "t_wildchat_new_04bcd92905841a10_6",
       "target": "t_wildchat_new_04bcd92905841a10_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_04bcd92905841a10_6",
+      "target": "m_wildchat_new_04bcd92905841a10_6_0",
       "key": 0
     },
     {
@@ -797,6 +908,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_04bcd92905841a10_10",
       "target": "m_wildchat_new_04bcd92905841a10_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_04bcd92905841a10_10",
+      "target": "m_wildchat_new_04bcd92905841a10_10_1",
       "key": 0
     },
     {

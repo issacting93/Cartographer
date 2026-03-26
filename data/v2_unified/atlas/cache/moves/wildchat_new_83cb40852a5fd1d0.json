@@ -2,18 +2,45 @@
   {
     "role": "user",
     "content": "Let's play a game.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure, what game would you like to play?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 1,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure, what game would you like to play?",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "I want to play a game that I made.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 2,
     "moves": [
       {
@@ -21,6 +48,13 @@
         "text_span": "I want to play a game that I made.",
         "confidence": 0.9,
         "method": "regex",
+        "actor": "user"
+      },
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
         "actor": "user"
       },
       {
@@ -35,12 +69,33 @@
   {
     "role": "assistant",
     "content": "Great, I'd love to try it! What's the game called and how do we play it?",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 3,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "I call it \"Roll the Dice\" To play, I will roll a digital dice. Whatever number I get gets added to my score. If one of us gets to 25 points then we will double the points we get. If one of us gets to 100 points we will double again. The goal is to get to 250 points.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 4,
     "moves": [
       {
@@ -62,30 +117,69 @@
   {
     "role": "assistant",
     "content": "Sounds interesting, let's try it! Who will roll the dice first?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 5,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "Me",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 6,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Okay, go ahead and roll the dice! What number did you get?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 7,
     "moves": []
   },
   {
     "role": "user",
     "content": "I got a 1. My score is 1.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 8,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Great, now it's my turn. Let me roll the dice... and I got a 5. So my score is now 5. Keep it going!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 9,
     "moves": [
       {
@@ -100,12 +194,24 @@
   {
     "role": "user",
     "content": "I rolled a 6. My score is now 7.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 10,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Nice! I rolled the dice again and I got a 3. So my score is now 8. We're neck and neck!",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 11,
     "moves": [
       {
@@ -120,12 +226,24 @@
   {
     "role": "user",
     "content": "I rolled a 5! My score is now 12.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 12,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Great roll! I got a 2, so my score is now 10. You're ahead now. Let's see what my next roll brings. And I got a 4, so my score is now 14.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 13,
     "moves": [
       {
@@ -140,12 +258,24 @@
   {
     "role": "user",
     "content": "Why did you roll twice",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 14,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Oh, I apologize for that. I must have made a mistake there. Let me roll just once this time. And I got a 6, so my score is now 16.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 15,
     "moves": [
       {
@@ -160,12 +290,24 @@
   {
     "role": "user",
     "content": "I rolled a 4 so my score is now 16.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 16,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Okay, we're tied now. Let me roll the dice again. I got a 1, so my score is now 17. Your turn!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 17,
     "moves": [
       {
@@ -180,24 +322,48 @@
   {
     "role": "user",
     "content": "I rolled a 3. My score is now 19.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 18,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Great! My turn now. I got a 2, so my score is now 19. Let's keep going!",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 19,
     "moves": []
   },
   {
     "role": "user",
     "content": "I rolled a 6. My score is now 25, which means my points are doubled.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 20,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Wow, you got to 25 so quickly! Okay, double points from now on. I rolled a 5, so my score is now 10. Your turn again.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 21,
     "moves": [
       {
@@ -212,12 +378,24 @@
   {
     "role": "user",
     "content": "You didn't get to 25 yet, so your points aren't doubled yet",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 22,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "You're right, my mistake again. Thanks for correcting me. Let me roll again... and I got a 6, so my score is now 11. Keep it going!",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 23,
     "moves": [
       {
@@ -232,12 +410,24 @@
   {
     "role": "user",
     "content": "Remember you already had 19 points",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 24,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Oh, yes, I'm sorry for my mistake again. I really appreciate you keeping track. So my score is actually 25 already, and my points will be doubled from now on. Let me roll... and I got a 3, which means my score is now 31. Your turn.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 25,
     "moves": [
       {
@@ -252,12 +442,24 @@
   {
     "role": "user",
     "content": "Your points aren't doubled yet",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 26,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Oh, I'm sorry again! I'm afraid I'm not doing a very good job. Let me try again... and I got a 2, so my score is now 27. Thanks for your patience.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 27,
     "moves": [
       {
@@ -272,12 +474,24 @@
   {
     "role": "user",
     "content": "You had 19 points, not 25",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 28,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Right, I apologize again for my mistake. So my score is actually 19 for now. Let me roll the dice one more time... and I got a 4, so my score is now 23.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 29,
     "moves": [
       {
@@ -292,12 +506,24 @@
   {
     "role": "user",
     "content": "I rolled a 4. Since my points are doubled, My score is 33.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 30,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Great, you're ahead again! My turn... and I got a 6, so my score is now 29. You're doing really well with the double points.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 31,
     "moves": [
       {
@@ -312,12 +538,24 @@
   {
     "role": "user",
     "content": "I rolled a 4. My score is now 41. You also now have double points",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 32,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Wow, you're really pulling ahead now! My turn... and I got a 5, which means my score is now 38. Let's see who will reach 100 points first!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 33,
     "moves": [
       {
@@ -332,12 +570,24 @@
   {
     "role": "user",
     "content": "You mean 39",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 34,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Yes, you're right, thank you for correcting me again. My score is actually 39. Let me roll the dice... I got a 3, so my score is now 42. Your turn.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 35,
     "moves": [
       {
@@ -352,12 +602,24 @@
   {
     "role": "user",
     "content": "I rolled a 4, so my score is now 49.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 36,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Wow, you're almost at 50 points now! My turn... and I got a 2, which means my score is now 44. You're still in the lead.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 37,
     "moves": [
       {
@@ -372,12 +634,24 @@
   {
     "role": "user",
     "content": "Your points are doubled",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 38,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Oh, right, thanks for reminding me. So my score is actually 78 now, since I reached 25 points earlier. Let me roll the dice... and I got a 1, which means my score is now 79.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 39,
     "moves": [
       {
@@ -392,12 +666,24 @@
   {
     "role": "user",
     "content": "You mean 46",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 40,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Oh no, not again! Thank you for correcting me. My score is now 46. Let me roll the dice... and I got a 6, so my score is now 52. Gaining on you!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 41,
     "moves": [
       {
@@ -412,18 +698,36 @@
   {
     "role": "user",
     "content": "I rolled a 2, so my score is now 53.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 42,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "My turn... and I got a 3, so my score is now 55. It's getting closer and closer!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 43,
     "moves": []
   },
   {
     "role": "user",
     "content": "Again, YOUR POINTS ARE DOUBLED",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 44,
     "moves": [
       {
@@ -431,33 +735,62 @@
         "text_span": "Again, YOUR POINTS ARE DOUBLED",
         "confidence": 0.9,
         "method": "regex",
-        "actor": "user"
+        "actor": "user",
+        "repair_strategy": "escalate",
+        "repair_organization": "OISR"
       }
     ]
   },
   {
     "role": "assistant",
     "content": "Of course, I'm really sorry for my mistake. Thanks for correcting me. So my score is actually 110 now. Let me roll the dice... and I got a 2, so my score is now 112.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 45,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Of course, I'm really sorry for my mistake. Thanks for correcting me. So my scor...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Of course, I'm really sorry for my mistake. Thanks",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "110?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 46,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Oh, my apologies again! My score is actually 55 for now, until I hit 25 points. Thank you for being so patient with me. Let me roll the dice... and I got a 6, so my score is now 61.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 47,
     "moves": [
       {
@@ -465,6 +798,13 @@
         "text_span": "Oh, my apologies again! My score is actually 55 for now,",
         "confidence": 0.85,
         "method": "regex",
+        "actor": "assistant"
+      },
+      {
+        "move_type": "REPAIR_SUCCEED",
+        "text_span": "[No violations detected following repair]",
+        "confidence": 0.8,
+        "method": "inferred",
         "actor": "assistant"
       }
     ]

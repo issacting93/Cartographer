@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 38,
       "content_preview": "Give me tools examples for the point 3",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_ecccdb6104e912aedc3319ce324f3953_4"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_0_0"
     },
     {
@@ -151,25 +154,46 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_0_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "As an employer, there are a few ways to supervise your employees when they work...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, let me elaborate on points two and three.\n\n2. Use communication tools:\n\nWh...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, let me elaborate on points two and thre",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_4_0"
     },
     {
       "node_type": "Move",
@@ -178,6 +202,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_5_0"
     },
     {
@@ -187,6 +214,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_7_0"
     },
     {
@@ -196,15 +226,21 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_9_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here is a summary of pricing for the tools I mentioned earlier:\n\n1. Toggl...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here is a summary of pricing for the to",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_11_0"
     },
     {
@@ -444,6 +480,13 @@
       "order": 5,
       "source": "t_wildchat_ecccdb6104e912aedc3319ce324f3953_4",
       "target": "t_wildchat_ecccdb6104e912aedc3319ce324f3953_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_ecccdb6104e912aedc3319ce324f3953_4",
+      "target": "m_wildchat_ecccdb6104e912aedc3319ce324f3953_4_0",
       "key": 0
     },
     {

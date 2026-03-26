@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_28168"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 57,
       "content_preview": "For my second move, I'll place an X in the center square.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_28168_2"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 62,
       "content_preview": "For my third move, I'll place an X in the bottom right corner.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_28168_4"
     },
@@ -77,29 +77,62 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's the first move:\n| X | O |\n|---|---|\n| O | O |\nThe game board is:\n``...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's the first move:\n| X | O |\n|---|-",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_28168_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's the updated game board:\n```\n  X\n  X\n```\nThe game board is:\n```\n  X...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_28168_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's the updated game board:\n```\n  X",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_28168_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's the updated game board:\n```\n  X\n  X\n```\nThe game board is:\n```\n  X...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_28168_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's the updated game board:\n```\n  X",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_28168_5_0"
     },
     {
@@ -220,6 +253,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_28168_2",
+      "target": "m_chatbot_arena_28168_2_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_28168_2",
       "target": "mode_chatbot_arena_28168_2",
@@ -250,6 +290,13 @@
       "order": 5,
       "source": "t_chatbot_arena_28168_4",
       "target": "t_chatbot_arena_28168_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_28168_4",
+      "target": "m_chatbot_arena_28168_4_0",
       "key": 0
     },
     {

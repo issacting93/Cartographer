@@ -42,7 +42,7 @@ def compute_agency_tax(G: nx.MultiDiGraph) -> float:
     """REPAIR moves / ViolationEvent count."""
     repair_moves = sum(
         1 for _, d in G.nodes(data=True)
-        if d.get("node_type") == NT.MOVE and d.get("move_type") in (MT.REPAIR_INITIATE, MT.REPAIR_EXECUTE)
+        if d.get("node_type") == NT.MOVE and d.get("move_type") in (MT.REPAIR_INITIATE, MT.REPAIR_EXECUTE, MT.SELF_REPAIR)
     )
     violation_events = sum(
         1 for _, d in G.nodes(data=True)

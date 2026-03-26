@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_wildchat_new_0cd1b4ceb877171f"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 38,
       "content_preview": "Of course! What do you need help with?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 244,
       "content_preview": "I have scanned an image. The image had a few flat colors in it. But the scan has some speckles and the colors have grada",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_2"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 26,
       "content_preview": "I don't want any dithering",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_4"
     },
@@ -141,7 +141,7 @@
       "role": "user",
       "content_length": 25,
       "content_preview": "I'll be outputting to png",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_12"
     },
@@ -321,7 +321,7 @@
       "role": "user",
       "content_length": 18,
       "content_preview": "using /dev/urandom",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_30"
     },
@@ -341,7 +341,7 @@
       "role": "user",
       "content_length": 136,
       "content_preview": "echo (((od -An -N2 -i /dev/urandom) % 100 + 1 )) didn't work. It returned this error: -ash: syntax error: unexpected \"(\"",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_32"
     },
@@ -401,7 +401,7 @@
       "role": "user",
       "content_length": 28,
       "content_preview": "I don't see $ anywhere there",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_0cd1b4ceb877171f_38"
     },
@@ -417,12 +417,39 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Of course! What do you need help with?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_2_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "PROPOSE_CONSTRAINT",
       "text_span": "ze the scan to have only the original number of flat colors. No",
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_0cd1b4ceb877171f_2_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_2_1"
     },
     {
       "node_type": "Move",
@@ -431,16 +458,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_0cd1b4ceb877171f_2_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_2_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure thing! Here's a command you can use with Imagemagick to reduce the number o...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure thing! Here's a command you can use with",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_4_0"
     },
     {
       "node_type": "Move",
@@ -449,6 +494,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_5_0"
     },
     {
@@ -458,6 +506,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_7_0"
     },
     {
@@ -467,16 +518,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_9_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly! Here are a few more options you can use with Imagemagick to optimize...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! Here are a few more options you can use",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_12_0"
     },
     {
       "node_type": "Move",
@@ -485,6 +554,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_13_0"
     },
     {
@@ -494,6 +566,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_15_0"
     },
     {
@@ -503,6 +578,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_17_0"
     },
     {
@@ -512,6 +590,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_19_0"
     },
     {
@@ -521,6 +602,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_21_0"
     },
     {
@@ -530,6 +614,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_23_0"
     },
     {
@@ -539,6 +626,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_25_0"
     },
     {
@@ -548,25 +638,58 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_27_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's a one-liner command to pick a random number between 1 and 100 in As...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's a one-liner command to pick a ra",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_29_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's a one-liner command to pick a random number between 1 and 100 using...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_30_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's a one-liner command to pick a ra",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_31_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_32_0"
     },
     {
       "node_type": "Move",
@@ -575,6 +698,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_33_0"
     },
     {
@@ -584,16 +710,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_35_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's the command written out in several lines for clarity:\n\n```\necho $(...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's the command written out in sever",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_37_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_0cd1b4ceb877171f_38_0"
     },
     {
       "node_type": "Move",
@@ -602,6 +746,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_0cd1b4ceb877171f_39_0"
     },
     {
@@ -1155,6 +1302,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_1",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0cd1b4ceb877171f_1",
       "target": "mode_wildchat_new_0cd1b4ceb877171f_0",
@@ -1179,6 +1333,13 @@
       "sequence": 1,
       "source": "t_wildchat_new_0cd1b4ceb877171f_2",
       "target": "m_wildchat_new_0cd1b4ceb877171f_2_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_2",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_2_2",
       "key": 0
     },
     {
@@ -1218,6 +1379,13 @@
       "order": 5,
       "source": "t_wildchat_new_0cd1b4ceb877171f_4",
       "target": "t_wildchat_new_0cd1b4ceb877171f_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_4",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_4_0",
       "key": 0
     },
     {
@@ -1350,6 +1518,13 @@
       "order": 13,
       "source": "t_wildchat_new_0cd1b4ceb877171f_12",
       "target": "t_wildchat_new_0cd1b4ceb877171f_13",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_12",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_12_0",
       "key": 0
     },
     {
@@ -1650,6 +1825,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_30",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_30_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_0cd1b4ceb877171f_30",
       "target": "mode_wildchat_new_0cd1b4ceb877171f_30",
@@ -1680,6 +1862,13 @@
       "order": 33,
       "source": "t_wildchat_new_0cd1b4ceb877171f_32",
       "target": "t_wildchat_new_0cd1b4ceb877171f_33",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_32",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_32_0",
       "key": 0
     },
     {
@@ -1785,6 +1974,13 @@
       "order": 39,
       "source": "t_wildchat_new_0cd1b4ceb877171f_38",
       "target": "t_wildchat_new_0cd1b4ceb877171f_39",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_0cd1b4ceb877171f_38",
+      "target": "m_wildchat_new_0cd1b4ceb877171f_38_0",
       "key": 0
     },
     {

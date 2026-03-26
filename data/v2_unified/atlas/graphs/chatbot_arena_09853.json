@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "collaborative-refinement",
       "id": "conv_chatbot_arena_09853"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 11,
       "content_preview": "Ok, got it.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_09853_1"
     },
@@ -82,7 +82,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_09853_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_09853_1_0"
     },
     {
       "node_type": "Move",
@@ -91,15 +106,21 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_09853_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's a prompt for a modern woman in a hotal room:\n\n\"A modern woman in a...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's a prompt for a modern woman in a",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_09853_5_0"
     },
     {
@@ -204,6 +225,13 @@
       "order": 2,
       "source": "t_chatbot_arena_09853_1",
       "target": "t_chatbot_arena_09853_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_09853_1",
+      "target": "m_chatbot_arena_09853_1_0",
       "key": 0
     },
     {

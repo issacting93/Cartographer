@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "collaborative-refinement",
       "id": "conv_wildchat_new_4f048dfc8868adb3"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 2380,
       "content_preview": "I apologize, here are both the text and the titles to study: Titles to Study: 1. The History of Roman Architecture 2. R",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_3"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 53,
       "content_preview": "Sure, let me know if you need any further assistance.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_5"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 161,
       "content_preview": "I will provide you with many titles now, you will study them, then when you have studied them, I will give you a text an",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_6"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 66,
       "content_preview": "Sure, I'll be happy to assist you. Please proceed with the titles.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_7"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 1641,
       "content_preview": "Here are the titles, please do not do anything at this point okay ? The titles : Here are the titles : The Wisdom of Bud",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_8"
     },
@@ -141,7 +141,7 @@
       "role": "user",
       "content_length": 4215,
       "content_preview": "The text is : Blessed is this day, for I have met Shams of Tabriz. The mosque was packed, as usual. While preaching to l",
-      "move_count": 4,
+      "move_count": 5,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_12"
     },
@@ -161,7 +161,7 @@
       "role": "user",
       "content_length": 36,
       "content_preview": "more personalized for shams and rumi",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_14"
     },
@@ -181,7 +181,7 @@
       "role": "user",
       "content_length": 4230,
       "content_preview": "give me 50 titles for this : Blessed is this day, for I have met Shams of Tabriz. The mosque was packed, as usual. While",
-      "move_count": 4,
+      "move_count": 5,
       "moves": [],
       "id": "t_wildchat_new_4f048dfc8868adb3_16"
     },
@@ -202,6 +202,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_1_0"
     },
     {
@@ -211,6 +214,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "restate",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_wildchat_new_4f048dfc8868adb3_2_0"
     },
     {
@@ -220,15 +226,81 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I understand. Please provide the text so I can come up with corresponding...",
-      "confidence": 0.6,
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, let me know if you need any further ass",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I'll be happy to assist you. Please pro",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I understand. Please provide the text s",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_11_0"
     },
     {
@@ -238,7 +310,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_12_1"
     },
     {
       "node_type": "Move",
@@ -247,7 +334,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_4f048dfc8868adb3_12_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_12_2"
     },
     {
       "node_type": "Move",
@@ -256,33 +346,57 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_4f048dfc8868adb3_12_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "REPAIR_INITIATE",
-      "text_span": "o ahead,\u201d I said under my breath.\n\n\u201cWell, you need to ge",
-      "confidence": 0.9,
-      "method": "regex",
-      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_12_3"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are 10 title suggestions inspired by the patterns of the provided titles:\n1...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ESCALATE",
+      "text_span": "o ahead,\u201d I said under my breath.\n\n\u201cWell, you need to ge",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "repair_strategy": "escalate",
+      "grounding_evidence": null,
+      "repair_organization": "OIOR",
+      "id": "m_wildchat_new_4f048dfc8868adb3_12_4"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are 10 title suggestions inspired by the pat",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_13_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are 10 more personalized titles inspired by Shams and Rumi:\n1. Beyond Words...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are 10 more personalized titles inspired by",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_15_0"
     },
     {
@@ -292,7 +406,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_16_1"
     },
     {
       "node_type": "Move",
@@ -301,7 +430,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_4f048dfc8868adb3_16_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_4f048dfc8868adb3_16_2"
     },
     {
       "node_type": "Move",
@@ -310,24 +442,33 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_4f048dfc8868adb3_16_2"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "REPAIR_INITIATE",
-      "text_span": "o ahead,\u201d I said under my breath.\n\n\u201cWell, you need to ge",
-      "confidence": 0.9,
-      "method": "regex",
-      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_16_3"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "1. Meeting Shams of Tabriz: A Spiritual Journey\n2. The Mystic Encounter at the M...",
-      "confidence": 0.6,
+      "move_type": "ESCALATE",
+      "text_span": "o ahead,\u201d I said under my breath.\n\n\u201cWell, you need to ge",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "repair_strategy": "escalate",
+      "grounding_evidence": null,
+      "repair_organization": "OIOR",
+      "id": "m_wildchat_new_4f048dfc8868adb3_16_4"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_4f048dfc8868adb3_17_0"
     },
     {
@@ -667,6 +808,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_4f048dfc8868adb3_3",
+      "target": "m_wildchat_new_4f048dfc8868adb3_3_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4f048dfc8868adb3_3",
       "target": "mode_wildchat_new_4f048dfc8868adb3_2",
@@ -693,6 +841,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_4f048dfc8868adb3_5",
+      "target": "m_wildchat_new_4f048dfc8868adb3_5_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4f048dfc8868adb3_5",
       "target": "mode_wildchat_new_4f048dfc8868adb3_4",
@@ -703,6 +858,13 @@
       "order": 7,
       "source": "t_wildchat_new_4f048dfc8868adb3_6",
       "target": "t_wildchat_new_4f048dfc8868adb3_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_4f048dfc8868adb3_6",
+      "target": "m_wildchat_new_4f048dfc8868adb3_6_0",
       "key": 0
     },
     {
@@ -719,6 +881,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_4f048dfc8868adb3_7",
+      "target": "m_wildchat_new_4f048dfc8868adb3_7_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4f048dfc8868adb3_7",
       "target": "mode_wildchat_new_4f048dfc8868adb3_6",
@@ -729,6 +898,13 @@
       "order": 9,
       "source": "t_wildchat_new_4f048dfc8868adb3_8",
       "target": "t_wildchat_new_4f048dfc8868adb3_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_4f048dfc8868adb3_8",
+      "target": "m_wildchat_new_4f048dfc8868adb3_8_0",
       "key": 0
     },
     {
@@ -825,6 +1001,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 4,
+      "source": "t_wildchat_new_4f048dfc8868adb3_12",
+      "target": "m_wildchat_new_4f048dfc8868adb3_12_4",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_4f048dfc8868adb3_12",
       "target": "mode_wildchat_new_4f048dfc8868adb3_12",
@@ -861,6 +1044,13 @@
       "order": 15,
       "source": "t_wildchat_new_4f048dfc8868adb3_14",
       "target": "t_wildchat_new_4f048dfc8868adb3_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_4f048dfc8868adb3_14",
+      "target": "m_wildchat_new_4f048dfc8868adb3_14_0",
       "key": 0
     },
     {
@@ -922,6 +1112,13 @@
       "sequence": 3,
       "source": "t_wildchat_new_4f048dfc8868adb3_16",
       "target": "m_wildchat_new_4f048dfc8868adb3_16_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 4,
+      "source": "t_wildchat_new_4f048dfc8868adb3_16",
+      "target": "m_wildchat_new_4f048dfc8868adb3_16_4",
       "key": 0
     },
     {

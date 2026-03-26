@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_17629"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 68,
       "content_preview": "Sure, I'd be happy to help. How can I help you with your meditation?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_17629_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 38,
       "content_preview": "I want to open my chakra, how to do it",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_chatbot_arena_17629_4"
     },
@@ -71,9 +71,21 @@
       "role": "assistant",
       "content_length": 77,
       "content_preview": "I am sorry, but I cannot understand your request. Can you please rephrase it?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_17629_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I'd be happy to help. How can I help yo",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17629_3_0"
     },
     {
       "node_type": "Move",
@@ -82,7 +94,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_17629_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17629_4_1"
     },
     {
       "node_type": "Move",
@@ -91,7 +118,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_17629_4_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17629_4_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17629_5_0"
     },
     {
       "node_type": "InteractionMode",
@@ -217,6 +259,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_17629_3",
+      "target": "m_chatbot_arena_17629_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_17629_3",
       "target": "mode_chatbot_arena_17629_2",
@@ -244,9 +293,23 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_chatbot_arena_17629_4",
+      "target": "m_chatbot_arena_17629_4_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_17629_4",
       "target": "mode_chatbot_arena_17629_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_17629_5",
+      "target": "m_chatbot_arena_17629_5_0",
       "key": 0
     },
     {

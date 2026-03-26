@@ -230,6 +230,16 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_chatbot_arena_0219_3"
+    },
+    {
+      "id": "m_chatbot_arena_0219_5_1",
+      "node_type": "Move",
+      "move_type": "ACKNOWLEDGE_CONSTRAINT",
+      "text_span": "stion and to confirm my functioning. How can I assist you today?",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "assistant",
+      "grounding_evidence": "demonstration"
     }
   ],
   "links": [
@@ -437,6 +447,12 @@
       "source": "t_chatbot_arena_0219_7",
       "target": "v_chatbot_arena_0219_3",
       "key": 0
+    },
+    {
+      "source": "t_chatbot_arena_0219_5",
+      "target": "m_chatbot_arena_0219_5_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

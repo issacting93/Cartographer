@@ -280,7 +280,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_79b2bc9e2909625e_5_0"
+      "id": "m_wildchat_new_79b2bc9e2909625e_5_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -388,7 +389,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_79b2bc9e2909625e_19_0"
+      "id": "m_wildchat_new_79b2bc9e2909625e_19_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -433,7 +435,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_79b2bc9e2909625e_23_0"
+      "id": "m_wildchat_new_79b2bc9e2909625e_23_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "InteractionMode",
@@ -594,6 +597,16 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_wildchat_new_79b2bc9e2909625e_1"
+    },
+    {
+      "id": "m_wildchat_new_79b2bc9e2909625e_7_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -1221,6 +1234,12 @@
       "source": "t_wildchat_new_79b2bc9e2909625e_23",
       "target": "mode_wildchat_new_79b2bc9e2909625e_22",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_79b2bc9e2909625e_7",
+      "target": "m_wildchat_new_79b2bc9e2909625e_7_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

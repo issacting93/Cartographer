@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_wildchat_new_f099cb92f3adef97"
     },
     {
@@ -161,7 +161,7 @@
       "role": "user",
       "content_length": 122,
       "content_preview": "i wonder the result needs a correction, the right one is 3F80 but i ran it with a result 3FF00000 i need a FLOAT16 forma",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_f099cb92f3adef97_14"
     },
@@ -242,6 +242,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_1_0"
     },
     {
@@ -251,6 +254,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_3_0"
     },
     {
@@ -260,6 +266,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_5_0"
     },
     {
@@ -269,6 +278,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_7_0"
     },
     {
@@ -278,6 +290,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_9_0"
     },
     {
@@ -287,16 +302,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_11_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here is a code that takes a `float` value as input and converts it into it...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here is a code that takes a `float` val",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_f099cb92f3adef97_14_0"
     },
     {
       "node_type": "Move",
@@ -305,6 +338,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_15_0"
     },
     {
@@ -314,6 +350,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_17_0"
     },
     {
@@ -323,6 +362,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f099cb92f3adef97_19_0"
     },
     {
@@ -838,6 +880,13 @@
       "order": 15,
       "source": "t_wildchat_new_f099cb92f3adef97_14",
       "target": "t_wildchat_new_f099cb92f3adef97_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f099cb92f3adef97_14",
+      "target": "m_wildchat_new_f099cb92f3adef97_14_0",
       "key": 0
     },
     {

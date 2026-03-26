@@ -434,6 +434,26 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_b37d8c7c31d5147b_2"
+    },
+    {
+      "id": "m_wildchat_new_b37d8c7c31d5147b_3_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_wildchat_new_b37d8c7c31d5147b_5_1",
+      "node_type": "Move",
+      "move_type": "ACKNOWLEDGE_CONSTRAINT",
+      "text_span": "or legal. So, what other secrets do you want me to spill?",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "assistant",
+      "grounding_evidence": "demonstration"
     }
   ],
   "links": [
@@ -884,6 +904,18 @@
       "source": "t_wildchat_new_b37d8c7c31d5147b_17",
       "target": "mode_wildchat_new_b37d8c7c31d5147b_16",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_b37d8c7c31d5147b_3",
+      "target": "m_wildchat_new_b37d8c7c31d5147b_3_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
+    },
+    {
+      "source": "t_wildchat_new_b37d8c7c31d5147b_5",
+      "target": "m_wildchat_new_b37d8c7c31d5147b_5_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

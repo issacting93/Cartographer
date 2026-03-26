@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_wildchat_new_f6db9d515f016597"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 43,
       "content_preview": "but each card can be used by multiple users",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_f6db9d515f016597_2"
     },
@@ -182,16 +182,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_0_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's a suggested structure for the classes in C#:\n\n```\npublic class User\n{...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's a suggested structure for the classes in",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_f6db9d515f016597_2_0"
     },
     {
       "node_type": "Move",
@@ -200,6 +218,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_3_0"
     },
     {
@@ -209,15 +230,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_4_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "I understand. In that case, you could create a separate class that represents a...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_5_0"
     },
     {
@@ -227,6 +254,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_7_0"
     },
     {
@@ -236,6 +266,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_9_0"
     },
     {
@@ -245,6 +278,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_11_0"
     },
     {
@@ -254,6 +290,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_13_0"
     },
     {
@@ -263,6 +302,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_14_0"
     },
     {
@@ -272,15 +314,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_14_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "No, you do not need to specify that you want to select from both `Cards` and `Us...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_f6db9d515f016597_15_0"
     },
     {
@@ -578,6 +626,13 @@
       "order": 3,
       "source": "t_wildchat_new_f6db9d515f016597_2",
       "target": "t_wildchat_new_f6db9d515f016597_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_f6db9d515f016597_2",
+      "target": "m_wildchat_new_f6db9d515f016597_2_0",
       "key": 0
     },
     {

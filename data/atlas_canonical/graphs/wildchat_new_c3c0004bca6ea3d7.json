@@ -344,7 +344,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_c3c0004bca6ea3d7_15_0"
+      "id": "m_wildchat_new_c3c0004bca6ea3d7_15_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -585,6 +586,26 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_c3c0004bca6ea3d7_4"
+    },
+    {
+      "id": "m_wildchat_new_c3c0004bca6ea3d7_9_2",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_wildchat_new_c3c0004bca6ea3d7_11_3",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -1101,6 +1122,18 @@
       "source": "v_wildchat_new_c3c0004bca6ea3d7_2",
       "target": "c_wildchat_new_c3c0004bca6ea3d7_c_2",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_c3c0004bca6ea3d7_9",
+      "target": "m_wildchat_new_c3c0004bca6ea3d7_9_2",
+      "edge_type": "HAS_MOVE",
+      "sequence": 2
+    },
+    {
+      "source": "t_wildchat_new_c3c0004bca6ea3d7_11",
+      "target": "m_wildchat_new_c3c0004bca6ea3d7_11_3",
+      "edge_type": "HAS_MOVE",
+      "sequence": 3
     }
   ]
 }

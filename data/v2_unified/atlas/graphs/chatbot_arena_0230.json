@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_0230"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 28,
       "content_preview": "Include only American movies",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_0230_2"
     },
@@ -51,18 +51,33 @@
       "role": "assistant",
       "content_length": 38,
       "content_preview": "Here are five American movies for you:",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_0230_3"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are five movies for you:\n1. Austin Powers: International Man of Mystery\n4....",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are five movies for you:\n1. Austin Powers: I",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_0230_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0230_2_0"
     },
     {
       "node_type": "Move",
@@ -71,7 +86,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_0230_2_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0230_2_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are five American movies for you:",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0230_3_0"
     },
     {
       "node_type": "InteractionMode",
@@ -173,9 +203,23 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_0230_2",
+      "target": "m_chatbot_arena_0230_2_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_0230_2",
       "target": "mode_chatbot_arena_0230_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0230_3",
+      "target": "m_chatbot_arena_0230_3_0",
       "key": 0
     },
     {

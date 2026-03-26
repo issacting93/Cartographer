@@ -66,9 +66,10 @@ def scan_graphs():
                     # Constraint violation
                     total_constraint_violations += 1
                     violation_timing[turn] += 1
-        # Count repair moves (REPAIR_INITIATE / REPAIR_EXECUTE)
+        # Count repair moves (REPAIR_INITIATE / REPAIR_EXECUTE / SELF_REPAIR)
         for n in nodes:
-            if n.get('node_type') == 'Move' and n.get('move_type', '').startswith('REPAIR_'):
+            mt = n.get('move_type', '')
+            if n.get('node_type') == 'Move' and (mt.startswith('REPAIR_') or mt == 'SELF_REPAIR'):
                 repair_moves += 1
 
     return {

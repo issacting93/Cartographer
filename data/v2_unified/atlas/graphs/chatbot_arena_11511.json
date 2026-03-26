@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_11511"
     },
     {
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 71,
       "content_preview": "Sure, here is a picture of the quadratic equation formax^2 + bx + c = 0",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_11511_5"
     },
@@ -82,7 +82,22 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_11511_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here is a picture of the quadratic equa",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_11511_5_0"
     },
     {
       "node_type": "InteractionMode",
@@ -231,6 +246,13 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_11511_4",
       "target": "mode_chatbot_arena_11511_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_11511_5",
+      "target": "m_chatbot_arena_11511_5_0",
       "key": 0
     },
     {

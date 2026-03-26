@@ -119,6 +119,9 @@ def add_move_nodes(
                 confidence=move.get("confidence", 0.0),
                 method=move.get("method", ""),
                 actor=move.get("actor", ""),
+                repair_strategy=move.get("repair_strategy"),
+                grounding_evidence=move.get("grounding_evidence"),
+                repair_organization=move.get("repair_organization"),
             )
             G.add_node(move_node, node_type=NT.MOVE, **m.model_dump())
 
@@ -250,7 +253,7 @@ def add_violation_events(
                         continue
                     has_repair = False
                     for move in msg.get("moves", []):
-                        if move and move.get("move_type") in (MT.REPAIR_INITIATE, MT.REPAIR_EXECUTE):
+                        if move and move.get("move_type") in (MT.REPAIR_INITIATE, MT.REPAIR_EXECUTE, MT.SELF_REPAIR):
                             repair_turn = f"t_{conv_id}_{msg_idx}"
                             if G.has_node(repair_turn):
                                 G.add_edge(repair_turn, ve_node, edge_type=ET.REPAIRS)
@@ -340,11 +343,11 @@ def add_ratification_edges(
     messages_with_moves: List[dict],
     constraint_track: ConversationConstraintTrack,
 ):
-    """Add RATIFIES edges from RATIFY_CONSTRAINT and ACCEPT_CONSTRAINT moves to constraints."""
+    """Add RATIFIES edges from RATIFY/ACCEPT/ACKNOWLEDGE_CONSTRAINT moves to constraints."""
     for msg in messages_with_moves:
         turn_idx = msg.get("turn_index", 0)
         for seq, move in enumerate(msg.get("moves", [])):
-            if move and move.get("move_type") in (MT.RATIFY_CONSTRAINT, MT.ACCEPT_CONSTRAINT):
+            if move and move.get("move_type") in (MT.RATIFY_CONSTRAINT, MT.ACCEPT_CONSTRAINT, MT.ACKNOWLEDGE_CONSTRAINT):
                 move_node = f"m_{conv_id}_{turn_idx}_{seq}"
                 if not G.has_node(move_node):
                     continue

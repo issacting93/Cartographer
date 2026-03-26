@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_1593"
     },
     {
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 44,
       "content_preview": "What is the difference between C and python?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_1593_6"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 89,
       "content_preview": "Give me a quick and easy recipe for breakfast, I only have around 20min to make breakfast",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_1593_10"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_1_0"
     },
     {
@@ -151,16 +154,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are some ideas for things to do while in Copenhagen:\n\n* Visit the Amalienbo...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are some ideas for things to do while in Cop",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1593_6_0"
     },
     {
       "node_type": "Move",
@@ -169,16 +190,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_7_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here is a C program to check if a number is a prime number:\n\n```c\n#include...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here is a C program to check if a numbe",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1593_10_0"
     },
     {
       "node_type": "Move",
@@ -187,15 +226,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_1593_10_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1593_10_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here is a quick and easy recipe for breakfast that you can make in 20 minu...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here is a quick and easy recipe for bre",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_1593_11_0"
     },
     {
@@ -477,6 +522,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1593_6",
+      "target": "m_chatbot_arena_1593_6_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_1593_6",
       "target": "mode_chatbot_arena_1593_6",
@@ -547,6 +599,13 @@
       "sequence": 0,
       "source": "t_chatbot_arena_1593_10",
       "target": "m_chatbot_arena_1593_10_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_1593_10",
+      "target": "m_chatbot_arena_1593_10_1",
       "key": 0
     },
     {

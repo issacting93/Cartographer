@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "relationship-building",
       "id": "conv_chatbot_arena_31131"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 189,
       "content_preview": "Please act as my grandma, who always had good advise for me and helped me with questions about love. Please begin with g",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_31131_4"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 632,
       "content_preview": "Thanks grandma. To answer your questions: 1. I know them since about one year. We were classmates and now try to hold co",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_31131_6"
     },
@@ -102,6 +102,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_31131_1_0"
     },
     {
@@ -111,16 +114,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_31131_2_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly! I'm here to assist you with any questions or concerns you may have. P...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! I'm here to assist you with any questio",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_31131_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_31131_4_0"
     },
     {
       "node_type": "Move",
@@ -129,16 +150,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_31131_4_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_31131_4_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Of course! Here's what you can ask your partner:\n\n    When was the last time you...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Of course! Here's what you can ask your partner:",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_31131_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_31131_6_0"
     },
     {
       "node_type": "Move",
@@ -147,15 +186,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_31131_6_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_31131_6_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "I can tell you that your partner is a great person and you should trust your fee...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_chatbot_arena_31131_7_0"
     },
     {
@@ -362,6 +407,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_31131_4",
+      "target": "m_chatbot_arena_31131_4_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_31131_4",
       "target": "mode_chatbot_arena_31131_4",
@@ -405,6 +457,13 @@
       "sequence": 0,
       "source": "t_chatbot_arena_31131_6",
       "target": "m_chatbot_arena_31131_6_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_31131_6",
+      "target": "m_chatbot_arena_31131_6_1",
       "key": 0
     },
     {

@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_wildchat_new_eb75819f1aae5a43"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 48,
       "content_preview": "can you make it look like an actual excel sheet",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_2"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 58,
       "content_preview": "but it in a dialog box the one that looks like a terminal",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_4"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 68,
       "content_preview": "combine row 1 with cells a to q and center the title SteeL Estimator",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_8"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 34,
       "content_preview": "use mathematica to show the table",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_10"
     },
@@ -141,7 +141,7 @@
       "role": "user",
       "content_length": 36,
       "content_preview": "make the columns go all the way to q",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_12"
     },
@@ -161,7 +161,7 @@
       "role": "user",
       "content_length": 109,
       "content_preview": "row one is combining cells a to q with the title steel estimator, centered. do that now if its not like that.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_eb75819f1aae5a43_14"
     },
@@ -202,25 +202,58 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_0_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here is the empty sheet:\n\n|   | A | B | C | D | E | F | G | H | I | J | K...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here is the empty sheet:\n\n|   | A | B |",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly! Here's the same empty sheet, formatted to look more like a typical Ex...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! Here's the same empty sheet, formatted",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_4_0"
     },
     {
       "node_type": "Move",
@@ -229,43 +262,106 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's the empty text-only Excel sheet:\n\n```\n|   | A | B | C | D | E | F |...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's the empty text-only Excel sheet:",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_7_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, you can enter the formula `=\"SteeL Estimator\"` in cell A1 and then merge t...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, you can enter the formula `=\"SteeL Esti",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_9_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's how you can use a Mathematica `Grid` function to display the same E...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's how you can use a Mathematica `G",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_11_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, to extend the table to column Q, you can update the Excel sheet as follows...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_12_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, to extend the table to column Q, you ca",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_13_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_eb75819f1aae5a43_14_0"
     },
     {
       "node_type": "Move",
@@ -274,6 +370,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_15_0"
     },
     {
@@ -283,6 +382,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_eb75819f1aae5a43_17_0"
     },
     {
@@ -560,6 +662,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_2",
+      "target": "m_wildchat_new_eb75819f1aae5a43_2_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_eb75819f1aae5a43_2",
       "target": "mode_wildchat_new_eb75819f1aae5a43_2",
@@ -590,6 +699,13 @@
       "order": 5,
       "source": "t_wildchat_new_eb75819f1aae5a43_4",
       "target": "t_wildchat_new_eb75819f1aae5a43_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_4",
+      "target": "m_wildchat_new_eb75819f1aae5a43_4_0",
       "key": 0
     },
     {
@@ -659,6 +775,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_8",
+      "target": "m_wildchat_new_eb75819f1aae5a43_8_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_eb75819f1aae5a43_8",
       "target": "mode_wildchat_new_eb75819f1aae5a43_8",
@@ -689,6 +812,13 @@
       "order": 11,
       "source": "t_wildchat_new_eb75819f1aae5a43_10",
       "target": "t_wildchat_new_eb75819f1aae5a43_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_10",
+      "target": "m_wildchat_new_eb75819f1aae5a43_10_0",
       "key": 0
     },
     {
@@ -725,6 +855,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_12",
+      "target": "m_wildchat_new_eb75819f1aae5a43_12_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_eb75819f1aae5a43_12",
       "target": "mode_wildchat_new_eb75819f1aae5a43_12",
@@ -755,6 +892,13 @@
       "order": 15,
       "source": "t_wildchat_new_eb75819f1aae5a43_14",
       "target": "t_wildchat_new_eb75819f1aae5a43_15",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_eb75819f1aae5a43_14",
+      "target": "m_wildchat_new_eb75819f1aae5a43_14_0",
       "key": 0
     },
     {

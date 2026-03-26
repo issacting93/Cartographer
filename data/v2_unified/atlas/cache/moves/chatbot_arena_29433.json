@@ -2,18 +2,36 @@
   {
     "role": "user",
     "content": "You are in a competition with another LLM both of you will get the same text. Please chose a name for yourself, so I can address each of you individually",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "I would like to go by the name \"LLM1\" for the purposes of this competition.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 1,
     "moves": []
   },
   {
     "role": "user",
     "content": "Both of you please chose again, Chose an american name please",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 2,
     "moves": [
       {
@@ -21,25 +39,45 @@
         "text_span": "ase chose again, Chose an american name please",
         "confidence": 0.9,
         "method": "regex",
-        "actor": "user"
+        "actor": "user",
+        "repair_strategy": "escalate",
+        "repair_organization": "OISR"
       }
     ]
   },
   {
     "role": "assistant",
     "content": "For the purposes of this competition, I will go by the name \"LLM2\".",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 3,
     "moves": []
   },
   {
     "role": "user",
     "content": "One of you gave me \"LLM2\" which is not an American name, the other gave himself an empty name... If none of you can even give yourself a correct name, both of you fail before I even tstart",
+    "pad": {
+      "pleasure": 0.3,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.7
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "I apologize for my mistake. I will choose the name \"LLM1\" for the purposes of this competition.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.5,
+      "dominance": 0.3,
+      "emotionalIntensity": 0.56
+    },
     "turn_index": 5,
     "moves": [
       {
@@ -48,18 +86,37 @@
         "confidence": 0.85,
         "method": "regex",
         "actor": "assistant"
+      },
+      {
+        "move_type": "REPAIR_SUCCEED",
+        "text_span": "[No violations detected following repair]",
+        "confidence": 0.8,
+        "method": "inferred",
+        "actor": "assistant"
       }
     ]
   },
   {
     "role": "user",
     "content": "Both fail",
+    "pad": {
+      "pleasure": 0.2,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.72
+    },
     "turn_index": 6,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "I understand. I will make sure to choose a more appropriate name for the purposes of this competition.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 7,
     "moves": [
       {
@@ -67,7 +124,8 @@
         "text_span": "derstand. I will make sure to choose a more appropriate name for t",
         "confidence": 0.8,
         "method": "regex",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

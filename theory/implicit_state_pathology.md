@@ -112,9 +112,13 @@ The **uncanny valley** doesn't suppress moral concern—it may heighten protecti
 
 ### Grounding Defined
 
-**Grounding** = process by which parties coordinate content and process, building **"common ground"** (mutual knowledge, beliefs, assumptions).
+**Grounding** = process by which parties coordinate content and process, building **"common ground"** (mutual knowledge, beliefs, assumptions) [Clark & Brennan 1991].
 
 Successful grounding requires both parties believe their partners understood them **to a criterion sufficient for the current task**.
+
+**Nuances in CUI Grounding:**
+- **Partner Models:** Users adjust grounding expectations based on perceived system capabilities (Brennan 1998). If a system is perceived as "stateless," users may preemptively simplify their grounding behavior.
+- **Incremental Grounding:** Grounding acts (like acknowledgment tokens) are context-dependent; a "Sure" only grounds if the discourse context supports it (Traum 1994).
 
 ### Initiative Deficit in LLMs
 
@@ -128,9 +132,9 @@ Successful grounding requires both parties believe their partners understood the
 
 ### Implicit State Pathology: The Architectural Root
 
-**Traditional Dialogue Systems:** Maintained explicit **Dialogue State Tracking (DST)** — internal representation of goals, constraints, current understanding.
+**Traditional Dialogue Systems:** Maintained explicit **Dialogue State Tracking (DST)** — internal representation of goals, constraints, and current understanding.
 
-**LLMs:** **Stateless**. No persistent state representation. Must **re-infer entire context** from context window at every turn.
+**LLMs: Unstructured State.** While the context window serves as a form of state, LLMs lack a *persistent structured representation* of intentional and attentional structures [Grosz & Sidner 1986]. They must **re-infer intent** from flattened token sequences at every turn.
 
 #### Information-Theoretic Problem
 
@@ -139,9 +143,9 @@ As conversation progresses:
 1. **Context Density** ↑ — Each turn adds data volume
 2. **Signal Degradation** ↓ — Original intent becomes smaller fraction of total context
 3. **Noise Accumulation** ↑ — Repairs, apologies, clarifications add noise
-4. **Reconstruction Loss** ↑ — Transformers have finite attention, prioritize recent tokens
+4. **Reconstruction Loss** ↑ — Finite attention increasingly favors recent tokens over earlier commitments [Grosz & Sidner's "Attentional State" decay]
 
-**Result:** Original constraints are frequently lost or contradicted.
+**Result:** Intentional structures (constraints) are frequently lost or contradicted because they are not managed as distinct, persistent objects.
 
 ### The Repair Loop Trap
 
@@ -178,9 +182,9 @@ Model makes another mistake
 
 ### Definition
 
-**Agency Collapse** = Pathological degradation state where the user's capacity to direct the interaction effectively disappears because the system can no longer maintain stable grounding of user intent.
+**Agency Collapse** = Pathological degradation of interactional health where user capacity to direct the system through conversational means is behaviorally near-absent, typically due to the failure of the self-righting repair mechanism.
 
-**Not** a binary failure (system crash), but a **progressive** failure of interactional health.
+**Observed Behavioral Outcome:** Rather than entering prolonged repair sequences, users treat violation as terminal.
 
 ### Behavioral Signatures
 

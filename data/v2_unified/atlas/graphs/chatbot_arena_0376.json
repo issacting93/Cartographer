@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_0376"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 48,
       "content_preview": "my name is murat, on monday I have to go to work",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_0376_2"
     },
@@ -57,12 +57,27 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I will start by creating a new agenda for you. Would you like to add any n...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I will start by creating a new agenda f",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_0376_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0376_2_0"
     },
     {
       "node_type": "Move",
@@ -71,15 +86,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_0376_2_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0376_2_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, let me map out the schedule for Monday.\n\n8:00am - wake up\n8:15am - start t...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, let me map out the schedule for Monday.",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_0376_3_0"
     },
     {
@@ -179,6 +200,13 @@
       "sequence": 0,
       "source": "t_chatbot_arena_0376_2",
       "target": "m_chatbot_arena_0376_2_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_0376_2",
+      "target": "m_chatbot_arena_0376_2_1",
       "key": 0
     },
     {

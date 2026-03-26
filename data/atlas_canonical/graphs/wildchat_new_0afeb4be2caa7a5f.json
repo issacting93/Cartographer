@@ -331,7 +331,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_0afeb4be2caa7a5f_3_0"
+      "id": "m_wildchat_new_0afeb4be2caa7a5f_3_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -679,6 +680,16 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_wildchat_new_0afeb4be2caa7a5f_3"
+    },
+    {
+      "id": "m_wildchat_new_0afeb4be2caa7a5f_5_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -1410,6 +1421,12 @@
       "source": "t_wildchat_new_0afeb4be2caa7a5f_29",
       "target": "v_wildchat_new_0afeb4be2caa7a5f_3",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_0afeb4be2caa7a5f_5",
+      "target": "m_wildchat_new_0afeb4be2caa7a5f_5_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

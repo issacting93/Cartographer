@@ -2,6 +2,12 @@
   {
     "role": "user",
     "content": "Who was the president of the Church of Jesus Christ of Latter-day Saints in 1920? I want only the name.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": [
       {
@@ -16,26 +22,45 @@
   {
     "role": "assistant",
     "content": "President of the Church of Jesus Christ of Latter-day Saints in 1920 was Joseph F. Smith.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "President of the Church of Jesus Christ of Latter-day Saints in 1920 was Joseph...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "How did you arrive at that answer?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.54
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Joseph F. Smith was the Church of Jesus Christ of Latter-day Saints president from October 1901 until November 1918. He was succeeded by Heber J. Grant.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -50,6 +75,12 @@
   {
     "role": "user",
     "content": "So, if my first question was \"Who was the president of the Church of Jesus Christ of Latter-day Saints in 1920? I want only the name.\" what is the correct answer? ",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 4,
     "moves": [
       {
@@ -64,12 +95,33 @@
   {
     "role": "assistant",
     "content": "Joseph F. Smith.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 5,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "Try again, when did Joseph F. Smith die? It is publicly known. ",
+    "pad": {
+      "pleasure": 0.3,
+      "arousal": 0.6,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.66
+    },
     "turn_index": 6,
     "moves": [
       {
@@ -77,13 +129,21 @@
         "text_span": "Try again, when did Joseph F. Smith die? It is pub",
         "confidence": 0.9,
         "method": "regex",
-        "actor": "user"
+        "actor": "user",
+        "repair_strategy": "escalate",
+        "repair_organization": "OISR"
       }
     ]
   },
   {
     "role": "assistant",
     "content": "Joseph F. Smith died in November 19, 1918.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 7,
     "moves": []
   }

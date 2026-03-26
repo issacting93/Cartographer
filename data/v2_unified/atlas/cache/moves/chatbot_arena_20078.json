@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "Hey, how's it going?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "As an AI language model, I don't have emotions, but I'm functioning properly and ready to assist you. How can I help you today?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.3,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.42
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,32 +34,65 @@
   {
     "role": "user",
     "content": "I wanted to talk to you a bit to get a grasp of your capabilities.  Is that okay?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Of course, I'm happy to help you understand my capabilities. What would you like to know?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Of course, I'm happy to help you understand my capabilities. What would you like...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Of course, I'm happy to help you understand my cap",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "Can you tell me anything about the extent of your reasoning abilities?  Are you aware of your limits, or would you hit them without realizing it?",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.56
+    },
     "turn_index": 4,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "As an AI language model, my reasoning abilities are limited to the patterns and rules that have been programmed into my algorithms. While I can understand and respond to a wide range of inputs, I do have limitations in terms of my ability to reason beyond the scope of my programming. I'm aware of these limitations and will do my best to provide helpful responses, but there may be situations where I'm unable to provide the information or assistance you're looking for. If that happens, I'll do my best to let you know and suggest alternative approaches or resources that may be helpful.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.54
+    },
     "turn_index": 5,
     "moves": [
       {

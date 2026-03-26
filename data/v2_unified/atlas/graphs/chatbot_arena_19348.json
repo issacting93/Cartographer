@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_19348"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 68,
       "content_preview": "I'm departing from SF and I want to spend all 5 days in yellowstone.",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_chatbot_arena_19348_4"
     },
@@ -82,6 +82,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_19348_2_0"
     },
     {
@@ -91,15 +94,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_19348_2_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's a 5-day itinerary for visiting Yellowstone National Park from San F...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's a 5-day itinerary for visiting Y",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_19348_3_0"
     },
     {
@@ -109,7 +118,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_19348_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_19348_4_1"
     },
     {
       "node_type": "Move",
@@ -118,15 +142,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_19348_4_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_19348_4_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "If you are travelling from SF and plan to spend all 5 days in Yellowstone, you c...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_chatbot_arena_19348_5_0"
     },
     {
@@ -298,6 +328,13 @@
       "sequence": 1,
       "source": "t_chatbot_arena_19348_4",
       "target": "m_chatbot_arena_19348_4_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_chatbot_arena_19348_4",
+      "target": "m_chatbot_arena_19348_4_2",
       "key": 0
     },
     {

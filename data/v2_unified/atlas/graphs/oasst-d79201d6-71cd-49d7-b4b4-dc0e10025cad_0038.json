@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 60,
       "content_preview": "My shell prompts `gcc: command not found`. What should I do?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 25,
       "content_preview": "How can I add user input?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_8"
     },
@@ -137,12 +137,27 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is the simple \"Hello World\" program in C:\n```#include <stdio.h>\n\nint main()...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is the simple \"Hello World\" program in C:\n`",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2_0"
     },
     {
       "node_type": "Move",
@@ -151,6 +166,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_3_0"
     },
     {
@@ -160,16 +178,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's a simple \"Hello World\" program in C:\n\n#include <stdio.h>\n\nint main()\n{...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's a simple \"Hello World\" program in C:\n\n#i",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_8_0"
     },
     {
       "node_type": "Move",
@@ -178,6 +214,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_9_0"
     },
     {
@@ -187,6 +226,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_10_0"
     },
     {
@@ -399,6 +441,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2",
+      "target": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2",
       "target": "mode_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_2",
@@ -507,6 +556,13 @@
       "order": 9,
       "source": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_8",
       "target": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_8",
+      "target": "m_oasst-d79201d6-71cd-49d7-b4b4-dc0e10025cad_0038_8_0",
       "key": 0
     },
     {

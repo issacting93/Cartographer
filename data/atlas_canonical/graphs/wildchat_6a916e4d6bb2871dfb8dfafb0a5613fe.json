@@ -137,7 +137,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_6_0"
+      "id": "m_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_6_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "InteractionMode",
@@ -199,6 +200,16 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_1"
+    },
+    {
+      "id": "m_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_1_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -382,6 +393,12 @@
       "source": "t_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_6",
       "target": "v_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_1",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_1",
+      "target": "m_wildchat_6a916e4d6bb2871dfb8dfafb0a5613fe_1_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

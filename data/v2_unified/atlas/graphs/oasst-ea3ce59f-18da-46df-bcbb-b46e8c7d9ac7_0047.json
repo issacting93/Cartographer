@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047"
     },
     {
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 75,
       "content_preview": "I'm sorry, I didn't understand the question. Could you please re-phrase it?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_7"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 90,
       "content_preview": "Is there a way to import any dates and times in my task_list.txt into my Outlook Calendar?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_10"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_1_0"
     },
     {
@@ -151,6 +154,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_3_0"
     },
     {
@@ -160,6 +166,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_5_0"
     },
     {
@@ -169,6 +178,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_6_0"
     },
     {
@@ -178,7 +190,22 @@
       "confidence": 0.7,
       "method": "inferred",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_6_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_7_0"
     },
     {
       "node_type": "Move",
@@ -187,16 +214,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_8_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's an example script that you can use as a starting point:\n```\nimport...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's an example script that you can u",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_10_0"
     },
     {
       "node_type": "Move",
@@ -205,6 +250,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_11_0"
     },
     {
@@ -507,6 +555,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_7",
+      "target": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_7_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_7",
       "target": "mode_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_6",
@@ -563,6 +618,13 @@
       "order": 11,
       "source": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_10",
       "target": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_10",
+      "target": "m_oasst-ea3ce59f-18da-46df-bcbb-b46e8c7d9ac7_0047_10_0",
       "key": 0
     },
     {

@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "collaborative-refinement",
       "id": "conv_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 78,
       "content_preview": "Make a list of 5 creative names and super powers for my Bird Person character.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4"
     },
@@ -111,7 +111,7 @@
       "role": "user",
       "content_length": 190,
       "content_preview": "I want the Android character to have fun super-powers. I want you to give me a list with 6 super-powers, where each row",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_9"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_0_0"
     },
     {
@@ -151,25 +154,46 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_0_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Some examples for a species for a super-powered character would be:\n\n-human\n-and...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are six species for your super-powered character.\n1-Human\n2-Lizardper...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here are six species for your super-pow",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4_0"
     },
     {
       "node_type": "Move",
@@ -178,51 +202,81 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are 5 names for your super-powered character:\n\n1. Bill (because he ha...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here are 5 names for your super-powered",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_6_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are 5 super powers that Bird Person has:\n\n * Super skwark - the ability to...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are 5 super powers that Bird Person has:\n\n *",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_7_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's a list:\n\n* Human\n* Demon\n* Android\n* Cyborg\n* Centaur\n* Spirit\n\nSel...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's a list:\n\n* Human\n* Demon\n* Andro",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_8_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here are six super-powers:\n\n* telefrag - swap body with any space\n* weak-m...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here are six super-powers:\n\n* telefrag",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_10_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are 6 types of powers of practically superpowers:\n\n1. Persuasion.    argue...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are 6 types of powers of practically superpo",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_11_0"
     },
     {
@@ -463,6 +517,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4",
+      "target": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4",
       "target": "mode_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_4",
@@ -535,6 +596,13 @@
       "order": 10,
       "source": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_9",
       "target": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_10",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_9",
+      "target": "m_oasst-13da4afd-55c2-4e8e-9159-697ebe265d7d_0079_9_0",
       "key": 0
     },
     {

@@ -2,40 +2,74 @@
   {
     "role": "user",
     "content": "We have two different things: the game Frostpunk and the film The Thing. In 5 Steps try to find games that are less and less similar to the first game and more and more similar to the second game.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure! Here are five games that are less similar to Frostpunk and more similar to The Thing:\n1. \"Mind of the Ripper\"\n2. \"Jurassic Park\"\n3. \"Ghost Island\"\n4. \"The Sims\"\n5. \"The Elder Scrolls\"",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Sure! Here are five games that are less similar to Frostpunk and more similar to...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure! Here are five games that are less simil",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "So give me actual list with games",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Sure! Here is an actual list of games that are less similar to Frostpunk and more similar to The Thing:\n1. \"Mind of the Ripper\"\n2. \"Jurassic Park\"\n3. \"Ghost Island\"\n4. \"The Sims\"\n5. \"The Elder Scrolls\"",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Sure! Here is an actual list of games that are less similar to Frostpunk and mor...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure! Here is an actual list of games that ar",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

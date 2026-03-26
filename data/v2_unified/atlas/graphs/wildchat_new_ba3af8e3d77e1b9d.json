@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "collaborative-refinement",
       "id": "conv_wildchat_new_ba3af8e3d77e1b9d"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 62,
       "content_preview": "As an AI language model, I generated the content you provided.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_3"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 740,
       "content_preview": "make it human written - Exciting, addictive and challenging Puzzle game to understand the Shapes and patterns with this",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_6"
     },
@@ -181,7 +181,7 @@
       "role": "user",
       "content_length": 845,
       "content_preview": "is this ai written? Welcome to Mangavania, the pixelated action platformer game that promises an unforgettable adventure",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_16"
     },
@@ -191,7 +191,7 @@
       "role": "assistant",
       "content_length": 62,
       "content_preview": "As an AI language model, I generated the content you provided.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_17"
     },
@@ -231,7 +231,7 @@
       "role": "assistant",
       "content_length": 34,
       "content_preview": "Yes, that is AI-generated content.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_21"
     },
@@ -251,7 +251,7 @@
       "role": "assistant",
       "content_length": 637,
       "content_preview": "Certainly! Here's a human-written version of the same text: Are you looking to sharpen your reaction skills? Look no fu",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_23"
     },
@@ -261,7 +261,7 @@
       "role": "user",
       "content_length": 401,
       "content_preview": "rewrite this as human written - Your primary challenge is to strike bubbles as soon as they pop up: not only shooting th",
-      "move_count": 4,
+      "move_count": 5,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_24"
     },
@@ -281,7 +281,7 @@
       "role": "user",
       "content_length": 414,
       "content_preview": "rewrite this as human written in one paragraph- Your primary challenge is to strike bubbles as soon as they pop up: not",
-      "move_count": 3,
+      "move_count": 4,
       "moves": [],
       "id": "t_wildchat_new_ba3af8e3d77e1b9d_26"
     },
@@ -382,15 +382,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_0_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sky Rolling Balls is an arcade game that's great for anyone, regardless of age....",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_1_0"
     },
     {
@@ -400,15 +406,33 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_2_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly! Here's a human-written version of the same text:\n\nSky Rolling Balls i...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! Here's a human-written version of the s",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_5_0"
     },
     {
@@ -418,7 +442,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_6_1"
     },
     {
       "node_type": "Move",
@@ -427,15 +466,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_6_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_6_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Welcome to our exciting, addictive, and challenging puzzle game that allows play...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_7_0"
     },
     {
@@ -445,6 +490,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_9_0"
     },
     {
@@ -454,16 +502,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_11_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's a human-written version of the same text:\n\nAre you ready to celebra...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's a human-written version of the s",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_16_0"
     },
     {
       "node_type": "Move",
@@ -472,7 +538,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_16_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_16_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_17_0"
     },
     {
       "node_type": "Move",
@@ -481,6 +562,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_19_0"
     },
     {
@@ -490,6 +574,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_20_0"
     },
     {
@@ -499,6 +586,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_20_1"
     },
     {
@@ -508,7 +598,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_20_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_21_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! Here's a human-written version of the s",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_23_0"
     },
     {
       "node_type": "Move",
@@ -517,7 +634,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_23_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_23_1"
     },
     {
       "node_type": "Move",
@@ -526,7 +646,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_1"
     },
     {
       "node_type": "Move",
@@ -535,7 +670,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_2"
     },
     {
       "node_type": "Move",
@@ -544,7 +682,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_2"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_3"
     },
     {
       "node_type": "Move",
@@ -553,15 +694,21 @@
       "confidence": 0.7,
       "method": "inferred",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_3"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_24_4"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's the human-written version of the same text: \n\nIn this bubbly game,...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's the human-written version of the",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_25_0"
     },
     {
@@ -571,7 +718,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_1"
     },
     {
       "node_type": "Move",
@@ -580,7 +742,10 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_2"
     },
     {
       "node_type": "Move",
@@ -589,15 +754,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_2"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_ba3af8e3d77e1b9d_26_3"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Join us in this colorful game of bubbles, where you'll need to act fast to achie...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_27_0"
     },
     {
@@ -607,15 +778,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_28_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Welcome to the thrilling new game, Impostor Survivor Vs Zombies! Brace yourself...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_29_0"
     },
     {
@@ -625,6 +802,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_30_0"
     },
     {
@@ -634,15 +814,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_30_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "It's easy to get started with this card game - when the sum of the numbers on th...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_31_0"
     },
     {
@@ -652,6 +838,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_33_0"
     },
     {
@@ -661,6 +850,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_ba3af8e3d77e1b9d_35_0"
     },
     {
@@ -1183,6 +1375,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_3",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_3",
       "target": "mode_wildchat_new_ba3af8e3d77e1b9d_2",
@@ -1240,6 +1439,13 @@
       "sequence": 1,
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_6",
       "target": "m_wildchat_new_ba3af8e3d77e1b9d_6_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_6",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_6_2",
       "key": 0
     },
     {
@@ -1408,6 +1614,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_16",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_16_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_16",
       "target": "mode_wildchat_new_ba3af8e3d77e1b9d_16",
@@ -1418,6 +1631,13 @@
       "order": 18,
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_17",
       "target": "t_wildchat_new_ba3af8e3d77e1b9d_18",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_17",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_17_0",
       "key": 0
     },
     {
@@ -1501,6 +1721,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_21",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_21_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_21",
       "target": "mode_wildchat_new_ba3af8e3d77e1b9d_20",
@@ -1531,6 +1758,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_23",
       "target": "m_wildchat_new_ba3af8e3d77e1b9d_23_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_23",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_23_1",
       "key": 0
     },
     {
@@ -1572,6 +1806,13 @@
       "sequence": 3,
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_24",
       "target": "m_wildchat_new_ba3af8e3d77e1b9d_24_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 4,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_24",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_24_4",
       "key": 0
     },
     {
@@ -1626,6 +1867,13 @@
       "sequence": 2,
       "source": "t_wildchat_new_ba3af8e3d77e1b9d_26",
       "target": "m_wildchat_new_ba3af8e3d77e1b9d_26_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 3,
+      "source": "t_wildchat_new_ba3af8e3d77e1b9d_26",
+      "target": "m_wildchat_new_ba3af8e3d77e1b9d_26_3",
       "key": 0
     },
     {

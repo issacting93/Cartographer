@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_17427"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 67,
       "content_preview": "Sure, I can ask you the questions one at a time. Let's get started!",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_17427_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 6,
       "content_preview": "Great.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_17427_4"
     },
@@ -82,6 +82,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_17427_0_0"
     },
     {
@@ -91,6 +94,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_17427_0_1"
     },
     {
@@ -100,6 +106,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_17427_0_2"
     },
     {
@@ -109,6 +118,9 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_17427_1_0"
     },
     {
@@ -118,7 +130,34 @@
       "confidence": 0.7,
       "method": "inferred",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_17427_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I can ask you the questions one at a ti",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17427_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_17427_4_0"
     },
     {
       "node_type": "InteractionMode",
@@ -279,6 +318,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_17427_3",
+      "target": "m_chatbot_arena_17427_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_17427_3",
       "target": "mode_chatbot_arena_17427_2",
@@ -289,6 +335,13 @@
       "order": 5,
       "source": "t_chatbot_arena_17427_4",
       "target": "t_chatbot_arena_17427_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_17427_4",
+      "target": "m_chatbot_arena_17427_4_0",
       "key": 0
     },
     {

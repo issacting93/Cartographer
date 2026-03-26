@@ -22,12 +22,15 @@ class EdgeType(str, Enum):
 class MoveType(str, Enum):
     # Constraint Lifecycle
     PROPOSE_CONSTRAINT = "PROPOSE_CONSTRAINT"
-    ACCEPT_CONSTRAINT = "ACCEPT_CONSTRAINT"
+    ACCEPT_CONSTRAINT = "ACCEPT_CONSTRAINT"           # Acknowledgment token: "sure", "noted", "here is" (Clark & Brennan 1991)
+    ACKNOWLEDGE_CONSTRAINT = "ACKNOWLEDGE_CONSTRAINT" # Understanding demonstration: AI restates/paraphrases (Clark & Brennan 1991)
     VIOLATE_CONSTRAINT = "VIOLATE_CONSTRAINT"
     RATIFY_CONSTRAINT = "RATIFY_CONSTRAINT"
+    SILENT_COMPLY = "SILENT_COMPLY"                   # Unmarked compliance: output complies without any linguistic marking (Clark & Brennan 1991)
     # Repair
     REPAIR_INITIATE = "REPAIR_INITIATE"
     REPAIR_EXECUTE = "REPAIR_EXECUTE"
+    SELF_REPAIR = "SELF_REPAIR"                       # AI self-initiated self-repair, unprompted (Schegloff 1977 SISR)
     ABANDON_CONSTRAINT = "ABANDON_CONSTRAINT"
     ESCALATE = "ESCALATE"
     REPAIR_SUCCEED = "REPAIR_SUCCEED"

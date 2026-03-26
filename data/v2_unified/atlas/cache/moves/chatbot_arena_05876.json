@@ -2,24 +2,65 @@
   {
     "role": "user",
     "content": "Can you give me a name ?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure! How about OpenAssistant?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 1,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure! How about OpenAssistant?",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "Is that a real name for me ?",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.56
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Yes, OpenAssistant is a real name for me. If you'd like, you can use it as your name on various social media platforms and other websites, or you can give it a different name if you prefer.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -34,13 +75,34 @@
   {
     "role": "user",
     "content": "Can you give me a human name ?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure. How about Robert?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 5,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure. How about Robert?",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   }
 ]

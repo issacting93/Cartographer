@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "entertainment",
       "id": "conv_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023"
     },
     {
@@ -111,7 +111,7 @@
       "role": "user",
       "content_length": 103,
       "content_preview": "\"You guys must be the coolest animals in the bar!\" I'm not too fond of this punchline, anything better?",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_1_0"
     },
     {
@@ -151,6 +154,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_2_0"
     },
     {
@@ -160,6 +166,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_4_0"
     },
     {
@@ -169,16 +178,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_6_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's another joke with the same setup:\n\nA penguin and a walrus walk into...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's another joke with the same setup",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9_0"
     },
     {
       "node_type": "Move",
@@ -187,15 +214,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9_0"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "A penguin and a walrus walk into a bar, calling for help saving polar ice.\nThe b...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_10_0"
     },
     {
@@ -497,6 +530,13 @@
       "sequence": 0,
       "source": "t_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9",
       "target": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9",
+      "target": "m_oasst-2975c047-a3c2-4c5b-86e1-6328558537a9_0023_9_1",
       "key": 0
     },
     {

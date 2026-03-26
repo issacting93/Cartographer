@@ -445,7 +445,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_4a8c3fa933a123e6_7_0"
+      "id": "m_wildchat_new_4a8c3fa933a123e6_7_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -715,7 +716,8 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_4a8c3fa933a123e6_34_0"
+      "id": "m_wildchat_new_4a8c3fa933a123e6_34_0",
+      "repair_organization": "OISR"
     },
     {
       "node_type": "Move",
@@ -1125,6 +1127,36 @@
       "confidence": 0.6,
       "method": "llm",
       "id": "v_wildchat_new_4a8c3fa933a123e6_6"
+    },
+    {
+      "id": "m_wildchat_new_4a8c3fa933a123e6_3_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_wildchat_new_4a8c3fa933a123e6_5_2",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_wildchat_new_4a8c3fa933a123e6_19_2",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -2195,6 +2227,24 @@
       "source": "v_wildchat_new_4a8c3fa933a123e6_1",
       "target": "c_wildchat_new_4a8c3fa933a123e6_c_1",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_4a8c3fa933a123e6_3",
+      "target": "m_wildchat_new_4a8c3fa933a123e6_3_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
+    },
+    {
+      "source": "t_wildchat_new_4a8c3fa933a123e6_5",
+      "target": "m_wildchat_new_4a8c3fa933a123e6_5_2",
+      "edge_type": "HAS_MOVE",
+      "sequence": 2
+    },
+    {
+      "source": "t_wildchat_new_4a8c3fa933a123e6_19",
+      "target": "m_wildchat_new_4a8c3fa933a123e6_19_2",
+      "edge_type": "HAS_MOVE",
+      "sequence": 2
     }
   ]
 }

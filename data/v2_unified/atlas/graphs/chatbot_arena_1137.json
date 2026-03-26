@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "capability-exploration",
       "id": "conv_chatbot_arena_1137"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 75,
       "content_preview": "Here is an image of a man: ![Image of a man](https://i.imgur.com/pPdVJ.jpg)",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_1137_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 27,
       "content_preview": "draw an image of a triangle",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_1137_2"
     },
@@ -57,11 +57,38 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is an image of a triangle:\n![Image of a triangle](https://i.imgur.com/Vuq.j...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is an image of a man:\n![Image of a man](htt",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1137_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1137_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is an image of a triangle:\n![Image of a tri",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_1137_3_0"
     },
     {
@@ -137,6 +164,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1137_1",
+      "target": "m_chatbot_arena_1137_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_1137_1",
       "target": "mode_chatbot_arena_1137_0",
@@ -147,6 +181,13 @@
       "order": 3,
       "source": "t_chatbot_arena_1137_2",
       "target": "t_chatbot_arena_1137_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1137_2",
+      "target": "m_chatbot_arena_1137_2_0",
       "key": 0
     },
     {

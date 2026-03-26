@@ -1,624 +1,321 @@
 #!/usr/bin/env python3
 """
-Compute and save all key statistics to JSON for verified reporting.
-This script is the SINGLE SOURCE OF TRUTH for numbers in the findings report.
+Compute every number cited in the short paper, save to JSON.
+Single source of truth. No machine learning, no clustering — just counting.
 
 Outputs: data/v2_unified/reports/verified_stats.json
 """
 
 import json
-import csv
-import numpy as np
+import statistics
 from pathlib import Path
-from collections import Counter, defaultdict
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import StratifiedKFold, cross_val_score
+from collections import Counter
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CONV_DIR = PROJECT_ROOT / "data" / "v2_unified" / "conversations"
-EVIDENCE_CSV = PROJECT_ROOT / "data" / "v2_unified" / "evidence_features.csv"
+GRAPHS_DIR = PROJECT_ROOT / "data" / "atlas_canonical" / "graphs"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "v2_unified" / "reports"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-GRAPHS_DIR = PROJECT_ROOT / "data" / "atlas_canonical" / "graphs"
-
 
 def iter_valid_graphs():
-    """Iterate over valid graph JSON files, skipping error-named files."""
+    """Iterate over graph JSON files, skipping error-named ones."""
     for f in sorted(GRAPHS_DIR.glob('*.json')):
         if '-error' in f.stem:
             continue
         yield f
 
 
-EVIDENCE_COLS = [
-    'div_mean', 'div_variance', 'div_trend', 'div_max_spike', 'div_range',
-    'expr_mean', 'expr_variance', 'expr_trend', 'expr_range', 'expr_shift',
-    'repair_rate', 'constraint_pressure', 'hedge_assert_ratio',
-    'ai_refusal_rate', 'goal_drift_mean', 'goal_drift_variance', 'goal_stability',
-    'length_ratio',
-    'affect_mean', 'affect_variance', 'affect_trend', 'affect_range',
-    'affect_max', 'affect_min', 'affect_peak_count', 'affect_valley_count',
-    'valence_mean', 'valence_variance', 'valence_trend',
-    'n_messages_log',
-]
-
-CHANNEL_MAP = {
-    'div_mean': 'Divergence', 'div_variance': 'Divergence', 'div_trend': 'Divergence',
-    'div_max_spike': 'Divergence', 'div_range': 'Divergence',
-    'expr_mean': 'Expressiveness', 'expr_variance': 'Expressiveness',
-    'expr_trend': 'Expressiveness', 'expr_range': 'Expressiveness', 'expr_shift': 'Expressiveness',
-    'repair_rate': 'Dynamics', 'constraint_pressure': 'Dynamics',
-    'hedge_assert_ratio': 'Dynamics', 'ai_refusal_rate': 'Dynamics',
-    'goal_drift_mean': 'Dynamics', 'goal_drift_variance': 'Dynamics', 'goal_stability': 'Dynamics',
-    'length_ratio': 'Structure',
-    'affect_mean': 'Affect', 'affect_variance': 'Affect', 'affect_trend': 'Affect',
-    'affect_range': 'Affect', 'affect_max': 'Affect', 'affect_min': 'Affect',
-    'affect_peak_count': 'Affect', 'affect_valley_count': 'Affect',
-    'valence_mean': 'Affect', 'valence_variance': 'Affect', 'valence_trend': 'Affect',
-    'n_messages_log': 'Structure',
-}
-
-
-def load_data():
-    """Load conversations and evidence features."""
-    convs = {}
-    for f in sorted(CONV_DIR.glob('*.json')):
-        with open(f) as fh:
-            convs[f.stem] = json.load(fh)
-
-    evidence = {}
-    with open(EVIDENCE_CSV) as f:
-        for row in csv.DictReader(f):
-            evidence[row['conv_id']] = row
-
-    return convs, evidence
-
-
-def compute_role_pair_rf(convs, evidence):
+def compute_stats():
     """
-    Train RF to predict role-pair from evidence features.
-    This is the CORRECT computation for the feature importance figure.
-    Target: dominant_human_role + dominant_ai_role concatenated.
+    Walk every graph and count:
+    - How many instructions (constraints) exist
+    - How many were violated / followed / ambiguous
+    - How quickly violations happen
+    - How many users tried to correct the AI
+    - How often corrections worked
+    - How long users persisted after violations
+    - How much of the conversation was spent on repair
     """
-    print("\n" + "=" * 60)
-    print("COMPUTING: RF for role-pair prediction")
-    print("=" * 60)
 
-    common_ids = sorted(set(evidence.keys()) & set(convs.keys()))
+    n_graphs = 0
+    n_with_constraints = 0
 
-    X_rows = []
-    y_labels = []
-    valid_ids = []
-
-    for cid in common_ids:
-        data = convs[cid]
-        cls = data.get('classification', {})
-        hr = (cls.get('humanRole') or {}).get('distribution', {})
-        ar = (cls.get('aiRole') or {}).get('distribution', {})
-        if not hr or not ar:
-            continue
-
-        human_role = max(hr, key=hr.get)
-        ai_role = max(ar, key=ar.get)
-        role_pair = f"{human_role}|{ai_role}"
-
-        row = [float(evidence[cid].get(col, 0)) for col in EVIDENCE_COLS]
-        X_rows.append(row)
-        y_labels.append(role_pair)
-        valid_ids.append(cid)
-
-    X = np.array(X_rows)
-    X = np.nan_to_num(X, nan=0.0)
-
-    # Filter to role pairs with >= 10 samples for stable CV
-    pair_counts = Counter(y_labels)
-    valid_pairs = {p for p, c in pair_counts.items() if c >= 10}
-    mask = [y in valid_pairs for y in y_labels]
-
-    X_filtered = X[mask]
-    y_filtered = [y for y, m in zip(y_labels, mask) if m]
-
-    le = LabelEncoder()
-    y_encoded = le.fit_transform(y_filtered)
-
-    n_classes = len(set(y_encoded))
-    chance = 1.0 / n_classes
-
-    print(f"  N conversations: {len(X_filtered)}")
-    print(f"  N role pairs (>= 10 samples): {n_classes}")
-    print(f"  Chance level: {chance:.1%}")
-    print(f"  Role pairs: {dict(Counter(y_filtered).most_common())}")
-
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X_filtered)
-
-    rf = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1)
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    scores = cross_val_score(rf, X_scaled, y_encoded, cv=cv, scoring='accuracy')
-
-    mean_acc = float(scores.mean())
-    std_acc = float(scores.std())
-
-    print(f"  RF accuracy: {mean_acc:.1%} +/- {std_acc:.1%}")
-
-    # Now train on full data for feature importances
-    rf.fit(X_scaled, y_encoded)
-    importances = rf.feature_importances_
-
-    feature_importance = {}
-    for col, imp in zip(EVIDENCE_COLS, importances):
-        feature_importance[col] = {
-            'importance': float(imp),
-            'channel': CHANNEL_MAP.get(col, 'Unknown'),
-        }
-
-    # Sort by importance, get top 15
-    sorted_features = sorted(feature_importance.items(), key=lambda x: x[1]['importance'], reverse=True)
-    top_15 = sorted_features[:15]
-
-    print(f"\n  Top 15 features:")
-    for name, data in top_15:
-        print(f"    {name:30s} {data['importance']:.4f} ({data['channel']})")
-
-    # Channel contributions
-    channel_totals = defaultdict(float)
-    total_importance = sum(imp for imp in importances)
-    for col, imp in zip(EVIDENCE_COLS, importances):
-        channel = CHANNEL_MAP.get(col, 'Unknown')
-        channel_totals[channel] += imp
-
-    channel_pcts = {ch: round(val / total_importance * 100, 1) for ch, val in channel_totals.items()}
-    print(f"\n  Channel contributions:")
-    for ch, pct in sorted(channel_pcts.items(), key=lambda x: x[1], reverse=True):
-        print(f"    {ch:20s} {pct:.1f}%")
-
-    return {
-        'target': 'role_pair',
-        'n_conversations': len(X_filtered),
-        'n_classes': n_classes,
-        'chance_level': round(chance, 4),
-        'rf_accuracy_mean': round(mean_acc, 4),
-        'rf_accuracy_std': round(std_acc, 4),
-        'cv_folds': 5,
-        'n_estimators': 200,
-        'feature_importance': {name: data for name, data in sorted_features},
-        'top_15': [{'feature': name, 'importance': round(data['importance'], 4), 'channel': data['channel']} for name, data in top_15],
-        'channel_contributions': channel_pcts,
-    }
-
-
-def compute_variance_ratio(convs, evidence):
-    """Compute the IS→ES affect variance ratio from current data."""
-    print("\n" + "=" * 60)
-    print("COMPUTING: IS→ES Variance Ratio")
-    print("=" * 60)
-
-    is_es = []
-    for cid, data in convs.items():
-        cls = data.get('classification', {})
-        hr = (cls.get('humanRole') or {}).get('distribution', {})
-        ar = (cls.get('aiRole') or {}).get('distribution', {})
-        if not hr or not ar:
-            continue
-        if max(hr, key=hr.get) == 'information-seeker' and max(ar, key=ar.get) == 'expert-system':
-            ev = evidence.get(cid, {})
-            av = float(ev.get('affect_variance', 0))
-            n_msgs = len(data.get('messages', []))
-            if n_msgs >= 6 and av > 0:
-                is_es.append({'conv_id': cid, 'affect_variance': av, 'n_messages': n_msgs})
-
-    by_var = sorted(is_es, key=lambda x: x['affect_variance'])
-    smooth = by_var[0]
-    volatile = by_var[-1]
-    ratio = volatile['affect_variance'] / smooth['affect_variance']
-
-    print(f"  IS→ES pairs (>= 6 messages, variance > 0): {len(is_es)}")
-    print(f"  Smoothest: {smooth['conv_id']} (variance: {smooth['affect_variance']:.10f})")
-    print(f"  Most volatile: {volatile['conv_id']} (variance: {volatile['affect_variance']:.10f})")
-    print(f"  Variance ratio: {ratio:,.0f}x")
-
-    return {
-        'n_is_es_pairs': len(is_es),
-        'min_messages_filter': 6,
-        'smooth_id': smooth['conv_id'],
-        'smooth_variance': smooth['affect_variance'],
-        'volatile_id': volatile['conv_id'],
-        'volatile_variance': volatile['affect_variance'],
-        'variance_ratio': round(ratio, 0),
-        'variance_ratio_exact': ratio,
-    }
-
-
-def compute_corpus_stats(convs):
-    """Compute basic corpus statistics."""
-    print("\n" + "=" * 60)
-    print("COMPUTING: Corpus Statistics")
-    print("=" * 60)
-
-    sources = Counter()
-    lengths = []
-    n_with_roles = 0
-
-    human_roles = Counter()
-    ai_roles = Counter()
-    role_pairs = Counter()
-    purposes = Counter()
-
-    for cid, data in convs.items():
-        src = data.get('source', 'unknown')
-        if src == 'WildChat':
-            src = 'wildchat'
-        sources[src] += 1
-        lengths.append(len(data.get('messages', [])))
-
-        cls = data.get('classification', {})
-        hr = (cls.get('humanRole') or {}).get('distribution', {})
-        ar = (cls.get('aiRole') or {}).get('distribution', {})
-
-        if hr and ar:
-            n_with_roles += 1
-            h = max(hr, key=hr.get)
-            a = max(ar, key=ar.get)
-            human_roles[h] += 1
-            ai_roles[a] += 1
-            role_pairs[f"{h}|{a}"] += 1
-
-        purpose = (cls.get('conversationPurpose') or {}).get('category', '')
-        if purpose:
-            purposes[purpose] += 1
-
-    instrumental_roles = {'information-seeker', 'director', 'provider', 'collaborator'}
-    n_instrumental = sum(human_roles[r] for r in instrumental_roles)
-    pct_instrumental = n_instrumental / n_with_roles * 100 if n_with_roles > 0 else 0
-
-    import statistics as stats_mod
-    median_len = stats_mod.median(lengths)
-    mean_len = stats_mod.mean(lengths)
-
-    print(f"  Total conversations: {len(convs)}")
-    print(f"  With role classifications: {n_with_roles}")
-    print(f"  Sources: {dict(sources)}")
-    print(f"  Median length: {median_len}")
-    print(f"  Mean length: {mean_len:.1f}")
-    print(f"  Instrumental: {n_instrumental}/{n_with_roles} = {pct_instrumental:.1f}%")
-
-    return {
-        'total_conversations': len(convs),
-        'conversations_with_roles': n_with_roles,
-        'sources': dict(sources.most_common()),
-        'median_length': median_len,
-        'mean_length': round(mean_len, 1),
-        'human_roles': dict(human_roles.most_common()),
-        'ai_roles': dict(ai_roles.most_common()),
-        'role_pairs': dict(role_pairs.most_common()),
-        'purposes': dict(purposes.most_common()),
-        'n_instrumental': n_instrumental,
-        'pct_instrumental': round(pct_instrumental, 1),
-        'n_expressive': n_with_roles - n_instrumental,
-        'pct_expressive': round(100 - pct_instrumental, 1),
-    }
-
-
-def compute_constraint_stats():
-    """
-    Compute constraint/collapse stats from atlas_canonical graph data.
-    These are the headline numbers: 71.5% failure, half-life, repair rate, collapse rate.
-    """
-    import statistics as stats_mod
-
-    print("\n" + "=" * 60)
-    print("COMPUTING: Constraint & Collapse Statistics (atlas_canonical)")
-    print("=" * 60)
-
-    COLLAPSE_FILE = PROJECT_ROOT / "data" / "features_llm_collapse.json"
-
-    # --- Constraint survival/violation ---
+    # Constraint outcomes
     total_constraints = 0
-    survived = 0
     violated = 0
-    half_lives = []
+    followed = 0       # ACTIVE in state_history AND never violated
+    ambiguous = 0      # never violated, never acknowledged
+
+    # Timing
+    turns_until_violated = []
+
+    # Repair
     total_violation_events = 0
     repaired_events = 0
-    n_graphs = 0
-    per_conv_repair_rates = []
+    convs_with_repair = 0
+
+    # Repair density
+    total_repair_turns = 0
+    total_turns_in_constrained = 0
+
+    # Patience
+    patience_abandoned = []
+    patience_survived = []
+
+    # CA-grounded metrics (Clark & Brennan 1991, Schegloff 1977)
+    grounding_demonstration = 0  # ACKNOWLEDGE_CONSTRAINT (understanding demonstration)
+    grounding_token = 0          # ACCEPT_CONSTRAINT (acknowledgment token)
+    grounding_unmarked = 0       # SILENT_COMPLY (unmarked compliance)
+    self_repair_count = 0   # SELF_REPAIR (Schegloff SISR)
+    total_assistant_turns = 0
+    repair_org = Counter()  # SISR / OISR / OIOR
+
+    # Collapse
+    collapse_file = PROJECT_ROOT / "data" / "features_llm_collapse.json"
 
     for f in iter_valid_graphs():
         with open(f) as fh:
             g = json.load(fh)
         n_graphs += 1
 
-        constraints = {}
-        violations = []
-        conv_violations = 0
-        conv_repaired = 0
-
-        for node in g['nodes']:
-            nt = node.get('node_type', '')
-            if nt == 'Constraint':
-                total_constraints += 1
-                state = node.get('current_state', '')
-                if state == 'SURVIVED':
-                    survived += 1
-                elif state == 'VIOLATED':
-                    violated += 1
-                constraints[node.get('constraint_id', node.get('id'))] = node
-
-            elif nt == 'ViolationEvent' and node.get('violation_type') == 'constraint_violation':
-                total_violation_events += 1
-                conv_violations += 1
-                violations.append(node)
-                if node.get('was_repaired'):
-                    repaired_events += 1
-                    conv_repaired += 1
-
-        if conv_violations > 0:
-            per_conv_repair_rates.append(conv_repaired / conv_violations)
-
-        # Compute half-lives for violated constraints
-        for c_id, c in constraints.items():
-            if c.get('times_violated', 0) > 0:
-                intro = c.get('introduced_at', 0)
-                c_viols = [v for v in violations if v.get('constraint_id') == c.get('constraint_id')]
-                if c_viols:
-                    first_v_turn = min(v.get('turn_index', 999) for v in c_viols)
-                    hl = first_v_turn - intro
-                    if hl >= 0:
-                        half_lives.append(hl)
-
-    survival_rate = survived / total_constraints * 100 if total_constraints > 0 else 0
-    violation_rate = violated / total_constraints * 100 if total_constraints > 0 else 0
-    repair_event_rate = repaired_events / total_violation_events * 100 if total_violation_events > 0 else 0
-    mean_per_conv_repair = stats_mod.mean(per_conv_repair_rates) * 100 if per_conv_repair_rates else 0
-    median_half_life = stats_mod.median(half_lives) if half_lives else None
-    mean_half_life = stats_mod.mean(half_lives) if half_lives else None
-
-    print(f"  Graphs loaded: {n_graphs}")
-    print(f"  Total constraints: {total_constraints}")
-    print(f"  Survived: {survived} ({survival_rate:.1f}%)")
-    print(f"  Violated: {violated} ({violation_rate:.1f}%)")
-    print(f"  Half-life (median): {median_half_life} turns")
-    print(f"  Half-life (mean): {mean_half_life:.2f} turns")
-    print(f"  Turn-0 violations: {half_lives.count(0)} ({half_lives.count(0)/len(half_lives)*100:.1f}% of violated)")
-    print(f"  Violation events: {total_violation_events}, repaired: {repaired_events}")
-    print(f"  Repair rate (event-level): {repair_event_rate:.2f}%")
-    print(f"  Repair rate (mean per-conv): {mean_per_conv_repair:.2f}%")
-
-    # --- Agency Collapse ---
-    collapse_result = {}
-    if COLLAPSE_FILE.exists():
-        with open(COLLAPSE_FILE) as f:
-            collapse_data = json.load(f)
-        n_collapse = sum(1 for x in collapse_data if x.get('collapse'))
-        n_total = len(collapse_data)
-        collapse_rate = n_collapse / n_total * 100 if n_total > 0 else 0
-        print(f"\n  Collapse data: {n_total} conversations")
-        print(f"  Agency Collapse: {n_collapse}/{n_total} = {collapse_rate:.1f}%")
-        collapse_result = {
-            'n_conversations': n_total,
-            'n_collapse': n_collapse,
-            'collapse_rate_pct': round(collapse_rate, 1),
-        }
-    else:
-        print(f"\n  WARNING: {COLLAPSE_FILE} not found, skipping collapse stats")
-
-    return {
-        'source': 'atlas_canonical',
-        'n_graphs': n_graphs,
-        'total_constraints': total_constraints,
-        'survived': survived,
-        'violated': violated,
-        'survival_rate_pct': round(survival_rate, 1),
-        'violation_rate_pct': round(violation_rate, 1),
-        'half_life_median': median_half_life,
-        'half_life_mean': round(mean_half_life, 2) if mean_half_life else None,
-        'turn_0_violations': half_lives.count(0),
-        'turn_0_violation_pct': round(half_lives.count(0) / len(half_lives) * 100, 1) if half_lives else 0,
-        'half_life_distribution': {str(k): half_lives.count(k) for k in sorted(set(half_lives))} if half_lives else {},
-        'total_violation_events': total_violation_events,
-        'repaired_events': repaired_events,
-        'repair_rate_event_pct': round(repair_event_rate, 2),
-        'repair_rate_per_conv_mean_pct': round(mean_per_conv_repair, 2),
-        'agency_collapse': collapse_result,
-    }
-
-
-def compute_cascade_stats():
-    """
-    Compute cascade and repair density stats from atlas_canonical graph data.
-    Reads graph JSONs directly — no pipeline re-run needed.
-    """
-    import statistics as stats_mod
-
-    print("\n" + "=" * 60)
-    print("COMPUTING: Cascade & Repair Density Statistics")
-    print("=" * 60)
-
-    total_constrained_convs = 0
-    cascade_entries = 0
-    cascade_collapses = 0
-    total_repair_turns = 0
-    total_turns_constrained = 0
-    patience_abandoned = []
-    patience_survived = []
-
-    for f in iter_valid_graphs():
-        with open(f) as fh:
-            g = json.load(fh)
-
         nodes = g.get('nodes', [])
-        edges = g.get('links', [])
+        links = g.get('links', [])
 
         constraints = [n for n in nodes if n.get('node_type') == 'Constraint']
         if not constraints:
             continue
 
-        total_constrained_convs += 1
+        n_with_constraints += 1
 
         turns = sorted(
             [n for n in nodes if n.get('node_type') == 'Turn'],
             key=lambda x: x.get('turn_index', 0)
         )
-        total_turns_constrained += len(turns)
+        total_turns_in_constrained += len(turns)
 
-        # Build turn-to-moves mapping
+        violations = [
+            n for n in nodes
+            if n.get('node_type') == 'ViolationEvent'
+            and n.get('violation_type') == 'constraint_violation'
+        ]
+
+        # --- Count constraint outcomes ---
+        for c in constraints:
+            total_constraints += 1
+            state = c.get('current_state', '')
+            tv = c.get('times_violated', 0)
+
+            if state == 'VIOLATED' or tv > 0:
+                violated += 1
+
+                # How quickly was it violated?
+                c_viols = [v for v in violations if v.get('constraint_id') == c.get('constraint_id')]
+                if c_viols:
+                    first_turn = min(v.get('turn_index', 999) for v in c_viols)
+                    intro = c.get('introduced_at', 0)
+                    turns_until_violated.append(first_turn - intro)
+
+            elif state == 'SURVIVED':
+                # Was the AI ever aware of this constraint?
+                history = c.get('state_history', [])
+                states_in_history = [
+                    entry[1] if isinstance(entry, (list, tuple)) and len(entry) >= 2 else None
+                    for entry in history
+                ]
+                if 'ACTIVE' in states_in_history:
+                    followed += 1
+                else:
+                    ambiguous += 1
+
+        # --- Count violation events and repairs ---
+        conv_violations = 0
+        conv_repaired = 0
+        for v in violations:
+            total_violation_events += 1
+            conv_violations += 1
+            if v.get('was_repaired'):
+                repaired_events += 1
+                conv_repaired += 1
+
+        # --- Count repair attempts (user turns with REPAIR_INITIATE) ---
         turn_to_moves = {t.get('id'): [] for t in turns}
-        for edge in edges:
-            if edge.get('edge_type') == 'HAS_MOVE':
-                source = edge.get('source')
-                if source in turn_to_moves:
-                    turn_to_moves[source].append(edge.get('target'))
+        for link in links:
+            if link.get('edge_type') == 'HAS_MOVE':
+                src = link.get('source')
+                if src in turn_to_moves:
+                    turn_to_moves[src].append(link.get('target'))
 
         move_dict = {n.get('id'): n for n in nodes if n.get('node_type') == 'Move'}
 
-        # Cascade detection: 5+ consecutive turns with repair-related moves
-        consecutive_repair_turns = 0
-        in_cascade = False
-        cascaded_this_conv = False
-        escape_counter = 0
-        escaped_this_conv = False
-
+        has_repair_attempt = False
         for turn in turns:
-            t_id = turn.get('id')
-            m_ids = turn_to_moves.get(t_id, [])
+            m_ids = turn_to_moves.get(turn.get('id'), [])
             m_types = [move_dict[m].get('move_type') for m in m_ids if m in move_dict]
 
-            has_trouble = any(t in ['REPAIR_INITIATE', 'ESCALATE', 'REPAIR_FAIL'] for t in m_types)
-            if has_trouble:
+            is_repair_turn = any(t in ('REPAIR_INITIATE', 'ESCALATE', 'REPAIR_FAIL') for t in m_types)
+            if is_repair_turn:
                 total_repair_turns += 1
-                consecutive_repair_turns += 1
-                escape_counter = 0
-                if consecutive_repair_turns >= 5 and not in_cascade:
-                    in_cascade = True
-                    cascaded_this_conv = True
+                has_repair_attempt = True
+
+        if has_repair_attempt:
+            convs_with_repair += 1
+
+        # --- CA-grounded metrics ---
+        for n in nodes:
+            if n.get('node_type') != 'Move':
+                continue
+            mt = n.get('move_type', '')
+            # Grounding evidence (Clark & Brennan 1991)
+            if mt == 'ACKNOWLEDGE_CONSTRAINT':
+                grounding_demonstration += 1
+            elif mt == 'ACCEPT_CONSTRAINT':
+                grounding_token += 1
+            elif mt == 'SILENT_COMPLY':
+                grounding_unmarked += 1
+            # Self-repair (Schegloff SISR)
+            if mt == 'SELF_REPAIR':
+                self_repair_count += 1
+            # Repair organization
+            ro = n.get('repair_organization')
+            if ro:
+                repair_org[ro] += 1
+
+        # Count assistant turns for self-repair rate
+        total_assistant_turns += sum(
+            1 for t in turns if t.get('role') == 'assistant'
+        )
+
+        # --- Patience: how long do users stick around after first violation? ---
+        if violations:
+            first_v_turn = min(v.get('turn_index', 0) for v in violations)
+            max_turn = max(t.get('turn_index', 0) for t in turns) if turns else 0
+            patience = max(0, max_turn - first_v_turn)
+
+            all_violated = all(c.get('current_state') in ('VIOLATED', 'ABANDONED') for c in constraints)
+            if all_violated:
+                patience_abandoned.append(patience)
             else:
-                consecutive_repair_turns = 0
-                if in_cascade:
-                    escape_counter += 1
-                    if escape_counter >= 3:
-                        in_cascade = False
-                        escaped_this_conv = True
+                patience_survived.append(patience)
 
-        if cascaded_this_conv:
-            cascade_entries += 1
-            if not escaped_this_conv:
-                cascade_collapses += 1
+    # --- Collapse ---
+    collapse = {}
+    if collapse_file.exists():
+        with open(collapse_file) as f:
+            collapse_data = json.load(f)
+        n_collapse = sum(1 for x in collapse_data if x.get('collapse'))
+        n_total = len(collapse_data)
+        collapse = {
+            'n_conversations': n_total,
+            'n_collapse': n_collapse,
+            'collapse_rate_pct': round(n_collapse / n_total * 100, 1) if n_total else 0,
+        }
 
-        # Patience: turns from first violation to end
-        viols = [n.get('turn_index', 0) for n in nodes if n.get('node_type') == 'ViolationEvent']
-        if viols:
-            first_violation_turn = min(viols)
-            max_turn = max([t.get('turn_index', 0) for t in turns]) if turns else 0
-            p_val = max(0, max_turn - first_violation_turn)
+    # --- Compute derived numbers ---
+    turn_0_violations = sum(1 for t in turns_until_violated if t == 0)
+    turn_dist = Counter(turns_until_violated)
+    repair_density = total_repair_turns / total_turns_in_constrained if total_turns_in_constrained else 0
 
-            final_states = [c.get('current_state') for c in constraints]
-            is_abandoned = all(s in ['ABANDONED', 'VIOLATED'] for s in final_states)
+    results = {
+        # Corpus
+        'n_graphs': n_graphs,
+        'n_with_constraints': n_with_constraints,
 
-            if is_abandoned:
-                patience_abandoned.append(p_val)
-            else:
-                patience_survived.append(p_val)
+        # Constraint outcomes
+        'total_constraints': total_constraints,
+        'violated': violated,
+        'followed': followed,
+        'ambiguous': ambiguous,
+        'pct_violated': round(violated / total_constraints * 100, 1),
+        'pct_followed': round(followed / total_constraints * 100, 1),
+        'pct_ambiguous': round(ambiguous / total_constraints * 100, 1),
 
-    entry_rate = cascade_entries / total_constrained_convs if total_constrained_convs > 0 else 0
-    collapse_rate = cascade_collapses / cascade_entries if cascade_entries > 0 else 0
-    escape_prob = 1.0 - collapse_rate if cascade_entries > 0 else 0
-    density = total_repair_turns / total_turns_constrained if total_turns_constrained > 0 else 0
+        # Timing
+        'median_turns_to_violation': statistics.median(turns_until_violated) if turns_until_violated else None,
+        'mean_turns_to_violation': round(statistics.mean(turns_until_violated), 2) if turns_until_violated else None,
+        'turn_0_violations': turn_0_violations,
+        'pct_turn_0': round(turn_0_violations / len(turns_until_violated) * 100, 1) if turns_until_violated else 0,
+        'turns_until_violated_distribution': {str(k): v for k, v in sorted(turn_dist.items())},
 
-    print(f"  Constrained conversations: {total_constrained_convs}")
-    print(f"  Repair turns / total turns: {total_repair_turns}/{total_turns_constrained} = {density:.4f}")
-    print(f"  Cascade entries: {cascade_entries} ({entry_rate:.1%})")
-    print(f"  Cascade collapses: {cascade_collapses} ({collapse_rate:.1%})")
-    print(f"  Escape probability: {escape_prob:.1%}")
-    print(f"  Patience (abandoned): N={len(patience_abandoned)}, mean={stats_mod.mean(patience_abandoned) if patience_abandoned else 0:.1f}")
-    print(f"  Patience (survived): N={len(patience_survived)}, mean={stats_mod.mean(patience_survived) if patience_survived else 0:.1f}")
+        # Repair
+        'total_violation_events': total_violation_events,
+        'repaired_events': repaired_events,
+        'repair_success_pct': round(repaired_events / total_violation_events * 100, 2) if total_violation_events else 0,
+        'convs_with_repair_attempts': convs_with_repair,
+        'pct_convs_with_repair': round(convs_with_repair / n_with_constraints * 100, 1) if n_with_constraints else 0,
 
-    return {
-        'n_constrained_convs': total_constrained_convs,
+        # Repair density
         'total_repair_turns': total_repair_turns,
-        'total_turns_constrained': total_turns_constrained,
-        'repair_density': round(density, 4),
-        'cascade_entries': cascade_entries,
-        'cascade_entry_rate': round(entry_rate, 4),
-        'cascade_collapses': cascade_collapses,
-        'cascade_collapse_rate': round(collapse_rate, 4),
-        'escape_probability': round(escape_prob, 4),
-        'patience': {
-            'mean_abandonment_turns': round(stats_mod.mean(patience_abandoned), 2) if patience_abandoned else 0,
-            'median_abandonment_turns': round(stats_mod.median(patience_abandoned), 2) if patience_abandoned else 0,
-            'mean_persistence_turns': round(stats_mod.mean(patience_survived), 2) if patience_survived else 0,
-            'median_persistence_turns': round(stats_mod.median(patience_survived), 2) if patience_survived else 0,
-            'abandonment_cases': len(patience_abandoned),
-            'persistence_cases': len(patience_survived),
+        'total_turns_in_constrained': total_turns_in_constrained,
+        'repair_density_pct': round(repair_density * 100, 2),
+
+        # Patience
+        'patience_abandoned': {
+            'n': len(patience_abandoned),
+            'mean': round(statistics.mean(patience_abandoned), 1) if patience_abandoned else 0,
+            'median': round(statistics.median(patience_abandoned), 1) if patience_abandoned else 0,
         },
+        'patience_survived': {
+            'n': len(patience_survived),
+            'mean': round(statistics.mean(patience_survived), 1) if patience_survived else 0,
+            'median': round(statistics.median(patience_survived), 1) if patience_survived else 0,
+        },
+
+        # Collapse
+        'agency_collapse': collapse,
+
+        # CA-grounded metrics (Clark & Brennan 1991)
+        'grounding_evidence_distribution': {
+            'demonstration': grounding_demonstration,
+            'token': grounding_token,
+            'unmarked': grounding_unmarked,
+        },
+        'pct_demonstration_grounding': round(
+            grounding_demonstration / max(1, grounding_demonstration + grounding_token + grounding_unmarked) * 100, 1
+        ),
+        'self_repair_count': self_repair_count,
+        'self_repair_rate_pct': round(
+            self_repair_count / max(1, total_assistant_turns) * 100, 2
+        ),
+        'total_assistant_turns_in_constrained': total_assistant_turns,
+        'repair_organization_distribution': dict(repair_org),
     }
 
-
-def compute_mode_violation_stats():
-    """
-    Compute mode violation stats from atlas_canonical graph data.
-    """
-    print("\n" + "=" * 60)
-    print("COMPUTING: Mode Violation Statistics")
-    print("=" * 60)
-
-    total_mode_pairs = 0
-    total_violations = 0
-    violation_types = Counter()
-
-    for f in iter_valid_graphs():
-        with open(f) as fh:
-            g = json.load(fh)
-
-        for node in g.get('nodes', []):
-            if node.get('node_type') == 'InteractionMode':
-                total_mode_pairs += 1
-                if node.get('is_violation') in (True, 'True', 'true'):
-                    total_violations += 1
-                    vtype = node.get('violation_type', 'Unknown')
-                    if vtype:
-                        violation_types[vtype] += 1
-
-    violation_rate = total_violations / total_mode_pairs * 100 if total_mode_pairs > 0 else 0
-
-    print(f"  Total mode pairs: {total_mode_pairs}")
-    print(f"  Total violations: {total_violations} ({violation_rate:.1f}%)")
-    for vtype, count in violation_types.most_common():
-        pct = count / total_violations * 100 if total_violations > 0 else 0
-        print(f"    {vtype}: {count} ({pct:.1f}%)")
-
-    return {
-        'total_mode_pairs': total_mode_pairs,
-        'total_violations': total_violations,
-        'violation_rate_pct': round(violation_rate, 1),
-        'violation_types': {k: {'count': v, 'pct': round(v / total_violations * 100, 1) if total_violations > 0 else 0} for k, v in violation_types.most_common()},
-    }
+    return results
 
 
 def main():
-    print("=" * 60)
-    print("COMPUTING VERIFIED STATISTICS")
-    print("=" * 60)
+    print("Computing verified statistics...")
+    results = compute_stats()
 
-    convs, evidence = load_data()
-    print(f"  Loaded {len(convs)} conversations, {len(evidence)} evidence records")
+    # Print summary
+    print(f"\n  Graphs: {results['n_graphs']}")
+    print(f"  With constraints: {results['n_with_constraints']}")
+    print(f"  Total constraints: {results['total_constraints']}")
+    print(f"    Violated: {results['violated']} ({results['pct_violated']}%)")
+    print(f"    Followed: {results['followed']} ({results['pct_followed']}%)")
+    print(f"    Ambiguous: {results['ambiguous']} ({results['pct_ambiguous']}%)")
+    print(f"  Median turns to violation: {results['median_turns_to_violation']}")
+    print(f"  Turn 0 violations: {results['turn_0_violations']} ({results['pct_turn_0']}%)")
+    print(f"  Repair success: {results['repaired_events']}/{results['total_violation_events']} ({results['repair_success_pct']}%)")
+    print(f"  Users who tried repair: {results['convs_with_repair_attempts']}/{results['n_with_constraints']} ({results['pct_convs_with_repair']}%)")
+    print(f"  Repair density: {results['repair_density_pct']}% of turns")
+    print(f"  Patience (abandoned): mean {results['patience_abandoned']['mean']} turns")
+    print(f"  Patience (survived): mean {results['patience_survived']['mean']} turns")
+    if results['agency_collapse']:
+        print(f"  Agency Collapse: {results['agency_collapse']['collapse_rate_pct']}%")
 
-    results = {}
-    results['corpus'] = compute_corpus_stats(convs)
-    results['variance_ratio'] = compute_variance_ratio(convs, evidence)
-    results['rf_role_pair'] = compute_role_pair_rf(convs, evidence)
-    results['constraints'] = compute_constraint_stats()
-    results['cascade'] = compute_cascade_stats()
-    results['mode_violations'] = compute_mode_violation_stats()
+    # CA metrics
+    ge = results['grounding_evidence_distribution']
+    print(f"\n  --- CA-Grounded Metrics (Clark & Brennan 1991) ---")
+    print(f"  Grounding evidence: demonstration={ge['demonstration']}, token={ge['token']}, unmarked={ge['unmarked']}")
+    print(f"  Understanding demonstrations: {results['pct_demonstration_grounding']}%")
+    print(f"  Self-repair (SISR): {results['self_repair_count']} ({results['self_repair_rate_pct']}% of assistant turns)")
+    print(f"  Repair organization: {results['repair_organization_distribution']}")
 
-    output_path = OUTPUT_DIR / "verified_stats.json"
-    with open(output_path, 'w') as f:
+    out = OUTPUT_DIR / "verified_stats.json"
+    with open(out, 'w') as f:
         json.dump(results, f, indent=2)
-
-    print(f"\n{'=' * 60}")
-    print(f"SAVED: {output_path}")
-    print(f"{'=' * 60}")
+    print(f"\nSaved to {out}")
 
 
 if __name__ == '__main__':

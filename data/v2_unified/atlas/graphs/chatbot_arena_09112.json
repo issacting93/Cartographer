@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "entertainment",
       "id": "conv_chatbot_arena_09112"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 16,
       "content_preview": "Sure, I'm ready!",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_09112_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 1,
       "content_preview": "E",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_09112_2"
     },
@@ -77,11 +77,38 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I'm ready!",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_09112_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_09112_2_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "GENERATE_OUTPUT",
       "text_span": "I'm sorry, but I'm not sure what word you're thinking of. Can you give me a hint...",
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_09112_3_0"
     },
     {
@@ -91,6 +118,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_09112_5_0"
     },
     {
@@ -191,6 +221,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_09112_1",
+      "target": "m_chatbot_arena_09112_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_09112_1",
       "target": "mode_chatbot_arena_09112_0",
@@ -201,6 +238,13 @@
       "order": 3,
       "source": "t_chatbot_arena_09112_2",
       "target": "t_chatbot_arena_09112_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_09112_2",
+      "target": "m_chatbot_arena_09112_2_0",
       "key": 0
     },
     {

@@ -169,7 +169,8 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_4_1"
+      "id": "m_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_4_1",
+      "repair_organization": "OISR"
     },
     {
       "node_type": "Move",
@@ -270,6 +271,16 @@
       "confidence": 0.85,
       "method": "regex",
       "id": "mode_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_10"
+    },
+    {
+      "id": "m_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_5_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -556,6 +567,12 @@
       "source": "t_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_11",
       "target": "mode_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_10",
       "key": 0
+    },
+    {
+      "source": "t_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_5",
+      "target": "m_oasst-ca4d0c93-220b-4861-87c1-bdb44cd13f72_0007_5_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

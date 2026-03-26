@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_0656"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 26,
       "content_preview": "What regex works for this?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_0656_2"
     },
@@ -57,12 +57,27 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is the lua script for Mudlet:\nfunction refillYarrowPipe() \n  local GMCP = r...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is the lua script for Mudlet:\nfunction refi",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_0656_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0656_2_0"
     },
     {
       "node_type": "InteractionMode",
@@ -154,6 +169,13 @@
       "order": 3,
       "source": "t_chatbot_arena_0656_2",
       "target": "t_chatbot_arena_0656_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0656_2",
+      "target": "m_chatbot_arena_0656_2_0",
       "key": 0
     },
     {

@@ -205,7 +205,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_chatbot_arena_0706_9_0"
+      "id": "m_chatbot_arena_0706_9_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -392,6 +393,26 @@
       "confidence": 0.8,
       "method": "regex",
       "id": "v_chatbot_arena_0706_5"
+    },
+    {
+      "id": "m_chatbot_arena_0706_7_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_chatbot_arena_0706_11_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -747,6 +768,18 @@
       "source": "t_chatbot_arena_0706_11",
       "target": "v_chatbot_arena_0706_5",
       "key": 0
+    },
+    {
+      "source": "t_chatbot_arena_0706_7",
+      "target": "m_chatbot_arena_0706_7_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
+    },
+    {
+      "source": "t_chatbot_arena_0706_11",
+      "target": "m_chatbot_arena_0706_11_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

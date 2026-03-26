@@ -2,40 +2,74 @@
   {
     "role": "user",
     "content": "Write a hello world html code.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Here's an example of a simple \"Hello, World!\" HTML code:\n```\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>Hello, World!</title>\n  </head>\n  <body>\n    <h1>Hello, World!</h1>\n    <p>This is a sample text.</p>\n  </body>\n</html>\n```\nThis code creates a simple HTML document with a single `<head>` and `<body>` tag. The `<title>` tag defines the text that will be displayed in the document, and the `<h1>` and `<p>` tags are used to insert text into the document. The `<body>` tag contains the \"Hello, World!\" text.\n\nOf course, this is just one way to write a basic \"Hello, World!\" HTML document, and there are many other HTML tags and styles that you can use to add text, images, and other content to your document.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.7,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here's an example of a simple \"Hello, World!\" HTML code:\n```\n<!DOCTYPE html>\n<ht...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here's an example of a simple \"Hello, World!\" H",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "Add a button. Click and show \u201chello\u201d",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Here's an example of a simple \"Hello, World!\" HTML code with a button:\n```\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>Hello, World!</title>\n  </head>\n  <body>\n    <h1>Hello, World!</h1>\n    <button onclick=\"showHello()\">Show Hello</button>\n  </body>\n</html>\n```\nThis code creates a simple HTML document with a single `<head>` and `<body>` tag. The `<title>` tag defines the text that will be displayed in the document, and the `<button>` tag is used to create a button with an \"onclick\" event that calls the `showHello()` function when clicked.\n\nThe `<button>` tag has an `onclick` attribute that specifies the function to call when the button is clicked. In this case, the function is `showHello()`, which will be called when the button is clicked.\n\nHere's what the code would look like when the button is clicked:\n```\n<button onclick=\"showHello()\">Show Hello</button>\n```\nWhen the button is clicked, the `showHello()` function is called, which will display \"Hello, World!\" in the button.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here's an example of a simple \"Hello, World!\" HTML code with a button:\n```\n<!DOC...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here's an example of a simple \"Hello, World!\" H",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

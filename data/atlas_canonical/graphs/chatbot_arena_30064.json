@@ -156,7 +156,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_chatbot_arena_30064_3_0"
+      "id": "m_chatbot_arena_30064_3_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -270,6 +271,16 @@
       "confidence": 0.8,
       "method": "regex",
       "id": "v_chatbot_arena_30064_2"
+    },
+    {
+      "id": "m_chatbot_arena_30064_1_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -513,6 +524,12 @@
       "source": "t_chatbot_arena_30064_7",
       "target": "v_chatbot_arena_30064_2",
       "key": 0
+    },
+    {
+      "source": "t_chatbot_arena_30064_1",
+      "target": "m_chatbot_arena_30064_1_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

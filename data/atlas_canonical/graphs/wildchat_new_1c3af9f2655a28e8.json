@@ -451,6 +451,26 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_1c3af9f2655a28e8_1"
+    },
+    {
+      "id": "m_wildchat_new_1c3af9f2655a28e8_3_1",
+      "node_type": "Move",
+      "move_type": "ACKNOWLEDGE_CONSTRAINT",
+      "text_span": "ion to do so. Please let me know what exactly you want me to check so that I can assist you better.",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "assistant",
+      "grounding_evidence": "demonstration"
+    },
+    {
+      "id": "m_wildchat_new_1c3af9f2655a28e8_9_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -935,6 +955,18 @@
       "source": "t_wildchat_new_1c3af9f2655a28e8_19",
       "target": "v_wildchat_new_1c3af9f2655a28e8_1",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_1c3af9f2655a28e8_3",
+      "target": "m_wildchat_new_1c3af9f2655a28e8_3_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
+    },
+    {
+      "source": "t_wildchat_new_1c3af9f2655a28e8_9",
+      "target": "m_wildchat_new_1c3af9f2655a28e8_9_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

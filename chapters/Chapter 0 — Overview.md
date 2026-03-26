@@ -21,7 +21,7 @@ We built instruments to map what happens between humans and AI in conversation, 
 
 ## Core Concepts
 
-**Implicit State Pathology (ISP):** Chat interfaces conflate coordination, memory, and execution into a single channel. Because LLMs are stateless, all three must be reconstructed every turn from context that degrades with each repair attempt.
+**Implicit State Pathology (ISP):** Chat interfaces conflate coordination, memory, and execution into a single channel. Because LLMs rely on **unstructured state** (the context window), all three must be reconstructed every turn from context that degrades with each repair attempt.
 
 **Agency Collapse:** The terminal state of failed repair. After 5+ repair attempts, 89.1% of conversations end in collapse. Observed in 50.3% of sustained conversations (200/398).
 

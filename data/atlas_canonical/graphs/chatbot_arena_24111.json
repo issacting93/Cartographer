@@ -127,7 +127,8 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_24111_4_1"
+      "id": "m_chatbot_arena_24111_4_1",
+      "repair_organization": "OISR"
     },
     {
       "node_type": "Constraint",
@@ -237,6 +238,16 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_chatbot_arena_24111_4"
+    },
+    {
+      "id": "m_chatbot_arena_24111_5_0",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -422,6 +433,12 @@
       "source": "v_chatbot_arena_24111_1",
       "target": "c_chatbot_arena_24111_c_1",
       "key": 0
+    },
+    {
+      "source": "t_chatbot_arena_24111_5",
+      "target": "m_chatbot_arena_24111_5_0",
+      "edge_type": "HAS_MOVE",
+      "sequence": 0
     }
   ]
 }

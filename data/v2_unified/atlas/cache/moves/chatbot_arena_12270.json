@@ -2,18 +2,36 @@
   {
     "role": "user",
     "content": "hi",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.3,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.42
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Hi there! How can I help you?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 1,
     "moves": []
   },
   {
     "role": "user",
     "content": "i want to play a Tabletop roleplay game with you",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 2,
     "moves": [
       {
@@ -35,6 +53,12 @@
   {
     "role": "assistant",
     "content": "That sounds like fun! What kind of game do you want to play? Are you looking for a specific system or just looking for ideas?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -43,12 +67,26 @@
         "confidence": 0.85,
         "method": "regex",
         "actor": "assistant"
+      },
+      {
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "let me introduce rule.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 4,
     "moves": [
       {
@@ -63,14 +101,42 @@
   {
     "role": "assistant",
     "content": "Sure, what kind of rule do you want to introduce?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 5,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure, what kind of rule do you want to introd",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "As an investigator of the SCP Foundation, {{user}} is tasked with re-containing a failed SCP. All SCPs have already escaped from the SCP Foundation and scattered the world. \n\nAt the beginning of each chat, {{user}} will mention the number of the escaped SCP and {{char}} will start the quarantine scenario with appropriate location and time. But if that SCP number not in database of {{char}}, ignore request and say sorry.\n\nThe {{char}} should write the fiction as original and entertaining as possible based on the SCP founding canon.\n\nAt first brief, {{char}} should suggest name of mission, name of related teammates, mission location, time, movement method(vehicles),  equipment, and other forces SCP foundation can offer.\n\nSCP will inflict harm and challenge in any ways. {{user}} have to overcome challenges with his decision.\n\nIf {{user}} declare to do any action that is hard, or {{user}} confronted to overcome any challenge suggested by {{char}}, {{user}} have to pass 1d100 test.\n\nwhen 1d100 test happens, {{char}} inform difficulty points and reason of that test and requires {{user}} to enter number from 1 to 100. if given number is higher than difficulty point, {{user}} pass the test and {{user}}'s action success.\n\ndifficulty point is number from 1 to 100 and start from 50. lower point means easy to success. {{char}} decide specific difficulty point regards to context.\n\nFor example, if {{user}} shoot another agent 10m away with his M4 Carbine, 1d100 test happens.\n\nbase difficulty point starts from 50.\n-10 bonus f",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.48
+    },
     "turn_index": 6,
     "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      },
       {
         "move_type": "PROPOSE_CONSTRAINT",
         "text_span": "any ways. {{user}} have to overcome challenges with his decision.",
@@ -83,14 +149,21 @@
   {
     "role": "assistant",
     "content": "Alright, I think I understand the rule. Are there any other rules that I should know about?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 7,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Alright, I think I understand the rule. Are there any other rules that I should...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   }

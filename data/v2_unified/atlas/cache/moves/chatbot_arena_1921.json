@@ -2,40 +2,74 @@
   {
     "role": "user",
     "content": "Write a C++ code that shows \"Hello world!\". ",
+    "pad": {
+      "pleasure": 1.0,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.16
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Here is a simple C++ code that prints \"Hello world!\":\n\n\n```\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello world!\\n\";\n    return 0;\n}\n\n```\n\nThis code uses the `` std::cout `` (short for \"standard output\") stream to print the string \"Hello world!\" to the standard output of the program. The `` std::endl `` manipulator is used to insert a newline character at the end of the output.\n\nYou can compile and run this code using a C++ compiler such as `` g++ ``, `` clang ``, or `` visual studio ``. On a Unix-like system, you can use the `` ./ `` command to execute the program, while on Windows you can use the `` cmd `` command prompt. On a Mac, you can use the `` /bin/bash `` command.",
+    "pad": {
+      "pleasure": 1.0,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.2
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here is a simple C++ code that prints \"Hello world!\":\n\n\n```\n#include <iostream>...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here is a simple C++ code that prints \"Hello wor",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "Write a 4th order Runge Kutta program with C++ language.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Here is a simple 4th order Runge Kutta program in C++:\n\n\n```\n#include <iostream>\n#include <cmath>\n\ndouble rk4(double t, double a, double b, double c, double d) {\n    double x = a * t;\n    double y = b * t;\n    double z = c * t;\n    double x1 = a * t * 0.5 * (x + y) + c * t * 0.5 * (x + z);\n    double y1 = b * t * 0.5 * (x + y) + d * t * 0.5 * (y + z);\n    double x2 = a * t * 0.5 * (x + y) + c * t * 0.5 * (x - y);\n    double y2 = b * t * 0.5 * (x + y) + d * t * 0.5 * (y + z);\n    double x3 = a * t * 0.5 * (x - y) + c * t * 0.5 * (x + z);\n    double y3 = b * t * 0.5 * (x - y) + d * t * 0.5 * (y - z);\n    double x4 = a * t * 0.5 * (x - y) + c * t * 0.5 * (x + z);\n    double y4 = b * t * 0.5 * (x - y) + d * t * 0.5 * (y + z);\n    double x5 = a * t * 0.5 * (x + y) + c * t * 0.5 * (x - y);\n    double y5 = b * t * 0.5 * (x + y) + d * t * 0.5 * (y - z);\n    double x6 = a * t * 0.5 * (x + y) + c * t * 0.5 * (x - y);\n    double y6 = b * t * 0.5 * (x + y) + d * t * 0.5 * (y - z);\n    double x7 = a",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here is a simple 4th order Runge Kutta program in C++:\n\n\n```\n#include <iostream>...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here is a simple 4th order Runge Kutta program i",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

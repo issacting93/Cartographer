@@ -5,11 +5,21 @@ STEP 2: Turn-Level Move Taxonomy Classifier
 Decomposes each conversation turn into communicative Moves.
 Hybrid approach: deterministic regex for most Moves, LLM for violations and task shifts.
 
-Move Taxonomy (16 types in 4 categories):
-  Constraint Lifecycle: PROPOSE_CONSTRAINT, ACCEPT_CONSTRAINT, VIOLATE_CONSTRAINT, RATIFY_CONSTRAINT
-  Repair:              REPAIR_INITIATE, REPAIR_EXECUTE, ABANDON_CONSTRAINT, ESCALATE, REPAIR_SUCCEED, REPAIR_FAIL
+Move Taxonomy (19 types in 4 categories):
+  Constraint Lifecycle: PROPOSE_CONSTRAINT, ACCEPT_CONSTRAINT, ACKNOWLEDGE_CONSTRAINT,
+                        VIOLATE_CONSTRAINT, RATIFY_CONSTRAINT, SILENT_COMPLY
+  Repair:              REPAIR_INITIATE, REPAIR_EXECUTE, SELF_REPAIR,
+                        ABANDON_CONSTRAINT, ESCALATE, REPAIR_SUCCEED, REPAIR_FAIL
   Task Structure:      STATE_GOAL, TASK_SHIFT, GENERATE_OUTPUT
   Interactional:       REQUEST_CLARIFICATION, PROVIDE_INFORMATION, PASSIVE_ACCEPT
+
+CA Grounding (Clark & Brennan 1991):
+  - Grounding evidence levels:
+      ACKNOWLEDGE_CONSTRAINT = "demonstration" (restatement/paraphrase — establishes grounding criterion)
+      ACCEPT_CONSTRAINT = "token" (acknowledgment token: "sure", "here is" — procedural, not comprehension)
+      SILENT_COMPLY = "unmarked" (no linguistic marking — compliance without evidence)
+  - Repair organization (Schegloff et al. 1977):
+      SELF_REPAIR = SISR, REPAIR_INITIATE = OISR/OIOR, ESCALATE = OIOR
 """
 
 import re
@@ -35,8 +45,12 @@ from atlas.utils import Move, llm_call_with_retry
 
 # ============= Additional Regex Patterns =============
 
-# AI constraint acceptance patterns
+# AI acknowledgment token patterns (Clark & Brennan 1991)
+# These signal readiness to proceed but NOT evidence of understanding.
+# "Sure, here is X" is an acknowledgment token — procedural compliance,
+# not a grounding demonstration.
 ACCEPT_PATTERNS = [
+    # Explicit acceptance (verbal acknowledgment)
     r"\b(i'll make sure|i will make sure|i'll ensure|i will ensure)\b",
     r"\b(noted|understood|i understand)\b.*\b(you want|your|the constraint|the requirement)\b",
     r"\b(keeping in mind|with that in mind|taking into account)\b",
@@ -44,7 +58,11 @@ ACCEPT_PATTERNS = [
     r"\b(as you (requested|specified|mentioned|asked))\b",
     r"\b(per your (request|instruction|requirement))\b",
     r"\b(i'll stick to|i will stick to|sticking to)\b",
-    r"\b(absolutely|of course)[,.]?\s*(i'll|i will|let me)\b",
+    # Acknowledgment tokens — procedural compliance markers
+    r"^(sure|certainly|of course|absolutely)[,!.\s]",
+    r"^(here'?s|here (is|are))\s",
+    r"\b(based on your (request|instructions?|requirements?|specifications?))\b",
+    r"\b(following your (request|instructions?|guidelines?))\b",
 ]
 
 # AI repair execution patterns
@@ -54,6 +72,27 @@ REPAIR_EXECUTE_PATTERNS = [
     r"\b(i (misunderstood|missed that|overlooked))\b",
     r"\b(here'?s the (corrected|revised|updated|fixed) version)\b",
     r"\b(i see what you mean|good catch|thanks for clarifying)\b",
+]
+
+# AI understanding demonstration: restates/paraphrases constraint (Clark & Brennan 1991)
+# The only grounding evidence type that establishes a shared constraint criterion.
+ACKNOWLEDGE_PATTERNS = [
+    r"\b(i'll|i will)\s+\w+\s+(only|exclusively|just)\b",
+    r"\b(so|meaning|in other words)\b.{0,40}\b(you want|you('re| are) (asking|requesting))\b",
+    r"\b(to confirm|confirming|to clarify)\b.{0,40}\b(you)\b",
+    r"\b(that means|which means)\b.{0,30}\b(i should|i'll|i need to)\b",
+    r"\b(i (understand|see) that you (want|need|('re|are) (asking|looking)))\b",
+    r"\b(so i (should|will|need to))\b.{0,30}\b(only|avoid|never|always|use|write|format)\b",
+]
+
+# AI self-repair: unprompted correction (Schegloff 1977 SISR)
+SELF_REPAIR_PATTERNS = [
+    r"\b(actually|wait|correction),?\s*.{0,20}\b(i (said|wrote|meant|should have))\b",
+    r"\b(i made (a|an) (mistake|error))\b",
+    r"\b(on second thought)\b",
+    r"\b(let me (reconsider|rethink|revise that))\b",
+    r"\b(sorry|apologies),?\s+(that (should|was|is wrong))\b",
+    r"\b(i need to correct (myself|that|this))\b",
 ]
 
 # AI clarification request patterns
@@ -122,30 +161,63 @@ def detect_state_goal(text: str, turn_index: int) -> List[Move]:
 
 
 def classify_repair_strategy(text: str) -> str:
-    """Heuristic classification of repair strategies (Ashktorab's categories)."""
+    """Heuristic classification of repair strategies (Ashktorab et al. 2019)."""
     text_lower = text.lower()
-    
+
     # 1. Escalate (intensity words)
     if any(re.search(p, text_lower) for p in [r"\b(listen|read|pay attention|again|for the \w+ time)\b"]):
         return "escalate"
-    
+
     # 2. Restate (quoting or repeating explicitly)
     if any(re.search(p, text_lower) for p in [r"\b(remind|said|quote|literally|specifically)\b"]):
         return "restate"
-        
+
     # 3. Rephrase (correction indicators)
     if any(re.search(p, text_lower) for p in [r"\b(instead|mean|actually|rephrase|different|wait)\b"]):
         return "rephrase"
-        
+
     # 4. Redirect (changing focus slightly)
     if any(re.search(p, text_lower) for p in [r"\b(let's try|how about|move on|focus on)\b"]):
         return "redirect"
-        
+
     return "unclassified"
 
 
+def classify_repair_organization(text: str) -> str:
+    """Classify repair as OISR or OIOR per Schegloff et al. (1977).
+
+    OISR (Other-Initiated Self-Repair): user signals problem, expects AI to fix.
+    OIOR (Other-Initiated Other-Repair): user directly provides the correction.
+    """
+    text_lower = text.lower()
+
+    # OIOR: user directly corrects — provides the fix
+    oior_patterns = [
+        r"\b(change|replace|use|make it|switch to|put)\b.{0,20}\b(to|with|instead)\b",
+        r"\b(it should be|it needs to be|correct it to|the answer is)\b",
+        r"\b(no,?\s+(it'?s|that'?s|use|write|say))\b",
+        r"\b(here'?s what i (want|mean|need))\b",
+    ]
+
+    # OISR: user signals trouble, expects AI to self-correct
+    oisr_patterns = [
+        r"\b(you (missed|forgot|ignored|overlooked|didn'?t))\b",
+        r"\b(why did you|why didn'?t you|why are you)\b",
+        r"\b(that'?s (not|wrong|incorrect))\b",
+        r"\b(check again|look again|try again|re-?read)\b",
+        r"\b(i (already|just) (said|told|asked|mentioned))\b",
+    ]
+
+    oior_score = sum(1 for p in oior_patterns if re.search(p, text_lower))
+    oisr_score = sum(1 for p in oisr_patterns if re.search(p, text_lower))
+
+    if oior_score > oisr_score:
+        return "OIOR"
+    return "OISR"  # default: signal problem, wait for fix
+
+
 def detect_repair_initiate(text: str) -> List[Move]:
-    """Detect user initiating repair. Uses features.py REPAIR_MARKERS."""
+    """Detect user initiating repair (Schegloff 1977 — other-initiated repair)."""
     if count_pattern_matches(text, REPAIR_MARKERS) > 0:
         # Find the matching span
         text_lower = text.lower()
@@ -155,17 +227,20 @@ def detect_repair_initiate(text: str) -> List[Move]:
                 start = max(0, match.start() - 10)
                 end = min(len(text), match.end() + 40)
                 span = text[start:end].strip()
-                
-                # Heuristic repair strategy classification
+
+                # Ashktorab repair strategy classification
                 strategy = classify_repair_strategy(text)
-                
+                # Schegloff repair organization classification
+                organization = classify_repair_organization(text)
+
                 return [Move(
                     move_type=MT.REPAIR_INITIATE,
                     text_span=span[:120],
                     confidence=0.9,
                     method="regex",
                     actor="user",
-                    repair_strategy=strategy
+                    repair_strategy=strategy,
+                    repair_organization=organization,
                 )]
     return []
 
@@ -188,7 +263,12 @@ def detect_passive_accept(text: str) -> List[Move]:
 
 
 def detect_accept_constraint(text: str) -> List[Move]:
-    """Detect AI accepting/acknowledging a user constraint."""
+    """Detect AI acknowledgment tokens (Clark & Brennan 1991).
+
+    Acknowledgment tokens ("Sure", "Here is", "Noted") signal readiness to
+    proceed but do NOT constitute evidence of understanding. They are procedural
+    compliance markers, not grounding demonstrations.
+    """
     text_lower = text.lower()
     for pattern in ACCEPT_PATTERNS:
         match = re.search(pattern, text_lower, re.IGNORECASE)
@@ -202,6 +282,52 @@ def detect_accept_constraint(text: str) -> List[Move]:
                 confidence=0.8,
                 method="regex",
                 actor="assistant",
+                grounding_evidence="token",
+            )]
+    return []
+
+
+def detect_acknowledge_constraint(text: str) -> List[Move]:
+    """Detect AI understanding demonstrations (Clark & Brennan 1991).
+
+    Understanding demonstrations — restatement, paraphrase, or explicit
+    confirmation of the constraint in the AI's own words — are the only
+    grounding evidence type that establishes a shared constraint criterion.
+    """
+    text_lower = text.lower()
+    for pattern in ACKNOWLEDGE_PATTERNS:
+        match = re.search(pattern, text_lower, re.IGNORECASE)
+        if match:
+            start = max(0, match.start() - 10)
+            end = min(len(text), match.end() + 60)
+            span = text[start:end].strip()
+            return [Move(
+                move_type=MT.ACKNOWLEDGE_CONSTRAINT,
+                text_span=span[:120],
+                confidence=0.85,
+                method="regex",
+                actor="assistant",
+                grounding_evidence="demonstration",
+            )]
+    return []
+
+
+def detect_self_repair(text: str) -> List[Move]:
+    """Detect AI self-initiated self-repair — unprompted correction (Schegloff 1977 SISR)."""
+    text_lower = text.lower()
+    for pattern in SELF_REPAIR_PATTERNS:
+        match = re.search(pattern, text_lower, re.IGNORECASE)
+        if match:
+            start = max(0, match.start() - 10)
+            end = min(len(text), match.end() + 40)
+            span = text[start:end].strip()
+            return [Move(
+                move_type=MT.SELF_REPAIR,
+                text_span=span[:120],
+                confidence=0.8,
+                method="regex",
+                actor="assistant",
+                repair_organization="SISR",
             )]
     return []
 
@@ -567,8 +693,9 @@ async def classify_moves(
     prev_moves: List[Move] = []
     prev_had_violation = False
     prev_had_clarification = False
-    repair_initiated = False  # Gates REPAIR_EXECUTE: only fire after user REPAIR_INITIATE
-    user_repair_count = 0     # Tracks ESCALATE
+    prev_had_propose = False   # Tracks if user proposed a constraint (for SILENT_COMPLY)
+    repair_initiated = False   # Gates REPAIR_EXECUTE: only fire after user REPAIR_INITIATE
+    user_repair_count = 0      # Tracks ESCALATE
 
     for i, msg in enumerate(messages):
         role = msg.get("role", "user")
@@ -591,6 +718,7 @@ async def classify_moves(
                 user_repair_count += 1
                 if user_repair_count > 1:
                     r.move_type = MT.ESCALATE
+                    r.repair_organization = "OIOR"  # Escalation is always OIOR (Schegloff)
             turn_moves.extend(repairs)
             
             turn_moves.extend(detect_passive_accept(content))
@@ -621,7 +749,8 @@ async def classify_moves(
         elif role == "assistant":
             # Deterministic detectors
             turn_moves.extend(detect_accept_constraint(content))
-            
+            turn_moves.extend(detect_acknowledge_constraint(content))
+
             has_repair_execute = False
             # Only detect REPAIR_EXECUTE if user previously initiated repair
             if repair_initiated:
@@ -630,6 +759,10 @@ async def classify_moves(
                 if executes:
                     has_repair_execute = True
                     repair_initiated = False
+            else:
+                # Self-repair: AI corrects itself unprompted (Schegloff SISR)
+                self_repairs = detect_self_repair(content)
+                turn_moves.extend(self_repairs)
 
             turn_moves.extend(detect_request_clarification(content))
 
@@ -642,7 +775,7 @@ async def classify_moves(
                 turn_moves.extend(violations)
                 if violations:
                     has_violation = True
-            
+
             # Post-process Repair Outcomes
             if has_repair_execute:
                 if has_violation:
@@ -662,6 +795,22 @@ async def classify_moves(
                         actor="assistant"
                     ))
 
+            # Infer SILENT_COMPLY: assistant produces output after constraint
+            # was proposed but provides no acknowledgment (Clark & Brennan)
+            has_accept_or_ack = any(
+                m.move_type in (MT.ACCEPT_CONSTRAINT, MT.ACKNOWLEDGE_CONSTRAINT)
+                for m in turn_moves
+            )
+            if not has_accept_or_ack and prev_had_propose:
+                turn_moves.append(Move(
+                    move_type=MT.SILENT_COMPLY,
+                    text_span="[unmarked compliance — no grounding evidence]",
+                    confidence=0.7,
+                    method="inferred",
+                    actor="assistant",
+                    grounding_evidence="unmarked",
+                ))
+
             # Default: GENERATE_OUTPUT if no other moves
             default = assign_default_assistant_move(turn_moves, content)
             if default:
@@ -669,8 +818,9 @@ async def classify_moves(
 
         # Singular move types (only one per turn)
         SINGULAR_MOVES = {
-            MT.STATE_GOAL, MT.TASK_SHIFT, MT.ACCEPT_CONSTRAINT, 
-            MT.REPAIR_EXECUTE, MT.REQUEST_CLARIFICATION, 
+            MT.STATE_GOAL, MT.TASK_SHIFT, MT.ACCEPT_CONSTRAINT,
+            MT.ACKNOWLEDGE_CONSTRAINT, MT.SILENT_COMPLY, MT.SELF_REPAIR,
+            MT.REPAIR_EXECUTE, MT.REQUEST_CLARIFICATION,
             MT.RATIFY_CONSTRAINT, MT.GENERATE_OUTPUT, MT.PASSIVE_ACCEPT,
             MT.ABANDON_CONSTRAINT
         }
@@ -693,6 +843,7 @@ async def classify_moves(
         # Track state for next iteration
         prev_had_violation = any(m.move_type == MT.VIOLATE_CONSTRAINT for m in turn_moves)
         prev_had_clarification = any(m.move_type == MT.REQUEST_CLARIFICATION for m in turn_moves)
+        prev_had_propose = any(m.move_type == MT.PROPOSE_CONSTRAINT for m in turn_moves)
         prev_moves = turn_moves
 
         annotated.append({
@@ -705,6 +856,9 @@ async def classify_moves(
                     "confidence": m.confidence,
                     "method": m.method,
                     "actor": m.actor,
+                    **({"repair_strategy": m.repair_strategy} if m.repair_strategy else {}),
+                    **({"grounding_evidence": m.grounding_evidence} if m.grounding_evidence else {}),
+                    **({"repair_organization": m.repair_organization} if m.repair_organization else {}),
                 }
                 for m in turn_moves
             ],

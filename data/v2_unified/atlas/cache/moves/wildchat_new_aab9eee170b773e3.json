@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "\u7528cygwin\u5b89\u88c5php pcntl\u6269\u5c55",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u4ee5\u4e0b\u662f\u7528cygwin\u5b89\u88c5php pcntl\u6269\u5c55\u7684\u6b65\u9aa4\uff1a\n\n1. \u6253\u5f00cygwin\u7ec8\u7aef\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\u5b89\u88c5php-devel\u548cgcc\uff1a\n\n```\napt-cyg install php-devel\napt-cyg install gcc\n```\n\n2. \u4e0b\u8f7dphp\u7684\u6e90\u4ee3\u7801\uff0c\u8fdb\u5165php\u6e90\u4ee3\u7801\u76ee\u5f55\u4e0b\u627e\u5230ext/pcntl\u5b50\u76ee\u5f55\u3002\u5982\u679c\u627e\u4e0d\u5230\u8be5\u5b50\u76ee\u5f55\uff0c\u5219\u9700\u8981\u5728configure\u547d\u4ee4\u4e2d\u52a0\u5165--enable-pcntl\u9009\u9879\u91cd\u65b0\u7f16\u8bd1\u5b89\u88c5php\u3002\n\n3. \u8fdb\u5165ext/pcntl\u76ee\u5f55\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\u7f16\u8bd1pcntl\u6269\u5c55\uff1a\n\n```\nphpize\n./configure\nmake\n```\n\n4. \u5c06\u7f16\u8bd1\u597d\u7684pcntl.so\u6587\u4ef6\u590d\u5236\u5230php\u6269\u5c55\u76ee\u5f55\u4e0b\uff0c\u5373php.ini\u6587\u4ef6\u4e2d\u6307\u5b9a\u7684extension_dir\u76ee\u5f55\u4e0b\u3002\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u53ef\u4ee5\u67e5\u770b\u6269\u5c55\u76ee\u5f55\uff1a\n\n```\nphp -i | grep extension_dir\n```\n\n5. \u5728php.ini\u6587\u4ef6\u4e2d\u6dfb\u52a0pcntl\u6269\u5c55\u4fe1\u606f\uff1a\n\n```\nextension=pcntl.so\n```\n\n6. \u91cd\u542fapache\u6216php-fpm\u670d\u52a1\u3002\n\n```\n/etc/init.d/httpd restart\n/etc/init.d/php-fpm restart\n```\n\n7. \u901a\u8fc7php -m\u547d\u4ee4\u67e5\u770b\u6269\u5c55\u662f\u5426\u5df2\u5b89\u88c5\u6210\u529f\u3002\n\n```\nphp -m | grep pcntl\n```",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.7,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "-bash: phpize: command not found\n",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u51fa\u73b0\u4e86\u201c-bash: phpize: command not found\u201d\u8fd9\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u80fd\u662f\u7531\u4e8ePHP\u5f00\u53d1\u5305\uff08php-devel\uff09\u6ca1\u6709\u5b89\u88c5\u5bfc\u81f4\u7684\u3002\u60a8\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u5b89\u88c5\u5b83\uff1a\n\n```\napt-cyg install php-devel\n```\n\n\u7136\u540e\u5728\u6267\u884c\u5b89\u88c5pcntl\u6269\u5c55\u7684\u6b65\u9aa4\u65f6\uff0c\u5e94\u8be5\u53ef\u4ee5\u627e\u5230phpize\u4e86\u3002\u518d\u6267\u884c\u4e0b\u9762\u7684\u6b65\u9aa4\uff1a\n\n\u8fdb\u5165ext/pcntl\u76ee\u5f55\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\u7f16\u8bd1pcntl\u6269\u5c55\uff1a\n\n```\nphpize\n./configure\nmake\n```\n\n\u8fd0\u884cphpize\u547d\u4ee4\u4f1a\u81ea\u52a8\u68c0\u67e5php\u73af\u5883\u5e76\u751f\u6210configure\u811a\u672c\uff0c\u7136\u540e\u8fd0\u884c./configure\u547d\u4ee4\u4f1a\u751f\u6210Makefile\u6587\u4ef6\uff0c\u6700\u540e\u518d\u8fd0\u884cmake\u547d\u4ee4\u7f16\u8bd1\u5b89\u88c5pcntl\u6269\u5c55\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -42,12 +66,24 @@
   {
     "role": "user",
     "content": "-bash: apt-cyg: command not found\n",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u53d1\u73b0\u5728cygwin\u7ec8\u7aef\u4e2d\u51fa\u73b0\u4e86\u201c-bash: apt-cyg: command not found\u201d\u8fd9\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u80fd\u662f\u7531\u4e8eapt-cyg\u5de5\u5177\u6ca1\u6709\u5b89\u88c5\u5bfc\u81f4\u7684\u3002\u60a8\u53ef\u4ee5\u53c2\u7167\u4ee5\u4e0b\u6b65\u9aa4\u5b89\u88c5apt-cyg\uff1a\n\n1. \u4e0b\u8f7dsetup-x86_64.exe\u6216setup-x86.exe\u6587\u4ef6\uff0c\u6587\u4ef6\u4e0b\u8f7d\u5730\u5740\uff1ahttps://cygwin.com/install.html\n\n2. \u5c06\u4e0b\u8f7d\u597d\u7684\u6587\u4ef6\u653e\u5728\u4efb\u4f55\u4e00\u4e2a\u76ee\u5f55\u4e0b\uff0c\u4f8b\u5982\uff1aC:\\cygwin_setup\n\n3. \u6253\u5f00\u547d\u4ee4\u63d0\u793a\u7b26\uff08cmd\uff09\uff0c\u8fdb\u5165\u5230C:\\cygwin_setup\u6240\u5728\u7684\u76ee\u5f55\u4e0b\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\n```\nsetup-x86_64.exe -q -P wget -P tar -P gcc-g++ -P make -P curl -P vim -P openssl -P openssh -P git\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u4f1a\u5b89\u88c5\u4e00\u4e9b\u5e38\u7528\u7684\u5de5\u5177\u548c\u8f6f\u4ef6\u5305\uff0c\u5176\u4e2d\u5305\u62ecwget\u3001tar\u3001gcc\u3001make\u3001curl\u3001vim\u3001openssl\u3001openssh\u548cgit\u7b49\u3002\n\n4. \u4e0b\u8f7dapt-cyg\u5de5\u5177\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\n```\nwget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg\n```\n\n5. \u5c06\u4e0b\u8f7d\u597d\u7684apt-cyg\u6587\u4ef6\u79fb\u52a8\u5230/usr/local/bin\u76ee\u5f55\u4e0b\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\n```\nmv apt-cyg /usr/local/bin/\n```\n\n6. \u6388\u6743apt-cyg\u6587\u4ef6\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\n```\nchmod +x /usr/local/bin/apt-cyg\n```\n\n7. \u73b0\u5728\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528apt-cyg\u547d\u4ee4\u4e86\u3002\u91cd\u65b0\u6253\u5f00cygwin\u7ec8\u7aef\uff0c\u6267\u884capt-cyg\u547d\u4ee4\uff0c\u5b83\u5e94\u8be5\u80fd\u591f\u6b63\u5e38\u5de5\u4f5c\u4e86\u3002\n\n\u901a\u8fc7\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\u5b89\u88c5php-devel\uff1a\n\n```\napt-cyg install php-devel\n```\n\n\u7136\u540e\u5c31\u53ef\u4ee5\u7ee7\u7eed\u5b89\u88c5pcntl\u6269\u5c55\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.6,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.54
+    },
     "turn_index": 5,
     "moves": [
       {
@@ -62,6 +98,12 @@
   {
     "role": "user",
     "content": "$ phpize\nConfiguring for:\nPHP Api Version:         20180731\nZend Module Api No:      20180731\nZend Extension Api No:   320180731\nCannot find autoconf. Please check your autoconf installation and the\n$PHP_AUTOCONF environment variable. Then, rerun this script.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 6,
     "moves": [
       {
@@ -76,26 +118,45 @@
   {
     "role": "assistant",
     "content": "\u5982\u679c\u51fa\u73b0\u4e86\u201cCannot find autoconf\u201d\u8fd9\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u80fd\u662f\u7531\u4e8e\u60a8\u7684\u7cfb\u7edf\u6ca1\u6709\u5b89\u88c5autoconf\u8f6f\u4ef6\u5305\u3002\u60a8\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u5b89\u88c5\u5b83\uff1a\n\n```\napt-cyg install autoconf\n```\n\n\u7136\u540e\u518d\u8fd0\u884cphpize\u547d\u4ee4\u5c31\u4e0d\u4f1a\u51fa\u73b0\u627e\u4e0d\u5230autoconf\u7684\u9519\u8bef\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.7,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.64
+    },
     "turn_index": 7,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "\u5982\u679c\u51fa\u73b0\u4e86\u201cCannot find autoconf\u201d\u8fd9\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u80fd\u662f\u7531\u4e8e\u60a8\u7684\u7cfb\u7edf\u6ca1\u6709\u5b89\u88c5autoconf\u8f6f\u4ef6\u5305\u3002\u60a8\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u5b89\u88c5\u5b83\uff1a\n\n```\nap...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "$ phpize\nConfiguring for:\nPHP Api Version:         20180731\nZend Module Api No:      20180731\nZend Extension Api No:   320180731\nac-wrapper: Unable to locate any usuable version of autoconf.\n        I tried these versions: 2.71:2.7 2.69:2.5 2.13:2.1 2.68:2.5 2.67:2.5 2.66:2.5 2.65:2.5 2.64:2.5 2.63:2.5 2.62:2.5 2.61:2.5 2.60:2.5 2.59:2.5\n        With a base name of '/usr/bin/autoconf'.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 8,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u60a8\u5728\u5b89\u88c5pcntl\u6269\u5c55\u65f6\u51fa\u73b0\u4e86\u201cac-wrapper: Unable to locate any usuable version of autoconf\u201d\u7684\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u80fd\u662fautoconf\u8f6f\u4ef6\u5305\u7684\u7248\u672c\u592a\u4f4e\u4e86\uff0c\u5bfc\u81f4\u65e0\u6cd5\u6ee1\u8db3phpize\u7684\u8981\u6c42\u3002\u60a8\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u547d\u4ee4\u6765\u5b89\u88c5autoconf\u66f4\u9ad8\u7248\u672c\u7684\u8f6f\u4ef6\u5305\uff1a\n\n```\napt-cyg install autoconf213\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u5c06autoconf\u8f6f\u4ef6\u5305\u5b89\u88c5\u4e3a2.13\u7248\u672c\uff0c\u5b83\u53ef\u4ee5\u6ee1\u8db3phpize\u7684\u8981\u6c42\u3002\u4e4b\u540e\u518d\u6b21\u5c1d\u8bd5\u8fd0\u884cphpize\u547d\u4ee4\u5c31\u53ef\u4ee5\u7ee7\u7eed\u5b89\u88c5pcntl\u6269\u5c55\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 9,
     "moves": [
       {
@@ -110,12 +171,24 @@
   {
     "role": "user",
     "content": "$ apt-cyg install autoconf213\nInstalling autoconf213\nUnable to locate package autoconf213\n",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 10,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679ccygwin\u4e2d\u65e0\u6cd5\u627e\u5230autoconf213\u8f6f\u4ef6\u5305\uff0c\u90a3\u4e48\u60a8\u53ef\u4ee5\u5c1d\u8bd5\u5b89\u88c5\u5176\u4ed6\u7248\u672c\u7684autoconf\u8f6f\u4ef6\u5305\uff0c\u6bd4\u5982autoconf2.5x\u3001autoconf2.6x\u7b49\u3002\u5b89\u88c5\u6307\u5b9a\u7248\u672c\u7684autoconf\u8f6f\u4ef6\u5305\u7684\u547d\u4ee4\u4e3a\uff1a\n\n```\napt-cyg install autoconf2.6x\n```\n\n\u5176\u4e2d\uff0c2.6x\u8868\u793a\u60a8\u8981\u5b89\u88c5\u7684autoconf\u7248\u672c\u53f7\uff0c\u53ef\u4ee5\u6839\u636e\u9700\u8981\u8fdb\u884c\u66ff\u6362\u3002\u540c\u65f6\uff0c\u8bf7\u786e\u4fdd\u60a8\u7684\u7f51\u7edc\u8fde\u63a5\u6b63\u5e38\uff0c\u53ef\u4ee5\u6b63\u5e38\u8bbf\u95eecygwin\u4e0b\u8f7d\u6e90\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 11,
     "moves": [
       {
@@ -130,12 +203,24 @@
   {
     "role": "user",
     "content": "autom4te-2.71: error: need GNU m4 1.4 or later: /usr/bin/m4\n",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 12,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u60a8\u5728\u4f7f\u7528phpize\u547d\u4ee4\u65f6\u51fa\u73b0\u201cautom4te-2.71: error: need GNU m4 1.4 or later: /usr/bin/m4\u201d\u9519\u8bef\uff0c\u539f\u56e0\u901a\u5e38\u662f\u7cfb\u7edf\u4e2d\u7684m4\u7248\u672c\u592a\u4f4e\u4e86\uff0c\u9700\u8981\u5148\u5347\u7ea7\u52301.4\u6216\u66f4\u9ad8\u7248\u672c\u3002\n\n\u60a8\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u547d\u4ee4\u67e5\u770b\u5f53\u524d\u7cfb\u7edf\u4e2dm4\u7684\u7248\u672c\u53f7\uff1a\n\n```\nm4 --version\n```\n\n\u5982\u679c\u7248\u672c\u53f7\u5c0f\u4e8e1.4\uff0c\u5219\u9700\u8981\u5b89\u88c5\u65b0\u7248\u672c\u3002\n\n\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6765\u5347\u7ea7m4\u7248\u672c\uff1a\n\n```\napt-cyg install m4\n```\n\n\u8fd9\u5c06\u5b89\u88c5\u6700\u65b0\u7248\u672c\u7684m4\u8f6f\u4ef6\u5305\u3002\u7136\u540e\uff0c\u60a8\u53ef\u4ee5\u518d\u6b21\u8fd0\u884cphpize\u547d\u4ee4\uff0c\u4ee5\u5b8c\u6210pcntl\u6269\u5c55\u7684\u5b89\u88c5\u3002",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 13,
     "moves": [
       {
@@ -150,12 +235,24 @@
   {
     "role": "user",
     "content": "configure.ac:7: warning: The macro `LT_AC_PROG_SED' is obsolete.\nconfigure.ac:7: You should run autoupdate.\naclocal.m4:11605: LT_AC_PROG_SED is expanded from...\naclocal.m4:2704: PHP_CONFIG_NICE is expanded from...\nconfigure.ac:7: the top level\nconfigure.ac:7: warning: $as_echo is obsolete; use AS_ECHO([\"message\"]) instead\naclocal.m4:2704: PHP_CONFIG_NICE is expanded from...\nconfigure.ac:7: the top level\nconfigure.ac:149: warning: The macro `AC_PROG_LIBTOOL' is obsolete.\nconfigure.ac:149: You should run autoupdate.\naclocal.m4:3434: AC_PROG_LIBTOOL is expanded from...\nconfigure.ac:149: the top level\n",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 14,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u60a8\u5b89\u88c5pcntl\u6269\u5c55\u65f6\u51fa\u73b0\u4e86\u4e0a\u8ff0\u51e0\u4e2a\u8b66\u544a\uff0c\u8fd9\u662f\u7531\u4e8e\u67d0\u4e9b\u81ea\u52a8\u914d\u7f6e\u5de5\u5177\u7684\u7248\u672c\u4e0d\u518d\u652f\u6301configure.ac\u6587\u4ef6\u4e2d\u4f7f\u7528\u7684\u67d0\u4e9b\u5b8f\u6240\u81f4\uff0c\u867d\u7136\u8fd9\u4e9b\u8b66\u544a\u4e0d\u4f1a\u59a8\u788dpcntl\u6269\u5c55\u7684\u5b89\u88c5\uff0c\u4f46\u5b83\u4eec\u53ef\u80fd\u4f1a\u5bfc\u81f4\u672a\u6765\u7684\u67d0\u4e9b\u95ee\u9898\u3002\n\n\u89e3\u51b3\u65b9\u6cd5\u662f\u4f7f\u7528\u201cautoupdate\u201d\u547d\u4ee4\u81ea\u52a8\u66f4\u65b0configure.ac\u6587\u4ef6\u548c\u5176\u5b83\u6587\u4ef6\uff0c\u4ee5\u66f4\u65b0\u4e0d\u518d\u652f\u6301\u7684\u5b8f\u3002\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u81ea\u52a8\u66f4\u65b0\uff1a\n\n```\nautoupdate\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u4f1a\u6839\u636e\u7cfb\u7edf\u4e2d\u5df2\u5b89\u88c5\u7684\u81ea\u52a8\u914d\u7f6e\u5de5\u5177\u7248\u672c\uff0c\u81ea\u52a8\u66f4\u65b0\u4e0d\u518d\u53d7\u652f\u6301\u7684\u5b8f\uff0c\u5728\u6b64\u8fc7\u7a0b\u4e2d\u60a8\u53ef\u4ee5\u5ffd\u7565\u4e00\u4e9b\u8b66\u544a\u4fe1\u606f\uff0c\u4f8b\u5982\u201c$as_echo is obsolete\u201d\u7b49\u4fe1\u606f\u3002\n\n\u7136\u540e\u4f7f\u7528phpize\u914d\u7f6e\u5e76\u5b89\u88c5pcntl\u6269\u5c55\u7684\u8fc7\u7a0b\u5c06\u4f1a\u6bd4\u4ee5\u524d\u66f4\u52a0\u987a\u5229\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 15,
     "moves": [
       {
@@ -170,12 +267,24 @@
   {
     "role": "user",
     "content": "make\u65f6\u62a5\u9519/usr/local/php-7.3.4/ext/pcntl/pcntl.c: In function \u2018pcntl_siginfo_to_zval\u2019:\n/usr/local/php-7.3.4/ext/pcntl/pcntl.c:1269:98: error: \u2018siginfo_t\u2019 has no member named \u2018si_band\u2019\n 1269 |                                 add_assoc_long_ex(user_siginfo, \"band\", sizeof(\"band\")-1, siginfo->si_band);\n",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 16,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u5728\u8fd0\u884cmake\u547d\u4ee4\u65f6\u51fa\u73b0\u4e0a\u8ff0\u9519\u8bef\uff0c\u201cerror: \u2018siginfo_t\u2019 has no member named \u2018si_band\u2019\u201d\u7b49\u4fe1\u606f\uff0c\u8fd9\u53ef\u80fd\u662f\u7531\u4e8e\u7cfb\u7edf\u7684\u4fe1\u53f7\u5904\u7406\u65b9\u5f0f\u4e0d\u540c\u800c\u5bfc\u81f4\u3002\u60a8\u53ef\u4ee5\u5148\u624b\u52a8\u4fee\u6539/usr/include/bits/siginfo.h\u6587\u4ef6\uff0c\u5c06\u8be5\u6587\u4ef6\u4e2dsiginfo_t\u7ed3\u6784\u4f53\u4e2d\u7684si_band\u6210\u5458\u6ce8\u91ca\u6389\u3002\n\n\u5177\u4f53\u6b65\u9aa4\u5982\u4e0b\uff1a\n\n1. \u6253\u5f00\u7ec8\u7aef\uff0c\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6253\u5f00/usr/include/bits/siginfo.h\u6587\u4ef6\uff1a\n\n```\nvim /usr/include/bits/siginfo.h\n```\n\n2. \u4f7f\u7528vim\u7f16\u8f91\u5668\u5728\u6587\u4ef6\u4e2d\u67e5\u627e\u5305\u542b\u201ctypedef struct siginfo\u201d\u7684\u884c\uff0c\u5e76\u79fb\u52a8\u5149\u6807\u5230\u8be5\u884c\u3002\n\n3. \u5c06si_band\u6210\u5458\u6ce8\u91ca\u6389\u3002\u5177\u4f53\u65b9\u6cd5\u662f\uff0c\u5c06\u5149\u6807\u79fb\u5230\u5176\u4e2d\u4e00\u4e2a\u7a7a\u683c\u5904\uff0c\u8f93\u5165\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\n```\nCtrl + V + j\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u53ef\u4ee5\u9009\u4e2dCtrl\u952e\u548cV\u952e\u540e\uff0c\u518d\u6309j\u952e\u6765\u9009\u4e2d\u5f53\u524d\u884c\u7684\u5355\u4e2a\u5b57\u7b26\u3002\u5b8c\u6210\u9009\u4e2d\u540e\uff0c\u518d\u6309i\u952e\u8fdb\u5165\u7f16\u8f91\u6a21\u5f0f\uff0c\u8f93\u5165\u4e24\u4e2a\u659c\u6760//\u4f5c\u4e3a\u6ce8\u91ca\u7b26\u53f7\uff0c\u7136\u540e\u6309ESC\u952e\u9000\u51fa\u7f16\u8f91\u6a21\u5f0f\u3002\n\n4. \u4fdd\u5b58\u6587\u4ef6\u5e76\u9000\u51favim\u7f16\u8f91\u5668\u3002\u60a8\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u4fdd\u5b58\u6587\u4ef6\u5e76\u8fd4\u56de\u7ec8\u7aef\uff1a\n\n```\n:wq\n```\n\n\u6ce8\u91ca\u6389siginfo_t\u7ed3\u6784\u4f53\u4e2d\u7684si_band\u6210\u5458\u540e\uff0c\u518d\u6b21\u8fd0\u884cmake\u547d\u4ee4\uff0c\u4e0a\u8ff0\u9519\u8bef\u5c31\u5e94\u8be5\u88ab\u89e3\u51b3\u4e86\u3002\u5982\u679c\u8fd8\u6709\u5176\u4ed6\u7684\u9519\u8bef\uff0c\u53ef\u4ee5\u53c2\u8003\u9519\u8bef\u63d0\u793a\u4fe1\u606f\uff0c\u7ee7\u7eed\u67e5\u627e\u89e3\u51b3\u65b9\u6848\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 17,
     "moves": [
       {
@@ -190,12 +299,24 @@
   {
     "role": "user",
     "content": "\u672a\u627e\u5230siginfo.h",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 18,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u5728\u6253\u5f00`/usr/include/bits/siginfo.h`\u6587\u4ef6\u65f6\u51fa\u73b0\u201c\u672a\u627e\u5230siginfo.h\u201d\u7684\u9519\u8bef\uff0c\u5219\u53ef\u80fd\u9700\u8981\u5148\u5b89\u88c5\u7cfb\u7edf\u5934\u6587\u4ef6\u5305\uff0c\u4ee5\u786e\u4fdd\u8be5\u6587\u4ef6\u5b58\u5728\u3002\n\n\u60a8\u53ef\u4ee5\u5c1d\u8bd5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6765\u5b89\u88c5\u7cfb\u7edf\u5934\u6587\u4ef6\u5305\uff1a\n\n```\napt-cyg install cygwin32-gcc-g++\n```\n\n\u8fd9\u5c06\u5b89\u88c5GCC\u7f16\u8bd1\u5668\u5de5\u5177\u94fe\u7684\u6700\u65b0\u7248\u672c\uff0c\u5176\u4e2d\u5305\u62ec\u5404\u79cd\u5934\u6587\u4ef6\u3001\u5e93\u6587\u4ef6\u7b49\u3002\u7136\u540e\u518d\u5c1d\u8bd5\u6253\u5f00`/usr/include/bits/siginfo.h`\u6587\u4ef6\uff0c\u5e94\u8be5\u53ef\u4ee5\u627e\u5230\u8be5\u6587\u4ef6\u4e86\u3002\n\n\u5982\u679c\u60a8\u4ecd\u7136\u65e0\u6cd5\u627e\u5230\u8be5\u6587\u4ef6\uff0c\u5219\u53ef\u80fd\u9700\u8981\u624b\u52a8\u5b89\u88c5\u6b63\u786e\u7248\u672c\u7684cygwin-base\u8f6f\u4ef6\u5305\u3002\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6765\u5b89\u88c5\u8be5\u8f6f\u4ef6\u5305\uff1a\n\n```\napt-cyg install cygwin-base\n```\n\n\u5b89\u88c5\u5b8c\u6210\u540e\uff0c\u518d\u6b21\u8fd0\u884cmake\u547d\u4ee4\uff0c\u4e0a\u8ff0\u9519\u8bef\u5e94\u8be5\u88ab\u89e3\u51b3\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 19,
     "moves": [
       {
@@ -210,12 +331,24 @@
   {
     "role": "user",
     "content": "Installing cygwin32-gcc-g++\nUnable to locate package cygwin32-gcc-g++\n",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 20,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u5728\u5b89\u88c5cygwin32-gcc-g++\u8f6f\u4ef6\u5305\u65f6\u51fa\u73b0\u201cUnable to locate package cygwin32-gcc-g++\u201d\u7684\u9519\u8bef\uff0c\u5219\u53ef\u80fd\u662f\u7531\u4e8e\u8f6f\u4ef6\u6e90\u5217\u8868\u4e0d\u5b8c\u6574\u6216\u672a\u66f4\u65b0\u5bfc\u81f4\u7684\u3002\u60a8\u53ef\u4ee5\u5c1d\u8bd5\u5148\u66f4\u65b0\u8f6f\u4ef6\u6e90\u5217\u8868\uff0c\u4ee5\u4fbf\u627e\u5230\u8be5\u8f6f\u4ef6\u5305\u3002\n\n\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u66f4\u65b0\u8f6f\u4ef6\u6e90\u5217\u8868\uff1a\n\n```\napt-cyg update\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u4f1a\u66f4\u65b0cygwin\u7ec8\u7aef\u4e2d\u4f7f\u7528\u7684\u672c\u5730\u8f6f\u4ef6\u6e90\u5217\u8868\uff0c\u4ee5\u786e\u4fdd\u5b83\u662f\u6700\u65b0\u7684\u3002\n\n\u7136\u540e\u518d\u5c1d\u8bd5\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff0c\u5b89\u88c5cygwin32-gcc-g++\u8f6f\u4ef6\u5305\uff1a\n\n```\napt-cyg install cygwin32-gcc-g++\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u4f1a\u5b89\u88c5cygwin32-gcc-g++\u8f6f\u4ef6\u5305\uff0c\u5176\u4e2d\u5305\u62ecGCC\u7f16\u8bd1\u5668\u5de5\u5177\u94fe\u7684\u6700\u65b0\u7248\u672c\uff0c\u5305\u62ec\u5404\u79cd\u5934\u6587\u4ef6\u3001\u5e93\u6587\u4ef6\u7b49\u3002\n\n\u5b89\u88c5\u5b8c\u6210\u540e\uff0c\u518d\u6b21\u5c1d\u8bd5\u7f16\u8bd1\u5b89\u88c5pcntl\u6269\u5c55\uff0c\u5e94\u8be5\u4e0d\u4f1a\u518d\u51fa\u73b0\u4e0a\u8ff0\u9519\u8bef\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 21,
     "moves": [
       {
@@ -230,12 +363,24 @@
   {
     "role": "user",
     "content": "apt-cyg update\u540e\u8fd8\u662f\u62a5\u9519Installing cygwin32-gcc-g++\nUnable to locate package cygwin32-gcc-g++\n",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 22,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679capt-cyg update\u540e\u4ecd\u7136\u65e0\u6cd5\u627e\u5230cygwin32-gcc-g++\u8f6f\u4ef6\u5305\uff0c\u90a3\u4e48\u53ef\u80fd\u662f\u7531\u4e8e\u60a8\u7684cygwin\u8f6f\u4ef6\u6e90\u6ca1\u6709\u5305\u542b\u8be5\u8f6f\u4ef6\u5305\u3002\n\n\u60a8\u9700\u8981\u6dfb\u52a0\u4e00\u4e2a\u5305\u542bcygwin32-gcc-g++\u8f6f\u4ef6\u5305\u7684\u65b0\u8f6f\u4ef6\u6e90\uff0c\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6dfb\u52a0\uff1a\n\n```\napt-cyg mirror http://mirrors.163.com/cygwin\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u5c06\u5411\u60a8\u7684apt-cyg\u5de5\u5177\u6dfb\u52a0\u4e00\u4e2a\u65b0\u8f6f\u4ef6\u6e90\uff08http://mirrors.163.com/cygwin\uff09\uff0c\u8be5\u8f6f\u4ef6\u6e90\u5305\u542b\u4e86\u6700\u65b0\u7684cygwin32-gcc-g++\u8f6f\u4ef6\u5305\u548c\u5404\u79cd\u5176\u5b83\u5e38\u7528\u8f6f\u4ef6\u5305\u3002\n\n\u6dfb\u52a0\u8f6f\u4ef6\u6e90\u540e\uff0c\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u5237\u65b0\u8f6f\u4ef6\u5305\u5217\u8868\uff1a\n\n```\napt-cyg update\n```\n\n\u7136\u540e\u518d\u5c1d\u8bd5\u5b89\u88c5cygwin32-gcc-g++\u8f6f\u4ef6\u5305\uff1a\n\n```\napt-cyg install cygwin32-gcc-g++\n```\n\n\u8fd9\u4e2a\u547d\u4ee4\u5e94\u8be5\u53ef\u4ee5\u627e\u5230\u8be5\u8f6f\u4ef6\u5305\u5e76\u6210\u529f\u5b89\u88c5\u3002\u6700\u540e\u518d\u5c1d\u8bd5\u91cd\u65b0\u7f16\u8bd1pcntl\u6269\u5c55\uff0c\u5e94\u8be5\u53ef\u4ee5\u6210\u529f\u4e86\u3002",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 23,
     "moves": [
       {
@@ -250,12 +395,24 @@
   {
     "role": "user",
     "content": "/usr/local/php-7.3.4/ext/pcntl/pcntl.c:1269:98: error: \u2018siginfo_t\u2019 has no member named \u2018si_band\u2019",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 24,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "\u5982\u679c\u5728\u7f16\u8bd1\u5b89\u88c5pcntl\u6269\u5c55\u65f6\u4ecd\u7136\u65e0\u6cd5\u901a\u8fc7\uff0c\u51fa\u73b0\u201cerror: \u2018siginfo_t\u2019 has no member named \u2018si_band\u2019\u201d\u7b49\u7c7b\u4f3c\u9519\u8bef\uff0c\u90a3\u4e48\u53ef\u4ee5\u5c1d\u8bd5\u4fee\u6539pcntl.c\u6587\u4ef6\u6765\u89e3\u51b3\u8be5\u95ee\u9898\u3002\n\n\u5177\u4f53\u6b65\u9aa4\u5982\u4e0b\uff1a\n\n1. \u6253\u5f00\u7ec8\u7aef\uff0c\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u6253\u5f00/usr/local/php-7.3.4/ext/pcntl/pcntl.c\u6587\u4ef6\uff1a\n\n```\nvim /usr/local/php-7.3.4/ext/pcntl/pcntl.c\n```\n\n2. \u4f7f\u7528vim\u7f16\u8f91\u5668\u5728\u6587\u4ef6\u4e2d\u67e5\u627e\u5b57\u7b26\u4e32\"siginfo_t\"\uff0c\u5e76\u79fb\u52a8\u5149\u6807\u5230\u9519\u8bef\u6240\u5728\u7684\u884c\u3002\n\n3. \u6ce8\u91ca\u6389\u5305\u542b\"si_band\"\u7684\u8bed\u53e5\u3002\u5177\u4f53\u65b9\u6cd5\u662f\uff0c\u5728\u9519\u8bef\u4ee3\u7801\u6bb5\u4e2d\u627e\u5230add_assoc_long_ex\u8fd9\u4e2a\u51fd\u6570\uff0c\u7136\u540e\u627e\u5230\u5b83\u7684\u7b2c\u56db\u4e2a\u53c2\u6570siginfo->si_band\uff0c\u5728\u8be5\u884c\u4ee3\u7801\u7684\u5f00\u5934\u63d2\u5165\u4e24\u4e2a\u659c\u6760//\uff0c\u4ee5\u6ce8\u91ca\u6389\u8fd9\u884c\u4ee3\u7801\u3002\u6ce8\u91ca\u540e\u7684\u4ee3\u7801\u884c\u5e94\u8be5\u5982\u4e0b\u6240\u793a\uff1a\n\n```\n//add_assoc_long_ex(user_siginfo, \"band\", sizeof(\"band\")-1, siginfo->si_band);\n```\n\n4. \u4fdd\u5b58\u6587\u4ef6\u5e76\u9000\u51favim\u7f16\u8f91\u5668\u3002\u60a8\u53ef\u4ee5\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\u4fdd\u5b58\u6587\u4ef6\u5e76\u8fd4\u56de\u7ec8\u7aef\uff1a\n\n```\n:wq\n```\n\n5. \u518d\u6b21\u8fd0\u884cmake\u547d\u4ee4\uff0c\u4ee5\u5b8c\u6210pcntl\u6269\u5c55\u7684\u7f16\u8bd1\u5b89\u88c5\u3002\n\n\u5b8c\u6210\u4ee5\u4e0a\u6b65\u9aa4\u540e\uff0c\u60a8\u5e94\u8be5\u53ef\u4ee5\u5728PHP\u4e2d\u4f7f\u7528pcntl\u6269\u5c55\u4e86\uff0c\u53ef\u4ee5\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\u6765\u9a8c\u8bc1pcntl\u662f\u5426\u5df2\u5b89\u88c5\u6210\u529f\uff1a\n\n```\nphp -m | grep pcntl\n```\n\n\u5982\u679c\u8fd4\u56de\u503c\u4e2d\u5305\u542b",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 25,
     "moves": [
       {

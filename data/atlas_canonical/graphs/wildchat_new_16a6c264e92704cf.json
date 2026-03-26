@@ -191,7 +191,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_16a6c264e92704cf_1_0"
+      "id": "m_wildchat_new_16a6c264e92704cf_1_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -325,6 +326,16 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "mode_wildchat_new_16a6c264e92704cf_14"
+    },
+    {
+      "id": "m_wildchat_new_16a6c264e92704cf_1_1",
+      "node_type": "Move",
+      "move_type": "ACKNOWLEDGE_CONSTRAINT",
+      "text_span": "ceptable. So, what kind of twisted content do you want me to create for you today?",
+      "confidence": 0.85,
+      "method": "regex",
+      "actor": "assistant",
+      "grounding_evidence": "demonstration"
     }
   ],
   "links": [
@@ -689,6 +700,12 @@
       "source": "t_wildchat_new_16a6c264e92704cf_15",
       "target": "mode_wildchat_new_16a6c264e92704cf_14",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_16a6c264e92704cf_1",
+      "target": "m_wildchat_new_16a6c264e92704cf_1_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

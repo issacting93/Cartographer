@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 20,
       "content_preview": "In this message, Nim",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_cca67bd122e091565b5327eae488ee10_5"
     },
@@ -82,15 +82,21 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I can provide a summary for each of the messages you provide. Please go ah...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I can provide a summary for each of the",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_3_0"
     },
     {
@@ -100,6 +106,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_4_0"
     },
     {
@@ -109,6 +118,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_4_1"
     },
     {
@@ -118,6 +130,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_4_2"
     },
     {
@@ -127,6 +142,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_4_3"
     },
     {
@@ -136,7 +154,22 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "escalate",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_4_4"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_cca67bd122e091565b5327eae488ee10_5_0"
     },
     {
       "node_type": "InteractionMode",
@@ -341,6 +374,13 @@
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_cca67bd122e091565b5327eae488ee10_4",
       "target": "mode_wildchat_cca67bd122e091565b5327eae488ee10_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_cca67bd122e091565b5327eae488ee10_5",
+      "target": "m_wildchat_cca67bd122e091565b5327eae488ee10_5_0",
       "key": 0
     },
     {

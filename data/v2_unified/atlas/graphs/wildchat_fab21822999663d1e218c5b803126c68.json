@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 145,
       "content_preview": "vocabulary acquisition remains a challenging task for most learners. And school teachers do not get a way to teach effec",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_fab21822999663d1e218c5b803126c68_4"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 6,
       "content_preview": "\u5e2e\u6211\u8865\u5145\u5185\u5bb9",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_fab21822999663d1e218c5b803126c68_6"
     },
@@ -102,6 +102,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_fab21822999663d1e218c5b803126c68_1_0"
     },
     {
@@ -111,25 +114,58 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_fab21822999663d1e218c5b803126c68_2_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is a possible revision, with some suggestions to improve the language and f...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is a possible revision, with some suggestio",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_fab21822999663d1e218c5b803126c68_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is a possible revision, with some suggestions to improve the language and c...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_fab21822999663d1e218c5b803126c68_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is a possible revision, with some suggestio",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_fab21822999663d1e218c5b803126c68_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_fab21822999663d1e218c5b803126c68_6_0"
     },
     {
       "node_type": "Move",
@@ -138,6 +174,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_fab21822999663d1e218c5b803126c68_7_0"
     },
     {
@@ -323,6 +362,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_fab21822999663d1e218c5b803126c68_4",
+      "target": "m_wildchat_fab21822999663d1e218c5b803126c68_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_fab21822999663d1e218c5b803126c68_4",
       "target": "mode_wildchat_fab21822999663d1e218c5b803126c68_4",
@@ -353,6 +399,13 @@
       "order": 7,
       "source": "t_wildchat_fab21822999663d1e218c5b803126c68_6",
       "target": "t_wildchat_fab21822999663d1e218c5b803126c68_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_fab21822999663d1e218c5b803126c68_6",
+      "target": "m_wildchat_fab21822999663d1e218c5b803126c68_6_0",
       "key": 0
     },
     {

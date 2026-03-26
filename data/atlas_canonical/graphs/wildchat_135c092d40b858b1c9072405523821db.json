@@ -140,7 +140,8 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_135c092d40b858b1c9072405523821db_2_1"
+      "id": "m_wildchat_135c092d40b858b1c9072405523821db_2_1",
+      "repair_organization": "OISR"
     },
     {
       "node_type": "Move",
@@ -232,6 +233,16 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "mode_wildchat_135c092d40b858b1c9072405523821db_8"
+    },
+    {
+      "id": "m_wildchat_135c092d40b858b1c9072405523821db_3_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -476,6 +487,12 @@
       "source": "t_wildchat_135c092d40b858b1c9072405523821db_9",
       "target": "mode_wildchat_135c092d40b858b1c9072405523821db_8",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_135c092d40b858b1c9072405523821db_3",
+      "target": "m_wildchat_135c092d40b858b1c9072405523821db_3_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

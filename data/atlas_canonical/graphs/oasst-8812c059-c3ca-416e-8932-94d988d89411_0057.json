@@ -160,7 +160,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_5_0"
+      "id": "m_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_5_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -275,6 +276,16 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_0"
+    },
+    {
+      "id": "m_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_10_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -560,6 +571,12 @@
       "source": "t_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_11",
       "target": "m_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_11_0",
       "key": 0
+    },
+    {
+      "source": "t_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_10",
+      "target": "m_oasst-8812c059-c3ca-416e-8932-94d988d89411_0057_10_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

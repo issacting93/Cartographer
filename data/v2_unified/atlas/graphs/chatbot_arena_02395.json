@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "capability-exploration",
       "id": "conv_chatbot_arena_02395"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 33,
       "content_preview": "Sure, where would you like to go?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_02395_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 26,
       "content_preview": "Let's see what you can do.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_02395_2"
     },
@@ -77,11 +77,38 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, where would you like to go?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_02395_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_02395_2_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "GENERATE_OUTPUT",
       "text_span": "What type of activity do you want to do? You can choose from going to a restaura...",
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_02395_3_0"
     },
     {
@@ -91,6 +118,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_02395_5_0"
     },
     {
@@ -191,6 +221,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_02395_1",
+      "target": "m_chatbot_arena_02395_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_02395_1",
       "target": "mode_chatbot_arena_02395_0",
@@ -201,6 +238,13 @@
       "order": 3,
       "source": "t_chatbot_arena_02395_2",
       "target": "t_chatbot_arena_02395_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_02395_2",
+      "target": "m_chatbot_arena_02395_2_0",
       "key": 0
     },
     {

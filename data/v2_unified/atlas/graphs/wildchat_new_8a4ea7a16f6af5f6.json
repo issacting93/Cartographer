@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_wildchat_new_8a4ea7a16f6af5f6"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 28,
       "content_preview": "it did not work, can you fix",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_8a4ea7a16f6af5f6_4"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 96,
       "content_preview": "i see it on many lines and spaces, can you write it on plain text so I can easily copy and paste",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_8a4ea7a16f6af5f6_8"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 63,
       "content_preview": "there is an error on the interface, can you put it inside a div",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_8a4ea7a16f6af5f6_10"
     },
@@ -161,7 +161,7 @@
       "role": "user",
       "content_length": 144,
       "content_preview": "can you repeat the same PowerShell command, but break it to 5 answers, write down part 1 and wait for my answer \"ok\" to",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_8a4ea7a16f6af5f6_14"
     },
@@ -181,7 +181,7 @@
       "role": "user",
       "content_length": 2,
       "content_preview": "ok",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_8a4ea7a16f6af5f6_16"
     },
@@ -202,16 +202,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's a PowerShell command to list the RDP users which are currently conn...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's a PowerShell command to list the",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_8a4ea7a16f6af5f6_4_0"
     },
     {
       "node_type": "Move",
@@ -220,25 +238,58 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here is the same PowerShell command as before, but in a single line:\n\n```p...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here is the same PowerShell command as",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_7_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here is the same PowerShell command as before, in plain text:\n\n```\nGet-Net...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_8a4ea7a16f6af5f6_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here is the same PowerShell command as",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_9_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_8a4ea7a16f6af5f6_10_0"
     },
     {
       "node_type": "Move",
@@ -247,24 +298,45 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_11_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here it is:\n\n```powershell\n(gwmi -Class Win32_LoggedOnUser -ea SilentlyCon...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here it is:\n\n```powershell\n(gwmi -Class",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_13_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I can break down the PowerShell command for you. Here is part 1:\n\n```power...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_8a4ea7a16f6af5f6_14_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I can break down the PowerShell command",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_15_0"
     },
     {
@@ -274,7 +346,22 @@
       "confidence": 0.95,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_16_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_8a4ea7a16f6af5f6_16_1"
     },
     {
       "node_type": "Move",
@@ -283,6 +370,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_8a4ea7a16f6af5f6_17_0"
     },
     {
@@ -586,6 +676,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_8a4ea7a16f6af5f6_4",
+      "target": "m_wildchat_new_8a4ea7a16f6af5f6_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_8a4ea7a16f6af5f6_4",
       "target": "mode_wildchat_new_8a4ea7a16f6af5f6_4",
@@ -652,6 +749,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_8a4ea7a16f6af5f6_8",
+      "target": "m_wildchat_new_8a4ea7a16f6af5f6_8_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_8a4ea7a16f6af5f6_8",
       "target": "mode_wildchat_new_8a4ea7a16f6af5f6_8",
@@ -682,6 +786,13 @@
       "order": 11,
       "source": "t_wildchat_new_8a4ea7a16f6af5f6_10",
       "target": "t_wildchat_new_8a4ea7a16f6af5f6_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_8a4ea7a16f6af5f6_10",
+      "target": "m_wildchat_new_8a4ea7a16f6af5f6_10_0",
       "key": 0
     },
     {
@@ -751,6 +862,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_8a4ea7a16f6af5f6_14",
+      "target": "m_wildchat_new_8a4ea7a16f6af5f6_14_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_8a4ea7a16f6af5f6_14",
       "target": "mode_wildchat_new_8a4ea7a16f6af5f6_14",
@@ -788,6 +906,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_8a4ea7a16f6af5f6_16",
       "target": "m_wildchat_new_8a4ea7a16f6af5f6_16_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_8a4ea7a16f6af5f6_16",
+      "target": "m_wildchat_new_8a4ea7a16f6af5f6_16_1",
       "key": 0
     },
     {

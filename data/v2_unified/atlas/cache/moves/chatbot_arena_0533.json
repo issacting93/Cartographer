@@ -2,24 +2,65 @@
   {
     "role": "user",
     "content": "Hi there!  Can you respond in the form of a customer service representative.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure! How can I assist you today?",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 1,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure! How can I assist you today?",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "I am having some money problems.  I was wondering whether I can make an arrangement to pay part of my bill this month.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.5,
+      "dominance": 0.4,
+      "emotionalIntensity": 0.56
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "As a language model, I don't have personal experience with your situation, but I can help you understand your options. If you're having trouble paying your bill, it's important to communicate with your provider as soon as possible to work out a payment plan. Some providers may offer payment plans or other options to help you manage your expenses and avoid financial problems. It's also important to note that some providers may have different payment policies or requirements for paying bills. It's best to speak with a representative from my provider to discuss your options and determine what works best for you.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.5
+    },
     "turn_index": 3,
     "moves": [
       {

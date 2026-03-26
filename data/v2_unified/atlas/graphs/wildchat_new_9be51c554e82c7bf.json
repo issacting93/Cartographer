@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_wildchat_new_9be51c554e82c7bf"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 187,
       "content_preview": "it's an app with a green visual identity that was created in east europe and its specificity is that it permits to do ph",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_9be51c554e82c7bf_2"
     },
@@ -131,7 +131,7 @@
       "role": "assistant",
       "content_length": 166,
       "content_preview": "I apologize for not being able to identify the app you are looking for. If you remember any other details, please let me",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_9be51c554e82c7bf_11"
     },
@@ -181,7 +181,7 @@
       "role": "user",
       "content_length": 74,
       "content_preview": "no need to describe them to me, just give me more suggestions that can fit",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_9be51c554e82c7bf_16"
     },
@@ -221,7 +221,7 @@
       "role": "user",
       "content_length": 9,
       "content_preview": "still not",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_9be51c554e82c7bf_20"
     },
@@ -291,7 +291,7 @@
       "role": "assistant",
       "content_length": 1156,
       "content_preview": "I apologize for misunderstanding your question. The marketing practice you are referring to is called \"competitive intel",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_9be51c554e82c7bf_27"
     },
@@ -502,6 +502,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_0_0"
     },
     {
@@ -511,16 +514,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_0_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I'll do my best! Can you give me any details or descriptions about the app...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I'll do my best! Can you give me any de",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_9be51c554e82c7bf_2_0"
     },
     {
       "node_type": "Move",
@@ -529,6 +550,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_3_0"
     },
     {
@@ -538,6 +562,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "unclassified",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_wildchat_new_9be51c554e82c7bf_4_0"
     },
     {
@@ -547,6 +574,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_5_0"
     },
     {
@@ -556,6 +586,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_7_0"
     },
     {
@@ -565,6 +598,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_9_0"
     },
     {
@@ -574,7 +610,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_11_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_9be51c554e82c7bf_11_1"
     },
     {
       "node_type": "Move",
@@ -583,16 +634,34 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_13_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, based on the details you've provided, here are a few more apps that allow...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, based on the details you've provided, h",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_15_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_9be51c554e82c7bf_16_0"
     },
     {
       "node_type": "Move",
@@ -601,34 +670,58 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_9be51c554e82c7bf_16_0"
-    },
-    {
-      "node_type": "Move",
-      "move_type": "REPAIR_INITIATE",
-      "text_span": "no need to describe them to me, just give me mo",
-      "confidence": 0.9,
-      "method": "regex",
-      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_16_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Okay, here are a few more apps that might be what you're looking for:\n\n1. WePhon...",
-      "confidence": 0.6,
+      "move_type": "ESCALATE",
+      "text_span": "no need to describe them to me, just give me mo",
+      "confidence": 0.9,
+      "method": "regex",
+      "actor": "user",
+      "repair_strategy": "unclassified",
+      "grounding_evidence": null,
+      "repair_organization": "OIOR",
+      "id": "m_wildchat_new_9be51c554e82c7bf_16_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_17_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are some other suggestions that you might find helpful:\n\n1. Talkatone...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here are some other suggestions that yo",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_19_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_9be51c554e82c7bf_20_0"
     },
     {
       "node_type": "Move",
@@ -637,6 +730,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_21_0"
     },
     {
@@ -646,6 +742,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_23_0"
     },
     {
@@ -655,6 +754,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_25_0"
     },
     {
@@ -664,7 +766,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_27_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_9be51c554e82c7bf_27_1"
     },
     {
       "node_type": "Move",
@@ -673,6 +790,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_29_0"
     },
     {
@@ -682,6 +802,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_30_0"
     },
     {
@@ -691,15 +814,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_30_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Okay, based on this new information, here are a few more suggestions that could...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_31_0"
     },
     {
@@ -709,6 +838,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_33_0"
     },
     {
@@ -718,6 +850,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_35_0"
     },
     {
@@ -727,6 +862,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_37_0"
     },
     {
@@ -736,15 +874,21 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_39_0"
     },
     {
       "node_type": "Move",
-      "move_type": "REPAIR_INITIATE",
+      "move_type": "ESCALATE",
       "text_span": "not plingm but it's close",
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "unclassified",
+      "grounding_evidence": null,
+      "repair_organization": "OIOR",
       "id": "m_wildchat_new_9be51c554e82c7bf_40_0"
     },
     {
@@ -754,6 +898,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_41_0"
     },
     {
@@ -763,6 +910,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_43_0"
     },
     {
@@ -772,6 +922,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_45_0"
     },
     {
@@ -781,6 +934,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_9be51c554e82c7bf_47_0"
     },
     {
@@ -1440,6 +1596,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9be51c554e82c7bf_2",
+      "target": "m_wildchat_new_9be51c554e82c7bf_2_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_9be51c554e82c7bf_2",
       "target": "mode_wildchat_new_9be51c554e82c7bf_2",
@@ -1599,6 +1762,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9be51c554e82c7bf_11",
+      "target": "m_wildchat_new_9be51c554e82c7bf_11_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_9be51c554e82c7bf_11",
       "target": "mode_wildchat_new_9be51c554e82c7bf_10",
@@ -1692,6 +1862,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_9be51c554e82c7bf_16",
+      "target": "m_wildchat_new_9be51c554e82c7bf_16_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_9be51c554e82c7bf_16",
       "target": "mode_wildchat_new_9be51c554e82c7bf_16",
@@ -1755,6 +1932,13 @@
       "order": 21,
       "source": "t_wildchat_new_9be51c554e82c7bf_20",
       "target": "t_wildchat_new_9be51c554e82c7bf_21",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_9be51c554e82c7bf_20",
+      "target": "m_wildchat_new_9be51c554e82c7bf_20_0",
       "key": 0
     },
     {
@@ -1874,6 +2058,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_9be51c554e82c7bf_27",
       "target": "m_wildchat_new_9be51c554e82c7bf_27_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_9be51c554e82c7bf_27",
+      "target": "m_wildchat_new_9be51c554e82c7bf_27_1",
       "key": 0
     },
     {

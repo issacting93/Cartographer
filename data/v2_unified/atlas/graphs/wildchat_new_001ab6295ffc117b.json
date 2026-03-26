@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "entertainment",
       "id": "conv_wildchat_new_001ab6295ffc117b"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 39,
       "content_preview": "Sure, what game would you like to play?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 33,
       "content_preview": "I want to play a game that I made",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_2"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 72,
       "content_preview": "Sure, please tell me the rules of the game so that we can start playing.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 204,
       "content_preview": "We roll a digital dice and that number gets added to our score. If you or me gets to 50, our points get doubled, and our",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_4"
     },
@@ -71,7 +71,7 @@
       "role": "assistant",
       "content_length": 74,
       "content_preview": "Great! Let's start playing. Who would like to roll the digital dice first?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_5"
     },
@@ -91,7 +91,7 @@
       "role": "assistant",
       "content_length": 59,
       "content_preview": "Sure. Go ahead and roll the dice by typing \"roll the dice\".",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_7"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 13,
       "content_preview": "roll the dice",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_001ab6295ffc117b_8"
     },
@@ -317,12 +317,39 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, what game would you like to play?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_1_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "STATE_GOAL",
       "text_span": "I want to play a game that I made",
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_2_1"
     },
     {
       "node_type": "Move",
@@ -331,7 +358,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_001ab6295ffc117b_2_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_2_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, please tell me the rules of the game so",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_3_0"
     },
     {
       "node_type": "Move",
@@ -340,7 +382,22 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_4_1"
     },
     {
       "node_type": "Move",
@@ -349,7 +406,46 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_001ab6295ffc117b_4_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_4_2"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure. Go ahead and roll the dice by typing \"r",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_7_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_001ab6295ffc117b_8_0"
     },
     {
       "node_type": "Move",
@@ -358,6 +454,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_9_0"
     },
     {
@@ -367,6 +466,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_11_0"
     },
     {
@@ -376,6 +478,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_13_0"
     },
     {
@@ -385,6 +490,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_001ab6295ffc117b_23_0"
     },
     {
@@ -785,6 +893,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_001ab6295ffc117b_1",
+      "target": "m_wildchat_new_001ab6295ffc117b_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_001ab6295ffc117b_1",
       "target": "mode_wildchat_new_001ab6295ffc117b_0",
@@ -812,6 +927,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_001ab6295ffc117b_2",
+      "target": "m_wildchat_new_001ab6295ffc117b_2_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_001ab6295ffc117b_2",
       "target": "mode_wildchat_new_001ab6295ffc117b_2",
@@ -822,6 +944,13 @@
       "order": 4,
       "source": "t_wildchat_new_001ab6295ffc117b_3",
       "target": "t_wildchat_new_001ab6295ffc117b_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_001ab6295ffc117b_3",
+      "target": "m_wildchat_new_001ab6295ffc117b_3_0",
       "key": 0
     },
     {
@@ -852,6 +981,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_wildchat_new_001ab6295ffc117b_4",
+      "target": "m_wildchat_new_001ab6295ffc117b_4_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_001ab6295ffc117b_4",
       "target": "mode_wildchat_new_001ab6295ffc117b_4",
@@ -862,6 +998,13 @@
       "order": 6,
       "source": "t_wildchat_new_001ab6295ffc117b_5",
       "target": "t_wildchat_new_001ab6295ffc117b_6",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_001ab6295ffc117b_5",
+      "target": "m_wildchat_new_001ab6295ffc117b_5_0",
       "key": 0
     },
     {
@@ -891,6 +1034,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_001ab6295ffc117b_7",
+      "target": "m_wildchat_new_001ab6295ffc117b_7_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_001ab6295ffc117b_7",
       "target": "mode_wildchat_new_001ab6295ffc117b_6",
@@ -901,6 +1051,13 @@
       "order": 9,
       "source": "t_wildchat_new_001ab6295ffc117b_8",
       "target": "t_wildchat_new_001ab6295ffc117b_9",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_001ab6295ffc117b_8",
+      "target": "m_wildchat_new_001ab6295ffc117b_8_0",
       "key": 0
     },
     {

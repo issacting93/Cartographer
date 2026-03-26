@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "entertainment",
       "id": "conv_chatbot_arena_06753"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 73,
       "content_preview": "Of course! I'm here to role-play with you. What do you want to role-play?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_06753_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 87,
       "content_preview": "How about we start off in a doctors office and you are the doctor and I am the patient?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_06753_4"
     },
@@ -71,9 +71,45 @@
       "role": "assistant",
       "content_length": 72,
       "content_preview": "Sure, that sounds good. What's your name and what's the matter with you?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_06753_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Of course! I'm here to role-play with you. What do",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_06753_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_06753_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, that sounds good. What's your name and",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_06753_5_0"
     },
     {
       "node_type": "InteractionMode",
@@ -199,6 +235,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_06753_3",
+      "target": "m_chatbot_arena_06753_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_06753_3",
       "target": "mode_chatbot_arena_06753_2",
@@ -212,9 +255,23 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_06753_4",
+      "target": "m_chatbot_arena_06753_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_06753_4",
       "target": "mode_chatbot_arena_06753_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_06753_5",
+      "target": "m_chatbot_arena_06753_5_0",
       "key": 0
     },
     {

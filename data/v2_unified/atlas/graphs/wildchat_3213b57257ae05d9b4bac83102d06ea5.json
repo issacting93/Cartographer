@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 29,
       "content_preview": "\u6839\u636e\u63a8\u8350\u4fe1\u56de\u7b54\u6211\u4e0b\u9762\u51e0\u4e2a\u95ee\u9898\u53ef\u4ee5\u5417\uff0c\u9700\u8981\u7528\u5728\u7f51\u63a8\u95ee\u9898\u7684\u586b\u5199",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_2"
     },
@@ -102,16 +102,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_0_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's a revised version of the letter with some minor tweaks for clarity and fo...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's a revised version of the letter with som",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_2_0"
     },
     {
       "node_type": "Move",
@@ -120,6 +138,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_5_0"
     },
     {
@@ -129,6 +150,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_7_0"
     },
     {
@@ -278,6 +302,13 @@
       "order": 3,
       "source": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_2",
       "target": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_3213b57257ae05d9b4bac83102d06ea5_2",
+      "target": "m_wildchat_3213b57257ae05d9b4bac83102d06ea5_2_0",
       "key": 0
     },
     {

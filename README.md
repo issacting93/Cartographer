@@ -59,7 +59,7 @@ paper/
   FINDINGS_REPORT_v2.md     # Detailed findings
 
 theory/
-  implicit_state_pathology.md  # Core theory: why stateless architectures fail at grounding
+  implicit_state_pathology.md  # Core theory: why unstructured state architectures fail at grounding
   mode_taxonomy_v2.md          # Proposed taxonomy for interaction stances
   related_work.md              # Literature review
 

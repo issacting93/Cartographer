@@ -20,6 +20,9 @@ class Move(AtlasBaseModel):
     method: str
     actor: str
     repair_strategy: Optional[str] = None
+    # CA metadata (Clark & Brennan 1991, Schegloff 1977)
+    grounding_evidence: Optional[str] = None    # "demonstration" | "token" | "unmarked"
+    repair_organization: Optional[str] = None   # "SISR" | "OISR" | "OIOR"
 
 class Turn(AtlasBaseModel):
     turn_index: int

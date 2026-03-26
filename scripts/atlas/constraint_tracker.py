@@ -169,7 +169,13 @@ def advance_constraints(
         text_span = move.get("text_span", "")
 
         if move_type == MT.ACCEPT_CONSTRAINT:
-            # AI accepts -> transition STATED constraints to ACTIVE
+            # AI accepts (weak grounding) -> transition STATED constraints to ACTIVE
+            for c in constraints:
+                if c.current_state == CS.STATED:
+                    c.transition(turn_index, CS.ACTIVE)
+
+        elif move_type == MT.ACKNOWLEDGE_CONSTRAINT:
+            # AI acknowledges with strong grounding (Traum 1994) -> STATED to ACTIVE
             for c in constraints:
                 if c.current_state == CS.STATED:
                     c.transition(turn_index, CS.ACTIVE)
@@ -217,6 +223,13 @@ def advance_constraints(
                     repaired_any = True
             if repaired_any:
                 repair_pending.clear()
+
+        elif move_type == MT.SELF_REPAIR:
+            # AI self-initiated self-repair (Schegloff SISR) — unprompted correction
+            # Transitions VIOLATED constraints without requiring repair_pending
+            for c in constraints:
+                if c.current_state == CS.VIOLATED:
+                    c.transition(turn_index, CS.REPAIRED)
 
         elif move_type == MT.REPAIR_FAIL:
             # Repair attempt failed — re-violate any constraints that were just repaired

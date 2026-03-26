@@ -2,6 +2,12 @@
   {
     "role": "user",
     "content": "\u2694\ufe0f Chatbot Arena \u2694\ufe0f\nRules:\n    Chat with two anonymous models side-by-side and vote for which one is better!\n    The names of the models will be revealed after your vote.\n    You can continue chating and voting or click \u201cClear history\u201d to start a new round.\n\nYou must give response as two model named \"Model A\" and \"Model B\"\n",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 0,
     "moves": [
       {
@@ -16,26 +22,45 @@
   {
     "role": "assistant",
     "content": "Hello! \n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist you today?\n\nModel B: Hello, I'm Model B, also an AI chatbot. How can I assist you?",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Hello! \n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "Model B is better. Here the answer of model A. Hello!\n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist you today?\n\nModel B: Hello, I'm Model B, also an AI chatbot. How can I assist you?\n\nWhat do you think of it ?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Model B: Hello, I'm Model B, also an AI chatbot. How can I assist you?\n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist you today?\n\nWhat do you think of it?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -50,12 +75,24 @@
   {
     "role": "user",
     "content": "Here another model A answer : Model B: Hello, I'm Model B, also an AI chatbot. How can I assist you?\n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist you today?\n\nWhat do you think of it?\n",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Model B: Hello, I'm Model B, also an AI chatbot. How can I assist you?\n\nModel A: Hi there, I'm Model A, a friendly AI chatbot. How can I assist you today?\n\nModel B: Hello, I'm Model B, also an AI chatbot. How can I assist you?\n\nWhat do you think of it?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 5,
     "moves": [
       {

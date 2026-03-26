@@ -2,18 +2,36 @@
   {
     "role": "user",
     "content": "how many words are in this sentence?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "This sentence has 6 words.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 1,
     "moves": []
   },
   {
     "role": "user",
     "content": "try again, go through your reasoning step-by-step",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 2,
     "moves": [
       {
@@ -21,13 +39,21 @@
         "text_span": "try again, go through your reasoning step-by-step",
         "confidence": 0.9,
         "method": "regex",
-        "actor": "user"
+        "actor": "user",
+        "repair_strategy": "escalate",
+        "repair_organization": "OISR"
       }
     ]
   },
   {
     "role": "assistant",
     "content": "This sentence has 6 words. I counted them by counting the letters in each word and then adding the numbers together.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 3,
     "moves": [
       {

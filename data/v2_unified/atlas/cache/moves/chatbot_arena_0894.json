@@ -2,25 +2,58 @@
   {
     "role": "user",
     "content": "hi",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "hi there! How can I help you?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 1,
     "moves": []
   },
   {
     "role": "user",
     "content": "write me 5 non gluten foods",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Here are 5 non-gluten foods: rice, potatoes, fruits, vegetables, and lentils.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here are 5 non-gluten foods: rice, potatoes, frui",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   }
 ]

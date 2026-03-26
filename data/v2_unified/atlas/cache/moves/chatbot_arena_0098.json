@@ -2,14 +2,34 @@
   {
     "role": "user",
     "content": "I need help",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Of course! What specifically do you need help with?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 1,
     "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Of course! What specifically do you need help with",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      },
       {
         "move_type": "REQUEST_CLARIFICATION",
         "text_span": "f course! What specifically do you need help with?",
@@ -22,8 +42,21 @@
   {
     "role": "user",
     "content": "What is your data cut off date?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 2,
     "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      },
       {
         "move_type": "PROVIDE_INFORMATION",
         "text_span": "[response to clarification request]",
@@ -36,6 +69,12 @@
   {
     "role": "assistant",
     "content": "My training data was cut off on 2021-09, so any information or updates after that date I may not be aware of.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -50,24 +89,48 @@
   {
     "role": "user",
     "content": "Today is my birthday, i was born on October 26 1998",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Happy birthday! I hope you have a great day.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 5,
     "moves": []
   },
   {
     "role": "user",
     "content": "What day is today?",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 6,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Today is Thursday, February 8th, 2023.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 7,
     "moves": []
   }

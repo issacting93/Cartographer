@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "is this command correct and harmless?: pacman -Qe | awk '{print $1 \" \" $2}' | while read pkg ver; do\n  if pacman -Qi $pkg &> /dev/null; then\n    repo=$(pacman -Qi $pkg | awk '/^Repository/ {print $3}')\n    if [[ $repo == \"AUR\" ]]; then\n      echo \"$pkg (AUR) $ver\"\n    else\n      echo \"$pkg ($repo) $ver\"\n    fi\n  fi\ndone\n",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "That command should be correct and harmless. It will print out the name of the package and its version number if it is found in the Pacman package manager.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "what is RLHF",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "RLHF stands for Reduced Shakespeare Company's 'The History of England' condensed and edited by Michael McQuarry. It is a humorous play that covers the history of England from the Anglo-Saxon period to the 20th century.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": [
       {

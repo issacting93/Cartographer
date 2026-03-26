@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "Give me a python implementation of quicksort",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "The python code for quicksort is as follows:\n\ndef quicksort(sequence):\n  if len(sequence) > 1:\n    p = partition(sequence, 1, len(sequence))\n    quicksort(sequence[:p])\n    quicksort(sequence[p+1:])\n  return sequence\n\n function partition(sequence, start, end)\n   pivot = sequence[start]\n   i = start\n   j = end - 1\n   while i < j:\n     while sequence[i] < pivot:\n       i += 1\n     while sequence[j] > pivot:\n       j -= 1\n     if i < j:\n       sequence[i], sequence[j] = sequence[j], sequence[i]\n       i += 1\n       j -= 1\n   return i\n\n Implementation of a Quicksort in python",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "Now, make the same algorithm in Haskell",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "The haskell code for quicksort is as follows:\n\nquicksort [] = []\nquicksort (p:ps) = qs ++ [x] ++ qs'\n    where (qs, qs') = splitAt 1 ps\n          x       = p",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 3,
     "moves": [
       {

@@ -2,28 +2,54 @@
   {
     "role": "user",
     "content": "Hello, can you help me with GDscript ?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Of course! I'd be happy to help you with GDScript, the scripting language used in the Godot game engine. Just let me know your questions or problems, and I'll do my best to assist you.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Of course! I'd be happy to help you with GDScript, the scripting language used i...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Of course! I'd be happy to help you with GDScript,",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "I have trouble understanding how to create a main script inside the main scene that will call and generate instances of nodes to structure a level with enemies and other actors for example like I would do inside Game maker Studio 1.4 in GML.\nCan you help me how to understand the other approach I must have in GDscript compared to GML please ?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 2,
     "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      },
       {
         "move_type": "PROPOSE_CONSTRAINT",
         "text_span": "he other approach I must have in GDscript compared to GML please",
@@ -36,40 +62,66 @@
   {
     "role": "assistant",
     "content": "I'd be glad to help! To create a main script that will generate instances of nodes, like enemies and other actors, you can follow the steps outlined below. I will provide a simple example to help illustrate the differences between GML and GDScript.\n\n1. First, create a new scene and add a \"Node\" or \"Node2D\" as the root node. This will be your main scene.\n\n2. Next, create a new script and attach it to the root node. This script will be your main script.\n\nNow let's make a simple example that involves spawning an enemy.\n\n**In GML:**\n\n```\n// This is a script running in a GameMaker object\n\n// Create enemy instance\nif (frame_count % 30 == 0) {\n var enemy = instance_create(x, y, obj_enemy);\n}\n```\n\n**In GDScript:**\n\nFirst, set up an \"Enemy\" scene with an \"Enemy.gd\" script:\n\n- Create a new scene, add a node (e.g., Sprite or KinematicBody2D), and save it as \"Enemy.tscn\".\n- Create a new script called \"Enemy.gd\" and attach it to the root node of the \"Enemy.tscn\".\n\nAdd the following code to your main script, which I will call \"Main.gd\":\n\n```python\nextends Node2D\n\n# preload the enemy scene\nonready var enemy_scene = preload(\"res://Enemy.tscn\")\n\nvar frame_count = 0\n\nfunc _process(delta):\n    frame_count += 1\n\n    # spawn an enemy every 30 frames\n    if frame_count % 30 == 0:\n        spawn_enemy()\n\nfunc spawn_enemy():\n    # create a new enemy instance\n    var enemy = enemy_scene.instance()\n    \n    # set the enemy's position (customize these values for your game)\n    enemy.position = Vector2(100, 100)\n    \n    # add the enemy instance to the main scene\n    add_child(enemy)\n```\n\nThis GDScript code sets up your main script to do the following:\n\n1. Store a reference to the enemy scene.\n2. Keep track of the frame count (similar to the GML example).\n3. Spawn an enemy instance every 30 frames.\n\nThe `spawn_enemy` function takes care of creating the enemy instances and adding them to the main scene as children.\n\nThis example should help illustrate the changes in how GDScript and GML handle instance creation. Note that Godot uses a scene system for dealing with game objects, making it easy to create, manage, and instancing these objects as separate scenes.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "I'd be glad to help! To create a main script that will generate instances of nod...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "Thank you, that was very thoughtful.\nCan you help me with Blender now ?",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Of course! I'd be happy to help you with Blender, the 3D modeling, animation, and rendering software. Just let me know what you need assistance with or what specific questions you have, and I'll do my best to guide you through it.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.54
+    },
     "turn_index": 5,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Of course! I'd be happy to help you with Blender, the 3D modeling, animation, an...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Of course! I'd be happy to help you with Blender,",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "I want to assign an Armature to several objects with automatic weighting but when I assign the armature, the bone don't apply the deformation to the meshes in pose mode.\nAlthough, when I move the Armature in object mode, the meshes move with the armature confirming that they have been parented to the bones. Am I missing a step ?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 6,
     "moves": [
       {
@@ -77,6 +129,13 @@
         "text_span": "I want to assign an Armature to several objects with automatic weight",
         "confidence": 0.7,
         "method": "regex",
+        "actor": "user"
+      },
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
         "actor": "user"
       },
       {
@@ -91,20 +150,33 @@
   {
     "role": "assistant",
     "content": "It sounds like you may have missed a step or there might be an issue with your setup. I'll walk you through the steps needed to correctly parent multiple objects to an armature with automatic weighting, and then we can troubleshoot from there.\n\n1. First, make sure all of your mesh objects and the armature are in the correct position and setup. If they're not, fix their positions before parenting.\n\n2. In Object Mode, with nothing selected, press 'A' to select all objects in the scene.\n\n3. Hold 'Shift' and click on the armature last to make sure it's the active object.\n\n4. Press 'Ctrl + P' and select \"With Automatic Weights.\" Blender should now bind the mesh objects to the armature using automatic weights.\n\n5. Switch to Pose Mode ('Ctrl + Tab') while the armature is selected. You should be able to move the bones and see the mesh objects deform as expected.\n\nIf you have followed these steps and are still experiencing issues with the bone deformations, there may be a problem with the armature or meshes. Here are some possible issues and solutions:\n\n- Check that the Vertex Groups are properly created: In the `Object Data Properties` tab, make sure that each mesh object has vertex groups matching each bone.\n\n- Check the modifier stack: Ensure that every mesh object has an Armature modifier and that it's using the correct armature in the \"Object\" field. You may also want to rearrange the modifier stack so that the Armature modifier is applied first (top of the stack). This is important if your objects have other modifiers, like Subdivision Surface, that can impact their geometry.\n\n- Verify bone weights: In Edit Mode, select the mesh object, and in the `Object Data Properties` tab, click on different vertex groups to examine the weights. You can do this using the Weight Paint mode. If the weights aren't assigned correctly, you might need to manually adjust the weights using Weight Paint mode, or you can try un-parenting the objects from the armature and reparenting them with the \"With Automatic Weights\" option again.\n\n- Check bone settings: Each bone should have the \"Deform\" option enabled in the `Bone Properties` tab. If a bone is not meant to deform the mesh (such as control bones), keep this option unchecked.\n\nIf you've tried these suggestions and still encounter issues, please provide more information or details about your specific setup, and I'll be happy to help further.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 7,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "It sounds like you may have missed a step or there might be an issue with your s...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "I'm using a custom Armature I've appended from another project, the problem must come from the Vertex Groups. May this information help you for further query. Thank you anyway.\nCan we play a role play game together now if you can be the game master ? ",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 8,
     "moves": [
       {
@@ -119,26 +191,45 @@
   {
     "role": "assistant",
     "content": "I'd be happy to play a text-based role-playing game with you! As an AI language model, I'll be your text-based game master. Let's set up a quick scenario:\n\n---\n\nYou find yourself in the bustling medieval town of Thornbridge, a place filled with merchants, adventurers, and mysteries. As a skilled adventurer yourself, you've been seeking fortune and fame across the realm. Today, a nobleman named Lord Eldridge has contacted you with a quest that could change your fate forever.\n\nYou make your way to Lord Eldridge's extravagant mansion on the outskirts of town, and guards let you inside as they recognize you as the invited adventurer. You enter the grand hall where an imposing figure, Lord Eldridge himself, is waiting for you.\n\nLord Eldridge: \"Ah, welcome, adventurer! I've heard of your skills and expertise, and I have a task that requires someone with your talents. You see, my daughter has been kidnapped by a band of vile goblins that reside in the nearby Darkwood Forest. I need you to rescue her and bring her back safely. I can offer you 500 gold pieces upon completion. What say you?\"\n\n---\n\nTo play, simply respond in-character with how you would like to proceed or ask any further questions about the quest. Remember, you're the hero, and your actions will shape the story. Good luck on your adventure!",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 9,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "I'd be happy to play a text-based role-playing game with you! As an AI language...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   },
   {
     "role": "user",
     "content": "I nod to Lord Eldridge\n\"Please, call me Profor. I'm charmed by your mansion it is quite exquisite. Can we speak in my mother's tongue if you may ?\"\nMy mother's tongue is French, I'd like the game to be played in french now if it is possible. \nI wait for Lord Eldridge response",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 10,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Lord Eldridge sourit l\u00e9g\u00e8rement et r\u00e9pond en fran\u00e7ais : \"Bien s\u00fbr, Profor, nous pouvons parler fran\u00e7ais. Je suis ravi que vous ayez r\u00e9pondu \u00e0 mon invitation et que nous puissions discuter de cette importante mission. Ma fille est tr\u00e8s ch\u00e8re \u00e0 mon c\u0153ur, et je suis pr\u00eat \u00e0 offrir une r\u00e9compense g\u00e9n\u00e9reuse pour sa s\u00e9curit\u00e9. Avez-vous des questions ou des pr\u00e9occupations avant de partir \u00e0 sa recherche dans la for\u00eat de Darkwood ?\"\n",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 11,
     "moves": [
       {
@@ -153,12 +244,24 @@
   {
     "role": "user",
     "content": "\"C'est avec plaisir que je puis vous aider \u00e0 retrouver votre fille. Que savez-vous de ses ravisseurs ? Combien \u00e9taient-ils ? Sont-ils dangereux ? Sont-ils bien arm\u00e9s ?\"",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 12,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Lord Eldridge r\u00e9pond avec inqui\u00e9tude dans sa voix : \"Les ravisseurs \u00e9taient un groupe de gobelins, en nombre d'environ une dizaine. Ils sont connus pour \u00eatre rus\u00e9s et vicieux. Ils n'ont pas une armure sophistiqu\u00e9e, mais ils compensent par leur agilit\u00e9 et leur fourberie. Leurs armes sont principalement des dagues, des arcs courts et des b\u00e2tons.\n\nLa for\u00eat de Darkwood, o\u00f9 je soup\u00e7onne qu'ils se cachent, est un lieu dangereux et rempli de cr\u00e9atures impr\u00e9visibles. Je vous recommande de vous pr\u00e9parer en cons\u00e9quence et de faire preuve de prudence en vous aventurant l\u00e0-bas. Si vous pouviez me donner une estimation du temps n\u00e9cessaire pour que vous puissiez vous pr\u00e9parer, nous pourrions discuter de la suite des \u00e9v\u00e9nements.\"",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 13,
     "moves": [
       {
@@ -173,12 +276,24 @@
   {
     "role": "user",
     "content": "\"Bien, des gobelins... J'aurais besoin de quelques heures et si vous pouviez investir dans l'\u00e9quipement et peut-\u00eatre un guide pour explorer la for\u00eat ce serait parfait. Est-ce que les gobelins ont demand\u00e9s une ran\u00e7on ? Ou quelles sont pour vous leur motivation ?\"\n",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 14,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Lord Eldridge hoche la t\u00eate et r\u00e9pond : \"Je peux vous fournir un \u00e9quipement ad\u00e9quat et vous pr\u00e9senter \u00e0 un guide exp\u00e9riment\u00e9 qui conna\u00eet bien la for\u00eat de Darkwood. Son nom est Remy, un \u00e9claireur local, et il vous attendra dans la ville. Quant \u00e0 la ran\u00e7on, les gobelins n'ont fait aucune demande. Leur motivation est un myst\u00e8re pour moi, mais je crains qu'ils cherchent \u00e0 utiliser ma fille \u00e0 des fins n\u00e9fastes, peut-\u00eatre pour un rituel ou pour n\u00e9gocier un avantage futur.\n\nPrenez le temps qu'il vous faut pour vous pr\u00e9parer, et quand vous serez pr\u00eat, rendez-vous au centre du village pour y retrouver Remy. Je vous souhaite bonne chance, Profor. Ma fille et moi vous serons \u00e9ternellement reconnaissants si vous r\u00e9ussissez \u00e0 la ramener saine et sauve.\"",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 15,
     "moves": [
       {
@@ -193,12 +308,24 @@
   {
     "role": "user",
     "content": "\"Il nous faut agir vite alors mais tr\u00e8s bien, je vous remercie. O\u00f9 puis-je m'\u00e9quiper ?\"",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 16,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Lord Eldridge r\u00e9pond rapidement: \"Dans le centre du village, vous trouverez une boutique d'\u00e9quipement appel\u00e9e 'Le Bouclier d'Argent'. Le propri\u00e9taire est un vieil ami \u00e0 moi, son nom est Gaspard. Dites-lui que je vous envoie et il vous assistera dans l'acquisition de l'\u00e9quipement n\u00e9cessaire pour mener \u00e0 bien cette qu\u00eate. Une fois que vous serez \u00e9quip\u00e9, cherchez Remy pr\u00e8s de la fontaine au centre du village. Il vous guidera \u00e0 travers la for\u00eat de Darkwood. Soyez prudent et bonne chance, Profor.\"\n\nAvec ces informations en main, vous quittez le manoir de Lord Eldridge et vous dirigez vers le centre du village pour pr\u00e9parer votre aventure dans la for\u00eat de Darkwood.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 17,
     "moves": [
       {
@@ -213,12 +340,24 @@
   {
     "role": "user",
     "content": "\"Bien sur sir et je vous remercie. Soyez assur\u00e9 que l'affaire est prise en charge et que vous avez mis toute la bonne volont\u00e9 du monde \u00e0 ce qu'elle soit r\u00e9gl\u00e9.\"\nJe pars me rendre en ville dans la boutique \"Le Bouclier d'argent\", en rentrant je salue Gaspard poliment en lui racontant la nature de ma venue et que j'ai besoin du meilleurs \u00e9quipement possible",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 18,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Gaspard, le propri\u00e9taire de la boutique \"Le Bouclier d'Argent\", vous accueille chaleureusement. \"Ah, Profor ! Lord Eldridge m'a parl\u00e9 de vous et de la mission que vous entreprenez. Je suis d\u00e9sol\u00e9 d'entendre parler de la d\u00e9tresse de sa fille. Ne vous inqui\u00e9tez pas, je vais vous fournir le meilleur \u00e9quipement possible pour que vous puissiez affronter les gobelins de la for\u00eat de Darkwood et ramener la jeune femme saine et sauve.\"\n\nGaspard vous aide \u00e0 rassembler divers \u00e9quipements, comprenant une \u00e9p\u00e9e bien aiguis\u00e9e, des fl\u00e8ches et un arc pour combattre \u00e0 distance, ainsi qu'une armure l\u00e9g\u00e8re pour vous prot\u00e9ger tout en pr\u00e9servant votre agilit\u00e9. Il vous propose \u00e9galement quelques potions de soin, au cas o\u00f9 vous auriez besoin de vous soigner en cours de route.\n\n\u00c9quip\u00e9 et pr\u00eat pour l'aventure, vous quittez la boutique en remerciant Gaspard et vous dirigez vers la fontaine au centre du village. L\u00e0, vous trouvez Remy, l'\u00e9claireur qui doit servir de guide \u00e0 travers la for\u00eat de Darkwood.\n\n\"Salutations, Profor\", dit Remy en vous voyant approcher. \"J'ai entendu parler de votre qu\u00eate et je suis pr\u00eat \u00e0 vous aider. La for\u00eat de Darkwood est perfide, mais je connais les chemins qui la traversent. Donnez-moi juste le signal quand vous serez pr\u00eat \u00e0 partir.\"",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 19,
     "moves": [
       {
@@ -233,12 +372,24 @@
   {
     "role": "user",
     "content": "Avant de partir, qu'est ce que je sais des gobelins ? Leur \u00e9thique, leur style de vie et leur spiritualit\u00e9 ?",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 20,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Les gobelins sont des cr\u00e9atures petites et sournoises, souvent consid\u00e9r\u00e9es comme des nuisances plut\u00f4t que de v\u00e9ritables menaces pour les villages et les cit\u00e9s humaines. Cependant, leur nature impr\u00e9visible et leur go\u00fbt pour les enl\u00e8vements et les vols les rendent dangereux, surtout lorsqu'ils sont en grand nombre.\n\nLeur mode de vie est g\u00e9n\u00e9ralement bas\u00e9 sur des soci\u00e9t\u00e9s tribales, vivant dans des grottes, des for\u00eats, ou d'autres endroits isol\u00e9s. Ils s'organisent autour d'un chef, souvent le plus fort ou le plus rus\u00e9 d'entre eux, qui guide les actions de la tribu. Bien que certaines tribus gobelines puissent \u00eatre relativement pacifiques, beaucoup sont opportunistes et agressives, attaquant les voyageurs, pillant les biens et enlevant des personnes pour les utiliser comme esclaves ou pour les sacrifier lors de rituels.\n\nLeur spiritualit\u00e9 est souvent bas\u00e9e sur le chamanisme et le culte des esprits de la nature ou des d\u00e9mons mineurs. Les chamans gobelins sont g\u00e9n\u00e9ralement respect\u00e9s et craints par les autres membres de la tribu, poss\u00e9dant des pouvoirs magiques et des connaissances occultes.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 21,
     "moves": [
       {
@@ -253,12 +404,24 @@
   {
     "role": "user",
     "content": "Je prends avec moi de quoi manger et propose une dague \u00e0 Gaspard au cas o\u00f9 il en aurait besoin. Puis j'essai de voir avec Gaspard le chemin qui m\u00e8ne probablement au camp gobelin.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 22,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "En discutant avec Gaspard, vous obtenez de quoi manger pour le voyage et lui offrez une dague, au cas o\u00f9 il en aurait besoin. Bien que Gaspard appr\u00e9cie votre offre, il vous assure qu'il sera en s\u00e9curit\u00e9 dans sa boutique et qu'il pr\u00e9f\u00e8re que vous conserviez la dague pour vous-m\u00eame. \n\nEn ce qui concerne la localisation du camp gobelin, Gaspard explique qu'il ne conna\u00eet pas l'endroit exact, mais il a entendu dire que le campement se trouve probablement quelque part dans la partie la plus profonde et la plus sombre de la for\u00eat de Darkwood.\n\nRemy, votre guide, conna\u00eet bien la for\u00eat et pourra vous aider \u00e0 naviguer \u00e0 travers les dangers de Darkwood pour trouver le camp gobelin et sauver la fille de Lord Eldridge. Vous vous pr\u00e9parez pour votre voyage et, avec Remy \u00e0 vos c\u00f4t\u00e9s, vous vous dirigez vers la sombre et dangereuse for\u00eat de Darkwood, d\u00e9termin\u00e9 \u00e0 retrouver et sauver la jeune femme kidnapp\u00e9e.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 23,
     "moves": [
       {
@@ -273,12 +436,24 @@
   {
     "role": "user",
     "content": "Peut-on revenir au prompt pr\u00e9c\u00e9dent en faisant une modification et reprendre ? J'ai confondu Gaspard avec Remy, j'aimerais corriger cette erreur.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 24,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Aucun probl\u00e8me, je vais corriger cette erreur. Voici le prompt corrig\u00e9 :\n\n---\n\nEn discutant avec Gaspard, vous obtenez de quoi manger pour le voyage et d\u00e9cidez de partir retrouver Remy pour lui offrir une dague.\n\nVous quittez la boutique et vous dirigez vers la fontaine au centre du village, o\u00f9 vous aviez rencontr\u00e9 Remy pr\u00e9c\u00e9demment. Vous lui offrez la dague et expliquez que c'est pour assurer sa protection lors de votre exp\u00e9dition.\n\n\"Merci, Profor\", dit Remy en saisissant la dague avec gratitude. \"Tout extra de protection est le bienvenu lorsque l'on p\u00e9n\u00e8tre dans la for\u00eat de Darkwood.\"\n\nVous demandez ensuite \u00e0 Remy s'il conna\u00eet le chemin qui m\u00e8ne probablement au camp gobelin. Il r\u00e9pond : \"Je connais bien la for\u00eat et j'ai d\u00e9j\u00e0 rep\u00e9r\u00e9 quelques chemins que les gobelins empruntent fr\u00e9quemment. Nous allons suivre ces traces et, avec un peu de chance, atteindre leur camp. Pr\u00e9parez-vous pour un voyage difficile et sem\u00e9 d'emb\u00fbches.\"\n\nAinsi, bien \u00e9quip\u00e9 et pr\u00eat pour l'aventure, vous accompagn\u00e9 de Remy, le guide exp\u00e9riment\u00e9, partez en direction de la sombre et myst\u00e9rieuse for\u00eat de Darkwood, d\u00e9termin\u00e9 \u00e0 retrouver et sauver la jeune femme kidnapp\u00e9e.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 25,
     "moves": [
       {
@@ -293,12 +468,24 @@
   {
     "role": "user",
     "content": "Je cherche des traces r\u00e9centes d'un groupe d'une dizaine de gobelin et je me fis aux conseils de Remy quant \u00e0 la marche \u00e0 suivre pour rester safe.",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 26,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Vous commencez votre voyage dans la for\u00eat de Darkwood avec Remy et observez attentivement les environs, cherchant des traces r\u00e9centes d'un groupe d'une dizaine de gobelins. Gr\u00e2ce \u00e0 vos comp\u00e9tences d'aventurier et \u00e0 la connaissance approfondie de la for\u00eat de Remy, vous r\u00e9ussissez \u00e0 trouver des signes indicateurs de l'activit\u00e9 gobeline : des empreintes et des brindilles cass\u00e9es qui semblent suivre un chemin en particulier.\n\nRemy vous conseille de marcher en silence, de rester sur le qui-vive et d'\u00e9viter les zones o\u00f9 la v\u00e9g\u00e9tation est particuli\u00e8rement touffue, car les gobelins peuvent y tendre des embuscades. Il vous montre \u00e9galement comment rep\u00e9rer des pi\u00e8ges rudimentaires laiss\u00e9s par les gobelins pour dissuader les intrus.\n\nEn suivant les indices et en appliquant les recommandations de Remy, vous progressez avec pr\u00e9caution \u00e0 travers la for\u00eat, tout en essayant de rester en s\u00e9curit\u00e9. Vous sentez que vous approchez du camp gobelin et que la tension monte dans l'air, mais votre d\u00e9termination \u00e0 sauver la fille de Lord Eldridge reste in\u00e9branlable.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 27,
     "moves": [
       {
@@ -313,12 +500,24 @@
   {
     "role": "user",
     "content": "Je demande \u00e0 Remy si il sait \u00e0 quoi resemble le camp gobelin.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 28,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Remy r\u00e9fl\u00e9chit un instant, puis r\u00e9pond : \"Les camps gobelins ont g\u00e9n\u00e9ralement une apparence rudimentaire et d\u00e9sorganis\u00e9e. Ils sont souvent situ\u00e9s pr\u00e8s de cavernes ou de grottes, o\u00f9 les gobelins peuvent se cacher et \u00e9chapper aux pr\u00e9dateurs. Les abris sont g\u00e9n\u00e9ralement faits de branchages, de morceaux de tissu et de peaux d'animaux. Les gobelins ne sont pas connus pour leur propret\u00e9, et il est fort probable que vous rep\u00e9rerez leur camp \u00e0 l'odeur avant m\u00eame de le voir. Attendez-vous \u00e0 trouver des restes de nourriture, des d\u00e9chets, et d'autres objets \u00e9parpill\u00e9s autour de leur campement.\"\n\nRemy met en garde : \"Cependant, il ne faut pas sous-estimer les gobelins en raison de l'apparence pr\u00e9caire de leur camp. Ils sont rus\u00e9s et sont particuli\u00e8rement dou\u00e9s pour tendre des guets-apens et des pi\u00e8ges pour dissuader les intrus. Lorsque nous nous approcherons du camp, il faudra redoubler de vigilance et regarder o\u00f9 nous mettons les pieds.\"",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 29,
     "moves": [
       {
@@ -333,12 +532,24 @@
   {
     "role": "user",
     "content": "Je fais confiance \u00e0 Remy et je me pr\u00e9pare \u00e0 nos potentiel rencontre",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 30,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Vous continuez \u00e0 traverser la for\u00eat en faisant confiance \u00e0 Remy et en prenant en compte ses conseils. Vous \u00eates pr\u00e9par\u00e9 \u00e0 toute \u00e9ventualit\u00e9 et gardez vos sens en alerte, pr\u00eat \u00e0 faire face aux dangers potentiels que les gobelins pourraient pr\u00e9senter.\n\nApr\u00e8s plusieurs heures de marche, Remy fait signe de s'arr\u00eater et de se cacher derri\u00e8re un bosquet d'arbres. Vous parvenez \u00e0 distinguer au loin un campement qui correspond \u00e0 la description des camps gobelins donn\u00e9e par Remy.\n\n\"Je pense que nous avons trouv\u00e9 leur repaire\", murmure Remy. \"Je vous conseille de pr\u00e9parer vos armes et de vous pr\u00e9parer \u00e0 toute \u00e9ventualit\u00e9. Il y a de fortes chances que les gobelins aient post\u00e9 des sentinelles pour surveiller l'entr\u00e9e de leur camp. Nous devons \u00eatre prudents et essayer d'\u00e9laborer un plan pour infiltrer leur camp sans \u00eatre vus, ou du moins sans attirer l'attention de tous les gobelins.\"\n\nTout en restant cach\u00e9s et en surveillant le camp gobelin, vous commencez \u00e0 discuter avec Remy de la meilleure fa\u00e7on d'aborder la situation et de sauver la fille de Lord Eldridge en toute s\u00e9curit\u00e9.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 31,
     "moves": [
       {
@@ -353,12 +564,24 @@
   {
     "role": "user",
     "content": "Je propose \u00e0 Remy de prendre le camp par les flans, lui \u00e0 gauche moi \u00e0 droite, pour observer discr\u00e9tement les environs et de se rejoindre derri\u00e8re le camp pour faire un rapport",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.5,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.44
+    },
     "turn_index": 32,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Remy hoche la t\u00eate avec approbation \u00e0 votre proposition. \"C'est une bonne strat\u00e9gie, Profor. En nous s\u00e9parant, nous pourrons couvrir plus de terrain et avoir une meilleure vue d'ensemble du camp. Restons en contact \u00e0 distance en utilisant des signaux discrets. Soyez prudent et restez silencieux. Si tout se passe bien, nous nous retrouverons derri\u00e8re le camp pour mettre en commun nos observations.\"\n\nVous et Remy vous s\u00e9parez et commencez \u00e0 approcher silencieusement le camp des gobelins, chacun se dirigeant vers un flanc diff\u00e9rent. Vous progressez avec prudence, vous assurant de ne pas faire de bruit et d'\u00e9viter les obstacles sur votre chemin. Pendant ce temps, vous observez attentivement le camp et les mouvements des gobelins, cherchant des indices sur la localisation de la fille de Lord Eldridge et d'\u00e9ventuelles failles dans leurs d\u00e9fenses.\n\nFinalement, vous parvenez \u00e0 contourner le camp et vous retrouvez Remy de l'autre c\u00f4t\u00e9. Les deux d'entre vous \u00e9changent des rapports sur ce que vous avez observ\u00e9 et commencent \u00e0 discuter de la mani\u00e8re de mettre en \u0153uvre un plan pour infiltrer le camp, lib\u00e9rer la captive et \u00e9chapper aux gobelins.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 33,
     "moves": [
       {

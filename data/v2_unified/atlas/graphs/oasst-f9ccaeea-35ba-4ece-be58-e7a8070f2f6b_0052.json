@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052"
     },
     {
@@ -91,7 +91,7 @@
       "role": "user",
       "content_length": 66,
       "content_preview": "Suggest an alternative approach that keeps the original filenames.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_7"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_1_0"
     },
     {
@@ -151,34 +154,58 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_2_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's an example AWS SAM CLI command to create a SAM template for this setup:\ns...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's an example AWS SAM CLI command to create",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_4_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's a bash script that implements the described system using the AWS CLI:\n\n``...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's a bash script that implements the descri",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's one possible design for a system that uploads a file to S3 and resizes it...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's one possible design for a system that up",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_6_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_7_0"
     },
     {
       "node_type": "Move",
@@ -187,6 +214,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_8_0"
     },
     {
@@ -196,6 +226,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_9_0"
     },
     {
@@ -205,6 +238,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_11_0"
     },
     {
@@ -450,6 +486,13 @@
       "order": 8,
       "source": "t_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_7",
       "target": "t_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_8",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_7",
+      "target": "m_oasst-f9ccaeea-35ba-4ece-be58-e7a8070f2f6b_0052_7_0",
       "key": 0
     },
     {

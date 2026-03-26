@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "please suggest a pyrhon code to read a table in tab-delimited text as a dataframe, open a new file write a copy of that table as a csv file and save it.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "import pandas as pd\n\n# Read the table as a dataframe \ndf = pd.read_csv('table.txt', sep='\\t')\n\n# Open a new file \nwith open('table.csv', 'w') as f:\n    df.to_csv(f, sep='\\t')\n\n# Save the changes \ndf.save('table.csv')",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "great. can you suggest a python code that receives source_path, csv_path and csv_file_name, where: 'source_path' is the path to a source data set saved in a tab-delimited text format file, 'csv_path' is the path to the location where the converted data in a csv file will be saved and 'csv_file_name' will be the name of that new file?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "import pandas as pd\n\n# Read the source data set \ndf = pd.read_csv(source_path, sep='\\t')\n\n# Save the data in a csv file \ndf.to_csv(csv_path, sep='\\t', engine='python')\n\n# Rename the file \ncsv_file_name = df.iloc[0].values.tolist()[0] + '.csv'\ndf.rename(columns={0: csv_file_name})\n\n# Save the changes \ndf.save(csv_path)",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -42,12 +66,24 @@
   {
     "role": "user",
     "content": "cool. can you suggest a code for a function which does the above receiving 'source_path', 'csv_path' and 'csv_file_name' as parameters?",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "def convert_data(source_path, csv_path, csv_file_name):\n    # Read the source data set \n    df = pd.read_csv(source_path, sep='\\t')\n\n    # Save the data in a csv file \n    df.to_csv(csv_path, sep='\\t', engine='python')\n\n    # Rename the file \n    csv_file_name = df.iloc[0].values.tolist()[0] + '.csv'\n    df.rename(columns={0: csv_file_name})\n\n    # Save the changes \n    df.save(csv_path)\n\nconvert_data(source_path, csv_path, csv_file_name)",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 5,
     "moves": [
       {

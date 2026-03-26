@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "relationship-building",
       "id": "conv_chatbot_arena_1584"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 30,
       "content_preview": "I'm doing well, how about you?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_1584_1"
     },
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 55,
       "content_preview": "I'm a chatbot, here to help you. What can I do for you?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_1584_3"
     },
@@ -62,7 +62,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_1584_0_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1584_1_0"
     },
     {
       "node_type": "Move",
@@ -71,7 +86,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_1584_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_1584_3_0"
     },
     {
       "node_type": "InteractionMode",
@@ -153,6 +183,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1584_1",
+      "target": "m_chatbot_arena_1584_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_1584_1",
       "target": "mode_chatbot_arena_1584_0",
@@ -176,6 +213,13 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_1584_2",
       "target": "mode_chatbot_arena_1584_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_1584_3",
+      "target": "m_chatbot_arena_1584_3_0",
       "key": 0
     },
     {

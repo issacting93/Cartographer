@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_14493"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 854,
       "content_preview": "I apologize for the errors in my previous answers. Here are the correct answers: 1. Susan is the tallest. 2. Mary is s",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_chatbot_arena_14493_3"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 86,
       "content_preview": "Now 2 is correct. You have almost done 3. Try again and recheck all your calculations.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_14493_6"
     },
@@ -97,11 +97,14 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are the answers to your questions:\n\n1. Susan is the tallest.\n\n2. Mary...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here are the answers to your questions:",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_14493_1_0"
     },
     {
@@ -111,6 +114,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "unclassified",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_chatbot_arena_14493_2_0"
     },
     {
@@ -120,16 +126,46 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_14493_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I will try my best to answer the remaining questions correctly.\n\n2. Sally...",
-      "confidence": 0.6,
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_14493_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I will try my best to answer the remain",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_14493_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_14493_6_0"
     },
     {
       "node_type": "Move",
@@ -138,6 +174,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_14493_7_0"
     },
     {
@@ -310,6 +349,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_14493_3",
+      "target": "m_chatbot_arena_14493_3_1",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_14493_3",
       "target": "mode_chatbot_arena_14493_2",
@@ -353,6 +399,13 @@
       "order": 7,
       "source": "t_chatbot_arena_14493_6",
       "target": "t_chatbot_arena_14493_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_14493_6",
+      "target": "m_chatbot_arena_14493_6_0",
       "key": 0
     },
     {

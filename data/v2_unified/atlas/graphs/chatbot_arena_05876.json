@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_05876"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 30,
       "content_preview": "Sure! How about OpenAssistant?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_05876_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 28,
       "content_preview": "Is that a real name for me ?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_05876_2"
     },
@@ -71,9 +71,33 @@
       "role": "assistant",
       "content_length": 23,
       "content_preview": "Sure. How about Robert?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_05876_5"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! How about OpenAssistant?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_05876_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_05876_2_0"
     },
     {
       "node_type": "Move",
@@ -82,7 +106,22 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_05876_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure. How about Robert?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_05876_5_0"
     },
     {
       "node_type": "InteractionMode",
@@ -182,6 +221,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05876_1",
+      "target": "m_chatbot_arena_05876_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_05876_1",
       "target": "mode_chatbot_arena_05876_0",
@@ -192,6 +238,13 @@
       "order": 3,
       "source": "t_chatbot_arena_05876_2",
       "target": "t_chatbot_arena_05876_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05876_2",
+      "target": "m_chatbot_arena_05876_2_0",
       "key": 0
     },
     {
@@ -231,6 +284,13 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_05876_4",
       "target": "mode_chatbot_arena_05876_4",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05876_5",
+      "target": "m_chatbot_arena_05876_5_0",
       "key": 0
     },
     {

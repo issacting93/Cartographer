@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_0894"
     },
     {
@@ -51,9 +51,21 @@
       "role": "assistant",
       "content_length": 77,
       "content_preview": "Here are 5 non-gluten foods: rice, potatoes, fruits, vegetables, and lentils.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_0894_3"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are 5 non-gluten foods: rice, potatoes, frui",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_0894_3_0"
     },
     {
       "node_type": "InteractionMode",
@@ -144,6 +156,13 @@
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_0894_2",
       "target": "mode_chatbot_arena_0894_2",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_0894_3",
+      "target": "m_chatbot_arena_0894_3_0",
       "key": 0
     },
     {

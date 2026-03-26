@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "play tic tac toe with me",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sounds fun! Shall we begin? Here is a simple tic tac toe board:\n\n_ _ _\n_ _ _ \n_ _ _\n\nIt's your turn first, would you like to go first with X or O? Please type the location you want to place your marker, example A1, B3, C2.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "a1",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Okay, here is the board updated with your X in A1:  \n\nX _ _   \n_ _ _\n_ _ _\n\nMy turn! I will place an O in B3.\n\nX _ _\n_ _ O    \n_ _ _\n\nYour turn again!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 3,
     "moves": [
       {
@@ -42,40 +66,74 @@
   {
     "role": "user",
     "content": "b2",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 4,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Here is the board updated:\n\nX _ _    \n_ X _   \n_ _ _\n\nMy turn! I will place an O in A3.  \n\nX _ O   \n_ X _  \n_ _ _\n\nYour turn!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 5,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here is the board updated:\n\nX _ _    \n_ X _   \n_ _ _\n\nMy turn! I will place an O...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here is the board updated:\n\nX _ _    \n_ X _   \n_",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "c3",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 6,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Here is the updated board:\n\nX _ O    \n_ X _\n_ _ X\n\nMy turn! I will place an O in C1.\n\nX O O   \n_ X _\n_ _ X\n\nYour turn!",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 7,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Here is the updated board:\n\nX _ O    \n_ X _\n_ _ X\n\nMy turn! I will place an O in...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Here is the updated board:\n\nX _ O    \n_ X _\n_ _",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

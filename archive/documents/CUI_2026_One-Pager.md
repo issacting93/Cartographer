@@ -8,7 +8,7 @@
 
 Conversational interfaces with large language models promise natural, collaborative intelligence, yet **71.5% of user-specified constraints fail** within sustained interactions. When users specify requirements—"format this as JSON," "don't use the word 'AI'," "keep responses under 100 words"—these commitments have a mean time-to-violation of **2.5 turns** (median: 1 turn) before violation.
 
-Current approaches attribute these failures to model limitations (context windows, attention mechanisms, training data gaps). We demonstrate they are **structural dialogue failures** rooted in the conversational medium itself. Conversational interfaces conflate three distinct functions into a single undifferentiated channel: **coordination** (negotiating what we're doing), **memory** (storing agreements), and **execution** (generating content). Because LLMs are stateless, they must re-infer common ground from chat history at every turn, creating an information-theoretic trap where repair attempts paradoxically degrade performance.
+Current approaches attribute these failures to model limitations (context windows, attention mechanisms, training data gaps). We demonstrate they are **structural dialogue failures** rooted in the conversational medium itself. Conversational interfaces conflate three distinct functions into a single undifferentiated channel: **coordination** (negotiating what we're doing), **memory** (storing agreements), and **execution** (generating content). Because LLMs rely on **unstructured state** (the context window), they must re-infer common ground from chat history at every turn, creating an information-theoretic trap where repair attempts paradoxically degrade performance.
 
 We call this **Implicit State Pathology**—a fundamental design flaw in how conversational UIs manage dialogue state.
 
@@ -88,12 +88,12 @@ Conversational interfaces overload three functions:
 2. **Memory** — "What did we agree on?"
 3. **Execution** — "Generate the output"
 
-Because LLMs are stateless, repair attempts create an **information-theoretic trap**:
+Because LLMs rely on **unstructured state**, repair attempts create an **information-theoretic trap**:
 - Each repair adds tokens (noise) to the context
 - Signal-to-noise ratio degrades: (Original Constraint Signal) / (Total Context Tokens) → 0
 - Increased violation probability → more repair needed → **[loop]**
 
-This explains why user effort paradoxically guarantees failure. Grounding Theory (Clark & Brennan, 1991) and Conversation Analysis (Schegloff, 1977) predict this: human dialogue relies on **persistent common ground** and **self-repair mechanisms** that stateless systems cannot support.
+This explains why user effort paradoxically guarantees failure. Grounding Theory (Clark & Brennan, 1991) and Conversation Analysis (Schegloff, 1977) predict this: human dialogue relies on **persistent common ground** and **self-repair mechanisms** that architectures relying on unstructured state cannot support.
 
 **RQ4 — Design Intervention (Formative Results):**
 
@@ -112,7 +112,7 @@ First theory grounded in Conversation Analysis and Grounding Theory explaining *
 - Repair resistance (<1% success rate)
 - Escalating degradation (each repair adds noise)
 
-This framework is **generative**: applies to any stateless conversational system (chatbots, voice assistants, collaborative agents).
+This framework is **generative**: it applies to any conversational system relying on unstructured state (chatbots, voice assistants, collaborative agents).
 
 **2. Empirical Evidence at Scale**
 

@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "If I create a plot with multiple 3D axis in Matplotlib, how do I create a label for each row?",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.28
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "If you want to create a separate label for each row in your 3D plot, you can specify row labels when you call ax.set_xticklabels() and/or ax.set_yticklabels(). Here's an example that adds a label for each row in the x axis:\n\nimport numpy as np\nfrom matplotlib.pyplot import plot, show, figure\n\nN = 20\nx = np.arange(0, N + 1, 0.1)\ny = np.arange(0, N + 1, 0.1)\nz = np.arange(0, N + 1, 0.1)\n\nfig = show()\nax = fig.gca(projection='3d')\n\nax.scatter(x, y, z)\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n    ax.set_yticklabels(['%d' % i])\n\nfig.show()",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.7,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,6 +34,12 @@
   {
     "role": "user",
     "content": "I don't want to label the ticks. I want to create a label additionally to the y-label.",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 2,
     "moves": [
       {
@@ -43,14 +61,21 @@
   {
     "role": "assistant",
     "content": "For example, in the code snippet above, you can create a label additionally to the y-label by doing the following:\n\nfor i in range(N):\n    ax.set_xticklabels(['%d' % i])\n\nHere's what the 3D plot with labels for each row and column would look like:",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "For example, in the code snippet above, you can create a label additionally to t...",
-        "confidence": 0.6,
+        "move_type": "SILENT_COMPLY",
+        "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+        "confidence": 0.7,
         "method": "inferred",
-        "actor": "assistant"
+        "actor": "assistant",
+        "grounding_evidence": "unmarked"
       }
     ]
   }

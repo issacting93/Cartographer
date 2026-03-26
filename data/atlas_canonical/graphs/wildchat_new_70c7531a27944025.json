@@ -231,7 +231,8 @@
       "confidence": 0.8,
       "method": "regex",
       "actor": "assistant",
-      "id": "m_wildchat_new_70c7531a27944025_3_0"
+      "id": "m_wildchat_new_70c7531a27944025_3_0",
+      "grounding_evidence": "token"
     },
     {
       "node_type": "Move",
@@ -525,6 +526,26 @@
       "confidence": 0.7,
       "method": "llm",
       "id": "v_wildchat_new_70c7531a27944025_5"
+    },
+    {
+      "id": "m_wildchat_new_70c7531a27944025_11_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
+    },
+    {
+      "id": "m_wildchat_new_70c7531a27944025_13_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -1047,6 +1068,18 @@
       "source": "t_wildchat_new_70c7531a27944025_19",
       "target": "mode_wildchat_new_70c7531a27944025_18",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_70c7531a27944025_11",
+      "target": "m_wildchat_new_70c7531a27944025_11_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
+    },
+    {
+      "source": "t_wildchat_new_70c7531a27944025_13",
+      "target": "m_wildchat_new_70c7531a27944025_13_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

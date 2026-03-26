@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_20221"
     },
     {
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 63,
       "content_preview": "One more condition, I\u2019m looking for sport kind of vibe clothes",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_chatbot_arena_20221_2"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 123,
       "content_preview": "Can you make a table for the list you generate, with the brand name, average price, their website, their founder as colu",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_20221_4"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 49,
       "content_preview": "But I don\u2019t find most of the brand you suggested",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_20221_6"
     },
@@ -97,11 +97,14 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are some Malaysian streetwear and casual clothing brands for men I would re...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are some Malaysian streetwear and casual clo",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_20221_1_0"
     },
     {
@@ -111,7 +114,22 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_20221_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_20221_2_1"
     },
     {
       "node_type": "Move",
@@ -120,25 +138,58 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_20221_2_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_20221_2_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here are some good Malaysian brands for sporty and athletic casual wear:\n\n\u2022 Adre...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here are some good Malaysian brands for sporty an",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_20221_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here is a table summarizing the Malaysian brands for sporty and athletic casual...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_20221_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here is a table summarizing the Malaysian brands",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_20221_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_20221_6_0"
     },
     {
       "node_type": "Move",
@@ -147,6 +198,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_20221_7_0"
     },
     {
@@ -306,6 +360,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_chatbot_arena_20221_2",
+      "target": "m_chatbot_arena_20221_2_2",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_20221_2",
       "target": "mode_chatbot_arena_20221_2",
@@ -339,6 +400,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_20221_4",
+      "target": "m_chatbot_arena_20221_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_20221_4",
       "target": "mode_chatbot_arena_20221_4",
@@ -369,6 +437,13 @@
       "order": 7,
       "source": "t_chatbot_arena_20221_6",
       "target": "t_chatbot_arena_20221_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_20221_6",
+      "target": "m_chatbot_arena_20221_6_0",
       "key": 0
     },
     {

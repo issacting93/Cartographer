@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_05002"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 56,
       "content_preview": "Sure! What would you like to know or learn about Python?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_05002_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 105,
       "content_preview": "how would you structure a basic python script used to pull an API endpoint that can make concurrent calls",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_05002_4"
     },
@@ -77,11 +77,38 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Here's an example of a basic Python script that makes concurrent calls to an API...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! What would you like to know or learn ab",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_05002_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_05002_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Here's an example of a basic Python script that",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_05002_5_0"
     },
     {
@@ -208,6 +235,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05002_3",
+      "target": "m_chatbot_arena_05002_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_05002_3",
       "target": "mode_chatbot_arena_05002_2",
@@ -218,6 +252,13 @@
       "order": 5,
       "source": "t_chatbot_arena_05002_4",
       "target": "t_chatbot_arena_05002_5",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_05002_4",
+      "target": "m_chatbot_arena_05002_4_0",
       "key": 0
     },
     {

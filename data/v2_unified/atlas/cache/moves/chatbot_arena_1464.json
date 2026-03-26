@@ -2,12 +2,24 @@
   {
     "role": "user",
     "content": "Can you show me the proper SQL for MySQL to copy any rows from a table with a pkey under a certain value and another attribute equal to a certain value? There are three tables. The parent table A, child of parent table A table B with a foreign key referencing A, and child of table B table C linked to B through a link table B_C. What SQL would properly copy a record from A and all it's children? Modify the SQL to copy the records into the same tables they came from. Then wrap the SQL into a revertible block.",
+    "pad": {
+      "pleasure": 0.5,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.46
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nYou now have a copy of A with all it's children inserted into the same tables they came from. You can now revert the change removing the rows from A and it's children that were inserted.",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.38
+    },
     "turn_index": 1,
     "moves": [
       {
@@ -22,12 +34,24 @@
   {
     "role": "user",
     "content": "I am using MySQL",
+    "pad": {
+      "pleasure": 0.6,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.4
+    },
     "turn_index": 2,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "SELECT * FROM A WHERE A.pkey < {some value}\n\nFOR EACH ROW IN result\n    INSERT INTO A_SOURCE.TABLE_A (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_B (columns)\n    VALUES (ROW.*)\n\n    INSERT INTO TABLE_C (columns)\n    VALUES (ROW.*)\n\n    DELETE ROW WHERE ROW.A.pkey = {some value}\n\nWipe table A and it's children tables B and C",
+    "pad": {
+      "pleasure": 0.4,
+      "arousal": 0.6,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.6
+    },
     "turn_index": 3,
     "moves": [
       {

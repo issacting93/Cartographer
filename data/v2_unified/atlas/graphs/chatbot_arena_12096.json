@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_chatbot_arena_12096"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 1432,
       "content_preview": "I apologize if my previous recommendations did not meet your preferences. Here are a few more suggestions for \"internety",
-      "move_count": 1,
+      "move_count": 3,
       "moves": [],
       "id": "t_chatbot_arena_12096_3"
     },
@@ -97,11 +97,14 @@
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here are a few suggestions for \"internety\" music that you might enjoy:\n\n1....",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here are a few suggestions for \"interne",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_12096_1_0"
     },
     {
@@ -111,6 +114,9 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_12096_2_0"
     },
     {
@@ -120,6 +126,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "restate",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_chatbot_arena_12096_2_1"
     },
     {
@@ -129,7 +138,34 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_12096_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_12096_3_1"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_12096_3_2"
     },
     {
       "node_type": "Move",
@@ -138,15 +174,21 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_12096_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here are three specific lo-fi hip hop tracks that you might enjoy:\n\n1. \"Lo...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here are three specific lo-fi hip hop t",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_12096_7_0"
     },
     {
@@ -323,6 +365,20 @@
       "sequence": 0,
       "source": "t_chatbot_arena_12096_3",
       "target": "m_chatbot_arena_12096_3_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_chatbot_arena_12096_3",
+      "target": "m_chatbot_arena_12096_3_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_chatbot_arena_12096_3",
+      "target": "m_chatbot_arena_12096_3_2",
       "key": 0
     },
     {

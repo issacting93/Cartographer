@@ -27,7 +27,7 @@ This creates an information-theoretic trap:
 ```
 User states constraint
     ↓
-LLM violates constraint (stateless reconstruction fails)
+LLM violates constraint (unstructured state reconstruction fails)
     ↓
 User adds repair text (increases context noise)
     ↓
@@ -121,7 +121,7 @@ The treatment group had ~3x fewer repair attempts. Not because the AI was better
 
 ## The Answer
 
-Conversations break down because of Implicit State Pathology: stateless systems pretending to maintain state in a medium that structurally resists correction. This isn't a model quality problem. It's an architecture problem. Bigger models with longer context windows will slow the decay but cannot eliminate it, because the fundamental mechanism — repair noise degrading signal-to-noise ratio — operates regardless of window size.
+Conversations break down because of Implicit State Pathology: architectures relying on **unstructured state** (the context window) pretending to maintain persistent state in a medium that structurally resists correction. This isn't a model quality problem. It's an architecture problem. Bigger models with longer context windows will slow the decay but cannot eliminate it, because the fundamental mechanism — repair noise degrading signal-to-noise ratio — operates regardless of window size.
 
 The fix is not a better model. It's a better interface.
 

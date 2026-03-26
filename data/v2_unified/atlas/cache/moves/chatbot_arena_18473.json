@@ -2,60 +2,115 @@
   {
     "role": "user",
     "content": "[Start of examples]\n100 + 90 * 2 = 10*10 + 9 * 10 * 2 = 10 * (10 + 9 * 2) = 10 * (10 + 18) = 10 * 28 = 280\n[End of examples]\n\n\nCalculate (1+2+3+4+5+6+7+8+9)*2 + 10 like it showed in examples above",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 0,
     "moves": []
   },
   {
     "role": "assistant",
     "content": "Sure. The given expression is $(1+2+3+4+5+6+7+8+9)\\times2+10$. Following the steps shown in the examples, we can simplify it as follows:\n\n$$(1+2+3+4+5+6+7+8+9)\\times2+10=10\\times10+9\\times10\\times2=10\\times(10+9\\times2)=10\\times(10+18)=10\\times28=280$$\n\nTherefore, the answer is 280.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 1,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Sure. The given expression is $(1+2+3+4+5+6+7+8+9)\\times2+10$. Following the ste...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure. The given expression is $(1+2+3+4+5+6+7",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "Calculate (1+2+3+4+5+6+7+8+9)*2 + 10 like it showed in examples above",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Sure. The given expression is $(1+2+3+4+5+6+7+8+9)\\times2+10$. Following the steps shown in the examples, we can simplify it as follows:\n\n$$(1+2+3+4+5+6+7+8+9)\\times2+10=10\\times10+9\\times10\\times2=10\\times(10+9\\times2)=10\\times(10+18)=10\\times28=280$$\n\nTherefore, the answer is 280.\n\nHere is a step-by-step solution:\n\n$$\\begin{align*}\n(1+2+3+4+5+6+7+8+9)\\times2+10 &= 10\\times10+9\\times10\\times2 \\\\\\\\\n&= 10\\times(10+9\\times2) \\\\\\\\\n&= 10\\times(10+18) \\\\\\\\\n&= 10\\times28 \\\\\\\\\n&= 280\n\\end{align*}$$",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 3,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Sure. The given expression is $(1+2+3+4+5+6+7+8+9)\\times2+10$. Following the ste...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure. The given expression is $(1+2+3+4+5+6+7",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   },
   {
     "role": "user",
     "content": "Calculate (1+2+3+4+5+6+7+8+9)*2 + 10",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 4,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Sure, I can help you with that. \r\n\r\n$(1+2+3+4+5+6+7+8+9)\\times2+10$ can be simplified as follows:\r\n\r\n$$(1+2+3+4+5+6+7+8+9)\\times2+10=10\\times10+9\\times10\\times2=10\\times(10+9\\times2)=10\\times(10+18)=10\\times28=280$$\r\n\r\nTherefore, the answer is 280.",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.26
+    },
     "turn_index": 5,
     "moves": [
       {
-        "move_type": "GENERATE_OUTPUT",
-        "text_span": "Sure, I can help you with that. \r\n\r\n$(1+2+3+4+5+6+7+8+9)\\times2+10$ can be simpl...",
-        "confidence": 0.6,
-        "method": "inferred",
-        "actor": "assistant"
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure, I can help you with that. \r\n\r\n$(1+2+3+4",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
       }
     ]
   }

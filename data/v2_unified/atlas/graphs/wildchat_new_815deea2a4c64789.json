@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "entertainment",
       "id": "conv_wildchat_new_815deea2a4c64789"
     },
     {
@@ -31,7 +31,7 @@
       "role": "assistant",
       "content_length": 40,
       "content_preview": "Sure, which game would you like to play?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_815deea2a4c64789_1"
     },
@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 29,
       "content_preview": "I call it \"Guess the Number\"",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_new_815deea2a4c64789_2"
     },
@@ -271,7 +271,7 @@
       "role": "assistant",
       "content_length": 131,
       "content_preview": "I do apologize for my previous mistakes, and I will be careful going forward. Let me try again: Is your number between 2",
-      "move_count": 1,
+      "move_count": 2,
       "moves": [],
       "id": "t_wildchat_new_815deea2a4c64789_25"
     },
@@ -377,11 +377,38 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, which game would you like to play?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_wildchat_new_815deea2a4c64789_1_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_815deea2a4c64789_2_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "GENERATE_OUTPUT",
       "text_span": "Sounds like fun! Okay, I'll pick a number between 1 and 500, and then you can ta...",
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_5_0"
     },
     {
@@ -391,15 +418,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_12_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Oops, my mistake. Thank you for correcting me. Is your number between 200 and 22...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_13_0"
     },
     {
@@ -409,6 +442,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_15_0"
     },
     {
@@ -418,6 +454,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_17_0"
     },
     {
@@ -427,6 +466,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_19_0"
     },
     {
@@ -436,6 +478,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_21_0"
     },
     {
@@ -445,6 +490,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_23_0"
     },
     {
@@ -454,6 +502,9 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "escalate",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_wildchat_new_815deea2a4c64789_24_0"
     },
     {
@@ -463,7 +514,22 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_25_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "REPAIR_SUCCEED",
+      "text_span": "[No violations detected following repair]",
+      "confidence": 0.8,
+      "method": "inferred",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_new_815deea2a4c64789_25_1"
     },
     {
       "node_type": "Move",
@@ -472,15 +538,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_26_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "My apologies for my repeated mistakes, I'm still learning and trying my best to...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_27_0"
     },
     {
@@ -490,6 +562,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_29_0"
     },
     {
@@ -499,6 +574,9 @@
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_30_0"
     },
     {
@@ -508,15 +586,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_30_1"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Understood, and I apologize once again for my earlier mistakes. Let's resume the...",
-      "confidence": 0.6,
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "unmarked",
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_31_0"
     },
     {
@@ -526,6 +610,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_33_0"
     },
     {
@@ -535,6 +622,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_new_815deea2a4c64789_35_0"
     },
     {
@@ -1010,6 +1100,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_815deea2a4c64789_1",
+      "target": "m_wildchat_new_815deea2a4c64789_1_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_new_815deea2a4c64789_1",
       "target": "mode_wildchat_new_815deea2a4c64789_0",
@@ -1020,6 +1117,13 @@
       "order": 3,
       "source": "t_wildchat_new_815deea2a4c64789_2",
       "target": "t_wildchat_new_815deea2a4c64789_3",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_new_815deea2a4c64789_2",
+      "target": "m_wildchat_new_815deea2a4c64789_2_0",
       "key": 0
     },
     {
@@ -1389,6 +1493,13 @@
       "sequence": 0,
       "source": "t_wildchat_new_815deea2a4c64789_25",
       "target": "m_wildchat_new_815deea2a4c64789_25_0",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 1,
+      "source": "t_wildchat_new_815deea2a4c64789_25",
+      "target": "m_wildchat_new_815deea2a4c64789_25_1",
       "key": 0
     },
     {

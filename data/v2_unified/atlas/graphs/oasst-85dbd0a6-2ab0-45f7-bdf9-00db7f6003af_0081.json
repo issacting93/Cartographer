@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "information-seeking",
       "id": "conv_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081"
     },
     {
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 74,
       "content_preview": "I can fully understand the formula. Can you please explain in more detail?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4"
     },
@@ -101,7 +101,7 @@
       "role": "user",
       "content_length": 191,
       "content_preview": "What is h here? You didn't give any expression for it, although I asked you to. Give me the final result in a form where",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8"
     },
@@ -121,7 +121,7 @@
       "role": "user",
       "content_length": 88,
       "content_preview": "Really nice, thanks. Can I have another example of it? Just to understand it seamlessly.",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_10"
     },
@@ -142,6 +142,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_1_0"
     },
     {
@@ -151,16 +154,34 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": "escalate",
+      "grounding_evidence": null,
+      "repair_organization": "OISR",
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_2_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, the chain rule is a fundamental rule of calculus that allows you to find t...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, the chain rule is a fundamental rule of",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_3_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4_0"
     },
     {
       "node_type": "Move",
@@ -169,33 +190,69 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_5_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Certainly! Let's start with the chain rule in its simpler form:\n\nIf y = f(u) and...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Certainly! Let's start with the chain rule in its",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_7_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Let's take a look at the function f(x) = sin(3x^2 + 2).\n\nIn this case, g(x...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Let's take a look at the function f(x)",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_9_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's another example using more complex function terms:\n\nLet's say we ha...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_10_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's another example using more compl",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_11_0"
     },
     {
@@ -431,6 +488,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4",
+      "target": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4",
       "target": "mode_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_4",
@@ -497,6 +561,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8",
+      "target": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8",
       "target": "mode_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_8",
@@ -527,6 +598,13 @@
       "order": 11,
       "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_10",
       "target": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_11",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_10",
+      "target": "m_oasst-85dbd0a6-2ab0-45f7-bdf9-00db7f6003af_0081_10_0",
       "key": 0
     },
     {

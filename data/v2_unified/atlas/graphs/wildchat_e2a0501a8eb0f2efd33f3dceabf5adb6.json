@@ -41,7 +41,7 @@
       "role": "user",
       "content_length": 36,
       "content_preview": "Please proceed with the above answer",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 260,
       "content_preview": "Modify the above procedure, in the procedure, the input data for the steering wheel Angle, yaw Angle speed, lateral acce",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4"
     },
@@ -81,7 +81,7 @@
       "role": "user",
       "content_length": 2207,
       "content_preview": "% \u5bfc\u5165Excel\u6587\u4ef6\u6570\u636e data = xlsread('Pulse0522.xlsx'); t = data(:,1); % Time vector (sec) steering_angle = data(:,2); % Steeri",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_6"
     },
@@ -102,34 +102,82 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_0_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, I can help you with that. Here's a step-by-step procedure to process the v...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, I can help you with that. Here's a step",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_1_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure, here's the complete code with the appropriate functions included for resam...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure, here's the complete code with the appro",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_3_0"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! Here's a modified procedure for your problem:\n\n1. Load the data: Use MATLA...",
-      "confidence": 0.6,
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
       "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! Here's a modified procedure for your pr",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_5_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_6_0"
     },
     {
       "node_type": "Move",
@@ -138,6 +186,9 @@
       "confidence": 0.6,
       "method": "inferred",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_7_0"
     },
     {
@@ -290,6 +341,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2",
+      "target": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2",
       "target": "mode_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_2",
@@ -323,6 +381,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4",
+      "target": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4",
       "target": "mode_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_4",
@@ -353,6 +418,13 @@
       "order": 7,
       "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_6",
       "target": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_7",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_6",
+      "target": "m_wildchat_e2a0501a8eb0f2efd33f3dceabf5adb6_6_0",
       "key": 0
     },
     {

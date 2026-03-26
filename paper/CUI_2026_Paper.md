@@ -8,9 +8,9 @@
 
 Conversational interfaces have become the dominant paradigm for large language models, yet they systematically fail at sustained, constraint-sensitive work. When a user says "write me a story set on Mars with no aliens," the constraint *no aliens* has a mean time-to-violation of 2.1 turns (median: 1 turn) before the system violates it. Current discourse attributes these failures to model limitations (context window, attention decay). We argue they are **interactional pathologies** inherent to the medium.
 
-Recent work suggests that LLMs reactivate "Computers Are Social Actors" (CASA) expectations, leading users to unconsciously expect the system to participate in **conversational repair**—the self-righting mechanism of human dialogue. However, LLMs lack the structural capacity for this. They are **stateless**. They do not "repair" their internal state; they simply generate the next token based on the scrolling context window. When a user attempts to correct a violation, the system treats this not as a state update, but as *more context*. This leads to **Agency Collapse**: a structural failure state where the user's capacity to direct the interaction degrades because the repair mechanism itself is broken.
+Recent work suggests that LLMs reactivate "Computers Are Social Actors" (CASA) expectations, leading users to unconsciously expect the system to participate in **conversational repair**—the self-righting mechanism of human dialogue. However, current LLM architectures lack the structural capacity for this. While the context window serves as a form of state, they lack a **persistent structured representation** of intentional structures [Grosz & Sidner 1986]. They do not "repair" their internal state; they reconstruct it from flattened token sequences at each turn. When a user attempts to correct a violation, the system treats this not as a state update, but as *additional context*. This leads to **Agency Collapse**: a structural failure state where the user's capacity to direct the interaction degrades because the repair mechanism itself is broken.
 
-We introduce **Interactional Cartography**, a graph-structural method for diagnosing governance failure. Analyzing **N=1,383** canonical conversations (559 verified constraints), we find that **50.3%** of sustained conversations end in Agency Collapse. Crucially, repair succeeds in only **1.0% of violation events**, and users attempt repair in just **5.5%** of constrained conversations—suggesting the conversational medium has trained users to abandon rather than correct. To address this, we propose a **Task-First Interaction Model** that externalizes constraints as persistent artifacts, restoring the user's ability to maintain common ground without fighting the context window.
+We introduce **Interactional Cartography**, a graph-structural method for diagnosing governance failure. Analyzing **N=1,383** canonical conversations (559 verified constraints), we find that **50.3%** of sustained conversations end in Agency Collapse. Crucially, repair (defined as immediate compliance) succeeds in only **1.0% of violation events**, and repair attempts are **behaviorally near-absent**, occurring in just **5.5%** of constrained conversations. To address this, we propose a **Task-First Interaction Model** that externalizes constraints as persistent artifacts, restoring the user's ability to maintain common ground without fighting the context window.
 
 **Keywords:** Agency Collapse, Repair Theory, Conversational Interfaces, Task-Constraint Architecture, State Visibility
 
@@ -28,12 +28,12 @@ These failures are typically framed as "hallucinations" (a model capability prob
 
 Human conversation is robust because it contains a built-in error correction mechanism: **repair** (Schegloff, Jefferson, & Sacks, 1977). When a misunderstanding occurs, participants prioritize *self-repair* or accept *other-repair* to re-ground the interaction. This process works because human interlocutors maintain a shared mental model of the conversation's state—the "common ground" (Clark & Brennan, 1991).
 
-Large Language Models (LLMs), however, are stateless. They do not maintain a dynamic mental model; they reconstruct the context from the scrolling transcript at every turn. This creates a fundamental asymmetry:
+Large Language Models (LLMs), however, rely on **unstructured state**. They do not maintain a dynamic mental model; they reconstruct the context from the scrolling transcript at every turn. This creates a fundamental asymmetry:
 
 1.  **The User (Social Actor):** Expects that a correction ("No, I said no aliens") will update the system's understanding of the task.
-2.  **The System (Stateless Generator):** Treats the correction as *additional tokens* in the context window.
+2.  **The System (Unstructured State):** Treats the correction as *additional tokens* in the context window.
 
-This asymmetry leads to **Implicit State Pathology**. The more the user types to fix a problem, the more "noise" they add to the context window. The original constraints get buried under layers of repair attempts, making the model *less* likely to adhere to them. The repair mechanism—the very tool users rely on to fix errors—becomes the engine of failure.
+This asymmetry leads to **Implicit State Pathology**. The more the user types to fix a problem, the more "noise" they add to the context window. Original constraints get buried in flattened token sequences, making the model *less* likely to track intentional structure [Grosz & Sidner 1986]. The repair mechanism—the very tool users rely on to fix errors—becomes the engine of failure.
 
 ### 1.2 Agency Collapse
 
@@ -56,28 +56,19 @@ The Context Inventory Interface (CII) is one concrete instantiation of the broad
 
 ## 2. Related Work
 
-### 2.1 State Visibility in HCI
+Successful dialogue depends on more than fluent turn-taking. Classic work on grounding and discourse structure argues that interlocutors must establish enough mutual evidence of understanding to proceed, and that this process is sustained through repair and through an evolving structure of shared purposes and attentional focus (Clark & Brennan, 1991; Grosz & Sidner, 1986). For conversational systems, this means that interaction quality cannot be reduced to output correctness alone; it also depends on whether users can establish, monitor, and restore shared commitments across turns. Recent work in human–AI collaboration reinforces this point by treating common ground as a central requirement for coordinated action rather than a secondary conversational nicety (*Benchmark to Assess Common Ground*, 2026).
 
-The history of Human-Computer Interaction can be read as a struggle to make system state visible to users (Norman, 1988). The transition from command-line to graphical interfaces externalized state through persistent visual structures—files, windows, checkboxes—reducing cognitive load by shifting from recall to recognition (Zhang & Norman, 1994).
+Recent NLP work shows that large language models are weak at precisely these grounding behaviors. Shaikh et al. (2024) find that, compared to humans, LLMs generate fewer grounding acts and instead often appear to presume common ground rather than actively constructing it. Extending this line of work, Shaikh et al. (2025) analyze human–LLM interaction logs and show systematic asymmetries in grounding behavior: LLMs are substantially less likely than humans to initiate clarification or provide follow-up requests, and early grounding failures predict later interaction breakdowns. These studies establish that grounding deficits are real and measurable in human–LLM interaction. Our work builds on this literature, but shifts the unit of analysis from individual grounding acts to the lifecycle of user commitments: whether constraints are introduced, stabilized, maintained, violated, and repaired over time.
 
-Conversational interfaces often reduce *inspectable* state compared to GUI paradigms that externalize state. Like the command line, chat UIs offer no persistent widgets; constraints exist only as tokens in a scrolling log. This creates what we term **Epistemic Opacity**: users cannot know, at a glance, what the system believes the current task state to be. Our approach also aligns with traditions in end-user programming and external representations, where users manipulate persistent artifacts to control system behavior rather than relying on implicit procedural memory. Amershi et al. (2019) provide 18 guidelines for human-AI interaction, several of which—"make clear what the system can do," "support efficient correction"—our Task-First model directly operationalizes.
+A parallel line of work examines repair and conversational breakdown in HCI. Recent reviews (Li et al., 2024) show that repair strategies in spoken and conversational systems have been studied across multiple disciplines, with attention to both system-side and user-side repair mechanisms. This literature is valuable for understanding how breakdowns are handled once they occur, and for surfacing the asymmetries in effort that conversational failures often impose on users. Our contribution differs in emphasis. Rather than proposing a new repair strategy taxonomy, we ask a more prior question: under what conditions do conversational interfaces fail to support repair at all because user commitments were never clearly grounded or made interactionally legible in the first place?
 
-### 2.2 Context in LLM Interfaces
+The dialogue-systems literature provides an important contrast. In task-oriented dialogue, dialogue state tracking (DST) has long been treated as essential infrastructure because systems must maintain persistent representations of goals, slots, and user constraints across turns (Young et al., 2013). Recent survey work continues to describe DST as a crucial component of task-oriented systems, and newer LLM-based approaches still improve performance by explicitly recovering or structuring state, for example through function calling (Wang et al., 2024). We do not argue that contemporary CUIs should revert wholesale to classical task-oriented dialogue pipelines. Rather, this literature clarifies a basic design principle: when successful interaction depends on maintaining commitments over time, some form of explicit state representation remains necessary. Our extension is that, in open-ended CUIs, such state must not only exist for the model, but must also become legible to the user.
 
-Recent work has explored how to manage context in LLM interactions. Prompt engineering techniques (White et al., 2023) attempt to structure inputs for better outputs, but place the burden on users to manually maintain context. Many deployed RAG systems (Lewis et al., 2020) automate context retrieval but offer limited user control over what context is activated.
+A newer design thread in HCI suggests how this legibility might be achieved. Do et al. (2024) show that grounding-oriented interface designs can reduce cognitive load and improve task performance relative to ungrounded natural-language interfaces. Likewise, Vaithilingam et al. (2025) argue that AI systems increasingly rely on “intent specifications” or grounding documents—persistent artifacts such as memory lists or project rules—to coordinate behavior with users over time. Taken together, these studies suggest that the problem is not only better prompting, but better representational support for shared commitments. Our work contributes empirical motivation for that shift by showing what users lose when commitments remain implicit in the transcript alone.
 
-Canvas-style interfaces (e.g., OpenAI Canvas [OpenAI, 2024], Anthropic Artifacts [Anthropic, 2024]) represent progress by separating outputs from the conversation stream. However, these hold the *output* (the draft, the code) rather than the *input* (the constraints, the requirements). Our work argues for governable *context*, not just editable *content*.
+### Research Gap
 
-### 2.3 Task-Oriented Dialogue
-
-Task-oriented dialogue systems have long recognized the importance of explicit task state (Traum, 1999). Slot-filling architectures maintain structured representations of user intent. However, these systems typically operate in constrained domains with predefined schemas. Clark et al. (2019) identify key challenges in designing "truly conversational" agents, including handling context across turns and managing user expectations. Our work extends task-first thinking to open-ended LLM interactions where task structure must be user-defined and dynamically evolving.
-
-### 2.4 AI Alignment and Run-Time Control
-
-Recent advances in reinforcement learning from human feedback (RLHF) have improved model alignment at *training time* (Ouyang et al., 2022). However, training-time alignment cannot anticipate all user constraints. Our work provides complementary *run-time* control: while RLHF shapes what models tend to do, CII allows users to specify what models should do *in this particular interaction*.
-
-### 2.5 Synthesis
-Rather than introducing a new cognitive phenomenon, this work integrates established theories of state visibility, distributed cognition (Hutchins, 1995), and automation bias into a unified account of constraint maintenance in conversational AI—an interaction regime that has thus far lacked empirical quantification and architectural remedies.
+Across these literatures, three things are already known: LLMs underproduce grounding behaviors, repair is central to usable conversational systems, and explicit state matters when systems must maintain commitments across turns. What remains underdeveloped is a diagnostic account of how user-issued constraints behave as interactional objects in real human–LLM conversations: when they become active, when they fail, whether repair occurs, and whether users can tell what status those commitments currently have. This work addresses this gap by operationalizing **commitment maintenance** and **commitment legibility** as measurable properties of conversational interaction.
 
 ---
 
@@ -190,15 +181,18 @@ Our analysis of the `atlas_canonical` subset (N=1,383) reveals that **Agency Col
 | **Instrumental Monopoly** | **97.0%** | Of human turns are purely instrumental (Director/Consumer). |
 | **Constraint Violation** | **69.1%** | Of user-specified constraints are violated. |
 | **Early Failure** | **24.1%** | Of violations occur at Turn 0 (immediate failure). |
-| **Repair Success** | **1.0%** | Probability of a successful repair event (4/390). |
-| **Repair Attempt Rate** | **5.5%** | Of constrained conversations contain any repair attempt. |
-| **Agency Collapse** | **50.3%** | Of sustained conversations end in failure. |
+| **Repair Success** | **1.0%** | Probability of immediate compliance following a repair attempt (4/390). |
+| **Unmarked Grounding** | **84.8%** | AI turns providing no linguistic evidence of constraint understanding. |
+| **Understanding Demo** | **0.6%** | AI turns providing explicit restatement or paraphrase of constraints. |
+| **AI Self-Repair (SISR)** | **0.14%** | Frequency of preferred self-correction in assistant turns. |
+| **Repair Attempt Rate** | **5.5%** | Of constrained conversations contain any user repair attempt. |
+| **Agency Collapse** | **50.3%** | Of sustained conversations end in constraint abandonment. |
 
 **Finding 1: The Instrumental Trap.** 97.0% of user turns fall into instrumental categories, creating a "narrow funnel" that forces the AI into a rigid **Expert System** role (77.6%). This lack of relational diversity makes the system brittle; when a constraint is violated, there is no shared "social fabric" to facilitate repair.
 
 **Finding 2: The Fragility of State.** 69.1% of constraints fail, with a mean time-to-violation of just **2.1 turns** (median: 1 turn). This confirms the "Context Cliff": constraints do not decay linearly but fall off a structural precipice.
 
-**Finding 3: The Abandonment Default.** With repair attempted in only 5.5% of constrained conversations and succeeding in just 1.0% of violation events, the most striking finding is not that repair fails—but that users have stopped trying. The "Agency Tax" is so high that users have learned to abandon constraints rather than fight the system.
+**Finding 3: The Abandonment Default.** With repair attempts occurring in only 5.5% of constrained conversations and succeeding in just 1.0% of violation events (defined as immediate turnaround), the most striking finding is the **behavioral near-absence** of repair turns. Rather than entering prolonged repair sequences, users appear to treat violation as terminal.
 
 ![The Context Cliff: Probability of Violation vs Turn Number](figures/context_cliff.png)
 **Figure 1:** The "Context Cliff." Violations spike early (Median: Turn 1), consistent with a structural mismatch rather than context window overflow.
@@ -571,6 +565,18 @@ Porcheron, M., Fischer, J. E., Reeves, S., & Sharples, S. (2018). Voice interact
 Zhao, W., et al. (2024). WildChat: 1M ChatGPT Interaction Logs in the Wild. *arXiv preprint arXiv:2405.01470*.
 
 Zheng, L., et al. (2024). Judging LLM-as-a-Judge with Chatbot Arena: Benchmarking LLMs by Intuitively Comparing LLM-vs-LLM. *arXiv preprint arXiv:2306.05685*.
+
+---
+
+### New References (CUI 2026 Strategy)
+
+Ashktorab, Z., et al. (2024). Conversational Breakdown in a Customer Service Chatbot. *Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems*.
+Do, Y., et al. (2024). Exploring Design Variations of Grounded Human-AI Interaction. In *Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems*.
+Li, T. J.-J., et al. (2024). A Scoping Review of Repair Strategies in Conversational Systems. In *Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems*.
+Shaikh, O., et al. (2024). Grounding Gaps in Language Model Generations. In *Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)*.
+Shaikh, O., et al. (2025). Navigating Rifts in Human-LLM Grounding. In *Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)*.
+Vaithilingam, P., et al. (2025). Helping Users Update Intent Specifications for AI Memory. In *Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems*.
+Wang, Y., et al. (2024). Large Language Models as Zero-shot Dialogue State Tracker through Function Calling. *Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL 2024)*.
 
 ---
 

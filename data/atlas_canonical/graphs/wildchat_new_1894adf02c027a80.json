@@ -247,7 +247,8 @@
       "confidence": 0.9,
       "method": "regex",
       "actor": "user",
-      "id": "m_wildchat_new_1894adf02c027a80_12_1"
+      "id": "m_wildchat_new_1894adf02c027a80_12_1",
+      "repair_organization": "OISR"
     },
     {
       "node_type": "Move",
@@ -388,6 +389,16 @@
       "confidence": 0.5,
       "method": "llm",
       "id": "v_wildchat_new_1894adf02c027a80_0"
+    },
+    {
+      "id": "m_wildchat_new_1894adf02c027a80_13_1",
+      "node_type": "Move",
+      "move_type": "SILENT_COMPLY",
+      "text_span": "[unmarked compliance \u2014 no grounding evidence]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "assistant",
+      "grounding_evidence": "unmarked"
     }
   ],
   "links": [
@@ -812,6 +823,12 @@
       "source": "t_wildchat_new_1894adf02c027a80_17",
       "target": "mode_wildchat_new_1894adf02c027a80_16",
       "key": 0
+    },
+    {
+      "source": "t_wildchat_new_1894adf02c027a80_13",
+      "target": "m_wildchat_new_1894adf02c027a80_13_1",
+      "edge_type": "HAS_MOVE",
+      "sequence": 1
     }
   ]
 }

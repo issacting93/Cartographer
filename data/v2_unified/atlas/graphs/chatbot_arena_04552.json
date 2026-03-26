@@ -12,7 +12,7 @@
       "stability_class": null,
       "task_architecture": "",
       "constraint_hardness": "",
-      "task_goal": "",
+      "task_goal": "problem-solving",
       "id": "conv_chatbot_arena_04552"
     },
     {
@@ -51,7 +51,7 @@
       "role": "assistant",
       "content_length": 33,
       "content_preview": "Of course, what can I do for you?",
-      "move_count": 0,
+      "move_count": 1,
       "moves": [],
       "id": "t_chatbot_arena_04552_3"
     },
@@ -61,7 +61,7 @@
       "role": "user",
       "content_length": 143,
       "content_preview": "I have funds that i want to buy an apartment with, and don\u2019t really know where to invest them in the current market. Can",
-      "move_count": 2,
+      "move_count": 3,
       "moves": [],
       "id": "t_chatbot_arena_04552_4"
     },
@@ -77,12 +77,39 @@
     },
     {
       "node_type": "Move",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Of course, what can I do for you?",
+      "confidence": 0.8,
+      "method": "regex",
+      "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
+      "id": "m_chatbot_arena_04552_3_0"
+    },
+    {
+      "node_type": "Move",
       "move_type": "STATE_GOAL",
       "text_span": "ds that i want to buy an apartment with, and don\u2019t really know where to inves",
       "confidence": 0.7,
       "method": "regex",
       "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
       "id": "m_chatbot_arena_04552_4_0"
+    },
+    {
+      "node_type": "Move",
+      "move_type": "RATIFY_CONSTRAINT",
+      "text_span": "[implicit: no objection after acceptance]",
+      "confidence": 0.7,
+      "method": "inferred",
+      "actor": "user",
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_04552_4_1"
     },
     {
       "node_type": "Move",
@@ -91,15 +118,21 @@
       "confidence": 0.85,
       "method": "regex",
       "actor": "user",
-      "id": "m_chatbot_arena_04552_4_1"
+      "repair_strategy": null,
+      "grounding_evidence": null,
+      "repair_organization": null,
+      "id": "m_chatbot_arena_04552_4_2"
     },
     {
       "node_type": "Move",
-      "move_type": "GENERATE_OUTPUT",
-      "text_span": "Sure! I would be happy to assist you with this. To start, you should consider yo...",
-      "confidence": 0.6,
-      "method": "inferred",
+      "move_type": "ACCEPT_CONSTRAINT",
+      "text_span": "Sure! I would be happy to assist you with thi",
+      "confidence": 0.8,
+      "method": "regex",
       "actor": "assistant",
+      "repair_strategy": null,
+      "grounding_evidence": "token",
+      "repair_organization": null,
       "id": "m_chatbot_arena_04552_5_0"
     },
     {
@@ -226,6 +259,13 @@
       "key": 0
     },
     {
+      "edge_type": "HAS_MOVE",
+      "sequence": 0,
+      "source": "t_chatbot_arena_04552_3",
+      "target": "m_chatbot_arena_04552_3_0",
+      "key": 0
+    },
+    {
       "edge_type": "OPERATES_IN",
       "source": "t_chatbot_arena_04552_3",
       "target": "mode_chatbot_arena_04552_2",
@@ -250,6 +290,13 @@
       "sequence": 1,
       "source": "t_chatbot_arena_04552_4",
       "target": "m_chatbot_arena_04552_4_1",
+      "key": 0
+    },
+    {
+      "edge_type": "HAS_MOVE",
+      "sequence": 2,
+      "source": "t_chatbot_arena_04552_4",
+      "target": "m_chatbot_arena_04552_4_2",
       "key": 0
     },
     {

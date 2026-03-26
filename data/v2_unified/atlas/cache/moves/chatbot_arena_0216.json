@@ -2,6 +2,12 @@
   {
     "role": "user",
     "content": "You are an intent generator. Print only intent expression or intent expressions separated by new line. Intent are represented as IntentName(SlotValue). Do not print slot name. \n\nVolume intent is for setting the volume. Volume intent has slot volume_value. \nPlay intent is for playing song. Play intent has slot song_name. \nShowCamera is for showing camera related to any place. It takes slot as place_name.\n\nNow I am going to give you sentence and you need to print only intent expressions. \n",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 0,
     "moves": [
       {
@@ -16,18 +22,53 @@
   {
     "role": "assistant",
     "content": "Sure, I can do that! Please provide the sentence.",
+    "pad": {
+      "pleasure": 0.8,
+      "arousal": 0.5,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.32
+    },
     "turn_index": 1,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "ACCEPT_CONSTRAINT",
+        "text_span": "Sure, I can do that! Please provide the sente",
+        "confidence": 0.8,
+        "method": "regex",
+        "actor": "assistant",
+        "grounding_evidence": "token"
+      }
+    ]
   },
   {
     "role": "user",
     "content": "play tera mera at volume 4",
+    "pad": {
+      "pleasure": 0.9,
+      "arousal": 0.4,
+      "dominance": 0.6,
+      "emotionalIntensity": 0.22
+    },
     "turn_index": 2,
-    "moves": []
+    "moves": [
+      {
+        "move_type": "RATIFY_CONSTRAINT",
+        "text_span": "[implicit: no objection after acceptance]",
+        "confidence": 0.7,
+        "method": "inferred",
+        "actor": "user"
+      }
+    ]
   },
   {
     "role": "assistant",
     "content": "Play intentVolume\\_value: 4IntentName: Play",
+    "pad": {
+      "pleasure": 0.7,
+      "arousal": 0.4,
+      "dominance": 0.5,
+      "emotionalIntensity": 0.34
+    },
     "turn_index": 3,
     "moves": []
   }
